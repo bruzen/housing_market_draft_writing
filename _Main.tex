@@ -1,0 +1,29 @@
+% \documentclass[dvipsnames]{book}
+\documentclass[dvipsnames,letterpaper,12pt,titlepage,oneside,final]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{tikz, pgf}
+\usepackage{longtable}
+\newcommand{\note}[1]{\begin{quotation}\color{ForestGreen}\textbf{Note} \newline \large  #1  \end{quotation}}
+ \newcommand{\die}[2]{\frac{\partial #1}{\partial #2}}
+\title{Draft}
+
+\begin{document}
+% \maketitle
+\tableofcontents
+\input{Rent/test}
+% \note{this is a note} 
+% \input{_introduction}
+% \input{_model}
+% \input{_future_work}
+% \input{_appendices}
+
+
+\bibliographystyle{IEEEtran}
+% \renewcommand*{\bibname}{References}
+% \addcontentsline{toc}{chapter}{\textbf{References}}
+% \bibliography{bib_resilience,bib_housing}
+
+\end{document}
