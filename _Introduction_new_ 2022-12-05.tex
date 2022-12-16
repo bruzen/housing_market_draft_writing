@@ -121,7 +121,7 @@ to illustrate each link and to show how our  model is directly connected with th
 Modern neoclassical production theory can be seen as having one of its origins in  Classical economic theory going back to the Physiocrates. The physiocratic school of economics was the first to see labor as the sole source of value but, for the physiocrats, in the context of the prevalent European rural society of the time, only agricultural labor created a surplus. Ricardo's famous 1815 discussion of capital and  land rent \footnote{\href{http://la.utexas.edu/users/hcleaver/368/368RicardoOnCornLaws.html}{An Essay on the Influence of a low Price of Corn on the Profits of Stock}; shewing the Inexpediency of Restrictions on Importation: With Remarks on Mr Malthus' Two Last Publications: "An Inquiry into the Nature and Progress of Rent," and "The Grounds of an Opinion on the Policy of restricting the Importation of Foreign Corn" } 
 provides the cannonical reference. He considers three-factor, three-class model with great precision but without the use of mathematics.   
 
-In Recardo's analysis and in classical economics in general, the income or landowners, land rent, is a surplus value\footnote{``By rent I always mean the remuneration given to the landlord for the use of the original power of the land.'' David Ricardo corn laws note 7.}. 
+In Ricardo's analysis and in classical economics in general, the income or landowners, land rent, is a surplus value\footnote{``By rent I always mean the remuneration given to the landlord for the use of the original power of the land.'' David Ricardo corn laws note 7.}. 
 and as Saunders pointed out in 1902, ``Of the concrete forms of income that have usually been classed as surplus, the rent of land was the earliest to be defined; and so prominent a position has been given to it that the terms " rent" and " surplus" have come to be used interchangeably.''\footnote{Rent in Modern Economic Theory: An Essay in Distribution Author(s): Alvin Saunders Johnson, Publications of the American Economic Association, Nov., 1902, 3rd Series, Vol. 3, No. 4 (Nov., 1902), pp. 1-129}. 
 
 The great social question that Ricardo addressed  was who gets the surplus. % The question was pressing because it appeared that landlords were capturing the surplus without contributing to production while many of those who worked that land were very poor. 
@@ -154,11 +154,53 @@ draw[thick,color=red] (1.5,0) -- (1.5,1) node[below right] {Fixed cost} -- (1.5,
 \node  at (3.,.6){\large (RENT)};
 \end{tikzpicture}   
 
-In the figure, total transport costs are shown as the yellow area. The area below the yellow triangle is profit for  the carter. Together these areas represent the ``produce of the earth'' that Ricardo is analysing, but only the rent, represented by lower triangle, is  net economic product.\footnote{ Termed the `\textit{produit net}' by the Physiocrats} In modern supply and demand analysis it would be recognized as `producer surplus'.
+In the figure, total transport costs are shown as the yellow area. The area below the yellow triangle is profit for  the carter.\footnote{Compare the figure to one developed to illustrate Alonzo's urban model:
+
+
+\begin{tikzpicture}[scale=.5]
+\def\bndmax{5}        
+\def\bndmin{0.2}
+\def \n {10}  % height of y axis
+\def \d {15}  % length  of x axis
+\def \t {.75}  %  cost of transportation per unit x
+\def \th {1}   %
+\def \w {7}    %  wage premium
+\def \om{1.5}%  omega =rural wage Zero for urban population
+\def \azero{2}
+\def \aprime {-.0}	
+\tikzset{func/.style={thick,color=blue!90}}	
+
+\draw [thick] (0,-\om) --(\d,-\om);  			% Zero for rural population
+\draw [thick] (0,-\om)node[left]{$0$} --(0,\n);	% Y axis
+\node at (0,\n+0.5){\large$Rent$};
+
+\draw [thick] (0,0)node[left]{subsistance}--(\d,0);
+\node a t(-2,.7) {$\omega$};
+\node[left] at (0,\w){$w+\omega$};
+\node[left] at (0,\w-.7){subsistance plus};
+\node[left] at (0,\w-1.5){wage premium};	
+\draw [dashed, thick](9.3,-2)-- (9.3,\w)node[above]{$c^{max}$};
+\draw [dashed, thick](0,\w)-- (9.3,\w);
+% solid color for commuters
+\draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+\draw[fill=yellow!40] (9.30,7.) -- (0,7)--(9.30,0.)--cycle;% Rent \w-.2
+\draw[func,domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x});
+\node at (5.5,5.7){\large Transportation};
+\node at (7,3.3){rent profile};		%Rent Profile	
+\node at (3.,2){\Large Rent}; 		%Rent 
+\node at (4.5,-\om/2){commuters};
+\node at (11.5,-\om/2){farmers};
+\draw [ ultra thick, ->](13.3,-\om/2)--(15, -\om/2)node [right] {\Large $d$};
+ 
+ \end{tikzpicture}
+
+
+} Together these areas represent the ``produce of the earth'' that Ricardo is analysing, but only the rent, represented by lower triangle, is  net economic product.\footnote{ Termed the `\textit{produit net}' by the Physiocrats} In modern supply and demand analysis it would be recognized as `producer surplus'.
 
 Now consider Ricardo's case: the land owner delivers the grain to market and receives the merchant price. The profit now accrues to the landowner, and we call it land rent. It declines with distance from the town, so it is a locational land rent that exists only because of the land's proximity to the market. For Ricardo, it was obvious that the land-owning class captured  the land rent.\footnote{In the modern economy, agricultural land rents may be captured by corporations,  either by owning the land or by controlling the supply chain.}
 
 Notice that at the extensive margin the land rent falls to zero. Even fertile land beyond the extensive margin will not be farmed because the product cannot be transported to market at a profit.\footnote{This simple example assumes that the land is uniformly productive and that there is only one product that can be marketed. Johann Heinrich von Thünen, in The Isolated state (Der isolierte Staat (1826)), provide a more complex analysis based on the same principles.} 
+
 
 %\subsection{A more explicit treatment}
 Ricardo expounded a theory of land rent, but he did not write down a formal production function as later neoclassical theorists would. In modern notation, Ricardo's model can be written
