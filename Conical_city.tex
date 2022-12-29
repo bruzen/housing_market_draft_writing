@@ -1,0 +1,104 @@
+
+\begin{tikzpicture}[scale=.5]
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% definitions for schematic
+\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+\def\bndmin{0.2}
+\def \n {10}  % height of y axis
+\def \d {12}  % length  of x axis
+\def \t {.75}  %  cost of transportation per unit x
+\def \th {1}   % theta?
+\def \w {7}    %  wage premium
+\def \om{1.5}%  omega =rural wage Zero for urban population
+\def \azero{2}
+\def \aprime {-.0}	
+\tikzset{func/.style={thick,color=blue!90}}	
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% definitions for Cone3
+%\node at (0, 2.5){\input{SA_Cone3.tex}};
+     \pgfmathsetmacro{\radiush}{9.6};%Cone base radius
+        \pgfmathsetmacro{\theight}{7.1}%Cone height (negative if you want a inverse cone)
+        \pgfmathsetmacro{\cheightp}{.03}%Cut height in percent of cone height
+
+        %Calculating coordinates
+        \coordinate (center) at (0,0);
+        \pgfmathsetmacro{\radiusv}{.2 * \radiush};
+        \pgfmathsetmacro{\sradiush}{\radiush * (1 - \cheightp)};%only for right circular cone
+        \pgfmathsetmacro{\sradiusv}{.2 * \sradiush};
+        \coordinate (peak) at ($(center) + (0,\theight)$);
+\coordinate (antipeak) at ($(center) + (0,-\theight)$);  %thanks  %I added this
+\coordinate (vert1) at ($(center)+(\radiush,-.2)$);
+\coordinate (vert2) at ($(center)-(\radiush,.2)$);
+%problem
+     \coordinate (svert3) at ($svert1+(0,7)$ );  % Shifting up by W
+    % \coordinate (svert4) at ($svert2 + (0,\w)$0;
+\coordinate (svert1) at ($(vert1)!\cheightp!(peak)$);
+\coordinate (svert2) at ($(vert2)!\cheightp!(peak)$);  
+    % \coordinate (svert3) at ($svert1+(0,\w)$);
+    % \coordinate (svert4) at ($vert2)+(0,\w)$);   
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cone Drawing    
+  \fill[ left color=red!70, right color=red!70,  opacity=20,middle color=red!20,shading=axis] (svert1) -- (peak) -- (svert2) arc (180:360:\sradiush cm and \sradiusv cm);
+  
+%Uncomment this for top of cylinder
+        \fill[inner color=gray!5,outer color=gray!50,shading=radial,opacity=.5] (peak) circle (\sradiush cm and \sradiusv cm);
+        \draw [thick](svert1)-- ++ (90:\w);
+        \draw [thick](svert2)-- ++ (90:\w);
+        %Lines, \h in percent of cone height
+  
+% Cylindar drawing
+  \fill[ left color=black!50, right color=red!20,  opacity=20,middle color=red!20,shading=axis] (svert4)-- (svert2) arc (180:360:\sradiush cm and \sradiusv cm)--svert4 arc (360:180:\sradiush cm and \sradiusv cm) ;      
+% TRY TO Make a cylinder
+%\draw ($svert2 + (0,\theight)$) [arc (180:360:\sradiush cm and \sradiusv cm)]; 
+%     \fill[left color=gray!70,right color=gray!70,middle color=gray!30,shading=axis] (vert1) -- (svert1) arc (0:-180:\sradiush cm and \sradiusv cm) -- (vert2) arc (180:360:\radiush cm and \radiusv cm);
+
+\foreach \h in {0.03}{   %.38,.34,.30, .7
+            \pgfmathsetmacro{\rh}{-\radiush * (1 - \h)}
+            \pgfmathsetmacro{\rv}{.2 * \rh}
+            \draw[black!70,densely dashed] ($(vert2)!\h!(peak)$) arc (360:180:\rh cm and \rv cm);%$(vert2)!\h!(peak)$)
+        }
+        \draw[opacity=.90, line width=.05cm, green] (0,0)--(0,{\theight - .05});
+%     \foreach \h in {0, .38,.34,.30, .7}{
+%            \pgfmathsetmacro{\rh}{\radiush * (1 - \h)} %            \pgfmathsetmacro{\rv}{.2 * \rh}
+%            \draw[black!70,densely dashed] ($(antipeak)!\h!(vert2)$) arc (180:360:\rh cm and \rv cm);
+%   }
+%  \draw[red] (antipeak) arc (30:60:3);
+%  \draw[dashed, thick] arc (0:-180:\sradiush cm and \sradiusv cm) -- (vert2) arc (180:360:\radiush cm and \radiusv cm);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %\foreach \xi in {0,..., \n} \draw (\xi,0)--(\xi,-.1)node[below=1]{\small$\xi$};
+% %\foreach \yi in {1,...,\n} \draw (0,\yi)--(-.1,\yi)node[left]{$\yi$};
+% %\foreach \i in {1,4,9,16} {
+% %\node at (7,-\om/2){people scattered uniformly across the land  };
+
+% %SECOND FIGURE WITH AGGLOMERATION WAGE
+% %  add urban production and net wage
+% %\draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
+% \draw [fill=green] (-.25, 0) rectangle(.25, \w);
+% \node[right, text width=4cm] at  (3, \w+1){Added Productivity due to agglomeration};
+% %\node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+ \draw [ thick, ->](0,0)--(2.5, 0)node [right] {\Large $d$};
+
+
+% \draw[thick] (0,0) -- ++ (50:2.6cm);  %   diagonal for perspective
+% \draw[thick] (0,0) -- ++ (230:2.35cm); 
+
+% %  THIRD FIGURE  add RENT profile in blue
+
+% %\node[right, white, fill=white,  text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+% \draw[func, domain=0:\w/\t+1,ultra thick] plot [samples=200] (\x,{\w-\t*\x}); %Net wageprofile  for 
+% %\node[right, white, fill=white] at  (.25, \w/2){Added Productivity};
+% %\node[right, fill=white, text width =3.5cm ] at  (1, \w/2){Declining wage  net \\of transportation\\ costs $T(d)$ };
+% %\node[right, fill=white, text width =3.5cm ] at  (4,9){Declining wage  net \\of transportation\\ costs  };
+% %
+% %\node at (0, 1.5){\includegraphics{\input{SA_Cone3.tex}} };
+% %\node at (0, 2.5){\input{SA_Cone3.tex}};
+
+% %   FOURTH FIGURE     commuters
+% %\pause
+% %\draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+% \node at (4.5,.4*\om){commuters};
+
+
+\end{tikzpicture}
