@@ -73,17 +73,52 @@
 % \input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
 
 \part{Notes and References}
+
+\chapter{Some Meaningless Stuff}
+
+% See equation \ref{eqn_pi} on page \pageref{eqn_pi}.\footnote{A famous equation.}
+
+The credo of the \gls{aaaaz} was, for several years, several paragraphs of gibberish, until the \gls{dingledorf} responsible for the \gls{aaaaz} Web site realized his mistake:
+
 \input{notes_and_references/notes and references.tex}
 
-\part{Other}
+% \part{Other}
+% \input{notes_and_references/_Old Before Aug 2022/SA_PriceOfCapital.tex}
+% \input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
+% \input{notes_and_references/Rent/Aug-22-2022-Rent and Growth.tex}
+% \input{notes_and_references/Coop_Model.tex}
+% \input{notes_and_references/Lifeboat.tex}
+% \input{notes_and_references/RRR_Dept2.tex}
+% \input{notes_and_references/StandaloneTypologyOfModels.tex}
+% \input{notes_and_references/z Background rough notes - rent history etc.tex}
 
-\input{notes_and_references/_Old Before Aug 2022/SA_PriceOfCapital.tex}
-\input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
-\input{notes_and_references/Rent/Aug-22-2022-Rent and Growth.tex}
-\input{notes_and_references/Coop_Model.tex}
-\input{notes_and_references/Lifeboat.tex}
-\input{notes_and_references/RRR_Dept2.tex}
-\input{notes_and_references/StandaloneTypologyOfModels.tex}
-\input{notes_and_references/z Background rough notes - rent history etc.tex}
+%----------------------------------------------------------------------
+
+% L I S T   O F   A B B R E V I A T I O N S
+% ---------------------------
+\renewcommand*{\abbreviationsname}{List of Abbreviations}
+\printglossary[type=abbreviations]
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
+
+% L I S T   O F   S Y M B O L S
+% ---------------------------
+\printglossary[type=symbols]
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
+
+
+
+\bibliographystyle{plain}
+\cleardoublepage % This is needed if the "book" document 
+\phantomsection
+\renewcommand*{\bibname}{References}
+\addcontentsline{toc}{chapter}{\textbf{References}}
+\bibliography{thesis-bib.bib}
+% \bibliography{bib_resilience,bib_housing}
+
+\printglossary
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
 
 \end{document}
