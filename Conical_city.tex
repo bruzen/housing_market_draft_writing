@@ -17,48 +17,66 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % definitions for Cone3
 %\node at (0, 2.5){\input{SA_Cone3.tex}};
-     \pgfmathsetmacro{\radiush}{9.6};%Cone base radius
+     \pgfmathsetmacro{\radiush}{9.7};%Cone base radius was 9.6
         \pgfmathsetmacro{\theight}{7.1}%Cone height (negative if you want a inverse cone)
         \pgfmathsetmacro{\cheightp}{.03}%Cut height in percent of cone height
 
         %Calculating coordinates
         \coordinate (center) at (0,0);
-        \pgfmathsetmacro{\radiusv}{.2 * \radiush};
-        \pgfmathsetmacro{\sradiush}{\radiush * (1 - \cheightp)};%only for right circular cone
+        \pgfmathsetmacro{\radiusv}{.2 * \radiush}; %HORIZONTAL RADIUS
+        \coordinate (peak) at ($(center) + (0,\theight)$);     
+        \pgfmathsetmacro{\sradiush}{\radiush * (1 - \cheightp)};%ADJUST FOR COVERAGE AT CORNERS
         \pgfmathsetmacro{\sradiusv}{.2 * \sradiush};
-        \coordinate (peak) at ($(center) + (0,\theight)$);
+   %     \pgfmathsetmacro{\sradiusv} {\sradiusv -.1 };
+
 \coordinate (antipeak) at ($(center) + (0,-\theight)$);  %thanks  %I added this
 \coordinate (vert1) at ($(center)+(\radiush,-.2)$);
 \coordinate (vert2) at ($(center)-(\radiush,.2)$);
 %problem
-     \coordinate (svert3) at ($svert1+(0,7)$ );  % Shifting up by W
-    % \coordinate (svert4) at ($svert2 + (0,\w)$0;
-\coordinate (svert1) at ($(vert1)!\cheightp!(peak)$);
-\coordinate (svert2) at ($(vert2)!\cheightp!(peak)$);  
+   
+\coordinate (svert1) at ($(vert1)!\cheightp!(peak) +(0.1,.75)$);
+\coordinate (svert2) at ($(vert2)!\cheightp!(peak)+(.5,.75)$);  
     % \coordinate (svert3) at ($svert1+(0,\w)$);
-    % \coordinate (svert4) at ($vert2)+(0,\w)$);   
+    % \coordinate (svert4) at ($vert2)+(0,\w)$);  
+    %  \coordinate (svert3) at ($svert1+(0,7)$ );  % Shifting up by W
+    % \coordinate (svert4) at ($svert2 + (0,\w)$0;
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+ 
+%\draw[step=.5,black,thin] (-9.6,0) grid (9.6,7);
+ 
 % Cone Drawing    
-  \fill[ left color=red!70, right color=red!70,  opacity=20,middle color=red!20,shading=axis] (svert1) -- (peak) -- (svert2) arc (180:360:\sradiush cm and \sradiusv cm);
-  
+ \fill[ left color=red!70, right color=red!70,  opacity=20,middle color=red!20,shading=axis] (svert1) -- (peak) -- (svert2) arc (170:370:\sradiush cm and \sradiusv cm);
+
+    % FAT GREEN BAR
+ \draw [fill=green,opacity=80] (-.2, 0) rectangle(.2, \w);
+ \node[above] at (0,\w){$\omega$};
+ 
 %Uncomment this for top of cylinder
-        \fill[inner color=gray!5,outer color=gray!50,shading=radial,opacity=.5] (peak) circle (\sradiush cm and \sradiusv cm);
-        \draw [thick](svert1)-- ++ (90:\w);
-        \draw [thick](svert2)-- ++ (90:\w);
+      \fill[inner color=gray!5,outer color=gray!50,shading=radial,opacity=.5] ($(center) + (.35,\theight)$ ) circle (9.4 cm and 1.55 cm );
+      
+        \draw [thick]($(svert1) +(.3,-.3)$)-- ++ (90:\w-.2);
+        \draw [thick]($(svert2)-(.2,.3)$)-- ++ (90:\w-.2);
         %Lines, \h in percent of cone height
-  
-% Cylindar drawing
-  \fill[ left color=black!50, right color=red!20,  opacity=20,middle color=red!20,shading=axis] (svert4)-- (svert2) arc (180:360:\sradiush cm and \sradiusv cm)--svert4 arc (360:180:\sradiush cm and \sradiusv cm) ;      
+ def \sradiusv2 \sradiusv cm -.1 cm)
+% Cylinder drawing
+  \fill[ left color=black!50, right color=red!20,  middle color=red!20,shading=axis,opacity=.2]  (-9.05,.5) 
+  arc (180:360:\sradiush cm and \sradiusv cm)-- ++(90:\w-.2) 
+  arc (360:180:\sradiush cm and \sradiusv2 cm -.1 cm)--(-9.05,.5);  
+
+   \node[above] at (0,\w){\Large $\omega$};
 % TRY TO Make a cylinder
 %\draw ($svert2 + (0,\theight)$) [arc (180:360:\sradiush cm and \sradiusv cm)]; 
 %     \fill[left color=gray!70,right color=gray!70,middle color=gray!30,shading=axis] (vert1) -- (svert1) arc (0:-180:\sradiush cm and \sradiusv cm) -- (vert2) arc (180:360:\radiush cm and \radiusv cm);
 
+% DASHED LINE AT BACK OF CONE
 \foreach \h in {0.03}{   %.38,.34,.30, .7
             \pgfmathsetmacro{\rh}{-\radiush * (1 - \h)}
             \pgfmathsetmacro{\rv}{.2 * \rh}
-            \draw[black!70,densely dashed] ($(vert2)!\h!(peak)$) arc (360:180:\rh cm and \rv cm);%$(vert2)!\h!(peak)$)
+            \draw[black!70,densely dashed] ($(svert2)!\h!(peak)-(.3,.9)$) arc (370:170:\rh cm and \rv cm);%$(vert2)!\h!(peak)$)
         }
-        \draw[opacity=.90, line width=.05cm, green] (0,0)--(0,{\theight - .05});
+  %      \draw[opacity=.90, line width=.05cm, green] (0,0)--(0,{\theight - .05});
 %     \foreach \h in {0, .38,.34,.30, .7}{
 %            \pgfmathsetmacro{\rh}{\radiush * (1 - \h)} %            \pgfmathsetmacro{\rv}{.2 * \rh}
 %            \draw[black!70,densely dashed] ($(antipeak)!\h!(vert2)$) arc (180:360:\rh cm and \rv cm);
@@ -75,7 +93,7 @@
 % %SECOND FIGURE WITH AGGLOMERATION WAGE
 % %  add urban production and net wage
 % %\draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
-% \draw [fill=green] (-.25, 0) rectangle(.25, \w);
+
 % \node[right, text width=4cm] at  (3, \w+1){Added Productivity due to agglomeration};
 % %\node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
  \draw [ thick, ->](0,0)--(2.5, 0)node [right] {\Large $d$};
