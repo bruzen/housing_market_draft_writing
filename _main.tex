@@ -83,6 +83,15 @@
 \usepackage[pdftex]{graphicx} % For including graphics N.B. pdftex graphics driver 
 
 % Packages added for Kirsten's dissertation
+\usepackage{geometry}
+\usepackage{epigraph}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{epstopdf}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{tikz}
+\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
 
 % Hyperlinks make it very easy to navigate an electronic document.
 % In addition, this is where you should specify the thesis title and author as they appear in the properties of the PDF document.
@@ -185,12 +194,12 @@
 % \input{chapter-observations.tex}
 
 % \part{A Model of Financialization and Rent}
-% \input{files/introduction.tex}
-% \input{files/rent.tex}
-% \input{files/city.tex}
-% \input{files/financialization.tex}
-% \input{files/model.tex}
-% \input{files/conclusion.tex}
+\input{files/introduction.tex}
+\input{files/rent.tex}
+\input{files/city.tex}
+\input{files/financialization.tex}
+\input{files/model.tex}
+\input{files/conclusion.tex}
 
 %----------------------------------------------------------------------
 % END MATERIAL
