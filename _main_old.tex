@@ -1,0 +1,65 @@
+\documentclass[dvipsnames,letterpaper,12pt,titlepage,oneside,final]{memoir}
+
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{epigraph}    %NEW
+\usepackage{setspace} 
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amssymb, amsmath}
+\usepackage{epstopdf}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{tikz}
+\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+
+% \title{A note on the the theory of rent and urban economic development, August 20 2022}%\newline
+% Financialization, Rent and Urban Economic Development
+%Based on previous drafts , especially Financialization_of_the_Housing_Market .tex. June 27}
+
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+% \maketitle
+\tableofcontents
+
+% \part{A Model of Financialization and Rent}
+\input{files/introduction.tex}
+\input{files/rent.tex}
+\input{files/city.tex}
+\input{files/financialization.tex}
+\input{files/model.tex}
+\input{files/conclusion.tex}
+
+
+
+% \part{Interventions: Systems Design and Analysis}
+
+
+% \input{glossary.tex}
+
+
+\part{Other}
+% \note{this is a note} 
+
+
+\input{notes_and_references/z Background rough notes - rent history etc.tex}
+\input{notes_and_references/notes and references.tex}
+\input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
+
+% \input{Financial_Stuctures/Coop_Model} % TODO add back
+% \input{Lifeboat} % TODO add back
+
+% \input{_introduction}
+% \input{_model}
+% \input{_future_work}
+% \input{_appendices}
+
+\bibliographystyle{IEEEtran}
+% \renewcommand*{\bibname}{References}
+% \addcontentsline{toc}{chapter}{\textbf{References}}
+% \bibliography{bib_resilience,bib_housing}
+
+\end{document}
