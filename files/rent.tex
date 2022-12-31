@@ -412,15 +412,23 @@ and has both theoretical and empirical support.
 
 This is illustrated below for $\beta=1.13$.
 
-\begin{tikzpicture}
-  \draw (0,4)node[above]{$Y= GN^{\beta}$}--(0,0) --(6,0)node[below]{Population};
-   \draw[scale=1, domain=0:6, smooth, variable=\x, blue] plot ({\x}, {(\x/2)^1.25})node[below]{total output };% divide by 2 to get it on the plot
-   %\draw (0,1)node[left]{$\alpha$}--(6,3.5)node[left]{$\alpha +\rho P$};
-  \draw[scale=1, samples=200,domain=0:6, smooth, variable=\x, red] plot ({\x}, {(\x/2)^.25})node[above]{average output};% THis is the wage plot
-       %   \draw[red] plot[samples=200, domain=-0:6] function {(\x/2)^.25};%node[above]{wage};
-  %  \node [left] at (0,2){$w=\rho P$};
-     % \draw [dashed](0,3)node[left]{$Y_i$}--(6,3);
- \end{tikzpicture}\vspace{.5cm}
+
+
+\begin{figure}
+    \begin{center}
+    \begin{tikzpicture}
+      \draw (0,4)node[above]{$Y= GN^{\beta}$}--(0,0) --(6,0)node[below]{Population};
+       \draw[scale=1, domain=0:6, smooth, variable=\x, blue] plot ({\x}, {(\x/2)^1.25})node[below]{total output };% divide by 2 to get it on the plot
+       %\draw (0,1)node[left]{$\alpha$}--(6,3.5)node[left]{$\alpha +\rho P$};
+      \draw[scale=1, samples=200,domain=0:6, smooth, variable=\x, red] plot ({\x}, {(\x/2)^.25})node[above]{average output};% THis is the wage plot
+           %   \draw[red] plot[samples=200, domain=-0:6] function {(\x/2)^.25};%node[above]{wage};
+      %  \node [left] at (0,2){$w=\rho P$};
+         % \draw [dashed](0,3)node[left]{$Y_i$}--(6,3);
+    \end{tikzpicture}\vspace{.5cm}
+    \caption{Urban productivity is proportional to population, $\beta=1.13$}
+    \label{fig:scale_output}
+    \end{center}
+\end{figure}
  
  This figure illustrates a worry for me - the \textbf{average income} - {a proxy for the wage?) rises with $N$ but not more rapidly than transportation costs.
  
