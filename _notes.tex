@@ -1,7 +1,9 @@
 \documentclass[letterpaper,12pt,titlepage,oneside,final]{book}
+
 \newcommand{\package}[1]{\textbf{#1}} % package names in bold text
 \newcommand{\cmmd}[1]{\textbackslash\texttt{#1}} % command name in tt font 
 \newcommand{\href}[1]{#1} % does nothing, but defines the command so the 
+
 % This package allows if-then-else control structures.
 \usepackage{ifthen}
 \newboolean{PrintVersion}
@@ -12,13 +14,13 @@
 \usepackage{amsmath,amssymb,amstext} % Lots of math symbols and environments
 \usepackage[pdftex]{graphicx} % For including graphics N.B. pdftex graphics driver 
 
+
 % Packages added for Kirsten's dissertation
 % \usepackage{geometry}
 % \usepackage{epigraph}
 % \usepackage{setspace}
 % \usepackage{xcolor}
 % \usepackage{epstopdf}
-
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \usepackage{tikz}
 \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
@@ -50,7 +52,8 @@
     urlcolor=black}
 }{} % end of ifthenelse (no else)
 
-\usepackage[automake,toc,abbreviations]{glossaries-extra} 
+\usepackage[automake,toc,abbreviations]{glossaries-extra}
+
 \setlength{\marginparwidth}{0pt} 
 \setlength{\marginparsep}{0pt}
 \setlength{\evensidemargin}{0.125in} 
@@ -64,35 +67,12 @@
   \clearpage{\pagestyle{empty}\origdoublepage}}
 \let\cleardoublepage\clearemptydoublepage
 
-\input{glossaries}
+\input{glossaries.tex}
 \makeglossaries
 
 \begin{document}
 
-% % \input{notes_and_references/notes and references.tex}
-% \input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
 
-\part{Notes and References}
-
-\chapter{Some Meaningless Stuff}
-
-% See equation \ref{eqn_pi} on page \pageref{eqn_pi}.\footnote{A famous equation.}
-
-The credo of the \gls{aaaaz} was, for several years, several paragraphs of gibberish, until the \gls{dingledorf} responsible for the \gls{aaaaz} Web site realized his mistake:
-
-\input{notes_and_references/notes and references.tex}
-
-% \part{Other}
-% \input{notes_and_references/_Old Before Aug 2022/SA_PriceOfCapital.tex}
-% \input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
-% \input{notes_and_references/Rent/Aug-22-2022-Rent and Growth.tex}
-% \input{notes_and_references/Coop_Model.tex}
-% \input{notes_and_references/Lifeboat.tex}
-% \input{notes_and_references/RRR_Dept2.tex}
-% \input{notes_and_references/StandaloneTypologyOfModels.tex}
-% \input{notes_and_references/z Background rough notes - rent history etc.tex}
-
-%----------------------------------------------------------------------
 
 % L I S T   O F   A B B R E V I A T I O N S
 % ---------------------------
@@ -106,6 +86,25 @@ The credo of the \gls{aaaaz} was, for several years, several paragraphs of gibbe
 \printglossary[type=symbols]
 \cleardoublepage
 \phantomsection		% allows hyperref to link to the correct page
+
+%----------------------------------------------------------------------
+
+\part{Notes and References}
+
+\input{_temp-chapter-introduction-2.tex}
+\input{_temp-chapter-observations-2.tex}
+
+% \input{notes_and_references/notes and references.tex}
+
+% \part{Other}
+% \input{notes_and_references/_Old Before Aug 2022/SA_PriceOfCapital.tex}
+% \input{notes_and_references/Rent/Aug-20-2022-Rent and Growth.tex}
+% \input{notes_and_references/Rent/Aug-22-2022-Rent and Growth.tex}
+% \input{notes_and_references/Coop_Model.tex}
+% \input{notes_and_references/Lifeboat.tex}
+% \input{notes_and_references/RRR_Dept2.tex}
+% \input{notes_and_references/StandaloneTypologyOfModels.tex}
+% \input{notes_and_references/z Background rough notes - rent history etc.tex}
 
 
 
