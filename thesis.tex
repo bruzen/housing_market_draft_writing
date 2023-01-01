@@ -1,61 +1,3 @@
-%======================================================================
-% University of Waterloo Thesis Template for LaTeX 
-% Last Updated August 2022
-% by IST Client Services, 
-% University of Waterloo, 200 University Ave. W., Waterloo, Ontario, Canada
-% FOR ASSISTANCE, please send mail to helpdesk@uwaterloo.ca
-
-% DISCLAIMER
-% To the best of our knowledge, this template satisfies the current uWaterloo thesis requirements.
-% However, it is your responsibility to assure that you have met all requirements of the University and your particular department.
-
-% Many thanks for the feedback from many graduates who assisted the development of this template.
-% Also note that there are explanatory comments and tips throughout this template.
-%======================================================================
-% Some important notes on using this template and making it your own...
-
-% The University of Waterloo has required electronic thesis submission since October 2006. 
-% See the uWaterloo thesis regulations at
-% https://uwaterloo.ca/graduate-studies/thesis.
-% This thesis template is geared towards generating a PDF version optimized for viewing on an electronic display, including hyperlinks within the PDF.
-
-% DON'T FORGET TO ADD YOUR OWN NAME AND TITLE in the "hyperref" package configuration below. 
-% Search for: PDFTITLE, PDFAUTHOR, PDFSUBJECT, and PDFKEYWORDS.
-% THIS INFORMATION GETS EMBEDDED IN THE FINAL PDF DOCUMENT.
-% You can view the information if you view properties of the PDF document.
-
-% Many faculties/departments also require one or more printed copies. 
-% This template attempts to satisfy both types of output. 
-% See additional notes below.
-% It is based on the standard "book" document class which provides all necessary sectioning structures and allows multi-part theses.
-
-% If you are using this template in Overleaf (cloud-based collaboration service), then it is automatically processed and previewed for you as you edit.
-
-% For people who prefer to install their own LaTeX distributions on their own computers, and process the source files manually, the following notes provide the sequence of tasks:
- 
-% E.g. to process a thesis called "mythesis.tex" based on this template, run:
-
-% pdflatex mythesis	-- first pass of the pdflatex processor
-% bibtex mythesis	-- generates bibliography from .bib data file(s)
-% makeindex         -- should be run only if an index is used 
-% pdflatex mythesis	-- fixes numbering in cross-references, bibliographic references, glossaries, index, etc.
-% pdflatex mythesis	-- it takes a couple of passes to completely process all cross-references
-
-% If you use the recommended LaTeX editor, Texmaker, you would open the mythesis.tex file, then click the PDFLaTeX button. Then run BibTeX (under the Tools menu).
-% Then click the PDFLaTeX button two more times. 
-% If you have an index as well,you'll need to run MakeIndex from the Tools menu as well, before running pdflatex
-% the last two times.
-
-% N.B. The "pdftex" program allows graphics in the following formats to be included with the "\includegraphics" command: PNG, PDF, JPEG, TIFF
-% Tip: Generate your figures and photos in the size you want them to appear in your thesis, rather than scaling them with \includegraphics options.
-% Tip: Any drawings you do should be in scalable vector graphic formats: SVG, PNG, WMF, EPS and then converted to PNG or PDF, so they are scalable in the final PDF as well.
-% Tip: Photographs should be cropped and compressed so as not to be too large.
-
-% To create a PDF output that is optimized for double-sided printing: 
-% 1) comment-out the \documentclass statement in the preamble below, and un-comment the second \documentclass line.
-% 2) change the value assigned below to the boolean variable "PrintVersion" from " false" to "true".
-
-%======================================================================
 %   D O C U M E N T   P R E A M B L E
 % Specify the document class, default style attributes, and page dimensions, etc.
 % For hyperlinked PDF, suitable for viewing on a computer, use this:
@@ -82,6 +24,8 @@
 \usepackage{amsmath,amssymb,amstext} % Lots of math symbols and environments
 \usepackage[pdftex]{graphicx} % For including graphics N.B. pdftex graphics driver 
 
+%----------------------------------------------------------------------
+%   A D D  H E R E
 % Packages added for Kirsten's dissertation
 % \usepackage{geometry}
 % \usepackage{epigraph}
@@ -92,6 +36,8 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \usepackage{tikz}
 \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+
+%----------------------------------------------------------------------
 
 % Hyperlinks make it very easy to navigate an electronic document.
 % In addition, this is where you should specify the thesis title and author as they appear in the properties of the PDF document.
@@ -181,6 +127,7 @@
 % dedication, table of contents, list of tables, list of figures, nomenclature, etc.
 %----------------------------------------------------------------------
 % \input{thesis-frontpgs.tex}
+\input{thesis-frontpgs-short.tex}
 
 %----------------------------------------------------------------------
 % MAIN BODY
@@ -232,7 +179,7 @@
 \chapter*{APPENDICES}
 \addcontentsline{toc}{chapter}{APPENDICES}
 % Appendices are just more chapters, with different labeling (letters instead of numbers).
-% \input{appendix-matlab_plots.tex}
+\input{appendix-ex.tex}
 
 % GLOSSARIES (Lists of definitions, abbreviations, symbols, etc. provided by the glossaries-extra package)
 % -----------------------------
