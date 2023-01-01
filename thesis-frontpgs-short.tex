@@ -1,0 +1,19 @@
+% T A B L E   O F   C O N T E N T S
+% ---------------------------------
+\renewcommand\contentsname{Table of Contents}
+\tableofcontents
+\cleardoublepage
+\phantomsection    % allows hyperref to link to the correct page
+
+% L I S T   O F   A B B R E V I A T I O N S
+% ---------------------------
+\renewcommand*{\abbreviationsname}{List of Abbreviations}
+\printglossary[type=abbreviations]
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
+
+% L I S T   O F   S Y M B O L S
+% ---------------------------
+\printglossary[type=symbols]
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
