@@ -1,7 +1,59 @@
 \chapter{Model}
-\label{Sec:Model}
+
+Our approach/model is constructed, drawing together pieces from a number of sub-literatures from economics and the study of cities, including rent theory, production functions, the standard urban model, growth theory, urban growth theories, financialization and the theory of distributional. 
+We relate this to the scaling models from the study of complexity. This gives a deeper look at distribution in the cities, the effect of financialization, and effect of both of these on the growth and development of cities. 
+
+This model has two parts, first a production function, modelling how urban regions generate wealth, and second a model of an urban housing market. 
+In this section, we introduce the basic structure of the model and examine the effect of agglomeration, using a circular city model. In subsequent sections we relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
+
+% In this section we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
+%(Derivation details in section \ref{Sec:Derivations})
+
+% \subsection{Labour supply for production}
+
+Following the Alonzo model [], firms are located at the centre of a circular city, the central business district. Residents residents live, spread across the space, and can take jobs and commute to work.
+%In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
+
+Firms produce goods to sell. They can produce more goods by hiring additional workers. 
+There is an agglomeration effect, which means firms can also produce more goods by operating in a city with more people, because of the connections and interactions between people (prior section explains and justifies). 
+Living close to work has value to workers because it saves the cost of transportation. 
+
+We assume workers receive a subsistence wage, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else [MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
+
+Firms pay a wage premium, $w$, over the subsistence wage to attract workers. 
+When workers take a job, they give up the subsistence income and instead receive the wage from their employer. 
+The total wage employers pay is thus the subsistence wage plus the urban wage premium  $\psi + w$.
+
+% TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
+
+Workers will go to work if the wage premium is greater than the cost of travel, $\tau$ per unit distance. 
+%If the cost of transportation is $\tau$ per unit distance, then t
+The farthest workers will travel to work is thus $\frac{w}{\tau}$, which defines the radius of the commuter shed. Thus a worker, located at a distance $d$ from work, paying as much as $w-\tau d$ in rent, would still choose to work, and the distance that workers will commute is limited by to the radius of the commuter shed. Given a standard lot size $s$, the labour available in the circular city is
+\begin{equation}L%=  \frac{\pi}{s}(c^{max})^2	
+			=\frac{\pi}{s}  \left(\frac{w}{\tau}\right)^2
+			=\frac{\pi}{\tau^2 s} w^2, \label{Eqn:LabourSupply}
+	\end{equation}
+which increases with the square of the wage.
+
+ % TODO:  FOOTNOTE the transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. Alain Bertaud, 2015)
+
+\subsection{Rents}
+In the circular city with linear transportation costs, the maximum rent that could be charged for living closer to work is
+ \[c^{max}= \frac{w}{\tau}. \]  
+ Workers could pay that much in rent and additional costs and it would still worthwhile to commute to work. 
+
+Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. % Rents may also be taxed, could be shared between multiple owners, etc.
+
+\subsection{Production}
+
+The production economy is what generates a surplus.  This means we have a production/production economy. %, while many models of wealth distibution look at capital and financial markets, 
+%Demand for the urban product is perfectly elastic and the price per unit is 1. 
+We consider firms selling into a large/comodity market, so demand is elastic, and selling more won't affect the product's price. %This means each new worker increases output by less than the last worker did,
+There are decreasing returns to scale. The marginal product of labour declines monotonically. There is no frictional unemployment, and no labour adjustment costs.   % Note in the agent model - employees are simply laid off and seek work, so there is unemployment, but not labour adjustment costs for firms.
 
 
+
+\section{Older Drafts?}
 Agents purchase homes though a housing market.
 In real life, a housing is a market where the product is land with various properties on them. Land value is affected by various elements including proximity to natural features like lakes and mountains, proximity to human-built feature like communities, businesses and amenities, as well a developments and additions on the property itself. 
 
