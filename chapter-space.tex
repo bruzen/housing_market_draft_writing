@@ -63,28 +63,85 @@ With uniform density, population is proportional to the square of  $d^{*2}$ whil
 
 \subsection {Changing transportation costs}
 
+Urbanists agree that before the railroad and the automobile the extent of a city was roughly determined by how far a person could walk in about an hour. The time and effort cost of transportation determined the size of cities. The advent of first riakl transportation and then the automobile radicvallt changed teh
 
+\begin{tikzpicture}[scale=.65]
+\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+\def\bndmin{0.2}
+\def \n {4}  % height of y axis
+\def \d {17}  % length  of x axis
+\def \t {2}  %  cost of transportation per unit x
+\def \th {1}   %
+\def \w {7}    %  wage premium
+\def \om{1.5}%  omega =rural wage Zero for urban population
+\def \azero{2}
+\def \aprime {-.0}	
+\tikzset{func/.style={thick,color=blue!80}}	
+
+% FIRST FIGURE just axes PARTITIONING THE LABOUR SHARE
+\draw [thick] (0,-\om) --(\d,-\om);  			% Zero for rural population
+\draw [thick] (0,-\om)node[left=.5]{$0$} --(0,\n)node[above]{$w$};	% Y axis
+%\node at (0,\n+0.5){\large $Rent$};
+
+% %\draw [thick] (0,0)node[left=.5]{ subsistance}--(\d,0);
+% %\node at(-2,1) {$\omega$};
+% %\node[left=.25] at (0,3){\huge $\omega$};
+% %\node[left=.25] at (0,3){$w+\omega$};
+% % \node[left=.25] at (0,\w+.3){subsistence plus};
+% % \node[left=.25] at (0,\w-.4){wage premium};	
+
+% \draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
+% \draw [fill=green] (-.25, 0) rectangle(.25, \w);
+% \node[right] at  (.25, \w/2){Added Productivity};
+% \node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+% \draw [ thick, ->](11.3,-\om/2)--(13, -\om/2)node [right] {\Large $d$};
+
+% %  THIRD FIGURE  add wage profile PARTITIONING THE LABOUR SHARE
+% % \pause
+% \node[right, white, fill=white,  text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+% \draw[func, domain=0:\w/\t+1,ultra thick] plot [samples=200] (\x,{\w-\t*\x}); %Net wageprofile  for 
+% \node[right, white, fill=white] at  (.25, \w/2){Added Productivity};
+% \node[right, fill=white, text width =3.5cm ] at  (1, \w/2){Declining wage  net \\of transportation\\ costs $T(d)$ };
+
+% %   FOURTH FIGURE     commuters PARTITIONING THE LABOUR SHARE
+% %\pause
+% \draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+% \node at (4.5,-\om/2){commuters};
+
+% %   FOURTH FIGURE    wage bill
+% %\pause %add total new value
+% \draw[fill=green!40] (0,-\om) rectangle(9.30,\w);% new product
+% \node at (4.5,\w/2){\Large urban wage bill};
+
+% %%   FIFTH FIGURE   distribution
+% %\pause
+% %\node at (9,\n){\Large Partitioning the Labour Share};
+
+% \draw[fill=black!40] (0,-\om) rectangle (9.30,\w);% new product repeat
+ \draw[func, domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x}); %rent profile
+
+ \end{tikzpicture}
+ 
 
  It is easy to see that the transportation cost revolution brought about by first street cars and later automobiles made much larger cities possible.  It also affected social structure and left indelible marks of the form of cities developing at the time and after.In North America, with large amounts of land, it generated massive urban sprawl, but also made land available for a growing `middle class.' Ultimately it generated congestion and rising transportation cost that began to limit urban growth. 
 
 \section{Adding Jacobs-style agglomeration effects}
-Rising urban productivity will raise the wage, attracting more workers. If they are added in suburbs at the edge of the city (Ricardo's extensive margin) virtually all of the wage premium they receive is dissipated in transportation costs. Closer to the centre,  land rents rise. Owner-occupiers capture the increase as property value appreciation. Tenants are likely to be faced with higher rents.      
+Belderbos, Ikeuchi and \cite{} examine the simultaneous effects of spillovers due to R&D by universities and by firms 
+Rising urban productivity in Japan are significant. 
+
+will raise the wage, attracting more workers. If they are added in suburbs at the edge of the city (Ricardo's extensive margin) virtually all of the wage premium they receive is dissipated in transportation costs. Closer to the centre,  land rents rise. Owner-occupiers capture the increase as property value appreciation. Tenants are likely to be faced with higher rents.      
 
 If agglomeration is the source of productivity gains, however, the new workers increase the urban premium, further increasing land values and attracting more workers. 
 
 
 
-\section{Class structure}\label{Sec:ClassStucture}TO THE ALONZO CHAPTER
-
-At the stage illustrated in Figure~\ref{Fig:Rent1},  (Alonzo city suburbanized with owner occupiers) the model has three spatially segregated ``classes.'' Capitalists live in some spaceless utopia, urban workers commuting and earning wages $\omega + w$ reside in the urban commuter-shed and  %There may be a band surrounding the city or persons who do not commute but enjoy urban consumption amenities. 
 The rural population consists of uniformly distributed efficient mix of rural capital producers and workers, all of whom receive $\omega$.%\footnote{This does nothing but fix the price of produced capital in terms of the rural wage.} 
 
 
 
  Owners of urban firms are  conventional  capitalists, who may earn excess profit if they can capture an unearned surplus from labour.  Any unearned surplus increases the return to urban capital relative to rural capital, resulting in continuous expansion of the urban economy. Continuous growth in turn results in continuously rising urban land prices and hence housing costs. We ignore the distributional implications of this feature of the model, and focus instead on the part of value produced by the city that appears as land rent. 
   
-\section{Net land rent} TO THE ALONZO CHAPTER
-The 
+\section{Net land rent} 
 The simple graphical model we consider above is revealing, but it leaves out many important features of the urban system. The only costs included are the transportation costs for the individual.  Since urban services and  a substantial fraction of urban amenities are financed through the public sector a more complete model must include both servicing costs and property taxation. The relevant rent profile from an economic point of view is NET of all service costs. From a finance point of view it is net of tax liabilities.
 
 %%%%%%%%%%%%%%%%%%%%%%%% PARTITIONING THE LABOUR SHARE
@@ -143,3 +200,35 @@ Two stylized facts should be noticed. The first is that the marginal cost of ser
 The second stylized fact  is that property taxes, which are generally  fixed as a share of property value, decline as the distance from the centre increases.Figure~\ref{} illustrates the general form of tax liabilities, although it does not  accurately represent their relationship top rent or  servicing costs.  This implies that in many or most urban situations the residents at the outer edges pay less than the average amount in property tax per unit of land, but cost  the community budget more than the average amount. In essence, the central city subsidizes the suburbs. (ref Perverse Cities}  This arrangement is both economically inefficient and unfair, but it has been built into the fiscal structure of cities largely as a result of automobile-based urban growth. It is likely that this fiscal misallocation saps some of the potential productivity growth of cities.
 
 Both effects are more variable and than the simple model suggests.  One  conclusion urban theorists draw based on variants of the Alonzo model is that because property owners in the low-density urban margin are subsidized,  the subsidy is likely to create serious fiscal problems for municipalities in the long term and result in serious inefficiency in land use. 
+
+
+
+\section{Class structure}\label{Sec:ClassStucture}
+
+\begin{center}
+\begin{tikzpicture}{scale=.5}
+%   \coordinate (planning) at (-5,1);%PREFACE
+% \coordinate (economics) at (5,.75);%
+%  \coordinate (geography) at (-.5,-2); %history
+% \coordinate (finance) at (0,5); %  
+\draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
+\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
+
+\node at (1.5,6)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt\Large Owner Occupied};
+\node at (2,3.3)
+    [text width=2.4cm]
+    {\baselineskip=20pt Mortgaged};
+\node at (1.5,1)
+    [text width=2.4cm, align=center, white]
+    {\baselineskip=20pt\Large Tenant Occupied};
+\end{tikzpicture}
+\end{center}
+
+Figure: Housing Tenure 
+
+
+
+At the stage illustrated in Figure~\ref{Fig:Rent1},  (Alonzo city suburbanized with owner occupiers) the model has three spatially segregated ``classes.'' Capitalists live in some spaceless utopia, urban workers commuting and earning wages $\omega + w$ reside in the urban commuter-shed and  %There may be a band surrounding the city or persons who do not commute but enjoy urban consumption amenities. 

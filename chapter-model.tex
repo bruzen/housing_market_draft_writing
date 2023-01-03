@@ -1,5 +1,15 @@
 \chapter{Model}
 \label{Sec:Model}
+
+
+Agents purchase homes though a housing market.
+In real life, a housing is a market where the product is land with various properties on them. Land value is affected by various elements including proximity to natural features like lakes and mountains, proximity to human-built feature like communities, businesses and amenities, as well a developments and additions on the property itself. 
+
+There is also a layer of policy and rules that determine the land value. For example the city sets zoning rules that allow for certain kinds of uses and disallows others and charges taxes and fees which are factored into the cost structure.
+
+The market is made up of a set of agents who engage directly in the market, including buyers, sellers, renters, investors, developers. 
+It also includes others who affect it indirectly including policymakers and those who affect the policy contexts (such as activists, developers, etc), and labour.
+
 %MAIN VERSION HERE IN OVERLEAF UNTIL MOVED BACK
 
 %We build a spatially explicit agent model where agents work in one location and have transportation costs to travel to work. 
@@ -71,6 +81,13 @@ The simple circular city can be extended to to produce other forms, including po
 
 Workers in the countryside receive a subsistence wage, $\psi$, which could come from work in the local community, living off the land, family support, social support, or something else. % cite other models with subsistence wage.
 
+
+% It is convenient in this model to use a Cobb-Douglas utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
+
+
+? It is convenient but not necessary to assume that land outside of the residential limit is costless. It is common to assume a fixed price for agricultural land. There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing
+
+
 Firms pay a wage premium, $w$, over the subsistence wage to attract workers. 
 When workers take a job, they give up the subsistence income and instead receive the wage from their employer. 
 The total wage employers pay is thus the subsistence wage plus the urban wage premium  $\psi + w$.
@@ -115,6 +132,11 @@ As in the standard circular city model the constraint on city size and hence gro
 % $mvp(x) = p(x)$ where x can be labour, capital or any other factor, falls out of the function when you introduce profit maximization. Continuity and differentiability assumed but it is a convenient approximation-- take away assumptions you typically get a close approximation.
 
 %We have a two factor model of production with labour and capital.  
+
+
+
+
+
 
 
 \subsection{Production}
@@ -491,3 +513,49 @@ We can, with some simplifications, write
 \label{Fig:BorrowingCost}
 \end{center}
 \end{figure}%
+
+
+
+
+
+\section{Where does this go? Space - describe model logic - VERY OLD DESCRIPTION}
+
+
+Initialize the model with grid. Each element contains 1 housing unit.
+
+The model space is divided into a uniform grid of single family homes % Additions: apartment buildings, a mechanism to subdivide homes, rent bedrooms, accumulate adjacent land and build new higher density buildings, an urban land boundary, a mechanism for wealth agglomeration through density.
+
+%Household agents have:
+
+\begin{enumerate}
+   \item A home. Agents live somewhere, inside or outside the city,
+   \item finances: they have assets, a housing budget, income, and a spending pattern
+   # family lending pattern  
+   shaped by profession, demographics, family structure, etc.) 
+   # risk profile
+   \item utility function: they have a utility function with location  preferences 
+   # amenity, open space, house size requirements, transportation costs
+   # shaped by profession, demographics, family structure, etc
+\end{enumerate}	
+
+ \subsection{External Capital}
+ An investor that buys up assets that cross bellow some lower threshold (threshold is higher during speculative booms), or in consolidating regions.
+
+
+\subsection{Model Steps - Housing market}
+
+
+at every time step 
+    1) Some new tenants arrive into the city
+    
+    2) All unhoused tenants look for a housing unit 
+    
+        a) They have to decide whether to buy or rent. Decision depends on their income, and the availability of Corporation of Public Housing loans 
+
+
+        b) If they buy, they seek apartment and evaluate, and place a bid (see ALMA)
+        
+        c) if they rent, they look for an apartment that matches xyz criteria, and place request to rent. Rental is given by the landlord to the first tenant that matches the asking rental price. 
+
+
+Workers give up their search and leave the city if they do not find a housing unit 
