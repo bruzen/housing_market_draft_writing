@@ -1,0 +1,84 @@
+
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}       \usepackage{calc}     
+\usepackage{tikz}
+\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{mathtools,amssymb}
+
+\begin{document} 
+\section{Notation for Urban and Production Sectors}
+
+
+\begin{longtable}{lp{10cm}}
+%\caption{Notation}\\
+\hline
+		&\textbf{Productivity}\\ \hline
+$K$  &  Capital\\
+$n_i$  &  Number of workers employed by firm $i$\\
+$n=\sum_i n_i$  &  Labour = (population)\\
+$\#f=\frac{n}{n_i}$&number of identical firms\\ %not used
+%$f$  &  Number of firms\\
+%$n =f n_i$  &  Aggregate labour \\
+$\Lambda(n)$  &  Labour-augmenting agglomeration effect \\
+% $n^\gamma$ & The labour-augmenting agglomeration effect,  modelled as an expontial function of the number of people \\
+$\Lambda(n)n_i$  &  Effective labour for a firm\\
+%$\Lambda'=\die{\Lambda(n)}{n} $ & Derivative of the labour-augmenting agglomeration effect\\
+$\alpha$  &  Elasticity of output with respect to capital\\
+$\beta$  &  Elasticity of output with respect to effective labour\\
+$\gamma$  &  Elasticity of $\Lambda(n)$ for illustration\\
+
+$Y_i=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }$  &  Urban firm $i$'s output\\
+$Y=\frac{n}{n_i}K_i^{\alpha }(\Lambda(\sum_i n_i)n_i)^{\beta }$  &  Aggregate output of all firms in the city\\
+$\die{Y}{n}=\beta\frac{1}{n} Y  \left( 1+ \frac{n\Lambda'}{\Lambda} \right) $  &  Social marginal product of labour\\
+%$Y_i=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }$  &  Urban firm $i$'s output\\
+$\die{Y_i}{K_i}	=\alpha \frac{1}{K_i} Y_i $  & Marginal product of capital for firm $i$
+\\
+$\die{Y_i}{n_i}	=  \beta\frac{1}{n_i} Y_i $  &  Marginal product of labour for firm $i$\\
+
+$\eta=\frac{n_i\Lambda'}{\Lambda}$  &   Marginal agglomeration effect on a firm's output of increasing it's own labour stock\\
+\hline
+	&\textbf{Amenity}\\ \hline
+$A(d, n)$   &  Agglomeration amenity\\
+\hline
+
+		& \textbf{Prices}\\ \hline
+$\psi$  &  Rural wage\\
+$\psi$  &  Per-period cost of a unit of productive capital\\
+$w$     &  Urban wage premium\\
+$\tau$  &  Linear transportation cost per unit distance\\
+$w^n=w-\tau d$ & wage  premium net of transportation costs\\
+$\psi + w$  &  Urban wage\\
+$\Omega=\frac{w+\psi}{\psi}$  &  Ratio of the urban wage to the  cost of capital\\
+$\pi$	 & profit\\
+$ER$	& Excess return to capital\\
+\hline
+		&\textbf{Spatial structure in the circular city}\\ \hline		
+$d$  &  Distance of a residence from the centre of the city\\
+$d^* = w/\tau$  &  Maximum distance commuters will travel to get the wage premium\\
+$d^{max} = w/\tau$  &  Maximum distance commuters at which residents enjoy the urban amenity\\
+$d^{**} = max(d^*, d^{max})$  &  radius of the city\\
+$s$ & Lot size\\
+$U$  &  Worker utility\\%, a function of location and prices\\
+$U^{urban}=U^{rural} $  &   Migration equilibrium assumption\\
+\hline
+		& \textbf{Labour market}\\ \hline
+$L= \frac{\pi}{s}(\frac{w}{\tau})^2 = n$  &  
+Labour supply, the number of workers, which equals the number of lots of size $s$ in the standard circular city model when workers live on identical individual lots\\%Unless $d^{max}>d^*$
+\hline
+
+
+\end{longtable}  
+%%\item[$$]
+%%\item[$$]
+%%\item[$$]
+%Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainment, diet and consumption pattern. We  choose units so that per-period cost of a unit of productive capital is also $\psi$
+\section*{Additional Assumptions}
+\begin{enumerate}
+\item There is full employment, no frictional unemployment, and no labour adjustment costs.
+\item Firms set output and factor inputs to maximize profits, so factors are paid the value of their marginal private product
+\item Demand for output is perfectly elastic (constant price = 1)
+
+\end{enumerate}
+\end{document}

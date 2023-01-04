@@ -1,7 +1,6 @@
 \chapter{Model} \label{chapter-model}
 
-Our approach/model is constructed, drawing together pieces from a number of sub-literatures from economics and the study of cities, including rent theory, production functions, the standard urban model, growth theory, urban growth theories, financialization and the theory of distributional. 
-We relate this to the scaling models from the study of complexity. This gives a deeper look at distribution in the cities, the effect of financialization, and effect of both of these on the growth and development of cities. 
+
 
 This model has two parts, first a production function, modelling how urban regions generate wealth, and second a model of an urban housing market. 
 In this section, we introduce the basic structure of the model and examine the effect of agglomeration, using a circular city model. In subsequent sections we relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
@@ -607,3 +606,17 @@ at every time step
 
 
 Workers give up their search and leave the city if they do not find a housing unit 
+
+\section{The cost of capital}
+The cost of capital is known to differ for rich and poor. Say, for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
+where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the effect.\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca} 
+
+\begin{figure}[htbp]
+\begin{center}
+\input{fig/SA_PriceOfCapital.tex}% Figure of cost of borrowing
+\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
+%\caption{Hypothetical wealth-dependent borrowing cost}
+\label{Fig:BorrowingCost}
+\end{center}
+\end{figure}%
