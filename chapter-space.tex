@@ -63,67 +63,41 @@ With uniform density, population is proportional to the square of  $d^{*2}$ whil
 
 \subsection {Changing transportation costs}
 
-Urbanists agree that before the railroad and the automobile the extent of a city was roughly determined by how far a person could walk in about an hour. The time and effort cost of transportation determined the size of cities. The advent of first riakl transportation and then the automobile radicvallt changed teh
+Another application of the model is to the effect of a transportation revolutution. Urbanists agree that before the railroad and the automobile the extent of a city was roughly determined by how far a person could walk in about an hour. The time and effort cost of transportation determined the size of cities. The advent of first rail transportation and then the automobile radically changed the size, productivity, and population distribution of cities
 
-\begin{tikzpicture}[scale=.65]
-\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
-\def\bndmin{0.2}
-\def \n {4}  % height of y axis
-\def \d {17}  % length  of x axis
-\def \t {2}  %  cost of transportation per unit x
-\def \th {1}   %
-\def \w {7}    %  wage premium
-\def \om{1.5}%  omega =rural wage Zero for urban population
-\def \azero{2}
-\def \aprime {-.0}	
-\tikzset{func/.style={thick,color=blue!80}}	
+\begin{tikzpicture}[scale=.5]
+\draw[thick](0,0)--(0,8);
+\draw[thick](0,0)--(8,0);
 
-% FIRST FIGURE just axes PARTITIONING THE LABOUR SHARE
-\draw [thick] (0,-\om) --(\d,-\om);  			% Zero for rural population
-\draw [thick] (0,-\om)node[left=.5]{$0$} --(0,\n)node[above]{$w$};	% Y axis
-%\node at (0,\n+0.5){\large $Rent$};
+\begin{scope}[shift={(0, -15cm)},scale=1.5]%population
+\draw [fill=gray,] (0,0) rectangle (3,.5); %TENANT
+\draw[line width= 1mm, black!50] (0,0) rectangle (3,1.5);
+\end{scope}
+\begin{scope}[shift={(10cm, 0)}]
+\draw[thick](0,0)--(0,8);
+\draw[thick](0,0)--(8,0);
+\end{scope}
 
-% %\draw [thick] (0,0)node[left=.5]{ subsistance}--(\d,0);
-% %\node at(-2,1) {$\omega$};
-% %\node[left=.25] at (0,3){\huge $\omega$};
-% %\node[left=.25] at (0,3){$w+\omega$};
-% % \node[left=.25] at (0,\w+.3){subsistence plus};
-% % \node[left=.25] at (0,\w-.4){wage premium};	
-
-% \draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
-% \draw [fill=green] (-.25, 0) rectangle(.25, \w);
-% \node[right] at  (.25, \w/2){Added Productivity};
-% \node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
-% \draw [ thick, ->](11.3,-\om/2)--(13, -\om/2)node [right] {\Large $d$};
-
-% %  THIRD FIGURE  add wage profile PARTITIONING THE LABOUR SHARE
-% % \pause
-% \node[right, white, fill=white,  text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
-% \draw[func, domain=0:\w/\t+1,ultra thick] plot [samples=200] (\x,{\w-\t*\x}); %Net wageprofile  for 
-% \node[right, white, fill=white] at  (.25, \w/2){Added Productivity};
-% \node[right, fill=white, text width =3.5cm ] at  (1, \w/2){Declining wage  net \\of transportation\\ costs $T(d)$ };
-
-% %   FOURTH FIGURE     commuters PARTITIONING THE LABOUR SHARE
-% %\pause
-% \draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
-% \node at (4.5,-\om/2){commuters};
-
-% %   FOURTH FIGURE    wage bill
-% %\pause %add total new value
-% \draw[fill=green!40] (0,-\om) rectangle(9.30,\w);% new product
-% \node at (4.5,\w/2){\Large urban wage bill};
-
-% %%   FIFTH FIGURE   distribution
-% %\pause
-% %\node at (9,\n){\Large Partitioning the Labour Share};
-
-% \draw[fill=black!40] (0,-\om) rectangle (9.30,\w);% new product repeat
- \draw[func, domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x}); %rent profile
-
+\begin{scope}[shift={(10, -15cm)},scale=1.5]%population
+\draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
+\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% 
+\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
+\node at (1.5,6)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt\Large Owner Occupied};
+\node at (2,3.3)
+    [text width=2.4cm]
+    {\baselineskip=20pt Mortgaged};
+\node at (1.5,1)
+    [text width=2.4cm, align=center, white]
+    {\baselineskip=20pt\Large Tenant Occupied};
+\end{scope}
  \end{tikzpicture}
  
 
- It is easy to see that the transportation cost revolution brought about by first street cars and later automobiles made much larger cities possible.  It also affected social structure and left indelible marks of the form of cities developing at the time and after.In North America, with large amounts of land, it generated massive urban sprawl, but also made land available for a growing `middle class.' Ultimately it generated congestion and rising transportation cost that began to limit urban growth. 
+It is easy to see that the transportation cost revolution brought about by first street cars and later automobiles made much larger cities possible.  The average walking pace is 2.5 to 4 mph, and new transportation technologies raises this rate by a factor of between five and ten, increasing potential urban area by between twenty-five and  one hundred times. 
+
+It  also affected social structure and left indelible marks of the form of cities developing at the time and after.In North America, with large amounts of land, it generated massive urban sprawl, but also made land available for a growing `middle class.' Ultimately it generated congestion and rising transportation cost that began to limit urban growth. 
 
 \section{Adding Jacobs-style agglomeration effects}
 Belderbos, Ikeuchi and  \cite{} examine the simultaneous effects of spillovers due to R\&D by universities and by firms 
