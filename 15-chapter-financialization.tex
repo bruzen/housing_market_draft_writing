@@ -124,9 +124,9 @@ We can demonstrate  that  in the absence of policy interventions, differential a
 
 ADD TABLE WITH VARIABLE DEFINITIONS
  
- In this section we develop a model of the return to investment in urban housing/land. We'll assume that all agents are speculating on potential capital gains as well as on the use values they get from a property.  We will also assume that the use value is captured by the stream of rental values, whether a home is owner occupied or  held by an investor as a financial asset. To keep the analysis simple without loss of generality we will consider a one-period investment.
+ In this section we develop a model of the return to investment in urban housing/land. We'll assume that all agents are speculating on potential capital gains as well as on the use values they get from the use of a property.  We will also assume that the use value is captured by the stream of rental values, whether a home is owner-occupied or  held by an investor as a financial asset. To keep the analysis simple without loss of generality we will consider a one-period investment.
  
- The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs and minus the mortgage with interest.\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  Fort that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
+ The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs and minus the mortgage with interest.\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
 
 
 \begin{eqnarray*}
@@ -143,7 +143,7 @@ V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 &=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
 \end{eqnarray*}
 
-This is the  net present value of buying, and selling after one period. It has  6 exogenous parameters, $\delta, \dot p, r, m, \rho, \kappa$ and $t$.   Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ are functions of the agent's wealth. $\delta$ may be correlated with wealth as well. 
+This is the  net present value of buying and then selling after one period. It has  6 exogenous parameters, $\delta, \dot p, r, m, \rho, \kappa$ and $t$.   Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ are functions of the agent's wealth. $\delta$ may be correlated with wealth as well. 
 
 The rate of return $v$ is the value of the gain, $V$, divided by  the size of the downpayment, $D$. 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:\begin{enumerate}
@@ -192,51 +192,29 @@ v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \no
 %\item Lower costs increase profits
 %\item Lower tax rates decrease holding costs and increase the value of the investment
 %\end{enumerate}
-The implications of {\color{red} Equation~\ref{Eqn:DecisionRule}} are significant for the evolution of the urban land market and class structure. 
- Make list of effects variable by variable. describe derivatives
- 
-As expected
-\begin{enumerate}
-\item A large $m$ magnifies the return. (downpayment is smaller)
-\item A lower mortgage interest rate increases the return by lowering interest payments
-\item A lower discount rate $\delta$ reduces the subjective rate of return
-\item Higher expected price appreciation increases the attractiveness of investment
-\item Higher rents makes the unit more profitable if rents are being collected
-\item Lower costs increase profits
-\item Lower tax rates decrease holding costs and increase the value of the investment
+The implications of {\color{red} Equation~\ref{Eqn:DecisionRule}} are significant for the evolution of the urban land market and class structure. It implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth-holders will get higher expected and actual rates of return on land than those with  lower wealth holdings,\footnote{\begin{enumerate}
+\item Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.\footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation we implement such limits. } 
+
+\item The cost of capital is known to differ for rich and poor.\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca} 
+\item If agents discount at their borrowing rate, wealthier agents may have a lower subjective rate of time preference and therefore value properties more highly. 
 \end{enumerate}
 
-Consistent with the empirical evidence, net returns for investment are increasing with wealth. 
-
-They suggest strongly that large wealth-holders will get higher expected and actual rates of return on land than those with  lower wealth holdings,\footnote{Case and Schiller 
+The implication is that those with more capital will be at an advantage in the urban housing  market. Tax treatment of income and capital gains as well as interest deductability will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. }\footnote{Case and Schiller 
 %``%The ratio of construction costs to price, changes in adult population and
 `` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} and that the managers of large pools of capital will have an even greater advantage. 
  
 
-%
-%\begin{enumerate}
-%\item Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
-%
-%\item The cost of capital is known to differ for rich and poor. Say, for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
-% \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-%where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the effect.\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca} 
-%\item If agents discount at their borrowing rate, wealthier agents may have a lower subjective rate of time preference and therefore value properties more highly. 
-%\end{enumerate}
-
-The implication is that those with more capital will be at an advantage in the urban housing  market. Tax treatment of income and capital gains as well as interest deductability will influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. 
-
-There are some additional implications
-
 \begin{enumerate}
-\item  expecting greater price appreciation raises expected profitability. The wealthy and financial corporations  are likely to have better price forecasts than  the occasional home buyer.
-\item higher expected  rents may result from expecting greater price appreciation raises expected profitability or greater willingness to raise rents for tenants
-\item There may be scale economies in maintenance  of rented housing
-\item There may be opportunities to shelter income with land held for investment (speculative) purposes
+\item A large $m$ magnifies the return. (The downpayment is smaller as a fraction of the price, increasing the investor's leverage).
+\item A lower mortgage interest rate increases the return by lowering interest payments.  The wealthy can generally borrow  at lower interest rates than the less wealthy.
+\item A lower discount rate $\delta$ reduces the subjective rate of return.  Poverty in assets, or cash liquidity constraints, was leading to or correlated with higher rates of time preference.\footnote{Poverty, market imperfections and time preferences: of relevance for environmental policy?   S. Holden, B. Shiferaw, M. Wik.
+ 1998, Environment and Development Economics https://www.semanticscholar.org/paper/Poverty%2C-market-imperfections-and-time-preferences%3A-Holden-Shiferaw/55376ceb29b6f3bab2d8fb3dd83d5904826959ac}
+\item Higher expected price appreciation increases the attractiveness of investment. The wealthy and financial corporations  are likely to have better price forecasts than  the occasional home buyer.
+\item Higher rents make the unit more profitable. higher expected  rents may result from expecting greater price appreciation raises expected profitability or greater willingness to raise rents for tenants
+\item Lower maintenance costs increase profits. There may be scale economies in maintenance  of rented housing. 
+\item Lower tax rates decrease holding costs and increase the value of the investment.. here may be opportunities to shelter income with land held for investment (speculative) purposes
 \end{enumerate}
-
-These items suggest that financial corporations in particular may have advantages relative to individual investors. Combined with better access to capital and interest deductability, it is reasonable to expect that financial corporations, which essentially pool the purchasing power of wealth holders, increasingly dominate urban land markets. %A recent report claimed 15\% of Tioron0's land transa
-
-As exp
+Some  of these conditions (1-3) hold generally for wealthier actors. Others (4-7) may be available only to institutional investors.  Financial corporations in particular may have advantages relative to individual investors. making it  reasonable to expect that financial corporations increasingly dominate urban land markets. %A recent report claimed 15\% of Tioron0's land transa
 
 \begin{enumerate}
 \item Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
@@ -260,8 +238,4 @@ The implication is that those with more capital will be at an advantage in the u
 \end{itemize}
 
 These appear to be features of the economy we observe.
-
-
-
-
 

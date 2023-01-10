@@ -1,4 +1,6 @@
 \chapter{Model} \label{chapter-model}
+\epigraph{“An economist is someone who says, when an idea works in practice, ‘let’s see if it works in theory.'”
+— Walter W. Heller, former chairman of the Council of Economic Advisers.}{ Walter W. Heller, former chairman of the Council of Economic Advisers. (\href{https://quoteinvestigator.com/2015/08/30/practice/}{1979, The Washington Star)}}
 
 Our model has three stages: first, a production function, modeling how urban regions generate wealth,  second a spatial model of an urban housing market, and third, an analysis of distribution within that model 
 
@@ -358,7 +360,7 @@ Those who own land early in a growing city are also capture a share of everybody
 %
 %(all the profit you earn on the way could be redistributed)
 
-\chapter{Land Market}
+\section{Land Market}
 
 Urban productivity %and amenity
 drives land values through the housing market.%Agents purchase homes to live in. The value of the the proximity to work and to amenity drives shapes the what agents are willing to pay. 
@@ -532,7 +534,7 @@ To explore the implication of the financialization of the urban land market we n
 %$T$ at rate $t$ to affect the speculator's  decision.
  
 The rate of return is the value of the gain, $V$,  over the size of the downpayment, $D$, where
-\begin{equation}
+\begin{equation}https://quoteinvestigator.com/2015/08/30/practice/
 V =capital\ gain - Interest\ due  	+ Rent  - operating\ cost\    
 \end{equation}
 
@@ -604,7 +606,47 @@ The model space is divided into a uniform grid of single family homes % Addition
  An investor that buys up assets that cross bellow some lower threshold (threshold is higher during speculative booms), or in consolidating regions.
 
 
-\subsection{Model Steps - Housing market}
+
+\section{Savings}
+Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require  savings at two levels. First, since we want to incorporate  households home ownership and a relationship to the financial sector through mortgages, We specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
+
+Homeowners in addition have equity $E=P-M$ in their homes.  ({\color{red}Should newcomers also have equity? or is it built into the savings. Clarify this.} 
+
+A second level of saving is the  investment in capital out of the city surplus. Even raising this question puts us into terra incognita. There are many  channels through which surplus to flows into productive investment in the urban contest. One is through public investment in in infrastructure. We have discussed how falling transportation costs increase surplus generation. Investments like t his are made slowly and take effect over time periods much longer than our model is concerned with.  We can set a property tax rate   that we will assume is sufficient to maintain the stock of infrastructure.
+
+Public and private investment in human capital is largely urban as well, but as with infrastructure, investment and response take effect over time periods much longer than our model is concerned with. 
+
+Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
+
+We deal with this issue by linking local capital ownership with the scale factor. It is known that local ownership is associated with local investment. We will assume that local capital ownership, which consists in part of local ownership of the housing stock, can be proxied by homeowner equity as a share of local. 
+
+
+
+
+
+\section{The cost of capital}
+
+The cost of capital is known to differ for rich and poor. In our model we  tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ , and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
+Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+\begin{figure}[htbp]
+\begin{center}
+\input{fig/price_of_capital.tex}% Figure of cost of borrowing
+\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
+\label{Fig:BorrowingCost}
+\end{center}
+\end{figure}
+If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
+ 
+The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy. 
+
+%The model has been set up so that all of a workers's  income is spent on  basic living costs, $\omega$, transportation $td$ or rent. Disposable income for agent $i$ is therefore just the return  $\omega W_i$ on  financial assets.  
+
+\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca} 
+
+
+
+\section{Model Steps - Housing market}
 
 
 at every time step 
@@ -622,16 +664,5 @@ at every time step
 
 Workers give up their search and leave the city if they do not find a housing unit 
 
-\section{The cost of capital}
-The cost of capital is known to differ for rich and poor. Say, for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
- \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the effect.\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca} 
+\textbf{$\input{notes_and_references/z Background rough notes - rent history etc.tex}$ 
 
-\begin{figure}[htbp]
-\begin{center}
-\input{fig/SA_PriceOfCapital.tex}% Figure of cost of borrowing
-\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
-%\caption{Hypothetical wealth-dependent borrowing cost}
-\label{Fig:BorrowingCost}
-\end{center}
-\end{figure}%
