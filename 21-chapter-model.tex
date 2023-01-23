@@ -2,71 +2,114 @@
 \epigraph{“An economist is someone who says, when an idea works in practice, ‘let’s see if it works in theory.'”
 — Walter W. Heller, former chairman of the Council of Economic Advisers.}{ Walter W. Heller, former chairman of the Council of Economic Advisers. (\href{https://quoteinvestigator.com/2015/08/30/practice/}{1979, The Washington Star)}}
 
-This chapter links the theoretical discussions of the previous chapters with the agent-based model. It is intended to explain the code and justify the modelling decisions that link the theory to the actual output of the simulations.
+
+\newcommand{\ee}[1]{\color{red}#1 \color{black}}
+
+This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. The chapter is intended to explain the code and justify the modeling decisions that link the theory to the actual output of the simulations.
 
 \section{The general structure of the model}
-Our model has three major components: first, a production function, modeling how urban regions generate wealth,  second a spatial model of an urban housing market, and third, an analysis of distribution within that model that incorporates the financial system
+Our model has three major components: first, a production function, modeling how urban regions generate wealth,  second a spatial model of an urban housing market, and third, an analysis of distribution within that model that incorporates the financial system.
 
+ \ee{
+The social structure of the model begins with  three spatially segregated ``classes.'' Capitalists live in some spaceless utopia, urban workers who commute and earn wages $\omega + w$ in the urban commuter-shed, and  rural landowners who may choose to move to the city. %There may be a band surrounding the city or persons who do not commute but enjoy urban consumption amenities. 
 
-\begin{enumerate}
-    \item to introduce  the productive nature of cities we  assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. Given  that the scaling literature gives us an estimate of the economies of scale in a production function this allows us to simplify the model and focus on the features of the urban system rather than on fully specifying a production system. In our model, the city  exhibits economies of scale with respect to population. 
-    \[Y\propto N^{\beta}\]  
-    where $\beta >1$, which implies, in the equilibrium of the neoclassical distribution model, that the wage premium is also proportional to population:
-\[\omega\propto N^{\beta-1}\]  
+As the model develops, we introduce a land market and allow  the initial urban residents  to retire. They may then  sell or rent out their properties. This introduces a fourth class, the urban tenant. The final agent we add is a bank that represents 
+the financial sector, providing mortgage funds and actively purchasing land as a financial asset.
+}
 
-
-We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market despite  the fact that we  model it as a monopsonist. % a single buyer
-
-Labour demand is a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. 
-
-The firm adjusts its labour force upward when the marginal product of labour is greater than the wage. 
-
-It adjusts the wage upward when the marginal product of labour is greater than the wage \textbf{and} it faces a labour shortage. 
-
-Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
-
-the details of the adjustment process and the system lags are selected for 
-
-
-    
-
-     \item  the  productivity of the city generates an economic value for land that gives rise to rents.
-
-     
-
-    \item  the rental value of land structures the spatial structure of the city. Specifically, all land with positive net rents will be occupied.  A rising wage will attract new residents , which will i 
-    \item we exploit the rent model and transport costs to get  distributional consequences
-\end{enumerate}
-
-
-
-
+\section{Modelling} 
 \subsection{Time}
 We imagine the initial set of workers in our city commuting daily, being paid monthly and residing in urban housing for their working lives, which are arbitrarily set. The computational cycle is a year, so all time-dependent variables, such as  wage, transportation cost, and interest rates, are specified for the yearly interval. 
 
-When agents reach the end of their set working lives they retire. It is trivially easy to introduce random life events, but  They may sell their homes and either leave the city of move to cheaper housing.  New entrants to the labour force come from outside of the city at various stages in their life-cycle and either buy or rent. homes 
+
+\subsection{Initializing}
+Initially, all homes are owner-occupied. This is of interest  as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. Other initial tenure mixtures are easily modelled.
+
+We also start with owners who have a long run before retirement. The housing market is suppressed during the initialisation runs. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
+
+
+When agents reach the end of their set working lives they retire. It is trivially easy to introduce random life events, but  They may sell their homes and either leave the city or move to cheaper housing.  New entrants to the labour force come from outside of the city at various stages in their life cycle and either buy or rent. homes 
 
 
 
-\subsection{Ownership}
-Initially, all homes are owner occupied. This is of interest society of as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. Other initial tenure mixtures are easily modelled.
+\subsection{Production}
+To introduce  the productive nature of cities we  assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. We treat the estimated scaling relationship as a production function. This allows us to focus on the results of agglomeration in the urban system rather than specifying the system of firms  that transmit the effect. Urban output is more than proportional to urban population: 
+
+ \begin{equation}
+ Y\propto N^{\beta} \label{Y}
+ \end{equation}
+
+where $\beta >1$.  Equation~\ref{Y} implies , according to neoclassical distribution theory, that the wage premium is increasing in urban  population:
+
+\begin{equation}
+\omega\propto N^{\beta-1} \label{MPL}
+\end{equation}
+ 
+
+Equation~\ref{MPL} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is  consistent with the discussion of endogenous growth theory in Chapter (Growth), which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
+
+
+
+
+We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite  the fact that we  model it as a monopsonist.\footnote{Explicitly modelling labour markets with multiple firms is a natural way to specify the model more completely, but it would require introducing many ancillary assumptions and selecting among alternative models of agglomeration, when when we want to focus on distributional and growth-affecting features of the system.}
+
+
+
+\subsection{Labour market}
+Labour demand is a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically  hiring proceeds until the marginal product of labour  is equal to the wage.
+
+The firm adjusts its labour force upward when the marginal product of labour is greater than the wage by selecting from its list of job applicants.
+
+
+The firm adjusts its wage offer upward when the marginal product of labour is greater than the wage \textbf{and} it faces a labour shortage.  Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
+
+{\color{red}The details of the adjustment process and the system lags are selected primarily for convenience in simulations. Real-time lags are important and complex, so some sensitivity results will be explored.}
+
+There is no unemployment. there are no labour adjustment costs for firms.
+
+
+
+
+
+
+
+\subsection{Migration equilibrium}
+The  productivity of the city attracts people.  In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent  on the marginal unit of housing or land exceeds the transportation cost. This is the  standard urban population equilibrium condition. 
+   
+The growth of population feeds back into productivity. We allow rising population to directly increase the wage.  We model a fairly short lag although in reality lags are long and variable. 
+
+
+\subsection{Rent}
+Rising population and productivity generates an economic value for land that provides proximity to the production center. Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. This quantity is a locational rent. The capitalized value of the locational rent is the property value.\footnote{Note that property taxes reduce the amount of the net locational value that flows to an owner but provides services and wages that make the city attractive. We omit these refinements in this study.}
+
+     
+
+The rental value of land shapes the city spatially.  We consider a homogeneous city - a single wage, identical preferences, uniform identical transportation costs, identical lot sizes.)
+
+\subsection{The housing market}
+Agents enter the urban market two ways. If wages rise, agents just outside the city may become commuters. This increases population. 
+
+When homeowners in the city   retire they sell their home and move to the country. This allows them  to enjoy the capital value of their home.  They either sell their home or rent it to a new occupant. 
+
+When  tenants  in the city  retire they would move to the country to enjoy lower rents. This has no effect on population. It is simplest, therefore to treat tenants as permanent residents unless we want the tenant's  retirement to trigger an event like a rent increase or a decision by the owner to sell the property.
 
 
 
 \subsection{Home prices}
 The underlying value of a home is the capitalized value of the urban rents, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents should be capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
 
-There are reasons to expect the results obtained with  forward-looking agents to differ substantially from those obtained with a model featuring myopic agents. For example, Lecca et al. (2013) used a stylized computational macroeconomic model applicable to a regional context to demonstrate that the assumption of myopic vs forward-looking agents yields differences in the dynamics generated by a shock perturbing the initial steady state, even though the alternative paths lead to the same long-run equilibrium.1
+There are reasons to expect the results obtained with  forward-looking agents to differ substantially from those obtained with a model featuring myopic agents.\footnote{For example, Lecca et al. (2013) used a stylized computational macroeconomic model applicable to a regional context to demonstrate that the assumption of myopic vs forward-looking agents yields differences in the dynamics generated by a shock perturbing the initial steady state, even though the alternative paths lead to the same long-run equilibrium.} We 
 
 
 
  
+\ee{ MOVE TO PRODUCTION CHAPTER?
 
-In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. The basic scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms.\footnote{Explicitly modeling labour markets and firms is a natural way to specify the model more completely, but it would require introducing many ancillary assumptions and selecting among alternative models of agglomeration, when when we want to focus on distributional and growth-affecting features of the system.}
+In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. The basic scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms.
+}
 
-
-\section{??}
-In this section, we introduce the basic structure of the model and examine the effect of agglomeration, using a circular city model. In subsequent sections we relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
+\section{Experiments}
+In this section, ] examine the effect of agglomeration, using a circular city model. In subsequent sections we relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
 
 % In this section we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
 %(Derivation details in section \ref{Sec:Derivations})
@@ -106,12 +149,6 @@ In the circular city with linear transportation costs, the maximum rent that cou
 
 Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. % Rents may also be taxed, could be shared between multiple owners, etc.
 
-\subsection{Production}
-
-The production economy is what generates a surplus.  This means we have a production/production economy. %, while many models of wealth distibution look at capital and financial markets, 
-%Demand for the urban product is perfectly elastic and the price per unit is 1. 
-We consider firms selling into a large/comodity market, so demand is elastic, and selling more won't affect the product's price. %This means each new worker increases output by less than the last worker did,
-There are decreasing returns to scale. The marginal product of labour declines monotonically. There is no frictional unemployment, and no labour adjustment costs.   % Note in the agent model - employees are simply laid off and seek work, so there is unemployment, but not labour adjustment costs for firms.
 
 
 
@@ -137,13 +174,12 @@ We take a step beyond integrating labour markets in a city, to studying the dist
 %In subsequent sections we relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
 In the next chapter we will integrate a version of this production model in a spatially explicit agent based model with financialized investment. 
 
-This model has two parts, first a production function, modelling how urban regions generate wealth, and second a model of an urban housing market. 
+This model has three  parts, first a production function, modelling how urban regions generate wealth, and second a model of an urban housing market, and finally, a financial sector that can participate in the market . 
 In this section, we introduce the basic structure of the model and examine the effect of agglomeration, using a circular city model.  
-\textbf{The model has a Solow-Swan style production model with agglomeration effects using a Cobb-Douglas production function that incorporates Jacobs-style labour-augmenting agglomeration economies 
-%(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
+\textbf{The model has a Solow-Swan style production model with agglomeration effects using a Cobb-Douglas production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
 in the way neoclassical growth theory incorporates labour-augmenting technical change.}
 It then integrates the production function with an Alonso-style urban model of a city economy (Alonso 1964). 
-It is a model of a productive economy since the centre is productive and demands labour.
+It is a model of a productive urban economy since the centre is productive and demands labour.
 
 % Alternative phrasing 
 %We integrate a labour market into a spatial urban model, set up to explore rent, and implications for the distribution of wealth.
