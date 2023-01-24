@@ -15,58 +15,6 @@
 %     print("Compound Interest: ", ci)
  
 
-\section{TRANSPORTATION COSTS}
-Transport costs have two parts -  
-1) fuel and vehicle costs per km
-2) time costs per km
-
-
-\subsection{vehicle related costs}
-param: \textbf{work trips per year} 2way*5 days/weeK*50 weeks work days= 500. [range: 450-550]
-
-
-param: \textbf{cost per km}. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
-
-param: \textbf{cost per km-year} = work trips per year*cost per km
-
-=\$0.59/km*500 trips/year  =  \$295/km year 
-
-\subsection{time costs}
-param: \textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
-
-
-
-(New York rush hours" 4-9km/hr ->6-15 min/km)
-
-
-param: \textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
- 
-param: \textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
-
-
-param: \textbf{money cost of time per km year} =time cost per km-year* wage(including subsistance = 0.012 year* wage per year
-
-
-
-\subsection{total cost per km year of commuting for one agent}
-
-\textbf{money cost of time per km year + \$295/km year * distance} = (0.012 w+ \$295)/km year 
-
-\subsection{Example}
-To get a sense of the required wage, assume city\_extent $d^*$ is 30 km \
-
-\[(0.012 w+ \$295)/km year)*30 =  w\] 
-
-\[.36w+ 8850=w\]
-
-$w=13828.12$
-
-\textbf{PLAUSIBILITY CHECK}
-This is plausible land rent, but does not include building rent
-
-Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap hose 30 miles form city centre
-
-
 \section{Notation Table}
 
 \input{notes_and_references/Notation.tex}
@@ -77,37 +25,101 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap hose 30 miles 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
 symbol  & name              & value&formula  \\ \hline
-m       & borrowing-ratio   & .75-.85 &$M/P_{ask?}$  \\
-IS&Income share for housing debt&0.25-0.35&missing?\\
+$m_i$       & individual borrowing-ratio   & .75-.85 &. $M/P_{ask?}$  \\
+$M^{max}_Yi$. &Maximum mortgage based on income && $\frac{0.28(\omega+w)}{r_i}$\\
+ $M^{max}_P$ $& Maximum mortgage based on the price & & $0.8P_0$\\
+IS&Income share for housing debt&0.25...0.35& missing?\\
 $\rho   $&rent-ratio        & & $\frac{\omega-t*d_i}{P_0}$\\
 $\kappa $&operations ratio  &0.1-0.3& e.g. $ 0.2\frac{\omega-t*d_i}{P_0}$\\
     t       &tax ratio      & 0.25-0.35 &e.g. $ 0.3\frac{\omega-t*d_i}{P_0}$\\
 $\dot p $ &price\_growth &[] & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-$\delta_i$ & discount factor for T& & $\left(\frac{1}{1+r_i}\right)^T$ \\
-$r$     &prime interest rate??       &&\\
-$r_i$   & individual-borrowing-ratio & &\\
+$P^e_T$ & Expected price in T years&&=$P_0(1+\dot p)^T$\\
+$r^{disc}_i$&individual discount rate& &to assign \\
+$\bar r$     &prime interest rate       &&\\
+$r_{target}$ & Investor/bank target rate\\
+$r_i$   & individual borrowing-rate  &&\\
+$\delta_i$ & discount factor for T& &$\left(\frac{1}{1+r^{disc}_i}\right)^T$ \\
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
 
 
 
+\section{TRANSPORTATION COSTS}
+Transport costs have two parts -  
+1) fuel and vehicle costs per km
+2) time costs per km
+
+
+\subsection{vehicle related costs}
+WE need a time interval. I have been thinking of one year as the wage period. This means transportation costs per km have to be converted to annual cost if they are to be considered in the household budget. We will start with a cost per km and calculate a cost per year
+
+\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
+
+ \textbf{work trips per year} 2way*5 days/weeK*50 weeks work days= 500. [range: 450-550]
+
+\textbf{cost per km-year} = work trips per year*cost per km
+
+=\$0.59/km*500 trips/year  =  \$295/km year 
+
+
+
+\subsection{time costs}
+\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
+
+(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
+
+\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
+ 
+\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
+
+\textbf{money cost of time per km year} 
+
+=time cost per km-year* wage(including subsistance) 
+
+= 0.012 year* wage per year
+
+\subsection{total cost per km year of commuting for one agent}
+\textbf{money cost of time per km year + \$295/km year * distance} \\
+= (0.012 w+ \$295)/km year 
+    \begin{quotation}
+    \textbf{Example}
+    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is  eual to the wage
+
+\[(0.012 w+ \$295)/km year)*30 =  w\] 
+\[.36w+ 8850=w\]
+\[w=13828.12\]
+        \begin{quotation}
+        \textbf{PLAUSIBILITY CHECK}
+This is plausible land rent, but does not include building rent. 
+Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap hose 30 miles from city centre
+        \end{quotation}
+    \end{quotation}
+
+{\color{red}
+\subsection{Value of $t$ to use in model}
+\[ \leftharpoonup=(0.012 w+ \$295)/km year \]}
+
 
 \subsection{Incorporating growth and discounting}
 We need a time period T for calculations. For use in any calculation, the rates $\delta,\ t,\ r_i$ have to be adjusted to the period.
 
-For example, say we use  a 5 year period as the mortgage term, and the current price is $P_0$,
-
-if we want the expected price in  T years   with a price growth rate of $\dot p$ /year 
+For example, say we use  a 5 year period as the mortgage term, and the current price is $P_0$, If we want the expected price in  T years   with a price-growth rate of $\dot p$ /year, the formula is 
 \[P^e_T=P_0(1+\dot p)^T\]
+The T-year growth rate is $(1+\dot p)^T$. If, for example, $\dot p= 0.1$, or 10 \%, The growth  over a 5-year mortgage term or capital gain, would be 0.61051 or 60\% of the original price.
+
+Similarly, if we want the compounded interest rate for person $i$ the term T,
+\[Rate_i^T=(1+r_i)^T\]
+This is the value we use in equation~\ref{EqBidPrice}.
+
 
 If person $i$  discounts at $discr_i$, the present value of  a receipt at time $T$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
 
 \[\delta_i^T= \left( \frac{1}{1+discr_i} \right)^T \]
 %\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+discr_i} \right)^\tau \]
  
-These can be combined into a funtion %\deltathat  gives  a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
+These can be combined into a function %\deltathat  gives  a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
 \[ PDV(P^e_T)=P_0\left( \frac{1+\dot p}{1+discr} \right)^T \]
-This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a a single operation. 
+This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation. 
 
 
 
@@ -163,10 +175,10 @@ v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + NR \nonumber\\
 \end{eqnarray}
 
 
-So I want to use this relationship to find the maximum bid price for the bank. The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid the bid that makes the two sides equal. 
+So I want to use this relationship to find the maximum bid price for the bank. The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
 \begin{eqnarray}
 r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumber\\
-   P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)}  
+   P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
 \end{eqnarray}
 (What makes. this work is that I do not use an identity to get
 $\dot p$, which made the system of equations singular.)
@@ -176,7 +188,7 @@ Taking the expression for $P^{max}_{bid}$, we now discuss each of the terms and 
 \[\frac{B4.1-B4.2}{B4.3\left( (1+B4.4 - (1+B4.5)B4.6\right)}\]
 
 \subsection{Computing the target interest rate, $r_{target}$}
-prime rate plus a margin required by the bank.  Question: do non bank ac tors have such a term?
+prime rate plus a margin required by the bank.  Question: do non-bank actors have such a term?
 
 \textbf{CODE:}   self.get-target-interest-rate(buyer).
 
@@ -251,14 +263,14 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.
 \begin{tikzpicture}[scale=.5]
 %\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
 %\def\bndmin{0.2}
-\def \Y {10}  % height of y axis pecent
-\def \W {20}  % length  of x axis
-\def \Wbar {4} % meam wealth
-\def \rbar {8}% this is the prime rate
+\def\Y{10}  % height of y axis pecent
+\def\W{20}  % length  of x axis
+\def\Wbar{4} % meam wealth
+\def\rbar{8}% this is the prime rate
 
 % %Equation   \[ r_i = (A + .5 \frac{\bar{W}}{W_i})\omega\]
-    \def \Wmin{.63}  %This sets the lower limit fo the 
-    \def \Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds
+   % \def\Wmin{.63}  %This sets the lower limit fo the 
+    \def\Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds
 	
  \tikzset{func/.style={thick,color=blue!90}}	
 
@@ -270,7 +282,7 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.
 \draw[func,domain=\Wmin:\W] plot [samples=200] (\x,{(9-\x^.5/2});
 
 % \def \A {.8}
-% \draw[func,domain=\Wmin:\W, green] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\rbar});
+% \draw[func,domain=\Wmin:\W, green] plot [samples=200] (\x,{(\A+\B*\\Wbar/\x)*\rbar});
 
 % \def \A {1}
 % \def \B {.8}
@@ -287,13 +299,10 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.
 
 
 \subsection{Computing the individual borrowing rate, $r_i$}
-In our model, we  tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{Fig:Borrowingrate} illustrates a couple of possible  cost-of-borrowing models roughly consistent  with the stylized facts about lendeers. 
+In our model, we  tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ or the bank's target rate, $r_{target}$, prime plus 1\%, say. and to individual wealth. Figure~\ref{Fig:Borrowingrate} illustrates a couple of possible  cost-of-borrowing models roughly consistent  with the stylized facts about lenders. 
  \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. 
 
-(I found an easier equation to work with below)
-
-I think $\bar r$ is just the bank rate set by the Bank of Canada. Exogenous. Just define it. It could be the bank's target rate, prime plus 1\%, say.
 
 Here is a function for  the individual interest rate
 
@@ -337,10 +346,8 @@ Here is a function for  the individual interest rate
 \end{figure}
 
 
-\textbf{CODE:}  
-
 TESTING another function
-%\[ r_i  = (\rbar- A + B \frac{\barW}{W_i-C})\]  
+\[ r_i  = (\bar r- A + B *\frac{\bar W}{W_i-C}) \]  
 where A= y-shift, B= scale, and C= x-shift for the curve.
 
 \begin{figure}
@@ -370,8 +377,11 @@ where A= y-shift, B= scale, and C= x-shift for the curve.
 \node  [align=left, text width =2cm ] at (13, 8.3) {\small y-shift=\A \newline scale=\B \newline x-shift= \C};
 
  \end{tikzpicture}
-\caption{Individual borrowing cost as a function of wealth}
+\caption{Individual borrowing cost as a function of wealth II}
 \label{Fig:Borrowingrate}
 \end{figure}
 
+
+
+\textbf{CODE:}  
 

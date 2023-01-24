@@ -15,27 +15,26 @@
 t is time
 TODO - uncomment the commented out ones with fraction- unidentified control sequence
 
-
 delta is density ** - - infitesmal density increase as the city moves out. [[adjustment speed for wage N]] imagine a density function over the city. 
-using the gemetry for the derivative of that with respect - how does it change if you increase the amount under the integral, wehre does it go..  - in cont terms.  
+using the geometry for the derivative of that with respect - how does it change if you increase the amount under the integral, wehre does it go..  - in cont terms.  
 
 N is population, n
-d is diameterhttps://www.overleaf.com/project/606a6b286ae1c9f203fadab5
-omega is wage premium - which gives the gives the parented population
-tau is lin transport cossgt per unit distance
+d is diameter %(https://www.overleaf.com/project/606a6b286ae1c9f203fadab5 ). \\
+omega is wage premium - which gives  the parented population
+tau is linear transport cost per unit distance
 
 
 
 \begin{longtable}{lp{10cm}}
-%\caption{Notation}\\
+\caption{Notation}\\
 \hline
 		&\textbf{Productivity}\\ \hline
 $K$  &  Capital\\
 $n_i$  &  Number of workers employed by firm $i$\\
 $n=\sum_i n_i$  &  Labour = (population)\\
 $\#f=\frac{n}{n_i}$&number of identical firms\\ %not used
-%$f$  &  Number of firms\\
-%$n =f n_i$  &  Aggregate labour \\
+$f$  &  Number of firms. =1\\
+$n =f n_i$  &  Aggregate labour \\
 $\Lambda(n)$  &  Labour-augmenting agglomeration effect \\
 % $n^\gamma$ & The labour-augmenting agglomeration effect,  modelled as an expontial function of the number of people \\
 $\Lambda(n)n_i$  &  Effective labour for a firm\\
@@ -62,14 +61,17 @@ $A(d, n)$   &  Agglomeration amenity\\
 $\psi$  &  Rural wage\\
 $\psi$  &  ?Per-period cost of a unit of productive capital\\
 $w$     &  Urban wage premium\\
-$\tau$  &  Linear transportation cost per unit distance\\
+$\textit{t}$ & {\color{red}transportation cost per km}\\
+$\tau$  &  annual  transportation cost per km \\
 $w^n=w-\tau d$ & wage  premium net of transportation costs\\
+ {\color{red}Rent(d)}& rent  at d = $w^n=w-\tau d$\\ 
 $\psi + w$  &  Urban wage\\
 $\Omega=\frac{w+\psi}{\psi}$  &  Ratio of the urban wage to the  cost of capital\\
 $\pi$	 & profit\\
 $ER$	& Excess return to capital\\
 \hline
 		&\textbf{Spatial structure in the circular city}\\ \hline		
+$density(d)$ & {\color{red}Density at distance d}\\
 $d$  &  Distance of a residence from the centre of the city\\
 $d^* = w/\tau$  &  Maximum distance commuters will travel to get the wage premium\\
 $d^{max} = w/\tau$  &  Maximum distance commuters at which residents enjoy the urban amenity\\
@@ -80,16 +82,31 @@ $U^{urban}=U^{rural} $  &   Migration equilibrium assumption\\
 \hline
 		& \textbf{Labour market}\\ \hline
 $L= \frac{\pi}{s}(\frac{w}{\tau})^2 = n$  &  
-Labour supply, the number of workers, which equals the number of lots of size $s$ in the standard circular city model when workers live on identical individual lots\\%Unless $d^{max}>d^*$
+Labour supply, the number of workers, which equals the number of lots of size $s$ in the standard circular city model when workers live on identical individual lots\\ %Unless $d^{max}>d^*$
 \hline
+{\color{red}$t$} &time subscript \\ \hline
 
-
+	& \color{red}\textbf{financial market}\\ \hline
+$\bar r$    &  prime rate \\
+$r_{target}$ & Investor or banks target rate $\bar r + margin$\\
+$\dot p$ & rate of price growth\\
+$r_i$ & $i$'s personal borrowing rate (possibly $r_i$\\
+$r_i^{disc}$ & i's personal discount rate (possibly $r_i$)\\
+$\delta_i^T$ & i's personal discount factor for a period $T$\\
+$m_i(W_i)$  &  Share of home price i can mortgage(see below)\\
+$IS_i(W_i)$  &  Share of home price i can mortgage(see below)\\
+$\rho$  &  rent ratio\\
+$\kappa$  &  operations ratio\\
+$t$     & tax ratio\\
+\hline
+\color{black}
 \end{longtable}  
+
 %%\item[$$]
 %%\item[$$]
 %%\item[$$]
 %Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainment, diet and consumption pattern. We  choose units so that per-period cost of a unit of productive capital is also $\psi$
-\section*{Additional Assumptions}
+\section{Additional Assumptions}
 \begin{enumerate}
 \item There is full employment, no frictional unemployment, and no labour adjustment costs.
 \item Firms set output and factor inputs to maximize profits, so factors are paid the value of their marginal private product
