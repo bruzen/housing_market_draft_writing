@@ -14,9 +14,8 @@ Solow argued ``As a result of exogenous population growth the labor force increa
   \[L(t)= L_0e^{nt}\] 
 If we insert this term into the production function 
  \begin{eqnarray}
- Y&=cK^\alpha (L_0e^{nt})^\beta\\
-    &=c(e^{nt})^{\beta}K^\alpha L^\beta\\
-  %  &=A(t)K^\alpha L^{1-\alpha} \label{Eq:Solow}
+ Y&=AK^\alpha (L_0e^{nt})^\beta\nonumber\\
+    &=A(e^{nt})^{\beta}K^\alpha L^\beta\label{Eq:3Solow}
  \end{eqnarray}
 we see that $A$ becomes
  \[A(t)=c(e^{nt})^\beta\]
@@ -114,11 +113,12 @@ This observation provides a natural link to the scaling literature on cities.
 \section{Cities and the scaling literature}
 Neoclassical production theory does not address the spatial structure of the economy. Why are there cities? What drives the historic transition from land-based agricultural society to a much denser urban society? 
 
-In The Economy of Cities (1969) Jane Jacobs argued that when people come together in cities they make each other more productive. This is in essence, a theory of urban agglomeration that could be written
+In The Economy of Cities (1969) Jane Jacobs argued that when people come together in cities they make each other more productive. This is in essence, a theory of urban agglomeration that can be written
+
 \begin{equation}\label{eq:LtoN}
 Y = A(t) K(t)^\alpha L^\beta 
 \end{equation}
-where $L$ stands for the size of the urban labour force. Since urban labour force and population are closely correlated, the familiar model is  observationally equivalent to
+where $L$ stands for the size of the urban labour force. Since urban labour force and population are closely correlated, the familiar model is observationally equivalent to
 \begin{equation}\label{eq:N2}
 Y = A(t)N^{\alpha+\beta}
 \end{equation}
@@ -130,7 +130,7 @@ But  $dc^\alpha$ and $c^\beta$  are simply  multiplicative constants that can be
 
 A model of a national economy that uses the number of urban dwellers would track as well as one using the number employed. As countries develop, cities account for an ever-increasing share of  national populations and an ever-increasing share of national income.  This is  even more likely when we recall that the principle insights coming out of neoclassical growth theory point to human capital and education as the mystery factor in growth and cities are where the most skilled workers concentrate and where the strongest educational institutions tend to be. The mysterious contribution to growth pursued in the previous sections might  actually be a consequence of urbanization.
 
-We have conventional diminishing returns to scale  if we impose the standard neoclassical assumption on the Cobb Douglas production function, 
+We have conventional diminishing returns to scale  if we impose the standard neoclassical assumption on the Cobb-Douglas production function, 
 $\alpha +\beta <1 $.\footnote{
 The required condition is that 
 $Y(\delta K,\delta L< \delta Y(K,L)$. 
@@ -140,16 +140,21 @@ That leaves us with a question: what do we need for Equation~\ref{eq:N1} to repr
 
 The answer lies in making the synergies that Jacobs point to explicit: we require $N$ to generate a spillover effect similar to those  identified in neoclassical growth theory. There are three obvious generic ways to introduce such a term: $N$ can augment $A$, $K$, or $L$, 
 
-NEEDS ALIGNMENT
-  
-\[Y = A*N^\gamma K^\alpha N^\beta= AK^\alpha N^{\beta+\gamma}\]
-\[Y = A (N^\gamma* K)^\alpha  N^\beta= AK^\alpha N^{\beta+\gamma^\alpha}\]
-\[Y = A K^\alpha (N^\gamma* N)^\beta= AK^\alpha N^{\beta+\gamma}\]
+\begin{equation}
+  y=\left\{
+  \begin{array}{l}
+    A (N^\gamma* K)^\alpha  N^\beta\\
+    A K^\alpha (N^\gamma* N)^\beta
+  \end{array}
+     (A*N^\gamma) K^\alpha N^\beta\\
+  \right\} =  AK^\alpha N^\phi
+\end{equation}    
+% \[Y = A*N^\gamma K^\alpha N^\beta= AK^\alpha N^{\beta+\gamma}\]
+% \[Y = A (N^\gamma* K)^\alpha  N^\beta= AK^\alpha N^{\beta+\gamma^\alpha}\]
+% \[Y = A K^\alpha (N^\gamma* N)^\beta= AK^\alpha N^{\beta+\gamma}\]
+Where $\phi=\beta +\gamma$ or $\beta +\gamma^\alpha$. Each of these yields an exponent on $N$ that may be greater than one, consistent with both Jacobs and neoclassical growth theory. 
 
-Each of these yields a form of
-\[Y = AN^\psi\]
-where $\psi> \alpha +\beta$ and may be greater than one. 
-The question now is whether we can find estimates of $\psi$.
+The question now is whether we can find estimates of t.
 
 The evidence we need comes from another field. Complex systems theory is concerned with identifying and characterizing common design elements that are observed across diverse natural, technological and social complex systems. It focuses on general principles  identified in complex systems across many fields such as biology, physiology, ecology, stock markets, multi-user online  networks, data systems, human settlements, and urban systems.
 
@@ -157,15 +162,28 @@ Scaling analysis is a tool developed in complex systems science to investigate h
 
 The model used is familiar. Omitting subscripts for time, $t$ and city, $i$, \footnote{Bettancourt (2021) writes the model \[Y_i = Y_0(t)N_i(t)^\beta e^{\xi(t)}\]. }
 \[Y = Y_0e^{n(t)}N^\beta\]
-where $Y_0$ is an initial value. Notice that this looks exactly like the form that we saw in the 
+where $Y_0$ is an initial value (a constant). Notice that this looks exactly like the form that we saw in the 
 Solow-Swan model with the transform from $K^\alpha L^\beta$ to $N$.  The interpretation is different because the model is used to estimate the parameter $\beta$ and $e^{n(t)}$ is described  as an error term of the form commonly used in estimating multiplicative time-series models. As a result estimates of $\beta$  can be used as estimates  of $\psi$.
 
-\vspace{1cm}
-\textbf{\Large COPY BOTTOM FIVE ROWS OF TABLE ON BETTANCOURT PAGE 67}  
-
+ 
+\begin{table}[htb]\small
+    \centering
+    \begin{tabular}{|p{1.5cm}|l|l|p{1.5cm}|p{1.4cm}|p{1.cm}|l|p{2.5cm}|}\hline
+  \textbf{Social Rates}& \textbf{Exponent}&\textbf{Error}& \textbf{Nation} & \textbf{Obser-vations} &\textbf{Year} & \textbf{Unit} & \textbf{Reference}\\ \hline   
+GDP             & 1.13 & [1.11, 1.15]  & US        & 363 & 2006 & MSA & Bettencourt (2013) \\ \hline
+GDP             &1.17  & [1.11, 1.22]  & EU        & 102 & & MA  & Bettencourt \& Lobo  (2016)\\ \hline
+GDP             & 1.22 & [1.17, 1.27]  & China   & 293 & 1996-2014&  prefectural & Zund \& Bettencourt (2019)\\ \hline
+GDP             & 1.14 & [0.98, 1.30]  & India      & 22 & 2011 & UAs   & Sahasranaman \& Bettencourt (2019)\\ \hline
+Personal income & 1.1  & [1.03, 1.20]  &Brazil       & 39 & 2010  & MAs  & Breisford et al.  (2017) \\ \hline
+Personal income & 1.35 & [1.19, 1.53]  &South Africa & 8 & 2001 & MMs  & Breisford et al.  (2017)   \\ \hline
+    \end{tabular}
+    \caption{Observed scaling exponents for urban systems around the world}
+    \label{tab:my_label}
+    \small Source: Bettencourt, table 3.1
+\end{table}
 
 \vspace{2cm}
-The empirical scale factor is a feature of urban systems on average, but, as we have seen it is essentially a growth model. If the population rises, output must rise more than proportionately, but if the population responds to the wage premium, the population should then rise. 
+The empirical scale factor is a feature of urban systems on average, but, as we have seen it is essentially a growth model. If the population rises, the output must rise more than proportionately, but if the population responds to the wage premium, the population should then rise. 
 
 Much of growth theory was concerned with identifying the dynamics of such systems and in particular with the implications for the growth of incomes. Early models employ a macroeconomic savings function which usually has a fixed savings rate, with savings being reinvested in productive capital. Later models endogenize the savings-investment process. The growth models, however, were not spatial models, and therefore abstracted from land rents and distribution. They have nothing to say about the distribution of city product and the effect that distribution might have on growth. In moving the focus to cities, however, it will be necessary to develop can analysis of city-level saving and investment. 
 
@@ -284,7 +302,7 @@ Notice that this model ascribes all agglomeration effects to labour rather than 
 Profit maximizing firms  set the marginal value product of labour, $p\frac{\partial Y_i}{\partial n_i}$, equal to the wage. The marginal product of labour, however,  is complicated by the presence of the  agglomeration effect, $A(\sum n_j)$:
 \begin{eqnarray} \frac{\partial Y_i}{\partial n_i} &=   K_i^\alpha \left(  \beta A n_i^{\beta-1}  + n_i^{\beta}A'  \right)  \nonumber\\
 &=   \beta\frac{1}{n_i} Y_i   +  Y_i \frac{A'}{A}  \nonumber\\
-&=   Y_i  \left[  \beta\frac{1}{n_i}  + \frac{A' }{A} \right]   \label{Eqn:MPL}
+&=   Y_i  \left[  \beta\frac{1}{n_i}  + \frac{A' }{A} \right]   \label{Eqn:3MPL}
 \end{eqnarray}
 The first term in the square bracket in Equation~\ref{Eqn:MPL} might be termed the \textbf{private myopic marginal product}. It is the addition to output directly attributable to an additional worker. This myopic MPL is smaller than the actual marginal product for the firm.  
 The second term in the bracket   is the marginal agglomeration effect. It captures the effect on firm-wide labour productivity -- an increase in effective labour --   that results from adding a worker. We can expect this to be very small.\footnote{Using the specification in Footnote~\ref{Fn:PSI}, $Lambda(n)=n^\psi$, it would be $\frac{\psi}{n}$. If f $\psi=0.1$ and $n=250,000$ the number is $\frac{A' }{A} =4\times 10^{-7}$.}% REVIEW THIS 

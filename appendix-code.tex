@@ -27,7 +27,7 @@
 symbol  & name              & value&formula  \\ \hline
 $m_i$       & individual borrowing-ratio   & .75-.85 &. $M/P_{ask?}$  \\
 $M^{max}_Yi$. &Maximum mortgage based on income && $\frac{0.28(\omega+w)}{r_i}$\\
- $M^{max}_P$ $& Maximum mortgage based on the price & & $0.8P_0$\\
+ $M^{max}_P$ & Maximum mortgage based on the price & & $0.8*P_0$\\
 IS&Income share for housing debt&0.25...0.35& missing?\\
 $\rho   $&rent-ratio        & & $\frac{\omega-t*d_i}{P_0}$\\
 $\kappa $&operations ratio  &0.1-0.3& e.g. $ 0.2\frac{\omega-t*d_i}{P_0}$\\
@@ -74,7 +74,7 @@ WE need a time interval. I have been thinking of one year as the wage period. Th
 
 \textbf{money cost of time per km year} 
 
-=time cost per km-year* wage(including subsistance) 
+=time cost per km-year* wage(including subsistence) 
 
 = 0.012 year* wage per year
 
@@ -97,7 +97,7 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap hose 30 miles 
 
 {\color{red}
 \subsection{Value of $t$ to use in model}
-\[ \leftharpoonup=(0.012 w+ \$295)/km year \]}
+\[ \tau\leftharpoonup=(0.012 w+ \$295)/km year \]}
 
 
 \subsection{Incorporating growth and discounting}
@@ -193,7 +193,7 @@ prime rate plus a margin required by the bank.  Question: do non-bank actors hav
 \textbf{CODE:}   self.get-target-interest-rate(buyer).
 
 
-\subsection{Computing net rent, $NR$}
+\subsection{Computing net rent, NR}
 Net rent is $(1-\kappa_j - t) (\omega-t*d_j)$
 
 
@@ -261,6 +261,7 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.
 
 \begin{figure}
 \begin{tikzpicture}[scale=.5]
+
 %\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
 %\def\bndmin{0.2}
 \def\Y{10}  % height of y axis pecent
@@ -278,19 +279,12 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.
  \draw [dashed, thick] (0,\rbar)node[left=.25cm]{$\bar r$} -- (\W,\rbar);  	% Axes
 \draw [thick,dashed] ( \Wbar,0)node[below=.5cm]{$\bar{W}$} -- (\Wbar,\Y);  	% Axes
 
-\foreach; \yi in {0,2,4,6,8,10} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};
-\draw[func,domain=\Wmin:\W] plot [samples=200] (\x,{(9-\x^.5/2});
+\foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};
+%\foreach \yi in {0,2,4,6,8,10} \draw (0,\yi)--(-.1,\yi));
+%node[left]{\small$\yi$};
+%\foreach \yi in {0,2,4,6,8,10}node at (-.1,yi) {{10*yi}} ;
+\draw[func,domain=0:\W] plot [samples=200] (\x,(9-\x^.5/2);
 
-% \def \A {.8}
-% \draw[func,domain=\Wmin:\W, green] plot [samples=200] (\x,{(\A+\B*\\Wbar/\x)*\rbar});
-
-% \def \A {1}
-% \def \B {.8}
-% \draw[func,domain=\Wmin:\W, red] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\rbar});
-
-% \draw [red,  thick](13, 9)--(15,9)node [right, black] {\small A=\ 1,\ B=0.8};
-% \draw [blue,  thick](13, 8.3)--(15,8.3)node [right, black] {\small A=\ 1,\ B=0.5};
-% \draw [green, thick](13, 7.6)--(15,7.6)node [right, black] {\small A=.8, B=0.8};
  \end{tikzpicture}
 \caption{Individual borrowing cost as a function of wealth}
  \label{Fig:Borrowingratio}
