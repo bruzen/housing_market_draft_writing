@@ -31,12 +31,12 @@ $M^{max}_Yi$. &Maximum mortgage based on income && $\frac{0.28(\omega+w)}{r_i}$\
 IS&Income share for housing debt&0.25...0.35& missing?\\
 $\rho   $&rent-ratio        & & $\frac{\omega-t*d_i}{P_0}$\\
 $\kappa $&operations ratio  &0.1-0.3& e.g. $ 0.2\frac{\omega-t*d_i}{P_0}$\\
-    t       &tax ratio      & 0.25-0.35 &e.g. $ 0.3\frac{\omega-t*d_i}{P_0}$\\
+$\sigma$      &tax ratio      & 0.25-0.35 &e.g. $ 0.3\frac{\omega-t*d_i}{P_0}$\\
 $\dot p $ &price\_growth &[] & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
 $P^e_T$ & Expected price in T years&&=$P_0(1+\dot p)^T$\\
 $r^{disc}_i$&individual discount rate& &to assign \\
 $\bar r$     &prime interest rate       &&\\
-$r_{target}$ & Investor/bank target rate\\
+$r_{target}$ & Investor/bank target rate && $\bar r + margin$\\
 $r_i$   & individual borrowing-rate  &&\\
 $\delta_i$ & discount factor for T& &$\left(\frac{1}{1+r^{disc}_i}\right)^T$ \\
 \end{tabular}

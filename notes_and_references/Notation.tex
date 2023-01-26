@@ -26,10 +26,11 @@ tau is linear transport cost per unit distance
 
 \newpage
 \begin{longtable}{lp{10cm}}
-\caption{Notation} \\ \hline
+\caption{Notation}                \\
 
-		   &  \textbf{Productivity} \\ \hline
-$K$       &  Capital \\
+
+\hline    &  \textbf{Productivity} \\ \hline
+$K$       &  Capital               \\
 % $n_i$  &  Number of workers employed by firm $i$ \\
 % n=\sum_i n_i$  &  Number of workers, the urban population in the model \\
 % $\#f=\frac{n}{n_i}$&number of identical firms \\ %not used
@@ -39,13 +40,11 @@ $K$       &  Capital \\
 % $n^\gamma$ & The labour-augmenting agglomeration effect,  modelled as an exponential function of the number of people \\
 % $\Lambda(n)n_i$ &  Effective labour for firm $i$ \\
 % $\Lambda'=\die{\Lambda(n)}{n} $ & Derivative of the labour-augmenting agglomeration effect\\
-$\alpha$  &  Elasticity of output with respect to capital \\
+$\alpha$  &  Elasticity of output with respect to capital          \\
 $\beta$   &  Elasticity of output with respect to effective labour \\
-$\gamma$  &  Elasticity of urban agglomeration, $\Lambda(n)$ for illustration \\
+$\gamma$  &  Elasticity of the urban agglomeration effect          \\ % , $\Lambda(n)$, for illustration \\
 %%$Y_i=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }$  &  Urban firm $i$'s output \\
-$Y=N^\gamma K^{\alpha }N^{\beta }$  &  Urban output \\
-
-
+$Y=N^\gamma K^{\alpha }N^{\beta }$  &  Urban output                \\
 %%$Y=\frac{n}{n_i}K_i^{\alpha }(\Lambda(\sum_i n_i)n_i)^{\beta }$  &  Aggregate output of all firms in the city \\
 % $\die{Y}{n}=\beta\frac{1}{n} Y  \left( 1+ \frac{n\Lambda'}{\Lambda} \right)$  &  Social marginal product of labour \\
 % $Y_i=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }$    &  Urban firm $i$'s output \\
@@ -54,52 +53,50 @@ $Y=N^\gamma K^{\alpha }N^{\beta }$  &  Urban output \\
 %%$\eta=\frac{n_i\Lambda'}{\Lambda}$  &   Marginal agglomeration effect on a firm's output of increasing it's own labour stock \\
 % \hline
 	% &\textbf{Amenity}\\ \hline
-$A(d, n)$   &  Agglomeration amenity \\
-$t$         &  Time subscript \\ \hline
+$A(d, n)$   &  Agglomeration amenity   \\
+$t$         &  Time subscript          \\
 
-            &  \textbf{Prices} \\ \hline
-$P$         &  property price \\
-$\dot p$    &  Rate of price growth \\
-$\psi$      &  Rural wage \\
+
+\hline      &  \textbf{Labour market}  \\ \hline %and urban stucture??
+$P$         &  Property price          \\
+$P^e_T$ & Expected price in T years    \\
+$\dot p$    &  Rate of price growth    \\
+$\psi$      &  Rural wage              \\
 % $\psi$  &  ?Per-period cost of a unit of productive capital \\
 $\omega$         &  Urban wage premium \\
-$\omega + \psi$  &  Urban wage including rural wage \\ %***
+% $\omega + \psi$  &  Urban wage including rural wage \\ %***
 % $\textit{t}$ & {\color{red}transportation cost per km} \\%use   c?
 $\tau$      &  Transportation cost per unit distance \\
 % $w^n=w-\tau d$ & Wage  premium net of transportation costs \\
-$\mathcal{R} = w-\tau d$ & Rent at distance d  \\ 
-%%$\Omega=\frac{w+\psi}{\psi}$  &  Ratio of the urban wage to the  cost of capital \\
-%%$\Pi$	   &  Profit \\
-%%$ER$	   &  Excess return to capital \\ 
-\hline
+$\mathcal{R} = w-\tau d$ & Rent at distance $d$  \\ 
+%% $\Omega=\frac{w+\psi}{\psi}$  &  Ratio of the urban wage to the  cost of capital \\
+%% $\Pi$	   &  Profit \\
+%% $ER$	   &  Excess return to capital \\ 
+% \hline &\textbf{Spatial structure in the circular city} \\ \hline		
+$d$             &  Distance of a residence from the centre of the city \\
+$d^* = w/\tau$  &  Maximum distance commuters will travel \\ % to get the wage premium \\
+$\zeta$         &  Population density at distance $d$ \\
+%% $d^{max} = w/\tau$  &  Maximum distance commuters at which residents enjoy the urban amenity \\
+%% $d^{**} = max(d^*, d^{max})$  &  radius of the city \\
+$s$             &  Lot size     \\
+%% $U$                     &  Worker utility **\\ %, a function of location and prices \\
+%% $U^{urban}=U^{rural} $  &  Migration equilibrium assumption ** \\
+% \hline & \textbf{Labour market} \\ 
+$L$            &  Labour supply \\ %the number of workers, which, in the standard circular city model, equals the number of lots of size $s$  when workers live on identical individual lots. % Unless $d^{max}>d^*$ v  \frac{\pi}{s}(\frac{w}{\tau})^2 =
+$N = L$        &  Population    \\
 
-           &\textbf{Spatial structure in the circular city} \\ \hline		
-$d$        &  Distance of a residence from the centre of the city \\
-$\zeta$    &  {\color{red}Population Density at distance d} \\
-$d^* = w/\tau$          &  Maximum distance commuters will travel to get the wage premium \\
-%%$d^{max} = w/\tau$  &  Maximum distance commuters at which residents enjoy the urban amenity \\
-%%$d^{**} = max(d^*, d^{max})$  &  radius of the city \\
-$s$                     &  Lot size \\
-$U$                     &  Worker utility \\%, a function of location and prices \\
-$U^{urban}=U^{rural} $  &  Migration equilibrium assumption \\
-\hline
 
-          & \textbf{Labour market} \\ \hline
-$L= \frac{\pi}{s}(\frac{w}{\tau})^2 = N$  &  
-Labour supply, the number of workers, which, in the standard circular city model, equals the number of lots of size $s$  when workers live on identical individual lots. % Unless $d^{max}>d^*$
-\\  \hline
-
-	& \textbf{Financial market} \\ \hline
-$\bar r$     &  Prime interest rate \\
-$r_{target}$ &  Investor or banks target interest rate $\bar r + margin$ \\
-$r =  r_i$        &  $i$'s personal borrowing rate (possibly $r_i$) \\
-$r_i^{disc}$ &  $i$'s subjective discount rate (possibly $r_i$)    \\
-$\delta = \delta_i^T$ &  $i$'s discount factor for a period $T$  \\
-$m = m_i(W_i)$   &  Wealth-based share of home price $i$ can mortgage(see below)  \\
-$IS_i(\omega+w$  &  Income-based share of home price $i$ can mortgage(see below)  \\
-$\rho$       &  Rent ratio \\
-$\kappa$     &  Operations ratio \\
-$\sigma$ (or considered $\chi \Gamma$   \rotatebox[origin=c]{180}{$t$} \reflectbox{$t$})  &  Property tax share  \\
+\hline       & \textbf{Financial market} \\ \hline
+$\bar r$     &  Prime interest rate      \\
+$r_{target}$ &  Investor or banks target interest, rate $\bar r + margin$ \\
+$r =  r_i$        &  $i$'s personal borrowing rate  \\
+$r_i^{disc}$ &  $i$'s subjective discount rate (possibly $r_i$)           \\
+$\delta = \delta_i^T$ &  $i$'s discount factor for a period $T$           \\
+$m = m_i(W_i)$   &  Wealth-based share of home price $i$ can mortgage     \\
+$IS_i(\omega+w$  &  Income-based share of home price $i$ can mortgage     \\
+$\rho$       &  Rent ratio             \\
+$\kappa$     &  Operations ratio       \\
+$\sigma$     &  Property tax share     \\ % (also considered $\chi \Gamma$  \rotatebox[origin=c]{180}{$t$} \reflectbox{$t$})
 \hline
 \color{black}
 \end{longtable}  
