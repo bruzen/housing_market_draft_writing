@@ -126,7 +126,7 @@ ADD TABLE WITH VARIABLE DEFINITIONS
  
  In this section we develop a model of the return to investment in urban housing/land. We'll assume that all agents are speculating on potential capital gains as well as on the use values they get from the use of a property.  We will also assume that the use value is captured by the stream of rental values, whether a home is owner-occupied or  held by an investor as a financial asset. To keep the analysis simple without loss of generality we will consider a one-period investment.
  
- The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs, minus the mortgage repayed with interest.\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
+ The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$,  minus the mortgage repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
 
 
 \begin{eqnarray*}
@@ -145,7 +145,7 @@ V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 
 This is the  net present value of buying and then selling after one period. It has  6 exogenous parameters, $\delta, \dot p, r, m, \rho, \kappa$ and $t$.   Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ are functions of the agent's wealth. $\delta$ may be correlated with wealth as well. 
 
-The rate of return $v$ is the value of the gain, $V$, divided by  the size of the downpayment, $D$. 
+The rate of return on funds invested, $v$, is the value of the gain, $V$, divided by  the size of the downpayment, $D$. 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
 %\begin{enumerate}
 %\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
@@ -155,7 +155,7 @@ The rate of return $v$ is the value of the gain, $V$, divided by  the size of th
 \begin{eqnarray}
 v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
 		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\ 
-		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
+		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule2}
 \end{eqnarray}
 
 
@@ -193,7 +193,7 @@ v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \no
 %\item Lower costs increase profits
 %\item Lower tax rates decrease holding costs and increase the value of the investment
 %\end{enumerate}
-The implications of {\color{red} Equation~\ref{Eqn:DecisionRule}} are significant for the evolution of the urban land market and class structure. It implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with  lower wealth holdings.\footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.}
+The implications of {\color{red} Equation~\ref{Eqn:DecisionRule2}} are significant for the evolution of the urban land market and class structure. It implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with  lower wealth holdings.\footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.}
 
 The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller observe that (source?) 
 `` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} 
@@ -240,3 +240,30 @@ The implication is that those with more capital will be at an advantage in the u
 
 These appear to be features of the economy we observe.
 
+\section{market behabviour}
+Equation~\ref{Eqn:DecisionRule2} provides a behavioural criterion for investors: invest if $v \geq r_{target}$. Equation~\ref{Eqn:DecisionRule2} lets us identify the maximum price that satisfies this criterion, which we define as the ``bid price'', $P_{bid}$. The bid price is used in the price determination process in our model. 
+
+
+The  price at the end of the term,  $P_T$, is actually an expe It is  convenient to replace $(\rho -\kappa- t)P_0$ with NR (net Rent). 
+
+Replace $P_T$ with $(1+\dot p)P_{bid}$.
+
+Then replace   $\dot p$ with $L(p)$ representing some (estimated function ($\tilde{\dot p}$)) of the lagged values of $P$ that incorporates other data. 
+
+\begin{eqnarray}
+v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + NR \nonumber\\
+ &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + NR  \nonumber\\
+  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + NR  \nonumber
+\end{eqnarray}
+
+
+So I want to use this relationship to find the maximum bid price for the bank. The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
+
+{\color{red}
+\begin{eqnarray}
+r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumber\\
+   P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
+\end{eqnarray}}
+(What makes. this work is that I do not use an identity to get
+$\dot p$, which made the system of equations singular.)
+\newpage

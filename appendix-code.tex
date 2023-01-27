@@ -20,25 +20,24 @@
 \input{notes_and_references/Notation.tex}
 
 \section{THE VARIOUS RATES USED}
-
-
+ 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
-symbol  & name              & value&formula  \\ \hline
-$m_i$       & individual borrowing-ratio   & .75-.85 &. $M/P_{ask?}$  \\
-$M^{max}_Yi$. &Maximum mortgage based on income && $\frac{0.28(\omega+w)}{r_i}$\\
- $M^{max}_P$ & Maximum mortgage based on the price & & $0.8*P_0$\\
-IS&Income share for housing debt&0.25...0.35& missing?\\
-$\rho   $&rent-ratio        & & $\frac{\omega-t*d_i}{P_0}$\\
-$\kappa $&operations ratio  &0.1-0.3& e.g. $ 0.2\frac{\omega-t*d_i}{P_0}$\\
-$\sigma$      &tax ratio      & 0.25-0.35 &e.g. $ 0.3\frac{\omega-t*d_i}{P_0}$\\
-$\dot p $ &price\_growth &[] & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-$P^e_T$ & Expected price in T years&&=$P_0(1+\dot p)^T$\\
-$r^{disc}_i$&individual discount rate& &to assign \\
-$\bar r$     &prime interest rate       &&\\
-$r_{target}$ & Investor/bank target rate && $\bar r + margin$\\
-$r_i$   & individual borrowing-rate  &&\\
-$\delta_i$ & discount factor for T& &$\left(\frac{1}{1+r^{disc}_i}\right)^T$ \\
+Symbol         & Name                                 & Value      & Formula  \\ \hline
+$m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P_{ask?}$ \\
+$M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
+ $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
+$IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
+$\rho$         & Rent ratio                           &            & $\frac{\omega-t*d_i}{P_0}$ \\
+$\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-t*d_i}{P_0}$ \\
+$\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-t*d_i}{P_0}$ \\
+$\dot p $      & Price growth                         &[]          & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+$P^e_T$        & Expected price in T years            &            & $P_0(1+\dot p)^T$ \\
+$r^{disc}_i$   & Individual discount rate             &            & To assign \\
+$\bar r$       & Prime interest rate                  &            & \\
+$r_{target}$   & Investor/bank target rate            &            & $\bar r + margin$ \\
+$r_i$          & Individual borrowing-rate            &            & \\
+$\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r^{disc}_i}\right)^T$ \\
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
 
@@ -167,10 +166,12 @@ v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + NR \nonumber\\
 
 
 So I want to use this relationship to find the maximum bid price for the bank. The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
+
+{\color{red}
 \begin{eqnarray}
 r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumber\\
    P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
-\end{eqnarray}
+\end{eqnarray}}
 (What makes. this work is that I do not use an identity to get
 $\dot p$, which made the system of equations singular.)
 \newpage
