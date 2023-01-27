@@ -1,29 +1,4 @@
-
-% \documentclass{standalone}
-% \usepackage[dvipsnames]{xcolor}       \usepackage{calc}     
-% \usepackage{tikz}
-% \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
-% \usepackage{pgfplots}
-% \pgfplotsset{compat=1.16}
-% \usepackage{mathtools,amssymb}
-
-% \begin{document} 
 % \section{Notation for Urban and Production Sectors}
-
-% $t$     & Time \\ 
-
-t is time
-TODO - uncomment the commented out ones with fraction- unidentified control sequence
-
-delta is density ** - - infitesmal density increase as the city moves out. [[adjustment speed for wage N]] imagine a density function over the city. 
-using the geometry for the derivative of that with respect - how does it change if you increase the amount under the integral, wehre does it go..  - in cont terms.  
-
-N is population, n
-d is diameter %(https://www.overleaf.com/project/606a6b286ae1c9f203fadab5 ). \\
-omega is wage premium - which gives  the parented population
-tau is linear transport cost per unit distance
-
-
 \newpage
 \begin{longtable}{lp{10cm}}
 \caption{Notation}                       \\
@@ -33,8 +8,8 @@ $K$              &  Capital               \\
 $L$              &  Labour                \\
 $N$              &  Population, which equals labour, $L$                  \\ 
 $\alpha$         &  Elasticity of output with respect to capital          \\
-$\beta$          &  Elasticity of output with respect to effective labour \\
-$\gamma$         &  Elasticity of the urban agglomeration effect          \\ % , $\Lambda(n)$, for illustration \\
+$\beta$          &  Elasticity of output with respect to labour           \\ % vs effective labour
+$\gamma$         &  Elasticity of agglomeration with respect to labour    \\ % , $\Lambda(n)$, for illustration \\
 $Y=N^\gamma K^{\alpha }N^{\beta }$  &  Urban output                       \\
 % $L$              &  Labour supply \\ %the number of workers, which, in the standard circular city model, equals the number of lots of size $s$  when workers live on identical individual lots. % Unless $d^{max}>d^*$ v  \frac{\pi}{s}(\frac{w}{\tau})^2 =
 % $n_i$  &  Number of workers employed by firm $i$ \\
@@ -63,7 +38,7 @@ $Y=N^\gamma K^{\alpha }N^{\beta }$  &  Urban output                       \\
 $\psi$           &  Rural wage                  \\ % 
 $\omega$         &  Urban wage premium          \\
 $\tau$           &  Transportation cost per unit distance \\
-$d$              &  Distance of a residence from the centre of the city \\
+$d$              &  Distance of a residence from the city centre \\
 $d^* = w/\tau$   &  City extent \\ % Maximum distance commuters will travel \\ % to get the wage premium \\
 $\mathcal{R} = w-\tau d$ & Rent at distance $d$ \\ 
 % $\zeta$          &  Population density at distance $d$     \\
@@ -101,28 +76,22 @@ $t$              &  Time                   \\
 \color{black}
 \end{longtable}  
 
+% delta is density ** - - infinitesmal density increase as the city moves out. [[adjustment speed for wage N]] imagine a density function over the city. 
+
 \newpage
 \begin{longtable}{lp{10cm}}
 \caption{Bidding Mechanism Notation}                       \\
 \hline
-$P_0$            &  Purchase price              \\
-$P^e_T$          &  Expected price at the end of period T \\
+$P_0$            &  Purchase price for a property          \\
+$P^e_T$          &  Expected price at the end of period T  \\
 \hline
 \color{black}
 \end{longtable}  
-
-
-%%\item[$$]
-%%\item[$$]
-%%\item[$$]
-%Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainment, diet and consumption pattern. We  choose units so that per-period cost of a unit of productive capital is also $\psi$
-
 
 \section{Additional Assumptions}
 \begin{enumerate}
 \item There is full employment, no frictional unemployment, and no labour adjustment costs.
 \item Firms set output and factor inputs to maximize profits, so factors are paid the value of their marginal private product
 \item Demand for output is perfectly elastic (constant price = 1)
-
 \end{enumerate}
-
+%Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainment, diet and consumption pattern. We  choose units so that per-period cost of a unit of productive capital is also $\psi$
