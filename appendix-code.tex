@@ -3,14 +3,14 @@
 
 \section{Incorporating growth and discounting}
 %We need a time period T for calculations. For use in any calculation, 
-The rates $\delta,\ t,\ r_i$ depend on the period, $T$. For example, with a current price of $P_0$, a price-growth rate of $\dot p$ per year, and a 5 year mortgage period, the expected price in $T$ years is:
+The rates $\delta,\ t,\ r_i$ depend on the period, $T$. For example, with a current price of $P_0$, a price-growth rate of $\dot P$ per year, and a 5 year mortgage period, the expected price in $T$ years is:
 
 % WHY DOES THIS DEPEND ON MORTGAGE? - do without 5 years first.
 
-\[P^e_T=P_0(1+\dot p)^T\]
+\[P^e_T=P_0(1+\dot P)^T\]
 
 % the current price is , 
-The T-year growth rate is $(1+\dot p)^T$. If, for example, $\dot p= 0.1$, or 10 \%, The growth  over a 5-year mortgage term or capital gain, would be 0.61051 or 60\% of the original price.
+The T-year growth rate is $(1+\dot P)^T$. If, for example, $\dot P= 0.1$, or 10 \%, The growth  over a 5-year mortgage term or capital gain, would be 0.61051 or 60\% of the original price.
 
 Similarly, if we want the compounded interest rate for person $i$ the term T,
 \[Rate_i^T=(1+r_i)^T\]
@@ -23,7 +23,7 @@ If person $i$  discounts at $discr_i$, the present value of  a receipt at time $
 %\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+discr_i} \right)^\tau \]
  
 These can be combined into a function %\deltathat  gives  a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
-\[ PDV(P^e_T)=P_0\left( \frac{1+\dot p}{1+discr} \right)^T \]
+\[ PDV(P^e_T)=P_0\left( \frac{1+\dot P}{1+discr} \right)^T \]
 This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation. 
 
 
@@ -40,18 +40,18 @@ We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0
 \subsection{Investment decision and bid price}
 The value of a property purchase over the course of a mortgage term is the capital gain minus the financing cost plus the net rental income, $\mathcal{R}$:
 \begin{align}
-V  	&= Net\ Capital\ Gain && + \mathcal{R}\\
-    &=  Capital\ gain - Interest\ due  +	    &   Rent  - Operating\ cost - Taxes \\
-    &= \delta(P_T- (1+r)M)             	& + R  	-C  - T\label{B2} \\
-    &= \ \delta((1+\dot p)  P_0- (1+r)mP_0)  & + \rho P_0  - \kappa P_0 - \sigma P_0 \\
-    &= (\delta((1+\dot p)  - (1+r)m)        & + \rho - \kappa  - \sigma) P_0 
+V  	&= Net\ Capital\ Gain & +\ & \mathcal{R}\\
+    &=  Capital\ gain - Interest\ due      &+\ &   Rent  - Operating\ cost - Taxes  \nonumber \\
+    &= \delta(P_T- (1+r)M)             	& +\ & R  	-C  - T \\
+    &= \ \delta((1+\dot P)  P_0- (1+r)mP_0)  & +\ & \rho P_0  - \kappa P_0 - \sigma P_0  \nonumber\\
+    &= (\delta((1+\dot P)  - (1+r)m)        & +\ & (\rho - \kappa  - \sigma) P_0  \nonumber\\
 \end{align}
 
 This can be expressed in terms of the rate of return on the down payment
 \begin{eqnarray}
-v &=&( \delta((1+\dot p)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{D}   \nonumber \\
-  &=& (\delta((1+\dot p)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{P_0-mP_0}   \nonumber \\
-  &=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho  - \kappa - \sigma} {1-m} \label{Eqn:DecisionRule}
+v &=&( \delta((1+\dot P)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{D}   \nonumber \\
+  &=& (\delta((1+\dot P)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{P_0-mP_0}   \nonumber \\
+  &=&\frac{ \delta(1+\dot P  - (1+r)m) \ + \rho  - \kappa - \sigma} {1-m} \label{Eqn:DecisionRule}
 \end{eqnarray}
 
 RULE: invest if $v$ is greater than  the  target interest rate $r_{target}$. The formula is developed below.
@@ -60,11 +60,11 @@ RULE: invest if $v$ is greater than  the  target interest rate $r_{target}$. The
 \section{Market behaviour}
 Equation~\ref{Eqn:DecisionRule2} provides a behavioural criterion for investors: invest if $v \geq r_{target}$. The equation lets us a  maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$. The bid price is used in the price determination process in our model. 
 
-The  price at the end of the term,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P_T$ in Equation~\ref{Eqn:V} with $(1+\dot p)P_{bid}$. Then we replace $\dot p$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data. It is  convenient to also replace $(\rho -\kappa - \sigma)P_0$ with $\mathcal{R}_N$ (net rent). he result is 
+The  price at the end of the term,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P_T$ in Equation~\ref{Eqn:V} with $(1+\dot P)P_{bid}$. Then we replace $\dot P$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data. It is  convenient to also replace $(\rho -\kappa - \sigma)P_0$ with $\mathcal{R}_N$ (net rent). he result is 
 
 \begin{eqnarray}
 v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
-% &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
+% &=&\delta\left( (1+\dot P)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
 \end{eqnarray}
 
@@ -80,13 +80,13 @@ In practice, potential investors will make an  initial  bid that is lower than t
 \section{Finding bid price}
 We start with Equation~\ref{B2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
 
-Replace $P_T$ with $(1+\dot p)P_{bid}$.
+Replace $P_T$ with $(1+\dot P)P_{bid}$.
 
-Then replace   $\dot p$ with $L(p)$ representing some (estimated function ($\tilde{\dot p}$)) of the lagged values of $P$ that incorporates other data. 
+Then replace   $\dot P$ with $L(p)$ representing some (estimated function ($\tilde{\dot P}$)) of the lagged values of $P$ that incorporates other data. 
 
 \begin{eqnarray}
 v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
- &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
+ &=&\delta\left( (1+\dot P)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
 \end{eqnarray}
 
@@ -99,7 +99,7 @@ r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}
    P^{max}_{bid} &=&\frac{r_{target}-\mathcal{R}_N}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
 \end{eqnarray}}
 (What makes. this work is that I do not use an identity to get
-$\dot p$, which made the system of equations singular.)
+$\dot P$, which made the system of equations singular.)
 \newpage
 
 \subsection{On Bidding}
@@ -147,13 +147,13 @@ In reality, $\kappa$ this varies for every property based on maintenance require
 Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period
 
 
-If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We  assume the rents are rising and  collected at the end of the year and the first is $\mathcal{R}_N0$.
-\[\mathcal{R}_Nj^T= (\omega-tau*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and  collected at the end of the year and the first is $\mathcal{R}_N0$.
+\[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
 
-% \[\mathcal{R}_Nj^T= (\omega-tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{discr_i}}\right]^\tau \]
+% \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{discr_i}}\right]^\tau \]
 where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $discr_i$ is the individual's discount rate.
 
-
+TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
 
 \textbf{CODE:}  
 
@@ -325,10 +325,6 @@ where A= y-shift, B= scale, and C= x-shift for the curve.
 \chapter[Parameters]{Parameter Values}
 \label{AppendixB}
 
-\section{Notation Table}
-\input{notes_and_references/Notation.tex}
-
-
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
 Symbol         & Name                                 & Value      & Formula  \\ \hline
@@ -339,8 +335,8 @@ $IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
 $\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
 $\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
 $\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
-$\dot p $      & Price growth                         &[]          & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-$P^e_T$        & Expected price in T years            &            & $P_0(1+\dot p)^T$ \\
+$\dot P $      & Price growth                         &[]          & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+$P^e_T$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\
 $r^{disc}_i$   & Individual discount rate             &            & To assign \\
 $\bar r$       & Prime interest rate                  &            & \\
 $r_{target}$   & Investor/bank target rate            &            & $\bar r + margin$ \\
@@ -418,5 +414,10 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles
     \end{quotation}
 
 {\color{red}
-\subsection{? Value of $t$ to use in model}
-\[ \tau=(0.012 w+ \$295)/km year \]}
+\subsection{? Value of $t$ to use in model}}
+\[ \tau=(0.012 w+ \$295)/km year \]
+
+
+\newpage
+\section{Notation Table}
+\input{notes_and_references/Notation.tex}

@@ -114,23 +114,23 @@ ADD TABLE WITH VARIABLE DEFINITIONS
  
  In this section we develop a model of the return to investment in urban housing/land. We'll assume that all agents are speculating on potential capital gains as well as on the use values they get from the use of a property.  We will also assume that the use value is captured by the stream of rental values, whether a home is owner-occupied or  held by an investor as a financial asset. To keep the analysis simple without loss of generality we will consider a one-period investment.
  
- The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$,  minus the mortgage repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
+ The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot P)P_0$,  minus the mortgage repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
 
 \begin{eqnarray}
 V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 % 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
 % 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
-%	&=& \delta (1+\dot p)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
-%	&=& \delta (1+\dot p)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
-%	&=&( \delta (1+\dot p)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
-%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
-%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
+%	&=& \delta (1+\dot P)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
+%	&=& \delta (1+\dot P)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
+%	&=&( \delta (1+\dot P)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
+%	&=& \left(  \delta (1+\dot P)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
+%	&=& \left(  \delta (1+\dot P)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
 &=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\label{Eqn:V}\\
-&=& \delta((1+\dot p)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\nonumber\\
-&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0\nonumber
+&=& \delta((1+\dot P)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\nonumber\\
+&=&( \delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa -t) P_0\nonumber
 \end{eqnarray}
 
-This is the  net present value of buying and then selling after one period. It has  6 exogenous parameters, $\delta, \dot p, r, m, \rho, \kappa$ and $t$.   Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ are functions of the agent's wealth. $\delta$ may be correlated with wealth as well. 
+This is the  net present value of buying and then selling after one period. It has  6 exogenous parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$.   Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ are functions of the agent's wealth. $\delta$ may be correlated with wealth as well. 
 
 The rate of return on funds invested, $v$, is the value of the gain, $V$, divided by  the size of the downpayment, $D$. 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
@@ -140,9 +140,9 @@ The rate of return on funds invested, $v$, is the value of the gain, $V$, divide
 %\item If $ v(with\ rent) \le a $,  then sell 
 %\end{enumerate}\
 \begin{eqnarray}
-v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
-		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\ 
-		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule2}
+v&=&( \delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
+		&=&( \delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\ 
+		&=&\frac{ \delta(1+\dot P  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule2}
 \end{eqnarray}
 
 
