@@ -1,28 +1,15 @@
-\chapter[Parameters]{Parameter Values}
+\chapter[Bidding]{Bidding Method}
 \label{AppendixA}
-%==========================EXAMPLE=========================== https://www.kaggle.com/code/prateekmaj21/basic-financial-calculations-using-python/notebook
-  
-% def compound_interest(p,r,t):  %EXAMPLE
-    
-%     print('Amount: ', p)
-%     print("Rate of Interest (Per Annum)", r)
-%     print("Time (In Years): ",t)
-    
-%     a= p*((1+r/100)**t)
-    
-%     ci= a-p
-%     print("Final Amount: ", a)
-%     print("Compound Interest: ", ci)
- 
-
-\section{Notation Table}
-\input{notes_and_references/Notation.tex}
 
 \section{Incorporating growth and discounting}
-We need a time period T for calculations. For use in any calculation, the rates $\delta,\ t,\ r_i$ have to be adjusted to the period.
+%We need a time period T for calculations. For use in any calculation, 
+The rates $\delta,\ t,\ r_i$ depend on the period, $T$. For example, with a current price of $P_0$, a price-growth rate of $\dot p$ per year, and a 5 year mortgage period, the expected price in $T$ years is:
 
-For example, say we use  a 5 year period as the mortgage term, and the current price is $P_0$, If we want the expected price in  T years   with a price-growth rate of $\dot p$ /year, the formula is 
+% WHY DOES THIS DEPEND ON MORTGAGE? - do without 5 years first.
+
 \[P^e_T=P_0(1+\dot p)^T\]
+
+% the current price is , 
 The T-year growth rate is $(1+\dot p)^T$. If, for example, $\dot p= 0.1$, or 10 \%, The growth  over a 5-year mortgage term or capital gain, would be 0.61051 or 60\% of the original price.
 
 Similarly, if we want the compounded interest rate for person $i$ the term T,
@@ -46,60 +33,61 @@ This PDV function specifically combines any expected rent increase, the individu
 
 For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
 
-We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the banK?
+We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
 
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ( $P_0$  will not always be the same as the asking price or the warranted price.) 
 
 \subsection{Investment decision and bid price}
-The value of a property purchase over the course of a mortgage term is
+The value of a property purchase over the course of a mortgage term is the capital gain minus the financing cost plus the net rental income, $\mathcal{R}$:
+\begin{align}
+V  	&= Net\ Capital\ Gain && + \mathcal{R}\\
+    &=  Capital\ gain - Interest\ due  +	    &   Rent  - Operating\ cost - Taxes \\
+    &= \delta(P_T- (1+r)M)             	& + R  	-C  - T\label{B2} \\
+    &= \ \delta((1+\dot p)  P_0- (1+r)mP_0)  & + \rho P_0  - \kappa P_0 - \sigma P_0 \\
+    &= (\delta((1+\dot p)  - (1+r)m)        & + \rho - \kappa  - \sigma) P_0 
+\end{align}
+
+This can be expressed in terms of the rate of return on the down payment
 \begin{eqnarray}
-V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
-&=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\label{B2}\\
-&=& \delta((1+\dot p)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\\
-&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
+v &=&( \delta((1+\dot p)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{D}   \nonumber \\
+  &=& (\delta((1+\dot p)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{P_0-mP_0}   \nonumber \\
+  &=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho  - \kappa - \sigma} {1-m} \label{Eqn:DecisionRule}
 \end{eqnarray}
 
-This can be expressed in terms of ra rate of return on the down payment
-\begin{eqnarray}
-v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
-		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
-		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
-\end{eqnarray}
-
-RULE: invest if v is greater than  the  target interest rate $r_{target}$. The formula is developed below.
+RULE: invest if $v$ is greater than  the  target interest rate $r_{target}$. The formula is developed below.
 
 
 \section{Market behaviour}
 Equation~\ref{Eqn:DecisionRule2} provides a behavioural criterion for investors: invest if $v \geq r_{target}$. The equation lets us a  maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$. The bid price is used in the price determination process in our model. 
 
-The  price at the end of the term,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P_T$ in Equation~\ref{Eqn:V} with $(1+\dot p)P_{bid}$. Then we replace $\dot p$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data. It is  convenient to also replace $(\rho -\kappa- t)P_0$ with NR (net Rent). the result is 
+The  price at the end of the term,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P_T$ in Equation~\ref{Eqn:V} with $(1+\dot p)P_{bid}$. Then we replace $\dot p$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data. It is  convenient to also replace $(\rho -\kappa - \sigma)P_0$ with $\mathcal{R}_N$ (net rent). he result is 
 
 \begin{eqnarray}
-v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + NR \nonumber\\
-% &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + NR  \nonumber\\
-  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + NR  \nonumber
+v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
+% &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
+  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
 \end{eqnarray}
 
 The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
 
 \begin{eqnarray}
-%r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumber\\
-   P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
+%r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
+   P^{max}_{bid} &=&\frac{r_{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
 \end{eqnarray}
 In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
 
 
 \section{Finding bid price}
-We start with Equation~\ref{B2}. for convenience, replace $\rho   	-\kappa - t $ with NR (net Rent). 
+We start with Equation~\ref{B2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
 
 Replace $P_T$ with $(1+\dot p)P_{bid}$.
 
 Then replace   $\dot p$ with $L(p)$ representing some (estimated function ($\tilde{\dot p}$)) of the lagged values of $P$ that incorporates other data. 
 
 \begin{eqnarray}
-v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + NR \nonumber\\
- &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + NR  \nonumber\\
-  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + NR  \nonumber
+v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
+ &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
+  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
 \end{eqnarray}
 
 
@@ -107,8 +95,8 @@ So I want to use this relationship to find the maximum bid price for the bank. T
 
 {\color{red}
 \begin{eqnarray}
-r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumber\\
-   P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
+r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
+   P^{max}_{bid} &=&\frac{r_{target}-\mathcal{R}_N}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
 \end{eqnarray}}
 (What makes. this work is that I do not use an identity to get
 $\dot p$, which made the system of equations singular.)
@@ -118,9 +106,19 @@ $\dot p$, which made the system of equations singular.)
 
 In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
 
-If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the highest max bid wins the property.
+If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This makes sense because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
+That is the highest price that a seller can get.
+
+It might be simplest to treat every seller as a bidder. All bid above here own are considered. The one chose ins the second highest. This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguihable form any more com[plex apporach] 
+
+Will peersons retireing who would lerave the city invest in an urban rental?
+
+This should 
+
 
 Bargaining between buyers and sellers differs. Buyers bid low and sellers ask high.  {\color{red}We need to calculate a minimum selling price for the seller}.
+
+
 
 % But what is $D$? Does the bank have unlimited funds? Isn't D just a fraction of P?  If so it cancels out
 
@@ -136,8 +134,9 @@ prime rate plus a margin required by the bank.  Question: do non-bank actors hav
 \textbf{CODE:}   self.get-target-interest-rate(buyer).
 
 
-\subsection{Computing net rent, NR}
-Net rent is $(1-\kappa_j - t) (\omega-t*d_j)$
+\subsection{Computing net rent}
+Net rent is
+$\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega-tau*d_j)$
 
 
 The tax ratio is an important number - it is the share of rents that the municipality takes for services and infrastructure. I estimate it to be about 30\% so $t=0.3$.
@@ -145,13 +144,13 @@ The tax ratio is an important number - it is the share of rents that the municip
 
 In reality, $\kappa$ this varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. This will matter for the buyer. If it varies may be useful as a quality indicator.
 
-Values for $\kappa$ and $t$ must be adjusted to take into account the length of the period or net rents have to be summed over the period
+Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period
 
 
-If we want to know the  present value  of the \textbf{net rent}, NR, we collect over the period  $NR^T$, we \textbf{add up} the rents each year. We  assume the rents are rising and  collected at the end of the year and the first is $NR_0$.
-\[NR_j^T= (\omega-t*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We  assume the rents are rising and  collected at the end of the year and the first is $\mathcal{R}_N0$.
+\[\mathcal{R}_Nj^T= (\omega-tau*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
 
-% \[NR_j^T= (\omega-t*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{discr_i}}\right]^\tau \]
+% \[\mathcal{R}_Nj^T= (\omega-tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{discr_i}}\right]^\tau \]
 where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $discr_i$ is the individual's discount rate.
 
 
@@ -322,8 +321,14 @@ where A= y-shift, B= scale, and C= x-shift for the curve.
 
 
 
-\section{Parameter values}
- 
+
+\chapter[Parameters]{Parameter Values}
+\label{AppendixB}
+
+\section{Notation Table}
+\input{notes_and_references/Notation.tex}
+
+
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
 Symbol         & Name                                 & Value      & Formula  \\ \hline
@@ -331,9 +336,9 @@ $m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P_{ask?}
 $M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
  $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
 $IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
-$\rho$         & Rent ratio                           &            & $\frac{\omega-t*d_i}{P_0}$ \\
-$\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-t*d_i}{P_0}$ \\
-$\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-t*d_i}{P_0}$ \\
+$\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
+$\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
+$\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
 $\dot p $      & Price growth                         &[]          & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
 $P^e_T$        & Expected price in T years            &            & $P_0(1+\dot p)^T$ \\
 $r^{disc}_i$   & Individual discount rate             &            & To assign \\
@@ -343,6 +348,24 @@ $r_i$          & Individual borrowing-rate            &            & \\
 $\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r^{disc}_i}\right)^T$ \\
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
+
+
+%==========================EXAMPLE=========================== https://www.kaggle.com/code/prateekmaj21/basic-financial-calculations-using-python/notebook
+  
+% def compound_interest(p,r,t):  %EXAMPLE
+    
+%     print('Amount: ', p)
+%     print("Rate of Interest (Per Annum)", r)
+%     print("Time (In Years): ",t)
+    
+%     a= p*((1+r/100)**t)
+    
+%     ci= a-p
+%     print("Final Amount: ", a)
+%     print("Compound Interest: ", ci)
+
+
+ 
 
 \section{Transportation costs}
 Transport costs have two parts:
