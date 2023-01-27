@@ -97,7 +97,7 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap hose 30 miles 
 
 {\color{red}
 \subsection{Value of $t$ to use in model}
-\[ \tau\leftharpoonup=(0.012 w+ \$295)/km year \]}
+\[ \tau=(0.012 w+ \$295)/km year \]}
 
 
 \subsection{Incorporating growth and discounting}
@@ -124,7 +124,7 @@ This PDV function specifically combines any expected rent increase, the individu
 
 
 
-\subsection{More about rates}
+\subsection{Mortgate availability}
 
 For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
 
@@ -132,7 +132,8 @@ We assume $r_i$ is based on the individual's assets, on relative wealth. Where i
 
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ( $P_0$  will not always be the same as the asking price or the warranted price.) 
 
-
+\subsection{Investment decision and bid price}
+The value of a property purchase over the course of a mortgage term is
 \begin{eqnarray}
 V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 &=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\label{B2}\\
@@ -140,8 +141,7 @@ V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 &=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
 \end{eqnarray}
 
-Sub in target interest rate on line 347,  set V=0, and solve for P to get highest price that makes a profit.
-
+This can be expresssed in terms of ra rate of return on the down payment
 \begin{eqnarray}
 v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
 		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
@@ -150,15 +150,6 @@ v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \no
 
 RULE: invest if v is greater than  the  target interest rate $r_{target}$            The fromula is developed below.
 
-\subsection{Bidding}
-
-In the market, the initial bid should be smaller, but the bank will definitely go this high. If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the highest max bid wins the property.
-
-But what is $D$? Does the bank have unlimited funds? Isn't D just a fraction of P?  If so it cancels out
-
-
-
-r is the prime rate- that the bank pays? 
 
 
 \section{Finding bid price}
@@ -183,6 +174,19 @@ r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumb
 (What makes. this work is that I do not use an identity to get
 $\dot p$, which made the system of equations singular.)
 \newpage
+
+\subsection{ On Bidding}
+
+In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
+
+If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the highest max bid wins the property.
+
+Bargaining between buyers and sellers differs. Buyers bid low and sellers ask high.  {\color{red}We need to calculate a minimum selling price for the seller}.
+
+% But what is $D$? Does the bank have unlimited funds? Isn't D just a fraction of P?  If so it cancels out
+
+% r is the prime rate- that the bank pays? 
+
 \section{Relating the equations to the code}
 Taking the expression for $P^{max}_{bid}$, we now discuss each of the terms and how they are implemented in the code. The following subsections are numbered consistent with this layout "
 \[\frac{B4.1-B4.2}{B4.3\left( (1+B4.4 - (1+B4.5)B4.6\right)}\]
