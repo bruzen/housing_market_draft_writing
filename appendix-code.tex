@@ -140,7 +140,7 @@ V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 &=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
 \end{eqnarray}
 
-This can be expresssed in terms of ra rate of return on the down payment
+This can be expressed in terms of ra rate of return on the down payment
 \begin{eqnarray}
 v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
 		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
@@ -149,6 +149,25 @@ v&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \no
 
 RULE: invest if v is greater than  the  target interest rate $r_{target}$            The fromula is developed below.
 
+
+\section{Market behaviour}
+Equation~\ref{Eqn:DecisionRule2} provides a behavioural criterion for investors: invest if $v \geq r_{target}$. The equation lets us a  maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$. The bid price is used in the price determination process in our model. 
+
+The  price at the end of the term,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P_T$ in Equation~\ref{Eqn:V} with $(1+\dot p)P_{bid}$. Then we replace $\dot p$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data. It is  convenient to also replace $(\rho -\kappa- t)P_0$ with NR (net Rent). the result is 
+
+\begin{eqnarray}
+v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + NR \nonumber\\
+% &=&\delta\left( (1+\dot p)P_{bid} - (1+r)mP_{bid} \right)  + NR  \nonumber\\
+  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + NR  \nonumber
+\end{eqnarray}
+
+The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
+
+\begin{eqnarray}
+%r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + NR  \nonumber\\
+   P^{max}_{bid} &=&\frac{r_{target}-NR}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
+\end{eqnarray}
+In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
 
 
 \section{Finding bid price}
