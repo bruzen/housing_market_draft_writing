@@ -32,50 +32,92 @@ For home loans, many personal finance experts recommend total housing costs acco
 We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
 
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ( $P_0$  will not always be the same as the asking price or the warranted price.) 
-
+]
 
 \subsection{Investment decision and bid price}
-The value of a property purchase over the course of a mortgage term is the capital gain minus the financing cost plus the net rental income, $\mathcal{R}_N$. 
+The value of a property purchase over the course of a mortgage term is the capital gain minus the financing cost plus the present value of the net rental income, $\mathcal{R}_N$. 
 \begin{align}
 V  	&= Net\ Capital\ Gain & +\ & \mathcal{R}_N\\
     &=  Capital\ gain - Interest\ due      &+\ &   Rent  - Operating\ cost - Taxes  \nonumber \\
     &= \delta(P_T- (1+r)M)             	& +\ & \mathcal{R} -C - T \\
-    &= \delta(P_T- (1+r)M)             	& +\ & \phi\mathcal{R}
+    &= \delta(P_T- (1+r)M)             	& +\ & \phi\mathcal{R}\label{eq:Value}
     \end{align}
-Where $\phi$ is just a fraction that takes into account taxes and operating costs.  The warranted price of the property is the present value of the warranted rents, which may be rising. This is a problem of us.
+Where $\phi$ is just a fraction that takes into account taxes and operating costs. 
+
+{\color{red}
+ The warranted price of the property is the present value of the warranted rents, which may be rising. This is a problem for  us.
 
 Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
 
 We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this?
+}
+
+Since he present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e., 
+\[P=\frac{\mathcal{R}}{r}\]
 
 
 
+%\[v= \delta(P_T- (1+r)M)    +\phi\mathcal{R}\]
 
-
+\noindent we can write
 \begin{align}  
-    &= \ \delta \left[(1+\dot P)  P_0- (1+r)mP_0)\right]  & + & \rho P_0  - \kappa P_0 - \sigma P_0  \nonumber \\
+    V & = \delta((1+\dot P)  P_0- (1+r)mP_0)  + \psi rP_0  \\
+    & =\left[ \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right]P_0
 \end{align}
 
-This can be expressed in terms of the rate of return on the down payment
-\begin{eqnarray}
-v &=&( \delta((1+\dot P)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{D}   \nonumber \\
-  &=& (\delta((1+\dot P)  - (1+r)m) \    + \rho  - \kappa - \sigma) \frac{P_0}{P_0-mP_0}   \nonumber \\
-  &=&\frac{ \delta(1+\dot P  - (1+r)m) \ + \rho  - \kappa - \sigma} {1-m} \label{Eqn:DecisionRule}
-\end{eqnarray}
+This can be expressed in terms of the rate of return on the down payment, $V/D$
+\begin{align}  
+   v & = \left[ \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right]P_0/D\\
+    & = \left[ \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right] \frac{P_0}{P_0-mP_0}\\
+    & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}
+\end{align}
 
-RULE: invest if $v$ is greater than  the  target interest rate $r_{target}$. The formula is developed below.
 
+=
+
+RULE: invest if $v$ is greater than  the  target interest rate $r_{target}$. (The formula is developed below.) 
 
 \section{Market behaviour}
-Equation~\ref{Eqn:DecisionRule2} provides a behavioural criterion for investors: invest if $v \geq r_{target}$. The equation lets us a  maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$. The bid price is used in the price determination process in our model. 
+Equation~\ref{eq:RULE} provides a criterion for investors: invest if $v \geq r_{target}$. The rule has qualitative implications for the ownership of housing (Discussion in chapter on financialization)
 
-The  price at the end of the term,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P_T$ in Equation~\ref{Eqn:V} with $(1+\dot P)P_{bid}$. Then we replace $\dot P$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data. It is  convenient to also replace $(\rho -\kappa - \sigma)P_0$ with $\mathcal{R}_N$ (net rent). he result is 
+To find how much investors will bid, we need to find the maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$.   The bid price is used in the price determination process in our model. We return to Equation~\ref{eq:Value} %replacing $\mathcal{R}$ with $rP_0$. 
 
-\begin{eqnarray}
-v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
-% &=&\delta\left( (1+\dot P)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
-  &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
-\end{eqnarray}
+\[V= \delta(P_T- (1+r)M)   +\phi  \mathcal{R}\]
+% We also have to assume that $P_{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
+% \[V= \delta(P_T- (1+r)M)   +\phi r P_{bid}\]
+
+
+We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P_{bid}$.
+
+The  price at the end of the term $T$,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we have to  $P_T$ in Equation~\ref{eq:Value} with $(1+\dot P)P_{bid}$. 
+\[V= \delta((1+\dot P)P_{bid}- (1+r)M)   +\phi  \mathcal{R}\]
+
+Then we replace $\dot P$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data.  The result is 
+\[V= \delta((1+L(P))P_{bid}- (1+r)mP_{bid})   +\phi \mathcal{R}\]
+Combining terms
+\[V= \delta((1+L(P))- (1+r)m)P_{bid}   +\phi \mathcal{R}\]
+
+The rate of return $v=V/D=V/(1-m)P_{bid}$ is 
+
+\[v= \frac{\delta((1+L(P))- (1+r)m)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}\]
+
+
+
+
+% %++++++++++++++++
+
+% \begin{align}  
+%   v  & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}\\
+%   & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}
+% \end{align}
+
+
+
+% \begin{eqnarray}
+% v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
+% % &=&\delta\left( (1+\dot P)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
+%   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
+% \end{eqnarray}
 
 The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
 
