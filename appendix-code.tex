@@ -1,5 +1,5 @@
 \chapter[Bidding]{Bidding Method}
-\label{AppendixA}
+\label{AppendixB}
 
 
 \section{Incorporating growth and discounting}
@@ -53,7 +53,10 @@ We would like to  somehow ignore the building and push it into the subsistence w
 }
 
 Since he present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e., 
-\[P=\frac{\mathcal{R}}{r}\]
+\begin{equation}
+  P=\frac{\mathcal{R}}{r}  \label{eq:Capitalization}
+\end{equation}
+
 
 
 
@@ -72,13 +75,11 @@ This can be expressed in terms of the rate of return on the down payment, $V/D$
     & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}
 \end{align}
 
-
-=
-
-RULE: invest if $v$ is greater than  the  target interest rate $r_{target}$. (The formula is developed below.) 
-
 \section{Market behaviour}
-Equation~\ref{eq:RULE} provides a criterion for investors: invest if $v \geq r_{target}$. The rule has qualitative implications for the ownership of housing (Discussion in chapter on financialization)
+Equation~\ref{eq:RULE} provides a criterion for investors: invest if $v \geq r_{target}$. The rule has qualitative implications for the ownership of housing (Discussed in chapter on financialization)
+
+
+Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
 
 To find how much investors will bid, we need to find the maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$.   The bid price is used in the price determination process in our model. We return to Equation~\ref{eq:Value} %replacing $\mathcal{R}$ with $rP_0$. 
 
@@ -89,15 +90,15 @@ To find how much investors will bid, we need to find the maximum price that sati
 
 We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P_{bid}$.
 
-The  price at the end of the term $T$,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we have to  $P_T$ in Equation~\ref{eq:Value} with $(1+\dot P)P_{bid}$. 
+The  price at the end of the term $T$,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we have to replace $P_T$ in Equation~\ref{eq:Value} with a predictor, $(1+\dot P)P_{bid}$. 
 \[V= \delta((1+\dot P)P_{bid}- (1+r)M)   +\phi  \mathcal{R}\]
 
-Then we replace $\dot P$ with $L(P)$ representing some estimated function of the lagged values of $P$ and any  other relevant data.  The result is 
+Then we replace $\dot P$ with and estimate, $L(P)$, representing an estimated function of the lagged values of $P$ and any  other relevant data. We imagine the potential investor drawing on common  knowledge or information from the real estate agents or analysts.  The result is 
 \[V= \delta((1+L(P))P_{bid}- (1+r)mP_{bid})   +\phi \mathcal{R}\]
 Combining terms
 \[V= \delta((1+L(P))- (1+r)m)P_{bid}   +\phi \mathcal{R}\]
 
-The rate of return $v=V/D=V/(1-m)P_{bid}$ is 
+The rate of return $v=V/D=V/(1-m)P_{bid}$ is then
 
 \[v= \frac{\delta((1+L(P))- (1+r)m)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}\]
 
@@ -121,10 +122,26 @@ The rate of return $v=V/D=V/(1-m)P_{bid}$ is
 
 The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
 
-\begin{eqnarray}
-%r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
-   P^{max}_{bid} &=&\frac{r_{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
-\end{eqnarray}
+
+\begin{align}
+r_{target} &\ge \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}. \\
+%
+(1-m)r_{target} &\ge   + \frac{\phi \mathcal{R}}{P_{bid}}\\%\delta(1+L(P))- (1+r)m%
+%
+(1-m)r_{target}-\left[\dots\right]  &\ge  \frac{\phi \mathcal{R}}{P_{bid}}\\
+%
+P_{bid} &\ge    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \dots\right]}\\
+%
+P_{bid} &\ge    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
+\end{align}
+
+The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eq:Capitalization}. 
+
+
+% \begin{eqnarray}%. OLD VERSION: WRONG
+% %r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
+%    P^{max}_{bid} &=&\frac{r_{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} %\label{EqBidPrice2} 
+% \end{eqnarray}
 In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
 
 
@@ -356,7 +373,7 @@ where A= y-shift, B= scale, and C= x-shift for the curve.
 
 
 \chapter[Parameters]{Parameter Values}
-\label{AppendixB}
+\label{AppendixC}
 
 FIX 
 
