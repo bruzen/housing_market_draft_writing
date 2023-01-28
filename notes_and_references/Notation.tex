@@ -5,7 +5,7 @@
 \hline           &  \textbf{Productivity} \\ \hline
 $K$              &  Capital               \\ 
 $L$              &  Labour                \\
-$N$              &  Population, which equals labour, $L$                  \\ 
+$N$              &  Population, equals labour, $L$                  \\ 
 $\alpha$         &  Elasticity of output with respect to capital          \\
 $\beta$          &  Elasticity of output with respect to labour           \\ % vs effective labour
 $\gamma$         &  Elasticity of agglomeration with respect to labour    \\ % , $\Lambda(n)$, for illustration \\
@@ -38,7 +38,7 @@ $\psi$           &  Rural wage                  \\ %
 $\omega$         &  Urban wage premium          \\
 $\tau$           &  Transportation cost per unit distance \\
 $d$              &  Distance from city centre   \\
-$d^* = w/\tau$   &  City extent, the maximum distance commuters will travel                 \\ % Maximum distance commuters will travel \\ % to get the wage premium \\
+$d^* = w/\tau$   &  City extent, the maximum distance commuters will travel \\ % Maximum distance commuters will travel \\ % to get the wage premium \\
 $\mathcal{R}$    &  Rent                        \\ 
 % $\mathcal{R} = w-\tau d$ &  Rent at distance $d$ \\ 
 % $\zeta$          &  Population density at distance $d$     \\
@@ -57,18 +57,17 @@ $\mathcal{R}$    &  Rent                        \\
 %% $U^{urban}=U^{rural} $  &  Migration equilibrium assumption ** \\
 % \hline & \textbf{Labour market} \\ 
 
-\hline           & \textbf{Financial market}    \\ \hline
-$P$              &  Property price              \\ % was $\dot p$  
-$\dot P$         &  Rate of price growth        \\
-$r$              &  Interest rate               \\
-$\delta$         &  Discount factor             \\
-$W$              &  Wealth                      \\
-$m = m_i(W_i)$   &  Wealth-based share of home price worker $i$ can mortgage           \\
-$IS_i = IS_i(\omega+\psi$)  &  Income-based share of home price worker $i$ can mortgage \\
-$\rho$           &  Rent ratio             \\
-$\kappa$         &  Operations ratio       \\
-$\sigma$         &  Property tax share     \\ % was t (also considered $\chi \Gamma$  \rotatebox[origin=c]{180}{$t$} \reflectbox{$t$})
-$t$              &  Time                   \\
+\hline           & \textbf{Financial market} \\ \hline
+$P$              &  Property price           \\ % was $\dot p$  
+$\dot P$         &  Rate of price growth     \\
+$r$              &  Interest rate            \\
+$\delta$         &  Discount factor          \\
+$W$              &  Wealth                   \\
+$m$              &  Mortgage                 \\
+$\rho$           &  Rent ratio               \\
+$\kappa$         &  Operations ratio         \\
+$\sigma$         &  Property tax share       \\ % was t (also considered $\chi \Gamma$  \rotatebox[origin=c]{180}{$t$} \reflectbox{$t$})
+$t$              &  Time                     \\
 \hline
 \color{black}
 \end{longtable}  
@@ -78,21 +77,39 @@ $t$              &  Time                   \\
 % delta is density ** - - infinitesmal density increase as the city moves out. [[adjustment speed for wage N]] imagine a density function over the city. 
 
 \newpage
+
 \begin{longtable}{lp{10cm}}
-\caption{Bidding Mechanism Notation}                       \\
+\caption{Rent}                                                           \\
 \hline
-$P_0$            &  Purchase price for a property          \\
-$P^e_T$          &  Expected price at the end of period T  \\
-$\bar r$         &  Prime interest rate                    \\
+$\omega-\tau d$               &  Warranted (economic) rent                \\
+$\mathcal{R}=\omega-\tau d$   &  Equilibrium rent payment of tenant       \\
+PDV                           &  Present discounted value                 \\  
+$\mathcal{R}^T$               &  PDV of rent collected over period $T$    \\ 
+$\mathcal{R}^T_N=(1-\kappa-\sigma)\mathcal{R}^T$  &  PDV of net rent collected over period $T$ \\
+\hline
+\end{longtable}
+
+\begin{longtable}{lp{10cm}}
+\caption{Bidding Mechanism Notation}                                          \\
+\hline
+$\mathcal{R}_N$  &  Net rent                                                  \\ % was NR
+$P_0$            &  Purchase price for a property                             \\
+$P^e_T$          &  Expected price at the end of period T                     \\
+$\bar r$         &  Prime interest rate                                       \\
 $r_{target}$     &  Investor or banks target interest rate, $\bar r + margin$ \\
-$r_i$            &  Agent $i$'s personal borrowing rate    \\
-$r_i^{disc}$     &  Agent $i$'s subjective discount rate (possibly $r_i$)     \\
-$\delta = \delta_i^T$ &  $i$'s discount factor for a period $T$               \\
+$r_i$            &  Agent $i$'s personal borrowing rate                       \\
+$r_i^{disc}$     &  Agent $i$'s subjective discount rate (possibly $= r_i$)   \\
+$\delta_i^T$     &  $i$'s discount factor for a period $T$                    \\
+$m^W$            &  Wealth-based share of home price a worker can mortgage    \\ % $= m_i(W_i)$
+$m^\omega$       &  Income-based share of home price a worker can mortgage    \\ % IS_i   IS_i(\omega+\psi)$$
+$m_i = min(m^W_i, m^\omega_i)$  & Mortgage, the share of home price worker $i$ can mortgage \\
+
 \hline
 \color{black}
 \end{longtable}  
 
-% Net Rent $\mathcal{R}_N$ was NR
+
+
 
 \section{Additional Assumptions}
 \begin{enumerate}

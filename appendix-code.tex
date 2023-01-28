@@ -135,20 +135,20 @@ prime rate plus a margin required by the bank.  Question: do non-bank actors hav
 
 
 \subsection{Computing net rent}
-Net rent is
+If we assume that the rental rates actually charged are the warranted economic rent, Net rent is
 $\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega-tau*d_j)$
 
 
-The tax ratio is an important number - it is the share of rents that the municipality takes for services and infrastructure. I estimate it to be about 30\% so $t=0.3$.
+The tax ratio $\sigma$ is an important number - it is the share of rents that the municipality takes for services and infrastructure. I estimate it to be about 30\% based on Mill rates in Ontario,  so $\sigma=0.3$.
 
 
-In reality, $\kappa$ this varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. This will matter for the buyer. If it varies may be useful as a quality indicator.
+In reality, $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. This will matter for the buyer. If it varies may be useful as a quality indicator.
 
 Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period
 
 
 If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and  collected at the end of the year and the first is $\mathcal{R}_N0$.
-\[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
+\[\mathcal{R}_N^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
 
 % \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{discr_i}}\right]^\tau \]
 where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $discr_i$ is the individual's discount rate.
@@ -177,7 +177,8 @@ I think this is just the bank rate set by the Bank of Canada. Exogenous. Just de
 \textbf{CODE:}  
 
 \subsection{Computing the borrowing ratio, $m_i$}
-The borrowing ratio is just the fraction of the price that the bank will lend. It may depend on the individual. It is likely to be higher for the ban and for rich people because the bank thinks rich people are more secure risks. they may have other assets that could be attached in the case of default.
+
+The borrowing ratio is just the fraction of the price that the bank will lend to a potential buyer. It may depend on the individual. It is likely to be higher for institutional buyers  and for rich people because the bank thinks rich people are more secure risks. they may have other assets that could be attached in the case of default.
 
 
 I have suggested The cost of capital is known to differ for rich and poor. We need a function that captures this relationship so we need to define individual wealth:
