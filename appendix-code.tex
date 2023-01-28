@@ -1,10 +1,10 @@
 \chapter[Bidding]{Bidding Method}
 \label{AppendixA}
 
+
 \section{Incorporating growth and discounting}
 %We need a time period T for calculations. For use in any calculation, 
 The rates $\delta,\ t,\ r_i$ depend on the period, $T$. For example, with a current price of $P_0$, a price-growth rate of $\dot P$ per year, and a 5 year mortgage period, the expected price in $T$ years is:
-
 % WHY DOES THIS DEPEND ON MORTGAGE? - do without 5 years first.
 
 \[P^e_T=P_0(1+\dot P)^T\]
@@ -16,35 +16,44 @@ Similarly, if we want the compounded interest rate for person $i$ the term T,
 \[Rate_i^T=(1+r_i)^T\]
 This is the value we use in equation~\ref{EqBidPrice}.
 
+If person $i$  discounts at $r_\delta$, the present value of  a receipt at time $T$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
 
-If person $i$  discounts at $discr_i$, the present value of  a receipt at time $T$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
-
-\[\delta_i^T= \left( \frac{1}{1+discr_i} \right)^T \]
-%\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+discr_i} \right)^\tau \]
+\[\delta_i^T= \left( \frac{1}{1+r_\delta} \right)^T \]
+%\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+r_\delta} \right)^\tau \]
  
 These can be combined into a function %\deltathat  gives  a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
-\[ PDV(P^e_T)=P_0\left( \frac{1+\dot P}{1+discr} \right)^T \]
+\[ PDV(P^e_T)=P_0\left( \frac{1+\dot P}{1+r_\delta} \right)^T \]
 This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation. 
 
 
-
-
 \subsection{Mortgage availability}
-
 For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
 
 We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
 
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ( $P_0$  will not always be the same as the asking price or the warranted price.) 
 
+
 \subsection{Investment decision and bid price}
-The value of a property purchase over the course of a mortgage term is the capital gain minus the financing cost plus the net rental income, $\mathcal{R}$:
+The value of a property purchase over the course of a mortgage term is the capital gain minus the financing cost plus the net rental income, $\mathcal{R}_N$. 
 \begin{align}
-V  	&= Net\ Capital\ Gain & +\ & \mathcal{R}\\
+V  	&= Net\ Capital\ Gain & +\ & \mathcal{R}_N\\
     &=  Capital\ gain - Interest\ due      &+\ &   Rent  - Operating\ cost - Taxes  \nonumber \\
-    &= \delta(P_T- (1+r)M)             	& +\ & R  	-C  - T \\
-    &= \ \delta((1+\dot P)  P_0- (1+r)mP_0)  & +\ & \rho P_0  - \kappa P_0 - \sigma P_0  \nonumber\\
-    &= (\delta((1+\dot P)  - (1+r)m)        & +\ & (\rho - \kappa  - \sigma) P_0  \nonumber\\
+    &= \delta(P_T- (1+r)M)             	& +\ & \mathcal{R} -C - T \\
+    &= \delta(P_T- (1+r)M)             	& +\ & \phi\mathcal{R}
+    \end{align}
+Where $\phi$ is just a fraction that takes into account taxes and operating costs.  The warranted price of the property is the present value of the warranted rents, which may be rising. This is a problem of us.
+
+Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
+
+We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this?
+
+
+
+
+
+\begin{align}  
+    &= \ \delta \left[(1+\dot P)  P_0- (1+r)mP_0)\right]  & + & \rho P_0  - \kappa P_0 - \sigma P_0  \nonumber \\
 \end{align}
 
 This can be expressed in terms of the rate of return on the down payment
@@ -80,7 +89,7 @@ In practice, potential investors will make an  initial  bid that is lower than t
 \section{Finding bid price}
 We start with Equation~\ref{B2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
 
-Replace $P_T$ with $(1+\dot P)P_{bid}$.
+Replace $P_T$ with $(1+\dot P)P_{bid}$ assuming that the bidder is bidding the equilibrium market price for the period.
 
 Then replace   $\dot P$ with $L(p)$ representing some (estimated function ($\tilde{\dot P}$)) of the lagged values of $P$ that incorporates other data. 
 
@@ -90,7 +99,6 @@ v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
 \end{eqnarray}
 
-
 So I want to use this relationship to find the maximum bid price for the bank. The rule is, ``Bid if the RHS is larger than the target rate of return, $r_{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
 
 {\color{red}
@@ -98,31 +106,25 @@ So I want to use this relationship to find the maximum bid price for the bank. T
 r_{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
    P^{max}_{bid} &=&\frac{r_{target}-\mathcal{R}_N}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
 \end{eqnarray}}
-(What makes. this work is that I do not use an identity to get
-$\dot P$, which made the system of equations singular.)
+%(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 \newpage
 
-\subsection{On Bidding}
 
+\subsection{On Bidding}
 In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
 
 If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This makes sense because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
 That is the highest price that a seller can get.
 
-It might be simplest to treat every seller as a bidder. All bid above here own are considered. The one chose ins the second highest. This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguihable form any more com[plex apporach] 
+It might be simplest to treat every seller as a bidder. All bid above here own are considered. The one chose ins the second highest. This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguishable form any more complex approach
 
-Will peersons retireing who would lerave the city invest in an urban rental?
-
-This should 
-
+Will persons retiring who would leave the city invest in an urban rental?
 
 Bargaining between buyers and sellers differs. Buyers bid low and sellers ask high.  {\color{red}We need to calculate a minimum selling price for the seller}.
 
-
-
 % But what is $D$? Does the bank have unlimited funds? Isn't D just a fraction of P?  If so it cancels out
-
 % r is the prime rate- that the bank pays? 
+
 
 \section{Relating the equations to the code}
 Taking the expression for $P^{max}_{bid}$, we now discuss each of the terms and how they are implemented in the code. The following subsections are numbered consistent with this layout "
@@ -131,55 +133,54 @@ Taking the expression for $P^{max}_{bid}$, we now discuss each of the terms and 
 \subsection{Computing the target interest rate, $r_{target}$}
 prime rate plus a margin required by the bank.  Question: do non-bank actors have such a term?
 
-\textbf{CODE:}   self.get-target-interest-rate(buyer).
+self.get-target-interest-rate(buyer).
 
 
 \subsection{Computing net rent}
-If we assume that the rental rates actually charged are the warranted economic rent, Net rent is
-$\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega-tau*d_j)$
+If we assume that the rental rates actually charged are the warranted economic rent, Net rent for a given property $j$ is
 
+$\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - \tau d_j)$
 
-The tax ratio $\sigma$ is an important number - it is the share of rents that the municipality takes for services and infrastructure. I estimate it to be about 30\% based on Mill rates in Ontario,  so $\sigma=0.3$.
+{\color{red}
+Notice that that we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price:
 
+\[\mathcal{R}= \frac{\mathcal{R}}{P_0}P_0 \]
+so equation
 
-In reality, $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. This will matter for the buyer. If it varies may be useful as a quality indicator.
+}
+
+The tax ratio $\sigma$ is an important number - it is the share of rents that the municipality takes for services and infrastructure. Perhaps about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
+
+The value of $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. If it varies, it may be useful as a quality indicator.
 
 Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period
 
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and collected at the end of the year and the first is he current warranted rent.
+\[\mathcal{R}_N^T= (\omega-\tau*d)\sum_{t=0}^{t=T-1} \frac{(1+\dot{rent})^{t}} {(1+r_{r_\delta})^{t+1}} \]
 
-If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and  collected at the end of the year and the first is $\mathcal{R}_N0$.
-\[\mathcal{R}_N^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1} \frac{(1+\dot{rent})^{\tau}} {(1+r_{discr_i})^{\tau+1}} \]
-
-% \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{discr_i}}\right]^\tau \]
-where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $discr_i$ is the individual's discount rate.
+% \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{r_\delta}}\right]^\tau \]
+\noindent where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate.
 
 TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
 
-\textbf{CODE:}  
 
-\subsection{Computing the discount factor for T, $\delta$}
-The discount factor $\delta_i$ captures the cost of waiting T periods to sell the property. The usual; way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns base on the year-over-year rate of return. 
+\subsection{Computing the discount factor}
+
+The discount factor $\delta_i$ for period $T$ captures the cost of waiting $T$ periods to sell the property. The usual; way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns base on the year-over-year rate of return. 
 
 \[\delta_i=\left[\frac{1}{1+r_i}\right]^T\]
 
-\textbf{CODE:}  
+
 \subsection{Computing the approximation function for price forecast $L(p)$}
 $p$ is all the price data plus any exogenous information (EG Policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
 
-\textbf{CODE:}  Kirsten has to come up with a data aggregator 
+
+\subsection{Computing the bank's interest rate}
+The bank's interest rate, $r$, is just the bank rate set by the Bank of Canada. Exogenous. Just define it.
 
 
-
-\subsection{Computing the bank's interest rate, $r$}
-
-I think this is just the bank rate set by the Bank of Canada. Exogenous. Just define it.
-
-\textbf{CODE:}  
-
-\subsection{Computing the borrowing ratio, $m_i$}
-
-The borrowing ratio is just the fraction of the price that the bank will lend to a potential buyer. It may depend on the individual. It is likely to be higher for institutional buyers  and for rich people because the bank thinks rich people are more secure risks. they may have other assets that could be attached in the case of default.
-
+\subsection{Computing the borrowing ratio}
+The borrowing ratio, $m_i$, is just the fraction of the price that the bank will lend to a potential buyer. It may depend on the individual. It is likely to be higher for institutional buyers  and for rich people because the bank thinks rich people are more secure risks. they may have other assets that could be attached in the case of default.
 
 I have suggested The cost of capital is known to differ for rich and poor. We need a function that captures this relationship so we need to define individual wealth:
 \[W_i= P_i -M_i  +S_i\]
@@ -196,11 +197,6 @@ Here we should use the same logic as we use about the interest rate charged, $r_
 We  tie the borrowing ratio, $m_i$,  for agent $i$, to individual wealth. Figure~\ref{Fig:Borrowingratio} illustrates a mortgage availability  model that is written 
  \[ m_i = 0.1(9-\left(\frac{W_i}{\bar W}\right)^{0.5}/2 )\]
 Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-
-
-
-
-\textbf{CODE:}  
 
 \begin{figure}
 \begin{tikzpicture}[scale=.5]
@@ -275,9 +271,7 @@ Here is a function for  the individual interest rate
 \draw[func,domain=\Wmin:\W, red] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\rbar});
 \draw [thick,  color=red](13, 9)--(15,9)node [right, black] {\small A=\A,\ B=\B};
 % % KEY
-
-
- \end{tikzpicture}
+\end{tikzpicture}
 \caption{Individual borrowing cost as a function of wealth}
 \label{Fig:Borrowingrate}
 \end{figure}
@@ -318,13 +312,13 @@ where A= y-shift, B= scale, and C= x-shift for the curve.
 \label{Fig:Borrowingrate}
 \end{figure}
 
-\textbf{CODE:}  
-
-
-
 
 \chapter[Parameters]{Parameter Values}
 \label{AppendixB}
+
+FIX 
+
+
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
@@ -360,8 +354,6 @@ $\delta_i$     & Discount factor for T                &            & $\left(\fra
 %     ci= a-p
 %     print("Final Amount: ", a)
 %     print("Compound Interest: ", ci)
-
-
  
 
 \section{Transportation costs}
