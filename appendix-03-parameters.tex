@@ -1,0 +1,101 @@
+\chapter[Parameters]{Parameter Values}
+\label{AppendixParemeters}
+
+FIX 
+
+
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{rlrr}\
+Symbol         & Name                                 & Value      & Formula  \\ \hline
+$m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P_{ask?}$ \\
+$M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
+ $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
+$IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
+$\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
+$\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
+$\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
+$\dot P $      & Price growth                         &[]          & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+$P^e_T$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\
+$r^{disc}_i$   & Individual discount rate             &            & To assign \\
+$\bar r$       & Prime interest rate                  &            & \\
+$r_{target}$   & Investor/bank target rate            &            & $\bar r + margin$ \\
+$r_i$          & Individual borrowing-rate            &            & \\
+$\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r^{disc}_i}\right)^T$ \\
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+
+
+%==========================EXAMPLE=========================== https://www.kaggle.com/code/prateekmaj21/basic-financial-calculations-using-python/notebook
+  
+% def compound_interest(p,r,t):  %EXAMPLE
+    
+%     print('Amount: ', p)
+%     print("Rate of Interest (Per Annum)", r)
+%     print("Time (In Years): ",t)
+    
+%     a= p*((1+r/100)**t)
+    
+%     ci= a-p
+%     print("Final Amount: ", a)
+%     print("Compound Interest: ", ci)
+ 
+
+\section{Transportation costs}
+Transport costs have two parts:
+1) fuel and vehicle costs per km
+2) time costs per km
+
+\subsection{Vehicle related costs}
+Use one year as the wage period, converting transportation costs per km to annual cost for consideration in the household budget. Starting with the cost per km, calculate the cost per year:
+
+\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
+
+ \textbf{work trips per year} 2 way * 5 days/week * 50 weeks work days = 500. [range: 450-550]
+
+\textbf{cost per km-year} = work trips per year*cost per km
+
+=\$0.59/km*500 trips/year  =  \$295/km year 
+
+
+
+\subsection{Time costs}
+\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
+
+(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
+
+\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
+ 
+\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
+
+\textbf{money cost of time per km year} 
+
+=time cost per km-year* wage(including subsistence) 
+
+= 0.012 year* wage per year
+
+\subsection{Total cost per km year of commuting for one agent}
+\textbf{money cost of time per km year + \$295/km year * distance} \\
+= (0.012 w+ \$295)/km year 
+    \begin{quotation}
+    \textbf{Example}
+    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is equal to the wage
+
+\[(0.012 w+ \$295)/km year)*30 =  w\] 
+\[.36w+ 8850=w\]
+\[w=13828.12\]
+        \begin{quotation}
+        \textbf{PLAUSIBILITY CHECK}
+This is plausible land rent, but does not include building rent. 
+Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles from city centre
+        \end{quotation}
+    \end{quotation}
+
+{\color{red}
+\subsection{? Value of $t$ to use in model}}
+\[ \tau=(0.012 w+ \$295)/km year \]
+
+
+\newpage
+\section{Notation Table}
+\input{notes_and_references/Notation.tex}
