@@ -1,9 +1,232 @@
-\chapter[Parameters]{Parameter Values}
+\chapter[Parameters]{Parameter Values and Code}
 \label{AppendixParemeters}
 
-FIX 
+\section{Relating the bid price parameters to the code}
+the bid price is 
+\[P_{bid} \ge    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}\]
+
+Taking the expression for $_{bid}$, we now discuss each of the terms and how they are implemented in the code. The following subsections are numbered consistent with this layout "
+\[\frac{\ref{SS:rentshare}B4.2}{B4.3\left( (1+B4.4 - (1+B4.5)B4.6\right)}\]
+
+\subsection{Computing the rent share}\label{SS:rentshare}
+
+\subsection{Computing the target interest rate}\label{
+
+ The target interest rate, $r_{target}$, is the prime rate plus a margin required by the bank.  Question: do non-bank actors have such a term?
+
+\begin{verbatim}
+self.get-target-interest-rate(buyer)
+\end{verbatim}
+
+\subsection{Computing net rent}
+If we assume that the rental rates actually charged are the warranted economic rent, Net rent for a given property $j$ is
+
+$\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - \tau d_j)$
+
+{\color{red}
+Notice that that we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price:
+
+\[\mathcal{R}= \frac{\mathcal{R}}{P_0}P_0 \]
+so equation
+
+}
+
+The tax ratio $\sigma$ is an important number - it is the share of rents that the municipality takes for services and infrastructure. Perhaps about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
+
+The value of $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. If it varies, it may be useful as a quality indicator.
+
+Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period
+
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and collected at the end of the year and the first is he current warranted rent.
+\[\mathcal{R}_N^T= (\omega-\tau*d)\sum_{t=0}^{t=T-1} \frac{(1+\dot{rent})^{t}} {(1+r_{r_\delta})^{t+1}} \]
+
+% \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{r_\delta}}\right]^\tau \]
+\noindent where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate.
+
+TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
 
 
+\subsection{Computing the discount factor}
+
+The discount factor $\delta_i$ for period $T$ captures the cost of waiting $T$ periods to sell the property. The usual; way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns base on the year-over-year rate of return. 
+
+\[\delta_i=\left[\frac{1}{1+r_i}\right]^T\]
+
+
+\subsection{Computing the approximation function for price forecast $L(p)$}
+$p$ is all the price data plus any exogenous information (EG Policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
+
+
+\subsection{Computing the bank's interest rate}
+The bank's interest rate, $r$, is just the bank rate set by the Bank of Canada. Exogenous. Just define it.
+
+
+\subsection{Computing the borrowing ratio}
+The borrowing ratio, $m_i$, is just the fraction of the price that the bank will lend to a potential buyer. It may depend on the individual. It is likely to be higher for institutional buyers  and for rich people because the bank thinks rich people are more secure risks. they may have other assets that could be attached in the case of default.
+
+I have suggested The cost of capital is known to differ for rich and poor. We need a function that captures this relationship so we need to define individual wealth:
+\[W_i= P_i -M_i  +S_i\]
+where 
+
+\begin{tabular}{ll}
+$P_i$ & value of owned home\\
+$M_i$ & Mortgage on owned home\\
+$S_i$ & personal savings = $age*d*W$\\
+\end{tabular}
+
+Here we should use the same logic as we use about the interest rate charged, $r_i$ - it should depend on the person's assets compared to others. The bank, as a person has lots of assets, so $m_i$ is close to one, say 0.9. For the average wealth holder, $m_i$ should be around - let's say, 0.8. 
+
+We  tie the borrowing ratio, $m_i$,  for agent $i$, to individual wealth. Figure~\ref{Fig:Borrowingratio} illustrates a mortgage availability  model that is written 
+ \[ m_i = 0.1(9-\left(\frac{W_i}{\bar W}\right)^{0.5}/2 )\]
+Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+
+\begin{figure}
+\begin{tikzpicture}[scale=.5]
+
+%\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+%\def\bndmin{0.2}
+\def\Y{10}  % height of y axis pecent
+\def\W{20}  % length  of x axis
+\def\Wbar{4} % meam wealth
+\def\rbar{8}% this is the prime rate
+
+% %Equation   \[ r_i = (A + .5 \frac{\bar{W}}{W_i})\omega\]
+   % \def\Wmin{.63}  %This sets the lower limit fo the 
+    \def\Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds
+	
+ \tikzset{func/.style={thick,color=blue!90}}	
+
+ \draw [thick](\W,\Y)-- (0,\Y)node[left=.5cm]{\Large$1$}node[above=.25cm]{$m_i$} -- (0,0)node[left=.5cm]{\Large$0$}--(\W,0)node[below]{Wealth}--cycle;  	% Axes
+ \draw [dashed, thick] (0,\rbar)node[left=.25cm]{$\bar r$} -- (\W,\rbar);  	% Axes
+\draw [thick,dashed] ( \Wbar,0)node[below=.5cm]{$\bar{W}$} -- (\Wbar,\Y);  	% Axes
+
+\foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};
+%\foreach \yi in {0,2,4,6,8,10} \draw (0,\yi)--(-.1,\yi));
+%node[left]{\small$\yi$};
+%\foreach \yi in {0,2,4,6,8,10}node at (-.1,yi) {{10*yi}} ;
+\draw[func,domain=0:\W] plot [samples=200] (\x,(9-\x^.5/2);
+
+ \end{tikzpicture}
+\caption{Individual borrowing cost as a function of wealth}
+ \label{Fig:Borrowingratio}
+\end{figure}
+
+
+\subsection{Computing the individual borrowing rate, $r_i$}
+In our model, we  tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ or the bank's target rate, $r_{target}$, prime plus 1\%, say. and to individual wealth. Figure~\ref{Fig:Borrowingrate} illustrates a couple of possible  cost-of-borrowing models roughly consistent  with the stylized facts about lenders. 
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
+Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+
+
+Here is a function for  the individual interest rate
+
+\begin{figure}
+\begin{tikzpicture}[scale=.5]
+%\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+%\def\bndmin{0.2}
+\def \Y {10}  % height of y axis pecent
+\def \W {20}  % length  of x axis
+\def \Wbar {3} % meam wealth
+\def \rbar {3}% this is the prime rate 
+
+%Equation   \[ r_i = (A + .5 \frac{\bar{W}}{W_i})\omega\]
+\def \Wmin{.63}  %This sets the lower limit fo the 
+\def \Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds
+\tikzset{func/.style={thick}}	
+	% Axes
+\draw [thick] (0,\Y)node[left=.5cm]{$r_i$} -- (0,0)--(\W,0)node[below]{Wealth};  
+\foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};
+\draw [thick] (0,\rbar)node[left=.5cm]{$\bar r$} -- (\W,\rbar);  	% Axes
+\draw [thick,dashed] ( \Wbar,0)node[below=.5cm]{$\bar{W}$} -- (\Wbar,\Y);  	% 
+
+\def \A {1.0}  \def \B {0.5} %BLUE
+\draw[func,domain=\Wmin:\W, color=blue!90] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\rbar});
+\draw [ultra thick, color=blue!70 ](13, 8.3)--(15,8.3)node [right, black] {\small A=\A,\ B=\B};
+
+\def \A {0.5} 
+\def \B {0.5} %GREEN
+\draw[func,domain=\Wmin:\W, color=green] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\rbar});
+\draw [thick,  color=green](13, 7.6)--(15,7.6)node [right, black] {\small A=\A, B=\B};
+
+\def \A {1.0}  \def \B {0.8} % RED
+\draw[func,domain=\Wmin:\W, red] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\rbar});
+\draw [thick,  color=red](13, 9)--(15,9)node [right, black] {\small A=\A,\ B=\B};
+% % KEY
+\end{tikzpicture}
+\caption{Individual borrowing cost as a function of wealth}
+\label{Fig:Borrowingrate}
+\end{figure}
+
+
+TESTING another function
+\[ r_i  = (\bar r- A + B *\frac{\bar W}{W_i-C}) \]  
+where A= y-shift, B= scale, and C= x-shift for the curve.
+
+\begin{figure}
+\begin{tikzpicture}[scale=.5]
+%\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+%\def\bndmin{0.2}
+\def \Y {10}  % height of y axis pecent
+\def \W {20}  % length  of x axis
+\def \Wbar {3} % meam wealth
+\def \rbar {3}% this is the prime rate 
+
+%\def \Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds
+\tikzset{func/.style={thick}}	
+	% Axes
+\draw [thick] (0,\Y)node[left=.5cm]{$r_i$} -- (0,0)--(\W,0)node[below]{Wealth};  
+\foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};
+\draw [thick] (0,\rbar)node[left=.5cm]{$\bar r$} -- (\W,\rbar);  	% Axes
+\draw [thick,dashed] ( \Wbar,0)node[below=.5cm]{$\bar{W}$} -- (\Wbar,\Y);  	% 
+
+\def \A {1} %vertical shift aroung \rbar, the prime rate
+ \def \B {1}  % Scales the exponential curveBLUE
+ \def \C {1}  %right shift  
+% \def \Wmin {.4+\B}  %This sets the lower limit fo the 
+\def \Wmin {(\B*\Wbar)/(\Y-\rbar+\A) +\C} %function to keep in in bounds
+
+\draw[func,domain=\Wmin:\W, color=blue!90] plot [samples=200] (\x,{\rbar-\A+\B*\Wbar/(\x-\C))});
+\node  [align=left, text width =2cm ] at (13, 8.3) {\small y-shift=\A \newline scale=\B \newline x-shift= \C};
+
+ \end{tikzpicture}
+\caption{Individual borrowing cost as a function of wealth II}
+\label{Fig:Borrowingrate}
+\end{figure}
+
+The rates $\delta,\ \sigma,$ and $r$ depend on the period, $T$. 
+
+\section{Incorporating growth and discounting}
+%We need a time period T for calculations. For use in any calculation, 
+
+With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
+the expected price at the end of the period is:
+
+\[P^e_T=P_0(1+\dot P)^T\]
+
+If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
+
+If we want the compounded interest rate person $i$ the term T,
+\[r_i^T=(1+r_i)^T\]
+% This is the value we use in equation~\ref{EqBidPrice}.
+
+If person $i$  discounts at a discount rate $r_\delta$, the present value of a receipt at time $t$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
+
+\[\delta_i^T= \left( \frac{1}{1+r_\delta} \right)^T \]
+%\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+r_\delta} \right)^\tau \]
+ 
+These can be combined into a function %\deltathat  gives  a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
+\[ PDV(P^e_T)=P_0\left( \frac{1+\dot P}{1+r_\delta} \right)^T \]
+This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation.
+
+\subsection{Mortgage availability}
+For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
+
+We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
+
+We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
+
+
+\section{Table}
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
@@ -15,7 +238,7 @@ $IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
 $\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
 $\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
 $\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
-$\dot P $      & Price growth                         &[]          & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+$\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
 $P^e_T$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\
 $r^{disc}_i$   & Individual discount rate             &            & To assign \\
 $\bar r$       & Prime interest rate                  &            & \\
@@ -95,7 +318,3 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles
 \subsection{? Value of $t$ to use in model}}
 \[ \tau=(0.012 w+ \$295)/km year \]
 
-
-\newpage
-\section{Notation Table}
-\input{notes_and_references/Notation.tex}
