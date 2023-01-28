@@ -145,6 +145,7 @@ v&=&( \delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \no
 		&=&\frac{ \delta(1+\dot P  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule2}
 \end{eqnarray}
 
+Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors: invest if $v \geq r_{target}$. The rule has qualitative implications for the ownership of housing 
 
 
 %%%%%%%%  VVVVVVVVVVVVVVVVVVVVVVV   This section May 18 to cut?  V
@@ -223,3 +224,31 @@ The implication is that those with more capital will be at an advantage in the u
 \end{itemize}
 
 These appear to be features of the economy we observe.
+
+
+\section{Investors' market behaviour}
+
+
+Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
+
+To find how much investors will bid, we need to find the maximum price that satisfies this criterion, we define as the ``bid price'' $P^{max}_{bid}$  as the maximum price offer that allows the investor to achieve the target rate of return, $r_{target}$,   %replacing $\mathcal{R}$ with $rP_0$. 
+We calculate the bid price in Appendix~\ref{AppendixBidPrice), starting with revision to Equation~\ref{Eqn:V}. We use $\mathcal{R}$ as a  expression for the investor's expected net rent and $L(P)$ as the investor's  estimator for the rate of price change. After recalculating the rate of $v$, we set $v \ge r_{target}$ and solve for  prices that achieve at least the target rate of return. The solution is 
+
+\begin{align}
+% r_{target} &\le \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}. \\
+% %
+% (1-m)r_{target} &\le   + \frac{\phi \mathcal{R}}{P_{bid}}\\%\delta(1+L(P))- (1+r)m%
+% %
+% (1-m)r_{target}-\left[\dots\right]  &\le  \frac{\phi \mathcal{R}}{P_{bid}}\\
+% %
+% P_{bid} &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \dots\right]}\\
+% %
+P_{bid} &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \label{eq:BidPrice}
+\end{align}
+
+The denominator in Equation~\ref{eq:BidPrice}  is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$ 
+
+We use this formula in the price determination process in our simulation model. 
+
+
+

@@ -1,22 +1,23 @@
 \chapter[Bidding]{Bidding Method}
 \label{AppendixB}
 
+The rates $\delta,\ \sigma,$ and $r$ depend on the period, $T$. 
 
 \section{Incorporating growth and discounting}
 %We need a time period T for calculations. For use in any calculation, 
-The rates $\delta,\ \sigma,$ and $r$ depend on the period, $T$. For example, with a current price of $P_0$, a price-growth rate of $\dot P$ per year, and a 5 year mortgage period, the expected price in $T$ years is:
-% WHY DOES THIS DEPEND ON MORTGAGE? - do without 5 years first.
+
+With a price-growth rate of $\dot P$ per year, the growth over T years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
+the expected price at the end of the period is:
 
 \[P^e_T=P_0(1+\dot P)^T\]
 
-% the current price is , 
-The T-year growth rate is $(1+\dot P)^T$. If, for example, $\dot P= 0.1$, or 10 \%, The growth  over a 5-year mortgage term or capital gain, would be 0.61051 or 60\% of the original price.
+If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
-Similarly, if we want the compounded interest rate for person $i$ the term T,
-\[Rate_i^T=(1+r_i)^T\]
-This is the value we use in equation~\ref{EqBidPrice}.
+If we want the compounded interest rate person $i$ the term T,
+\[r_i^T=(1+r_i)^T\]
+% This is the value we use in equation~\ref{EqBidPrice}.
 
-If person $i$  discounts at $r_\delta$, the present value of  a receipt at time $T$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
+If person $i$  discounts at a discount rate $r_\delta$, the present value of a receipt at time $t$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
 
 \[\delta_i^T= \left( \frac{1}{1+r_\delta} \right)^T \]
 %\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+r_\delta} \right)^\tau \]
