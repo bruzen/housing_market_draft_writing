@@ -1,66 +1,91 @@
-\chapter[Parameters]{Parameter Values and Code}
+\chapter[Parameters]{Computing Bid Price Parameters}
 \label{AppendixParemeters}
 
-\section{Relating the bid price parameters to the code}
-the bid price is 
-\[P_{bid} \ge   \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m)\right]}\]
-
-Taking the expression for $_{bid}$, we now discuss each of the terms and how they are implemented in the code. The following subsections are numbered consistent with this layout "
-\[\frac{\ref{SS:rentshare}*\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
-\left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}
-\]
+% \section{Relating the bid price parameters to the code}
+The bid price is: 
+\begin{align}
+P^{bid} \ge   \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m)\right]}. 
+\end{align}
+In the following sections, we discuss each of the terms and how they are implemented in the code. Sections are numbered: 
+\begin{align}
+\frac{\ref{SS:rentshare}*\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
+\left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]} \nonumber
+\end{align}
 
 %. \label{SS:}
-\subsection{Computing the rent share}\label{SS:rentshare}
+\section{Rent share}\label{SS:rentshare}
 
 a fraction
-rent-taxes-costs /rent 
+$\phi = rent-taxes-costs /rent$ 
 
-\subsection{Computing the target interest rate}\label{SS:targetr}
+\subsection{Target interest rate}\label{SS:targetr}
 
- The target interest rate, $r^{target}$, is the prime rate plus a margin required by the bank.  Question: do non-bank actors have such a term?
+ The target interest rate, $r^{target}$, is the prime rate plus a margin. % required by the bank.  Question: do non-bank actors have such a term?
 
 \begin{verbatim}
 self.get-target-interest-rate(buyer)
 \end{verbatim}
 
-\subsection{Computing net rent}\label{SS:}
-If we assume that the rental rates actually charged are the warranted economic rent, Net rent for a given property $j$ is
+\subsection{Net rent}\label{SS:NetRent}
 
-$\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - \tau d_j)$
+There's a distinction between the warranted rent, the net rent, and the rent that's actually charged.
+
+
+
+We assume that the  rent  actually charged to a tenant is the warranted economic rent, ($\mathcal{R}= \omega - \tau d_j$), but the relevant term to enter into the calculation of return on investment is the net rent $\mathcal{R}_N$ for a given property, because the returns are the returns an investor can get after paying taxes and operating costs.
+
+In our computational model, we do the calculation in terms of a mortgage, so we want the total returns after expenses, in present value, compounded over the mortgage  period.
+% We want the total returns after expenses, in present value, compounded over a 5 year period.
+
+
+\begin{align}
+\mathcal{R}_N &= \mathcal{R} - \Theta - \Sigma 
+\end{align}
+
+
+In terms of the warranted rent, 
+\begin{align}
+\mathcal{R}_N &= (1-\kappa_j - \sigma_j)(\omega - \tau d_j)
+\end{align}
+
+% $\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - \tau d_j)$
 
 {\color{red}
-Notice that that we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price:
+Notice that  we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price: COULD MOVE TO THE CHAPTER NOW SINCE THE THE SECTION IS MOVED THER
 }
 
 \[\mathcal{R}= \frac{\mathcal{R}}{P_0}P_0 \]
 
+***
+
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and collected at the end of the year and the first is the current warranted rent.
+\[\mathcal{R}_N^T= (\omega-\tau*d)\sum_{t=0}^{t=T-1} \frac{(1+\dot{\mathcal{R}})^{t}} {(1+r_{r_\delta})^{t+1}} \]
+
+% \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{\mathcal{R}}}{1+r_{r_\delta}}\right]^\tau \]
+\noindent where $\dot{\mathcal{R}}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate.
+
+TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
+
 \subsection{Tax ratio}\label{SS:taxratio} 
-The tax ratio $\sigma$ is an important number - it is the share of rents that the municipality takes for services and infrastructure. Perhaps about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
+The tax ratio $\sigma$ is the share of rents that the municipality takes for services and infrastructure. Perhaps about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
+
+*** CHECK Total taxes paid on a given property, over a given mortgage period, is $\Sigma_j = \sigma * P_j$.
+
 
 \subsection{Cost tax ratio}\label{SS:costratio} 
 The value of $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. If it varies, it may be useful as a quality indicator.
 
 Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period.
 
-\subsection{Net rent}\label{SS:NetRent}
-If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and collected at the end of the year and the first is the current warranted rent.
-\[\mathcal{R}_N^T= (\omega-\tau*d)\sum_{t=0}^{t=T-1} \frac{(1+\dot{rent})^{t}} {(1+r_{r_\delta})^{t+1}} \]
 
-% \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{rent}}{1+r_{r_\delta}}\right]^\tau \]
-\noindent where $\dot{rent}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate.
-
-TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
-
-
-\subsection{Computing the discount factor}\label{SS:discountfactor}
+\subsection{Discount factor}\label{SS:discountfactor}
 
 The discount factor $\delta_i$ for period $T$ captures the cost of waiting $T$ periods to sell the property. The usual; way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns base on the year-over-year rate of return. 
 
 \[\delta_i=\left[\frac{1}{1+r_i}\right]^T\]
 
 
-\subsection{Computing the approximation function for price forecast} \label{SS:PriceForecast}
+\subsection{Price forecast approximation} \label{SS:PriceForecast}
 $L(p)$
 
 $p$ is all the price data plus any exogenous information (EG Policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
@@ -266,7 +291,7 @@ We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
 Symbol         & Name                                 & Value      & Formula  \\ \hline
-$m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P_{ask?}$ \\
+$m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
 $M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
  $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
 $IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
@@ -274,7 +299,7 @@ $\rho$         & Rent ratio                           &            & $\frac{\ome
 $\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
 $\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
 $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-$P^e_T$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\
+$P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
 $r_i^\delta$   & Individual discount rate             &            & To assign \\
 $\bar r$       & Prime interest rate                  &            & \\
 $r_i$          & Individual borrowing-rate            &            & \\
@@ -283,6 +308,8 @@ $\delta_i$     & Discount factor for T                &            & $\left(\fra
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
 
+
+todo look for $P^e_T$ 
 
 %==========================EXAMPLE=========================== https://www.kaggle.com/code/prateekmaj21/basic-financial-calculations-using-python/notebook
   

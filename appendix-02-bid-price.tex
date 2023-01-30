@@ -10,8 +10,8 @@ The value of a property purchase over the course of a mortgage term is the \gls{
 \begin{align}
 V  	& = Net\ Capital\ Gain & +\ & \mathcal{R}_N \\
     & =  Capital\ gain - Interest\ due      &+\ &   Rent  - Operating\ cost - Taxes \nonumber \\
-    &= \delta(P_T- (1+r)M)  & +\ & \mathcal{R} -C - T  \\
-    &= \delta(P_T- (1+r)M)  & +\ & \phi\mathcal{R}\label{eq:Value}
+    &= \delta(P^T- (1+r)M)  & +\ & \mathcal{R} -C - T  \\
+    &= \delta(P^T- (1+r)M)  & +\ & \phi\mathcal{R}\label{eq:Value}
 \end{align}
 
 Where $\phi$ is a fraction that takes into account taxes and operating costs. 
@@ -33,7 +33,7 @@ In principle, the  sale price of a unit of land considered is the present discou
   P=\frac{\mathcal{R}_N}{r}  \label{eq:Capitalization}
 \end{equation}
 
-%\[v= \delta(P_T- (1+r)M)    +\phi\mathcal{R}\]
+%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
 
 \noindent so we can write
 \begin{align}  
@@ -61,23 +61,23 @@ Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It 
 
 To find how much investors will bid, we need to find the maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$.   The bid price is used in the price determination process in our model. We return to Equation~\ref{eq:Value} %replacing $\mathcal{R}$ with $rP_0$. 
 
-\[V= \delta(P_T- (1+r)M)   +\phi  \mathcal{R}\]
-% We also have to assume that $P_{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
-% \[V= \delta(P_T- (1+r)M)   +\phi r P_{bid}\]
+\[V= \delta(P^T- (1+r)M)   +\phi  \mathcal{R}\]
+% We also have to assume that $P^{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
+% \[V= \delta(P^T- (1+r)M)   +\phi r P^{bid}\]
 
-We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P_{bid}$.
+We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P^{bid}$.
 
-The  price at the end of the term $T$,  $P_T$, is a predicted value  for the investor \textit{ex-ante}, so we have to replace $P_T$ in Equation~\ref{eq:Value} with a predictor, $(1+\dot P)P_{bid}$. 
-\[V= \delta((1+\dot P)P_{bid}- (1+r)M)   +\phi  \mathcal{R}\]
+The  price at the end of the term $T$,  $P^T$, is a predicted value  for the investor \textit{ex-ante}, so we have to replace $P^T$ in Equation~\ref{eq:Value} with a predictor, $(1+\dot P)P^{bid}$. 
+\[V= \delta((1+\dot P)P^{bid}- (1+r)M)   +\phi  \mathcal{R}\]
 
 Then we replace $\dot P$ with and estimate, $L(P)$, representing an estimated function of the lagged values of $P$ and any  other relevant data. We imagine the potential investor drawing on common  knowledge or information from the real estate agents or analysts.  The result is 
-\[V= \delta((1+L(P))P_{bid}- (1+r)mP_{bid})   +\phi \mathcal{R}\]
+\[V= \delta((1+L(P))P^{bid}- (1+r)mP^{bid})   +\phi \mathcal{R}\]
 Combining terms
-\[V= \delta((1+L(P))- (1+r)m)P_{bid}   +\phi \mathcal{R}\]
+\[V= \delta((1+L(P))- (1+r)m)P^{bid}   +\phi \mathcal{R}\]
 
-The rate of return $v=V/D=V/(1-m)P_{bid}$ is then
+The rate of return $v=V/D=V/(1-m)P^{bid}$ is then
 
-\[v= \frac{\delta((1+L(P))- (1+r)m)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}\]
+\[v= \frac{\delta((1+L(P))- (1+r)m)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}\]
 
 % %++++++++++++++++
 
@@ -87,23 +87,23 @@ The rate of return $v=V/D=V/(1-m)P_{bid}$ is then
 % \end{align}
 
 % \begin{eqnarray}
-% v %&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
-% % &=&\delta\left( (1+\dot P)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
-%   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
+% v %&=& \delta(P^T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
+% % &=&\delta\left( (1+\dot P)P^{bid} - (1+r)mP^{bid} \right)  + \mathcal{R}_N  \nonumber\\
+%   &=&\delta\left( (1+L(p)) - (1+r)m \right) P^{bid} + \mathcal{R}_N  \nonumber
 % \end{eqnarray}
 
 The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
 
 \begin{align}
-r^{target} &= \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}. \\
+r^{target} &= \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}. \\
 %
-(1-m)r^{target} &= \ \  \left[\dots\right] + \frac{\phi \mathcal{R}}{P_{bid}}\\%\delta(1+L(P))- (1+r)m%
+(1-m)r^{target} &= \ \  \left[\dots\right] + \frac{\phi \mathcal{R}}{P^{bid}}\\%\delta(1+L(P))- (1+r)m%
 %
-(1-m)r^{target}-\left[\dots\right]  &=  \frac{\phi \mathcal{R}}{P_{bid}}\\
+(1-m)r^{target}-\left[\dots\right]  &=  \frac{\phi \mathcal{R}}{P^{bid}}\\
 %
-P_{bid} &=    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \dots\right]}\\
+P^{bid} &=    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \dots\right]}\\
 %
-P_{bid} &=    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
+P^{bid} &=    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
 \end{align}
 
 The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eq:Capitalization}. 
@@ -119,14 +119,14 @@ In practice, potential investors will make an  initial  bid that is lower than t
 % \section{Finding bid price}
 % We start with Equation~\ref{B2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
 
-% Replace $P_T$ with $(1+\dot P)P_{bid}$ assuming that the bidder is bidding the equilibrium market price for the period.
+% Replace $P^T$ with $(1+\dot P)P^{bid}$ assuming that the bidder is bidding the equilibrium market price for the period.
 
 % Then replace   $\dot P$ with $L(p)$ representing some (estimated function ($\tilde{\dot P}$)) of the lagged values of $P$ that incorporates other data. 
 
 % \begin{eqnarray}
-% v&=& \delta(P_T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
-%  &=&\delta\left( (1+\dot P)P_{bid} - (1+r)mP_{bid} \right)  + \mathcal{R}_N  \nonumber\\
-%   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_{bid} + \mathcal{R}_N  \nonumber
+% v&=& \delta(P^T- (1+r)M) \qquad \qquad \qquad 	 + \mathcal{R}_N \nonumber\\
+%  &=&\delta\left( (1+\dot P)P^{bid} - (1+r)mP^{bid} \right)  + \mathcal{R}_N  \nonumber\\
+%   &=&\delta\left( (1+L(p)) - (1+r)m \right) P^{bid} + \mathcal{R}_N  \nonumber
 % \end{eqnarray}
 
 % So I want to use this relationship to find the maximum bid price for the bank. The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
