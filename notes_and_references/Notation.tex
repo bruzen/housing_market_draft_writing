@@ -4,12 +4,13 @@
 
 \hline           &  \textbf{Productivity} \\ \hline
 $K$              &  Capital               \\ 
-$L$              &  Labour                \\
-$N$              &  Population, equals labour, $L$                        \\ 
+% $L$              &  Labour                \\
+$N$              &  Population, equals labour \\ %, $L$                     
+$Y=N^\gamma K^{\alpha }N^{\beta }$  &  Output \\ %Urban output            \\
 $\alpha$         &  Elasticity of output with respect to capital          \\
 $\beta$          &  Elasticity of output with respect to labour           \\ % vs effective labour
 $\gamma$         &  Elasticity of agglomeration with respect to labour    \\ % , $\Lambda(n)$, for illustration \\
-$Y=N^\gamma K^{\alpha }N^{\beta }$  &  Urban output                       \\
+
 % $L$              &  Labour supply \\ %the number of workers, which, in the standard circular city model, equals the number of lots of size $s$  when workers live on identical individual lots. % Unless $d^{max}>d^*$ v  \frac{\pi}{s}(\frac{w}{\tau})^2 =
 % $n_i$  &  Number of workers employed by firm $i$ \\
 % n=\sum_i n_i$  &  Number of workers, the urban population in the model \\
@@ -38,8 +39,7 @@ $\psi$           &  Rural wage                  \\ %
 $\omega$         &  Urban wage premium          \\
 $\tau$           &  Transportation cost per unit distance \\
 $d$              &  Distance from city centre   \\
-$d^* = w/\tau$   &  City extent, the maximum distance commuters will travel \\ % Maximum distance commuters will travel \\ % to get the wage premium \\
-$\mathcal{R}$    &  Rent                        \\ 
+$d^* = w/\tau$   &  City extent \\ %, the maximum distance commuters will travel \\ % Maximum distance commuters will travel \\ % to get the wage premium \\
 % $\mathcal{R} = w-\tau d$ &  Rent at distance $d$ \\ 
 % $\zeta$          &  Population density at distance $d$     \\
 % $s$              &  Lot size      \\
@@ -57,18 +57,24 @@ $\mathcal{R}$    &  Rent                        \\
 %% $U^{urban}=U^{rural} $  &  Migration equilibrium assumption ** \\
 % \hline & \textbf{Labour market} \\ 
 
-\hline           & \textbf{Financial market} \\ \hline
-$P$              &  Property price           \\ % was $\dot p$  
-$\dot P$         &  Rate of price growth     \\
-$r$              &  Interest rate            \\
-$\delta$         &  Discount factor          \\
-$W$              &  Wealth                   \\
-$m$              &  Mortgage                 \\
-$\rho$           &  Rent ratio               \\
-$\kappa$         &  Operations ratio         \\
-$\sigma$         &  Property tax share       \\ % was t (also considered $\chi \Gamma$  \rotatebox[origin=c]{180}{$t$} \reflectbox{$t$})
-$t$              &  Time                     \\
-$T$              &  Time period              \\
+\hline           & \textbf{Financial market}          \\ \hline
+$P$              &  Price of a property               \\ 
+% $\dot P$       &  Rate of price growth              \\ % was $\dot p$  
+$C$              &  Capital gains                     \\
+% $C_N$          &  Net capital gain, $C -$ net rent  \\
+$M$ or $m$?      &  Mortgage                          \\ 
+$\mathcal{R}$    &  Rent                              \\ 
+% $\rho$         &  Rent ratio                        \\
+$\Theta$         &  Operational costs                 \\
+% $\theta$       &  Operations ratio                  \\ % was $\kappa$
+$\Sigma$         &  Taxes                             \\
+% $\sigma$       &  Property tax share                \\ % was t 
+$r$              &  Interest rate                     \\
+$\delta$         &  Discount factor                   \\
+% $W$            &  Wealth                            \\
+% $\psi$         &  Fraction with rent/operating costs\\
+$t$              &  Time                              \\
+$T$              &  Time period                       \\
 \hline
 \color{black}
 \end{longtable}  
@@ -80,7 +86,7 @@ $T$              &  Time period              \\
 \newpage
 
 \begin{longtable}{lp{10cm}}
-\caption{Rent}                                                           \\
+\caption{Rent}                                                            \\
 \hline
 $\omega-\tau d$               &  Warranted (economic) rent                \\
 $\mathcal{R}=\omega-\tau d$   &  Equilibrium rent payment of tenant       \\
@@ -97,7 +103,7 @@ $\mathcal{R}_N$  &  Net rent                                                  \\
 $P_0$            &  Purchase price for a property                             \\
 $P^e_T$          &  Expected price at the end of period $T$                   \\
 $\bar r$         &  Prime interest rate                                       \\
-$r_{target}$     &  Investor or banks target interest rate, $\bar r + margin$ \\
+$r^{target}$     &  Investor or banks target interest rate, $\bar r + margin$ \\
 $r_i$            &  Agent $i$'s personal borrowing rate                       \\
 $r_i^T$          &  Agent $i$ interest rate compounded over a period $T$      \\
 $r_i^{disc}$     &  Agent $i$'s subjective discount rate (which may equal $r_i$) \\
@@ -111,8 +117,10 @@ $m_i = min(m^W_i, m^\omega_i)$  & Mortgage, the share of home price worker $i$ c
 \color{black}
 \end{longtable}  
 
+Replace $r_i^{disc}$ and $r_\delta$ with
+$r^\delta$ or $r_i^\delta$
 
-
+Problem - really the compounded rate over a period is an amount. Should it not be a capital then?
 
 \section{Additional Assumptions}
 \begin{enumerate}
