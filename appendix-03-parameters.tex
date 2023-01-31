@@ -1,7 +1,7 @@
 \chapter[Parameters]{Computing Bid Price Parameters}
 \label{AppendixParemeters}
 
-In the following sections we discuss the computation of bid parameters, outline potential discounting approaches, and develop illustrative values for parameter values.
+In the following sections we discuss the computation of bid parameters, outline potential discounting approaches, and present illustrative values for parameter values.
 
 \section{Relating the bid price parameters to the code}
 The bid price is: 
@@ -21,6 +21,18 @@ In the following subsections, we discuss each of the terms and how they are impl
 P_i^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
 \left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}. \nonumber
 \end{align}
+
+In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates. For example, say the one year rate were $x$. In this case the interest payments are $xM$ for each of $T$ years. If we then assume that the interest payments are all made at the end of the mortgage term the lender will require interest on the deferred interest rates. At the end of the period the payment will be 
+\begin{align}
+(1+r_i)M&= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
+       &=M(1+ x\sum_{z=T-1}^0(1+x)^{z})\\
+r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}
+ \end{align}
+ %The appropriate compunding expressions for other rates are displayed below.
+ 
+ For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. In the computational model we employ the appropriately compounded. 
+
+
 
 \subsection{Net rent}\label{SS:NetRent}
 
