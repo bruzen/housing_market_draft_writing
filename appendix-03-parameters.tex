@@ -4,29 +4,21 @@
 % \section{Relating the bid price parameters to the code}
 The bid price is: 
 \begin{align}
-P^{bid} \ge   \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m)\right]}. 
+P^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m)\right]}. \nonumber
 \end{align}
 In the following sections, we discuss each of the terms and how they are implemented in the code. Sections are numbered: 
 \begin{align}
-\frac{\ref{SS:rentshare}*\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
+\frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
 \left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]} \nonumber
 \end{align}
 
-%. \label{SS:}
-\section{Rent share}\label{SS:rentshare}
+\section{Net rent}\label{SS:NetRent}
 
-a fraction
-$\phi = rent-taxes-costs /rent$ 
+$\mathcal{R}_N = \phi \mathcal{R}$
 
-\subsection{Target interest rate}\label{SS:targetr}
 
- The target interest rate, $r^{target}$, is the prime rate plus a margin. % required by the bank.  Question: do non-bank actors have such a term?
-
-\begin{verbatim}
-self.get-target-interest-rate(buyer)
-\end{verbatim}
-
-\subsection{Net rent}\label{SS:NetRent}
+Where the \gls{rent share}, phi is a fraction
+$\phi = (rent-taxes-costs) /rent$ 
 
 There's a distinction between the warranted rent, the net rent, and the rent that's actually charged.
 
@@ -50,39 +42,55 @@ In terms of the warranted rent,
 
 % $\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - \tau d_j)$
 
-{\color{red}
-Notice that  we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price: COULD MOVE TO THE CHAPTER NOW SINCE THE THE SECTION IS MOVED THER
-}
+% {\color{red}
+% Notice that  we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price: COULD MOVE TO THE CHAPTER NOW SINCE THE THE SECTION IS MOVED THER
+% }
 
-\[\mathcal{R}= \frac{\mathcal{R}}{P_0}P_0 \]
+% \[\mathcal{R}= \frac{\mathcal{R}}{P_0}P_0 \]
 
-***
 
-If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$, we collect over the period  $\mathcal{R}_N^T$, we \textbf{add up} the rents each year. We assume the rents are rising and collected at the end of the year and the first is the current warranted rent.
+
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$  collect over the period  $T$, $\mathcal{R}_N^T$, we \textbf{add up} the discounted rents for each year. We may assume the rents are rising at and that the first is the current warranted rent, which gives us a computational formula. 
 \[\mathcal{R}_N^T= (\omega-\tau*d)\sum_{t=0}^{t=T-1} \frac{(1+\dot{\mathcal{R}})^{t}} {(1+r_{r_\delta})^{t+1}} \]
 
+
 % \[\mathcal{R}_Nj^T= (\omega-\tau*d_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{\mathcal{R}}}{1+r_{r_\delta}}\right]^\tau \]
-\noindent where $\dot{\mathcal{R}}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate.
+\noindent where $\dot{\mathcal{R}}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate. 
 
 TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
 
-\subsection{Tax ratio}\label{SS:taxratio} 
-The tax ratio $\sigma$ is the share of rents that the municipality takes for services and infrastructure. Perhaps about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
 
-*** CHECK Total taxes paid on a given property, over a given mortgage period, is $\Sigma_j = \sigma * P_j$.
+
+\subsection{Target interest rate}\label{SS:targetr}
+
+ The target interest rate, $r^{target}$, is the prime rate plus a margin. % required by the bank.  Question: do non-bank actors have such a term?
+
+\begin{verbatim}
+self.get-target-interest-rate(buyer)
+\end{verbatim}
+
+
+\subsection{Tax ratio}\label{SS:taxratio} 
+The tax ratio $\sigma$ is the share of rents that the municipality takes for services and infrastructure. This fraction of the value of the property is about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
+
+*** CHECK Total taxes paid on  property $j$, over a given mortgage period $T$ is 
+
+\[\Psi_j^T = \psi * \mathcal{R}\].  
 
 
 \subsection{Cost tax ratio}\label{SS:costratio} 
 The value of $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. If it varies, it may be useful as a quality indicator.
 
-Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period.
+%Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period.  NO LONGER NEEDED 
+
+Nothing prevents $\sigma+\kappa >1$, which would leave an investor unable to cover building maintenance and taxes out of current rent. 
 
 
 \subsection{Discount factor}\label{SS:discountfactor}
 
-The discount factor $\delta_i$ for period $T$ captures the cost of waiting $T$ periods to sell the property. The usual; way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns base on the year-over-year rate of return. 
+The discount factor $\delta_i$ for THE END OF period $T$ captures the cost of waiting $T$ periods to sell the property. The usual way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns based on the year-over-year rate of return. 
 
-\[\delta_i=\left[\frac{1}{1+r_i}\right]^T\]
+\[\delta^T_i=\left[\frac{1}{1+r_i}\right]^T\]
 
 
 \subsection{Price forecast approximation} \label{SS:PriceForecast}
@@ -93,13 +101,13 @@ $p$ is all the price data plus any exogenous information (EG Policy knowledge?).
 
 
 
-\subsection{Computing the bank's interest rate}\label{SS:BankRate}
+\subsection{Prime interest rate}\label{SS:BankRate}
 $r$
 
 The bank's interest rate, $r$, is just the bank rate (prime rate? set by the Bank of Canada. Exogenous. Just assign  a value like 4\%.
 
 
-\subsection{Computing the borrowing ratio}\label{SS:BorrowingRatio}
+\subsection{Borrowing ratio}\label{SS:BorrowingRatio}
 $m_i$
 
 The borrowing ratio, $m_i$, is just the fraction of the price that the bank will lend to a potential buyer. \textbf{It may depend on the individual.} 
