@@ -14,7 +14,8 @@ The bid price is:
 P_i^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}. 
 \end{align}
 
-
+In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
+This means the actual interest paid is the compounded interest rates (VARIABLES LIST FOR THIS).
 In the following subsections, we discuss each of the terms and how they are implemented in the code. Net rent, $\mathcal{R}_N$, is discussed in subsection \ref{SS:NetRent}. The borrowing ratio, $m_i$, is discussed in section \ref{SS:BorrowingRatio}, the target interest rate, $r_i^{target}$, is discussed in \ref{SS:targetr} the discount factor, $\delta_i$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the interest rate the buyer has to pay for the mortgage, $r_i$, is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
 
 \begin{align}
