@@ -116,7 +116,7 @@ We can demonstrate  that  in the absence of policy interventions, differential a
 
 ADD TABLE WITH VARIABLE DEFINITIONS
  
- In this section we develop a model of the return to investment in urban housing/land. We'll assume that all agents are speculating on potential capital gains as well as on the use values they get from the use of a property.  We will also assume that the use value is captured by the stream of rental values, whether a home is owner-occupied or  held by an investor as a financial asset. To keep the analysis simple without loss of generality we will consider a one-period investment. The computational details are discussed in Appendix \ref{AppendixBidPrice} OR ** Appendix \ref{AppendixParemeters}.
+ In this section we develop a model of the return to investment in urban housing/land. We'll assume that all agents are speculating on potential capital gains as well as on the use values they get from the use of a property.  We will also assume that the use value is captured by the stream of rental values, whether a home is owner-occupied or  held by an investor as a financial asset. To keep the analysis simple without loss of generality we will consider a one-period investment.
  
  The speculator  invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot P)P_0$,  minus the mortgage repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision. \cite{Al-Shihabi}}
 
@@ -233,7 +233,7 @@ The implication is that those with more capital will be at an advantage in the u
 These appear to be features of the economy we observe.
 
 
-\section{Investors' market behaviour}
+\section{Investor market behaviour}
 
 
 Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
@@ -250,12 +250,15 @@ We calculate the bid price in Appendix \ref{AppendixBidPrice}, starting with rev
 % %
 % P_{bid} &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \dots\right]}\\
 % %
-P_{bid} &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \label{eq:BidPrice}
+P_{bid}   &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}. \nonumber \\
+P_i^{bid} & \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}.
+\label{eq:BidPrice}
 \end{align}
 
-The denominator in Equation~\ref{eq:BidPrice}  is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$ 
+*** IS IT GREATER OR LESS THAN - DIFFERENT HERE VS APPENDIX. ASSUME YOU'D BID MAX THIS.
 
-We use this formula in the price determination process in our simulation model. 
+The denominator in Equation~\ref{eq:BidPrice} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
+We use this formula in the price determination process in our simulation model. Details of the computation are discussed in Appendix \ref{AppendixBidPrice}. 
 
 
 
