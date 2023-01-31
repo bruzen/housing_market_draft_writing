@@ -2,10 +2,11 @@
 \epigraph{“An economist is someone who says, when an idea works in practice, ‘let’s see if it works in theory.'”
 — Walter W. Heller, former chairman of the Council of Economic Advisers.}{ Walter W. Heller, former chairman of the Council of Economic Advisers. (\href{https://quoteinvestigator.com/2015/08/30/practice/}{1979, The Washington Star)}}
 
-
 \newcommand{\ee}[1]{\color{red}#1 \color{black}}
 
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. The chapter is intended to explain the code and justify the modeling decisions that link the theory to the actual output of the simulations.
+
+
 
 \section{The general structure of the model}
 Our model has three major components: first, a production function, modeling how urban regions generate wealth,  second a spatial model of an urban housing market, and third, an analysis of distribution within that model that incorporates the financial system.
@@ -15,12 +16,15 @@ The social structure of the model begins with  three spatially segregated ``clas
 As the model develops, we introduce a land market and allow  the initial urban residents  to retire. They may then  sell or rent out their properties. This introduces a fourth class, the urban tenant. The final agent we add is a bank that represents 
 the financial sector, providing mortgage funds and actively purchasing land as a financial asset.
 
+
+
 \section{Modelling} 
 \subsection{Time}
 We imagine the initial set of workers in our city commuting daily, being paid monthly and residing in urban housing for their working lives, which are arbitrarily set. The computational cycle is a year, so all time-dependent variables, such as  wage, transportation cost, and interest rates, are specified for the yearly interval. 
 
 
-\subsection{Initializing}
+
+\subsection{Initialization}
 Initially, all homes are owner-occupied. This is of interest  as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. Other initial tenure mixtures are easily modelled.
 
 We also start with owners who have a long run before retirement. The housing market is suppressed during the initialisation runs. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
@@ -47,6 +51,8 @@ Equation~\ref{MPL} says that the city experiences increasing returns to scale in
 
 We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite  the fact that we  model it as a monopsonist.\footnote{Explicitly modelling labour markets with multiple firms is a natural way to specify the model more completely, but it would require introducing many ancillary assumptions and selecting among alternative models of agglomeration, when when we want to focus on distributional and growth-affecting features of the system.}
 
+
+
 \subsection{Labour market}
 Labour demand is a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically  hiring proceeds until the marginal product of labour  is equal to the wage.
 
@@ -60,18 +66,21 @@ The firm adjusts its wage offer upward when the marginal product of labour is gr
 There is no unemployment. there are no labour adjustment costs for firms.
 
 
+
 \subsection{Migration equilibrium}
 The  productivity of the city attracts people.  In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent  on the marginal unit of housing or land exceeds the transportation cost. This is the  standard urban population equilibrium condition. 
    
 The growth of population feeds back into productivity. We allow rising population to directly increase the wage.  We model a fairly short lag although in reality lags are long and variable. 
 
 
+
 \subsection{Rent}
 Rising population and productivity generates an economic value for land that provides proximity to the production center. Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. This quantity is a locational rent. The capitalized value of the locational rent is the property value.\footnote{Note that property taxes reduce the amount of the net locational value that flows to an owner but provides services and wages that make the city attractive. We omit these refinements in this study.}
 
-     
 
 The rental value of land shapes the city spatially.  We consider a homogeneous city - a single wage, identical preferences, uniform identical transportation costs, identical lot sizes.)
+
+
 
 \subsection{The housing market}
 Agents enter the urban market two ways. If wages rise, agents just outside the city may become commuters. This increases population. 
@@ -92,6 +101,8 @@ There are reasons to expect the results obtained with  forward-looking agents to
 
 In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. The basic scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms.
 }
+
+
 
 \section{Experiments}
 In this section, ] examine the effect of agglomeration, using a circular city model. In subsequent sections we relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
@@ -127,12 +138,16 @@ which increases with the square of the wage.
 
  % TODO:  FOOTNOTE the transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. Alain Bertaud, 2015)
 
+
+
 \subsection{Rents}
 In the circular city with linear transportation costs, the maximum rent that could be charged for living closer to work is
  \[c^{max}= \frac{w}{\tau}. \]  
  Workers could pay that much in rent and additional costs and it would still worthwhile to commute to work. 
 
 Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. % Rents may also be taxed, could be shared between multiple owners, etc.
+
+
 
 \section{Older Drafts?}
 Agents purchase homes though a housing market.
