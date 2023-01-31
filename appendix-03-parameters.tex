@@ -13,9 +13,6 @@ The bid price is:
 \begin{align}
 P_i^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}. 
 \end{align}
-
-In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
-This means the actual interest paid is the compounded interest rates (VARIABLES LIST FOR THIS).
 In the following subsections, we discuss each of the terms and how they are implemented in the code. Net rent, $\mathcal{R}_N$, is discussed in subsection \ref{SS:NetRent}. The borrowing ratio, $m_i$, is discussed in section \ref{SS:BorrowingRatio}, the target interest rate, $r_i^{target}$, is discussed in \ref{SS:targetr} the discount factor, $\delta_i$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the interest rate the buyer has to pay for the mortgage, $r_i$, is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
 
 \begin{align}
@@ -23,15 +20,30 @@ P_i^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targ
 \left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}. \nonumber
 \end{align}
 
-In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates. For example, say the one year rate were $x$. In this case the interest payments are $xM$ for each of $T$ years. If we then assume that the interest payments are all made at the end of the mortgage term the lender will require interest on the deferred interest rates. At the end of the period the payment will be 
-\begin{align}
-(1+r_i)M&= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
-       &=M(1+ x\sum_{z=T-1}^0(1+x)^{z})\\
-r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}
- \end{align}
+In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
+%This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
+
+%In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates.
+Taking a simplified example, if the one year rate is $x$/year, interest payments are $xM$ for each of $T$ years. 
+%If we then assume tha
+If the interest payments are all made at the end of the mortgage term, the lender will require interest on the deferred interest, so agent $i$'s payment at the end of the period $T$ will be:
+
+\begin{align*}
+P_i &= (1+r_i)M                                            \\ 
+    &= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
+    &= M\left(1+ x\sum_{z=T-1}^0(1+x)^{z}\right).          \\ 
+\end{align*}
+Therefore, the interest payment is:
+\begin{align*}
+r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}.
+\end{align*}
+ 
  %The appropriate compunding expressions for other rates are displayed below.
  
- For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. In the computational model we employ the appropriately compounded. 
+ For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. This means that, while banks may quote a per period interest rates, the equations use a compounded rate. In the computational model we employ the appropriately compounded values. All %the rates are compounded in this way to provide a per-period rates, including all 
+ the interest rates, the $r$'s, and all the discount rates, the $\delta$'s are compounded in this way. 
+
+ *** DOES THIS AFFECT THE borrowing ratio $m_i$?
 
 
 
