@@ -5,18 +5,27 @@ In the following sections we discuss the computation of bid parameters, outline 
 
 \section{Relating the bid price parameters to the code}
 The bid price is: 
+% \begin{align}
+% P^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+ r)m)\right]}. \nonumber
+% \end{align}
+% Or with individual subscripts
+ 
 \begin{align}
-P^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m)\right]}. \nonumber
+P_i^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}. 
 \end{align}
 
-In the following subsections, we discuss each of the terms and how they are implemented in the code. Net rent, $\mathcal{R}_N$, is discussed in subsection \ref{SS:NetRent}. The borrowing ratio, $m$, is discussed in section \ref{SS:BorrowingRatio}. The discount factor, $\delta$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the bank interest rate, $r$ is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
+
+In the following subsections, we discuss each of the terms and how they are implemented in the code. Net rent, $\mathcal{R}_N$, is discussed in subsection \ref{SS:NetRent}. The borrowing ratio, $m_i$, is discussed in section \ref{SS:BorrowingRatio}, the target interest rate, $r_i^{target}$, is discussed in \ref{SS:targetr} the discount factor, $\delta_i$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the interest rate the buyer has to pay for the mortgage, $r_i$, is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
 
 \begin{align}
-P^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
+P_i^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
 \left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}. \nonumber
 \end{align}
 
 \subsection{Net rent}\label{SS:NetRent}
+
+calculation notes. I have rent from the wages. I have kappa and sigma from our ex parameter values. . omega frome thwages,. 
+
 
 $\mathcal{R}_N = \phi \mathcal{R}$
 
