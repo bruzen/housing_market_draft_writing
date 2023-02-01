@@ -1,5 +1,7 @@
 \chapter{Financialization} \label{chapter-financialization}
 
+*** ADD MORE ON THE LITERATURE ON FINANCIALIZATION TO SETUP OUR WORK, AS IN THE ABOVE CHAPTERS
+
 %BASED ON Financialization_of_the_Housing_Market.tex
 Financialization is %the process by which financial institutions, markets, etc., increase in size and influence. More specifically it is
 the process by which future streams of revenue and speculative gains are 
@@ -81,7 +83,7 @@ V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
  MOVE The mortgage share and interest rate are functions of the agents wealth %Both the  share of the price  that can be mortgaged, $m$, and the interest rate and the interest rate paid, $r$, are functions of the agent's wealth. 
 The discounting factor may be correlated with wealth as well. 
 
-The rate of return on funds invested, $v$, is the value  divided by  the size of the downpayment, $D$: 
+The rate of return on funds invested, $r_{return}$, is the value divided by the size of the downpayment, $D$: 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
 %\begin{enumerate}
 %\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
@@ -95,38 +97,14 @@ r_{return}
  &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
  &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}. \label{Eqn:DecisionRule2}
 \end{eqnarray}
+Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
+\begin{equation}
+r_{return} \geq r_{target}.
+\end{equation}
+The rule has long run implications for the ownership of housing. 
 
-
-
-
-%%%%%%%%  VVVVVVVVVVVVVVVVVVVVVVV   This section May 18 to cut?  V
-%%%%%%%%  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  This section May 18 to cut?  V
-% TODO - add interest rate discussion - (borrowing rates drive land prices up, even if there is no development or improvements, simply because it makes it worth a larger--the effect of low rates, especially for institutional actors have driven a large effect)
-%\begin{enumerate}
-%
-%\item  the buyer and seller calculate the value of the property  differently. 
-%
-%\item  the  buyer and seller may have different expectations of the path of prices and therefore the stream of rents.
-%%There are two standard ways that expectations are modeled
-%%	\begin{enumerate}
-%%	\item \textbf{Adaptive expectations.} Expectations are largely based on what has happened in the past. 
-%%	Under normal conditions most people  have relatively weak incentive to get forecasts about inflation correct and lack the resources and time to purchase expert advice. 
-%%	Recent price trends are easily available and likely to be the main source of  information.
-%%	\item     \textbf{Rational expectations.} Expectations are based on a model of the future economy. 
-%%International investors and banks employ economists and other experts to  forecast prices, exchange rates, and trends in the economy.
-%%	\end{enumerate} 
-%\end{enumerate}
-% Why would  discount rates differ between identical workers? Buyers and sellers are not identical in wealth, . 
-%%We could implement the first  explanation either by generating expectational errors based on functional class or wealth. 
-
-Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors: invest if $r_{return} \geq r_{target}$. The rule has long run implications for the ownership of housing. 
-%The implications of {\color{red} Equation~\ref{Eqn:DecisionRule2}} are significant for the evolution of the urban land market and class structure. 
-Since interest rates are lower for those with higher wealth, it implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' *** DEFINE control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
-Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller observe that (source?) 
-`` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} 
-\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca *** ELABORATE} 
- 
- Some of the implications include:
+%The implications of {\color{red} Equation~\ref{Eqn:DecisionRule2}} are significant for the evolution of the urban land market and class structure.  
+Some of the implications include:
 
 \begin{enumerate}
 \item A large $m$ magnifies the return. (The downpayment is smaller as a fraction of the price, increasing the investor's leverage). 
@@ -152,7 +130,12 @@ Tax treatment of income and capital gains as well as interest deductibility will
 %\item Lower tax rates decrease holding costs and increase the value of the investment
 %\end{enumerate}
 
-Some  of these conditions (1-3) hold generally for wealthier actors. Others (4-7) may be available only to institutional investors.  Financial corporations in particular may have advantages relative to individual investors. making it  reasonable to expect that financial corporations increasingly dominate urban land markets. %A recent report claimed 15\% of Tioron0's land transa
+Since interest rates are lower for those with higher wealth, it implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' *** DEFINE control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
+Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller observe that (source?) 
+`` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} 
+\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca *** ELABORATE} 
+
+Some  of these conditions (1-3) hold generally for wealthier actors. Others (4-7) may be available only to institutional investors.  Financial corporations in particular may have advantages relative to individual investors, making it  reasonable to expect that financial corporations increasingly dominate urban land markets. %A recent report claimed 15\% of Tioron0's land transa
 
 \begin{enumerate}
 \item Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.
@@ -164,18 +147,36 @@ Some  of these conditions (1-3) hold generally for wealthier actors. Others (4-7
 \end{enumerate}
 The implication is that those with more capital will be at an advantage in the urban housing  market. Tax treatment of income and capital gains as well as interest deductibility will influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. 
 
-
-
 \begin{itemize}
 \item The effect of increasing the urban workforce is to increase the marginal products of  both capital and labour throughout the urban economy.% This premium on production in cities is positive when $\Lambda'$ is greater than zero.
  \item  As long as $\Lambda'>0$ cities will  grow, potentially leading to the ``catastrophic agglomeration''  that has been noted in other models.  %(\cite{FujitaKrugmanVenables, BaldwinMartin, Krugman1991, Gurwitz2019}).  City size could be bounded, in which case the city system would grow by increasing the number of cities. This appears to depend on the model features and parameters. 
 %\item Cities will draw investment away from rural and remote areas.
 %\item Cities will draw labour away from rural and remote areas. 
-\item Even in competitive markets capital captures  scale benefits until an entry equilibrium is achieved.
+\item Even in competitive markets, capital captures scale benefits until an entry equilibrium is achieved.
 \item Landowners  capture the agglomeration benefits that are not dissipated in transportation costs.
 \end{itemize}
 
 These appear to be features of the economy we observe.
+
+%%%%%%%%  VVVVVVVVVVVVVVVVVVVVVVV   This section May 18 to cut?  V
+%%%%%%%%  ^^^^^^^^^^^^^^^^^^^^^^^   This section May 18 to cut?  V
+% TODO - add interest rate discussion - (borrowing rates drive land prices up, even if there is no development or improvements, simply because it makes it worth a larger--the effect of low rates, especially for institutional actors have driven a large effect)
+%\begin{enumerate}
+%
+%\item  the buyer and seller calculate the value of the property  differently. 
+%
+%\item  the  buyer and seller may have different expectations of the path of prices and therefore the stream of rents.
+%%There are two standard ways that expectations are modeled
+%%	\begin{enumerate}
+%%	\item \textbf{Adaptive expectations.} Expectations are largely based on what has happened in the past. 
+%%	Under normal conditions most people  have relatively weak incentive to get forecasts about inflation correct and lack the resources and time to purchase expert advice. 
+%%	Recent price trends are easily available and likely to be the main source of  information.
+%%	\item     \textbf{Rational expectations.} Expectations are based on a model of the future economy. 
+%%International investors and banks employ economists and other experts to  forecast prices, exchange rates, and trends in the economy.
+%%	\end{enumerate} 
+%\end{enumerate}
+% Why would  discount rates differ between identical workers? Buyers and sellers are not identical in wealth, . 
+%%We could implement the first  explanation either by generating expectational errors based on functional class or wealth. 
 
 
 \section{Investor market behaviour}
@@ -221,7 +222,12 @@ About 80\% of Canadian homes are owner-occupied and about a third of the value o
 %  \coordinate (geography) at (-.5,-2); %history
 % \coordinate (finance) at (0,5); %  
 \draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
-\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+
+
+\draw [fill=yellow!20] (0,4)--(3,4)--(3,9.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+
+
+
 \draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
 
 \node at (1.5,6)
@@ -238,15 +244,16 @@ About 80\% of Canadian homes are owner-occupied and about a third of the value o
 
 Figure: Housing Tenure 
 
-The mortgage demonstrates the two aspects of financial instruments. It is both a financial instrument that enables a purchase and a financial asset that can be bought and sold. When we consider urban housing, it is the right to future income generated by capital, labour and the the city itself through the agglomeration effects that drive productivity. It is an instrument that indirectly captures a share of the urban rents. As productivity rises, wages rise, rents rise, property prices rise and mortgages rise. 
+The mortgage demonstrates the two aspects of financial instruments. It is both a financial instrument that enables  purchase and a financial asset that can be bought and sold. When we consider urban housing, it is the right to future income generated by capital, labour and the city itself through the agglomeration effects that drive productivity. It is an instrument that indirectly captures a share of the urban rents. As productivity rises, wages rise, rents rise, property prices rise and mortgages rise. 
 
 For urban theory and policy formation it is important to distinguish between financial instruments that enable production of real assets, and instruments like  mortgages that primarily facilitate the transfer of real assets or rights to real estate  income. Housing developers borrow to purchase land for development and builders borrow to finance construction. While important, the financial instruments involved are not driving the financialization of housing.  The size of the loans involved is affected by the amount of land purchased and the potential rents earned by that land, but the degree of non-occupant ownership is not affected. *** CLARIFY
   
 \begin{center}
 \begin{tikzpicture}{scale=.5}
-
+\draw [fill=yellow!20] (0,4)--(3,4)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
 
 \draw [fill=gray] (0,0) rectangle (3,2); %TENANT
+
 \draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
 \draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
 
@@ -261,6 +268,8 @@ For urban theory and policy formation it is important to distinguish between fin
 \node at (1.5,1)
     [text width=2.4cm, align=center, white]
     {\baselineskip=20pt\Large Tenant Occupied};
+
+
 
 \draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
 \draw [gray,-latex, line width=2mm](1.5,3)--(1.5,4);
