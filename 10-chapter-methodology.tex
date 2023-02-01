@@ -1,16 +1,21 @@
 \chapter{Methodology} \label{chapter-methodology}
 
-In this chapter we discuss the methodological contribution that the thesis makes, as well as a number of modelling decisions.
+In this chapter we discuss the methodological approach of the thesis, as well as a number of modelling decisions. Ours is a  model of a complex multi-agent dynamical economic system. We necessarily draw on techniques and insights from several fields. In doing so we are attentive to the strengths and weaknesses of the approaches that we are adopting. 
 
-Ours is a  model of a complex multi-agent economic system. We draw on techniques and insights from several fields. In doing so we are attentive to the strengths and weaknesses of  the  approaches that we are adopting. 
+We are focused on the evolution of a city. Cities evolve continuously and may never be in  equilibrium. At best the various various people and organizations in  in the city are adjusting in sensible ways to the changing parameters of the city they inhabit. In other words, the natural way to think about urban processes is analogous to the way Agent-Based Models (ABMs)  are constructed, and our main simulation tool is an ABM.
 
-In Economics, for example, the most familiar approach is the  analysis of systems in equilibrium. It is a highly productive methodology that conveniently  bypasses the complex process of adjustment by focusing on conditions that must be true if a particular situation is to persist. The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A  situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion   is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes - i.e., are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities  can be derived solving the two-equation system.
+At the same time, we draws heavily on economic analysis of cities, employ three key economic equilibrium conditions drawn form the economic literature:  a locational equilibrium condition, an equilibrium conditions for competitive labour markets, and an equilibrium condition for housing and investment. We will discuss the way we app[ly  these equilibrium conditions within an inherently non-equilibrium (ABM) approach.
+
+%ABM advantages
+%An alternative to the equilibrium approach is to 
+Agent based models commit to computational methods from the beginning. Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example,  is analyzed using  `reaction functions' which simply describe a firm's optimal response to as second firm's output choice. } A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is  allowed to iterate, and the values of any state variables of interest are recorded. 
+
+% EQUILIB advantages
+In Economics, for example, the most familiar approach is the  analysis of systems in equilibrium. It is a highly productive methodology that conveniently  bypasses the complex process of adjustment by focusing on conditions that must be true if a particular situation is to persist. The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A  situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion   is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes - i.e., are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities can be derived solving the two-equation system.
 
 The approach produces tractable  models that can often be solved explicitly. For tractability, it is often convenient to limit the number of independent decision-makers by employing a ``representative agent.'' To describe dynamic systems, laws of motion are added to the system in the form of either difference or differential equations. The models become intractable very quickly, and economists, like physicists and weather forecasters, resort to simulation techniques.     
 
-An alternative to the equilibrium approach is to commit to computational methods from the beginning. Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example,  is analyzed using  `reaction functions' which simply describe a firm's optimal response to as second firm's output choice. } A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is  allowed to iterate, and the values of any state variables of interest are recorded.
-
-We are focused on the evolution of a city. Cities evolve continuously and may never be in  equilibrium. At best the various various people and organizations in  in the city are adjusting in sensible ways to the changing parameters of the city they inhabit. The citySome adjustments are slow and some are fast. To square the circle, we employ  agent-based modelling, combined with specific equilibrium conditions. 
+Some adjustments are slow and some are fast. To square the circle, we employ  agent-based modelling, combined with specific equilibrium conditions. 
 
 The Agent Base Modelling approach is 
 
@@ -24,7 +29,7 @@ This says that identical individuals must get the same utility living at at what
 different location would take a long time to work through the system. Prices, however, can adjust much more quickly. 
 
  It follows that 
-\[\frac{\partial U_i(d,\d(dots)}{\partial t}=\frac{\partial U_j(d, /dots)}{\partial t}\]
+\[\frac{\partial U_i(d, d(dots)}{\partial t}=\frac{\partial U_j(d, /dots)}{\partial t}\]
 With identical transportation cost, 
 land rents are determined by transportation costs  and  
 

@@ -29,7 +29,6 @@ Initially, all homes are owner-occupied. This is of interest  as a starting poin
 
 We also start with owners who have a long run before retirement. The housing market is suppressed during the initialisation runs. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
 
-
 When agents reach the end of their set working lives they retire. It is trivially easy to introduce random life events, but  They may sell their homes and either leave the city or move to cheaper housing.  New entrants to the labour force come from outside of the city at various stages in their life cycle and either buy or rent. homes 
 
 
@@ -38,16 +37,16 @@ When agents reach the end of their set working lives they retire. It is triviall
 To introduce  the productive nature of cities we  assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. We treat the estimated scaling relationship as a production function. This allows us to focus on the results of agglomeration in the urban system rather than specifying the system of firms  that transmit the effect. Urban output is more than proportional to urban population: 
 
  \begin{equation}
- Y\propto N^{\beta} \label{Y}
+ Y\propto N^{\beta} \label{eqn-production-population}
  \end{equation}
 
-where $\beta >1$.  Equation~\ref{Y} implies , according to neoclassical distribution theory, that the wage premium is increasing in urban  population:
+where $\beta >1$.  Equation~\ref{eqn-production-population} implies , according to neoclassical distribution theory, that the wage premium is increasing in urban  population:
 
 \begin{equation}
-\omega\propto N^{\beta-1} \label{MPL}
+\omega\propto N^{\beta-1} \label{eqn-wage-population}
 \end{equation}
 
-Equation~\ref{MPL} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is  consistent with the discussion of endogenous growth theory in Chapter (Growth), which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
+Equation~\ref{eqn-wage-population} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is  consistent with the discussion of endogenous growth theory in Chapter (Growth), which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
 
 We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite  the fact that we  model it as a monopsonist.\footnote{Explicitly modelling labour markets with multiple firms is a natural way to specify the model more completely, but it would require introducing many ancillary assumptions and selecting among alternative models of agglomeration, when when we want to focus on distributional and growth-affecting features of the system.}
 
@@ -132,7 +131,7 @@ Workers will go to work if the wage premium is greater than the cost of travel, 
 The farthest workers will travel to work is thus $\frac{w}{\tau}$, which defines the radius of the commuter shed. Thus a worker, located at a distance $d$ from work, paying as much as $w-\tau d$ in rent, would still choose to work, and the distance that workers will commute is limited by to the radius of the commuter shed. Given a standard lot size $s$, the labour available in the circular city is
 \begin{equation}L%=  \frac{\pi}{s}(c^{max})^2	
 			=\frac{\pi}{s}  \left(\frac{w}{\tau}\right)^2
-			=\frac{\pi}{\tau^2 s} w^2, \label{Eqn:LabourSupply1}
+			=\frac{\pi}{\tau^2 s} w^2, \label{eqn-labour-supply1}
 	\end{equation}
 which increases with the square of the wage.
 
@@ -202,13 +201,13 @@ The model is we employ consistent with the theories of Ricardo and Henry George 
 
 
 
-We  incorporate Jacobs-style agglomeration economies (\cite{Beaudry:2009ua, Panne:2004vb, JacobsEofC})  similar to the way the  Solo-Swan model incorporates  labour-augmenting technical change using a simple Cobb-Douglas production function.  We bypass the complexity of modelling firms  by allowing population increases  to directly increase urban wage premium.\footnote{The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others.} %, It is straightforward to compute the rate of excess return for  this model. 
-%We insert the production function  into a standard Alonso-style model of a city economy (\cite{Alonso64}). 
+We  incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, Panne:2004vb, jacobsEconomyCities1969})  similar to the way the  Solo-Swan model incorporates  labour-augmenting technical change using a simple Cobb-Douglas production function.  We bypass the complexity of modelling firms  by allowing population increases  to directly increase urban wage premium.\footnote{The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others.} %, It is straightforward to compute the rate of excess return for  this model. 
+%We insert the production function  into a standard Alonso-style model of a city economy (\cite{alonsoLocationLandUse1964}). 
 In the background, individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale. \footnote{These effects can be large. Irwin and Klenow  studied learning in chip production focusing  on the key issue of spillovers. They found learning rates of 10 to 27 per cent, averaging 20 per cent. They indicated that a good part of learning is internal, and that national spillovers were no greater than international spillovers. "... a firm learns three times as much from an additional unit of its own cumulative output as from another firm's cumulative output, regardless of the other firm's country of location. However, rest-of-world cumulative production is typically more than three times any given firm's cumulative production. This means that the absolute contribution of world cumulative production to each firm's experience outweighs the absolute contribution of its own cumulative production. In this sense, spillovers are substantial." (pp. 1217-1218).} 
 
 
 Rural producers in our model pay a constant wage $\omega$. This is a convenient simplification, not a necessary feature of the model. The urban production sector pays a wage premium $w$.\footnote{
-HirschWage (a citation) observe that, ``Following GlaeserMare (a citation),  a  large  empirical  literature  has  investigated differences in wages across labor markets of different sizes. The general finding of this literature is that a significant urban wage premium exists. and that this premium consists both of a level effect and a growth effect that arises as workers gain urban work experience''. } As in the standard circular city model the constraint on growth is provided by transportation costs, which limits the size of the commuter-shed and therefore the labour force at any wage. 
+HirschWage \cite{hirschUrbanWagePremium2019} observe that, ``Following Glaeser and Maré \cite{glaeserCitiesSkills2001},  a  large  empirical  literature  has  investigated differences in wages across labor markets of different sizes. The general finding of this literature is that a significant urban wage premium exists. and that this premium consists both of a level effect and a growth effect that arises as workers gain urban work experience''. } As in the standard circular city model the constraint on growth is provided by transportation costs, which limits the size of the commuter-shed and therefore the labour force at any wage. 
 
 
 
@@ -252,7 +251,7 @@ The farthest workers will travel to work is thus $\frac{w}{\tau}$, which defines
 \begin{equation}
                  L%=  \frac{\pi}{s}(c^{max})^2	
 			=\frac{\pi}{s}  \left(\frac{w}{\tau}\right)^2
-			=\frac{\pi}{\tau^2 s} w^2, \label{Eqn:LabourSupply2}
+			=\frac{\pi}{\tau^2 s} w^2, \label{eqn-labour-supply2}
 \end{equation}
 which increases with the square of the wage. This is the equilibrium urban labour supply curve.
 
@@ -261,7 +260,7 @@ As in the standard circular city model the constraint on city size and hence gro
 
 %To get wage, we can write thee  inverse labour supply function  is
 %\begin{equation}
-%	w= (\frac{ \tau^2s}{\pi})^{0.5} L^{0.5},	%\label{Eqn:InverseLabourSupply}
+%	w= (\frac{ \tau^2s}{\pi})^{0.5} L^{0.5},	%\label{eqn-inverse-labour-supply}
 %\end{equation}
 
  % TODO:  FOOTNOTE the transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. Alain Bertaud, 2015)
@@ -282,20 +281,16 @@ As in the standard circular city model the constraint on city size and hence gro
 
 
 
-
-
-
-
 \subsection{Production}
 
-Firms produce goods which they sell in a commodity market\footnote{For simplicity, assume firms produce a variety of perfectly substitutable commodities which are exported and locally consumed at a fixed price in a large market. Note increasing product variety may produce a consumption agglomeration economies as in \cite{FujitaKrugmanVenables}.}. Demand for the urban product is perfectly elastic which means producing more won't affect the product's price; and there are decreasing returns to scale, which means each new worker increases output by less than the last worker did. 
+Firms produce goods which they sell in a commodity market\footnote{For simplicity, assume firms produce a variety of perfectly substitutable commodities which are exported and locally consumed at a fixed price in a large market. Note increasing product variety may produce a consumption agglomeration economies as in \cite{fujitaSpatialEconomyCities1999}.}. Demand for the urban product is perfectly elastic which means producing more won't affect the product's price; and there are decreasing returns to scale, which means each new worker increases output by less than the last worker did. 
   
 We use a two factor model of production, where production, is a function of capital and labour. The firm maximizes profit by setting the marginal value of the product of each factor equal to the unit cost per factor. We model agglomeration with a Solow-Swan style term for labour augmenting technical change. In the Solow-Swan model 
 
- \begin{equation} 
-Y(t)=K(t)^{\alpha }(A(t)L(t))^{\beta }
+\begin{equation} 
+Y(t) = K(t)^{\alpha}(A(t)L(t))^{\beta}
 \label{Eqn:Solow-Swann}
- \end{equation}
+\end{equation}
 where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology, that can capture the growth of labour productivity over time, $\alpha$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale (CRS) production function at the firm level.
 
 % In the Solow-Swan model all factors of production are fully employed, and initial values $A ( 0 )$, $K(0)$, and $n( 0 )$  are given. The number of workers, i.e. labor, as well as the  level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:     $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
