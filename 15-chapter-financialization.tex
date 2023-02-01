@@ -17,7 +17,7 @@ Two questions arise when we observe the growing participation of global capital 
 \item That are the implications for the urban economy and the welfare of the urban population? 
 \end{enumerate}
 
-We can demonstrate that in the absence of policy interventions, differential access to finance capital ensures that capital owners acquire an increasing share of urban land% over time
+We can demonstrate that in the absence of policy interventions, differential access to finance capital ensures that capital owners acquire an increasing share of urban land % over time
 and therefore capture the growing land rents from urban productivity growth. 
 
 With this insight, growing wealth inequality emerges within a simple, widely accepted model of the urban land market. In the limit, urban residents are tenants, and new residents without capital no longer receive any of the increases in rents arising from the growing productivity of the city. 
@@ -33,21 +33,27 @@ With this insight, growing wealth inequality emerges within a simple, widely acc
 
 \section{The rate of return on a property purchase}
 % ADD TABLE WITH VARIABLE DEFINITIONS
+
+TODO - add - (borrowing rates drive land prices up, even if there is no development or improvements, simply because it makes it worth a larger--
+the effect of low rates, especially for institutional actors have driven a large effect)
  
- In this section we model the return on an investment in urban housing/land. We model agents as %'ll assume that all agents are
- speculating on potential \glspl{capital gain} as well as on the \gls{use value} they get from living in a property. We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
- For simplicity,  %To keep the analysis simple without loss of generality 
- we consider a one-period investment.
- 
- The speculator invests a down payment, $D$, and gets the increased price $(1+\dot P)P_0$,  back after a period $T$. The value of the investment is the net present value of buying and then selling after one period:
+ In this section we model the return on an investment in urban properties. We model agents as %'ll assume that all agents are
+ speculating on potential \glspl{capital gain} as well as on the \gls{use value} they get from living in a property. %We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
+ % For simplicity, we consider a one-period investment.  %To keep the analysis simple without loss of generality 
+
+ The agent purchases a house for a price, $P_0$ %a down payment, $D$, 
+ and receives the increased price $P_T = (1 + \dot P)P_0$, back after a period $T$. 
+% The value of the investment is the net present value of buying and then selling after one period:
+The value of the investment is the capital gain, $\mathcal{C}$ plus the rents, net of operating costs and taxes, $\mathcal{R_N}$.
 
 % minus the mortgage, repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision.} %\cite{Al-Shihabi}
 
 \begin{eqnarray}
-V &=& CapitalCosts + R - C - T\label{Eqn:V} \\
-  &=& \delta \left(P_T- (1+r)M\right) + \rho P_0 -\kappa P_0 - tP_0\label{Eqn:V} \nonumber \\
-  &=& \delta \left((1+\dot P)  P_0 - (1+r)mP_0 \right) + \rho P_0 - \kappa P_0 - tP_0 \label{Eqn:V2} \nonumber \\
-  &=& (\delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa -t) P_0 \nonumber
+V &=& \mathcal{C} + \mathcal{R^N} \nonumber \\
+  &=& \mathcal{C} + \mathcal{R} - \mathcal{O} - \mathcal{T} \nonumber \\
+  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}. \label{Eqn:V1}
+\end{eqnarray}
+
 %V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
 % 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
 % 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
@@ -56,15 +62,23 @@ V &=& CapitalCosts + R - C - T\label{Eqn:V} \\
 %	&=&( \delta (1+\dot P)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
 %	&=& \left(  \delta (1+\dot P)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
 %	&=& \left(  \delta (1+\dot P)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
-\end{eqnarray}
+ Where $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$, and $M$ are  net present values for rent, operating costs, tax payments, and the mortgage at the end of the period. The interest rate is $r$, and the discount factor $\delta$.
 
- It is the capital gain on the investment plus the rents, minus opperating costs, and taxes. ADD NOTATION
- It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
-Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ are functions of the agent's wealth. $\delta$ may be correlated with wealth as well. 
+ For ease of calculation, this may also be written in terms of shares of the purchase price:
 
+ \begin{eqnarray}
+  V &=& \delta \left((1+\dot P)  P_0 - (1+r)mP_0 \right) + \rho P_0 - \sigma P_0 - \tau P_0 \nonumber \\
+  &=& \left(\delta \left((1+\dot P)  - (1+r)m\right) \ + \rho - \sigma - \tau\right) P_0. \label{Eqn:V2}
+ \end{eqnarray}
+ 
+ Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. 
+ % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
+ %It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
+ 
+ MOVE The mortgage share and interest rate are functions of the agents wealth %Both the  share of the price  that can be mortgaged, $m$, and the interest rate and the interest rate paid, $r$, are functions of the agent's wealth. 
+The discounting factor may be correlated with wealth as well. 
 
-
-The rate of return on funds invested, $v$, is the value of the gain, $V$, divided by  the size of the downpayment, $D$. 
+The rate of return on funds invested, $v$, is the value  divided by  the size of the downpayment, $D$: TODO: UPDATE NOTATION TO MATCH THE ABOVE
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
 %\begin{enumerate}
 %\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
@@ -72,9 +86,10 @@ The rate of return on funds invested, $v$, is the value of the gain, $V$, divide
 %\item If $ v(with\ rent) \le a $,  then sell 
 %\end{enumerate}\
 \begin{eqnarray}
-v&=&( \delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
-		&=&( \delta((1+\dot P)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\ 
-		&=&\frac{ \delta(1+\dot P  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule2}
+v &=& \frac{V}{D} \\
+  &=& \left(\delta \left((1+\dot P)  - (1+r)m\right) \ + \rho -\kappa - t \right) \frac{P_0}{D} \nonumber \\
+  &=& \left(\delta \left((1+\dot P)  - (1+r)m \right) \ + \rho -\kappa - t \right) \frac{P_0}{P_0-mP_0}   \nonumber \\ 
+  &=& \frac{ \delta \left(1+\dot P  - (1+r)m \right) \ + \rho -\kappa - t } {1-m}. \label{Eqn:DecisionRule2}
 \end{eqnarray}
 
 Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors: invest if $v \geq r_{target}$. The rule has long run implications for the ownership of housing. 
