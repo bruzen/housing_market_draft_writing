@@ -1,36 +1,29 @@
 \chapter{Methodology} \label{chapter-methodology}
 
-In this chapter we discuss the methodological approach of the thesis, as well as a number of modelling decisions. Ours is a  model of a complex multi-agent dynamical economic system. We necessarily draw on techniques and insights from several fields. In doing so we are attentive to the strengths and weaknesses of the approaches that we are adopting. 
+In this chapter we discuss the methodological approach of the thesis, as well as a number of modelling decisions. Ours is a model of a complex multi-agent dynamical economic system. We necessarily draw on techniques and insights from several fields. In doing so we are attentive to the strengths and weaknesses of the approaches that we are adopting. 
 
-We are focused on the evolution of a city. Cities evolve continuously and may never be in  equilibrium. At best the various various people and organizations in  in the city are adjusting in sensible ways to the changing parameters of the city they inhabit. In other words, the natural way to think about urban processes is analogous to the way Agent-Based Models (ABMs)  are constructed, and our main simulation tool is an ABM. In an ABM Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example,  is analyzed using  `reaction functions' which simply describe a firm's optimal response to as second firm's output choice. }
+We are focused on the evolution of a city. Cities evolve continuously and may never be in  equilibrium. At best the various various people and organizations in the city are adjusting in sensible ways to the changing parameters of the city they inhabit. In other words, the natural way to think about urban processes is analogous to the way Agent-Based Models (ABMs)  are constructed, and our main simulation tool is an ABM. In an ABM Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example,  is analyzed using  `reaction functions' which simply describe a firm's optimal response to as second firm's output choice.}
 
 In Economics, on the other hand, the most familiar approach is the  analysis of systems in equilibrium. It is a highly productive methodology that conveniently  bypasses the complex process of adjustment by focusing on conditions that must be true if a particular situation is to persist. The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A  situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion   is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes - i.e., are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities can be derived solving the two-equation system.
 
-The approach produces tractable  models that can often be solved explicitly. For tractability, it is often convenient to limit the number of independent decision-makers by employing a ``representative agent.'' To describe dynamic systems, laws of motion are added to the system in the form of either difference or differential equations. The models become intractable very quickly when there ar m ore agents or daynamic processe, and economists, like physicists and weather forecasters, resort to simulation techniques. 
+The approach produces tractable  models that can often be solved explicitly. For tractability, it is often convenient to limit the number of independent decision-makers by employing a ``representative agent.'' To describe dynamic systems, laws of motion are added to the system in the form of either difference or differential equations. The models become intractable very quickly when there are more agents or dynamic processes, and economists, like physicists and weather forecasters, resort to simulation techniques. 
 
 %ABM advantages
 %An alternative to the equilibrium approach is to 
-Agent based models commit to computational methods from the beginning.  A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is  allowed to iterate, and the values of any state variables of interest are recorded. 
+Agent based models commit to computational methods from the beginning.  A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is  allowed to iterate, and the values of any state variables of interest are recorded. As with any computational model, we can  explore the behaviour of the system by varying parameters, and  can explore the parameter space using Monte Carlo methods.
+
+The problem of model complexity remains a challenge with ABMs.  
+
+%Some adjustments are slow and some are fast. Rates of adjustment can matter. 
 
 
-
-Some adjustments are slow and some are fast. Rates of adjustment can matter. 
-
-
-
-At the same time, we draws heavily on economic analysis of cities, employ three key economic equilibrium conditions drawn form the economic literature:  a locational equilibrium condition, an equilibrium conditions for competitive labour markets, and an equilibrium condition for housing and investment. We will discuss the way we app[ly  these equilibrium conditions within an inherently non-equilibrium (ABM) approach.
+We draw heavily on economic analysis of cities, and employ three key economic equilibrium conditions drawn form the economic literature:  a locational equilibrium condition, an equilibrium conditions for competitive labour markets, and an equilibrium condition for housing and investment. We will discuss the way we apply  these equilibrium conditions within an inherently non-equilibrium (ABM) approach.
 
 % EQUILIB advantages
-    
-
-
-
+   
 The Agent Base Modelling approach is 
 
-response functions
-different agents in 
-
-For example, form the Alonzo model we impose the locational equilibrium condition,
+For example, from the Alonzo model we impose the locational equilibrium condition,
 \[U_i(d,\dots)=U_j(d, /dots)\]
 This says that identical individuals must get the same utility living at at whatever distance from the city centre. If that were not the case, individuals would move to a location where they get higher utility.
 
@@ -43,7 +36,6 @@ land rents are determined by transportation costs  and
 
 We use  equilibrium arguments in our model to describe hiring decisions by producers and wage demands by workers. Equilibrium locational by commuters determines the extent and even population of the city. They also determine the pattern of land rents. 
 
-
 % More recent work has looked at agent-based modeling, looking at the dynamics, space and individual work. 
 
 \textbf{Some limitations of preceding work}%We offer three developments/extensions building on that work.}
@@ -51,8 +43,6 @@ We use  equilibrium arguments in our model to describe hiring decisions by produ
 
 Any adjustment process that requires people to move to a 
 At the same time, because our  
-
-that we 
 
 providing tractable models.  equilibrium analysis of marginal effects, and representative agents which hid distributional effects, as well as spaceless economic models of markets made it difficult to capture the richer spacial dynamics of urban rents, and the details of the ways economic forces play out for individual actors.
 
@@ -64,7 +54,6 @@ Second, relatively little agent based modelling work integrates with the neoclas
 More generally only a few agent models (e.g. spruce budworm) connect the analytic and agent models in a clear rigorous way. We focus on holding in addition to the relation with classical theory, a close connection with the many advances made withing neoclassical modelling
 
 - this connection will make it easier to incorporate in teaching and for mainstream economists to engage on and build with.
-
 
 This work builds, first, a simple conceptually clear model tightly integrated with the core economic modelling traditions, that builds on the theory of rent.
 
