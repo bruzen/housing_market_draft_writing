@@ -30,7 +30,8 @@ Where $\phi$ is a fraction that takes into account taxes and operating costs.
 
 In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as
 \begin{equation}
-  P=\frac{\mathcal{R}_N}{r}  \label{eq:Capitalization}
+  P=\frac{\mathcal{R}_N}{r}  
+\label{eq:Capitalization}
 \end{equation}
 
 %\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
@@ -38,7 +39,7 @@ In principle, the  sale price of a unit of land considered is the present discou
 \noindent so we can write ***
 \begin{align}  
     V & = \delta \left(1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
-    & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
+      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
 \end{align}
 %there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
 
@@ -50,7 +51,8 @@ This can be expressed in terms of the rate of return on the down payment, $V/D$
    \\
     & = \left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right) \frac{P_0}{P_0-mP_0}
     \\
-    & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}
+    & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}
+\label{eq:RULE}
 \end{align}
 
 
@@ -161,7 +163,7 @@ Bargaining between buyers and sellers differs. Buyers bid low and sellers ask hi
 
 In the following sections we discuss the computation of agents' bid price, outline potential discounting approaches, and discussing how each component of the calculation is treated in the code. 
 
-Agents calculate their bid price following the logic in Equation~\ref{eq:BidPrice}: 
+Agents calculate their bid price following the logic in Equation~\ref{eqn-bid1}: 
 % \begin{align}
 % P^{bid} \le   \frac{ \mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+ r)m)\right]}. \nonumber
 % \end{align}

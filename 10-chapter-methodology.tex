@@ -2,79 +2,22 @@
 
 In this chapter we discuss the methodological contribution that the thesis makes, as well as a number of modelling decisions.
 
-The main contibutions%methodological innovations
-, as we see it, are:
-
-\begin{enumerate}
-    \item we incorporate classical rent theory into an agent-based urban model 
-    \item we allow the creation and distribution of rents to influence urban growth, productivity and  population structure. 
-    \item we incorporate current research on urban scaling into the  core spatial urban model.   
-    \item we construct an   Urban ABM that is consistent with neoclassical growth theory,
-    \item we integrate financial capital into a standard spatial model of the urban system
-    \item we integrate financial capital into an overlapping generations population model of the urban system
-    \item we employ the ABM to examine how financial markets impact the urban land markets 
-    \item we test for hysteresis  resulting from the business cycle  in the urban system 
-    \item we build a model that is easily extended to explore a wide range of issues
-    \item we provide a model that we believe can be used  to evaluate urban policies
-\end{enumerate}
-
-
-Each of the items above requires us to  integrate 
-
-
-\begin{enumerate}
-    \item we incorporate classical rent theory into an agent-based urban model 
-
-This requires a how Ricardian rent theory - a theory of distribution based on an agricultural economy - applies in an economy driven by human capital agglomeration effects within the urban system. 
-
-    \item we allow the creation and distribution of rents to influence urban growth, productivity and  population structure. 
-    
-This requires us to articulate the links between the wealth production of cities and  urban systems evolve 
-    
-
-    \item we incorporate current research on urban scaling into the  core spatial urban model.  
-
-We show how understanding how complex systems scale provides an elegant way to model a an urban system with production
-
-    \item we construct an   Urban ABM that is consistent with neoclassical growth theory,
-
-Although many  who employ ABMs to analyse urban systems are deeply skeptical of neoclassical assumptions we demonstrate in this context how easily and productively the neoclassical frame work can be implemented in n the ABM framework
-
-    \item we integrate financial capital into a standard spatial model of the urban system
-
-We are not aware of any urban simulation models that introduce capital as we do to examine the outcomes that concern us.
-    
-    \item we integrate financial capital into an overlapping generations population model of the urban system
-
-Financial assets are central to most overlapping generations models. Our innovation is to articulate the movement of financial capital though the urban land market.
-    
-    \item we employ the ABM to examine how financial markets impact the urban land markets 
-
-We began with with the fact that there is growing policy concern about the ``Financialization of  Housing''. We have produced a formal simulation model that illustrates the process. 
-
-    \item we test for hysteresis resulting from the business cycle   in the urban system 
-
-There are two types of resilience questions when any system is shocked, does it return to an equilibrium state - the stability question - and does it return to the same kind of equilibrium - the hysteresis question. We focus on the latter question.  
-
-
-    \item we build a model that is easily extended to explore a wide range of issues
-
-The model combines clear and explicit theoretical assumptions with careful and transparent implementation of the logic in flexible Python code.
-
-    \item we provide a model that we believe can be used  to evaluate urban policies
-\end{enumerate}
-
-
 Ours is a  model of a complex multi-agent economic system. We draw on techniques and insights from several fields. In doing so we are attentive to the strengths and weaknesses of  the  approaches that we are adopting. 
 
-In Economics, for example, the most familiar approach is the  analysis of systems in equilibrium. It is a highly productive methodology that simply bypasses the complex process of adjustment by focusing on conditions that must be true if a particular situation is to persist. The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A  situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion   is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes - i.e., are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities  can be derived solving the two-equation system.
+In Economics, for example, the most familiar approach is the  analysis of systems in equilibrium. It is a highly productive methodology that conveniently  bypasses the complex process of adjustment by focusing on conditions that must be true if a particular situation is to persist. The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A  situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion   is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes - i.e., are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities  can be derived solving the two-equation system.
 
-We are focused on the evolution of a city, however. It is never in equilibrium. At best the various agents in the city are adjusting in sensible ways to the changing parameters of the city they inhabit. Some adjustments are slow and some are fast. 
+The approach produces tractable  models that can often be solved explicitly. For tractability, it is often convenient to limit the number of independent decision-makers by employing a ``representative agent.'' To describe dynamic systems, laws of motion are added to the system in the form of either difference or differential equations. The models become intractable very quickly, and economists, like physicists and weather forecasters, resort to simulation techniques.     
+
+An alternative to the equilibrium approach is to commit to computational methods from the beginning. Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example,  is analyzed using  `reaction functions' which simply describe a firm's optimal response to as second firm's output choice. } A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is  allowed to iterate, and the values of any state variables of interest are recorded.
+
+We are focused on the evolution of a city. Cities evolve continuously and may never be in  equilibrium. At best the various various people and organizations in  in the city are adjusting in sensible ways to the changing parameters of the city they inhabit. The citySome adjustments are slow and some are fast. To square the circle, we employ  agent-based modelling, combined with specific equilibrium conditions. 
+
+The Agent Base Modelling approach is 
 
 response functions
 different agents in 
 
-To square the circle, we employ  agent-based modelling, combined with specific equilibrium conditions. For example, form the Alonzo model we impose the locational equilibrium condition,
+For example, form the Alonzo model we impose the locational equilibrium condition,
 \[U_i(d,\dots)=U_j(d, /dots)\]
 This says that identical individuals must get the same utility living at at whatever distance from the city centre. If that were not the case, individuals would move to a location where they get higher utility.
 

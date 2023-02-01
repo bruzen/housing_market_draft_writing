@@ -26,7 +26,7 @@ With this insight, growing wealth inequality emerges within a simple, widely acc
 
 %The first question, therefore, is reduced to which capital holders will increase their share of urban land and whether there is any reason to expect the process of financialization process to stop or reverse itself.
 
-% \section{The incentives for financialization}%\label{Sec:RentAndClass}
+% \section{The incentives for financialization}
 %Instead, drawing on the ideas of Jane Jacobs, Lucas proposes the city as the unit of analysis. Lucas, Robert (1990), "Why Doesn't Capital Flow from Rich to Poor Countries?," American Economic Review Papers and Proceedings v. 80, no. 2 (May) pp. 92-96.  
 %Jacobs, Jane  (1969), The Economy of Cities (New York: Random House).  
 % The Death and Life of Great American Cities \cite{Jacobs61}
@@ -52,7 +52,8 @@ The value of the investment is the capital gain, $\mathcal{C}$ plus the rents, n
 \begin{eqnarray}
 V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
   &=& \mathcal{C} + \mathcal{R} - \mathcal{O} - \mathcal{T} \nonumber \\
-  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}. \label{Eqn:V1}
+  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}.
+\label{eqn-v1}
 \end{eqnarray}
 
 % OLD equations from working out the above. Could change symbols
@@ -71,10 +72,11 @@ V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
 
  For ease of calculation, this may also be written in terms of shares of the purchase price:
 
- \begin{eqnarray}
-  V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
-    &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0. \label{Eqn:V2}
- \end{eqnarray}
+\begin{eqnarray}
+V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
+  &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0.
+\label{eqn-v2}
+\end{eqnarray}
  
  Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. 
  % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
@@ -92,18 +94,19 @@ The rate of return on funds invested, $r_{return}$, is the value divided by the 
 %\end{enumerate}\
 \begin{eqnarray}
 r_{return} 
- &=& \frac{V}{D}  \nonumber \\
- &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
- &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
- &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}. \label{Eqn:DecisionRule2}
+  &=& \frac{V}{D}  \nonumber \\
+  &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
+  &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
+  &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}.
+\label{eqn-return1}
 \end{eqnarray}
-Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
+Equation~\ref{eqn-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
 \begin{equation}
-r_{return} \geq r_{target}.
+r_{return} \geq r_{target}. \label{eqn-return2}
 \end{equation}
 The rule has long run implications for the ownership of housing. 
 
-%The implications of {\color{red} Equation~\ref{Eqn:DecisionRule2}} are significant for the evolution of the urban land market and class structure.  
+%The implications of {\color{red} Equation~\ref{eqn-return1}} are significant for the evolution of the urban land market and class structure.  
 Some of the implications include:
 
 \begin{enumerate}
@@ -183,7 +186,7 @@ These appear to be features of the economy we observe.
 Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
 
 To find how much investors will bid, we need to find the maximum price that satisfies this criterion, we define as the ``bid price'' $P^{max}_{bid}$  as the maximum price offer that allows the investor to achieve the target rate of return, $r_{target}$,   %replacing $\mathcal{R}$ with $rP_0$. 
-We calculate the bid price in Appendix \ref{AppendixBidPrice}, starting with revision to Equation~\ref{Eqn:V}. We use $\mathcal{R}$ as a  expression for the investor's expected net rent and $L(P)$ as the investor's  estimator for the rate of price change. After recalculating the rate of $v$, we set $v \ge r_{target}$ and solve for  prices that achieve at least the target rate of return. The solution is 
+We calculate the bid price in Appendix \ref{AppendixBidPrice}, starting with revision to Equation~\ref{eqn-v2}. We use $\mathcal{R}$ as a  expression for the investor's expected net rent and $L(P)$ as the investor's  estimator for the rate of price change. After recalculating the rate of $v$, we set $v \ge r_{target}$ and solve for  prices that achieve at least the target rate of return. The solution is 
 
 \begin{align}
 % r_{target} &\le \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}. \\
@@ -196,12 +199,12 @@ We calculate the bid price in Appendix \ref{AppendixBidPrice}, starting with rev
 % %
 P_{bid}   &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}. \nonumber \\
 P_i^{bid} & \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}.
-\label{eq:BidPrice}
+\label{eqn-bid1}
 \end{align}
 
 *** IS IT GREATER OR LESS THAN - DIFFERENT HERE VS APPENDIX. ASSUME YOU'D BID MAX THIS.
 
-The denominator in Equation~\ref{eq:BidPrice} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
+The denominator in Equation~\ref{eqn-bid1} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
 We use this formula in the price determination process in our simulation model. Details of the computation are discussed in Appendix \ref{AppendixBidPrice}. 
 
 
@@ -250,11 +253,12 @@ For urban theory and policy formation it is important to distinguish between fin
   
 \begin{center}
 \begin{tikzpicture}{scale=.5}
-\draw [fill=yellow!20] (0,4)--(3,4)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
-
-\draw [fill=gray] (0,0) rectangle (3,2); %TENANT
+\draw [fill=yellow!20] (0,4)--(3,4)--(3,8.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
 
 \draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+ \draw [fill=gray!40,opacity=1] (0,0) rectangle (3,4); %fiancialization   
+\draw [fill=gray] (0,0) rectangle (3,2); %TENANT
+
 \draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
 
 \node at (1.5,6)
@@ -264,17 +268,18 @@ For urban theory and policy formation it is important to distinguish between fin
     [text width=2.4cm]
     {\baselineskip=20pt Mortgaged};
     
-\draw [fill=gray!40,opacity=.25] (0,2) rectangle (3,4); %fiancialization
+
+
 \node at (1.5,1)
     [text width=2.4cm, align=center, white]
     {\baselineskip=20pt\Large Tenant Occupied};
 
 
-
+%\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
 \draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
 \draw [gray,-latex, line width=2mm](1.5,3)--(1.5,4);
-
 \draw [gray,line width=2mm,-latex](3,3)--(4,3); \node at (5,3)[text width=2cm]{Expansion of housing stock}; 
+
 \end{tikzpicture}
 \end{center}
 

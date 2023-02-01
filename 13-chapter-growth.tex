@@ -6,17 +6,18 @@ but the estimates soon showed a systematic bias with time series. Essentially th
  \[Y=A(t)K^\alpha L^\beta\]
 
 
- \section{The Solow-Swann growth model}
+ \section{The Solow-Swan growth model}
 In 1956 Robert Solow\footnote{A Contribution to the Theory of Economic Growth,  Robert M. Solow, The Quarterly Journal of Economics, Vol. 70, No. 1 (Feb., 1956), pp. 65-94. Stable URL: http://www.jstor.org/stable/1884513} provided a possible explanation, opening the field for a further series of refinements in an enterprise that became known as ``growth theory.''
 \footnote{Solow and his contemporary, Edward F. Denison in his 1961 monograph, \textit{The Sources of Economic Growth in the United States}, were attempting to account for the main features of U.S. economic growth, not to provide a theory of economic development.}%   R.E. Lucas, Jr., On the mechanics of economic development.}
 
 Solow argued ``As a result of exogenous population growth the labor force increases at a constant relative rate n,'' so
   \[L(t)= L_0e^{nt}\] 
 If we insert this term into the production function 
- \begin{eqnarray}
- Y&=AK^\alpha (L_0e^{nt})^\beta\nonumber\\
-    &=A(e^{nt})^{\beta}K^\alpha L^\beta\label{Eq:3Solow}
- \end{eqnarray}
+\begin{eqnarray}
+Y &= AK^\alpha (L_0e^{nt})^\beta\nonumber\\
+  &= A(e^{nt})^{\beta}K^\alpha L^\beta
+\label{eqn-solow-swan3}
+\end{eqnarray}
 we see that $A$ becomes
  \[A(t)=c(e^{nt})^\beta\]
 and we have a version of the time-dependent term needed to  allow the model to track the data better. More than half  of the cross-country variation in income can be explained by per capita saving and population growth alone.
@@ -33,7 +34,12 @@ Solow incorporated the production function into a model with savings and examine
 In these models, saving and population growth rates determine the growth trend of the economy. An important  contribution of this neoclassical framework stems from its ability to quantify the effects of various influences on growth. The estimated influences of saving and population growth with the Solow model appear too large, however.%Ludcas on the mechanics of ec dev
 \footnote{In 1992, N. Gregory Mankiw, David Romer %(not to be confused with Paul M. Romer, mentioned above and below) 
 and David N. Weil analyzed Solow’s Model in their paper “Contribution to the Empirics of Economic Growth” and  showed that %Solow correctly predicts the directions of saving and population growth, but not the orders of magnitude. Furthermore they pointed out that, 
-if the model was augmented by including human capital $H$, it would fit the data even better.   (Mankiw et al. 1992). Their equation was, in our notation   \[Y=A(t)K^\alpha H^\gamma L^\beta\label{Eq:Mankiw}\] They assume $\alpha+\gamma<1$ which implies decreasing returns to all capital.} 
+if the model was augmented by including human capital $H$, it would fit the data even better.   (Mankiw et al. 1992). Their equation was, in our notation   
+\begin{equation*}
+Y=A(t)K^\alpha H^\gamma L^\beta 
+% \label{eqn-mankiw}    
+\end{equation*}
+ They assume $\alpha+\gamma<1$ which implies decreasing returns to all capital.} 
 To understand the relation between saving, population growth, and income, it was necessary to go beyond the textbook Solow model.%, which assumed  diminishing returns to capital and labor separately and constant returns to both factors jointly, 
 
 
@@ -104,7 +110,7 @@ This insight, which parallels ours, has not been adequately explored, in our vie
 
 
 \begin{quotation}
-    Her emphasis on the role of cities in economic growth stems from the observation that a city, economically, is like the nucleus of an atom: If we postulate only the usual list of economic forces, cities should fly apart. \textbf{The theory of production contains nothing to hold a city together.} (empahsis ours) A city is simply a collection of factors of production - capital, people, and land - and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits? Of course, people like to live near shopping and shops need to be located near their customers, but circular considerations of this kind explain only shopping centers, not cities. Cities are centered on wholesale trade and primary producers, and a theory that accounts for their existence has to explain why these producers are apparently choosing high rather than low-cost modes of operation.
+    Her emphasis on the role of cities in economic growth stems from the observation that a city, economically, is like the nucleus of an atom: If we postulate only the usual list of economic forces, cities should fly apart. \textbf{The theory of production contains nothing to hold a city together.} (emphasis ours) A city is simply a collection of factors of production - capital, people, and land - and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits? Of course, people like to live near shopping and shops need to be located near their customers, but circular considerations of this kind explain only shopping centers, not cities. Cities are centered on wholesale trade and primary producers, and a theory that accounts for their existence has to explain why these producers are apparently choosing high rather than low-cost modes of operation.
 \end{quotation}
 
 This observation provides a natural link to the scaling literature on cities.
@@ -115,16 +121,18 @@ Neoclassical production theory does not address the spatial structure of the eco
 
 In The Economy of Cities (1969) Jane Jacobs argued that when people come together in cities they make each other more productive. This is in essence, a theory of urban agglomeration that can be written
 
-\begin{equation}\label{eq:LtoN}
+\begin{equation}
 Y = A(t) K(t)^\alpha L^\beta 
+\label{eqn-production-jacobs}
 \end{equation}
 where $L$ stands for the size of the urban labour force. Since urban labour force and population are closely correlated, the familiar model is observationally equivalent to
-\begin{equation}\label{eq:N2}
+\begin{equation}
 Y = A(t)N^{\alpha+\beta}
+\label{eqn-production-jacobs-2}
 \end{equation}
-\footnote{ To see why, let  $cN$ be labour employed by capital in firms, where $N$ represents the urban population and  assume a constant capital-labor ratio $1/d$. Replace $K$ with $dcN$
+\footnote{ To see why, let  $cN$ be labour employed by capital in firms, where $N$ represents the urban population and assume a constant capital-labor ratio $1/d$. Replace $K$ with $dcN$
 \[Y = A(t) (dcN)^\alpha (cN)^\beta) \]
-But  $dc^\alpha$ and $c^\beta$  are simply  multiplicative constants that can be incorporated into the scale factor $A$, so  the function becomes 
+But  $dc^\alpha$ and $c^\beta$ are simply multiplicative constants that can be incorporated into the scale factor $A$, so the function becomes 
 \[Y = A(d, c,\alpha, \beta, t)N^{\alpha+\beta}\]
 }
 
@@ -136,7 +144,7 @@ The required condition is that
 $Y(\delta K,\delta L< \delta Y(K,L)$. 
 In the function that we use to illustrate the models, 
 $Y(\delta K,\delta L)= \delta^{\alpha +\beta}Y < Y(K,L)$.} 
-That leaves us with a question: what do we need for Equation~\ref{eq:N1} to represent Jacobs' observation?  
+That leaves us with a question: what do we need for Equation~\ref{eqn-production-jacobs-2} to represent Jacobs' observation?  
 
 The answer lies in making the synergies that Jacobs point to explicit: we require $N$ to generate a spillover effect similar to those  identified in neoclassical growth theory. There are three obvious generic ways to introduce such a term: $N$ can augment $A$, $K$, or $L$, 
 
@@ -178,7 +186,7 @@ Personal income & 1.1  & [1.03, 1.20]  &Brazil       & 39 & 2010  & MAs  & Breis
 Personal income & 1.35 & [1.19, 1.53]  &South Africa & 8 & 2001 & MMs  & Breisford et al.  (2017)   \\ \hline
     \end{tabular}
     \caption{Observed scaling exponents for urban systems around the world}
-    \label{tab:Bettencourt}
+    \label{table-scaling-exponents}
     \small Source: Bettencourt, table 3.1
 \end{table}
 
@@ -206,7 +214,7 @@ and has both theoretical and empirical support.
 % $ \beta$  is& scale factor, the elasticity of output with respect to city population .\\
 % \end{tabular}\vspace{.5cm}
 
-This is illustrated in Figure~\ref{fig:scale-output} for $\beta=1.25$ and $G=1$. The significant features are the upward-bending total output curve that indicates increasing productivity per capita for the city and the rising marginal product of labour.
+This is illustrated in Figure~\ref{fig-scale-output} for $\beta=1.25$ and $G=1$. The significant features are the upward-bending total output curve that indicates increasing productivity per capita for the city and the rising marginal product of labour.
 
 \begin{figure}[]
     \begin{center}
@@ -221,7 +229,7 @@ This is illustrated in Figure~\ref{fig:scale-output} for $\beta=1.25$ and $G=1$.
          % \draw [dashed](0,3)node[left]{$Y_i$}--(6,3);
     \end{tikzpicture}\vspace{.5cm}
     \caption{Urban productivity is proportional to population, $\beta=1.13$}
-    \label{fig:scale-output}
+    \label{fig-scale-output}
     \end{center}
 \end{figure}
 
@@ -252,20 +260,20 @@ This expression can be treated as a difference equation if we consider the left 
 \color{red}
 
 
-\subsection{Incorporating Agglomeration Economies in Production} \label{sec:ProductionFn}
+\subsection{Incorporating Agglomeration Economies in Production} \label{sec-agglomeration-production}
 %Production economies generated by agglomeration enter the production functions of the firms and, indirectly,  the aggregate production function of the city. 
 A simple way  to introduce an agglomeration effect on the production side that is consistent with the existing literature is  to use a Solow-Swan model with labour augmenting technical change (\cite{Solow56, Swan}), $Y(t)=K(t)^{\alpha }(A(t)n)^{\beta }$ where $t$ denotes time,  %$0<\alpha<1$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour,
  and $Y (t )$  represents total production. 
 We %remove time  $t$ except in the technical change term, where we replace it with the population value $n$. To avoid confusion with the consumption amenity, we
- replace $A(t)$ %in the Solow-Swann models
-  with $A(n)$, representing a labor-augmenting agglomeration effect.\footnote{The Mankiw–Romer–Weil version of the model adds a term for human capital.  It is not clear it would make a qualitative difference for our analysis.}  This differs from  the Slow-Swan, model in which labour augmenting technical change increases according to an exogenous (exponential) law.\footnote{An attractive ways to specify $A(n)$  is to use a simple exponential, $A(n)=n^\phi$, which changes Equation~\ref{Eqn:Solow-Swann} 
+ replace $A(t)$ %in the Solow-Swan models
+  with $A(n)$, representing a labor-augmenting agglomeration effect.\footnote{The Mankiw–Romer–Weil version of the model adds a term for human capital.  It is not clear it would make a qualitative difference for our analysis.}  This differs from  the Slow-Swan, model in which labour augmenting technical change increases according to an exogenous (exponential) law.\footnote{An attractive ways to specify $A(n)$  is to use a simple exponential, $A(n)=n^\phi$, which changes Equation~\ref{eqn-solow-swan2} 
   We %The model  can produce increasing returns in the aggregate, which can drive city growth.
 \begin{eqnarray}
  Y&=K^{\alpha }(n^{\phi }n)^{\beta}  \nonumber\\
  Y&=K^{\alpha }n^{\beta(1 +\phi)}
- \label{Eqn:Solow-Swann2}
-  \end{eqnarray}
-This makes it clear that we can have increasing returns to scale for the urban economy if  $\alpha + \beta(1+ \phi)>1$ even with a production function at the firm level that is decreasing returns to scale ($\alpha +\beta<1$)).\label{Fn:PSI}}  
+\label{eqn-solow-swan1}
+\end{eqnarray}
+This makes it clear that we can have increasing returns to scale for the urban economy if  $\alpha + \beta(1+ \phi)>1$ even with a production function at the firm level that is decreasing returns to scale ($\alpha +\beta<1$)).\label{footnote-psi}}  
 %Rising transportation costs may become the limit on firm or city expansion.  
   
   $A(n)n$ is  ``effective labor'' and 
@@ -273,7 +281,7 @@ This makes it clear that we can have increasing returns to scale for the urban e
 firm output is 
 \begin{equation} 
 Y=K_i^{\alpha }(A(n)n_i)^{\beta }
-\label{Eqn:Solow-Swann}
+\label{eqn-solow-swan2}
 \end{equation}
 % If $\beta=1-\alpha$, this is a constant returns to scale (CRS) production function. Without agglomeration effects, $T(n)=1$,  Then 
 % \textbf{$\mathbf{L(n) = T(n) n}$ 
@@ -286,11 +294,11 @@ Notice that this model ascribes all agglomeration effects to labour rather than 
 
 
 
-\subsection{Labour demand}\label{Sec:Labour Demand}
+\subsection{Labour demand}\label{sec-labour-demand}
 %This equation shows labour supply increasing with the square of the wage.  
 %The  inverse labour supply function  is
 %	\begin{equation}
-%	w= (\frac{ \tau^2s}{\pi})^{0.5} L^{0.5},	%\label{Eqn:InverseLabourSupply}
+%	w= (\frac{ \tau^2s}{\pi})^{0.5} L^{0.5},	%\label{eqn-inverse-labour-supply}
 %	\end{equation}
 %which is clearly increasing with the square root of the wage. 
 %It's easier to show the wage curve is declining at a faster rate withthis equation. 
@@ -302,10 +310,10 @@ Notice that this model ascribes all agglomeration effects to labour rather than 
 Profit maximizing firms  set the marginal value product of labour, $p\frac{\partial Y_i}{\partial n_i}$, equal to the wage. The marginal product of labour, however,  is complicated by the presence of the  agglomeration effect, $A(\sum n_j)$:
 \begin{eqnarray} \frac{\partial Y_i}{\partial n_i} &=   K_i^\alpha \left(  \beta A n_i^{\beta-1}  + n_i^{\beta}A'  \right)  \nonumber\\
 &=   \beta\frac{1}{n_i} Y_i   +  Y_i \frac{A'}{A}  \nonumber\\
-&=   Y_i  \left[  \beta\frac{1}{n_i}  + \frac{A' }{A} \right]   \label{Eqn:3MPL}
+&=   Y_i  \left[  \beta\frac{1}{n_i}  + \frac{A' }{A} \right]   \label{eqn-mpl}
 \end{eqnarray}
-The first term in the square bracket in Equation~\ref{Eqn:MPL} might be termed the \textbf{private myopic marginal product}. It is the addition to output directly attributable to an additional worker. This myopic MPL is smaller than the actual marginal product for the firm.  
-The second term in the bracket   is the marginal agglomeration effect. It captures the effect on firm-wide labour productivity -- an increase in effective labour --   that results from adding a worker. We can expect this to be very small.\footnote{Using the specification in Footnote~\ref{Fn:PSI}, $Lambda(n)=n^\psi$, it would be $\frac{\psi}{n}$. If f $\psi=0.1$ and $n=250,000$ the number is $\frac{A' }{A} =4\times 10^{-7}$.}% REVIEW THIS 
+The first term in the square bracket in Equation~\ref{eqn-mpl} might be termed the \textbf{private myopic marginal product}. It is the addition to output directly attributable to an additional worker. This myopic MPL is smaller than the actual marginal product for the firm.  
+The second term in the bracket   is the marginal agglomeration effect. It captures the effect on firm-wide labour productivity -- an increase in effective labour --   that results from adding a worker. We can expect this to be very small.\footnote{Using the specification in Footnote~\ref{footnote-psi}, $Lambda(n)=n^\psi$, it would be $\frac{\psi}{n}$. If f $\psi=0.1$ and $n=250,000$ the number is $\frac{A' }{A} =4\times 10^{-7}$.}% REVIEW THIS 
 % REVIEW THIS TOO
 %\footnote{Firm size matters. 
 %A monopoly employer would take into account the marginal agglomeration effect. 
@@ -330,7 +338,7 @@ implying firms will hire fewer than the optimal number of workers.
  \hline
 \end{tabular}
 \end{center}
-\label{Table:marginal-agglomeration}
+\label{table-marginal-agglomeration}
 \end{table}%
 
 
@@ -343,11 +351,11 @@ Since the increase in $A$ affects all firms, the  social marginal product of all
 % \begin{center}
 % \input{SA_AmenityFigure.tex}
 % \caption{Multiple Marginal Products}
-% \label{Fig:Multiple-Marginal-Products2}
+% \label{fig-multiple-marginal-products}
 % \end{center}
 % \end{figure}
 
-Figure~\ref{Fig:Multiple-Marginal-Products2} illustrates the labour supply curve and the four versions of MPL that arise for any standard production function with diminishing marginal product of labour and agglomeration effects of the sort we model. These agglomeration effects account for O'Sullivans axioms (b), (c) and (d) for this and similar models. 
+Figure~\ref{fig-multiple-marginal-products} illustrates the labour supply curve and the four versions of MPL that arise for any standard production function with diminishing marginal product of labour and agglomeration effects of the sort we model. These agglomeration effects account for O'Sullivans axioms (b), (c) and (d) for this and similar models. 
 
 \color{black}
  
@@ -366,7 +374,7 @@ The third determines the extent of the city. This comes form the Alonzo model di
     \begin{center}
     \input{fig/rent_ricardo.tex}
     \caption{Transport costs, the yellow area, take a share of the profit for vegetables sold in the town}
-    % \label{fig:rent_ricardo}
+    % \label{fig-rent-ricardo}
     \end{center}
 \end{figure}
 
@@ -374,7 +382,7 @@ The third determines the extent of the city. This comes form the Alonzo model di
     \begin{center}
     \input{fig/rent_alonzo.tex}
     \caption{A circular city with uniform transportation costs.}
-    \label{fig:rent_alonzo}
+    \label{fig-rent-alonzo}
     \end{center}
 \end{figure}
 
