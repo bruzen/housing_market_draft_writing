@@ -34,8 +34,7 @@ With this insight, growing wealth inequality emerges within a simple, widely acc
 \section{The rate of return on a property purchase}
 % ADD TABLE WITH VARIABLE DEFINITIONS
 
-TODO - add - (borrowing rates drive land prices up, even if there is no development or improvements, simply because it makes it worth a larger--
-the effect of low rates, especially for institutional actors have driven a large effect)
+
  
  In this section we model the return on an investment in urban properties. We model agents as %'ll assume that all agents are
  speculating on potential \glspl{capital gain} as well as on the \gls{use value} they get from living in a property. %We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
@@ -71,8 +70,8 @@ V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
  For ease of calculation, this may also be written in terms of shares of the purchase price:
 
  \begin{eqnarray}
-  V &=& \delta \left((1+\dot P) P_0   - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
-    &=& \left(\delta \left((1+\dot P) - (1+r)m\right) \  + \rho     - \theta     - \tau\right) P_0. \label{Eqn:V2}
+  V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
+    &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0. \label{Eqn:V2}
  \end{eqnarray}
  
  Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. 
@@ -82,7 +81,7 @@ V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
  MOVE The mortgage share and interest rate are functions of the agents wealth %Both the  share of the price  that can be mortgaged, $m$, and the interest rate and the interest rate paid, $r$, are functions of the agent's wealth. 
 The discounting factor may be correlated with wealth as well. 
 
-The rate of return on funds invested, $v$, is the value  divided by  the size of the downpayment, $D$: TODO: UPDATE NOTATION TO MATCH THE ABOVE
+The rate of return on funds invested, $v$, is the value  divided by  the size of the downpayment, $D$: 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
 %\begin{enumerate}
 %\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
@@ -90,18 +89,19 @@ The rate of return on funds invested, $v$, is the value  divided by  the size of
 %\item If $ v(with\ rent) \le a $,  then sell 
 %\end{enumerate}\
 \begin{eqnarray}
-v &=& \frac{V}{D} \nonumber \\
-  &=& \left(\delta \left((1+\dot P) - (1+r)m \right) \ + \rho - \theta - \tau \right) \frac{P_0}{D} \nonumber \\
-  &=& \left(\delta \left((1+\dot P) - (1+r)m \right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
-  &=& \frac{ \delta \left(1+\dot P  - (1+r)m \right) \ + \rho - \theta - \tau } {1-m}. \label{Eqn:DecisionRule2}
+r_{return} 
+ &=& \frac{V}{D}  \nonumber \\
+ &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
+ &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
+ &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}. \label{Eqn:DecisionRule2}
 \end{eqnarray}
 
-Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors: invest if $v \geq r_{target}$. The rule has long run implications for the ownership of housing. 
+
 
 
 %%%%%%%%  VVVVVVVVVVVVVVVVVVVVVVV   This section May 18 to cut?  V
 %%%%%%%%  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  This section May 18 to cut?  V
-
+% TODO - add interest rate discussion - (borrowing rates drive land prices up, even if there is no development or improvements, simply because it makes it worth a larger--the effect of low rates, especially for institutional actors have driven a large effect)
 %\begin{enumerate}
 %
 %\item  the buyer and seller calculate the value of the property  differently. 
@@ -116,26 +116,17 @@ Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors: invest if $
 %%International investors and banks employ economists and other experts to  forecast prices, exchange rates, and trends in the economy.
 %%	\end{enumerate} 
 %\end{enumerate}
-% Why would  discount rates differ between identical workers? Buyers and sellers are not identical in wealth, obviously. 
+% Why would  discount rates differ between identical workers? Buyers and sellers are not identical in wealth, . 
 %%We could implement the first  explanation either by generating expectational errors based on functional class or wealth. 
 
-%As expected
-%\begin{enumerate}
-%\item A large $m$ magnifies the return. (downpayment is smaller)
-%\item A lower mortgage interest rate increases the return because of interest on the mortgage
-%\item A lower discount rate $\delta$ reduces the subjective rate of return
-%\item Higher expected price appreciation increases the attractiveness of investment
-%\item Higher rents makes the unit more profitable if rents are being collected
-%\item Lower costs increase profits
-%\item Lower tax rates decrease holding costs and increase the value of the investment
-%\end{enumerate}
-The implications of {\color{red} Equation~\ref{Eqn:DecisionRule2}} are significant for the evolution of the urban land market and class structure. It implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with  lower wealth holdings.\footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.}
-
-The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller observe that (source?) 
+Equation~\ref{Eqn:DecisionRule2} provides a criterion for investors: invest if $r_{return} \geq r_{target}$. The rule has long run implications for the ownership of housing. 
+%The implications of {\color{red} Equation~\ref{Eqn:DecisionRule2}} are significant for the evolution of the urban land market and class structure. 
+Since interest rates are lower for those with higher wealth, it implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' *** DEFINE control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
+Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller observe that (source?) 
 `` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} 
-\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca} 
-and that the managers of large pools of capital will have an even greater advantage. 
+\footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca *** ELABORATE} 
  
+ Some of the implications include:
 
 \begin{enumerate}
 \item A large $m$ magnifies the return. (The downpayment is smaller as a fraction of the price, increasing the investor's leverage). 
@@ -150,6 +141,16 @@ and that the managers of large pools of capital will have an even greater advant
 \item Lower maintenance costs increase profits. There may be scale economies in the maintenance  of rented housing. 
 \item Lower tax rates decrease holding costs and increase the value of the investment. here may be opportunities to shelter income with land held for investment (speculative) purposes
 \end{enumerate}
+%As expected
+%\begin{enumerate}
+%\item A large $m$ magnifies the return. (downpayment is smaller)
+%\item A lower mortgage interest rate increases the return because of interest on the mortgage
+%\item A lower discount rate $\delta$ reduces the subjective rate of return
+%\item Higher expected price appreciation increases the attractiveness of investment
+%\item Higher rents makes the unit more profitable if rents are being collected
+%\item Lower costs increase profits
+%\item Lower tax rates decrease holding costs and increase the value of the investment
+%\end{enumerate}
 
 Some  of these conditions (1-3) hold generally for wealthier actors. Others (4-7) may be available only to institutional investors.  Financial corporations in particular may have advantages relative to individual investors. making it  reasonable to expect that financial corporations increasingly dominate urban land markets. %A recent report claimed 15\% of Tioron0's land transa
 
