@@ -1,56 +1,30 @@
 \chapter[Bidding]{Calculating Bid Price}
 \label{appendix-bid-price}
 
-\section{Calculate rate of return for an investor}
-
- The warranted price of the property is the present value of the \gls{warranted rents}% *** Note the warranted price may be rising. This is a problem for  us. WHY?
-% NOTE Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
-
-%**** We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this? EXPLAIN
-% How do we ignoor buildings - when we talk about the land rents, we're calculating on the basis of the warranted rent wage premium- put people are paying for buildings.. - assume it comes out of the subistence wage- since this is just a theoretical treatment.-- but if you think about how much capital gain will you get, we'll also get capital gainso on the house piece which is not locational- just gains on that asset they happen to have.. --  looking at things coming from close toe the center ignoring what else. - tied together so market spreads capital gain over both of them, and the tax does the same too-- for locational advantage and services..
-
-% Since the present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e.,\\
-
-In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as:
-\begin{equation}
-  P=\frac{\mathcal{R}_N}{r}  
-\label{eq:Capitalization}
-\end{equation}
-
-%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
-
-*** CLARIFY WHAT WE GET FROM INCLUDING $\psi$, and define, maybe compare with other shares like $\phi$.
-
-\noindent so we can write 
-
-\begin{align}  
-    V & = \delta \left((1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
-      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
-\end{align}
-%there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
-
-This can be expressed in terms of the rate of return on the down payment, $V/D$
-\begin{align*}  
-v & = \frac{V}{D} \\
-  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right)P_0/D \\
-  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right) \frac{P_0}{P_0-mP_0} \\
-  & = \frac{ \delta \left((1+\dot P) - (1+r)m\right)\ + \psi r}{1-m}
-\label{eq:RULE}
-\end{align*}
-
-
 \section{Agent's maximum bid given the rate of return}
-% \section{Market behaviour}
 
-% Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
+% Agents must compute the maximum bid price they are willing to pay.
+To find how much investors will bid, we need to find the maximum price that they are willing to pay. They need a bid price. This is the maximum price that satisfies the criterion $r_{return} \geq r_{target}$ from Equation \ref{eqn-property-investment-return2}, in Chapter \ref{chapter-financialization} on Financialization. Where the return is the value over the down payment:
+% Equation \ref{eqn-property-investment-return1} expresses the expected return on investment in terms of the  market price, $P_0$: 
 
-To find how much investors will bid, we need to find the maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$.   The bid price is used in the price determination process in our model. We return to Equation~\ref{eq:Value} %replacing $\mathcal{R}$ with $rP_0$. 
+\begin{eqnarray*}
+ r_{return} 
+   &=& \frac{V}{D} \\
+   &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau}{1-m}.
+\end{eqnarray*}
 
-\[V = \delta \left(P^T- (1+r)M\right) +\phi \mathcal{R}\]
+%which we define as the ``bid price'',% $P^{max}_{bid}$. 
+The bid price is used in the price determination process in our model. %We return to Equation~\ref{eq:Value} %
+replacing $\mathcal{R}$ with $rP_0$. 
+
+\begin{eqnarray*}
+V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
+  &=& \delta \left(P^T- (1+r)M\right) +\phi \mathcal{R}
+\end{eqnarray*}
 % We also have to assume that $P^{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
 % \[V= \delta(P^T- (1+r)M)   +\phi r P^{bid}\]
 
-We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P^{bid}$.
+%
 
 The  price at the end of the term $T$,  $P^T$, is a predicted value  for the investor \textit{ex-ante}, so we have to replace $P^T$ in Equation~\ref{eq:Value} with a predictor, $(1+\dot P)P^{bid}$. 
 \[V= \delta \left((1+\dot P)P^{bid}- (1+r)M\right) +\phi \mathcal{R}\]
@@ -199,6 +173,9 @@ The {mortgage term}, $T$, is the period it takes to pay down the mortgage. We wo
 
 \subsection{Net rent}\label{SS:NetRent}
 
+We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P^{bid}$.
+
+Uncertainty can be represented as bias or stochasticity.
 Calculation notes: I have rent from the wages. I have kappa and sigma from our ex parameter values. . omega from the wages. 
 
 $\mathcal{R}_N = \phi \mathcal{R}$
@@ -357,11 +334,13 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.
 
 
 \subsubsection{Individualized borrowing rates}\label{SS:BorowingRate}
- $r_i$ 
  
- $r_i$ should depend on  both the person's income and their assets compared to others. The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada's \href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{Data released in 2020 by Statistics Canada} indicates that the top 1\% of Canadians made, on average, around \$512,000 in a single year. \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
+ 
+ $r_i$ depends on relative income and assets, as well as base interest rates. % compared to others. 
+ The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada's %\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
+ Data released in 2020 by Statistics Canada indicates that the top 1\% of Canadians made, on average, around \$512,000 in a single year \cite{stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
 
- A study by Statistics Canada found that the typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200. \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
+ A study by Statistics Canada found that the typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
 
 \subsubsection{Computing the income constraint on interest rates}\label{SS:YWealthConstraint}
 $r_i$
@@ -478,3 +457,40 @@ We assume $r_i$ is based on the individual's assets, on relative wealth. Where i
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
 
 
+
+\section{WHERE DOES THIS GO? Calculate rate of return for an investor}
+
+ The warranted price of the property is the present value of the \gls{warranted rents}% *** Note the warranted price may be rising. This is a problem for  us. WHY?
+% NOTE Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
+
+%**** We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this? EXPLAIN
+% How do we ignoor buildings - when we talk about the land rents, we're calculating on the basis of the warranted rent wage premium- put people are paying for buildings.. - assume it comes out of the subistence wage- since this is just a theoretical treatment.-- but if you think about how much capital gain will you get, we'll also get capital gainso on the house piece which is not locational- just gains on that asset they happen to have.. --  looking at things coming from close toe the center ignoring what else. - tied together so market spreads capital gain over both of them, and the tax does the same too-- for locational advantage and services..
+
+% Since the present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e.,\\
+
+In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as:
+\begin{equation}
+  P=\frac{\mathcal{R}_N}{r}  
+\label{eq:Capitalization}
+\end{equation}
+
+%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
+
+*** CLARIFY WHAT WE GET FROM INCLUDING $\psi$, and define, maybe compare with other shares like $\phi$.
+
+\noindent so we can write 
+
+\begin{align}  
+    V & = \delta \left((1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
+      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
+\end{align}
+%there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
+
+This can be expressed in terms of the rate of return on the down payment, $V/D$
+\begin{align*}  
+v & = \frac{V}{D} \\
+  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right)P_0/D \\
+  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right) \frac{P_0}{P_0-mP_0} \\
+  & = \frac{ \delta \left((1+\dot P) - (1+r)m\right)\ + \psi r}{1-m}
+\label{eq:RULE}
+\end{align*}

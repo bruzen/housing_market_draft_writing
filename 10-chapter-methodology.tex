@@ -2,44 +2,48 @@
 
 In this chapter we discuss the methodological approach of the thesis, as well as a number of modelling decisions. We develop a model of a complex, dynamical, multi-agent economic system, drawing on techniques and insights from several fields. In doing so we are attentive to the strengths and weaknesses of the approaches that we are adopting. 
 
-We are focused on the evolution of a city. Cities evolve continuously and may never be in  equilibrium. At best the numerous people and organizations in the city are adjusting individually in sensible ways to the changing parameters of the city they inhabit. The system is complex because there are many agents making unsynchonized, individual decisions independently. %One natural  way to explore such a systeme tool urban processes this sort is analogous to the way 
+We are focused on the evolution of a city. Cities evolve continuously and may never be in equilibrium. At best the numerous people and organizations in the city are adjusting individually in sensible ways to the changing parameters of the city they inhabit. The system is complex because there are many agents making %unsynchonized, 
+individual decisions independently. %One natural  way to explore such a system tool urban processes this sort is analogous to the way 
 Agent-Based Models (ABMs) mimic this view of the city.   
 
 %Our main simulation tool is an ABM. 
-In an ABM Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example,  is analyzed using  `reaction functions' which simply describe a firm's optimal response to as second firm's output choice.} Agent based models commit to computational methods from the beginning.  A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program  is  allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a  steady state. As with any computational model, we can  explore the behaviour of the system by varying parameters, and  can explore the parameter space using Monte Carlo methods.
+In an ABM Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example, is analyzed using `reaction functions' which simply describe a firm's optimal response to as second firm's output choice.} Agent based models commit to computational methods from the beginning. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with any computational model, we can explore the behaviour of the system by varying parameters, and can explore the parameter space using Monte Carlo methods.
 
-In Economic modelling, on the other hand, the most familiar approach is the  analysis of systems in equilibrium. A set of necessary conditions describing a steady state of interest are imposed and then solved to find features of the equilibrium they generate.  It is a highly productive methodology partly because it conveniently  bypasses the complex process of adjustment by focusing on the conditions that must be true if a particular situation is to persist.
+In Economic modelling, on the other hand, the most familiar approach is the  analysis of systems in equilibrium. A set of necessary conditions describing a steady state of interest are imposed and then solved to find features of the equilibrium they generate. It is a highly productive methodology partly because it conveniently  bypasses the complex process of adjustment by focusing on the conditions that must be true if a particular situation is to persist.
 
-The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A  situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion   is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes - i.e., are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities can be derived solving the two-equation system.
+The classic example is the ubiquitous supply and demand model. Each of the curves represents the plausible behaviours of a class of agents. A situation is not likely to persist if either of the classes of agents is not satisfied with the combination of price and quantity. The conclusion is that the only combinations that can persist for long are  those that satisfy the behavoural intentions of both classes i.e. are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities can be derived solving the two-equation system.
 
-The approach produces tractable  models that can often be solved explicitly. To achieve tractability, it is often convenient, even necessary, to limit the number of independent decision-makers by employing a ``representative agent.'' To extend the analysis to dynamic systems, ``laws of motion'' (adjustment rules)  can be added in the form of either difference or differential equations.   Models become intractable very quickly when there are more agents or dynamic processes, and economists, like physicists and weather forecasters, resort to simulation techniques  and numerical methods. 
+The approach produces tractable models that can often be solved explicitly. To achieve tractability, it is often convenient, even necessary, to limit the number of independent decision-makers by employing a ``representative agent.'' To extend the analysis to dynamic systems, ``laws of motion'' (adjustment rules) can be added in the form of either difference or differential equations.  Models become intractable quickly when there are more agents or dynamic processes, and economists, like other modellers,  % physicists and weather forecasters, 
+resort to simulation techniques  and numerical methods. 
 
-%ABM advantages
-%An alternative to the equilibrium approach is to 
+The problem of model complexity remains a challenge with ABMs, however, and modellers introduce simplifying assumptions. These are not as a rule needed for the computational model but are very helpful in maintaining a focus on the key theme  of the model. 
 
-
-The problem of model complexity remains a challenge with ABMs, however, and we introduce simplifying assumptions. These are not as a rule needed for the computational model but are very helpful in maintaining a focus on the key theme  of the thesis. For example, we draw heavily on economic analysis of cities, and employ three key economic equilibrium conditions drawn from the economic literature. 
-
+For example, for this model, we draw heavily on economic analysis of cities, and employ three key economic equilibrium conditions drawn from the economic literature. 
 %Some adjustments are slow and some are fast. Rates of adjustment can matter. 
+Because our focus is financialization in the land market, we use the equilibrium conditions for competitive labour markets, to bypass the complex and partially understood wage-setting process. We assume, a core theoretical result from the theory of the firm, that workers are paid their marginal value-product. We ground this approach in recent research that has %shown that, in essence, 
+derived and estimated an aggregate urban production function consistent with modern neoclassical growth theory.\footnote{we are not aware of other research that has taken this step yet.} We use the result to derive an urban wage premium that drives city growth. We would argue that, since labour markets can adjust more quickly than land markets, we can assume that their adjustment is occurring continuously in the background.  
 
-Because our focus is financialization in the land market, we use  the equilibrium conditions for competitive labour markets, to bypass the complex and partially understood wage-setting process. We simply assume a core theoretical result from the theory of the firm, that workers are paid their marginal value-product. We ground this device in recent research that has shown that, in essence, derived and estimated an aggregate urban production function consistent with modern neoclassical growth theory.\footnote{we are not aware of other research that has taken this step yet.} We use the result to derive an urban wage premium that drives city growth. We would argue that, since labour markets can adjust more quickly than land markets, we can assume that their adjustment is occurring continuously in the background.  
+A similar market-based argument allows us to assume that land rents are determined by the classic urban locational equilibrium. The theory is based on the insight that if individual utilities are higher at one location in the city, entrants or movers will choose that  location. This is an implication of consumer choice theory. In a market with any degree of churn market prices for land should converge on use values, and these will vary systematically with transportation costs. For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs. Building on this, %In the computational model 
+we can introduce site-specific and person-specific features. 
 
-A similar market-based argument allows us to assume that land rents are determined by the classic urban locational equilibrium. The theory is based on the insight that if individual utilities are higher at one location in the city, entrants or movers will choose that  location. This is an implication of simple consumer choice theory. In a market with any degree of churn market prices for land should converge fairly quickly on the use values, and these will vary systematically with transportation costs. We present the model for the case where individuals are identical and have identical transportation costs. In the computational model we can introduce site-specific and person-specific features. 
+Finally, we employ equilibrium reasoning in the housing and investment process. We assume investors behave rationally in that they estimate the potential returns on their investments and seek the highest returns they can get. They calculate an offer price in each transaction based on several factors: land rents, expected price changes, their individual price of capital and discounting rate, and the information available to them.
 
-Finally, we employ equilibrium reasoning  in the housing and investment process. We assume investors behave rationally, calculating an offer price in each transaction based land rents and expected price changes, the individual price of capital, individual discount rates and availability of  information. It is at this point we introduce an innovation to formal urban modelling.   We draw on the literature for the relevant `stylized facts' about differences in these values based on wealth and income. This opens the possibility of urban segregation and the endogenous emergence of class distinction based on capital access, a process explored by John Roemer in his neglected General Theory of Exploitation and Class.  
+It is at this point we introduce an innovation to formal urban modelling. We draw on the literature for the relevant `stylized facts' about differences in these values based on wealth and income. This opens the possibility of urban segregation and the endogenous emergence of class distinction based on capital access, a process explored by John Roemer in his neglected General Theory of Exploitation and Class \cite{Roemer}.  
 
 Expectations have to take into account some amount of current and past information. Forecasts based on recent price movements can give rise to price bubbles through either speculative or precautionary motives. Expectations anchored in perfect foresight have different dynamics. We employ backwards-looking expectation formation anchored to current rental returns. We derive an investment rule of this sort in Chapter~\ref{chapter-financialization}. 
           
-Overlapping generations
+In our model individuals have a working life, then retire. If they own homes they sell and move to the countryside where housing is cheaper. They are replaced by new entrants from the countryside. New entrants may become buyers or tenants. This is a variant of the overlapping generations  model in which savings are passed on to the next generation. In our case homes are passed on. While the model has multiple generations, it is not a `dynastic' model in which the generations are linked by family ties and inheritance maters in individual decision-making, because the core issue in the emergence of classes is whether the city continues to provide opportunity for newcomers and those without the benefit of generational wealth to share the  benefits of agglomeration effects. % to share in the . %We suspect that introducing families would complicate the model but add little to understanding  our  main  issue. 
+
+A modelling device that plays a major role is our use of the urban wage premium, the difference between a rural and an urban wage driven by positive agglomeration effects on productivity in the city. It cannot be competed away because transportation costs limit access to the productive centre. The wage premium is a partial measure of the agglomeration effect. It generates the rent premium on urban land. We want to call attention to the distribution of that rent premium.
+
+To simplify the analysis, we assume that we can partition actual wages between the wage premium, which is available for accumulation or spent on transportation, and all other expenses. We assume urban and non-urban populations all receive a subsistence wage which covers  the cost of buildings, food and other living costs and a base cost of land. This base cost is usually described as the cost of agricultural land. It is more precisely described as the opportunity cost of urban land, and we have simply extended the technique to include the opportunity cost of urban labour. 
+
+There are advantages and disadvantages to this technique. The motivating advantage is that it lets us isolate the social surplus generate by agglomeration. One disadvantage is that it suppresses many issues that are of interest in other contexts - such as choice of home size and quality. In the computational model it is easy to allow for different building types, but we make not provision for choice. We do foresee adding a layer to the computation  model that incorporates redevelopment and construction and does allow for decisions about scale, type and location. 
+
+Another disadvantage of technique in the analytical version is that it does not allow us to make speculation about the buildings part of our market process. It is a problem that can be dealt with in the computation model, but we believe the added complexity will not add much to our central argument.
 
 
-To 
-
-% EQUILIB advantages
-   
-The Agent Base Modelling approach is 
-
-For example, from the Alonzo model we impose the locational equilibrium condition,
+For example, from the Alonzo model we implicitly impose the locational equilibrium condition,
 \[U_i(d,\dots)=U_j(d, /dots)\]
 This says that identical individuals must get the same utility living at at whatever distance from the city centre. If that were not the case, individuals would move to a location where they get higher utility.
 
@@ -48,7 +52,7 @@ different location would take a long time to work through the system. Prices, ho
  It follows that 
 \[\frac{\partial U_i(d, d(dots)}{\partial t}=\frac{\partial U_j(d, /dots)}{\partial t}\]
 With identical transportation cost, 
-land rents are determined by transportation costs  and  
+land rents are determined by transportation costs  
 
 We use  equilibrium arguments in our model to describe hiring decisions by producers and wage demands by workers. Equilibrium locational by commuters determines the extent and even population of the city. They also determine the pattern of land rents. 
 
@@ -56,9 +60,8 @@ We use  equilibrium arguments in our model to describe hiring decisions by produ
 
 \textbf{Some limitations of preceding work}%We offer three developments/extensions building on that work.}
 
-
 Any adjustment process that requires people to move to a 
-At the same time, because our  
+At the same time, because our ..
 
 providing tractable models.  equilibrium analysis of marginal effects, and representative agents which hid distributional effects, as well as spaceless economic models of markets made it difficult to capture the richer spacial dynamics of urban rents, and the details of the ways economic forces play out for individual actors.
 
