@@ -32,51 +32,7 @@ With this insight, growing wealth inequality emerges within a simple, widely acc
 % The Death and Life of Great American Cities \cite{jacobsDeathLifeGreat1961}
 
 
-\section{FROM APPENDIX - REPEATS BELOW - TO CUT Calculate rate of return for an investor}
-
-Where $\phi$ is a fraction that takes into account taxes and operating costs. 
-
-% ___ NOT SURE WHY WE NEED $\phi$. and don't love writtent name
-
- The warranted price of the property is the present value of the \gls{warranted rents}
- 
-% *** Note the warranted price may be rising. This is a problem for  us. WHY?
-% NOTE Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
-
-%**** We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this? EXPLAIN
-% How do we ignoor buildings - when we talk about the land rents, we're calculating on the basis of the warranted rent wage premium- put people are paying for buildings.. - assume it comes out of the subistence wage- since this is just a theoretical treatment.-- but if you think about how much capital gain will you get, we'll also get capital gainso on the house piece which is not locational- just gains on that asset they happen to have.. --  looking at things coming from close toe the center ignoring what else. - tied together so market spreads capital gain over both of them, and the tax does the same too-- for locational advantage and services..
-
-% Since the present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e.,\\
-
-In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as
-\begin{equation}
-  P=\frac{\mathcal{R}_N}{r}  
-\label{eq:Capitalization}
-\end{equation}
-
-%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
-
-\noindent so we can write ***
-\begin{align}  
-    V & = \delta \left(1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
-      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
-\end{align}
-%there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
-
-This can be expressed in terms of the rate of return on the down payment, $V/D$
-\begin{align}  
-   v & = \frac{V}{D}
-   \\
-    & = \left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0/D
-   \\
-    & = \left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right) \frac{P_0}{P_0-mP_0}
-    \\
-    & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}
-\label{eq:RULE}
-\end{align}
-
 \section{The rate of return on a property purchase}
-**** MAIN SECTION
 
 % ADD TABLE WITH VARIABLE DEFINITIONS
  
@@ -95,7 +51,7 @@ The value of the investment is the capital gain, $\mathcal{C}$ plus the rents, n
 V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
   &=& \mathcal{C} + \mathcal{R} - \mathcal{O} - \mathcal{T} \nonumber \\
   &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}.
-\label{eqn-v1}
+\label{eqn-property-investment-value1}
 \end{eqnarray}
 
 % OLD equations from working out the above. Could change symbols
@@ -117,15 +73,12 @@ V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
 \begin{eqnarray}
 V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
   &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0.
-\label{eqn-v2}
+\label{eqn-property-investment-value2}
 \end{eqnarray}
  
- Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. The net rent can also be written as a share, $\phi$ of the rent $\mathcal{R}_N = \phi \mathcal{R}$.
+ Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. The net rent can also be written as a share, $\phi$ of the rent $\mathcal{R}_N = \phi \mathcal{R}$. % Where $\phi$ is a fraction that takes into account taxes and operating costs. 
  % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
  %It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
- 
- MOVE The mortgage share and interest rate are functions of the agents wealth %Both the  share of the price  that can be mortgaged, $m$, and the interest rate and the interest rate paid, $r$, are functions of the agent's wealth. 
-The discounting factor may be correlated with wealth as well. 
 
 The rate of return on funds invested, $r_{return}$, is the value divided by the size of the downpayment, $D$: 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
@@ -140,15 +93,15 @@ r_{return}
   &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
   &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
   &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}.
-\label{eqn-return1}
+\label{eqn-property-investment-return1}
 \end{eqnarray}
-Equation~\ref{eqn-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
+Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
 \begin{equation}
-r_{return} \geq r_{target}. \label{eqn-return2}
+r_{return} \geq r_{target}. \label{eqn-property-investment-return2}
 \end{equation}
 The rule has long run implications for the ownership of housing. 
 
-%The implications of {\color{red} Equation~\ref{eqn-return1}} are significant for the evolution of the urban land market and class structure.  
+%The implications of {\color{red} Equation~\ref{eqn-property-investment-return1}} are significant for the evolution of the urban land market and class structure.  
 Some of the implications include:
 
 \begin{enumerate}
@@ -175,7 +128,7 @@ Some of the implications include:
 %\item Lower tax rates decrease holding costs and increase the value of the investment
 %\end{enumerate}
 
-Since interest rates are lower for those with higher wealth, it implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' *** DEFINE control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
+Since interest rates are lower for those with higher wealth, the analysis implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' *** DEFINE control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
 Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller observe that (source?) 
 `` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} 
 \footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca *** ELABORATE} 
@@ -203,6 +156,9 @@ The implication is that those with more capital will be at an advantage in the u
 
 These appear to be features of the economy we observe.
 
+ MOVE The mortgage share and interest rate are functions of the agents wealth %Both the  share of the price  that can be mortgaged, $m$, and the interest rate and the interest rate paid, $r$, are functions of the agent's wealth. 
+The discounting factor may be correlated with wealth as well. 
+
 %%%%%%%%  VVVVVVVVVVVVVVVVVVVVVVV   This section May 18 to cut?  V
 %%%%%%%%  ^^^^^^^^^^^^^^^^^^^^^^^   This section May 18 to cut?  V
 % TODO - add interest rate discussion - (borrowing rates drive land prices up, even if there is no development or improvements, simply because it makes it worth a larger--the effect of low rates, especially for institutional actors have driven a large effect)
@@ -225,10 +181,15 @@ These appear to be features of the economy we observe.
 
 
 \section{Investor market behaviour}
-Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
 
-To find how much investors will bid, we need to find the maximum price that satisfies this criterion, we define as the ``bid price'' $P^{max}_{bid}$  as the maximum price offer that allows the investor to achieve the target rate of return, $r_{target}$,   %replacing $\mathcal{R}$ with $rP_0$. 
-We calculate the bid price in Appendix \ref{appendix-bid-price}, starting with revision to Equation~\ref{eqn-v2}. We use $\mathcal{R}$ as a  expression for the investor's expected net rent and $L(P)$ as the investor's  estimator for the rate of price change. After recalculating the rate of $v$, we set $v \ge r_{target}$ and solve for  prices that achieve at least the target rate of return. The solution is 
+Investors must bid on houses given the expected return, $r_{return}$. This means they need to have a sense of the maximum it would make sense to bid on a property, given the potential for a financial return.
+
+
+To find how much investors will bid, we need to find the maximum price that satisfies this criterion, we define as the ``bid price'' %$P^{max}_{bid}$  
+as the maximum price offer that allows the investor to achieve the target rate of return, $r_{target}$.   %replacing $\mathcal{R}$ with $rP_0$. 
+
+Equation~\ref{eqn-property-investment-return1} is expressed in terms of a given market price, $P_0$. It cannot be solved directly for $P_0$, however, because the solution has a singularity.
+We calculate the bid price in Appendix \ref{appendix-bid-price}, building from Equation~\ref{eqn-property-investment-value2}. We use $\mathcal{R}$ as a expression for the investor's expected net rent and $L(P)$ as the investor's  estimator for the rate of price change. After recalculating the rate of $v$, we set $v \ge r_{target}$ and solve for prices that achieve at least the target rate of return. The solution for agent $i's$ maximum bid is: 
 
 \begin{align}
 % r_{target} &\le \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}. \\
@@ -239,12 +200,10 @@ We calculate the bid price in Appendix \ref{appendix-bid-price}, starting with r
 % %
 % P_{bid} &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \dots\right]}\\
 % %
-P_{bid}   &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}. \nonumber \\
-P_i^{bid} & \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}.
+%P_{bid}   &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}. \nonumber \\
+P_i^{bid} & \le   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}.
 \label{eqn-bid1}
 \end{align}
-
-*** IS IT GREATER OR LESS THAN - DIFFERENT HERE VS APPENDIX. ASSUME YOU'D BID MAX THIS.
 
 The denominator in Equation~\ref{eqn-bid1} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
 We use this formula in the price determination process in our simulation model. Details of the computation are discussed in Appendix \ref{appendix-bid-price}. 

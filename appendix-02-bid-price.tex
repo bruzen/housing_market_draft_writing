@@ -1,32 +1,70 @@
 \chapter[Bidding]{Calculating Bid Price}
 \label{appendix-bid-price}
 
+\section{Calculate rate of return for an investor}
+
+ The warranted price of the property is the present value of the \gls{warranted rents}% *** Note the warranted price may be rising. This is a problem for  us. WHY?
+% NOTE Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
+
+%**** We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this? EXPLAIN
+% How do we ignoor buildings - when we talk about the land rents, we're calculating on the basis of the warranted rent wage premium- put people are paying for buildings.. - assume it comes out of the subistence wage- since this is just a theoretical treatment.-- but if you think about how much capital gain will you get, we'll also get capital gainso on the house piece which is not locational- just gains on that asset they happen to have.. --  looking at things coming from close toe the center ignoring what else. - tied together so market spreads capital gain over both of them, and the tax does the same too-- for locational advantage and services..
+
+% Since the present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e.,\\
+
+In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as:
+\begin{equation}
+  P=\frac{\mathcal{R}_N}{r}  
+\label{eq:Capitalization}
+\end{equation}
+
+%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
+
+*** CLARIFY WHAT WE GET FROM INCLUDING $\psi$, and define, maybe compare with other shares like $\phi$.
+
+\noindent so we can write 
+
+\begin{align}  
+    V & = \delta \left((1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
+      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
+\end{align}
+%there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
+
+This can be expressed in terms of the rate of return on the down payment, $V/D$
+\begin{align*}  
+v & = \frac{V}{D} \\
+  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right)P_0/D \\
+  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right) \frac{P_0}{P_0-mP_0} \\
+  & = \frac{ \delta \left((1+\dot P) - (1+r)m\right)\ + \psi r}{1-m}
+\label{eq:RULE}
+\end{align*}
+
 
 \section{Agent's maximum bid given the rate of return}
 % \section{Market behaviour}
-Equation~\ref{eq:RULE} provides a criterion for investors: invest if $v \geq r^{target}$. The rule has qualitative implications for the ownership of housing (Discussed in chapter on financialization)
 
-Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
+% Equation~\ref{eq:RULE} is expressed in terms of a given market price, $P_0$. It cannot be solved for the $P_0$, however.
 
 To find how much investors will bid, we need to find the maximum price that satisfies this criterion, which we define as the ``bid price'', $P^{max}_{bid}$.   The bid price is used in the price determination process in our model. We return to Equation~\ref{eq:Value} %replacing $\mathcal{R}$ with $rP_0$. 
 
-\[V= \delta(P^T- (1+r)M)   +\phi  \mathcal{R}\]
+\[V = \delta \left(P^T- (1+r)M\right) +\phi \mathcal{R}\]
 % We also have to assume that $P^{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
 % \[V= \delta(P^T- (1+r)M)   +\phi r P^{bid}\]
 
 We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P^{bid}$.
 
 The  price at the end of the term $T$,  $P^T$, is a predicted value  for the investor \textit{ex-ante}, so we have to replace $P^T$ in Equation~\ref{eq:Value} with a predictor, $(1+\dot P)P^{bid}$. 
-\[V= \delta((1+\dot P)P^{bid}- (1+r)M)   +\phi  \mathcal{R}\]
+\[V= \delta \left((1+\dot P)P^{bid}- (1+r)M\right) +\phi \mathcal{R}\]
 
 Then we replace $\dot P$ with and estimate, $L(P)$, representing an estimated function of the lagged values of $P$ and any  other relevant data. We imagine the potential investor drawing on common  knowledge or information from the real estate agents or analysts.  The result is 
-\[V= \delta((1+L(P))P^{bid}- (1+r)mP^{bid})   +\phi \mathcal{R}\]
-Combining terms
-\[V= \delta((1+L(P))- (1+r)m)P^{bid}   +\phi \mathcal{R}\]
+\[V= \delta \left((1+L(P))P^{bid}- (1+r)mP^{bid}\right) +\phi \mathcal{R}\]
+Combining terms:
+\[V= \delta \left((1+L(P))- (1+r)m \right) P^{bid} +\phi \mathcal{R}\]
+
+WHY BIG BRAKETS NOT SHOWING UP
 
 The rate of return $v=V/D=V/(1-m)P^{bid}$ is then
 
-\[v= \frac{\delta((1+L(P))- (1+r)m)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}\]
+\[v= \frac{\delta \left((1+L(P) - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P^{bid}}\]
 
 % %++++++++++++++++
 
@@ -46,7 +84,7 @@ The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{targ
 \begin{align}
 r^{target} &= \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}. \\
 %
-(1-m)r^{target} &= \ \  \left[\dots\right] + \frac{\phi \mathcal{R}}{P^{bid}}\\%\delta(1+L(P))- (1+r)m%
+(1-m)r^{target} &= \ \ \left[\dots\right] + \frac{\phi \mathcal{R}}{P^{bid}}\\%\delta(1+L(P))- (1+r)m%
 %
 (1-m)r^{target}-\left[\dots\right]  &=  \frac{\phi \mathcal{R}}{P^{bid}}\\
 %
