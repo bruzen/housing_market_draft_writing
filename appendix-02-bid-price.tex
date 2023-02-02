@@ -1,6 +1,71 @@
 \chapter[Bidding]{Calculating Bid Price}
 \label{appendix-bid-price}
 
+ In this section we model the return on an investment in urban properties. We model agents as %'ll assume that all agents are
+ speculating on potential \glspl{capital gain} as well as on the \gls{use value} they get from living in a property. %We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
+ % For simplicity, we consider a one-period investment.  %To keep the analysis simple without loss of generality 
+
+ The agent purchases a house for a price, $P_0$ %a down payment, $D$, 
+ and receives the increased price $P_T = (1 + \dot P)P_0$, back after a period $T$. 
+% The value of the investment is the net present value of buying and then selling after one period:
+The value of the investment is the capital gain, $\mathcal{C}$ plus the rents, net of operating costs and taxes, $\mathcal{R}_N$.
+
+% minus the mortgage, repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision.} %\cite{Al-Shihabi}
+
+\begin{eqnarray}
+V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
+  &=& \mathcal{C} + \mathcal{R} - \mathcal{O} - \mathcal{T} \nonumber \\
+  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}.
+\label{eqn-property-investment-value1}
+\end{eqnarray}
+
+% OLD equations from working out the above. Could change symbols
+% \begin{eqnarray}
+% V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
+% 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
+% 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
+% 	&=& \delta (1+\dot P)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
+% 	&=& \delta (1+\dot P)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
+% 	&=&( \delta (1+\dot P)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
+% 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
+% 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0
+% \end{eqnarray}
+
+ Where $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$, and $M$ are  net present values for rent, operating costs, tax payments, and the mortgage at the end of the period. The interest rate is $r$, and the discount factor $\delta$.
+
+ For ease of calculation, this may also be written in terms of shares of the purchase price:
+
+\begin{eqnarray}
+V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
+  &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0.
+\label{eqn-property-investment-value2}
+\end{eqnarray}
+ 
+ Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. The net rent can also be written as a share, $\phi$ of the rent $\mathcal{R}_N = \phi \mathcal{R}$. % Where $\phi$ is a fraction that takes into account taxes and operating costs. 
+ % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
+ %It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
+
+The rate of return on funds invested, $r_{return}$, is the value divided by the size of the down payment, $D$: 
+%The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
+%\begin{enumerate}
+%\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
+%\item If $v(no\ rent\ and\ tax) < a\geq v(with\ rent)$,  then  rent. 
+%\item If $ v(with\ rent) \le a $,  then sell 
+%\end{enumerate}\
+\begin{eqnarray}
+r_{return} 
+  &=& \frac{V}{D}  \nonumber \\
+  &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
+  &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
+  &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}.
+\label{eqn-property-investment-return1}
+\end{eqnarray}
+Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
+\begin{equation}
+r_{return} \geq r_{target}. 
+\label{eqn-property-investment-return2}
+\end{equation}
+
 \section{Agent's maximum bid given the rate of return}
 
 % Agents must compute the maximum bid price they are willing to pay.
