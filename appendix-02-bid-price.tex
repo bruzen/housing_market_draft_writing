@@ -1,7 +1,7 @@
 \chapter[Bidding]{Calculating Bid Price}
 \label{appendix-bid-price}
 
- In this section we model the return on an investment in urban properties. We model agents as %'ll assume that all agents are
+ In this section we model the return on an investment in urban properties. We model each agent as %'ll assume that all agents are
  speculating on potential \glspl{capital gain} as well as on the \gls{use value} they get from living in a property. %We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
  % For simplicity, we consider a one-period investment.  %To keep the analysis simple without loss of generality 
 
@@ -34,7 +34,6 @@ V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
  Where $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$, and $M$ are  net present values for rent, operating costs, tax payments, and the mortgage at the end of the period. The interest rate is $r$, and the discount factor $\delta$.
 
  For ease of calculation, this may also be written in terms of shares of the purchase price:
-
 \begin{eqnarray}
 V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
   &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0.
@@ -118,7 +117,7 @@ The rate of return $v=V/D=V/(1-m)P^{bid}$ is then
 %   &=&\delta\left( (1+L(p)) - (1+r)m \right) P^{bid} + \mathcal{R}_N  \nonumber
 % \end{eqnarray}
 
-The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller.''  The maximum bid  is the bid that makes the two sides equal. 
+The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller.''  The maximum bid is the bid that makes the two sides equal. 
 
 \begin{align}
 r^{target} &= \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}. \\
@@ -139,7 +138,7 @@ The denominator is an adjusted rate of return for capitalizing net rents, analog
 % %r^{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
 %    P^{max}_{bid} &=&\frac{r^{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} %\label{EqBidPrice2} 
 % \end{eqnarray}
-In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
+
 
 
 % \section{Finding bid price}
@@ -167,6 +166,9 @@ In practice, potential investors will make an  initial  bid that is lower than t
 
 \section{Other factors affecting price determination}
 % \subsection{On bidding}
+
+In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
+
 In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
 
 If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This makes sense because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
@@ -193,7 +195,7 @@ Agents calculate their bid price following the logic in Equation~\ref{eqn-bid1}:
 % Or with individual subscripts
  
 \begin{align*}
-P_i^{bid} \ge   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1+L(P)- (1+ r_i)m_i)\right]}. 
+P_i^{bid} \le   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left( \delta_i(1+L(P)- (1+ r_i)m_i)\right)}. 
 \end{align*}
 
 This equation is introduced in section. 
@@ -289,8 +291,8 @@ The borrowing ratio, $m_i$, is just the fraction of the price that the bank will
 Income(\ref{SS:YWealthConstraint}) and/or wealth (\ref {SS:MWealthConstraint}) may constrain individual participation in markets. 
 Here we should use the same logic as we use about the interest rate charged. (\ref{SS:BorowingRate})
 
-It is likely to be higher for institutional buyers  and for rich people because the bank thinks rich people are more secure risks. they may have other assets that could be attached in the case of default.
-
+It is likely to be higher for institutional buyers  and for the wealthy because the bank thinks those with assets are more secure risks. they may have other assets that could be attached in the case of default.
+(note interventions with reduces interest rates, or loan assessments drawing on techniques used by foundations could have value)
 
 
 \subsection{Target interest rate}\label{SS:targetr}
