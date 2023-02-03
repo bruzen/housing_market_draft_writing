@@ -11,10 +11,10 @@
 % description={ }
 % }
 
-% \newglossaryentry{}
+% \newglossaryentry{Alonzo model}
 % {
-% name=,
-% description={ }
+% name=Alonzo model,
+% description={also called the Alonso-Muth model. The model credited to William Alonzo, A full development of the theory is presented in his doctoral dissertation, A MODEL OF THE URBAN LAND MARKET: LOCATIONS AND DENSITIES OF DWELLINGS AND BUSINESSES, University of Pennsylvania, 1960. }
 % }
 
 \newglossaryentry{asking price}
@@ -26,13 +26,13 @@ description={the price a seller initially posts on deciding to sell a property. 
 \newglossaryentry{reservation price}
 {
 name=reservation  price,
-description={The lowest price that a prospective seller will accept.}
+description={The lowest price that a prospective seller will accept, which is computed as  seller's maximum bid price, which would incorporate the net rent achievable.}
 }
 
 \newglossaryentry{bid price}
 {
 name=hysteresis,
-description={in  the computational model, any price that an agent bids for a property in the transaction process. It will be less than or equal to the agent's maximum bid price.}
+description={in  the computational model, any price that an agent bids for a property in the transaction process. It will be less than or equal to the agent's maximum bid price and less than or equal to the asking price.}
 }
 
 \newglossaryentry{maximum bid price}
@@ -46,7 +46,10 @@ description={the maximum price that investors will bid for a property. A bid tha
 name=bargaining,
 description= {in the computational model during price setting for a particular property, there is a bargaining process that takes as arguments the highest bid price, reservation price, and asking price, returning a sale price for the property, as well as property transfer instructions.}
 }
-%The reservationn prices  is  the seller so own bid. if the highest bid received is lower than the own bid the seller is the buyer- remains the owner. Otherwise Terh bidder takes the property and the price is set no higher than the bidder's maximum bid and
+%The reservationn prices  is  the seller  own bid. If the max bid of the highest bid received is lower than the own bid the seller is the buyer- remains the owner. 
+%Otherwisesimplest rule is  (reservation bid+maxbid)/2
+
+
 \newglossaryentry{model}
 {
 name=model,

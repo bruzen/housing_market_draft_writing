@@ -15,9 +15,9 @@ The value of the investment is the capital gain, $\mathcal{C}$ plus the rents, n
 \begin{eqnarray}
 V &=& \mathcal{C} + \mathcal{R}_N  \label{eqn-property-investment-value0}\\
   &=& \mathcal{C} + \mathcal{R} - \mathcal{O} - \mathcal{T} \nonumber \\
-  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}.\label{eqn-property-investment-value1}
+  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}.
+\label{eqn-property-investment-value1}
 \end{eqnarray}
-
 % OLD equations from working out the above. Could change symbols
 % \begin{eqnarray}
 % V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
@@ -29,17 +29,16 @@ V &=& \mathcal{C} + \mathcal{R}_N  \label{eqn-property-investment-value0}\\
 % 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
 % 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0
 % \end{eqnarray}
+ Where $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$, and $M$ are total rent, operating costs, tax payments, and mortgage borrowed, as net present values at the end of the period. The interest rate is $r$, and the discount factor $\delta$. % I don't like this. I think it makes sense for them to be total payments over the period, but I now think it would be more intuitive to compute them as net present values at the start of the period, since that is when the mortgage is borrowed and the decision is made.
 
- Where $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$, and $M$ are  net present values for rent, operating costs, tax payments, and the mortgage at the end of the period. The interest rate is $r$, and the discount factor $\delta$.
-
- For ease of calculation, this may also be written in terms of shares of the purchase price:
+ %For ease of calculation, ..To get the return on investment, 
+ This may be written in terms of shares of the purchase price:
 \begin{eqnarray}
 V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \tau P_0 \nonumber \\
   &=& \left(\delta \left(1+\dot P - (1+r)m   \right) + \rho     - \theta     - \tau\right) P_0.
 \label{eqn-property-investment-value2}
 \end{eqnarray}
- 
- Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares. The net rent can also be written as a share, $\phi$ of the rent $\mathcal{R}_N = \phi \mathcal{R}$. % Where $\phi$ is a fraction that takes into account taxes and operating costs. 
+ Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares, respectively. % Where $\phi$ is a fraction that takes into account taxes and operating costs. 
  % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
  %It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
 
@@ -51,8 +50,8 @@ The rate of return on funds invested, $r_{return}$, is the value divided by the 
 %\item If $ v(with\ rent) \le a $,  then sell 
 %\end{enumerate}\
 \begin{eqnarray}
-r_{return} 
-  %&=& \frac{V}{D}  \nonumber \\
+r^{return} 
+  &=& \frac{V}{D}  \nonumber \\
   &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
   &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
   &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}.
@@ -60,46 +59,62 @@ r_{return}
 \end{eqnarray}
 Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
 \begin{equation}
-r_{return} \geq r_{target}. 
+r^{return} \geq r^{target}. 
 \label{eqn-property-investment-return2}
 \end{equation}
 
 \section{Agent's maximum bid given the rate of return}
 
 % Agents must compute the maximum bid price they are willing to pay.
-To find how much investors will bid, we need to find the maximum price that they are willing to pay.  This is the maximum price that satisfies the criterion $r_{return} \geq r_{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
+To find how much investors will bid, we need to find the maximum price that they are willing to pay.  This is the maximum price that satisfies the criterion $r^{return} \geq r^{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
 % Equation \ref{eqn-property-investment-return1} expresses the expected return on investment in terms of the  market price, $P_0$: 
 
 % \begin{eqnarray*}
-%  r_{return} 
+%  r^{return} 
 %    &=& \frac{V}{D} \\
 %    &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau}{1-m}.
 % \end{eqnarray*}
 
 %which we define as the ``bid price'',% $P^{max}_{bid}$. 
-%We return to Equation~\ref{eq:Value} %
-We start by modifying Equation \ref{eqn-property-investment-value1}, (originally from Chapter \ref{chapter-financialization} on Financialization.
-Since the rent is a known quantity at the beginning of the term, independent of the current, so we reformulate net rent,  $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$ as a fraction of total rent: 
+%We return to Equation~\ref{eqn-property-investment-value3} %
+We start by writing Equation \ref{eqn-property-investment-value1} with the net rent, which can be written a share, $\phi$ of total rent, %The net rent can also be written as a share, $\phi$, of the rent 
+%$\mathcal{R}_N = \phi \mathcal{R}$: %(originally from Chapter \ref{chapter-financialization} on Financialization. Since the rent is a known quantity at the beginning of the term, independent of the current, so we reformulate net rent,  $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$ as a fraction of total rent: 
 
-\begin{eqnarray*}
-V &=& \mathcal{C} + \mathcal{R}_N \nonumber \\
-  &=& \delta \left(P^T- (1+r)M\right) +\phi \mathcal{R}
-\end{eqnarray*}
-% We also have to assume that $P^{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
-% \[V= \delta(P^T- (1+r)M)   +\phi r P^{bid}\]
+\begin{eqnarray}
+V &=& \delta \left(P_T - (1+r)M\right) +      \mathcal{R}_N   \nonumber \\
+  % &=& \delta \left(P_T - (1+r)M\right) + \phi \mathcal{R}   \nonumber \\
+  % &=& \delta \left(P_T - (1+r)m P_0\right) + \phi \mathcal{R} \nonumber \\
+  &=& \delta \left((1+\dot P)P_0 - (1+r)m P_0\right)     + \phi \mathcal{R} \nonumber \\
+  &=& \delta \left((1+\dot P)    - (1+r)m    \right) P_0 + \phi \mathcal{R}
+\label{eqn-property-investment-value3}
+\end{eqnarray}
 
-Since the  price at the end of the term $T$,  $P^T$, is a predicted value  for the investor \textit{ex-ante}, so we replace $P^T$ in Equation~\ref{eq:Value} with a predictor, $(1+\dot P)P^{bid}$. 
-\[V= \delta \left((1+\dot P)P^{bid}- (1+r)M\right) +\phi \mathcal{R}\] 
-Then we replace $\dot P$ with an estimate, $L(P)$, representing an estimated function of the lagged values of $P$ and any  other relevant data. We imagine the potential investor informed estimates by information from  real estate agents or analysts.  The result is 
-\[V= \delta \left((1+L(P))P^{bid}- (1+r)mP^{bid}\right) +\phi \mathcal{R}\]
-Combining terms:
-\[V= \delta \left((1+L(P))- (1+r)m \right) P^{bid} +\phi \mathcal{R}\]
 
-WHY BIG BRAKETS NOT SHOWING UP
+Dividing by the down payment, $D = (1-m)P_0$:
+\begin{eqnarray}
+r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P_0}
+\end{eqnarray}
 
-The rate of return $r_{return}=V/D=V/(1-m)P^{bid}$ is then
 
-\[r_{return}= \frac{\delta \left((1+L(P) - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P^{bid}}\]
+
+
+% +++++++++++++++ JUST REPLACED BETWEEN THESE WITH THE ABOVE. CHECK IT'S OKAY
+% % We also have to assume that $P^{bid}=P_0$, which we can justify as an equilibrium condition - investors believe they are paying the market price. The result is 
+% % \[V= \delta(P^T- (1+r)M)   +\phi r P^{bid}\]
+
+% % The price at the end of the term $T$, $P_T$, is a predicted value for the investor \textit{ex-ante}, so we can replace $P^T$ in Equation~\ref{eqn-property-investment-value3} with the predictor, $(1+\dot P)P^{bid}$. 
+% % We can replace $P^T$ in Equation~\ref{eqn-property-investment-value3} with $(1+\dot P)P_0$.
+% \[V= \delta \left((1+\dot P)P_0 - (1+r)m P_0\right) +\phi \mathcal{R}\] 
+% Then we replace $\dot P$ with an estimate, $L(P)$, representing an estimated function of the lagged values of $P$ and any  other relevant data. We imagine the potential investor informed estimates by information from  real estate agents or analysts.  The result is 
+% \[V= \delta \left((1+L(P))P^{bid}- (1+r)mP^{bid}\right) +\phi \mathcal{R}\]
+% Combining terms:
+% \[V= \delta \left((1+L(P))- (1+r)m \right) P^{bid} +\phi \mathcal{R}\]
+
+% WHY BIG BRACKETS NOT SHOWING UP
+
+% The rate of return $r_{return}=V/D=V/(1-m)P^{bid}$ is then
+
+% \[r_{return}= \frac{\delta \left((1+L(P) - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P^{bid}}\]
 
 % %++++++++++++++++
 
@@ -114,18 +129,21 @@ The rate of return $r_{return}=V/D=V/(1-m)P^{bid}$ is then
 %   &=&\delta\left( (1+L(p)) - (1+r)m \right) P^{bid} + \mathcal{R}_N  \nonumber
 % \end{eqnarray}
 
-The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller.''  The maximum bid is the bid that makes the two sides equal. 
+The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller'', as defined in Equation \ref{eqn-property-investment-return2}.  The maximum bid is thus the bid that makes the two sides equal in the following equation, the bid gives a return greater than or equal to the target return rate. Replacing $r_{return}$ with $r_{target}$, $P_0$ with $P^{bid}$, and $\dot P$ with an estimator for $\dot P$, $L(P)$, we get TODO REPLACE PDOT - MAYBE WITH TILDE AND DOT..:  %$\dot \tilde{A}$ $\wwtilde{\dot{u}}$
+
+\begin{eqnarray}
+r_{target} \ge \frac{\delta \left((1+ \dot P - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P^{bid}}
+\end{eqnarray}
+
+Solving for $P_{bid}$:
+
 
 \begin{align}
-r^{target} &= \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}. \\
-%
-(1-m)r^{target} &= \ \ \left[\dots\right] + \frac{\phi \mathcal{R}}{P^{bid}}\\%\delta(1+L(P))- (1+r)m%
-%
-(1-m)r^{target}-\left[\dots\right]  &=  \frac{\phi \mathcal{R}}{P^{bid}}\\
-%
-P^{bid} &=    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \dots\right]}\\
-%
-P^{bid} &=    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
+r^{target} &\ge \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}. \nonumber \\
+(1-m)r^{target} &\ge \ \ \delta \left(1 + \dot P - (1+r)m\right) + \frac{\phi \mathcal{R}}{P^{bid}} \nonumber \\ %\delta(1+L(P))- (1+r)m%
+(1-m)r^{target} - \delta \left(1 + \dot P - (1+r)m\right)  &\ge  \frac{\phi \mathcal{R}}{P^{bid}} \nonumber\\
+P^{bid} & \le    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\delta \left(1 + \dot P - (1+r)m\right)} \\
+P^{bid} & \le    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
 \end{align}
 
 The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eq:Capitalization}. 
