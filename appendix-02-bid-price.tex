@@ -1,7 +1,7 @@
 \chapter[Bidding]{Calculating Bid Price}
 \label{appendix-bid-price}
 
- In this section we model the return on an investment in urban properties. We model each agent as %'ll assume that all agents are
+ In this section, we compute the bid price agents are willing to pay for an investment. We begin with the value and the return on investment for an urban property. We model each agent as %'ll assume that all agents are
  speculating on potential \glspl{capital gain} as well as on the \gls{use value} they get from living in a property. %We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
  % For simplicity, we consider a one-period investment.  %To keep the analysis simple without loss of generality 
 
@@ -20,13 +20,13 @@ V &=& \mathcal{C} + \mathcal{R}_N  \label{eqn-property-investment-value0}\\
 \end{eqnarray}
 % OLD equations from working out the above. Could change symbols
 % \begin{eqnarray}
-% V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes\\
+% V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes \\
 % 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
 % 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
 % 	&=& \delta (1+\dot P)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
 % 	&=& \delta (1+\dot P)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
-% 	&=&( \delta (1+\dot P)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
-% 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
+% 	&=&( \delta (1+\dot P)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0 \\	
+% 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0 \\'
 % 	&=& \left(  \delta (1+\dot P)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0
 % \end{eqnarray}
  Where $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$, and $M$ are total rent, operating costs, tax payments, and mortgage borrowed, as net present values at the end of the period. The interest rate is $r$, and the discount factor $\delta$. % I don't like this. I think it makes sense for them to be total payments over the period, but I now think it would be more intuitive to compute them as net present values at the start of the period, since that is when the mortgage is borrowed and the decision is made.
@@ -41,6 +41,10 @@ V &=& \delta \left((1+\dot P) P_0 - (1+r)mP_0\right) + \rho P_0 - \theta P_0 - \
  Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares, respectively. % Where $\phi$ is a fraction that takes into account taxes and operating costs. 
  % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
  %It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
+
+%Agents borrow a share of the purchase price, $P$. The amount borrowed is the mortgage, $M$. This is a share of the total purchase price $mP = M$. The \gls{mortgage term}, $T$, is the period it takes to pay down the mortgage.
+
+\section{Return on investment}
 
 The rate of return on funds invested, $r_{return}$, is the value divided by the size of the down payment, $D$: 
 %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
@@ -63,36 +67,34 @@ r^{return} \geq r^{target}.
 \label{eqn-property-investment-return2}
 \end{equation}
 
-\section{Agent's maximum bid given the rate of return}
+\section{Maximum bid} % given the rate of return}
 
 % Agents must compute the maximum bid price they are willing to pay.
-To find how much investors will bid, we need to find the maximum price that they are willing to pay.  This is the maximum price that satisfies the criterion $r^{return} \geq r^{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
+To find how much investors will bid, we need to find the maximum price that they are willing to pay.  %This is the maximum price that satisfies the criterion $r^{return} \geq r^{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
 % Equation \ref{eqn-property-investment-return1} expresses the expected return on investment in terms of the  market price, $P_0$: 
-
 % \begin{eqnarray*}
 %  r^{return} 
 %    &=& \frac{V}{D} \\
 %    &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau}{1-m}.
 % \end{eqnarray*}
-
 %which we define as the ``bid price'',% $P^{max}_{bid}$. 
 %We return to Equation~\ref{eqn-property-investment-value3} %
-We start by writing Equation \ref{eqn-property-investment-value1} with the net rent, which can be written a share, $\phi$ of total rent, %The net rent can also be written as a share, $\phi$, of the rent 
-%$\mathcal{R}_N = \phi \mathcal{R}$: %(originally from Chapter \ref{chapter-financialization} on Financialization. Since the rent is a known quantity at the beginning of the term, independent of the current, so we reformulate net rent,  $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$ as a fraction of total rent: 
+We start by writing the value of the investment, from Equation \ref{eqn-property-investment-value1}, with the net rent. %, which can be written a share, $\phi$ of total rent $\mathcal{R}_N = \phi \mathcal{R}$, %The net rent can also be written as a share, $\phi$, of the rent 
+%: %(originally from Chapter \ref{chapter-financialization} on Financialization. Since the rent is a known quantity at the beginning of the term, independent of the current, so we reformulate net rent,  $\mathcal{R}$, $\mathcal{O}$, $\mathcal{T}$ as a fraction of total rent: 
 
 \begin{eqnarray}
 V &=& \delta \left(P_T - (1+r)M\right) +      \mathcal{R}_N   \nonumber \\
-  % &=& \delta \left(P_T - (1+r)M\right) + \phi \mathcal{R}   \nonumber \\
-  % &=& \delta \left(P_T - (1+r)m P_0\right) + \phi \mathcal{R} \nonumber \\
-  &=& \delta \left((1+\dot P)P_0 - (1+r)m P_0\right)     + \phi \mathcal{R} \nonumber \\
-  &=& \delta \left((1+\dot P)    - (1+r)m    \right) P_0 + \phi \mathcal{R}
+  % &=& \delta \left(P_T - (1+r)M\right) + \mathcal{R}_N   \nonumber \\
+  % &=& \delta \left(P_T - (1+r)m P_0\right) + \mathcal{R}_N \nonumber \\
+  &=& \delta \left((1+\dot P)P_0 - (1+r)m P_0\right)     + \mathcal{R}_N \nonumber \\
+  &=& \delta \left((1+\dot P)    - (1+r)m    \right) P_0 + \mathcal{R}_N
 \label{eqn-property-investment-value3}
 \end{eqnarray}
 
 
 Dividing by the down payment, $D = (1-m)P_0$:
 \begin{eqnarray}
-r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P_0}
+r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_0}
 \end{eqnarray}
 
 
@@ -129,32 +131,38 @@ r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\phi \m
 %   &=&\delta\left( (1+L(p)) - (1+r)m \right) P^{bid} + \mathcal{R}_N  \nonumber
 % \end{eqnarray}
 
-The rule is, ``Bid if the RHS is larger than the target rate of return, $r^{target}$, and do not bid if it is smaller'', as defined in Equation \ref{eqn-property-investment-return2}.  The maximum bid is thus the bid that makes the two sides equal in the following equation, the bid gives a return greater than or equal to the target return rate. Replacing $r_{return}$ with $r_{target}$, $P_0$ with $P^{bid}$, and $\dot P$ with an estimator for $\dot P$, $L(P)$, we get TODO REPLACE PDOT - MAYBE WITH TILDE AND DOT..:  %$\dot \tilde{A}$ $\wwtilde{\dot{u}}$
+Agents bid if the RHS is larger than the target rate of return, %$ $r^{target}$ %, not not if it is smaller'', 
+as stated in Equation \ref{eqn-property-investment-return2}. % The maximum bid is the bid that makes $r^{target} = r^{return}$. % two sides equal in the following equation, the bid gives a return greater than or equal to the target return rate. 
+Replacing $r_{return}$ with $r_{target}$, $P_0$ with $P^{bid}$, and $\dot P$ with an estimator for $\dot P$, $L(P)$, we get: TODO REPLACE PDOT - MAYBE WITH TILDE AND DOT..:  %$\dot \tilde{A}$ $\wwtilde{\dot{u}}$
 
 \begin{eqnarray}
-r_{target} \ge \frac{\delta \left((1+ \dot P - (1+r)m\right)}{1-m} + \frac{\phi \mathcal{R}}{(1-m)P^{bid}}
+r_{target} \ge \frac{\delta \left((1+ \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P^{bid}}
 \end{eqnarray}
 
 Solving for $P_{bid}$:
 
 
 \begin{align}
-r^{target} &\ge \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P^{bid}}. \nonumber \\
-(1-m)r^{target} &\ge \ \ \delta \left(1 + \dot P - (1+r)m\right) + \frac{\phi \mathcal{R}}{P^{bid}} \nonumber \\ %\delta(1+L(P))- (1+r)m%
-(1-m)r^{target} - \delta \left(1 + \dot P - (1+r)m\right)  &\ge  \frac{\phi \mathcal{R}}{P^{bid}} \nonumber\\
-P^{bid} & \le    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\delta \left(1 + \dot P - (1+r)m\right)} \\
-P^{bid} & \le    \frac{\phi \mathcal{R}}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
+r^{target} &\ge \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m}   +\frac{\mathcal{R}_N}{(1-m)P^{bid}}. \nonumber \\
+(1-m)r^{target} &\ge \ \ \delta \left(1 + \dot P - (1+r)m\right) + \frac{\mathcal{R}_N}{P^{bid}} \nonumber \\ %\delta(1+L(P))- (1+r)m%
+(1-m)r^{target} - \delta \left(1 + \dot P - (1+r)m\right)  &\ge  \frac{\mathcal{R}_N}{P^{bid}} \nonumber\\
+P^{bid} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P - (1+r)m\right)} 
+% P^{bid} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
+\label{eqn-bid-price1}
 \end{align}
-
 The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eq:Capitalization}. 
 
+Each agent has their own interest rates, discount rates, information, and expectations, so individual bids can differ:
+
+\begin{align}
+P_i^{bid} \le   \frac{\mathcal{R}_N}{(1-m_i)r_i^{target}-\left( \delta_i(1+L(P)- (1+ r_i)m_i)\right)}.
+\label{eqn-bid-price2}
+\end{align}
 
 % \begin{eqnarray}%. OLD VERSION: WRONG
 % %r^{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
 %    P^{max}_{bid} &=&\frac{r^{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} %\label{EqBidPrice2} 
 % \end{eqnarray}
-
-
 
 % \section{Finding bid price}
 % We start with Equation~\ref{B2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
@@ -198,31 +206,7 @@ Bargaining between buyers and sellers differs. Buyers bid low and sellers ask hi
 % But what is $D$? Does the bank have unlimited funds? Isn't D just a fraction of P?  If so it cancels out
 % r is the prime rate- that the bank pays? 
 
-
-\section{Relating the bid price parameters to the code}
-
-In the following sections we discuss the computation of agents' bid price, outline potential discounting approaches, and discussing how each component of the calculation is treated in the code. 
-
-Agents calculate their bid price following the logic in Equation~\ref{eqn-bid1}: 
-% \begin{align}
-% P^{bid} \le   \frac{ \mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+ r)m)\right]}. \nonumber
-% \end{align}
-% Or with individual subscripts
- 
-\begin{align*}
-P_i^{bid} \le   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left( \delta_i(1+L(P)- (1+ r_i)m_i)\right)}. 
-\end{align*}
-
-This equation is introduced in section. 
-Agents borrow a share of the purchase price, $P$. The amount borrowed is the mortgage, $M$. This is a share of the total purchase price $mP = M$
-The \gls{mortgage term}, $T$, is the period it takes to pay down the mortgage.
-
-In the following subsections, we discuss each of the terms and how they are implemented in the code. Net rent, $\mathcal{R}_N$, is discussed in subsection \ref{SS:NetRent}. The borrowing ratio, $m_i$, is discussed in section \ref{SS:BorrowingRatio}, the target interest rate, $r_i^{target}$, is discussed in \ref{SS:targetr} the discount factor, $\delta_i$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the interest rate the buyer has to pay for the mortgage, $r_i$, is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
-
-\begin{align*}
-P_i^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
-\left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}. 
-\end{align*}
+\section{The period and time value of money}
 
 In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
 %This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
@@ -249,17 +233,80 @@ For the sake of notational simplicity and clarity of exposition,  we omit the co
 %is a feature of the individual, so it is not affected in this way.
 %The appropriate compunding expressions for other rates are displayed below.
 
-The {mortgage term}, $T$, is the period it takes to pay down the mortgage. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' individual guesses about the future, and their level of risk aversion.
+The {mortgage term}, $T$, is the period it takes to pay down the mortgage. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
+
+
+\section{WHERE DOES THIS GO? Calculate rate of return for an investor}
+
+ The warranted price of the property is the present value of the \gls{warranted rents}% *** Note the warranted price may be rising. This is a problem for  us. WHY?
+% NOTE Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
+
+%**** We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this? EXPLAIN
+% How do we ignoor buildings - when we talk about the land rents, we're calculating on the basis of the warranted rent wage premium- put people are paying for buildings.. - assume it comes out of the subistence wage- since this is just a theoretical treatment.-- but if you think about how much capital gain will you get, we'll also get capital gainso on the house piece which is not locational- just gains on that asset they happen to have.. --  looking at things coming from close toe the center ignoring what else. - tied together so market spreads capital gain over both of them, and the tax does the same too-- for locational advantage and services..
+
+% Since the present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e.,\\
+
+In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as:
+\begin{equation}
+  P=\frac{\mathcal{R}_N}{r}  
+\label{eq:Capitalization}
+\end{equation}
+
+%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
+
+*** CLARIFY WHAT WE GET FROM INCLUDING $\psi$, and define, maybe compare with other shares like $\phi$.
+
+\noindent so we can write 
+
+\begin{align}  
+    V & = \delta \left((1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
+      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
+\end{align}
+%there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
+
+This can be expressed in terms of the rate of return on the down payment, $V/D$
+\begin{align*}  
+v & = \frac{V}{D} \\
+  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right)P_0/D \\
+  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right) \frac{P_0}{P_0-mP_0} \\
+  & = \frac{ \delta \left((1+\dot P) - (1+r)m\right)\ + \psi r}{1-m}
+\label{eq:RULE}
+\end{align*}
 
 
 
-\subsection{Net rent}\label{SS:NetRent}
 
-We assume that the present value of $\mathcal{R}$ is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P^{bid}$.
+
+
+
+
+
+\chapter{Relating the bid price parameters to the code}
+
+In the following sections we discuss % the computation of agents' bid price, outline potential discounting approaches, and discussing 
+how each component of the calculation is treated in the code, organizing the discussion following Equation~\ref{eqn-bid-price2}:
+
+
+\begin{align}
+P_i^{bid} \le   \frac{\mathcal{R}_N}{(1-m_i)r_i^{target}-\left( \delta_i(1+L(P)- (1+ r_i)m_i)\right)}.
+\end{align}
+Net rent, $\mathcal{R}_N$, is discussed in subsection \ref{SS:NetRent}. The borrowing ratio, $m_i$, is discussed in section \ref{SS:BorrowingRatio}, the target interest rate, $r_i^{target}$, is discussed in \ref{SS:targetr} the discount factor, $\delta_i$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the interest rate the buyer has to pay for the mortgage, $r_i$, is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
+
+\begin{align*}
+P_i^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
+\left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}. 
+\end{align*}
+
+
+
+\section{Net rent}\label{SS:NetRent}
+We assume that the present value of the rent % $\mathcal{R}$ 
+is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P^{bid}$.
 
 Uncertainty can be represented as bias or stochasticity.
 Calculation notes: I have rent from the wages. I have kappa and sigma from our ex parameter values. . omega from the wages. 
 
+Net rent, which can be written a share, $\phi$ of total rent $\mathcal{R}_N = \phi \mathcal{R}$
 $\mathcal{R}_N = \phi \mathcal{R}$
 
 Where the \gls{rent share}, phi is a fraction
@@ -298,7 +345,7 @@ TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
 
 
 
-\subsection{Borrowing ratio}\label{SS:BorrowingRatio}
+\section{Borrowing ratio}\label{SS:BorrowingRatio}
 $m_i$
 
 The borrowing ratio, $m_i$, is just the fraction of the price that the bank will lend to a potential buyer. \textbf{It may depend on the individual.} 
@@ -310,7 +357,7 @@ It is likely to be higher for institutional buyers  and for the wealthy because 
 (note interventions with reduces interest rates, or loan assessments drawing on techniques used by foundations could have value)
 
 
-\subsection{Target interest rate}\label{SS:targetr}
+\section{Target interest rate}\label{SS:targetr}
 
  The target interest rate, $r^{target}$, is the prime rate plus a margin. % required by the bank.  Question: do non-bank actors have such a term?
 
@@ -320,7 +367,7 @@ self.get-target-interest-rate(buyer)
 
 
 
-\subsection{Discount factor}\label{SS:discountfactor}
+\section{Discount factor}\label{SS:discountfactor}
 
 The discount factor $\delta_i$ for THE END OF period $T$ captures the cost of waiting $T$ periods to sell the property. The usual way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns based on the year-over-year rate of return. 
 
@@ -328,22 +375,22 @@ The discount factor $\delta_i$ for THE END OF period $T$ captures the cost of wa
 
 
 
-\subsection{Price forecast approximation} \label{SS:PriceForecast}
+\section{Price forecast approximation} \label{SS:PriceForecast}
 $L(p)$
 
 $p$ is all the price data plus any exogenous information (EG Policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
 
 
 
-\subsection{Prime interest rate}\label{SS:BankRate}
+\section{Prime interest rate}\label{SS:BankRate}
 $r$
 
 The bank's interest rate, $r$, is just the bank rate (prime rate? set by the Bank of Canada. Exogenous. Just assign  a value like 4\%.
 
 
 
-\subsection{Other}
-\subsubsection{Tax ratio}\label{SS:taxratio} 
+\section{Other}
+\subsection{Tax ratio}\label{SS:taxratio} 
 The tax ratio $\sigma$ is the share of rents that the municipality takes for services and infrastructure. This fraction of the value of the property is about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
 
 *** CHECK Total taxes paid on  property $j$, over a given mortgage period $T$ is 
@@ -352,7 +399,7 @@ The tax ratio $\sigma$ is the share of rents that the municipality takes for ser
 
 
 
-\subsubsection{Cost tax ratio}\label{SS:costratio} 
+\subsection{Cost tax ratio}\label{SS:costratio} 
 The value of $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. If it varies, it may be useful as a quality indicator.
 
 %Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period.  NO LONGER NEEDED 
@@ -361,7 +408,7 @@ Nothing prevents $\sigma+\kappa >1$, which would leave an investor unable to cov
 
 
 
-\subsubsection{Wealth constraint on m} \label{SS:MWealthConstraint}
+\subsection{Wealth constraint on m} \label{SS:MWealthConstraint}
 
 
 I have suggested that the availability of  capital is known to differ for rich and poor. 
@@ -537,42 +584,3 @@ For home loans, many personal finance experts recommend total housing costs acco
 We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
 
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
-
-
-
-\section{WHERE DOES THIS GO? Calculate rate of return for an investor}
-
- The warranted price of the property is the present value of the \gls{warranted rents}% *** Note the warranted price may be rising. This is a problem for  us. WHY?
-% NOTE Some of the taxes and most of the repairs/maintenance costs are for the building and not the for the locational value of the land. These two have correlated values. (we can't separate the amount of house and quality form our locational decision ) 
-
-%**** We would like to  somehow ignore the building and push it into the subsistence wage. Can we do this? EXPLAIN
-% How do we ignoor buildings - when we talk about the land rents, we're calculating on the basis of the warranted rent wage premium- put people are paying for buildings.. - assume it comes out of the subistence wage- since this is just a theoretical treatment.-- but if you think about how much capital gain will you get, we'll also get capital gainso on the house piece which is not locational- just gains on that asset they happen to have.. --  looking at things coming from close toe the center ignoring what else. - tied together so market spreads capital gain over both of them, and the tax does the same too-- for locational advantage and services..
-
-% Since the present value of rental income (OR NET RENTAL INCOME?) is the value of the house, i.e.,\\
-
-In principle, the  sale price of a unit of land considered is the present discounted value of the stream of net rents. If $\mathcal{R}_N$ is one period rent, which is conventionally calculated as:
-\begin{equation}
-  P=\frac{\mathcal{R}_N}{r}  
-\label{eq:Capitalization}
-\end{equation}
-
-%\[v= \delta(P^T- (1+r)M)    +\phi\mathcal{R}\]
-
-*** CLARIFY WHAT WE GET FROM INCLUDING $\psi$, and define, maybe compare with other shares like $\phi$.
-
-\noindent so we can write 
-
-\begin{align}  
-    V & = \delta \left((1+\dot P)  P_0- (1+r)mP_0 \right)  + \psi rP_0  \\
-      & =\left( \delta ((1+\dot P)  - (1+r)m)\  + \psi r\right)P_0
-\end{align}
-%there are potetntilaly two interest ratex hereee - one used for capitaliΩing rents to price, and one  is $r_i$. It may be sensibe to use the same value for both. Person I might be looking at the actual rents and using them to calculate the prtice it should sell for. If there is a real estate agent providing price information the tory may be different. SWe are really using htis for the expected value of the present value of net rent, and 
-
-This can be expressed in terms of the rate of return on the down payment, $V/D$
-\begin{align*}  
-v & = \frac{V}{D} \\
-  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right)P_0/D \\
-  & = \left( \delta ((1+\dot P) - (1+r)m)\ + \psi r\right) \frac{P_0}{P_0-mP_0} \\
-  & = \frac{ \delta \left((1+\dot P) - (1+r)m\right)\ + \psi r}{1-m}
-\label{eq:RULE}
-\end{align*}
