@@ -28,40 +28,74 @@ we can introduce site-specific and person-specific features.
 
 Finally, we employ \gls{equilibrium reasoning} in the housing and investment process. We assume investors behave rationally in that they estimate the potential returns on their investments and seek the highest returns they can get. They calculate an offer price in each transaction based on several factors: land rents, expected price changes, their individual price of capital and discounting rate, and the information available to them.
 
-It is at this point we introduce an innovation to formal urban modelling. We draw on the literature for the relevant `\gls{stylized facts}' about differences in these values based on wealth and income. This opens the possibility of urban segregation and the endogenous emergence of class distinction based on capital access, a process explored by John Roemer in his neglected General Theory of Exploitation and Class \cite{roemerGeneralTheoryExploitation1982}.  
+It is at this point we introduce an innovation to formal urban modelling. We draw on the literature for the relevant `\gls{stylized facts}' about differences in these values based on wealth and income. This opens the possibility of urban segregation and the endogenous emergence of \gls{class} distinction based on capital access, a process explored by John Roemer in his neglected General Theory of Exploitation and Class \cite{roemerGeneralTheoryExploitation1982}.  
 
-\Gls{expectations} have to take into account some amount of current and past information. Forecasts based on recent price movements can give rise to price bubbles through either speculative or precautionary motives. Expectations anchored in \gls{perfect foresight} have different dynamics. We employ backwards-looking expectation formation anchored to current rental returns. We derive an investment rule of this sort in Chapter~\ref{chapter-financialization}. 
-          
-In our model individuals have a working life, then retire. If they own homes they sell and move to the countryside where housing is cheaper. They are replaced by new entrants from the countryside. New entrants may become buyers or tenants. This is a variant of the overlapping generations  model in which savings are passed on to the next generation. In our case homes are passed on. While the model has multiple generations, it is not a `dynastic' model in which the generations are linked by family ties and inheritance maters in individual decision-making, because the core issue in the emergence of classes is whether the city continues to provide opportunity for newcomers and those without the benefit of generational wealth to share the  benefits of agglomeration effects. % to share in the . %We suspect that introducing families would complicate the model but add little to understanding  our  main  issue. 
+\Gls{expectations} have to take into account some amount of current and past information. Forecasts based on recent price movements can give rise to price bubbles through either speculative or precautionary motives. Expectations anchored in \gls{perfect foresight} have different dynamics, since agents correctly forecast the path of prices. We employ backwards-looking expectation formation anchored 
+%  This ANCHORING IS INTERESTING, BY THE WAY
+to current rental returns, which allows agents to be misled by rapidly rising prices. We derive an investment rule of this sort in Chapter~\ref{chapter-financialization}. 
 
-A modelling device that plays a major role is our use of the \gls{urban wage premium}, the difference between a rural and an urban wage driven by positive agglomeration effects on productivity in the city. It cannot be competed away because transportation costs limit access to the productive centre. The wage premium is a partial measure of the agglomeration effect. It generates the rent premium on urban land. We want to call attention to the distribution of that rent premium.
+\subsubsection{\Gls{overlapping generations }
+In our model individuals have a working life, then retire. If they own homes they sell and move to the countryside where housing is cheaper. They are replaced by new entrants from the countryside. New entrants may become buyers or tenants. This is a variant of the \gls{overlapping generations  model} in which savings are passed on to the next generation. In our case homes are passed on. While the model has multiple generations, it is not a `dynastic' model in which the generations are linked by family ties and inheritance maters in individual decision-making, because the core issue in the emergence of classes is whether the city continues to provide opportunity for newcomers and those without the benefit of generational wealth to share the  benefits of agglomeration effects. % to share in the . %We suspect that introducing families would complicate the model but add little to understanding  our  main  issue. 
 
-To simplify the analysis, we assume that we can partition actual wages between the wage premium, which is available for accumulation or spent on transportation, and all other expenses. We assume urban and non-urban populations all receive a subsistence wage which covers  the cost of buildings, food and other living costs and a base cost of land. This base cost is usually described as the cost of agricultural land. It is more precisely described as the opportunity cost of urban land, and we have simply extended the technique to include the opportunity cost of urban labour. 
+\subsubsection{Urban and rural wages}
+A modelling device that plays a major role is our use of the \gls{urban wage premium}, the difference between a rural and an urban wage driven by positive agglomeration effects on productivity in the city. It cannot be competed away because transportation costs limit access to the productive centre. The wage premium is a partial measure of the agglomeration effect. It generates the \gls{rent premium} on urban land. We want to call attention to the distribution of that rent premium.
 
-There are advantages and disadvantages to this technique. The motivating advantage is that it lets us isolate the social surplus generate by agglomeration. One disadvantage is that it suppresses many issues that are of interest in other contexts - such as choice of home size and quality. In the computational model it is easy to allow for different building types, but we make not provision for choice. We do foresee adding a layer to the computation  model that incorporates redevelopment and construction and does allow for decisions about scale, type and location. 
+To simplify the analysis, we assume that we can partition actual wages between the wage premium, which is available for accumulation or spent on transportation, and all other expenses. We assume urban and non-urban populations all receive a \gls{subsistence wage} which covers  the cost of buildings, food and other living costs and a base cost of land.\footnote{This base cost appears in other models as the cost of agricultural land. It is more precisely described as the opportunity cost of rural land. We simply extended the technique to include the opportunity cost of urban labour, allowing us to focus on the rents themselves.} 
 
-Another disadvantage of technique in the analytical version is that it does not allow us to make speculation about the buildings part of our market process. It is a problem that can be dealt with in the computation model, but we believe the added complexity will not add much to our central argument.
+There are advantages and disadvantages to this technique. The motivating advantage is that it lets us isolate the social surplus generate by agglomeration. One disadvantage is that it suppresses many issues that are of interest in other contexts - such as choice of home size and quality. In the computational model it is easy to allow for different building types and more complex housing choice, but in this section we simply  want to make the logic of our model as clear as possible. We do foresee adding a layer to the computation  model that incorporates redevelopment and construction and does allow for decisions about scale, type and location. 
+
+Another disadvantage of technique in the analytical version is that it does not allow us to make speculation on  the value of  buildings part of our market process. It is a problem that can be dealt with in the computation model, but we believe the added complexity will not add to our central argument. Research (see \cite{mcdonaldWilliamAlonsoRichard2007}) has shown  that the core model is robust to many extension of this sort. 
+
+\subsubsection{Examples of  \gls{equilibrium} reasoning in our analysis}
+As an example of \gls{equilibrium reasoning},  we implicitly impose the locational equilibrium condition,
+\[U_i(d,\dots)=U_j(d, \dots)\]
+This says that identical individuals must get the same utility living at at whatever distance from the city centre. If that were not the case, individuals would move to a location where they get higher utility. For utility to remain constant as $d$, and therefore transportation costs  rise, some other variable must compensate. In this class of models, rent charged for the use of land must fall as distance increases. Equilibrium locational choice by commuters therefore determines the extent and even population of the city.\footnote{More complex models allow home sizes and lot sizes in the suburbs to increase as well.} Since land value  is capitalized rent, land values also decline toward the edge of the city until they are equal to the rural value of land, 
+% different location would take a long time to work through the system. Prices, however, can adjust much more quickly. 
+
+An adjustment process that requires people to move to a different location would take a long time to work through the system. Prices, however, can adjust much more quickly.
 
 
-For example, from the Alonzo model we implicitly impose the locational equilibrium condition,
-\[U_i(d,\dots)=U_j(d, /dots)\]
-This says that identical individuals must get the same utility living at at whatever distance from the city centre. If that were not the case, individuals would move to a location where they get higher utility.
 
-different location would take a long time to work through the system. Prices, however, can adjust much more quickly. 
+%  It follows that 
+% \[\frac{\partial U_i(d, d(dots)}{\partial t}=\frac{\partial U_j(d, /dots)}{\partial t}\]
+% With identical transportation cost, 
+% land rents are determined by transportation costs  
 
- It follows that 
-\[\frac{\partial U_i(d, d(dots)}{\partial t}=\frac{\partial U_j(d, /dots)}{\partial t}\]
-With identical transportation cost, 
-land rents are determined by transportation costs  
-
-We use  equilibrium arguments in our model to describe hiring decisions by producers and wage demands by workers. Equilibrium locational by commuters determines the extent and even population of the city. They also determine the pattern of land rents. 
+We also rely on equilibrium arguments in our model to ``black box'' the productions sector and most of  the labour market, including most decisions by producers and wage demands by workers. 
 
 % More recent work has looked at agent-based modeling, looking at the dynamics, space and individual work. 
 
-\textbf{Some limitations of preceding work}%We offer three developments/extensions building on that work.}
 
-Any adjustment process that requires people to move to a 
-At the same time, because our ..
+\subsubsection{\Gls{marginal} vs \gls{inframarginal} quantities}
+
+In relying on these equilibrium conditions, we are implicitly applying standard neoclassical economic methods despite the fact that our focus is not on the \gls{marginal} conditions that determine prices, but on the \gls{inframarginal} quantities that make up rents. We can illustrate with a diagram that is more fully explained in Chapters~\ref{chapter-rent} and \ref{chapter-space}. 
+
+\begin{figure}
+    \centering
+  
+ \begin{tikzpicture}[domain=0:2]
+%\draw[thick,color=gray,step=.5cm, dashed] (-0.5,-.5) grid (3,3);
+\draw[line width=.01] (0,0) -- (10,0) node[right] {$d$};
+\node at (1,0) [below,text width=2cm] {center of town};
+%\draw[thick ] (0,3)node[above right] {merchant's price in town} -- (10,3) ;
+\draw[thick ] (0,0)  -- (10,0); 
+
+\draw[thick, -latex] (6,2.8)
+node[right, text width=5cm]{declining equilibrium  home prices and land rent found by requiring that the marginal utility of moving be zero} 
+to [out=180, in=45](4.5,2); 
+
+\fill[orange!30] (1.05,0.05)--(8.75,0.05)--(1.05,3.42)--cycle;
+
+\draw[thick, dashed ] (1,0) -- (1,3.8);
+\draw[thick ] (9,0)node [above right]{$d^*$}circle[radius=2pt] node[below,text width=4cm] {edge of town found by requiring that the marginal utility of moving be zero} -- (1,3.5) ;
+
+\node at (3,1.3){Total Rent};
+\end{tikzpicture} 
+   \caption{Marginal and infra-marginal quantities}
+    \label{fig:landrentasinframarginal}
+\end{figure}
+In Figure\ref{fig:landrentasinframarginal}, The level of rent is determined at any distance by individuals making comparison very locally. At point $d^*$ the person at the edge of the city decides whether to work in the centre or in the non-urban space. These are \gls{marginal} decisions. The orange area represents  the total rents generated between $d=0$ and $d=d^*$. It is a summation of \textbf{\gls{inframarginal}} rents. We are concerned with the distribution of  the inframarginal rents.
+
 
 providing tractable models.  equilibrium analysis of marginal effects, and representative agents which hid distributional effects, as well as spaceless economic models of markets made it difficult to capture the richer spacial dynamics of urban rents, and the details of the ways economic forces play out for individual actors.
 
