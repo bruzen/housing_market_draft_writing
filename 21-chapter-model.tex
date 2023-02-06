@@ -2,6 +2,72 @@
 \epigraph{“An economist is someone who says, when an idea works in practice, ‘let’s see if it works in theory.'”
 — Walter W. Heller, former chairman of the Council of Economic Advisers.}{ Walter W. Heller, former chairman of the Council of Economic Advisers. (\href{https://quoteinvestigator.com/2015/08/30/practice/}{1979, The Washington Star)}}
 
+
+
+
+
+\section{Code Discussion}
+
+\begin{verbatim}
+can try code here
+
+r  % # discount rate for i
+    %# eg r=.05
+
+%delta_t  # discount factor for one year, one short period t-- delta(0)=1  delta (1)= 1/(1+r) 
+
+\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
+    %#   delta_T=  (1/(1+r))^T   at T years
+    %#%   eg r=.05  T=5  delta5 =  (1/(1+.05))^5 = 0.7835262
+
+omega%#  locational rent
+    %# PVomegaT = omega/.r - (omega/r)*delta_T
+psi %#   amount of the annual subsistence wage
+    %#
+
+
+a   %#  share of subsistence wage  used for land and building
+
+b   %#   share of share of subsistence wage  used on maintaining home
+    %#   this is a cost 
+  
+c   %# annual tax rate on rent and home  e,g.12 mills
+    %# Present value of 5
+    %# PVc_T=  0.012/.r - (0.012/r)*delta_T
+    %#      = 0.05195372
+
+a*b*psi % #   annual operating cost in dollars  
+    %#  eg psi=100000 b-.02 , a*b*psi= 2,000 per year 
+    %#  compounded for 5 years  a*b*psi/.r - (a*b*psi/r)*delta_T
+    %# eg   2000/.r - (2000/r)*delta_T = 8658.953
+  _
+c   %# annual tax rate on rent and home  eg  12 mills 
+    %# PVc_T =  present value of the tax rate over T years
+    %# 0.012/.r - (0.012/r)*delta_T
+    %#       = 0.05195372
+
+tax =  %#PVT ofc*(omega + a*psi) # Total tax paid in period T
+% tax =  #PV1_T*c*(omega + a*psi)
+
+
+\end{verbatim}
+
+\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
+
+Doing the derivation to check my logic. omega, psi and a are constants that can be factored out in the following
+\begin{align}%
+    tax&= \sum_{t=0}^{T-1} \delta(t) \left(c*\omega + c*a*\psi \right)\\
+        &= c(\omega + a*\psi)\sum_{t=0}^T  \delta_t\\
+        &= c(\omega + a*\psi)(\delta_1+\delta_2 \dots \delta_T)\\
+        &= c(\omega + a*\psi) \left(\sum_0^\infty \delta_t-\sum_{T}^\infty \delta_t\right)\\
+        &= c(\omega + a*\psi) \left(\frac{1+r}{r}  - (\frac{1}{1+r})^{T+1}\frac{1+r}{r} \right)\\
+        &= c(\omega + a*\psi) \frac{1+r}{r}*\left(1  - (\frac{1}{1+r})^{T+1} \right)
+%         &=& c*(\omega + a*\psi)*\delta_T\\
+\end{align}
+
+
+
+
 \newcommand{\ee}[1]{\color{red}#1 \color{black}}
 
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. The chapter is intended to explain the code and justify the modeling decisions that link the theory to the actual output of the simulations.
