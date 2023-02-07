@@ -29,11 +29,11 @@ psi %#   amount of the annual subsistence wage
 a   %#  share of subsistence wage  used for land and building
 
 b   %#   share of share of subsistence wage  used on maintaining home
-    %#   this is a cost 
+    %#   this is a cost.  includes wateer, electricity heat?
   
 c   %# annual tax rate on rent and home  e,g.12 mills
     %# Present value of 5
-    %# PVc_T=  0.012/.r - (0.012/r)*delta_T
+    %# PVc_T=  0.012/.r - (0.012/r)*delta_\infty
     %#      = 0.05195372
 
 a*b*psi % #   annual operating cost in dollars  
@@ -41,10 +41,12 @@ a*b*psi % #   annual operating cost in dollars
     %#  compounded for 5 years  a*b*psi/.r - (a*b*psi/r)*delta_T
     %# eg   2000/.r - (2000/r)*delta_T = 8658.953
   _
-c   %# annual tax rate on rent and home  eg  12 mills 
+c   %# annual tax rate on rent and home  eg  16 mills =1.6\%
+    
+    \href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiOmNPUvIL9AhUUmokEHX-5C9oQFnoECBIQAQ&url=https%3A%2F%2Fwww.greatersudbury.ca%2Fcity-hall%2Ftax-services%2Fpdf-documents%2F2022-tax-rates%2F&usg=AOvVaw2XEdfcC5z-5AqfOeH5t-eN}{Sudbury values}
     %# PVc_T =  present value of the tax rate over T years
-    %# 0.012/.r - (0.012/r)*delta_T
-    %#       = 0.05195372
+    %# 0.016/.r - (0.012/r)*delta_T    discounted
+    %#       = 0.06927163
 
 tax =  %#PVT ofc*(omega + a*psi) # Total tax paid in period T
 % tax =  #PV1_T*c*(omega + a*psi)
@@ -52,17 +54,44 @@ tax =  %#PVT ofc*(omega + a*psi) # Total tax paid in period T
 
 \end{verbatim}
 
-\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
+Notation
 
-Doing the derivation to check my logic. omega, psi and a are constants that can be factored out in the following
+$delta(0)=1$  for funds received now
+
+Lets calculate the
+\begin{align}
+delta (1)   &= 1/(1+r) \\
+delta (t)   &= (1/(1+r))^t \\
+delta (\infty)   &= \sum_0^\infty\left(1/(1+r)\right)^t\\ 
+Let\ a=1/(1+r)&<1\\
+delta (\infty)   &= \sum_0^\infty a^t\\ 
+S               &= \sum_0^\infty a^t\\ 
+               &= 1+a+a^2+a^3+a^4 \dots\\ 
+S-aS             &= 1\\ 
+S             &= 1/(1-a)\\ 
+S             &= \frac{1}{1-\frac{1}{1+r}}\\ 
+             &= \frac{1}{1-\frac{1}{1+r}}\\ 
+             &= \frac{1}{\frac{1+r-1}{1+r}}\\ 
+              &= \frac{1}{\frac{r}{1+r}}\\ 
+             &= \frac{1+r}{r}
+\end{align}
+This is the case where you get paid at the beginning of the first period. Rent might be paid in advance for each month. .
+
+For  the case where you get pay at the end of the first period. Interest on a loan  might be paid this way.  summing from t=1 this time, we get $S-aS =a$, and $S = a/(1-a)= \frac{1}{r}$. 
+
+ 
+
+%\[\delta(t)= \delta(1)^t =\left(\frac{1}{1+r}\right)^t\]
+
+Finally, we need an expression for the sum of a finite  series to T.  Doing the derivation to check my logic, notice that  omega, psi, c  and a are constants that can be factored out in the following
 \begin{align}%
     tax&= \sum_{t=0}^{T-1} \delta(t) \left(c*\omega + c*a*\psi \right)\\
-        &= c(\omega + a*\psi)\sum_{t=0}^T  \delta_t\\
-        &= c(\omega + a*\psi)(\delta_1+\delta_2 \dots \delta_T)\\
-        &= c(\omega + a*\psi) \left(\sum_0^\infty \delta_t-\sum_{T}^\infty \delta_t\right)\\
-        &= c(\omega + a*\psi) \left(\frac{1+r}{r}  - (\frac{1}{1+r})^{T+1}\frac{1+r}{r} \right)\\
-        &= c(\omega + a*\psi) \frac{1+r}{r}*\left(1  - (\frac{1}{1+r})^{T+1} \right)
-%         &=& c*(\omega + a*\psi)*\delta_T\\
+        &= c(\omega + a\psi)\sum_{t=0}^T  \delta_t\\
+        &= c(\omega + a\psi)(\delta_1+\delta_2 \dots \delta_T)\\
+        &= c(\omega + a\psi) \left(\sum_0^\infty \delta_t-\sum_{T}^\infty \delta_t\right)\\
+        &= c(\omega + a\psi) \left(\frac{1+r}{r}  - \left(\frac{1}{1+r}\right)^{T+1} \left(\frac{1+r}{r} \right) \right)\\
+        &= c(\omega + a\psi) \frac{1+r}{r}\left(1  - \left(\frac{1}{1+r}\right)^{T+1} \right)
+%      &=& c(\omega + a\psi)\delta_T\\
 \end{align}
 
 
@@ -70,6 +99,45 @@ Doing the derivation to check my logic. omega, psi and a are constants that can 
 
 \newcommand{\ee}[1]{\color{red}#1 \color{black}}
 
+\subsection{Initializing the model}
+\subsubsection{housing prices}
+
+a house offer two kinds of services - home services proper and locational services - access to the central city job. The value of a house then is the present discounted value of the flow of those services
+
+Locational services are, on an annual basis $\omega- trans * d$.
+
+Housing services absorb about 30\% of income  we will set that at $a\phi$ where a is the share of the subsistence wage and $\phi$
+is the subsistence wage
+
+A property at $d$ offers the combined annual services of 
+\[h=\omega- trans * d + a\phi\]
+and the value of the house is then the discounted value of the stream of services,
+\[H=\frac{h}{r}\]
+
+We will use this value as the price for the first period.
+ $P_0=\frac{\omega- trans * d + a\phi}{r}$
+
+
+Annual rent charged initially is  equal to the value of services, \[\mathcal(R)^{charged}= h= \omega- trans * d + a\phi]\]
+
+
+
+Annual rent charged initially is  equal to the value of services, $h$
+
+\subsubsection{Annual Taxation}
+Municipal taxes are based on the price of the house, $P_0=\omega- trans * d + a\phi$ - usually with a lag, 
+
+In each price a period a ``mill rate'' or 1/1,000 of the value is determines - The annual tax is initially
+
+ $(taxrate)*P_0=(taxrate)*\frac{\omega- trans * d + a\phi}{r}$
+
+This has to be compounded for the period.
+
+\subsubsection{Annual Maintenance}
+\subsubsection{The Treatment of Density}
+
+
+\newpage
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. The chapter is intended to explain the code and justify the modeling decisions that link the theory to the actual output of the simulations.
 
 
