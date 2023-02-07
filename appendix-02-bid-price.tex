@@ -12,12 +12,7 @@ The value of the investment is the capital gain, $\mathcal{C}$ plus the rents, n
 
 % minus the mortgage, repaid with interest, plus rents, minus any operating costs and taxes,\footnote{We have applied this model to explore the effect of a vacancy tax in Beirut.  For that analysis we  added a use-value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax}, $T$ at rate $t$ to affect the speculator's  decision.} %\cite{Al-Shihabi}
 
-\begin{eqnarray}
-V &=& \mathcal{C} + \mathcal{R}_N  \label{eqn-property-investment-value0}\\
-  &=& \mathcal{C} + \mathcal{R} - \mathcal{O} - \mathcal{T} \nonumber \\
-  &=& \delta \left(P_T- \left(1+r\right)M\right) + \mathcal{R} - \mathcal{O} - \mathcal{T}.
-\label{eqn-property-investment-value1}
-\end{eqnarray}
+
 % OLD equations from working out the above. Could change symbols
 % \begin{eqnarray}
 % V  	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost -taxes \\
@@ -328,6 +323,7 @@ In terms of the warranted rent,
 \mathcal{R}_N &= (1-\kappa_j - \sigma_j)(\omega - \tau d_j)
 \end{align}
 
+
 % $\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - \tau d_j)$
 
 % {\color{red}
@@ -635,6 +631,14 @@ tax =  %#PVT ofc*(omega + a*psi) # Total tax paid in period T
 
 \end{verbatim}
 
+\section{Equation}
+Equation~\ref{eqn-bid-price2}:
+
+
+\begin{align}
+P_i^{bid} \le   \frac{\mathcal{R}_N}{(1-m_i)r_i^{target}- \delta_i \left(1+L(P)- (1+ r_i)m_i\right)}.
+\end{align}
+
 Notation
 
 $delta(0)=1$  for funds received now
@@ -680,15 +684,15 @@ Finally, we need an expression for the sum of a finite  series to T.  Doing the 
 
 \newcommand{\ee}[1]{\color{red}#1 \color{black}}
 
-\subsection{Initializing the model}
+\subsection{REVISING and  Initializing the model}
 \subsubsection{housing prices}
 
-a house offer two kinds of services - home services proper and locational services - access to the central city job. The value of a house then is the present discounted value of the flow of those services
+A house offer two kinds of services - home services proper and locational services - access to the central city job. The value of a house then is the present discounted value of the flow of those services
 
 Locational services are, on an annual basis $\omega- trans * d$.
 
-Housing services absorb about 30\% of income  we will set that at $a\phi$ where a is the share of the subsistence wage and $\phi$
-is the subsistence wage
+Housing services absorb about 30\% of income  we will use than number  as an approximation,  $a\phi$, where a is the share of the subsistence wage and $\phi$
+
 
 A property at $d$ offers the combined annual services of 
 \[h=\omega- trans * d + a\phi\]
@@ -698,23 +702,95 @@ and the value of the house is then the discounted value of the stream of service
 We will use this value as the price for the first period. 
  $P_0=\frac{\omega- trans * d + a\phi}{r}$
 
+This is what we can think of a a ``warranted price'', which exactly covers the actual value of the services. The warranted price  is not the same as the market price.  \textbf{The market price can depart from the warranted price} when there is price speculation based on expected future values or if agents make errors based on market information.
 
-Annual rent charged initially is  equal to the value of services, \[\mathcal(R)^{charged}= h= \omega- trans * d + a\phi]\]
+Annual rent charged initially is  equal to the value of services, $h$:
+\[\mathcal R^{charged}= h= \omega- trans * d + a\phi]\]
 
 
-
-Annual rent charged initially is  equal to the value of services, $h$
 
 \subsubsection{Annual Taxation}
 Municipal taxes are based on the price of the house, $P_0=\omega- trans * d + a\phi$ - usually with a lag, 
 
-In each price a period a ``mill rate'' or 1/1,000 of the value is determines - The annual tax is initially
+In each price a period a `mill rate'. Each mill is  expressed as  1/1,000 of the value is determines - The annual tax is initially
 
- $(taxrate)*P_0=(taxrate)*\frac{\omega- trans * d + a\phi}{r}$
+ $(taxrate)*P_0=(millrate)*\frac{\omega- trans * d + a\phi}{r}$
 
-This has to be compounded for the period.
+This has to be compounded for decisions made over a period f more than one year.
 
-\subsubsection{Annual Maintenance}
+
+\subsection{Distinguishing market rental price and locational rent}
+Making these distinctions, we find that Equation C3 is wrong.
+
+\begin{align}
+\mathcal{R}_N &= \mathcal{R} - \Theta - \Sigma 
+\end{align}
+Why?  A tenant should expect to pay a market price for the combination of locational services and the services of land and buildings that they use.  It is an equilibrium market rent, not the economic locational rent economic rent. (The market can cause rents to diverge from this value. ) 
+
+We should distinguish the locational rent from the $\mathcal{R}^l = \omega - trans*d$ from the Warranted rental cost of housing services. (Maybe use a capital L?) 
+
+Market  rental price $\mathcal{R}^w$ should  include the services of the house and land.  $\mathcal{R}^w =\mathcal{R}^l+\mathcal{R}^h$ 
+
+There is another distinction: The warranted value is base on the true value of the services, while the market value can diverge. We do the calculation in terms of warranted values because we will use these to initialize the model. It might be better to use the subscript $m$ for `market'. 
+
+For an investor, it is Net Warranted market  rental price that is relevant in decision making. For now, define (decide on the symbols you really want).
+\begin{quotation}
+a  =  share of subsistence wage  used for land and building
+
+b  = share of share of subsistence wage  used on maintenance
+
+c  = annual tax rate on rent and home  e,g.12 mills
+\end{quotation}
+Now Net Warranted market  rental price is
+\begin{align}
+\mathcal{R}_N^w &= \omega - trans*d + a\phi -  \Theta - \Sigma \\
+\end{align}
+
+It is also Net Warranted market  rental price that is relevant in taxation and maintenance. 
+
+\begin{align}
+\Theta &\equiv  ba\phi\\%Maintenance?
+ \Sigma &\equiv ca\phi %taxes?
+\end{align}
+so we can write
+ \begin{align}
+\mathcal{R}_N^w &= \omega - trans*d- + a\phi -   ba\phi - ca\phi \\
+\end{align}
+
+All of these are in annual values. We will use the present values  for the appropriate period  T in computations. (See notes on the present value calculations to use)
+
+\textbf{These terms can all be used as initial values.}
+
+When a property is rented, the rent charged will be recorded and used in \textbf{future rent calculations}.   (i,e., with a lag)
+
+Taxes will be updated after the period T (i,e., with a lag)
+
+\subsection{How does this affect the bid price?}
+
+I now return to Equations B6 to compute the value of a proposed purchase
+
+
+\begin{align*}
+V &= \delta \left(P_T - (1+r)M\right) +      \mathcal{R}^w_N  \tag{B6} \\
+  &= \delta \left((1+\dot P)    - (1+r)m    \right) P^{bid} + \mathcal{R}^w_N%\label{eqn-property-investment-value1}
+\end{align*}
+Similarly, Equation B7 becomes
+
+\begin{align*}
+r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)^{bid}}\tag{B7}
+\end{align*}
+And following the same sequence of steps to derive the bid price 
+
+\begin{align*}
+P_i^{bid} \le &   \frac{\mathcal{R}^w_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)} \tag{B10}\\
+		 \le &   \frac{ \omega - trans*d- + a\phi -   ba\phi - ca\phi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}		
+\end{align*}
+
+Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
+That may let us simplify the exposition in the financialization chapter.
+
+
+
 
 \subsubsection{The Treatment of Density}
 
