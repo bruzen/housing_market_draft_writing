@@ -63,9 +63,17 @@ r^{return} \geq r^{target}.
 \end{equation}
 
 \section{Maximum bid} % given the rate of return}
+Research has largely supported the bid rent model (\cite{mutoEstimationBidRent2006, wheatonBidRentApproach1977}) Muto \cite{mutoEstimationBidRent2006}, for example concluded,  ``that land usage on average follows the rule that is consistent with the bid rent function model: whichever usage outbids the others occupies the land. ''  Borba1 and Dentinhoand \cite{borbaEvaluationUrbanScenarios2016} concluded that ``The method has proved its usefulness and effectiveness for predicting the impacts of exogenous shocks in complex urban systems.''  ``
+
+In a test for Bogota, Gross \cite{grossEstimatingWillingnessPay1988} found that  ``the bid-rent model works reasonably well in its predictions and in its estimates of the demand for attributes and, in some ways, it may perform better than a hedonic-type model in forecasting the demand for housing attributes.'' The Alonzo model, long been recognized as a persistent law in urban and regional studies, is a model of competitive real estate markets. In less than competitive markets other factors may afffect bid rent's significantly.
+Gao et al \cite{GaoJinlong2020BtbT}, for example,  found  that for China, ``other  exogenous  factors –– including  the  distinct  land  system  and  centralized  political  institutions -- also matter a great deal''.
+
 
 % Agents must compute the maximum bid price they are willing to pay.
-To find how much investors will bid, we need to find the maximum price that they are willing to pay.  %This is the maximum price that satisfies the criterion $r^{return} \geq r^{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
+
+
+We anchor our housing price expectations in bid rents, which, based on the literature can reasonably be seen as the equililbrium toward which prices will evolve. To model the market transactions when speculative motives are in play, however, we need to 
+To find how much financial investors will bid. More specifically, we need to find the maximum price that they are willing to pay.  %This is the maximum price that satisfies the criterion $r^{return} \geq r^{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
 % Equation \ref{eqn-property-investment-return1} expresses the expected return on investment in terms of the  market price, $P_0$: 
 % \begin{eqnarray*}
 %  r^{return} 
@@ -315,7 +323,7 @@ In our computational model, we do the calculation in terms of a mortgage, so we 
 % We want the total returns after expenses, in present value, compounded over a 5 year period.
 
 \begin{align}
-\mathcal{R}_N &= \mathcal{R} - \Theta - \Sigma 
+\mathcal{R}_N &= \mathcal{R} - \mathcal{O} - \mathcal{T} 
 \end{align}
 
 In terms of the warranted rent, 
@@ -691,30 +699,30 @@ A house offer two kinds of services - home services proper and locational servic
 
 Locational services are, on an annual basis $\omega- trans * d$.
 
-Housing services absorb about 30\% of income  we will use than number  as an approximation,  $a\phi$, where a is the share of the subsistence wage and $\phi$
+Housing services absorb about 30\% of income  we will use than number  as an approximation,  $a\psi$, where $a$ is the share of the subsistence wage and $\psi$
 
 
 A property at $d$ offers the combined annual services of 
-\[h=\omega- trans * d + a\phi\]
+\[h=\omega- trans * d + a\psi\]
 and the value of the house is then the discounted value of the stream of services,
 \[H=\frac{h}{r}\]
 
 We will use this value as the price for the first period. 
- $P_0=\frac{\omega- trans * d + a\phi}{r}$
+ $P_0=\frac{\omega- trans * d + a\psi}{r}$
 
 This is what we can think of a a ``warranted price'', which exactly covers the actual value of the services. The warranted price  is not the same as the market price.  \textbf{The market price can depart from the warranted price} when there is price speculation based on expected future values or if agents make errors based on market information.
 
 Annual rent charged initially is  equal to the value of services, $h$:
-\[\mathcal R^{charged}= h= \omega- trans * d + a\phi\]
+\[\mathcal R^{charged}= h= \omega- trans * d + a\psi\]
 
 
 
 \subsubsection{Annual Taxation}
-Municipal taxes are based on the price of the house, $P_0=\omega- trans * d + a\phi$ - usually with a lag, 
+Municipal taxes are based on the price of the house, $P_0=\omega- trans * d + a\psi$ - usually with a lag, 
 
 In each price a period a `mill rate'. Each mill is  expressed as  1/1,000 of the value is determines - The annual tax is initially
 
- $(taxrate)*P_0=(millrate)*\frac{\omega- trans * d + a\phi}{r}$
+ $(taxrate)*P_0=(millrate)*\frac{\omega- trans * d + a\psi}{r}$
 
 This has to be compounded for decisions made over a period f more than one year.
 
@@ -739,26 +747,27 @@ There is another distinction: The warranted value is base on the true value of t
 
 For an investor, it is Net Warranted market  rental price that is relevant in decision making. For now, define (decide on the symbols you really want).
 \begin{quotation}
-a  =  share of subsistence wage  used for land and building
+a  =  share of subsistence wage  used for land and building e.g. 0.3
 
-b  = share of share of subsistence wage  used on maintenance
+b  = share of share of subsistence wage  used on maintenance e.g. 0.2
 
-c  = annual tax rate on rent and home  e,g.12 mills
+c  = annual tax rate on rent and home  e.g. 12 mills = 0.012
+
 \end{quotation}
 Now Net Warranted market  rental price is
 \begin{align}
-\mathcal{R}_N^w &= \omega - trans*d + a\phi -  \Theta - \Sigma \\
+\mathcal{R}_N^w &= \omega - trans*d + a\psi -  \mathcal{O} - \mathcal{T} \\
 \end{align}
 
 It is also Net Warranted market  rental price that is relevant in taxation and maintenance. 
 
 \begin{align}
-\Theta &\equiv  ba\phi\\%Maintenance?
- \Sigma &\equiv ca\phi %taxes?
+\mathcal{O} &\equiv  ba\psi\\%Maintenance?
+ \mathcal{T} &\equiv ca\psi %taxes?
 \end{align}
 so we can write
  \begin{align}
-\mathcal{R}_N^w &= \omega - trans*d- + a\phi -   ba\phi - ca\phi \\
+\mathcal{R}_N^w &= \omega - trans*d- + a\psi -   ba\psi - ca\psi \\
 \end{align}
 
 All of these are in annual values. We will use the present values  for the appropriate period  T in computations. (See notes on the present value calculations to use)
@@ -781,13 +790,14 @@ V &= \delta \left(P_T - (1+r)M\right) +      \mathcal{R}^w_N  \tag{B6} \\
 Similarly, Equation B7 becomes
 
 \begin{align*}
-r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)^{bid}}\tag{B7}
+r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}^w_N}{(1-m)^{bid}}\tag{B7}
 \end{align*}
 And following the same sequence of steps to derive the bid price 
 
 \begin{align*}
 P_i^{bid} \le &   \frac{\mathcal{R}^w_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)} \tag{B10}\\
-		 \le &   \frac{ \omega - trans*d- + a\phi -   ba\phi - ca\phi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}		
+		 \le &   \frac{ \omega - trans*d + a\psi -   ba\psi - ca\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	\\	
+   		 \le &   \frac{ \omega - trans*d + a(1-b-c)\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	
 \end{align*}
 
 Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
