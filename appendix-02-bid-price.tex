@@ -30,7 +30,7 @@ V &= \delta \left(P_T - (1+r)M\right) +   \mathcal{R}^w_N   \\
 
 This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 
-\subsection{Rate of Return on Investment}
+\subsection{Rate of return on investment}
 The rate of return on funds invested is V divided by the size of the down payment, $D$ to get the rate of return  
 
 \begin{align}
@@ -196,7 +196,7 @@ r^{target}\le v
 
 \subsection{Maximum bid} % given the rate of return}
 
-Agents bid if the RHS is larger than the target rate of return, as stated in Equation \ref{eqn-property-investment-return2}.  $P_0$ with $P^{bid}$, and $\dot P$ with an estimator for $\dot P$, we get: TO DO REPLACE PDOT - MAYBE WITH TILDE AND DOT..: 
+Agents bid if the RHS is larger than the target rate of return, as stated in Equation \ref{eqn-property-investment-return2}.  $P_0$ with $P^{bid}$, and $\dot P$ with an estimator for $\dot P$, we get: %TO DO REPLACE PDOT - MAYBE WITH TILDE AND DOT..: 
 
 \begin{eqnarray}
 r_{target} \le \frac{\delta \left((1+ \dot P^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P^{bid}}
@@ -250,20 +250,22 @@ Each agent has their own interest rates, discount rates, mortgage share .. infor
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
 
-\section{Other factors affecting price determination}
-% \subsection{On bidding}
 
+% \section{Other factors affecting price determination}
+% \subsection{On bidding}
+\section{Bargaining}
 
 In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
 
 In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
 
-If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This makes sense because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
+If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
 That is the highest price that a seller can get.
 
-It might be simplest to treat every seller as a bidder. All bid above her own are considered. The seller chooses the second highest bid. This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguishable form any more complex approach. 
+The agent will only sell if it's worthwhile, that is if some minimum bid is reached. To include this minimum simply, we %It might be simplest to 
+treat every seller as a bidder. All bids above her own are considered. The seller chooses the second highest bid. %This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguishable form any more complex approach. 
 
-Will persons retiring who would leave the city invest in an urban rental?
+% Will persons retiring who would leave the city invest in an urban rental?
 
 Bargaining between buyers and sellers differs. Buyers bid low and sellers ask high. {\color{red}We need to calculate a minimum selling price for the seller}.
 
@@ -297,9 +299,8 @@ For the sake of notational simplicity and clarity of exposition,  we omit the co
 %is a feature of the individual, so it is not affected in this way.
 %The appropriate compunding expressions for other rates are displayed below.
 
-
-
  The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
+
 
 
 \section{Warranted rents}
