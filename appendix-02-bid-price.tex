@@ -7,26 +7,53 @@ This chapter links the theoretical discussions of the previous chapters with an 
 \section{Modelling the market process}
 The core machinery of the model  is the market process. At the centre of that process is a bargaining model. 
 
-\color{red}
+
 \begin{enumerate}
-    \item Identify set of sellers for the current cycle.  
+    \item Identify set of sellers for the current cycle. 
+\begin{enumerate}
+    \item \textbf{people retiring in this cycle}
+   {\color{yellow} \item people who retired and failed to sell
+    \item people approaching retirement who might consider selling early.
+    \item the bank}
+\end{enumerate}
     
-    \item For each seller get expected property price for real estate agent
+ 
+    \item For each seller get expected property price \textbf{from real estate agent}:
+\begin{enumerate}
+    \item     Initialize with the warranted price = rent + housing costs. \textit{This is the value of the stream of services.}
+
+   \[ P^e_0=\frac{(\omega-{c}{d}) + {a}\psi}{r}\]
+{\color{green} This is the expected warranted price. It might make sense just to use the homeowner's reservation price (maximum bid price)}.
+   \item in later cycles use the actual transaction price $P_{it}$ (with inflation added) when it is available, or use a (regression)estimate  $P^e_{it}$  the real estate agent
+\end{enumerate}
+
+ 
+    \item for each seller, compute a reservation price using a variant of the maximum bid price formula. 
+
+    {\color{green}\textit{Values like $m_i$ are going to be expected values for others.  ??? }}
     
-    \item for each seller, compute a reservation price using a variant of the maximum bid price formula
+    \textit{This is what the seller thinks she should get, taking into account her expectations about the price increase etc..}
     
-    \item for each seller, compute an asking price
+    \item for each seller, compute an asking price. 
     
-    
-    \item for each seller, post the asking price for bidders to see
-    
-    \item for each property identify a set of potential bidders
-    
+    \textit{Add some percentage to the reservation price. Make sure the result is above $P^e$, since you know you might have to come down in bargaining.}   
+    \item for each seller, list the asking price for bidders to see.
+        
+    \item for each property, identify a set of potential bidders.
+    \begin{enumerate}
+        \item Bank considers bidding on all listed properties.
+
+        the formula is the maximum bid price with its own parameters putting in the current rents.
+        \item New entrants to labour market
+       {\color{yellow} \item Retirees who might sell, move out of town and invest in a rental property}
+    \end{enumerate}
+
+  
     \item for each bidder, compute a maximum price using a variant of the bid price formula. 
     
     
     \item for each bidder, compute an initial bid no higher than  the maximum price. 
-
+     \color{red}  
    \textbf{(there may be two paths to consider: working from initial bids, or working with max bids )}
 
     \item With list of max bids, check to see if any exceed the asking price. 
@@ -365,7 +392,7 @@ In principle, the  sale price of a unit of land considered is the present discou
 % \newcommand{\ee}[1]{\color{red}#1 \color{black}}
 
 % \subsection{REVISING and  Initializing the model}
-\subsubsection{housing prices}
+\subsubsection{Housing prices} \label{section-housing-price}
 
 A house offer two kinds of services - home services proper and locational services - access to the central city job. The value of a house then is the present discounted value of the flow of those services
 
@@ -375,14 +402,21 @@ Housing services absorb about 30\% of income  we will use than number  as an app
 
 
 A property at $d$ offers the combined annual services of 
-\[h=\omega- {c} * d + a\psi\]
+
+\begin{align}
+h=\omega- {c} * d + a\psi  
+\label{eqn-housing-price}
+\end{align}
+
+\ref{eqn}
+
 and the value of the house is then the discounted value of the stream of services,
 \[H=\frac{h}{r}\]
 
 We will use this value as the price for the first period. 
  $P_0=\frac{\omega- {c} * d + a\psi}{r}$
 
-This is what we can think of a a ``warranted price'', which exactly covers the actual value of the services. The warranted price  is not the same as the market price.  \textbf{The market price can depart from the warranted price} when there is price speculation based on expected future values or if agents make errors based on market information.
+This is what we can think of a  ``warranted price'', which exactly covers the actual value of the services. The warranted price  is not the same as the market price.  \textbf{The market price can depart from the warranted price} when there is price speculation based on expected future values or if agents make errors based on market information.
 
 Annual rent charged initially is  equal to the value of services, $h$:
 \[\mathcal R^{charged}= h= \omega- {c} * d + a\psi\]
@@ -515,7 +549,8 @@ For  the case where you get pay at the end of the first period. Interest on a lo
 
 %\[\delta(t)= \delta(1)^t =\left(\frac{1}{1+r}\right)^t\]
 
-Finally, we need an expression for the sum of a finite  series to T.  Doing the derivation to check my logic, notice that  omega, psi, c  and a are constants that can be factored out in the following
+Finally, we need an expression for the sum of a finite  series to T.  Doing the derivation to check my logic, notice that  omega, psi, c  and a are constants that can be factored out in the following,(\textbf{THIS IS THE WRONG PROPERTY VALUE}
+%\[\left(c*\omega + c*a*\psi \right) ->c\left(\omega-trans\ d + a\psi \right)\]
 \begin{align}%
     tax&= \sum_{t=0}^{T-1} \delta(t) \left(c*\omega + c*a*\psi \right)\\
         &= c(\omega + a\psi)\sum_{t=0}^T  \delta_t\\
@@ -705,8 +740,22 @@ The value of $\kappa$  varies for every property based on maintenance requiremen
 Nothing prevents $\sigma+\kappa >1$, which would leave an investor unable to cover building maintenance and taxes out of current rent. 
 
 
+\section{Income andj wealth matter}
+\subsection{Interest rates, discount rates and borrowing ratios} \label{SS:RatesAndRatios}
 
-\section{Interest rates, discount rates and borrowing ratios} \label{SS:RatesAndRatios}
+According to the Canada Housing Statistics Program (CHSP), first time home buyers require a combination of sufficient income and savings in order to enter the housing market. (insert tables? from the CHSP?) We have implemented these facts by making interest rates and mortgage share depend on income and wealth.
+% image.png
+
+% image.png
+% https://www150.statcan.gc.ca/n1/pub/46-28-0001/2023001/article/00001-eng.htm
+
+% Investors now make up more than 25\% of Ontario homebuyers, pushing prices higher, experts warn. 2020
+
+% Released: 2022-04-12
+
+% New data from the Canadian Housing Statistics Program (CHSP) show the extent of inequalities in housing: multiple-property owners possess nearly one-third of all residential properties and the top 10\% wealthiest owners account for around one-quarter of residential housing value. Despite these inequalities, new data show an increase in the number of first-time home buyers from 2018 to 2019.
+% Both income and housing wealth are concentrated at the top, even among owners. When ordering individual owners by their yearly incomes, the top 10% of owners in Ontario and British Columbia each had yearly incomes above $125,000.
+ 
 
 \subsection{Borrowing ratio} \label{SS:BorrowingRatio}
 $m_i$
@@ -966,6 +1015,15 @@ ${a}$  =  share of subsistence wage  used for land and building e.g. 0.3
 ${b}$  = share of share of subsistence wage  used on maintenance e.g. 0.2
 
 ${c}$  = annual tax rate on rent and home  e.g. 12 mills 
+
+
+a     share of subsistence wage  used for land and building
+
+b      share of share of subsistence wage  used on maintaining home
+       this is a cost.  includes wateer, electricity heat?
+  
+c    annual tax rate on rent and home  eg  16 mills =1.6\% e,g.12 mills
+
 
 
 \section{Notation Table}

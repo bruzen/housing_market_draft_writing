@@ -31,9 +31,9 @@ Our solution is to explicitly link the largely spaceless analysis of investment 
  %This provides insight into both population and wealth distribution in cities. 
 %Integrating financial markets into the the spatial urban model allows us to examine the effect of financialization on cities, specificaly on their role in growth, distribution, and productivity. %the growth and wealth distribution of cities, and more specifically on their productivity effects. 
 
-Our urban is based on work from %those developed in 
+Our model of the urban economy is based on work from %those developed in 
 geography, planning and urban economics. 
-The organizing principle in the spatial models of all three disciplines is an economic variable, land rent, which is the link to distribution, financialization and continuing productivity. %*** (another sentence on why this is great) --The space-less quality of the study of finance leaves out xyz GET PHRASING- CAN'T SEE- INTEGRATION OF SPACE NEGLECT GROWTH FACTOR. 
+The organizing principle in the spatial models of all three disciplines is an economic variable, land rent, which is for us the link to distribution, financialization and continuing productivity. %*** (another sentence on why this is great) --The space-less quality of the study of finance leaves out xyz GET PHRASING- CAN'T SEE- INTEGRATION OF SPACE NEGLECT GROWTH FACTOR. 
 
 To capture urban productivity, we introduce %rely on 
 agglomeration effects, relating existing spatial and growth models to the scaling models from the study of complexity. A fundamental feature in recent empirical work on scaling laws is % demonstrated in the recent literature on scaling laws: 
@@ -86,62 +86,64 @@ The main contibutions%methodological innovations
 , as we see it, are:
 
 \begin{enumerate}
-    \item we incorporate classical rent theory into an agent-based urban model 
+    \item we incorporate \gls{classical rent theory} into an agent-based urban model 
     \item we allow the creation and distribution of rents to influence urban growth, productivity and  population structure. 
-    \item we incorporate current research on urban scaling into the  core spatial urban model.   
-    \item we construct an   Urban ABM that is consistent with neoclassical growth theory,
-    \item we integrate financial capital into a standard spatial model of the urban system
-    \item we integrate financial capital into an overlapping generations population model of the urban system
+    \item we incorporate current research on \gls{urban scaling} into the  core spatial urban model.   
+    \item we construct an   Urban \gls{ABM} that is consistent with \gls{neoclassical growth theory},
+    \item we integrate \gls{financial capital} into a standard spatial model of the urban system
+    \item we integrate financial capital into an population model of the urban system
     \item we employ the ABM to examine how financial markets impact the urban land markets 
-    \item we test for hysteresis  resulting from the business cycle  in the urban system 
+    \item we test for \gls{hysteresis}  resulting from the business cycle  in the urban system 
     \item we build a model that is easily extended to explore a wide range of issues
     \item we provide a model that we believe can be used  to evaluate urban policies
 \end{enumerate}
 
 
-Each of the items above requires us to  integrate 
+Each of the items above requires us to  integrate models and concepts from different parts of the literature
 
 
 \begin{enumerate}
-    \item we incorporate classical rent theory into an agent-based urban model 
+    \item incorporating classical rent theory into an agent-based urban model 
 
 This requires a how Ricardian rent theory - a theory of distribution based on an agricultural economy - applies in an economy driven by human capital agglomeration effects within the urban system. 
 
-    \item we allow the creation and distribution of rents to influence urban growth, productivity and  population structure. 
+    \item allowing the creation and distribution of rents to influence urban growth, productivity and  population structure. 
     
 This requires us to articulate the links between the wealth production of cities and  urban systems evolve 
     
 
-    \item we incorporate current research on urban scaling into the  core spatial urban model.  
+    \item incorporating current research on urban scaling into the  core spatial urban model.  
 
 We show how understanding how complex systems scale provides an elegant way to model a an urban system with production
 
-    \item we construct an   Urban ABM that is consistent with neoclassical growth theory,
+    \item constructing an   Urban ABM that is consistent with neoclassical growth theory,
 
 Although many  who employ ABMs to analyse urban systems are deeply skeptical of neoclassical assumptions we demonstrate in this context how easily and productively the neoclassical frame work can be implemented in n the ABM framework
 
-    \item we integrate financial capital into a standard spatial model of the urban system
+    \item integrating financial capital into a standard spatial model of the urban system
 
 We are not aware of any urban simulation models that introduce capital as we do to examine the outcomes that concern us.
     
-    \item we integrate financial capital into an overlapping generations population model of the urban system
+    \item integrating financial capital into an overlapping generations population model of the urban system
 
 Financial assets are central to most overlapping generations models. Our innovation is to articulate the movement of financial capital though the urban land market.
     
-    \item we employ the ABM to examine how financial markets impact the urban land markets 
+    \item using an ABM to examine how financial markets impact the urban land markets 
 
 We began with with the fact that there is growing policy concern about the ``Financialization of  Housing''. We have produced a formal simulation model that illustrates the process. 
 
-    \item we test for hysteresis resulting from the business cycle   in the urban system 
+    \item testing for hysteresis resulting from the business cycle   in the urban system 
 
 There are two types of resilience questions when any system is shocked, does it return to an equilibrium state - the stability question - and does it return to the same kind of equilibrium - the hysteresis question. We focus on the latter question.  
 
 
-    \item we build a model that is easily extended to explore a wide range of issues
+    \item building a model that is easily extended to explore a wide range of issues
 
 The model combines clear and explicit theoretical assumptions with careful and transparent implementation of the logic in flexible Python code.
 
-    \item we provide a model that we believe can be used  to evaluate urban policies
+    \item providing a model that we believe can be used  to evaluate urban policies
+
+To be useful in policy discussions, a model must correctly simulate the relevant system features and be able to incorporate a variety of policy interventions. We have taken care to allow for  both theoretical and policy- relevant extensions in the way the simulation model is coded. 
 \end{enumerate}
 
 
