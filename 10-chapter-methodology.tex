@@ -7,32 +7,30 @@ We are focused on the evolution of a city. In any city, numerous people and orga
 % In doing so we are attentive to the strengths and weaknesses of the approaches that we are adopting. 
 
 \subsection{Equilibrium vs ABM modeling}
-Economists rely heavily on equilibrium analysis. 
-We are focused on the evolution of a city.  %One natural  way to explore such a system tool urban processes this sort is analogous to the way 
-Agent-Based Models (ABMs) mimic this view of the city.   
 
-%Our main simulation tool is an ABM. 
-In an ABM Agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example, is analyzed using `reaction functions' which simply describe a firm's optimal response to as second firm's output choice.} Agent based models commit to computational methods from the beginning. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with any computational model, we can explore the behaviour of the system by varying parameters, and can explore the parameter space using Monte Carlo methods.
+Economists rely heavily on equilibrium analysis in their study of complex systems. 
+%In Economic modelling the most familiar approach is the  analysis of systems in equilibrium. 
+A set of necessary conditions describing a steady state of interest are imposed and then solved to find features of the equilibrium they generate. It is a productive methodology partly because it  bypasses the complex process of adjustment, focusing on the conditions that must be true if a particular situation is to persist.
 
-In Economic modelling, on the other hand, the most familiar approach is the  analysis of systems in equilibrium. A set of necessary conditions describing a steady state of interest are imposed and then solved to find features of the equilibrium they generate. It is a productive methodology partly because it  bypasses the complex process of adjustment, focusing on the conditions that must be true if a particular situation is to persist.
+The classic example is the ubiquitous supply and demand model. Each curve represents plausible behaviours of a class of agents. A situation is unlikely to persist if either class of agents is unsatisfied with the combination of price and quantity. The model explores the combinations that satisfy the behavoural intentions of both classes i.e. are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities can be derived solving the two-equation system.
 
-The classic example is the ubiquitous supply and demand model. Each curve represents plausible behaviours of a class of agents. A situation is unlikely to persist if either class of agents is unsatisfied with the combination of price and quantity. The model explores the combinations %The conclusion is that the only combinations that can persist for long are  those 
-that satisfy the behavoural intentions of both classes i.e. are on both curves. If the two curves can be described mathematically, equilibrium prices and quantities can be derived solving the two-equation system.
-
-The approach produces tractable models that can often be solved explicitly. To achieve tractability, it is often convenient %, even necessary, 
-to limit the number of independent decision-makers by employing a ``representative agent.'' To extend the analysis to dynamic systems, ``laws of motion'' (adjustment rules) can be added in the form of either difference or differential equations.  Models become intractable with %quickly when there are 
-more agents or %dynamic 
-processes, and economists, like other modellers,  % physicists and weather forecasters, 
-resort to simulation %techniques 
+The approach produces tractable models that can often be solved explicitly. To achieve tractability, it is often convenient 
+to limit the number of independent decision-makers by employing a ``representative agent.'' To extend the analysis to dynamic systems, ``laws of motion'' (adjustment rules) can be added in the form of either difference or differential equations.  Models quicliy become intractable with more agents or dynamic 
+processes, and economists, like other modellers, resort to simulation 
 and numerical methods. 
 
-In ABMs it is often makes sense to simplify models, less for computational reasons then to % The problem of model complexity remains a challenge with ABMs, however, and modellers introduce simplifying assumptions. These are not as a rule needed for the computational model but are very helpful in maintaining
-maintain a focus on the key theme  of the model.  %(ADD distinction between detailed models and detailed explicit models)
 
-For example, for this model, we draw heavily on economic analysis of cities, and employ three key economic equilibrium conditions drawn from the economic literature. 
+
+In an \gls{ABM}, agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example, is analyzed using `reaction functions' which simply describe a firm's optimal response to as second firm's output choice.} 
+Unlike equilibrium approaches, agent based modelling commits to using computational methods to mimic the distributed decision making of complex systems like cities. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with other modelling approaches, ABMs can be used explore the behaviour of the system by varying individual parameters, and to explore the parameter space using Monte Carlo methods.
+
+% In ABMs it is often makes sense to simplify models, less for computational reasons then to % The problem of model complexity remains a challenge with ABMs, however, and modellers introduce simplifying assumptions. These are not as a rule needed for the computational model but are very helpful in maintaining
+% maintain a focus on the key theme  of the model.  %(ADD distinction between detailed models and detailed explicit models)
+
+We draw heavily on existing economic analysis of cities to identify relevant behaviours and parameters. We also employ three key economic equilibrium conditions drawn from the economic literature: a locational, labour market, and a housing market equilibrium conditions
 %Some adjustments are slow and some are fast. Rates of adjustment can matter. 
-Because our focus is financialization in the land market, we use the equilibrium conditions for competitive labour markets, to bypass the complex and partially understood wage-setting process. We assume, a core theoretical result from the theory of the firm, that workers are paid their marginal value-product. We ground this approach in recent research that has %shown that, in essence, 
-derived and estimated an aggregate urban production function consistent with modern neoclassical growth theory.\footnote{we are not aware of other research that has taken this step yet.} We use the result to derive an urban wage premium that drives city growth. We would argue that, since labour markets can adjust more quickly than land markets, we can assume that their adjustment is occurring continuously in the background. % need to reference or adjust  
+
+Because our focus is financialization in the land market, we use the equilibrium conditions for competitive labour markets to bypass the complex and partially understood wage-setting process. We assume, a core theoretical result from the theory of the firm, that workers are paid their \gls{marginal value-product}. We ground this approach in recent research that has derived and estimated an aggregate urban production function consistent with modern \gls{neoclassical growth theory}.\footnote{We are not aware of other research that has taken this step yet.} We use the result to derive an urban wage premium that drives city growth. We would argue that, since housing and labour markets can adjust more quickly than urban productivity, we can assume that they respond  continuously to the slower movement of population and productivity. % need to reference? 
 
 A similar market-based argument allows us to assume that land rents are determined by the classic urban locational equilibrium. The theory is based on the insight that if individual utilities are higher at one location in the city, entrants or movers will choose that  location. This is an implication of consumer choice theory. In a market with any degree of churn market prices for land should converge on use values, and these will vary systematically with transportation costs. For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs. Building on this, %In the computational model 
 we can introduce site-specific and person-specific features. 
