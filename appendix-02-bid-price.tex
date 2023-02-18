@@ -23,6 +23,10 @@ The core machinery of the model  is the market process. At the centre of that pr
     \item     Initialize with the warranted price = rent + housing costs. \textit{This is the value of the stream of services.}
 
    \[ P^e_0=\frac{(\omega-{c}{d}) + {a}\psi}{r}\]
+The value of the house is the rent premium minus the cost of transportation. Subtract the the costs of running the house, divided by the interest rate
+
+IS IT MINUS A $\psi$ SINCE HIGHER COSTS LOWER PRICES?
+   
 {\color{green} This is the expected warranted price. It might make sense just to use the homeowner's reservation price (maximum bid price)}.
    \item in later cycles use the actual transaction price $P_{it}$ (with inflation added) when it is available, or use a (regression)estimate  $P^e_{it}$  the real estate agent
 \end{enumerate}
@@ -282,7 +286,7 @@ P^{bid} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P^e 
 \end{align}
 The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eq:Capitalization}. 
 
-Each agent has their own interest rates, discount rates, mortgage share .. information, and expectations, so individual bids can differ.
+Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
 
 % \begin{align}
 % P_i^{bid} \le   \frac{\mathcal{R}_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}.
@@ -989,6 +993,18 @@ We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rlrr}\
 Symbol         & Name                                 & Value      & Formula  \\ \hline
+$a$ replace    & Share of $\psi$ for land and building &   0.3         & \\
+$b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
+$tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
+$c$       & Transportation cost & \\
+$T$       & Period & 5 years      \\
+$r$       & Individual interest rate & 0.05 \\
+$\omega$  & Locational rent & 0.012  \\
+$\psi$    & Subsistence wage & 10000 \\
+$a$       & Share of subsistence wage for land and building & 1.0 \\
+$c$       &  & \\
+
+--        &  & \\
 $m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
 $M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
  $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
@@ -1003,27 +1019,20 @@ $\bar r$       & Prime interest rate                  &            & \\
 $r_i$          & Individual borrowing-rate            &            & \\
 $r^{target}$   & Target interest rate                 &            & $\bar r + margin$ \\
 $\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r_i^\delta}\right)^T$ \\
+
+
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
 
 
 todo look for $P^e_T$ 
 
+discount rate vs discount factor
 
-${a}$  =  share of subsistence wage  used for land and building e.g. 0.3
-
-${b}$  = share of share of subsistence wage  used on maintenance e.g. 0.2
-
-${c}$  = annual tax rate on rent and home  e.g. 12 mills 
-
-
-a     share of subsistence wage  used for land and building
-
-b      share of share of subsistence wage  used on maintaining home
-       this is a cost.  includes wateer, electricity heat?
-  
-c    annual tax rate on rent and home  eg  16 mills =1.6\% e,g.12 mills
-
+% delta(0)=1  delta (1)= 1/(1+r) 
+\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
+    $delta_T=  (1/(1+r))^T$   at T years
+    eg r=.05  T=5  delta5 =  $(1/(1+.05))^5 = 0.7835262$
 
 
 \section{Notation Table}
@@ -1064,9 +1073,9 @@ $\gamma$         &  Elasticity of agglomeration with respect to labour    \\ % ,
 % $A(d, n)$   &  Agglomeration amenity          \\
 
 \hline           &  \textbf{Labour market}      \\ \hline %and urban stucture??
-$\psi$           &  Rural wage                  \\ % 
+$\psi$           &  Rural wage                  \\  
 $\omega$         &  Urban wage premium          \\
-${c}$            &  Transportation cost per unit distance \\ % was $\tau$, considered $\gamma$, $\xi, \zeta$
+${c}$            &  Transportation cost per unit distance \\ % Was $\tau$, and $trans$. Considered $\gamma, \xi, \zeta$.
 $d$              &  Distance from city centre   \\
 $d^* = w/{c}$    &  City extent \\ %, the maximum distance commuters will travel \\ % Maximum distance commuters will travel \\ % to get the wage premium \\
 % $\mathcal{R} = w-{c} d$ &  Rent at distance $d$ \\ 
@@ -1108,9 +1117,28 @@ $\delta$         &  \Gls{discount factor}             \\
 % $\psi$         &  Fraction with rent/operating costs\\
 $t$              &  Time                              \\
 $T$              &  Time period                       \\
+
+$a$ replace      &  Share of subsistence wage  used for land and building \\
+$b$ replace      &  Share of share of subsistence wage used for maintaining home \\ % A cost. Includes water, electricity, heat?
+$c$ replace      &  Annual tax rate on rent and home \\
+
 \hline
 \color{black}
 \end{longtable}  
+
+
+${a}$  =  share of subsistence wage  used for land and building e.g. 0.3
+
+${b}$  = share of share of subsistence wage  used on maintenance e.g. 0.2
+
+${c}$  = annual tax rate on rent and home  e.g. 12 mills 
+
+
+a     share of subsistence wage  used for land and building
+
+b      share of share of subsistence wage used for maintaining home
+
+c    annual tax rate on rent and home  eg  1.6\% = 16 mills, 1.2\% =.12 mills
 
 
 
