@@ -4,6 +4,41 @@
 
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. The chapter is intended to explain the code and justify the modeling decisions that link the theory to the actual output of the simulations.
 
+
+\section{Operating cost calculations}
+\chapter{Rough work and Code}
+present value of tax on propriety over T years. 
+
+
+\begin{verbatim}
+property value * tau * (sum_(1-T) ((1/(1+r))^t).    
+    (sum_(1-T) ((delta_t)
+
+psi   = 100000 # subsistence wage
+    
+#  Annual operating cost in dollars  
+#  eg psi=100000 b=.02 , a*b*psi= 2000 per year 
+
+ compounded for 5 years Must add the discount factors  
+ \delta_t for five years 
+ \[ oppcost=  \[\frac{\omega+a\phi}{r} \tau + a\phi b\right]\sum_1^T \frac{1}{1+r}\]
+ a*b*psi/.r - (a*b*psi/r)*delta_T
+#  eg   2000/.r - (2000/r)*delta_T 
+= 2000/0.05 - (2000/0/05)*delta_T = 8658.953
+
+opperating_cost = a*b*psi/r - (a*b*psi/r)*delta_T 
+\end{verbatim}
+
+\[ oppcost=  \left(\tau\omega  +(\tau+b)a\psi\right)\sum_1^T \left(\frac{1}{1+r}\right)^t\]
+
+\begin{verbatim}
+    opperating_cost = (tau*(omega-c*d) + (tau+b) *a*psi)* sum((1/r)^t for t in range(1, T))
+    
+This is (tax on rent plus both tax and maintenance on the house and land) for (T years with discounting for each year),
+\end{verbatim}
+
+
+
 \section{Modelling the market process}
 The core machinery of the model  is the market process. At the centre of that process is a bargaining model. 
 
