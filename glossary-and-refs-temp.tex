@@ -1,54 +1,79 @@
-
-\section{TEMP Glossary terms}
-
-TEMP glossary terms for debugging, since all glossary terms must be in the text or the whole glossary fails to show up. Add every glossary term here. Remove terms here and in document when removing terms from the glossary. % Use \gls, \Gls, \glspl, \Glspl to specify capitalization and whether entries are plural.
-
-Entries include:  
-symbols \gls{rvec}, 
-abbreviations \gls{abm}, 
-% nomenclature \gls{dingledorf},
-and general glossary terms:
+\chapter{Rough work and Code}
+present value of tax on propriety over T years. 
 
 
+\begin{verbatim}
+property value * tau * (sum_(1-T) ((1/(1+r))^t).    
+    (sum_(1-T) ((delta_t)
 
-\gls{equilibrium}
-\gls{urban wage premium}
-\gls{bargaining}
-\gls{maximum bid price}
-\gls{computational model}, 
-\gls{model},  
-\gls{production-function}, 
-\gls{cobb-douglas}, 
-\gls{distribution},
-\gls{rent}, 
-\gls{productivity}, 
-\gls{growth}, 
-\gls{rent}, 
-\gls{productivity}, 
-\gls{hysteresis}, 
-\gls{regime}, 
-\gls{resilience}, 
-% \gls{warranted rents}, 
-\gls{rent share},
-\gls{discount factor},
-\gls{net rent}, 
-\gls{present value}, 
-\gls{capital gain},
-\gls{mortgage term},
-\gls{use value},
+psi   = 100000 # subsistence wage
+    
+#  Annual operating cost in dollars  
+#  eg psi=100000 b=.02 , a*b*psi= 2000 per year 
 
-\gls{borrowing ratio},
+ compounded for 5 years Must add the discount factors  
+ \delta_t for five years 
+ \[ oppcost=  \[\frac{\omega+a\phi}{r} \tau + a\phi b\right]\sum_1^T \frac{1}{1+r}\]
+ a*b*psi/.r - (a*b*psi/r)*delta_T
+#  eg   2000/.r - (2000/r)*delta_T 
+= 2000/0.05 - (2000/0/05)*delta_T = 8658.953
 
-\chapter{TEMP Sources to cite}
+opperating_cost = a*b*psi/r - (a*b*psi/r)*delta_T 
+\end{verbatim}
+
+\[ oppcost=  \left(\tau\omega  +(\tau+b)a\psi\right)\sum_1^T \left(\frac{1}{1+r}\right)^t\]
+
+\begin{verbatim}
+    opperating_cost = (tau*(omega-c*d) + (tau+b) *a*psi)* sum((1/r)^t for t in range(1, T))
+    
+This is (tax on rent plus both tax and maintenance on the house and land) for (T years with discounting for each year),
+\end{verbatim}
+
 
 \section{Rent}
 A methodology for behavioural sciences, philosophy of social science book \cite{kaplanConductInquiryMethodology2017}.
 
 
-\section{Space}
+% \section{TEMP Glossary terms}
+
+% TEMP glossary terms for debugging, since all glossary terms must be in the text or the whole glossary fails to show up. Add every glossary term here. Remove terms here and in document when removing terms from the glossary. % Use \gls, \Gls, \glspl, \Glspl to specify capitalization and whether entries are plural.
+
+% Entries include:  
+% symbols \gls{rvec}, 
+% abbreviations \gls{abm}, 
+% % nomenclature \gls{dingledorf},
+% and general glossary terms:
 
 
-\section{Financialization}
 
+% \gls{equilibrium}
+% \gls{urban wage premium}
+% \gls{bargaining}
+% \gls{maximum bid price}
+% \gls{computational model}, 
+% \gls{model},  
+% \gls{production-function}, 
+% \gls{cobb-douglas}, 
+% \gls{distribution},
+% \gls{rent}, 
+% \gls{productivity}, 
+% \gls{growth}, 
+% \gls{rent}, 
+% \gls{productivity}, 
+% \gls{hysteresis}, 
+% \gls{regime}, 
+% \gls{resilience}, 
+% % \gls{warranted rents}, 
+% \gls{rent share},
+% \gls{discount factor},
+% \gls{net rent}, 
+% \gls{present value}, 
+% \gls{capital gain},
+% \gls{mortgage term},
+% \gls{use value},
+
+% \gls{borrowing ratio},
+
+% \chapter{TEMP Sources to cite}
 
 
