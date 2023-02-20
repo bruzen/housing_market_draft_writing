@@ -43,10 +43,10 @@ It is at this point we introduce an innovation to formal urban modelling. We dra
 %  This ANCHORING IS INTERESTING, BY THE WAY
 to current rental returns, which allows agents to be misled by rapidly rising prices. We derive an investment rule of this sort in Chapter~\ref{chapter-financialization}. 
 
-\subsubsection{Overlapping generations}
+\subsection{Overlapping generations}
 In our model individuals have a working life, then retire. If they own homes they sell and move to the countryside where housing is cheaper. They are replaced by new entrants from the countryside. New entrants may become buyers or tenants. This is a variant of the \gls{overlapping generations  model} in which savings are passed on to the next generation. In our case homes are passed on, as agents retire and move away. While the model has multiple generations, it is not a `dynastic' model in which the generations are linked by family ties and inheritance matters in individual decision-making. We rely on this simple version because the core issues for us are  the effect of financialization on city productivity, whether the city continues to provide opportunity for newcomers and those without the benefit of generational wealth and the emergence of classes. Introducing a richer family structure would complicate the model but add little to understanding  our  main  issue. 
 
-\subsubsection{Urban and rural wages}
+\subsection{Urban and rural wages}
 A modelling device that plays a major role is our use of the \gls{urban wage premium}, the difference between a rural and an urban wage driven by positive \gls{agglomeration effect}s on productivity in the city. It cannot be competed away because transportation costs limit access to the productive centre. The wage premium is a partial measure of the agglomeration effect. It generates the \gls{rent premium} on urban land. We want to call attention to the distribution of that rent premium.
 
 To simplify the analysis, we assume that we can partition actual wages between the wage premium, which is available for accumulation or spent on transportation, and all other expenses. We assume urban and non-urban populations all receive a \gls{subsistence wage} which covers  the cost of buildings, food and other living costs and a base cost of land. This analytical device appears in classical models (Malthus, Ricardo, Marx) as a subsistence wage and in other other urban models as the cost of agricultural land, where it is more precisely described as the opportunity cost of urban land at the margin. We simply extended the technique to combine the opportunity cost of urban labour and land, allowing us to focus on the rents themselves. 
@@ -55,7 +55,20 @@ There are advantages and disadvantages to this technique. The motivating advanta
 
 Another disadvantage of technique in the analytical version is that it does not allow us to make speculation on  the value of  buildings part visible. It is a problem that is dealt with in the computation model, but we believe the added complexity will not add clarity here. Research (see \cite{mcdonaldWilliamAlonsoRichard2007}) has shown  that the core model is robust to many extension of this sort. 
 
+\subsection{Income, wealth and savings}
+\begin{verbatim}\color{red}
+    
+
+savings = 0 # = working_age*savings_rate*psi + savings_rate*(omega-c*d) #second part  only if owner 
+            # everyone saves out of subsistence and owners save out of economic rent 
+            # lifetime income of owners diverges from rentors even though current income does not. 
+            # this matters if they buy  a rental property, otherwise it disappears into current consumption and retirement standard of livineg
+            # relationship  between income and consumption is suppressed by forcing a uniform subsistence wage.
+
+\end{verbatim}
+
 \subsubsection{Examples of  \gls{equilibrium reasoning} in our analysis}
+
 As an example of \gls{equilibrium reasoning},  we implicitly impose the locational equilibrium condition,
 \[U_i(d,\dots)=U_j(d, \dots),\]where $U_i(d,\dots)$ represents agent $i$'s utility at distance $d$. 
 The condition says that identical individuals must get the same utility no matter how far they live from the city centre. If that were not the case, individuals would move to a location where they get higher utility. For utility to remain constant as  transportation costs  rise, some other variable must compensate. In this class of models, rent charged for the use of land must fall as distance increases. Equilibrium locational choice by commuters therefore determines the extent and ultimately  population of the city.\footnote{More complex models allow home sizes and lot sizes in the suburbs to increase as well.} Since land value  is \gls{capitalize}d rent, land values also decline toward the edge of the city until they are equal to the rural value of land. 
