@@ -4,44 +4,21 @@
 
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
 
-The chapter %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
-links the theory to the output of the simulations. 
-
-% \renewcommand{\arraystretch}{1.5}
-% \begin{tabular}{rlrr}\
-% Symbol         & Name                                 & Value      & Formula  \\ \hline
-% $\omega$  & Maximum locational rent (wage premium) & 0.012  \\
-% $a$       & Share of subsistence wage for land and building & 1.0 \\
-% $\psi$    & Subsistence wage & 10000 \\
-% $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
-% $c$       & Transportation cost & \\
-% $T$       & Period & 5 years      \\
-% $r$       & Individual interest rate & 0.05 \\\
-% $\tau$       & Tax share & \\
-
-% --        &  & \\
-% $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% % $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
-% $r_i^\delta$   & Individual discount rate             &            & To assign \\
-% $\bar r$       & Prime interest rate                  &            & \\
-% \end{tabular}
-% \renewcommand{\arraystretch}{1.0}
-
 \section{Housing prices} \label{section-housing-price}
-For the sake of the computational model we define housing prices for different purposes and at different stages of the market process. The notation is as follows
 
-\begin{tabular}{r|c|c|c|c|c|c|}\cline{2-7}
-                     & Warranted       & Asking  & Bid  & Reservation & Market          & Expected \\ \cline{2-7}
-Property price       & $P_W$           & $P_A$  & $P_B$ & $P_R$       & $P_M$           & $P_M^e$  \\ \cline{2-7}
-Rent $\mathcal{R}_W$ & $\mathcal{R}_W$ &        &       &             & $\mathcal{R}_M$ &          \\ \cline{2-7}
-\end{tabular}
-
-%We will explain why  the rent charged to the tenant is locked  to a single value.
+% *** We will explain why  the rent charged to the tenant is locked  to a single value.
 
 \subsection{Warranted Price}
-% \section{Warranted rents}
-We begin with underlying economic value. In each period a house offer two kinds of services: home services proper and locational services (access to the central city job). We call the value of this stream of services the \glspl{warranted market rent},  $\mathcal{R}_W$, since it is the market value of the services provided. This is the maximum that can be extracted from tenants before they decide they are better off leaving the city. We expect a tenant to pay this amount. In other words we assume that the actual market rental price is the warranted rental price.  Making this assumption simplifies the model and, along with the focus on rents, is what makes ours a ``classical'' model.
 
+The warranted price for a given property, reflects the  underlying economic value. In each period a house offer two kinds of services: home services proper and locational services (access to the central city job). We call the value of this stream of services the \glspl{warranted market rent}, $\mathcal{R}_W$, since it is the market value of the services provided. This is the maximum that can be extracted from tenants before they decide they are better off leaving the city. We expect a tenant to pay this amount. 
+
+The price analysis, that follows, assumes that the actual market rental price is the warranted rental price. Making this assumption simplifies the model and, along with the focus on rents, is what makes ours a ``classical'' model.  
+Real world rents diverge from warranted rents. In the real world, some people may pay more or less than the warranted rent. They may draw on family assets, take on debt, devote more amenity, etc.
+Rents are, however, limited by what tenants can pay, and that in turn is limited by urban wages. 
+The warranted rent %is a frontier the market pushes the agents towards.  
+is a kind of frontier, which may be thought of as an equilibrium or attractor. The way this work uses that kind of frontier, drawing on equilibrium and dynamical agent based traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
+
+When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is  the way classical economists employed the subsistence wage assumption to simplify their analysis. 
 
 \subsubsection{Locational services}
 Locational services are, on an annual basis $\omega- {c} * d$. 
@@ -55,15 +32,14 @@ A property at $d$ offers the combined annual services of
 \mathcal{R}_W=\omega- {c} * d + a\psi  
 \label{eqn-housing-price}
 \end{align}
-Annual rent charged initially should be  equal to the annual value of services, $h$:
-and the warranted market price is 
-\[P_W=\frac{\omega- {c} * d + a\psi}{r}\]
+% Annual rent charged initially should be  equal to the annual value of services, $h$:
+% and the warranted market price is 
+% \[P_W=\frac{\omega- {c} * d + a\psi}{r}\]
 
 % We will use this value as the price for the first period 
 % $P_W=\frac{\omega- {c} * d + a\psi}{r}$
 
 
-Real world  rents do diverge from warranted rents, but they are limited by what tenants can pay, and that in turn is limited by urban wages. When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is analogous to the way classical economists employed the subsistence wage assumption to simplify their analysis. 
 
 \subsubsection{Net Rent}
 
@@ -78,18 +54,17 @@ where $\mathcal{R}_N$ is the net value of rents, and $r$ is the  interest rate.
 We expect it to be the sale price of a unit of housing with land in the absence of potential capital gains. The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe that process below.
 
 \subsubsection{Annual Taxation}
-Municipal taxes are based on the price of the house, $P_0=\omega- {c} * d + a\psi$ - usually with a lag, 
+Municipal taxes are based somewhat approximately and with a  lag on the market price of the house $P_M=\omega- {c} * d + a\psi$ - usually with a lag, 
 
-In each price a period a `mill rate'. Each mill is  expressed as  1/1,000 of the value is determines - The annual tax is initially
+In each  period a `mill rate' is applied to the assessed value. For computational purposes We will assume that that is the warranted price. Each mill is  expressed as  1/1,000 of the value as determine by assessment - The annual tax is then
 
- $(taxrate)*P_0=(millrate)*\frac{\omega- {c} * d + a\psi}{r}$
+\[tax=(millrate)*\frac{\omega- {c} * d + a\psi}{r}\]
 
-This has to be compounded for decisions made over a period f more than one year.
+In our computations, his has to be compounded for decisions made over a period of more than one year.
 
 
 \subsection{Distinguishing market rental price and locational rent}
 
-% Making these distinctions, we find that Equation C3 is wrong.
 
 \begin{align}
 \mathcal{R}_N &= \mathcal{R} - \mathcal{O} - \mathcal{T}
@@ -165,6 +140,39 @@ The warranted price  is not the same as the market price. The market price can d
 % There is another distinction:
 The warranted value is base on the true value of the services, while the market value can diverge. 
 % We do the calculation in terms of warranted values because we will use these to initialize the model. 
+
+For the sake of the computational model we define housing prices for different purposes and at different stages of the market process. The notation appears in Table \ref{table-price-notation}.
+
+\begin{table}[]
+\centering
+\begin{tabular}{r|c|c|c|c|c|c|}\cline{2-7}
+                     & Warranted       & Asking  & Bid  & Reservation & Market          & Expected \\ \cline{2-7}
+Property price       & $P_W$           & $P_A$  & $P_B$ & $P_R$       & $P_M$           & $P_M^e$  \\ \cline{2-7}
+Rent $\mathcal{R}_W$ & $\mathcal{R}_W$ &        &       &             & $\mathcal{R}_M$ &          \\ \cline{2-7}
+\end{tabular}
+\caption{Price and rent notation}
+\label{table-price-notation}
+\end{table}
+
+% \renewcommand{\arraystretch}{1.5}
+% \begin{tabular}{rlrr}\
+% Symbol         & Name                                 & Value      & Formula  \\ \hline
+% $\omega$  & Maximum locational rent (wage premium) & 0.012  \\
+% $a$       & Share of subsistence wage for land and building & 1.0 \\
+% $\psi$    & Subsistence wage & 10000 \\
+% $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
+% $c$       & Transportation cost & \\
+% $T$       & Period & 5 years      \\
+% $r$       & Individual interest rate & 0.05 \\\
+% $\tau$       & Tax share & \\
+
+% --        &  & \\
+% $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+% % $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
+% $r_i^\delta$   & Individual discount rate             &            & To assign \\
+% $\bar r$       & Prime interest rate                  &            & \\
+% \end{tabular}
+% \renewcommand{\arraystretch}{1.0}
 
 We anchor our housing price expectations in bid rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. 
 
@@ -452,6 +460,9 @@ If no sale is made the owner considers becoming a landlord. if the present value
 
 
 \chapter{Relating the market model to the code}
+
+The chapter links the theory to the output of the simulations. %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
+
 \section{The market process and bargaining}
 The core machinery of the model is the market process. At the centre of that process is a model of price formation and bargaining. % bargaining model. 
 % The process can be summarized as
