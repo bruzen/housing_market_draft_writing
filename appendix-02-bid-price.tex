@@ -1,44 +1,81 @@
-\chapter[Bidding]{Calculating Bid Price}
+\chapter[Bidding]{Prices and Bidding}
 \label{appendix-bid-price}
 \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
 
-This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. The chapter %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
-links the theory to the output of the simulations.
+This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
 
-\subsubsection{Housing prices} \label{section-housing-price}
+The chapter %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
+links the theory to the output of the simulations. 
+
+% \renewcommand{\arraystretch}{1.5}
+% \begin{tabular}{rlrr}\
+% Symbol         & Name                                 & Value      & Formula  \\ \hline
+% $\omega$  & Maximum locational rent (wage premium) & 0.012  \\
+% $a$       & Share of subsistence wage for land and building & 1.0 \\
+% $\psi$    & Subsistence wage & 10000 \\
+% $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
+% $c$       & Transportation cost & \\
+% $T$       & Period & 5 years      \\
+% $r$       & Individual interest rate & 0.05 \\\
+% $\tau$       & Tax share & \\
+
+% --        &  & \\
+% $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+% % $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
+% $r_i^\delta$   & Individual discount rate             &            & To assign \\
+% $\bar r$       & Prime interest rate                  &            & \\
+% \end{tabular}
+% \renewcommand{\arraystretch}{1.0}
+
+\section{Housing prices} \label{section-housing-price}
+For the sake of the computational model we define housing prices for different purposes and at different stages of the market process. The notation is as follows
+
+\begin{tabular}{r|c|c|c|c|c|c|}\cline{2-7}
+     & warranted  & asking & bid & reservation & Market &expected\\ \cline{2-7}
+  property price   &  $P_W$    &  $P_A$    & $P_B$ &  $P_R$  &$P_M$    &   $P_M^e$    \\ \cline{2-7}
+   rent $\mathcal{R}$ &  $\mathcal{R}_W$    &    &    &  $\mathcal{R}_W$   &  $\mathcal{R}_W$    &  \\ \cline{2-7}
+\end{tabular}
+
+%We will explain why  the rent charged to the tenant is locked  to a single value.
 
 \subsection{Warranted Price}
 % \section{Warranted rents}
-In each period a house offer two kinds of services - home services proper and locational services - access to the central city job. We call this the \glspl{warranted market rent}, and we expect a tenant to pay this amount.
+We begin with underlying economic value. In each period a house offer two kinds of services: home services proper and locational services - access to the central city job. We call the value of this stream of services the \glspl{warranted market rent},  $\mathcal{R}_W$, since it is the market value of the services provided. This is the maximum that can be extracted from tenants before they decide they are better off leaving the city. We expect a tenant to pay this amount. In other words we assume that the actual market rental price is the warranted rental price.  Making this assumption simplifies the model and, along with the focus on rents, is what makes ours a ``classical'' model.
+
+
+\subsubsection{Locational services}
+Locational services are, on an annual basis $\omega- {c} * d$. 
+
+\subsubsection{Land and building services}
+We assume that household spend a fixed fraction $a$ of their subsistence wage  $psi$ to housing. 
+
+A property at $d$ offers the combined annual services of 
+
+\begin{align}
+\mathcal{R}_W=\omega- {c} * d + a\psi  
+\label{eqn-housing-price}
+\end{align}
+Annual rent charged initially should be  equal to the annual value of services, $h$:
+and the warranted market price is 
+\[H=\frac{h}{r}=\frac{\omega- {c} * d + a\psi}{r}\]
+
+% We will use this value as the price for the first period 
+ $P_W=\frac{\omega- {c} * d + a\psi}{r}$
+
+
+Real world  rents do diverge from warranted rents, but they are limited by what tenants can pay, and that in turn is limited by urban wages. When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is analogous to the way classical economists employed the subsistence wage assumption to simplify their analysis. 
+
+\subsubsection{Net Rent}
 
 Homes must be maintained and taxes paid, so an owner would enjoy only the net rent,   $\mathcal{R}_N$
 
-The \gls{warranted market price} of a house then is the present discounted value of the flow of those service.
+The \gls{warranted market price} of a house then is the present discounted value of the flow of those service net of costs.
 \begin{equation}
   P^w=\frac{\mathcal{R}_N}{r}  
 \label{eq:Capitalization}
 \end{equation}
 where $\mathcal{R}_N$ is the net value of rents, and $r$ is the  interest rate.
-We expect it to be the sale price of a unit of housing with land in the absence of potential capital gains.
-
-\subsection{locational services}
-
-To formalize the description, locational services are, on an annual basis $\omega- {c} * d$. A property at $d$ offers the combined annual services of 
-
-\begin{align}
-h=\omega- {c} * d + a\psi  
-\label{eqn-housing-price}
-\end{align}
-where $a$ is a fraction of the subsistence income , $psi$. Annual rent charged initially should be  equal to the value of services, $h$:
-and the warranted market price is 
-\[H=\frac{h}{r}\]
-
-% We will use this value as the price for the first period 
- $P_0=\frac{\omega- {c} * d + a\psi}{r}$
-
-Annual rent charged initially is  equal to the value of services, $h$:
-\[\mathcal R^{charged}= h= \omega- {c} * d + a\psi\]
-Actual rents do diverge from warranted rents, but they are limited by what tenants can pay, and that in turn is limited by urban wages. When we assume an subsistence wage $\psi$ with a specific share $a$ 
+We expect it to be the sale price of a unit of housing with land in the absence of potential capital gains. The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe that process below.
 
 \subsubsection{Annual Taxation}
 Municipal taxes are based on the price of the house, $P_0=\omega- {c} * d + a\psi$ - usually with a lag, 
@@ -934,7 +971,7 @@ The rates $\delta,\ \sigma,$ and $r$ depend on the period, $T$.
 With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
 the expected price at the end of the period is:
 
-\[P_M^e_T=P_0(1+\dot P)^T\]
+\[P_M^{Te}=P_0(1+\dot P)^T\]
 
 If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
@@ -948,7 +985,7 @@ If person $i$  discounts at a discount rate $r^\delta$, the present value of a r
 %\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+r_\delta} \right)^\tau \]
  
 These can be combined into a function %\delta that  gives a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
-\[ PDV(P_M^e_T)=P_0\left( \frac{1+\dot P}{1+r_\delta} \right)^T \]
+\[ PDV(P_M^{Te})=P_0\left( \frac{1+\dot P}{1+r_\delta} \right)^T \]
 This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation.
 
 \subsection{Mortgage availability}
