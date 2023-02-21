@@ -27,9 +27,9 @@ We assume households spend a fixed fraction $a$ of their subsistence wage $\psi$
 
 It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
 
-The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, take on debt, devote more amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. 
+The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. 
 
-Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier.  \footnote{*** COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS QUITE WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}
+Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier\footnote{*** COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS QUITE WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
 
 The warranted rent %is a frontier the market pushes the agents towards.  
 is a kind of frontier, which may be thought of as an equilibrium or attractor. The way this work uses that kind of frontier, drawing on equilibrium and dynamical agent based traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
@@ -44,30 +44,30 @@ Making this assumption simplifies the model and, along with the focus on rents, 
 % We will use this value as the price for the first period 
 % $P_W=\frac{\omega- {c} * d + a\psi}{r}$
 
-
 \subsubsection{Net Rent}
-
-Homes must be maintained and taxes paid, so an owner would enjoy not the total warranted rent, but only the net rent,  $\mathcal{R}_N$
-
-DEFINE NET RENT
-
-
-\subsubsection{Warranted price}
-
-The \gls{warranted price} of a house then is the present discounted value of the flow of those service net of costs.
-\begin{equation}
-  P_W=\frac{\mathcal{R}_N}{r}  
-\label{eq:Capitalization}
-\end{equation}
-where $\mathcal{R}_N$ is the net value of rents, and $r$ is the  interest rate.
-We expect it to be the sale price of a unit of housing with land in the absence of potential capital gains. The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe that process below.
+Homes must be maintained and taxes paid, so an owner would enjoy not the total warranted rent, but the net rent,  $\mathcal{R}_N$, after expenses.
 
 \subsubsection{Annual Taxation}
-Municipal taxes are based somewhat approximately and with a  lag on the market price of the house $P_M=\omega- {c} * d + a\psi$ - usually with a lag, 
+In each  period a `mill rate' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag. The warranted price is  developed in Equation  \ref{eqn-price-warranted}:
+\[P_W = \frac{\omega- {dc} + a\psi}{r}.\]
 
-In each  period a `mill rate' is applied to the assessed value. For computational purposes We will assume that that is the warranted price. Each mill is  expressed as  1/1,000 of the value as determine by assessment.\footnote{ By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. } The annual tax is then
+% value of the stream of services.. why 
+Since the appraised value typically lags the market value, and attempts to approximate underlying value, it is reasonable to approximated it with the warranted price \cite{apraised_value_refs}.
 
-\[tax=(millrate)*\frac{\omega- {dc} + a\psi}{r}\]
+Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}. The annual tax is then:
+
+
+
+\[\mathcal{T}=\text{mill rate} \times \frac{\omega- {dc} + a\psi}{r}\]
+
+
+
+WE SHOULD EXPLAIN WHY COSTS ARE NOT PART OF THIS. IE WHY THIS IS:
+
+\[\mathcal{T}=\text{mill rate} \times \frac{\mathcal{R}_W}{r}\]
+NOT
+\[\mathcal{T}=\text{mill rate} \times \frac{\mathcal{R}_N}{r}?\]
+
 
 In our computations, the rate selected has to be compounded for decisions made over a period of the mortgage term $T$.
 
@@ -142,17 +142,28 @@ so we can write
 %Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
 %That may let us simplify the exposition in the financialization chapter.
 
+\subsubsection{Warranted price}
+
+The \gls{warranted price} of a house is the present discounted value of the flow of service net of costs:
+\begin{equation}
+  P_W=\frac{\mathcal{R}_N}{r},  
+\label{eqn-price-warranted}
+\end{equation}
+where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains. 
 
 
 \section{Bid Price}
 
-The warranted price  is not the same as the market price. The market price can depart from the warranted price when there is price speculation based on expected future values or if agents make errors based on market information.
+The warranted price is not the same as the market price.  The market price can depart from the warranted price when there is price speculation based on expected future values or if agents make errors based on market information.
 % There is another distinction:
 The warranted value is base on the true value of the services, while the market value can diverge. 
 % We do the calculation in terms of warranted values because we will use these to initialize the model. 
 
+The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. % that process below.
+
 For the sake of the computational model we define housing prices for different purposes and at different stages of the market process. The notation appears in Table \ref{table-price-notation}.
 
+*** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
 \begin{table}[]
 \centering
 \begin{tabular}{r|c|c|c|c|c|c|}\cline{2-7}
@@ -375,7 +386,7 @@ P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - 
 % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
 \label{eqn-bid-price1}
 \end{align}
-The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eq:Capitalization}. 
+The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eqn-price-warranted}. 
 
 Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
 
