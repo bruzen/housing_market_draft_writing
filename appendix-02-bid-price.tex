@@ -4,28 +4,37 @@
 
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
 
-\section{Housing prices} \label{section-housing-price}
+\section{Rent} \label{section-housing-price}
 
 % *** We will explain why  the rent charged to the tenant is locked  to a single value.
 
-\subsection{Warranted Price}
-
-The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services: home services proper and locational services (access to the central city job). We call the value of this stream of services the \glspl{warranted rent}, $\mathcal{R}_W$, since it is the market value of the services provided. This is the maximum that can be extracted from tenants before they decide they are better off leaving the city. This is the maximum a tenant might pay. % We expect a tenant to pay this amount. 
+\subsection{Warranted Rent}
+The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services:  \gls{locational services}, access to the central city job and \gls{home services} proper.  
 
 \subsubsection{Locational services}
+Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
 
-Locational services are, on an annual basis, the rent premium $w$, minus the transportation costs $c$ for a property a given distance, $d$ from the center:
+Locational services are, on an annual basis, the rent premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center:
 \[\omega- {dc}.\]
 
-We assume households spend a fixed fraction $a$ of their subsistence wage $\psi$ on housing \footnote{***JUSTIFY ASSUMPTION OF FIXED SHARE OF SUBSISTENCE HERE? This appears to be empirically justified and simplifies the model \cite{SOURCE_HOUSING_A_FIXED_SHARE_SUBSISTENCE_WAGE}. Appendix \ref{appendix-future-work} considers how the assumption may be relaxed in future work.}, so the warranted rent, $\mathcal{R}_W$, the maximum rent that is economically justified is:
+\subsubsection{Home services}
+We assume households spend a fixed fraction $a$ of their subsistence wage $\psi$ on housing. 
+ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE AND THE VALUE PAID? % - if you own the services you capture it - the value experienced can differ from the value paid. *** WORK OUT NOTATION AMENITY HERE OT MAKE IT EASIER LATER.. 
+% MAYBE NOTE THEY STILL NEED TO PAY $a\psi$ OUTSIDE THE CITY. SO THAT'S THE CONSTANT
+\footnote{***JUSTIFY ASSUMPTION OF FIXED SHARE OF SUBSISTENCE HERE? This appears to be empirically justified and simplifies the model \cite{SOURCE_HOUSING_A_FIXED_SHARE_SUBSISTENCE_WAGE}. Appendix \ref{appendix-future-work} considers how the assumption may be relaxed in future work.}, so the warranted rent, $\mathcal{R}_W$, the maximum rent that is economically justified is:
 % a property at $d$ offers the 
 
+\subsubsection{Economically warranted rent}
+The warranted rent is then the sum of the locational services and home services.
+We call the value of this stream of services the \glspl{warranted rent}, $\mathcal{R}_W$, since it is the market value of the services provided. This is the maximum a tenant might pay, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.
 \begin{align}
 \mathcal{R}_W=\omega- {dc} + a\psi.
 \label{eqn-housing-price}
 \end{align}
 
 It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
+
+NOTE ON AMENITY..
 
 The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. 
 
@@ -45,10 +54,25 @@ Making this assumption simplifies the model and, along with the focus on rents, 
 % $P_W=\frac{\omega- {c} * d + a\psi}{r}$
 
 \subsubsection{Net Rent}
-Homes must be maintained and taxes paid, so an owner would enjoy not the total warranted rent, but the net rent,  $\mathcal{R}_N$, after expenses.
+Warranted rent defines what agents would pay to live in a property. Net rent is the warranted rent, net of costs. It is the amount an owner might claim after taxes are paid, and homes maintained, 
+% Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent,  $\mathcal{R}_N$, after expenses.
 
-\subsubsection{Annual Taxation}
-In each  period a `mill rate' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag. The warranted price is  developed in Equation  \ref{eqn-price-warranted}:
+\begin{align}
+\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
+&= \omega - {dc} + a\psi -  \mathcal{O} - \mathcal{T}, \\
+\end{align}
+where $\mathcal{O}$ are opperating costs, and  $\mathcal{T}$, taxes. For an investor, it is the net warranted rental price that is relevant in investment decisions. % (It is what it's worth paying to get the stream of services and costs - fees, cost of money etc.) decision making. 
+
+\subsection{Market Rent}
+
+The market rent is what the investor actually pays for the property.
+
+ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDIOCITON VALUES. THE PREDICITON VALUES ARE WHAT ARE USED. 
+THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
+WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
+
+\subsection{Annual Taxation}
+In each  period a `mill rate' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag. The warranted price,  Equation \ref{eqn-price-warranted}.
 \[P_W = \frac{\omega- {dc} + a\psi}{r}.\]
 
 % value of the stream of services.. why 
@@ -68,16 +92,17 @@ WE SHOULD EXPLAIN WHY COSTS ARE NOT PART OF THIS. IE WHY THIS IS:
 NOT
 \[\mathcal{T}=\text{mill rate} \times \frac{\mathcal{R}_N}{r}?\]
 
-
 In our computations, the rate selected has to be compounded for decisions made over a period of the mortgage term $T$.
 
 \subsubsection{Annual Maintenance}
 Annual maintenance costs apply to building and lands but not to locational value.
 
 
-\subsection{Distinguishing net market rental price and warranted rent}
-
-% Why? A tenant should expect to pay a market price for the combination of locational services and the services of land and buildings that they use.  The market rental price  is an equilibrium market rent, not the economic economic rent. In the real world the market rental price can  diverge from the warranted . ) 
+% \subsection{Distinguishing net market rental price and warranted rent}
+% Why? A tenant should expect to pay a market price for the combination of locational services and the services of land and buildings that they use.  The market rental price  is an equilibrium market rent, not the economic economic rent. In the real world the market rental price can  diverge from the warranted . )  
+WE MAY  WANT A TERM FOR EQUILIBRIUM MARKET PRICE, TO DISTINGUISH IT FROM THE EVOLVED MARKET PRICE  % LIKE MARKET PRICE, IT IS THE PRODUCT OF A DISTINCT PROCESS OFMARKET EVOLUTION. THAT WOULD LET US TALK ABOUT THESE TWO KINDS OF MARKETS WE ARE LOOKING AT (E CONFUSES IT WITH EXPECTEED THOUGH.. 
+MAYBE USE $\epsilon$ FOR EXPECTED SUPERSCRIPT e.g. $P_M^{\epsilon}$? % THEN IT IS THE EXPECTATION OF A PARTICULAR AGENT, WHICH CAN DIVERGE FROM EQULIBRIUM-- IT CAN HAVE ANY GUESSES OR SPECULATION ABOUT OTHER AGENTS THAT WE WANT TO ADD--
+ $P_M^{E}$ is the equilibrium expectation based on precisely articulated assumptions, either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can include any assumptions the agent has about the behaviour of others, the system state, etc. % Neither is a true realized value. This probably confuses things to carry 
 
 % We should distinguish the locational rent from the $\mathcal{R}^l = \omega - {dc}$ from the warranted rental cost of housing services.% (Maybe use a capital L?) 
 
@@ -85,13 +110,9 @@ Annual maintenance costs apply to building and lands but not to locational value
 
 
 
-For an investor, it is Net warranted  rental price that is relevant in decision making. 
 
 
-\begin{align}
-\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
-&= \omega - {dc} + a\psi -  \mathcal{O} - \mathcal{T} \\
-\end{align}
+
 
 % \begin{quotation}
 % a  =  share of subsistence wage  used for land and building e.g. 0.3
