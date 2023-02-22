@@ -146,9 +146,7 @@ The model combines clear and explicit theoretical assumptions with careful and t
 To be useful in policy discussions, a model must correctly simulate the relevant system features and be able to incorporate a variety of policy interventions. We have taken care to allow for  both theoretical and policy- relevant extensions in the way the simulation model is coded. 
 \end{enumerate}
 
-
 \section{Document overview}
-
 This thesis develops a conceptual framework for a model of the housing market and then describes the model and the implications of the analysis of the model. %insights it produces. 
 There are three parts in the dissertation. 
 
@@ -166,7 +164,23 @@ Part \ref{part-background} gives the background and introduces the theoretical f
 Part \ref{part-model} develops the model and results.
 \begin{enumerate}
     \item Chapter \ref{chapter-methodology} introduces the methodology. % In addition to the core contribution linking housing and productivity, there are three methodological lines of contribution, and there are policy implications SUMMARIZE METHODOLOGICAL CONTRIBUTIONS %(rent is key to financialization, however the main urban models don't observe the distribution of rents)
-    \item Chapter \ref{chapter-model} describes an illustrative agent-based model of the urban system. Most of the analysis of urban systems has employed analytical models with roots that go back to von Thunen () and more recently Alonzo. These models are extremely useful, but necessarily abstract from the concrete  and variable individual behaviour and  the details  of dynamics that make real cities path-dependent. XXX (Dawn) have shown that agent-based models can reproduce the features of the analytical models, at least in simple cases. TODO maybe divide chapter on theoretical core, followed by chapter on impelementation (general for basic and resilience experiments).
+    \item Chapter \ref{chapter-model} describes an illustrative agent-based model of the urban system. 
+    This model has three  parts, first a production function, modelling how urban regions generate wealth, and second a model of an urban housing market, and finally, a financial sector that can participate in the market. 
+% Alternative phrasing 
+%We integrate a labour market into a spatial urban model, set up to explore rent, and implications for the distribution of wealth.
+
+\textbf{The model has a Solow-Swan style production model with agglomeration effects using a Cobb-Douglas production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
+in the way neoclassical growth theory incorporates labour-augmenting technical change.}
+It integrates the production function with an Alonso-style urban model of a city economy (Alonso 1964). 
+
+We take a step beyond integrating labour markets in a city, to studying the distributional effects: who gets the surplus, what does that mean for the class structure, and ultimately the productivity of cities. 
+
+This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatialy explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
+ %calculate the urban surplus, and consider who gets it. 
+ 
+MOVE TO LIT REVIEW/CONTRIBUTION?
+%: The work draws on the Alfonso/Von Thünen model of the concentric city and Dawn Parker and Filatova's work in agent-based modelling of housing markets (see http://jasss.soc.surrey.ac.uk/12/1/3.html 2009).% We begin with a simple model of a circular city with urban agglomeration effects. In subsequent sections we will use an agent-based model to relax assumptions to look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns for individuals over space and time.
+Most of the analysis of urban systems has employed analytical models with roots that go back to von Thunen () and more recently Alonzo. These models are extremely useful, but necessarily abstract from the concrete  and variable individual behaviour and  the details  of dynamics that make real cities path-dependent. XXX (Dawn) have shown that agent-based models can reproduce the features of the analytical models, at least in simple cases. TODO maybe divide chapter on theoretical core, followed by chapter on impelementation (general for basic and resilience experiments).
     \item TODO experiment 1 - setup, parameter values,  analysis, and results
     \item Chapter \ref{chapter-resilience} develops a resilience analysis of the effects of a driven version of the model, introducing the pump effects.  
 
