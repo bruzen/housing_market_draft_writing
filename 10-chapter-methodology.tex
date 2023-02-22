@@ -22,7 +22,7 @@ and numerical methods.
 
 
 In an \gls{ABM}, agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{This approach is not unfamiliar to economists - The Cournot duopoly model, for example, is analyzed using `reaction functions' which simply describe a firm's optimal response to as second firm's output choice.} 
-Unlike equilibrium approaches, agent based modelling commits to using computational methods to mimic the distributed decision making of complex systems like cities. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with other modelling approaches, ABMs can be used explore the behaviour of the system by varying individual parameters, and to explore the parameter space using Monte Carlo methods.
+Unlike equilibrium approaches, agent-based modelling commits to using computational methods to mimic the distributed decision making of complex systems like cities. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with other modelling approaches, ABMs can be used explore the behaviour of the system by varying individual parameters, and to explore the parameter space using Monte Carlo methods.
 
 % In ABMs it is often makes sense to simplify models, less for computational reasons then to % The problem of model complexity remains a challenge with ABMs, however, and modellers introduce simplifying assumptions. These are not as a rule needed for the computational model but are very helpful in maintaining
 % maintain a focus on the key theme  of the model.  %(ADD distinction between detailed models and detailed explicit models)
@@ -42,6 +42,10 @@ It is at this point we introduce an innovation to formal urban modelling. We dra
 \Gls{expectations} have to take into account some amount of current and past information. Forecasts based on recent price movements can give rise to \gls{price bubble}s through either speculative or precautionary motives. Expectations anchored in \gls{perfect foresight} have different dynamics, since agents correctly forecast the path of prices.\cite{muthRationalExpectationsTheory1961} We employ backwards-looking expectation formation anchored 
 %  This ANCHORING IS INTERESTING, BY THE WAY
 to current rental returns, which allows agents to be misled by rapidly rising prices. We derive an investment rule of this sort in Chapter~\ref{chapter-financialization}. 
+
+\subsubsection{SORT - single value frontier - explore reasons}
+WHERE TO EXPAND% *** We will explain why  the rent charged to the tenant is locked  to a single value. A few factors - we are looking at the frontiers- the economically justified maximum as a way of linking productivity and extraction formally. - there are many variations and extensions to build on/explore/relax these core assumptions - - want to do this for a few reasons..
+
 
 \subsection{Overlapping generations}
 In our model individuals have a working life, then retire. If they own homes they sell and move to the countryside where housing is cheaper. They are replaced by new entrants from the countryside. New entrants may become buyers or tenants. This is a variant of the \gls{overlapping generations  model} in which savings are passed on to the next generation. In our case homes are passed on, as agents retire and move away. While the model has multiple generations, it is not a `dynastic' model in which the generations are linked by family ties and inheritance matters in individual decision-making. We rely on this simple version because the core issues for us are  the effect of financialization on city productivity, whether the city continues to provide opportunity for newcomers and those without the benefit of generational wealth and the emergence of classes. Introducing a richer family structure would complicate the model but add little to understanding  our  main  issue. 
@@ -122,17 +126,17 @@ In Figure \ref{fig:landrentasinframarginal}, The level of rent is determined at 
 % providing tractable models.  equilibrium analysis of marginal effects, and representative agents which hid distributional effects, as well as spaceless economic models of markets made it difficult to capture the richer spacial dynamics of urban rents, and the details of the ways economic forces play out for individual actors.
 
 % First they've not tended to build in, in a sophisticated way classical economic theory,
-% In general, classical economic theory has not been developed in agent based modeling work
-% Agent based models have begun with simple models, using and relaxing neoclassical assumptions, and building from first principles. This is absolutely the place to start. As the field matures, it makes sense to introduce theory in a more nuanced way, that connects with classical theory/the history of thought, etc
+% In general, classical economic theory has not been developed in agent-based modeling work
+% Agent-based models have begun with simple models, using and relaxing neoclassical assumptions, and building from first principles. This is absolutely the place to start. As the field matures, it makes sense to introduce theory in a more nuanced way, that connects with classical theory/the history of thought, etc
 
-% Second, relatively little agent based modelling work integrates with the neoclassical economic work in a way that makes the relation clear/holds the advantages. ABM work tends to both reject neoclassical approaches and rely on neoclassical assumptions.
+% Second, relatively little agent-based modelling work integrates with the neoclassical economic work in a way that makes the relation clear/holds the advantages. ABM work tends to both reject neoclassical approaches and rely on neoclassical assumptions.
 % More generally only a few agent models (e.g. spruce budworm) connect the analytic and agent models in a clear rigorous way. We focus on holding in addition to the relation with classical theory, a close connection with the many advances made withing neoclassical modelling
 
 % - this connection will make it easier to incorporate in teaching and for mainstream economists to engage on and build with.
 
 % This work builds, first, a simple conceptually clear model tightly integrated with the core economic modelling traditions, that builds on the theory of rent.
 
-% ALSO (Agent modelling also tents to model individuals- we also take some steps to agent based modelling beyond the individual, and to the work developing model in a mode ideas)
+% ALSO (Agent modelling also tents to model individuals- we also take some steps to agent-based modelling beyond the individual, and to the work developing model in a mode ideas)
 
 % Third, econ lacks resilience analysis and models, yet hysteresis clearly present in the relation between the built environment and econ activity. Although there's been work on dynamics and individual effects, there has been little work looking at the resilience dynamics in economic models, we take that approach looking at the resilience of community and individual wealth, and the relationship between that wealth and productivity. 
 
@@ -164,3 +168,7 @@ In Figure \ref{fig:landrentasinframarginal}, The level of rent is determined at 
 % Simulations
 % Result - hysteresis,
 % Policy
+
+
+\section{SORT - add dynamical systems diagram}
+
