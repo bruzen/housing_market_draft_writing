@@ -1,47 +1,17 @@
 \chapter{Model} \label{chapter-model}
 
 \section{The general structure of the model}
-The main goal of this research as been to add a financial system to the  simple Alonzo model in  order to examine the impact of financial cycles on urban productivity and distribution. The Agent Based Model we develop has three major components: 
+The main goal of this research as been to add a financial system to the simple Alonzo model in order to examine the impact of financial cycles on urban productivity and distribution. The \gls{agent-based model} we develop has three major components: 
 
 \begin{enumerate}
-\item We incorporate the spatial structure of the city and its transportation system using a version of the bid-rent function that drives all Alonzo-style models. This equation is embedded in the decision of every agent.
+\item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonzo-style models. This equation is embedded in the decision of every agent.
 
-\item We incorporate the fundamental wealth production process of the city by using an urban scaling law. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an Alonzo-Jacobs model.  Two difference equations operating  on two aggregate variables incorporate the major insight of a half-century of neoclassical growth theory.
+\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating  on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
-\item To link the Alonzo-Jacobs model to the financial system, we develop an overlapping generations housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model.
+\item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations model} of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model.
 \end{enumerate}
 
 To recapitulate, we have a spatial model of an urban housing market, a production function, modeling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
-
-\subsection{REDUNDANT Land Market}
-% Agents purchase homes to live in. The value of the the proximity to work and to amenity drives shapes the what agents are willing to pay. 
-% These prices shape the relationship between housing markets and the wealth of households.
-Our goal is to look at the relationship between housing markets, financialized investment, and production. % and labour markets. 
-To explore this relationship, we integrate the model of production developed above with a spatially explicit agent-based land market. % in which heterogenous individuals and institutions buy and sell properties given their individual goals, resources and available information. We integrate this housing market with % within this model of individual and institutional actors in a spatially explicit property market, a model of production and employment.
-
-We examine the effect of housing on wealth inequality by looking at 
-%We explore the wealth forming dynamics of the urban agglomeration effect by modelling 
-a city in which agents work in the city and leave their jobs when they reach retirement age. They may choose to rent or sell their home. %?They may chose whether to stay in the city, if there is sufficient amenity value for them, to rent their house, or to sell it. % Todo can agents choose not to retire? Can they keep working? Do they get the subsistence wage on retirement? Do they need to leave the city to get it? 
-New agents enter the city to work. 
-Agents fund their retirement from savings, as well as returns on their home if they own one. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. % either in the stock market, or in pensions.
-A financial institution manages the pension, investing in the market or in property.
-%Institutional and individual investors can access debt. %We also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter controls the inflow of additional money beyond local investment in the pension fund. 
-
-% There is an outside world in two respects. There is a market for the urban product produced by firms, and a financial market that agents can invest in.
-% Lots of simple extensions e.g. 2 cities with immigration, differentiated labour, products, market power, neighbourhood effects (see extensions map/typology), we focus on those elements central to seeing the structure of the resilience dynamics of the wealth/housing effect. Consider adding density, to look at how it interacts with agglomeration effects. (integrating with transportation effects is very neat)
- 
- If there is a housing market, agents can move. %In the analytic case above, the population stays in place, and travels to work if it is worthwhile given the transportation costs. 
-%Those who come to the city will be those for whom the benefits the city offers make it worthwhile to  whether that's building their network, accessing markets, accessing amenity, learning, finding specialized employment, or increased wages. In this model 
-The demand for labour drives urban growth. % The housing market depends on how many people from the periphery are completing to claim places in the city. TODO IF ANY RURAL AGENT COULD MOVE IF THE CITY HAS ADDITIONAL DEMAND FOR LABOUR, HOW DO WE DECIDE WHICH DO? Could use a parameter for immigration (or how 'hot' the market is) and in the simplest case (corresponding to how many agents from outside are looking at the housing/rental market), have the inflow match. % Agents have debt and there is an undifferentiated labour market
- 
-Figure xyz traces the flow. In each time step agents firms update wages and job availability, agents decide whether to work and whether to buy and sell homes.
- % Schedule: Multi step by breed
- % Steps Labour
- % step - workers: market/production, enter market to buy, list properties real estate agent matches agents - has bids 
- % bidding - workers and firm consider properties and make bids (2nd step or spread over 2 steps)
- % negotiation - sellers consider and accept bids (or real estate agents manage negotiation)
-%Buyers evaluate their need for housing.
-% Agents decide whether to enter the housing market as a renter or a buyer.
 
 \section{Spacial structure}
 In this section, we introduce the basic structure of the model, drawing on the circular city model.  
@@ -317,14 +287,36 @@ Population would be expected to adjust much more slowly than firm wages, so labo
 Population/workforce, $n$, and the wage will be determined endogenously in competitive markets. 
 
 \section{Financialization}
+
+Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship, we integrate the model of production developed above with a spatially explicit agent-based land market.
+
+OR? To explore the relationship, we integrate the urban production model  into a spatially explicit land market with financialized investment. 
+
 Urban productivity %and amenity
 drives land values through the housing market.
 
-To explore the relationship, we integrate the production model into a spatially explicit agent-based model with financialized investment. 
+Individuals and institutions buy and sell properties given their individual goals, resources and available information. We integrate this housing market with % within this model of individual and institutional actors in a spatially explicit property market, a model of production and employment.
 
 The result is a simple model in which marginal productivity determines the wage, the wage determines the size of the city, the size of the city determines the labour supply, and labour supply determines marginal productivity. 
 The model is constructed so that there is neither land rent nor capitalist exploitation in the rural economy. 
 This special case allows us to examine the distribution of the social surplus generated by agglomeration economies and the effect of financialization.
+
+We examine the effect of housing on wealth inequality by looking at 
+%We explore the wealth forming dynamics of the urban agglomeration effect by modelling 
+a city in which agents work in the city and leave their jobs when they reach retirement age. They may choose to rent or sell their home. %?They may chose whether to stay in the city, if there is sufficient amenity value for them, to rent their house, or to sell it. % Todo can agents choose not to retire? Can they keep working? Do they get the subsistence wage on retirement? Do they need to leave the city to get it? 
+New agents enter the city to work. 
+Agents fund their retirement from savings, as well as returns on their home if they own one. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. % either in the stock market, or in pensions.
+A financial institution manages the pension, investing in the market or in property.
+%Institutional and individual investors can access debt. %We also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter controls the inflow of additional money beyond local investment in the pension fund. 
+
+% There is an outside world in two respects. There is a market for the urban product produced by firms, and a financial market that agents can invest in.
+% Lots of simple extensions e.g. 2 cities with immigration, differentiated labour, products, market power, neighbourhood effects (see extensions map/typology), we focus on those elements central to seeing the structure of the resilience dynamics of the wealth/housing effect. Consider adding density, to look at how it interacts with agglomeration effects. (integrating with transportation effects is very neat)
+ 
+ If there is a housing market, agents can move. %In the analytic case above, the population stays in place, and travels to work if it is worthwhile given the transportation costs. 
+%Those who come to the city will be those for whom the benefits the city offers make it worthwhile to  whether that's building their network, accessing markets, accessing amenity, learning, finding specialized employment, or increased wages. In this model 
+The demand for labour drives urban growth. % The housing market depends on how many people from the periphery are completing to claim places in the city. TODO IF ANY RURAL AGENT COULD MOVE IF THE CITY HAS ADDITIONAL DEMAND FOR LABOUR, HOW DO WE DECIDE WHICH DO? Could use a parameter for immigration (or how 'hot' the market is) and in the simplest case (corresponding to how many agents from outside are looking at the housing/rental market), have the inflow match. % Agents have debt and there is an undifferentiated labour market
+ 
+
 
 \subsection{Initialization}
 Workers can leave the workforce and retire, and new people can come into the city. 
@@ -1515,16 +1507,12 @@ We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0
 
 
 \section{SORT: Miscellaneous calculations about rates over time}
-
-
 $delta(0)=1$  for funds received now
 
 Lets calculate $S$, $\delta$ at time infinity:
 *** Why?
 
 \[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
-
-
 
 \begin{align}
 delta (1)   &= 1/(1+r) \\
@@ -1842,11 +1830,15 @@ Initialize the model with grid. Each element contains 1 housing unit.
 
 The model space is divided into a uniform grid of single family homes % Additions: apartment buildings, a mechanism to subdivide homes, rent bedrooms, accumulate adjacent land and build new higher density buildings, an urban land boundary, a mechanism for wealth agglomeration through density.
 
-
-
-
 \subsection{Model Steps - Housing market}
-
+Figure xyz traces the flow. In each time step agents firms update wages and job availability, agents decide whether to work and whether to buy and sell homes.
+ % Schedule: Multi step by breed
+ % Steps Labour
+ % step - workers: market/production, enter market to buy, list properties real estate agent matches agents - has bids 
+ % bidding - workers and firm consider properties and make bids (2nd step or spread over 2 steps)
+ % negotiation - sellers consider and accept bids (or real estate agents manage negotiation)
+%Buyers evaluate their need for housing.
+% Agents decide whether to enter the housing market as a renter or a buyer.
 
 at every time step 
     1) Some new tenants arrive into the city
