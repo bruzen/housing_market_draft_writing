@@ -6,40 +6,33 @@
 % here is some code
 % \end{verbatim}
 
-
-
-ABMs can be run multiple times to produce distributions of expected outcomes, which makes them valuable in planning exercises. They also do not require  that we use a representative agent to make them tractable. Our model is intended to be elaborated  for such use. 
+ABMs can be run multiple times to produce distributions of expected outcomes, which makes them valuable in planning exercises. They also do not require that we use a representative agent to make them tractable. Our model is intended to be elaborated  for such use. 
 
 extensions
 what it is
 why it would be great to model
 why it doesn't matter for our core results
 
-
 \section{A possible typology of models and experiments}
 While there  are very many variations on the basic urban model and many potential experiments with each model there are only a few of immediate interest if the goal is to text the ``resilience'' of equilibria.
 
 These models may exhibit irreversibilities in variables such as distribution, homelessness, city form, and class structure. 
 
-
-The  basic strategy for examining the system resilience is to shock a model (experiment) and then see if diagnostic variables recover. (This needs more precise expression.)
-
+The basic strategy for examining the system resilience is to shock a model (experiment) and then see if diagnostic variables recover. (This needs more precise expression.)
 
 The first task is to select a subset of models an experiments that are of particular interests with respect to.
 
-The second is to construct  a model that allows those case to be examined. Ideally the model would be easily adapted to other experiments.
+The second is to construct a model that allows those case to be examined. Ideally the model would be easily adapted to other experiments.
 
 The following is a an attempt to develop a typology with a clear progressive structure.
 
-Feedback - wealth  allows  upgrading. This advantages the rich. Maybe this 
-
+Feedback - wealth allows upgrading. This advantages the rich. Maybe this 
 
 \subsection{Models}
 \begin{enumerate}
 \item \textbf{A: The basic model}
 
 The workhorse of urban economics is the circular city model. Some feature of the central place generates rents. It may be that it is the only employment centre. It may be economies of scale to a single activity or synergies arising from various externalities\footnote{We are interested in agglomeration economies. The wage  structure would then be related to the population or industry  structure. Externalities driving agglomeration may be classified  into two types, the  or so-called ``Marshalian''  and ``Jacobs'' externalities.}. 
-
 
 In the simplest model, the central place pays a uniform wage, $w$ to all employees, who have identical preferences and transportation costs. $w$ is an attribute of individual residents. Residents  purchase or rent equal quantities of land at differing locations $l$ for identical housing.  
 
@@ -55,23 +48,18 @@ If population exceeds the number of properties there are three margins to consid
 		\item The land per-capita may decrease. This is not simple in a city with land-use regulations, zoning, and fixed capital in homes. A conversion process has to be defined
 		\item A homeless population can emerge. 
 	\end{enumerate}
-	
-
 
 It is convenient in this model to use a Cobb-Douglas utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
-
 
 It is convenient but not necessary to assume that land outside of the residential limit is costless. It is common to assume a fixed price for agricultural land. 
 
 There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing
-
 
 \item \textbf{Y: The basic model with Income Differences}
 This will result in segregation by neighbourhood depending on income. 
 
 Income can be purely earning, which requires a distribution of $w$ across agents. Income  might include investment income, which  a private rate of return and a distribution of assets across agents. \footnote{A more subtle model could allow individual wages to be linked to the agglomeration of other workers - say engineers. we can imagine a city that has centres of agglomeration by profession or by complementarity. Depending on the production function, this should emerge endogenously.}
 \footnote{Sufficient investment income could lead individuals to locate in cheap properties at the edge of the city.  Income might also be invested in property affecting the quality of a unit. This would require incorporating unit quality in the attribute list for each property, and introducing a quality preference  in the attribute s of residents.}
-
 
 \item \textbf{L: The basic model with Locational Preferences}
 This will result in segregation by neighbourhood depending on preferences.
@@ -84,7 +72,6 @@ A natural variant would be to have earning depend on location. If there were sev
 This will result in segregation by neighbourhood depending on income and Transportation costs. Experiments include cars for the rich and  transit. 
 
 Diagnostics include change in total transportation cost and differential welfare effects.
-
 
 \item \textbf{R: The basic model with a rent-own choice}
 This may result in the emergence of classes. Agents must have the capacity to borrow to purchase. Attributes of the agents and must now include  net assets,  an available interest rate, and a permissible mortgage.
@@ -111,13 +98,9 @@ This model should produce some interesting spatial patterns, especially if coupl
 
 This model should produce some interesting spatial patterns, especially if couples with the possibility of secondary central places.
 
-
 \item \textbf{IR: The basic model with outside investors and rent-own}
 
 \item \textbf{IYR: The basic model with outside investors, earnings differentials and rent-own choice} This model is of interest if borrowing costs decline with income and asset ownership.
-
-
-
 \end{enumerate}
 \subsection{Experiments}
 There are various experiments of interest. You will have to pick key ones. It is not necessary to do all of them in every model. 
@@ -153,20 +136,35 @@ There are various experiments of interest. You will have to pick key ones. It is
 % \label{default}
 % \end{table}%
 
-
 \section{SORT}
+% The urban production sector pays a wage premium $w$
+%This is a convenient simplification, not a necessary feature of the model. 
 
 
-
-
+\section{Experiments with this model}
 \subsection{Initial state}
+Basic experiments has all homes owner occupied to start. Other initial tenure mixtures are easily modelled. WHY WE MIGHT WANT TO
 
-Basic expeiriment has all homes owner occupied to start. Other initial tenure mixtures are easily modelled. WHY WE MIGHT WANT TO
+The basic model can be initialized by matching the number of properties to the size of the population. 
+
+In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
+
+The size of the city is determined by population and lot size. Income and transportation costs will interact with lot size. 
+
+\section{Analysis/Methods}
+mapping of regimes
+
+\section{Extensions to the Model}
+The simple circular city can be extended to to produce other forms, including polycentric cities and hierarchies of cities at the cost of additional computational complexity. The simple case we examine will allows us to focus on the general, and neglected, distributional features of this class of models.
 
 \subsection{Lags and adjustment processes}
 The details of the adjustment process and the system lags are selected primarily for convenience in simulations. Real-time lags are important and complex, we explore some sensitivity results, but can explore more. 
 
-\section{Heterogeneous agents}
+\subsection{Heterogeneous agents}
+In the simplest model, the central place pays a uniform wage premium, $w$ to all employees, who have identical preferences and transportation costs. 
+The wage $w$ is an attribute of individual residents.  
+It is straightforward to vary i and to vary preferences. 
+
 relax assumptions and look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns in a richer model with heterogenous agents interacting over space and time. 
 
 - wages, skill sets
@@ -182,18 +180,27 @@ based on location etc
 \subsection{Preferences}
 A utility function/algorithm specifies agents preferences over the attributes that matter. - algorithmic continuous. lexicographic- any traits. 
 
+\subsection{Unemployment and labour adjustment costs}
+There is no unemployment. there are no labour adjustment costs for firms. ***INTERESTING TO THINK ABOUT  
+when people would stop working with
 
+ falls to subsistence wage -
+ too much rent, I guess they leave, they can always move somewhere
+
+\subsection{Moving costs}
+     If there are moving costs, people can be trapped in a bad situation, incurring debt, and it can still be not worthwhile to move
+
+\subsection{Transportation costs}
+the transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. \cite{Alain-Bertaud-2015})
 
 \subsection{Multiple firms}
 Explicitly modelling labour markets with multiple firms is a natural way to specify the model more completely, see Appendix \ref{appendix-future-work},  but it would require introducing many ancillary assumptions and selecting among alternative models of agglomeration, when when we want to focus on distributional and growth-affecting features of the system.
 
 \subsection{Sectors}
-
 ..
 
-\section{Skills and individual productivity}
-
- The basic model consideres a non-differentiated workforce. We can add particular skills.
+\subsection{Skills and individual productivity}
+The basic model consideres a non-differentiated workforce. We can add particular skills.
 Some agents can be more productive than one another
 
 Agents may move to cities to assemble networks (model as networks)
@@ -214,12 +221,7 @@ We can explore different drivers in the model.
 \subsection{Retirement investors and private investment properties}
 Localized tax advantages can move a share of financilized investment into private consolidation of land.
 
-
-
-
-
 \subsection{Buyer urgency, Immigration pressure and market 'hotness'} 
-
 Worker agents from outside the city can always consider moving and accepting a job. % QUESTION - how to manage the flow of new agents?
 %, or can make more from rents and moving away
 
@@ -231,21 +233,29 @@ ALSO BRINGS IN AGENT PREFERENCES - They place the most competitive bids on those
 
 Next buyers request a selection of homes to consider from a real estate agent. Those with higher need for housing look at more homes. The real estate agent offers a selection of homes based on the agent's requirements. A randomness parameter determines how many divergent houses are also considered. When the parameter is 1, the selection of homes is fully randomized, When it is 0, the agent sorts all available homes and offers those which fit the agents budget, space, and other requirements best.
 
-\section{Interventions}
-
+\section{Interventions: Policy and Agent Strategies}
 Extended appropriately, this basic model could be used for planning.
 
+detailed models of interventions typologies of interventions e.g. local currencies, decaying currencies, 
+
 \subsubsection{Teaching}
+could use for teaching a sequence for illustration could follow to introduce x ideas - see above. - rent, space, finance treated separately, - tool to think about their relation
 
-could use for teaching a sequence for illustraiton could follow to introduce x ideas - see above. - rent, space, finance treated seperately, - tool to think about their relation
-
-productivity centerered urban and spatial policy
+productivity centered urban and spatial policy
 
 connects with growth, economic development in real places work
 
 \subsection{Zoning}
-
 zoning - layers interact
+
+\subsection{Taxes}
+property taxes reduce the net locational value that flows to an owner but provides services and wages that make the city attractive. 
+
+(create a regime where particular groups have an advantage)
+
+\subsection{Housing quality, size, subdivision}
+Residents  purchase or rent equal quantities of land at differing locations %$l$ 
+for identical housing.  DOWN
 
 \subsection{Development and Improvements}
 The supply of land at any distance from the center is inelastic. 
@@ -254,13 +264,10 @@ Its value comes from proximity to the productive urban centre, not from the valu
 Some nonlinearities e.g. Some may buy land seeking to develop property in the future and let it become run down. 
 
 We could add improvements
- or consolodation, subdivision, and development. 
-
+ or consolidation, subdivision, and development. 
 
 % Reference sections on development which is different, and the contribution of amenity % Because supply is fixed for urban land, and the landowner has a monopoly claim on rents, the rents that can be depend on wages and amenity rather than the cost of improvements made to the property.
 % The source of rents is the free gifts of nature, the coming together of people to create value in cities, and the concentration of public amenity in cities. 
-
-
 
 \subsection{Distribution of rents}
  %\note{REPHRASE? rent is  extracted from the coalition of capital and workers.} % Rents may also be taxed, could be shared between multiple owners, etc. 
@@ -269,7 +276,10 @@ In principle the gains from urban productivity and amenity can be allocated as s
 %The rents would otherwise go to labour and capital.
 
 
-\section{Rough Notes}
+\section{Empirical Grounding}
+incorporation of local data more carefully
+
+\section{SORT Rough Notes}
 what does a speculative over investment do - hollowed out store front
 
 who carries what risks- banks vs individuals
@@ -279,7 +289,6 @@ subdivision and density
 multiple cities,
 linear cities
 
-
 differential skills and wages,
 work from home
 
@@ -287,16 +296,7 @@ details of typologies, transportation networks, etc
 
 - make it available as a part for other models, use other models in this model
 
-detailed models of interventions typologies of interventions e.g. local currencies, decaying currencies, 
-
-
-
-incorporation of local data more carefully
-mapping of regimes
-
-
-\section{SORT Urban Savings - Contributions?}
-
+\subsection{Urban Savings - Contributions?}
 THIS IS A CONTRIBUTION, BUT ALSO A DISCUSSION OF ONE WAY THIS WORK COULD BE EXTENDED, MIXED WITH A BIT OF MODEL DESCRIPTION
 
 Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require  savings at two levels. First, since we want to incorporate  households home ownership and a relationship to the financial sector through mortgages, We specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
@@ -310,3 +310,13 @@ Public and private investment in human capital is largely urban as well, but as 
 Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
 
 We deal with this issue by linking local capital ownership with the scale factor. It is known that local ownership is associated with local investment. We will assume that local capital ownership, which consists in part of local ownership of the housing stock, can be proxied by homeowner equity as a share of local. 
+
+
+\section{Theoretical development}% Feb 23 2023
+We have carefully developed the link between neoclassical growth theory and the literature on urban scaling \cite{bettencourtIntroductionUrbanScience2021} and imposed the scaling result on our model. This amounts to black-boxing the entire production and labour demand sector as well as the construction and housing production sector. We force the model to conform to the empirical data on the relationship between population and productivity.
+
+This made sense because our focus  was on the housing market and the financial sector, but the model we have constructed will allow us to ``fill the black box'' with more complete models of the production and labour market to see how they compare to the empirical data. 
+
+The  scaling  literature also provides relationships between density and population and infrastructure cost and population that we can explore in the same way.
+
+In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is perfectly consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
