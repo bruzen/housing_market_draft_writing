@@ -38,110 +38,42 @@ We assume workers receive a subsistence wage, $\psi$, in the countryside, which 
 \subsection{Labor force}
 There are also firms that produce goods to sell. They can produce more goods by hiring additional workers. 
 Firms pay a wage premium, $w$, over the subsistence wage to attract workers \footnote{
-See parameter Appensix section \ref{section-wage-premium} for a discussion of the empirical literature on the urban wage premium.}. 
-When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-The total wage employers pay is thus the subsistence wage plus the urban wage premium  $\psi + w$.
+See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
+When workers take a job, they give up the subsistence income and instead receive the wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
+The total wage employers pay is the subsistence wage plus the urban wage premium  $\psi + w$ required to attract workers.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
-?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 
-As in the standard circular city model the constraint on growth is provided by transportation costs, which limits the size of the commuter-shed and therefore the labour force at any wage. 
-Agents work if the wage premium is greater than the cost of travel. %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
+Agents work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
+The higher the wage, the farther workers can travel for work. 
+The \gls{urban wage premium} and transportation costs thus determines both the radius of the circular city and the size of the labour force.   %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
+% and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
+ %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
+% The  productivity of the city attracts people.  
+This is the standard urban population equilibrium condition/\gls{migration equilibrium}
 
-The radius of the commuter shed is the maximum incentivized commute, $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance.
-Given a standard lot size $s$, the labour available in the \gls{radial city} is thus: % Do we want to call it a radial city?
+The radius of the city, or  \gls{commuter shed} is $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance.
+Given a uniform lot size $s$, with one worker per unit land, the labour available in the \gls{circular city} is then the area of the circle divided by the lot size: % Do we want to call it a \gls{radial city} ?
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
  L = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
-   = \frac{\pi}{s {c}^2} w^2,
+   =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-which increases with the square of the wage.  DEFINE $s$? 
+% Note, this increases with the square of the wage. 
+This is the equilibrium urban labour supply curve. To get wage for s given city size, we can also write the inverse labour supply function:
+\begin{equation}
+w= (\frac{ {c}^2s}{\pi})^{0.5} L^{0.5}.
+\label{eqn-inverse-labour-supply}
+\end{equation}
 
-Labour demand is thus a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically, hiring proceeds until the marginal product of labour is equal to the wage.
-
+\subsection{DETAILS AND ALTERNATIVE PHRASING Wage adjustment}
+ *** Could put this in an appendix with details?
+% Labour demand is thus a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically, hiring proceeds until the marginal product of labour is equal to the wage.
 The firm adjusts its labour force upward when the marginal product of labour is greater than the wage by selecting from its list of job applicants.
 
 The firm adjusts its wage offer upward when the marginal product of labour is greater than the wage and it faces a labour shortage.  Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
 
-\subsection{Economically warranted rent}
-Rising population and productivity generates an economic value for land that provides proximity to the production center. Use of a unit of land in each cycle is valued at the wage premium net of transportation costs.  This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{c} d$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{c} d$ in rent would still choose to work. 
-
-\section{Agglomeration}
-
-% It is a model of a productive urban economy since the centre is productive and demands labour.
-We supplement the spatial model with agglomeration effects consistent with the literature. % in the base model. 
-% There is an agglomeration effect, which
-% The agglomeration effect means firms can also produce more goods by operating in a city with more people, because of the connections and interactions between people (CITE). 
-
-To introduce  the productive nature of cities, we assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. 
-
-We  incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969})  similar to the way the  Solo-Swan model incorporates  labour-augmenting technical change using a simple Cobb-Douglas production function.  DOES ABOVE SENTENCE/REFS BELONG HERE, OR UP IN GROWTH/INTRO SECTIONS?
-We treat the estimated scaling relationship as a production function. This allows us to focus on the results of agglomeration in the urban system rather than specifying the system of firms that transmit the effect. Urban output is more than proportional to urban population: 
- \begin{equation}
- Y\propto N^{\beta}
- \label{eqn-production-population}
- \end{equation}
-where $\beta >1$.  Equation~\ref{eqn-production-population} implies, according to neoclassical distribution theory, that the wage premium is increasing in urban population:
-\begin{equation}
-\omega\propto N^{\beta-1}
-\label{eqn-wage-population}
-\end{equation}
-Equation~\ref{eqn-wage-population} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
-
-We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite the fact that we  model it as a \gls{monopsonist}\footnote{}. JUSTIFY/REPHRASE/EXPLAIN monopsonist. ALSO DOES THIS GO HERE OR BELONG WITH PRIOR SECTION?
-
-%The  scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms. %In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. 
-
-We bypass the complexity of modelling firms, allowing population increases to directly increase urban wage premium.
-%\footnote{CONSIDER MOVING TO FUTURE WORK? - COPIED OVER - CUT THIS OR REMOVE FROM FUTURE WORK The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others.}
-%, It is straightforward to compute the rate of excess return for  this model. 
-% We insert the production function  into a standard Alonso-style model of a city economy . 
-
-Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale \footnote{Spillover effects can be large, see section \ref{section-spillover}.}.
-
-\subsection{REDUNDANT: Labour supply}
-%The wage  determines how far people can travel, since it pays for subsistence, that surplus can go to travel, so the higher the wage, the farther workers travel for work. \note{Maybe } 
-
-Workers in the countryside receive a subsistence wage, $\psi$, which could come from work in the local community, living off the land, family support, social support, or something else. % cite other models with subsistence wage.
-
-% It is convenient in this model to use a Cobb-Douglas utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
-
-
-
-Urban firms pay a wage premium, $w$, over the subsistence wage to attract workers. 
-When workers take a job, they give up the subsistence income and instead receive the wage from their employer. 
-The total wage employers pay is thus the subsistence wage plus the urban wage premium $\psi + w$.
-Specifying the model in terms of a wage premium simplifies the link to the production side and the treatment of household choice.
-
-The \gls{urban wage premium} determines how far people can travel. The higher the wage, the farther workers travel for work. 
-Workers will go to work if the wage premium is greater than the cost of travel, ${c}$ per unit distance. 
-Wage and transportation cost therefor determine the radius of the circular city, which determines the size of the labour force which affects urban productivity. The cost of travel is therefore an important variable in the development of urban productivity. 
-
-% Living close to work has value to workers because it saves the cost of transportation. 
-% We assume workers receive a subsistence wage, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. % [MAYBE ADD This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
-
-%If the cost of transportation is ${c}$ per unit distance, then t
-The farthest workers will travel to work is thus $\frac{w}{{c}}$, which defines the radius of the commuter shed. Thus a worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work, and the maximum distance that workers will commute is the radius of the commuter shed. Given a uniform lot size $s$, with one worker per unit land, the labour available is the area of the city. In the circular city, this is the area of the circle divided by the lot size
-\begin{equation}
-                 L%=  \frac{\pi}{s}(c^{max})^2	
-			=\frac{\pi}{s}  \left(\frac{w}{{c}}\right)^2
-			=\frac{\pi}{{c}^2 s} w^2, \label{eqn-labour-supply2}
-\end{equation}
-which increases with the square of the wage. This is the equilibrium urban labour supply curve.
-
-As in the standard circular city model the constraint on city size and hence growth is provided by transportation costs, which limit the size of the labour force at any wage. 
-% Rising transportation costs can become the limit on firm or city expansion. 
-
-%To get wage, we can write thee  inverse labour supply function  is
-%\begin{equation}
-%	w= (\frac{ {c}^2s}{\pi})^{0.5} L^{0.5},	%\label{eqn-inverse-labour-supply}
-%\end{equation}
-
- % TODO:  FOOTNOTE the transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. Alain Bertaud, 2015)
-% More generally, if we were to introduce variations in lot size and housing types  we would want the integral of the worker density function. In our ABM version  of the model we simply count the workers within the commuter shed.
-
-% DETAILS AND ALTERNATIVE PHRASING  
 % MARGINAL PRODUCT The marginal product of labour is monotonically declining, ensuring a labour market equilibrium, to connect with the analytic tradition of economic modelling by ensuring there is an equilibrium level of production.  While adding more labour may always adds some value, the rate at which it adds value drops off. 
 % If the marginal product increased, then a firm that got large enough would out compete smaller firms, hire all labour, always be able to produce more wealth by hiring more people, and would always produce more wealth by hiring people than by firing people. This doesn't happen. 
 % Perhaps, the firm hires employees who best fit its needs first, but to grow, eventually it must hire less selectively. Finding markets may get harder with growth. Perhaps expansion adds additional costs, building a parking lot, administration, acquiring a larger building. Whatever the explanation, the marginal product of labour declines. 
@@ -154,10 +86,38 @@ As in the standard circular city model the constraint on city size and hence gro
 
 % We have a two factor model of production with labour and capital.  
 
-\subsection{Migration equilibrium}
-The  productivity of the city attracts people.  In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent  on the marginal unit of housing or land exceeds the transportation cost. This is the  standard urban population equilibrium condition. 
-   
-The growth of population feeds back into productivity. We allow rising population to directly increase the wage.  We model a fairly short lag although in reality lags are long and variable. 
+\section{Agglomeration}
+% It is a model of a productive urban economy since the centre is productive and demands labour.
+% The growth of population feeds back into productivity. % We allow rising population to directly increase the wage.  
+% We supplement the spatial model with agglomeration effects consistent with the literature. % in the base model. 
+% There is an agglomeration effect, which
+% The agglomeration effect means firms can also produce more goods by operating in a city with more people, because of the connections and interactions between people (CITE). 
+
+To introduce  the productive nature of cities, %, we assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. 
+we  incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969})  similarly to the way the Solo-Swan model incorporates labour-augmenting technical change using a simple Cobb-Douglas production function. 
+
+We treat the estimated scaling relationship as a production function. This allows us to focus on the results of agglomeration in the urban system rather than specifying the system of firms that transmit the effect. Urban output is more than proportional to urban population: 
+ \begin{equation}
+ Y\propto N^{\beta}
+ \label{eqn-production-population}
+ \end{equation}
+where $\beta >1$.  Equation~\ref{eqn-production-population} implies, according to neoclassical distribution theory, that the wage premium is increasing in urban population:
+\begin{equation}
+\omega\propto N^{\beta-1}
+\label{eqn-wage-population}
+\end{equation}
+Equation~\ref{eqn-wage-population} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
+
+We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite the fact that we model it as a \gls{monopsonist}\footnote{}. JUSTIFY/REPHRASE/EXPLAIN monopsonist. ALSO DOES THIS GO HERE OR BELONG WITH PRIOR SECTION?
+
+%The  scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms. %In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. 
+
+We bypass the complexity of modelling firms, allowing population increases to directly increase urban wage premium.
+%\footnote{CONSIDER MOVING TO FUTURE WORK? - COPIED OVER - CUT THIS OR REMOVE FROM FUTURE WORK The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others.}
+%, It is straightforward to compute the rate of excess return for  this model. 
+% We insert the production function  into a standard Alonso-style model of a city economy . 
+
+Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale \footnote{Spillover effects can be large, see section \ref{section-spillover}.}.
 
 \subsection{REDUNDANT: Production}
 Firms produce goods which they sell in a commodity market\footnote{For simplicity, assume firms produce a variety of perfectly substitutable commodities which are exported and locally consumed at a fixed price in a large market. Note increasing product variety may produce a consumption agglomeration economies as in \cite{fujitaSpatialEconomyCities1999}.}. Demand for the urban product is perfectly elastic which means producing more won't affect the product's price; and there are decreasing returns to scale, which means each new worker increases output by less than the last worker did. 
@@ -169,6 +129,9 @@ Y(t) = K(t)^{\alpha}(A(t)L(t))^{\beta}
 \label{Eqn:Solow-Swann}
 \end{equation}
 where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology, that can capture the growth of labour productivity over time, $\alpha$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale (CRS) production function at the firm level.
+
+
+** WHERE? and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
 
 % In the Solow-Swan model all factors of production are fully employed, and initial values $A ( 0 )$, $K(0)$, and $n( 0 )$  are given. The number of workers, i.e. labor, as well as the  level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:     $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
  
@@ -248,6 +211,16 @@ Population/workforce, $n$, and the wage will be determined endogenously in compe
 
 \section{Financialization}
 
+\subsection{Economically warranted rent}
+Rising population and productivity generates an economic value for land that provides proximity to the production center. 
+
+%In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent  on the marginal unit of housing or land exceeds the transportation cost. 
+
+Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
+ A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work, 
+ This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work. 
+
+\subsection{Relation between urban productivity and land markets}
 Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship, we integrate the model of production developed above with a spatially explicit agent-based land market.
 
 OR? To explore the relationship, we integrate the urban production model  into a spatially explicit land market with financialized investment. 
@@ -281,7 +254,7 @@ The demand for labour drives urban growth. % The housing market depends on how m
 \subsection{Initialization}
 Workers can leave the workforce and retire, and new people can come into the city. 
 
-Initially, all homes are owner-occupied. This is of interest  as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. 
+Initially, all homes are owner-occupied. This is of interest as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. 
 
 We also start with owners who have a long run before retirement. The housing market is  during the initialisation runs to allow the wage and population to converge. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
 
@@ -856,10 +829,7 @@ Each agent has their own interest rates, discount rates, mortgage share, informa
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
 
-
-
 \section{The period and time value of money}
-
 In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
 %This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
 
@@ -886,10 +856,6 @@ For the sake of notational simplicity and clarity of exposition,  we omit the co
 %The appropriate compunding expressions for other rates are displayed below.
 
  The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
-
-
-
-
 
 \section{The owner's decision to sell}
 We will assume, at least initially, that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results. On the other hand, 
@@ -1456,6 +1422,8 @@ We assume $r_i$ is based on the individual's assets, on relative wealth. Where i
 
 We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
 
+\subsection{SORT cobb douglas constang fraction of income on housing}
+It is convenient in this model to use a Cobb-Douglas utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
 
 \section{SORT: Miscellaneous calculations about rates over time}
 $delta(0)=1$  for funds received now
@@ -1604,7 +1572,7 @@ $d^* = w/{c}$    &  City extent \\ %, the maximum distance commuters will travel
 % $\psi$  &  ?Per-period cost of a unit of productive capital \\
 % $\omega + \psi$  &  Urban wage including rural wage \\ %***
 % $\textit{t}$ & {\color{red}transportation cost per km} \\%use   c?
-% $w^n=\omega-{c} d$ & Wage  premium net of transportation costs \\
+% $w^n=\omega-{dc}$ & Wage  premium net of transportation costs \\
 %% $\Omega=\frac{\omega+\psi}{\psi}$  &  Ratio of the urban wage to the  cost of capital \\
 %% $\Pi$	   &  Profit \\
 %% $ER$	   &  Excess return to capital \\ 
@@ -1656,8 +1624,8 @@ $tau$            &  Annual tax rate on rent and home \\ % Was $c$
 \begin{longtable}{lp{10cm}}
 \caption{Rent}                                                            \\
 \hline
-$\omega-{c} d$                &  Warranted (economic) rent                \\
-$\mathcal{R}=\omega-{c} d$    &  Equilibrium rent payment of tenant       \\
+$\omega-{dc}$                &  Warranted (economic) rent                \\
+$\mathcal{R}=\omega-{dc}$    &  Equilibrium rent payment of tenant       \\
 PDV                           &  Present discounted value                 \\  
 $\mathcal{R}^T$               &  PDV of rent collected over period $T$    \\ 
 $\mathcal{R}^T_N=(1-\kappa-\sigma)\mathcal{R}^T$  &  PDV of net rent collected over period $T$ \\

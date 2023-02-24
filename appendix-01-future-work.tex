@@ -161,6 +161,8 @@ The simple circular city can be extended to to produce other forms, including po
 \subsection{Lags and adjustment processes}
 The details of the adjustment process and the system lags are selected primarily for convenience in simulations. Real-time lags are important and complex, we explore some sensitivity results, but can explore more. 
 
+We model a fairly short lag although in reality lags are long and variable. 
+
 \subsection{Heterogeneous agents}
 In the simplest model, the central place pays a uniform wage premium, $w$ to all employees, who have identical preferences and transportation costs. 
 The wage $w$ is an attribute of individual residents.  
@@ -192,7 +194,13 @@ when people would stop working with
      If there are moving costs, people can be trapped in a bad situation, incurring debt, and it can still be not worthwhile to move
 
 \subsection{Transportation costs}
+
+Wage and transportation cost determine the radius of the circular city, which determines the size of the labour force which affects urban productivity. The cost of travel is therefore an important variable in the development of urban productivity. 
+
+
 the transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. \cite{Alain-Bertaud-2015})
+
+
 
 \subsection{Multiple firms}
 Explicitly modelling labour markets with multiple firms is a natural way to specify the model more completely, see Appendix \ref{appendix-future-work},  but it would require introducing many ancillary assumptions and selecting among alternative models of agglomeration, when when we want to focus on distributional and growth-affecting features of the system.
@@ -257,6 +265,8 @@ property taxes reduce the net locational value that flows to an owner but provid
 \subsection{Housing quality, size, subdivision}
 Residents  purchase or rent equal quantities of land at differing locations %$l$ 
 for identical housing.  DOWN
+
+? More generally, if we were to introduce variations in lot size and housing types  we would want the integral of the worker density function. In our ABM version  of the model we simply count the workers within the commuter shed.
 
 \subsection{Development and Improvements}
 The supply of land at any distance from the center is inelastic. 
