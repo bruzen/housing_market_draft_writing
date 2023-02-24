@@ -6,10 +6,12 @@ The main goal of this research as been to add a financial system to the simple A
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonzo-style models. This equation is embedded in the decision of every agent.
 
-\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating  on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
 \item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations model} of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model.
 \end{enumerate}
+
+*** QUESTION: DOES IT MAKE SENSE TO FLIP THE ORDER OF THE CHAPTERS IN LIGHT OF THIS? % Maybe start with rent, because we are introducing modern urban rent theory, then flip space and growth so we introduce the city first, then agglomeration effects, then finacialization?
 
 To recapitulate, we have a spatial model of an urban housing market, a production function, modeling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
 
@@ -22,15 +24,18 @@ To recapitulate, we have a spatial model of an urban housing market, a productio
 
 % \subsection{Labour supply for production}
 We begin with a model of a circular city - INTRO CITY/APPROACH?
-Following the Alonzo model \cite{alonzoTheoryUrbanLand1960}, firms are located at the centre of a circular city, the central business district. Residents are distributed across space, can take jobs, and commute to work at the center.
+Following the Alonzo model \cite{alonzoTheoryUrbanLand1960}, (\cite{alonsoLocationLandUse1964}) firms are located at the centre of a circular city, the central business district. Residents are distributed across space, can take jobs, and commute to work at the center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
 Firms produce goods to sell. They can produce more goods by hiring additional workers. 
-There is an agglomeration effect, which means firms can also produce more goods by operating in a city with more people, because of the connections and interactions between people (prior section explains and justifies). 
+There is an agglomeration effect, which means firms can also produce more goods by operating in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.,   %(prior section explains and justifies). 
 Living close to work has value to workers because it saves the cost of transportation. 
 
 We assume workers receive a subsistence wage, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
+% To simplify analysis, we assume that land outside of the residential limit is costless, following th common practice of assuming a fixed price for agricultural land \cit{cite-fixed-price-ag-land}. 
+
+\subsection{Labor force}
 There are also firms that produce goods to sell. They can produce more goods by hiring additional workers. 
 Firms pay a wage premium, $w$, over the subsistence wage to attract workers \footnote{
 See parameter Appensix section \ref{section-wage-premium} for a discussion of the empirical literature on the urban wage premium.}. 
@@ -38,11 +43,11 @@ When workers take a job, they  receive, in addition to the subsistence wage,  th
 The total wage employers pay is thus the subsistence wage plus the urban wage premium  $\psi + w$.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
+?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 
 As in the standard circular city model the constraint on growth is provided by transportation costs, which limits the size of the commuter-shed and therefore the labour force at any wage. 
 Agents work if the wage premium is greater than the cost of travel. %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
 
-LABOUR
 The radius of the commuter shed is the maximum incentivized commute, $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance.
 Given a standard lot size $s$, the labour available in the \gls{radial city} is thus: % Do we want to call it a radial city?
 \begin{equation}
@@ -53,13 +58,26 @@ Given a standard lot size $s$, the labour available in the \gls{radial city} is 
 \end{equation}
 which increases with the square of the wage.  DEFINE $s$? 
 
+Labour demand is thus a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically, hiring proceeds until the marginal product of labour is equal to the wage.
 
-ECONOMICALLY WARRANTED RENT $\mathcal{R}_W$
+The firm adjusts its labour force upward when the marginal product of labour is greater than the wage by selecting from its list of job applicants.
 
+The firm adjusts its wage offer upward when the marginal product of labour is greater than the wage and it faces a labour shortage.  Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
+
+\subsection{Economically warranted rent}
 Rising population and productivity generates an economic value for land that provides proximity to the production center. Use of a unit of land in each cycle is valued at the wage premium net of transportation costs.  This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{c} d$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{c} d$ in rent would still choose to work. 
 
 \section{Agglomeration}
-To introduce  the productive nature of cities, we assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. We treat the estimated scaling relationship as a production function. This allows us to focus on the results of agglomeration in the urban system rather than specifying the system of firms  that transmit the effect. Urban output is more than proportional to urban population: 
+
+% It is a model of a productive urban economy since the centre is productive and demands labour.
+We supplement the spatial model with agglomeration effects consistent with the literature. % in the base model. 
+% There is an agglomeration effect, which
+% The agglomeration effect means firms can also produce more goods by operating in a city with more people, because of the connections and interactions between people (CITE). 
+
+To introduce  the productive nature of cities, we assume the presence of scaling, consistent with neoclassical growth models as discussed in Chapter \ref{chapter-growth}. 
+
+We  incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969})  similar to the way the  Solo-Swan model incorporates  labour-augmenting technical change using a simple Cobb-Douglas production function.  DOES ABOVE SENTENCE/REFS BELONG HERE, OR UP IN GROWTH/INTRO SECTIONS?
+We treat the estimated scaling relationship as a production function. This allows us to focus on the results of agglomeration in the urban system rather than specifying the system of firms that transmit the effect. Urban output is more than proportional to urban population: 
  \begin{equation}
  Y\propto N^{\beta}
  \label{eqn-production-population}
@@ -69,35 +87,18 @@ where $\beta >1$.  Equation~\ref{eqn-production-population} implies, according t
 \omega\propto N^{\beta-1}
 \label{eqn-wage-population}
 \end{equation}
-Equation~\ref{eqn-wage-population} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is  consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
+Equation~\ref{eqn-wage-population} says that the city experiences increasing returns to scale in the utilization of human capital. The formulation is consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. 
 
-We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite the fact that we  model it as a \gls{monopsonist}\footnote{}. JUSTIFY/REPHRASE/EXPLAIN monopsonist
+We then treat the city as a single firm facing a fixed price for output. We assume that the firm behaves as a price taker in the labour market as well, despite the fact that we  model it as a \gls{monopsonist}\footnote{}. JUSTIFY/REPHRASE/EXPLAIN monopsonist. ALSO DOES THIS GO HERE OR BELONG WITH PRIOR SECTION?
 
----
+%The  scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms. %In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. 
 
-% It is a model of a productive urban economy since the centre is productive and demands labour.
-We supplement the spatial model with a labour market and agglomeration effects consistent with the literature. % in the base model. 
-% There is an agglomeration effect, which
-% The agglomeration effect means firms can also produce more goods by operating in a city with more people, because of the connections and interactions between people (CITE). 
+We bypass the complexity of modelling firms, allowing population increases to directly increase urban wage premium.
+%\footnote{CONSIDER MOVING TO FUTURE WORK? - COPIED OVER - CUT THIS OR REMOVE FROM FUTURE WORK The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others.}
+%, It is straightforward to compute the rate of excess return for  this model. 
+% We insert the production function  into a standard Alonso-style model of a city economy . 
 
-The  scaling result at the level of the city allows us to incorporate the effect of agglomeration in a standard  circular-city model in a simple way, avoiding the need to explicitly model labour markets and firms. %In this section, we introduce the basic structure of the production side and connect it to the literature on urban scaling. 
-
-We  incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969})  similar to the way the  Solo-Swan model incorporates  labour-augmenting technical change using a simple Cobb-Douglas production function.  
-
-We bypass the complexity of modelling firms  by allowing population increases to directly increase urban wage premium.\footnote{The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others.} %, It is straightforward to compute the rate of excess return for  this model. 
-%We insert the production function  into a standard Alonso-style model of a city economy (\cite{alonsoLocationLandUse1964}). 
-In the background, individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale \footnote{Spillover effects can be large, see section \ref{section-spillover}.}. 
-
- \subsection{MOVE The social system in the financialized Alonzo-Jacobs model}
-The social structure of the model begins with urban workers who commute and earn wages in the urban commuter-shed, and rural residents and landowners who may choose to move to the city. 
-We imagine the initial set of workers in our city commuting daily, being paid monthly and residing in urban housing for their working lives, which are arbitrarily set. Initially all urban workers are also homeowners. When we allow the initial urban residents to retire, they may sell or rent out their properties to new workers. This introduces an additional \gls{class} of resident, the urban tenant. The final agent in the model is a `bank' that represents both the financial sector and the owners of financial capital. The bank provides mortgage funds may  actively purchase land as a financial asset on behalf of investors.
-
-\subsection{Labour market}
-Labour demand is a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically, hiring proceeds until the marginal product of labour is equal to the wage.
-
-The firm adjusts its labour force upward when the marginal product of labour is greater than the wage by selecting from its list of job applicants.
-
-The firm adjusts its wage offer upward when the marginal product of labour is greater than the wage and it faces a labour shortage.  Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
+Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale \footnote{Spillover effects can be large, see section \ref{section-spillover}.}.
 
 \subsection{REDUNDANT: Labour supply}
 %The wage  determines how far people can travel, since it pays for subsistence, that surplus can go to travel, so the higher the wage, the farther workers travel for work. \note{Maybe } 
@@ -106,7 +107,7 @@ Workers in the countryside receive a subsistence wage, $\psi$, which could come 
 
 % It is convenient in this model to use a Cobb-Douglas utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
 
-? It is convenient but not necessary to assume that land outside of the residential limit is costless. It is common to assume a fixed price for agricultural land. There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing
+
 
 Urban firms pay a wage premium, $w$, over the subsistence wage to attract workers. 
 When workers take a job, they give up the subsistence income and instead receive the wage from their employer. 
@@ -1704,16 +1705,13 @@ Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainm
 
 
 \section{OLD Implementation}
-
-
 Household agents have:
 \begin{enumerate}
    \item A home. Agents live somewhere, inside or outside the city,
    \item finances: they have assets, a housing budget, income, and a spending pattern - family lending pattern  
    shaped by profession, demographics, family structure, etc.) - risk profile
-   \item utility function: they have a utility function with location  preferences    - amenity, open space, house size requirements, transportation costs - shaped by profession, demographics, family structure, etc
+   \item utility function: they have a utility function with location  preferences - amenity, open space, house size requirements, transportation costs - shaped by profession, demographics, family structure, etc
 \end{enumerate}	
-
 
 Buyers then consult with a financial agent to determine the maximum mortgage and interest rate they'd qualify for based on their income. This gives an upper bound to the range of homes they may consider. 
 
@@ -1776,9 +1774,16 @@ Finally agents valuate the homes offered and place bids. % For simplicity of imp
     \end{center}
 \end{figure}
 
+\subsection{Initial conditions}
 Initialize the model with grid. Each element contains 1 housing unit.
 
 The model space is divided into a uniform grid of single family homes % Additions: apartment buildings, a mechanism to subdivide homes, rent bedrooms, accumulate adjacent land and build new higher density buildings, an urban land boundary, a mechanism for wealth agglomeration through density.
+
+The social structure of the model begins with urban workers who commute and earn wages in the urban commuter-shed, and rural residents and landowners who may choose to move to the city. 
+We imagine the initial set of workers in our city commuting daily, being paid monthly and residing in urban housing for their working lives, which are arbitrarily set. 
+
+Initially all urban workers are also homeowners. When we allow the initial urban residents to retire, they may sell or rent out their properties to new workers. This introduces an additional \gls{class} of resident, the urban tenant. The final agent in the model is a `bank' that represents both the financial sector and the owners of financial capital. The bank provides mortgage funds can %may actively 
+purchase land as a financial asset on behalf of investors.
 
 \subsection{Model Steps - Housing market}
 Figure xyz traces the flow. In each time step agents firms update wages and job availability, agents decide whether to work and whether to buy and sell homes.
