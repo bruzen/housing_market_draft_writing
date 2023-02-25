@@ -24,89 +24,97 @@ To recapitulate, we have a spatial model of an urban housing market, a productio
 
 % \subsection{Labour supply for production}
 We begin with a model of a circular city - INTRO CITY/APPROACH?
-Following the Alonzo model \cite{alonzoTheoryUrbanLand1960}, (\cite{alonsoLocationLandUse1964}) firms are located at the centre of a circular city, the central business district. Residents are distributed across space, can take jobs, and commute to work at the center. 
+Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960}, (\cite{alonsoLocationLandUse1964}) firms are located at the centre of a circular city, the central business district. Residents are distributed across space, can take jobs, and commute to work at the center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
 Firms produce goods to sell. They can produce more goods by hiring additional workers. 
-There is an agglomeration effect, which means firms can also produce more goods by operating in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.,   %(prior section explains and justifies). 
-Living close to work has value to workers because it saves the cost of transportation. 
+There is an agglomeration effect, which means firms can also produce more goods by operating in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.
 
-We assume workers receive a subsistence wage, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
+We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
 % To simplify analysis, we assume that land outside of the residential limit is costless, following th common practice of assuming a fixed price for agricultural land \cit{cite-fixed-price-ag-land}. 
 
-\subsection{Labor force}
-There are also firms that produce goods to sell. They can produce more goods by hiring additional workers. 
-Firms pay a wage premium, $w$, over the subsistence wage to attract workers \footnote{
+\subsection{Labour force}
+There are also firms that produce goods to sell. They produce more goods by hiring additional workers. 
+To attract workers, they pay an \gls{urban wage premium}, $w$, over the subsistence wage\footnote{
 See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
-When workers take a job, they give up the subsistence income and instead receive the wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-The total wage employers pay is the subsistence wage plus the urban wage premium  $\psi + w$ required to attract workers.
+When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
+the total wage employers pay is called the \gls{urban wage},  which is the subsistence wage plus the urban wage premium  $\psi + w$.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
 
-Agents work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
-The higher the wage, the farther workers can travel for work. 
-The \gls{urban wage premium} and transportation costs thus determines both the radius of the circular city and the size of the labour force.   %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
+The {urban wage premium} and transportation together determines both the radius of the circular city and the size of the labour force,   %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
  %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
-% The  productivity of the city attracts people.  
-This is the standard urban population equilibrium condition/\gls{migration equilibrium}
+% The  productivity of the city attracts people. 
+since agents will work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
+The higher the wage, the longer workers will commute.
+The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance. This defines the \gls{commuter shed}, the radius of the circular city.
 
-The radius of the city, or  \gls{commuter shed} is $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance.
-Given a uniform lot size $s$, with one worker per unit land, the labour available in the \gls{circular city} is then the area of the circle divided by the lot size: % Do we want to call it a \gls{radial city} ?
+Given a uniform lot size $s$, with one worker per unit land, the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
  L = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
    =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-% Note, this increases with the square of the wage. 
-This is the equilibrium urban labour supply curve. To get wage for s given city size, we can also write the inverse labour supply function:
-\begin{equation}
-w= (\frac{ {c}^2s}{\pi})^{0.5} L^{0.5}.
-\label{eqn-inverse-labour-supply}
-\end{equation}
+This is the equilibrium \gls{urban labour supply} curve. It is the standard urban \gls{population equilibrium} condition, also called the \gls{migration equilibrium} \cite{migration_equilibOR_pop_equilib_condition}. It defines the quantity of labour available.
+
+In the agent model model, the \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agent's choice to seek work, model rules, and individual firm's hiring behaviour. %and the job search process. 
+In the basic model, the outcome is identical to the analytical case.  It diverges as additional decision factors, agents, driving variable, and \gls{stochastic} elements enter the model. %\footnote{See the discussion of model extensions in Appendix \ref{appendix-future-work}.}.
+% To get the \gls{urban wage premium}, we can write the inverse of the labour supply function:
+% \begin{equation}
+% w= (\frac{ {c}^2s}{\pi})^{0.5} L^{0.5}.
+% \label{eqn-inverse-labour-supply}
+% \end{equation}
 
 \section{Agglomeration}
-To introduce  the productive nature of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}) , using an approach similar to how the \gls{Solow-Swan model} incorporates labour-augmenting technical change. %, using a simple Cobb-Douglas production function. 
-We incorporate the estimated scaling relationship in a \gls{Cobb-Douglas} production function. This allows us to focus on the results of agglomeration in the urban system. % rather than specifying the system of firms that transmit the effect. 
+% *** ADD BACK? To study the productivity of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}), using an approach similar to the way the \gls{Solow-Swan model} incorporates labour-augmenting technical change with a \gls{Cobb-Douglas} production function, and building the production function into a standard Alonso-style model of an urban economy.
+%, using a simple Cobb-Douglas production function. 
+% We incorporate the estimated scaling relationship in 
+%The scaling result at the level of the city allows us to incorporate the agglomeration effect in a \gls{circular city} model, 
 
-The \gls{agglomeration effect} means urban output is more than proportional to urban population: 
+The \gls{agglomeration effect} means urban \gls{output} is more than proportional to urban population: 
  \begin{equation}
  Y\propto N^{\beta}
  \label{eqn-production-population}
  \end{equation}
-where $\beta >1$.   
+where $\beta$ is the EXPLAIN, and $\beta >1$.   
 
-Following \gls{neoclassical distribution theory}, this implies that the wage premium is increasing in the same way: % USES NEOCLASSICAL DISTRIBUTION THEORY TO GET THE WAGE INCREASE
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. This means the wage premium increase, in the same relation to population, as \gls{productivity} does:
 \begin{equation}
 \omega\propto N^{\beta-1}
 \label{eqn-wage-population}
 \end{equation}
-The scaling result at the level of the city allows us to incorporate the agglomeration effect in a \gls{circular city} model, building the production function into a standard Alonso-style model of an urban economy, and treating the city as having a single firm facing a fixed price for output. 
 
-Firms sell the goods they produce into a commodity market. For simplicity, firms produce a variety of perfectly \gls{substitutable} commodities which are exported and locally consumed at a fixed price in a large market. Demand for the urban product is perfectly elastic which means producing more won't affect the product's price; and there are decreasing returns to scale, which means each new worker increases output by less than the previous worker. 
 
-MOVE DOWN?
-The \gls{agglomeration effect} means that although individual firm returns to scale are declining, the city can experience increasing returns to scale in the utilization of human capital. % NEED? Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale .}.
-\footnote{The formulation is consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. The effects are not limited to the individual firm. \Gls{spillover effects} can be large, see section \ref{section-spillover}. \ref{section-spillover}}
+% The city has single firm facing a fixed price for output. 
 
-We use a two factor model of production, where production, is a function of capital and labour. The firm maximizes profit by setting the marginal value of the product of each factor equal to the unit cost per factor. We model agglomeration with a Solow-Swan style term for labour augmenting technical change. In the Solow-Swan model:
-\begin{equation} 
-Y(t) = K(t)^{\alpha}(A(t)L(t))^{\beta}
-\label{Eqn:Solow-Swann}
-\end{equation}
-where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology, that can capture the growth of labour productivity over time, $\alpha$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale \gls{CRS} production function at the firm level.
-
-% In the Solow-Swan model all factors of production are fully employed, and initial values $A ( 0 )$, $K(0)$, and $n( 0 )$  are given. The number of workers, i.e. labor, as well as the  level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:     $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
+% IS THIS DUPLICATION? I THINK THE Solow-Swan model IS INTRODUCED IN SPACE CHAPTER. MOVE THIS TO SPACE CHAPTER IF NEEDED?
+% In the \gls{Solow-Swan model}:
+% \begin{equation} 
+% Y(t) = K(t)^{\alpha}(A(t)L(t))^{\beta}
+% \label{Eqn:Solow-Swann}
+% \end{equation}
+% where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology. The technology term capture the growth of labour productivity over time, $\alpha$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale \gls{CRS} production function at the firm level.
+% In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:     $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
+% This model uses a similar functional form to look at the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. $\Lambda(n)n$ is  ``effective labour'' 
  
-This model uses a similar functional form to look at  the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. $\Lambda(n)n$ is  ``effective labor'' 
- the productivity of labour, rather than technology growing productivity over time. With labour augmenting agglomeration, $\Lambda(n)$, in place of technology, the equation becomes: 
-\begin{equation} 
+ We use a three factor model of production, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change:
+ % the productivity of labour, rather than technology growing productivity over time. 
+ With agglomeration in place of  technology $A(t)$. Following Equation \ref{}, 
+ % and it's development in Chapter \ref{chapter-growth}, 
+ output is: 
+
+\begin{equation}
 Y=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }.
 \label{Eqn:Prod1}
 \end{equation}
-where $n_i$ is labour, or the number of workers at the firm, the labour, and $n$ is the urban population. The agglomeration factor increases with population. It multiplies labour because agglomeration scales the productivity of workers. 
+where $K$ is capital, $\Lambda(n)$ is \gls{labour augmenting agglomeration},  $\alpha$, $\beta$, and $\gamma$  are elasticities with respect to capital, labour, and agglomeration respectively, and  $n_i$ is the \gls{urban labour supply}. CHECK WHAT FORM WE WANT AND MAKE SURE EQUN IS CONSISTENT 
+*** THIS EQUATION SHOULD HAVE GAMMA?
+
+% The agglomeration factor increases with population. It multiplies labour because agglomeration scales the productivity of workers.  
+
 
 A natural functional form of the agglomeration effect for illustrative purposes n is $\Lambda(n) = n^\gamma$. Then:
 \begin{eqnarray}
@@ -114,28 +122,26 @@ A natural functional form of the agglomeration effect for illustrative purposes 
  Y&=K^{\alpha }n^{\beta(1 + \gamma)}.
  \label{Eqn:Prod2}
 \end{eqnarray}
- % Notice that this formulation implies it is possible to have increasing returns to scale for the urban economy even with a production function at the firm level with decreasing returns to scale: the return to the total economy $\alpha + \beta(1 + \gamma)$ can be greater than one, even if $\alpha +\beta$ is less than one. %.\label{Fn:PSI}}  (CITE Appendix: Excess Returns)
-The strength of the agglomeration is given by $\gamma$, thus for $\gamma=0$ there are not agglomeration effects. APPENDIX?
+EXPLAIN WHY THIS IS A NATURAL FUNCTIONAL FORM
+ 
 
+MOVE TO PARAMETER VALUE DISCUSSION?
+The strength of the agglomeration is given by $\gamma$, thus for $\gamma=0$ there are not agglomeration effects. APPENDIX?
 By definition, with one person, the agglomeration effect has no influence, $\Lambda(1)=1$,  as in the \gls{Cobb-Douglas}, and empirical urban scaling results tell us that agglomeration increases with population, following a power law distribution, so we know %$\die
 FIX EQN ERROR die ${\Lambda}{n}>0$. 
-
 %%%%%%%%%. ***WHY
-If $\beta=1-\alpha$, this is a \gls{constant returns to scale} (\gls{CRS}) production function. Without agglomeration effects, $T(n)=1$,  Then  \textbf{$\mathbf{L(n) = T(n) n}$}  WHAT IS T, WHAT IS THIS TELLING US?
+If $\beta=1-\alpha$, this is a \gls{constant returns to scale} production function. Without agglomeration effects, $T(n)=1$,  Then  \textbf{$\mathbf{L(n) = T(n) n}$}  WHAT IS T, WHAT IS THIS TELLING US?
 Without agglomeration effects, $\Lambda(n)=1$,  Then  \textbf{$\mathbf{L(n) = T(n) n}$} 
+
+
 
 Firms will purchase the time of workers to capture the product of their effective labour  and enjoy the product of \gls{effective labour}. 
 If labour markets are \gls{competitive market}, we set die${Y}{L}=w$.
 
-% Labour always depends on the human capacity, technology, 
-% Capital is always complicated too it has dates, whether you can get the inputs for it, whether they're produced nearby etc.. -- 
-
-% Monopolists knows that increasing output will require a reduction in price-- and take into account how consumers will apply and take it into account.
-% No externalities imperfect information etc.. ensure efficiency but aren't needed, all you need is price taking for individuals to only pay attention to their own costs and their own benefits. 
-\gls{externalities}, \gls{imperfect information}, \gls{monopsony}, \gls{duopoly}, \gls{monopoly}
-% competitive markets many sellers, many buyers, monopoly single seller, monopsony - single buyer, intermediate cases - monopolistic competition - with some market power but not complete - duopoly- some inefficiency depending on the behavioural model because in the duopoly case they may be able to take advantage of the behaviour of buyers.
-% Start with perfect competition, then introduce monopolistic competition is most likely.. but it's more difficult to handle. e.g. with brand names, people have some preference for some feature of your particular good so you can price it higher even though you may loose some marginal people. Firms compete on brand name and reputation, not the pure cost effect.
-% In the spatial economy, goods are deferentially interchangeable. Put them on a line and firms pick a place along they line. Firms are in competition but are competing on a line-.. spatial model moved over to characteristic space.. -- looking at this would involve overlaying another space - the characteristic space on the physical space. .. There are also local places with local grocery stores. Polycentric stores have effectively monopolistic competition in real space. - like a named cafe downtown has the same.
+% Firms sell the goods they produce into a commodity market. 
+For simplicity, firms produce a variety of perfectly \gls{substitutable} goods, which they sell into a commodity market. %, which are both exported and locally consumed 
+% to sell into a large market, at a fixed price. 
+Demand for the urban \gls{product} is \gls{perfectly elastic}, so the price remains constant, and there are \gls{decreasing returns to scale}, which means each new worker increases output by less than the previous worker did. 
 
 To maximize profit  firms set the marginal value product of labour, %$p\die{Y_i}{n_i}$, 
 equal to the wage. 
@@ -159,6 +165,15 @@ The marginal product of labour declines monotonically, to ensure there is a labo
 % The question is then, what happens in our city? Do you get a growth dynamic? What seems to be the case is that if all the firms add workers then the marginal value of the product of all the workers they have goes up, which means they are making more profit which means if they are making more profit they want to hire more workers? Does it ever converge? Likely eventually, but it's got a very powerful dynamic.  If you add other features like more products being created in the city, which is part of this agglomeration process you can start seeing, if you exhaust one source of growth, we know that there are others, that simplification is just firms of the same sort hiring workers of the same sort is wrong. so we need to add the local service sector, we need to add the possibility of creating new products and those depends on the number of workers and so depend on further agglomeration effects. What does this mean? For the purpose of the model, we'd want to strengthen the agglomeration effect relative to what they are for specific firms or industries..
 
 Population/workforce, $n$, and the wage will be determined endogenously in competitive markets. 
+
+
+
+MOVE?
+
+ Notice that this formulation implies it is possible to have increasing returns to scale for the urban economy even with a production function at the firm level with decreasing returns to scale: the return to the total economy $\alpha + \beta(1 + \gamma)$ can be greater than one, even if $\alpha +\beta$ is less than one. %.\label{Fn:PSI}}  (CITE Appendix: Excess Returns)
+ 
+The \gls{agglomeration effect} means that although individual firm returns to scale are declining, the city can experience \gls{increasing returns to scale} in the utilization of human capital. % NEED? Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale .}.
+\footnote{The formulation is consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. The effects are not limited to the individual firm. \Gls{spillover effects} can be large, see section \ref{section-spillover}. \ref{section-spillover}}
 
 \section{Agglomeration Appendix: Production Function}
 
