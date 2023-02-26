@@ -35,15 +35,24 @@ We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, 
 % To simplify analysis, we assume that land outside of the residential limit is costless, following th common practice of assuming a fixed price for agricultural land \cit{cite-fixed-price-ag-land}. 
 
 \subsection{Labour force}
-There are also firms that produce goods to sell. They produce more goods by hiring additional workers. 
-To attract workers, they pay an \gls{urban wage premium}, $w$, over the subsistence wage\footnote{
-See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
+There are also firms that produce goods to sell. 
+
+Firms purchase the time of workers to capture the product of their effective labour and enjoy the product of \gls{effective labour}. 
+% Firms sell the goods they produce into a commodity market. 
+For simplicity, firms produce a variety of perfectly \gls{substitutable} goods, which they sell into a commodity market. %, which are both exported and locally consumed 
+% to sell into a large market, at a fixed price. 
+Demand for the urban \gls{product} is \gls{perfectly elastic}, so the price remains constant. DUPLICATE
+
+Firms produce more goods by hiring additional workers. There are \gls{decreasing returns to scale}, which means each new worker increases output by less than the previous worker did. 
+
+To attract workers, firms pay an \gls{urban wage premium}, $w$, over the subsistence wage. 
+%\footnote{See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
 When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-the total wage employers pay is called the \gls{urban wage},  which is the subsistence wage plus the urban wage premium  $\psi + w$.
+the total wage employers pay is the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi + w$.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
 
-The {urban wage premium} and transportation together determines both the radius of the circular city and the size of the labour force,   %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
+The {urban wage premium} and transportation together determines both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
  %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
 % The  productivity of the city attracts people. 
@@ -51,7 +60,7 @@ since agents will work if the wage premium is greater than the cost of travel. %
 The higher the wage, the longer workers will commute.
 The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance. This defines the \gls{commuter shed}, the radius of the circular city.
 
-Given a uniform lot size $s$, with one worker per unit land, the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
+Given a uniform lot size, $s$, with one worker per unit land, the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
  L = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
@@ -76,14 +85,14 @@ In the basic model, the outcome is identical to the analytical case.  It diverge
 
 The \gls{agglomeration effect} means urban \gls{output} is more than proportional to urban population: 
  \begin{equation}
- Y\propto N^{\beta}
+ Y\propto N^{\beta},
  \label{eqn-production-population}
  \end{equation}
 where $\beta$ is the EXPLAIN, and $\beta >1$.   
 
-According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. This means the wage premium increase, in the same relation to population, as \gls{productivity} does:
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. This means the wage premium increase, in the same relation to population as \gls{productivity} does:
 \begin{equation}
-\omega\propto N^{\beta-1}
+\omega\propto N^{\beta-1}.
 \label{eqn-wage-population}
 \end{equation}
 
@@ -96,87 +105,34 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 % Y(t) = K(t)^{\alpha}(A(t)L(t))^{\beta}
 % \label{Eqn:Solow-Swann}
 % \end{equation}
-% where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology. The technology term capture the growth of labour productivity over time, $\alpha$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale \gls{CRS} production function at the firm level.
-% In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:     $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
-% This model uses a similar functional form to look at the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. $\Lambda(n)n$ is  ``effective labour'' 
+% where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology. The technology term capture the growth of labour productivity over time, $\alpha$ is the \gls{elasticity} of output with respect to capital, $\beta$ the elasticity of \gls{output} with respect to \gls{effective labour}, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale \gls{CRS} production function at the firm level.
+% In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:  $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
+% This model uses a similar functional form to look at the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. 
  
- We use a three factor model of production, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change:
+ We use a three factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change.
  % the productivity of labour, rather than technology growing productivity over time. 
- With agglomeration in place of  technology $A(t)$. Following Equation \ref{}, 
+ With agglomeration in place of  technology $A(t)$, 
  % and it's development in Chapter \ref{chapter-growth}, 
  output is: 
 
 \begin{equation}
-Y=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }.
+Y=K^{\alpha }(\Lambda(n)n)^{\beta }.
 \label{Eqn:Prod1}
 \end{equation}
-where $K$ is capital, $\Lambda(n)$ is \gls{labour augmenting agglomeration},  $\alpha$, $\beta$, and $\gamma$  are elasticities with respect to capital, labour, and agglomeration respectively, and  $n_i$ is the \gls{urban labour supply}. CHECK WHAT FORM WE WANT AND MAKE SURE EQUN IS CONSISTENT 
-*** THIS EQUATION SHOULD HAVE GAMMA?
+where $K$ is capital, $\Lambda(n)$ is \gls{labour augmenting agglomeration},  $\alpha$ and $\beta$ are elasticity of output with respect to capital and labour, and  $n_i$ is the \gls{urban labour supply}. Then $\Lambda(n)n$ is \gls{effective labour}. CHECK WHAT FORM WE WANT AND MAKE SURE EQUN IS CONSISTENT 
 
 % The agglomeration factor increases with population. It multiplies labour because agglomeration scales the productivity of workers.  
 
-
-A natural functional form of the agglomeration effect for illustrative purposes n is $\Lambda(n) = n^\gamma$. Then:
+A natural functional form\footnote{See Chapter \ref{chapter-growth} for a discussion of the treatment of agglomeration and growth, in the literature, and empirical urban scaling data.} for the agglomeration effect % for illustrative purposes 
+is $\Lambda(n) = n^\gamma$, where $\gamma$ is the agglomeration \gls{elasticity}. Then:
 \begin{eqnarray}
  Y&=K^{\alpha }(n^{\gamma}n)^{\beta}  \nonumber\\
  Y&=K^{\alpha }n^{\beta(1 + \gamma)}.
  \label{Eqn:Prod2}
 \end{eqnarray}
-EXPLAIN WHY THIS IS A NATURAL FUNCTIONAL FORM
- 
-
-MOVE TO PARAMETER VALUE DISCUSSION?
-The strength of the agglomeration is given by $\gamma$, thus for $\gamma=0$ there are not agglomeration effects. APPENDIX?
-By definition, with one person, the agglomeration effect has no influence, $\Lambda(1)=1$,  as in the \gls{Cobb-Douglas}, and empirical urban scaling results tell us that agglomeration increases with population, following a power law distribution, so we know %$\die
-FIX EQN ERROR die ${\Lambda}{n}>0$. 
-%%%%%%%%%. ***WHY
-If $\beta=1-\alpha$, this is a \gls{constant returns to scale} production function. Without agglomeration effects, $T(n)=1$,  Then  \textbf{$\mathbf{L(n) = T(n) n}$}  WHAT IS T, WHAT IS THIS TELLING US?
-Without agglomeration effects, $\Lambda(n)=1$,  Then  \textbf{$\mathbf{L(n) = T(n) n}$} 
-
-
-
-Firms will purchase the time of workers to capture the product of their effective labour  and enjoy the product of \gls{effective labour}. 
-If labour markets are \gls{competitive market}, we set die${Y}{L}=w$.
-
-% Firms sell the goods they produce into a commodity market. 
-For simplicity, firms produce a variety of perfectly \gls{substitutable} goods, which they sell into a commodity market. %, which are both exported and locally consumed 
-% to sell into a large market, at a fixed price. 
-Demand for the urban \gls{product} is \gls{perfectly elastic}, so the price remains constant, and there are \gls{decreasing returns to scale}, which means each new worker increases output by less than the previous worker did. 
-
-To maximize profit  firms set the marginal value product of labour, %$p\die{Y_i}{n_i}$, 
-equal to the wage. 
-
-MARGINAL VALUE VS MARGINAL PRODUCT
-in a competitive market, firms offer a wage equal to marginal value of labour, 
-% $p\die
-FIX p die ${Y_i}{n_i}$, where $i$ indicates the $i^{th}$ firm. In the analytic model, there is no \gls{frictional unemployment}, there are no \glspl{labour adjustment cost}. 
-
- For convenience, price per unit is one. 
-
-A labour market equilibrium exists if the marginal product of labour, is monotonically declining, which it is with a \gls{Cobb-Douglas} production function, and $\alpha + \beta<1$ 
-Population would be expected to adjust much more slowly than firm wages, so labour supply should converge.
-
-The marginal product of labour declines monotonically, to ensure there is a labour market equilibrium, in order to maintain a strong link to the analytical modelling tradition.
-% ***ILLUSTRATE AND CLARIFY
-% If you see it as just supply and demand .. 
-% Supply demand with fixed product and everything’s neat
-% Agglomeration changes everything. firms are underestimating each time they add a worker, the value that’s going to be produced. They benefit from an agglomeration effect and that’s where they interesting dynamics are coming from..
-% we know that there is a marginal product of labour for a firm that it should be able to figure it out.. can the person on the shop floor figure out whether it's worth hiring another person.. we can talk about it, add details etc. We have a declining marginal product of labour. Because of transportation costs, we have a rising cost of getting labour so they cross and there is an equilibrium. There are adjustment questions like which adjusts quickly, how fast people move in, how fast firms decide to hire etc, but we know that there is in principle and equilibrium and that it is in principle a stable equilibrium (DIAGRAM STROGATS) although there are complications with this-- some argue these market equilibria never make sense- true in lots of way, but useful for analysis. 
-% The question is then, what happens in our city? Do you get a growth dynamic? What seems to be the case is that if all the firms add workers then the marginal value of the product of all the workers they have goes up, which means they are making more profit which means if they are making more profit they want to hire more workers? Does it ever converge? Likely eventually, but it's got a very powerful dynamic.  If you add other features like more products being created in the city, which is part of this agglomeration process you can start seeing, if you exhaust one source of growth, we know that there are others, that simplification is just firms of the same sort hiring workers of the same sort is wrong. so we need to add the local service sector, we need to add the possibility of creating new products and those depends on the number of workers and so depend on further agglomeration effects. What does this mean? For the purpose of the model, we'd want to strengthen the agglomeration effect relative to what they are for specific firms or industries..
-
-Population/workforce, $n$, and the wage will be determined endogenously in competitive markets. 
-
-
-
-MOVE?
-
- Notice that this formulation implies it is possible to have increasing returns to scale for the urban economy even with a production function at the firm level with decreasing returns to scale: the return to the total economy $\alpha + \beta(1 + \gamma)$ can be greater than one, even if $\alpha +\beta$ is less than one. %.\label{Fn:PSI}}  (CITE Appendix: Excess Returns)
- 
-The \gls{agglomeration effect} means that although individual firm returns to scale are declining, the city can experience \gls{increasing returns to scale} in the utilization of human capital. % NEED? Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale .}.
-\footnote{The formulation is consistent with the discussion of endogenous growth theory in Chapter \ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. The effects are not limited to the individual firm. \Gls{spillover effects} can be large, see section \ref{section-spillover}. \ref{section-spillover}}
 
 \section{Agglomeration Appendix: Production Function}
-
+WHAT DO WE WANT TO ADD BACK IN/CLARIFY FROM WHAT'S BELLOW? WHAT DO WE WANT TO MOVE TO THE GROWTH CHAPTER OR AN APPENDIX?
 % It is a model of a productive urban economy since the centre is productive and demands labour.
 % The growth of population feeds back into productivity. % We allow rising population to directly increase the wage.  
 % We supplement the spatial model with agglomeration effects consistent with the literature. % in the base model. 
@@ -188,7 +144,7 @@ The \gls{agglomeration effect} means that although individual firm returns to sc
 % We bypass the complexity of modelling firms, allowing population increases to directly increase urban wage premium.
 %, It is straightforward to compute the rate of excess return for  this model. 
 
- . We assume that the firm behaves as a price taker in the labour market as well, despite the fact that we model it as a \gls{monopsonist}\footnote{}. JUSTIFY/REPHRASE/EXPLAIN monopsonist. %ALSO DOES THIS GO HERE OR BELONG WITH PRIOR SECTION?
+We assume that the firm behaves as a price taker in the labour market as well, despite the fact that we model it as a \gls{monopsonist}\footnote{}. JUSTIFY/REPHRASE/EXPLAIN monopsonist. %ALSO DOES THIS GO HERE OR BELONG WITH PRIOR SECTION?
 
 Labour demand
 % Labour demand is thus a derived demand based on standard neoclassical theory with an equilibrium wage offer that is the marginal (value) product of labour for the firm. Specifically, hiring proceeds until the marginal product of labour is equal to the wage.
@@ -209,34 +165,31 @@ The marginal product of labour is monotonically declining, ensuring a labour mar
 % We have a two factor model of production with labour and capital.  
 
 \section{Financialization}
-\subsection{Economically warranted rent}
-Rising population and productivity generates an economic value for land that provides proximity to the production center. 
-% In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent  on the marginal unit of housing or land exceeds the transportation cost. 
 
-Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
- A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
- This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work. 
+Rising population and productivity generate an economic value for land that provides proximity to the production center. 
 
-\subsection{Relation between urban productivity and land markets}
 Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship, we integrate the model of production developed above with a spatially explicit agent-based land market.
 
-OR? To explore the relationship, we integrate the urban production model  into a spatially explicit land market with financialized investment. 
+% Agents purchase homes though a housing market.
+To do this, we build a simplified model of a housing market.
+In real life, a housing is a market where the product is land with various properties on them. Land value is affected by various elements including proximity to natural features like lakes and mountains, proximity to human-built feature like communities, businesses and amenities, as well a developments and additions on the property itself. 
+The market is made up of a set of agents who engage directly in the market, including buyers, sellers, renters, investors, developers. Urban productivity %and amenity
+drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link}.
+Others affect the market indirectly, including policymakers, activists, developers, and others, % and those who affect the policy contexts (such as activists, developers, etc), and labour.
+and there is a a layer of policy. % and rules that determine the 
+%that shapes land value. 
+For example the city zoning rules, allowing certain uses and disallows others, % and charges taxes and fees which are factored into the cost structure.
+shapes the land value.
 
+In the simplified market model, %  owners sell when the retire.
+we integrate the urban production model into a spatially explicit land market with financialized investment
 Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. % Rents may also be taxed, could be shared between multiple owners, etc.
 
-Urban productivity %and amenity
-drives land values through the housing market.
+Individuals and institutions buy and sell properties given their individual goals, resources and available information. We integrate this housing market with within this model of individual and institutional actors in a spatially explicit property market, a model of production and employment.
 
-Individuals and institutions buy and sell properties given their individual goals, resources and available information. We integrate this housing market with % within this model of individual and institutional actors in a spatially explicit property market, a model of production and employment.
-
-The result is a simple model in which marginal productivity determines the wage, the wage determines the size of the city, the size of the city determines the labour supply, and labour supply determines marginal productivity. 
-The model is constructed so that there is neither land rent nor capitalist exploitation in the rural economy. 
-This special case allows us to examine the distribution of the social surplus generated by agglomeration economies and the effect of financialization.
-
-We examine the effect of housing on wealth inequality by looking at 
 %We explore the wealth forming dynamics of the urban agglomeration effect by modelling 
 a city in which agents work in the city and leave their jobs when they reach retirement age. They may choose to rent or sell their home. %?They may chose whether to stay in the city, if there is sufficient amenity value for them, to rent their house, or to sell it. % Todo can agents choose not to retire? Can they keep working? Do they get the subsistence wage on retirement? Do they need to leave the city to get it? 
-New agents enter the city to work. 
+New agents enter the city to work.
 Agents fund their retirement from savings, as well as returns on their home if they own one. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. % either in the stock market, or in pensions.
 A financial institution manages the pension, investing in the market or in property.
 %Institutional and individual investors can access debt. %We also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter controls the inflow of additional money beyond local investment in the pension fund. 
@@ -258,15 +211,6 @@ We also start with owners who have a long run before retirement. The housing mar
 When agents reach the end of their set working lives they retire. %It is easy to introduce random life events, differentiated households and other variety, but while this kind of variation is likely to generate  complex and interesting life stories it is not what we choose to focus on at this stage.  
 Owners may sell their homes and either leave the city or move to cheaper housing. the latter would put pressure on housing supply. New entrants to the labour force come from outside of the city at various stages in their life cycle and either buy or rent homes. 
 
-\subsection{Housing market}
-Agents purchase homes though a housing market.
-In real life, a housing is a market where the product is land with various properties on them. Land value is affected by various elements including proximity to natural features like lakes and mountains, proximity to human-built feature like communities, businesses and amenities, as well a developments and additions on the property itself. 
-There is also a layer of policy and rules that determine the land value. For example the city sets zoning rules that allow for certain kinds of uses and disallows others and charges taxes and fees which are factored into the cost structure.
-
-The market is made up of a set of agents who engage directly in the market, including buyers, sellers, renters, investors, developers. 
-It also includes others who affect it indirectly including policymakers and those who affect the policy contexts (such as activists, developers, etc), and labour.
-*** CLARIFY FLOW BEWTWEEN REAL WORLD AND MODEL, AND MAKE SURE ALIGNS WITH WHAT'S IN THE MODEL
-
 \subsection{The cost of capital}
 The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ , and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
@@ -287,110 +231,22 @@ The borrowing of most agents will be constrained. A common rule is that mortgage
 \subsection{Home prices}
 The underlying value of a home is the capitalized value of the urban rents, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents should be capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
 
-\section{REDUNDANT Financialized capital}
-%Individuals and institutions play a role in the housing market through credit markets and direct investment.Agent's access credit shapes worker's ability to purchase homes. Credit is offered by institutions.
-% Agents may be able to foresee future growth. %They may even over invest if they follow market trends and bubbles form. 
-% They can claim a share of the urban wealth as it grows over time by owning the land. 
+\section{SORT}
+% In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent on the marginal unit of land exceeds the transportation cost. 
 
-If the return on housing investments is competitive with alternative investments, capital from institutions and individuals will flow into housing. Institutional investors can purchase housing.  Individual households can also allocate a larger share to housing to capture the returns.
-% If the return on investment in housing is competitive with alternative investments, can purchase housing for it's financial return. They can rent housing and sell the asset with appreciation later. We examine the conditions in which this increased demand can drive up prices in the market. 
-% Capturing future growth of the city, depending on their foresight - how much does it take to block individuals from gains-- Regime.
-% both institutional investors and individual agents can purchase additional housing for it it's return on investment even though they don't need it as a place to live. 
-% Use value vs rent value. 
-%Institutional investors can purchase housing as an investment. Individuals with more wealth may invest 
-Households may, for example purchase a larger house than they need, purchasing additional units to rent out, or keep a house after retiring rather than downsizing.  % and individuals with sufficient means can purchase larger homes than they need to benefit from appreciation, or purchase additional units to rent to others. 
-% Investors can also purchase housing to claim a share of the future productivity of the city. Individuals and groups can put extra money into housing. Institutional housing providers can buy up the housing supply.
-% HYPOTHESIS FEEDBACK LOOP -- FINANCIALIZED INVESTMENT --
-%The rise in spending on housing as a proportion of income can be driven by both rising prices (cutting into quality of life) and increasing investment to claim a share of the returns.  -- disaggregate and show the geometry -
-% Test how linear is this relationship? 
+Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
+ A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
+ This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work. 
 
-\subsubsection{Size of mortgage available, $m_i$}
-\[m_i= \frac{0.25Y_i}{r_i}\]
-where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
-
-\subsubsection{Cost of capital $r_i$}
-The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
- \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
-
-% \begin{figure}[htb]
-% \begin{center}
-% \input{fig/model-price-of-capital.tex}
-% \caption{Hypothetical wealth-dependent borrowing cost}
-% \label{Fig:BorrowingCost2}
-% \end{center}
-% \end{figure}%
-
-This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
-
-Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
- 
-If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
-
-\subsubsection{The rate of return on a property purchase $v$}
-To explore the implication of the financialization of the urban land market we need a function to calculate the return on a unit of land that reflects the actual gradient of opportunity in financial markets. We begin with the price appreciation, $\Delta P=P_T-P_0 = (1+\dot p)P_0-P_0 $, where $\dot p$ is the rate of price appreciation over the period $T$. Rates will all be specified for the period $T$. Transaction costs, including real estate fees, take a fraction from the value of the final sale.
-
- The speculator invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs and minus the mortgage with interest.
-%footnote{We can include a use value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax},
-%$T$ at rate $t$ to affect the speculator's  decision.
- 
-The rate of return is the value of the gain, $V$,  over the size of the downpayment, $D$, where
-\begin{equation}https://quoteinvestigator.com/2015/08/30/practice/
-V =capital\ gain - Interest\ due  	+ Rent  - operating\ cost\    
-\end{equation}
-
-The rate of return is $v = \frac{V}{D}$. 
-
-Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ may be functions of the agent's wealth. $\delta$ represents the net capital gains tax. It makes it possible to capture the capital gains kept. If it is set to one, it simplifies the equations, all is kept. Keeping the variable offers a policy variable to control the return on financial capital.
-
-\begin{eqnarray*}
-V  %	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost\\
-% 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
-% 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
-%	&=& \delta (1+\dot p)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
-%	&=& \delta (1+\dot p)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
-%	&=&( \delta (1+\dot p)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
-%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
-%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
-&=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\\
-&=& \delta((1+\dot p)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\\
-&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
-\end{eqnarray*}
-
-This is the  net present value of buying, and selling after one period. \textbf{It has  6 exogenous parameters}. Operating revenue and costs $ \rho -\kappa - t$ a present value. 
-
-The rate of return is $v = \frac{V}{D}$. For expat investors, we get a \textbf{decision rule}:\begin{enumerate}
-\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
-\item If $v(no\ rent\ and\ tax) < a\leq v(with\ rent)$,  then  rent. 
-\item If $ v(with\ rent) \le a $,  then sell 
-\end{enumerate}
-
-We can, with some simplifications, write
-\begin{eqnarray}
-\frac{V}{D}&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
-		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
-		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
-\end{eqnarray}
-
-\subsubsection{Returns on capital are higher for wealthy investors}
-\begin{figure}[htb]
-\begin{center}
-\input{fig/model_price_of_capital.tex}
-\caption{Hypothetical wealth-dependent borrowing cost}
-\label{Fig:BorrowingCost}
-\end{center}
-\end{figure}%
-
-
-\chapter{Prices and Bidding}
-\epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
+\section{Prices and Bidding}
+% \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
 
 This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
 
 \section{Rent} \label{section-housing-price}
 
 \subsection{Warranted Rent}
-The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services:  \gls{locational services}, access to the central city job and \gls{home services} proper.  
+The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services: \gls{locational services}, access to the central city job and \gls{home services} proper.  
 
 \subsubsection{Locational services}
 Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
@@ -864,6 +720,102 @@ If no offer exceeds the reservation price, no sale is made.
 Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
 
 If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. .
+
+\section{REDUNDANT Financialized capital}
+%Individuals and institutions play a role in the housing market through credit markets and direct investment.Agent's access credit shapes worker's ability to purchase homes. Credit is offered by institutions.
+% Agents may be able to foresee future growth. %They may even over invest if they follow market trends and bubbles form. 
+% They can claim a share of the urban wealth as it grows over time by owning the land. 
+
+If the return on housing investments is competitive with alternative investments, capital from institutions and individuals will flow into housing. Institutional investors can purchase housing.  Individual households can also allocate a larger share to housing to capture the returns.
+% If the return on investment in housing is competitive with alternative investments, can purchase housing for it's financial return. They can rent housing and sell the asset with appreciation later. We examine the conditions in which this increased demand can drive up prices in the market. 
+% Capturing future growth of the city, depending on their foresight - how much does it take to block individuals from gains-- Regime.
+% both institutional investors and individual agents can purchase additional housing for it it's return on investment even though they don't need it as a place to live. 
+% Use value vs rent value. 
+%Institutional investors can purchase housing as an investment. Individuals with more wealth may invest 
+Households may, for example purchase a larger house than they need, purchasing additional units to rent out, or keep a house after retiring rather than downsizing.  % and individuals with sufficient means can purchase larger homes than they need to benefit from appreciation, or purchase additional units to rent to others. 
+% Investors can also purchase housing to claim a share of the future productivity of the city. Individuals and groups can put extra money into housing. Institutional housing providers can buy up the housing supply.
+% HYPOTHESIS FEEDBACK LOOP -- FINANCIALIZED INVESTMENT --
+%The rise in spending on housing as a proportion of income can be driven by both rising prices (cutting into quality of life) and increasing investment to claim a share of the returns.  -- disaggregate and show the geometry -
+% Test how linear is this relationship? 
+
+\subsubsection{Size of mortgage available, $m_i$}
+\[m_i= \frac{0.25Y_i}{r_i}\]
+where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
+
+\subsubsection{Cost of capital $r_i$}
+The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
+where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
+
+% \begin{figure}[htb]
+% \begin{center}
+% \input{fig/model-price-of-capital.tex}
+% \caption{Hypothetical wealth-dependent borrowing cost}
+% \label{Fig:BorrowingCost2}
+% \end{center}
+% \end{figure}%
+
+This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
+
+Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
+ 
+If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
+
+\subsubsection{The rate of return on a property purchase $v$}
+To explore the implication of the financialization of the urban land market we need a function to calculate the return on a unit of land that reflects the actual gradient of opportunity in financial markets. We begin with the price appreciation, $\Delta P=P_T-P_0 = (1+\dot p)P_0-P_0 $, where $\dot p$ is the rate of price appreciation over the period $T$. Rates will all be specified for the period $T$. Transaction costs, including real estate fees, take a fraction from the value of the final sale.
+
+ The speculator invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs and minus the mortgage with interest.
+%footnote{We can include a use value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax},
+%$T$ at rate $t$ to affect the speculator's  decision.
+ 
+The rate of return is the value of the gain, $V$,  over the size of the downpayment, $D$, where
+\begin{equation}https://quoteinvestigator.com/2015/08/30/practice/
+V =capital\ gain - Interest\ due  	+ Rent  - operating\ cost\    
+\end{equation}
+
+The rate of return is $v = \frac{V}{D}$. 
+
+Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ may be functions of the agent's wealth. $\delta$ represents the net capital gains tax. It makes it possible to capture the capital gains kept. If it is set to one, it simplifies the equations, all is kept. Keeping the variable offers a policy variable to control the return on financial capital.
+
+\begin{eqnarray*}
+V  %	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost\\
+% 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
+% 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
+%	&=& \delta (1+\dot p)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
+%	&=& \delta (1+\dot p)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
+%	&=&( \delta (1+\dot p)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
+%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
+%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
+&=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\\
+&=& \delta((1+\dot p)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\\
+&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
+\end{eqnarray*}
+
+This is the  net present value of buying, and selling after one period. \textbf{It has  6 exogenous parameters}. Operating revenue and costs $ \rho -\kappa - t$ a present value. 
+
+The rate of return is $v = \frac{V}{D}$. For expat investors, we get a \textbf{decision rule}:\begin{enumerate}
+\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
+\item If $v(no\ rent\ and\ tax) < a\leq v(with\ rent)$,  then  rent. 
+\item If $ v(with\ rent) \le a $,  then sell 
+\end{enumerate}
+
+We can, with some simplifications, write
+\begin{eqnarray}
+\frac{V}{D}&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
+		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
+		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
+\end{eqnarray}
+
+\subsubsection{Returns on capital are higher for wealthy investors}
+\begin{figure}[htb]
+\begin{center}
+\input{fig/model_price_of_capital.tex}
+\caption{Hypothetical wealth-dependent borrowing cost}
+\label{Fig:BorrowingCost}
+\end{center}
+\end{figure}%
+
+
 
 \chapter{Implementation: Relating the market model to the code}
 The chapter links the theory to the output of the simulations. %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
