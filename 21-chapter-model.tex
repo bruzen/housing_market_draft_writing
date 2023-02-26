@@ -28,27 +28,23 @@ Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960}, (\cite{alonso
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
 Firms produce goods to sell. They can produce more goods by hiring additional workers. 
-There is an agglomeration effect, which means firms can also produce more goods by operating in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.
+There is an agglomeration effect, which means firms can also produce more goods %by operating 
+in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.
 
 We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
-% To simplify analysis, we assume that land outside of the residential limit is costless, following th common practice of assuming a fixed price for agricultural land \cit{cite-fixed-price-ag-land}. 
-
-\subsection{Labour force}
+% \subsection{Labour force}
 There are also firms that produce goods to sell. 
-
 Firms purchase the time of workers to capture the product of their effective labour and enjoy the product of \gls{effective labour}. 
 % Firms sell the goods they produce into a commodity market. 
 For simplicity, firms produce a variety of perfectly \gls{substitutable} goods, which they sell into a commodity market. %, which are both exported and locally consumed 
 % to sell into a large market, at a fixed price. 
-Demand for the urban \gls{product} is \gls{perfectly elastic}, so the price remains constant. DUPLICATE
+Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant.
 
-Firms produce more goods by hiring additional workers. There are \gls{decreasing returns to scale}, which means each new worker increases output by less than the previous worker did. 
-
-To attract workers, firms pay an \gls{urban wage premium}, $w$, over the subsistence wage. 
+Firms produce more goods by hiring additional workers. To attract workers, firms pay an \gls{urban wage premium}, $w$, over the subsistence wage. 
 %\footnote{See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
-When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-the total wage employers pay is the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi + w$.
+% When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
+Workers give up the subsistence income, and receive the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi + w$.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
 
@@ -119,9 +115,10 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 Y=K^{\alpha }(\Lambda(n)n)^{\beta }.
 \label{Eqn:Prod1}
 \end{equation}
-where $K$ is capital, $\Lambda(n)$ is \gls{labour augmenting agglomeration},  $\alpha$ and $\beta$ are elasticity of output with respect to capital and labour, and  $n_i$ is the \gls{urban labour supply}. Then $\Lambda(n)n$ is \gls{effective labour}. CHECK WHAT FORM WE WANT AND MAKE SURE EQUN IS CONSISTENT 
-
-% The agglomeration factor increases with population. It multiplies labour because agglomeration scales the productivity of workers.  
+where $K$ is capital, $\Lambda(n)$ is \gls{labour augmenting agglomeration},  $\alpha$ and $\beta$ are elasticity of output with respect to capital and labour, and  $n_i$ is the \gls{urban labour supply}. Then $\Lambda(n)n$ is \gls{effective labour}. 
+MAKE SURE EQUN IS CONSISTENT WITH GROWTH CHAPTER DISCUSSION. 
+CHECK THIS IS COMPATIBLE WITH DECREASING FIRM RETURNS TO SCALE IN THE 1 FIRM CASE 
+% FOR NOW I'VE MOVED THE DISCUSION OF RETURNS TO SCALE TO  FUTURE WORK
 
 A natural functional form\footnote{See Chapter \ref{chapter-growth} for a discussion of the treatment of agglomeration and growth, in the literature, and empirical urban scaling data.} for the agglomeration effect % for illustrative purposes 
 is $\Lambda(n) = n^\gamma$, where $\gamma$ is the agglomeration \gls{elasticity}. Then:
@@ -130,9 +127,12 @@ is $\Lambda(n) = n^\gamma$, where $\gamma$ is the agglomeration \gls{elasticity}
  Y&=K^{\alpha }n^{\beta(1 + \gamma)}.
  \label{Eqn:Prod2}
 \end{eqnarray}
+WHAT DO WE WANT TO ADD BACK IN/CLARIFY FROM WHAT'S BELLOW? 
+WHAT DO WE WANT TO MOVE TO THE GROWTH CHAPTER OR AN APPENDIX?
+% The agglomeration factor increases with population. It multiplies labour because agglomeration scales the productivity of workers.  
 
 \section{Agglomeration Appendix: Production Function}
-WHAT DO WE WANT TO ADD BACK IN/CLARIFY FROM WHAT'S BELLOW? WHAT DO WE WANT TO MOVE TO THE GROWTH CHAPTER OR AN APPENDIX?
+
 % It is a model of a productive urban economy since the centre is productive and demands labour.
 % The growth of population feeds back into productivity. % We allow rising population to directly increase the wage.  
 % We supplement the spatial model with agglomeration effects consistent with the literature. % in the base model. 
@@ -165,27 +165,28 @@ The marginal product of labour is monotonically declining, ensuring a labour mar
 % We have a two factor model of production with labour and capital.  
 
 \section{Financialization}
-
-Rising population and productivity generate an economic value for land that provides proximity to the production center. 
-
-Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship, we integrate the model of production developed above with a spatially explicit agent-based land market.
+Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship we introduce a land market.
 
 % Agents purchase homes though a housing market.
 To do this, we build a simplified model of a housing market.
-In real life, a housing is a market where the product is land with various properties on them. Land value is affected by various elements including proximity to natural features like lakes and mountains, proximity to human-built feature like communities, businesses and amenities, as well a developments and additions on the property itself. 
-The market is made up of a set of agents who engage directly in the market, including buyers, sellers, renters, investors, developers. Urban productivity %and amenity
-drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link}.
-Others affect the market indirectly, including policymakers, activists, developers, and others, % and those who affect the policy contexts (such as activists, developers, etc), and labour.
+In practice, housing is exchanged on market. The product is land, at a particular location, with various buildings and features. %properties on them. 
+Land value is affected by various elements including proximity to natural features like lakes and mountains, proximity to human-built feature like communities, businesses and amenities, as well a developments and additions on the property itself. 
+The market includes is made up of a set of 
+agents who engage directly in the market, like buyers, sellers, renters, investors, and developers and others who effect the market indirectly, policymakers, activists, neighourhood and industry groups. % and those who affect the policy contexts (such as activists, developers, etc), and labour.
 and there is a a layer of policy. % and rules that determine the 
-%that shapes land value. 
-For example the city zoning rules, allowing certain uses and disallows others, % and charges taxes and fees which are factored into the cost structure.
-shapes the land value.
+that shapes land value. 
+For example the city zoning rules, allow certain uses and disallows others. % and charges taxes and fees which are factored into the cost structure.
+% shapes the land value.
+Urban productivity %and amenity
+drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link} ELABORATE. 
 
 In the simplified market model, %  owners sell when the retire.
-we integrate the urban production model into a spatially explicit land market with financialized investment
-Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. % Rents may also be taxed, could be shared between multiple owners, etc.
+we integrate the urban production model developed above into a spatially explicit land market with financialized investment.
 
-Individuals and institutions buy and sell properties given their individual goals, resources and available information. We integrate this housing market with within this model of individual and institutional actors in a spatially explicit property market, a model of production and employment.
+Rising population and productivity generate an economic value for land that provides proximity to the production center. 
+The rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
+
+Individuals and institutions buy and sell properties given their individual goals, resources and available information. We integrate this housing market  within this model of individual and institutional actors in %a spatially explicit property market, a model of production and employment.
 
 %We explore the wealth forming dynamics of the urban agglomeration effect by modelling 
 a city in which agents work in the city and leave their jobs when they reach retirement age. They may choose to rent or sell their home. %?They may chose whether to stay in the city, if there is sufficient amenity value for them, to rent their house, or to sell it. % Todo can agents choose not to retire? Can they keep working? Do they get the subsistence wage on retirement? Do they need to leave the city to get it? 
@@ -1108,8 +1109,6 @@ The tax ratio $\sigma$ is the share of rents that the municipality takes for ser
 *** CHECK Total taxes paid on  property $j$, over a given mortgage period $T$ is 
 
 \[\Psi_j^T = \psi * \mathcal{R}\].  
-
-
 
     %\href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiOmNPUvIL9AhUUmokEHX-5C9oQFnoECBIQAQ&url=https%3A%2F%2Fwww.greatersudbury.ca%2Fcity-hall%2Ftax-services%2Fpdf-documents%2F2022-tax-rates%2F&usg=AOvVaw2XEdfcC5z-5AqfOeH5t-eN}{Sudbury values}  same as https://www.greatersudbury.ca/city-hall/tax-services/pdf-documents/2022-tax-rates/
 
