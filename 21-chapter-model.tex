@@ -11,14 +11,10 @@ The main goal of this research as been to add a financial system to the simple A
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonzo-style models. This equation is embedded in the decision of every agent.
 
-\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomerationn effects. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
 \item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations model} of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model.
 \end{enumerate}
-
-*** QUESTION: DOES IT MAKE SENSE TO FLIP THE ORDER OF THE CHAPTERS IN LIGHT OF THIS? 
-
-% Maybe start with rent, because we are introducing modern urban rent theory, then flip space and growth so we introduce the city first, then agglomeration effects, then financialization?
 
 To recapitulate, we have a spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
 
@@ -123,7 +119,7 @@ Y=K^{\alpha }(\Lambda(n)n)^{\beta }.
 \end{equation}
 where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. Then $\Lambda(n)n$ is \gls{effective labour}. 
 
-MAKE SURE EQUN IS CONSISTENT WITH GROWTH CHAPTER DISCUSSION.  IT is NOT!~ D.
+** FIX - EQUN IS NOT CONSISTENT WITH GROWTH CHAPTER DISCUSSION
 CHECK THIS IS COMPATIBLE WITH DECREASING FIRM RETURNS TO SCALE IN THE 1 FIRM CASE 
 % FOR NOW I'VE MOVED THE DISCUSION OF RETURNS TO SCALE TO  FUTURE WORK
 
@@ -180,73 +176,98 @@ Our goal is to look at the relationship between urban production/labour markets,
 
 In practice, housing is exchanged on a market. The product is properties, at a particular location, which include land and buildings, or units in larger developments. Properties have individual features including building size, style, quality, etc. that affect their desirability. %the buildings have a particular size and characteristics. %with various buildings and features. %properties on them. 
 Location also matters, %Land value  is affected by various elements
-including proximity to natural features like lakes and mountains, and human-built features like communities, and businesses. WE abstract from these differences, as well a developments and additions on the property itself. 
+including proximity to natural features like lakes and mountains, and human-built features like communities, and businesses, as well a developments and additions on the property itself. 
 
-The real market includes a set of agents who engage directly like buyers, sellers, renters, investors, and developers; as well as others who shape the market indirectly, including policymakers, activists, and neighbourhood and industry groups. % and those who affect the policy contexts (such as activists, developers, etc), and labour.
-These actors work within the context of a layer of policy, institutions, and rules. Financial institutions offer debt,
+The real market also includes a set of agents who engage directly like buyers, sellers, renters, investors, and developers; as well as others who shape the market indirectly, including policymakers, activists, and neighbourhood and industry groups. % and those who affect the policy contexts (such as activists, developers, etc), and labour.
+The actors work within the context of a layer of policy, institutions, and rules. For example financial institutions offer debt,
 % and there is a  layer of policy that shapes land value. . % and rules that determine the 
 zoning allows certain uses and disallows others, and tax rules shape financial returns.
 
 % and charges taxes and fees which are factored into the cost structure.
 % shapes the land value.
-Urban productivity %and amenity
-drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link} ELABORATE. 
-Other factors also shape prices, including \gls{amenity}.
-
+Our simulation model extracts these features to explore a core set of questions about financialization in land markets, in a way that's extensible to study a broad range of questions about real/particular markets in particular places.
 We study \gls{financialization} in a simplified market model, integrating
 % In the simplified market model, %  owners sell when the retire.
 % we integrate the % spatially explicit property market
 our urban production model  into a spatially explicit {housing market} with financial investment. %\gls{financialized} investment.
+
+Urban productivity %and amenity
+drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link} ELABORATE. 
+% Other factors also shape prices, including \gls{amenity}.
 In the model, rising \gls{population} and \gls{productivity} generate an economic value for land, that's derived from its proximity to the \gls{urban center}. 
+
+% Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
+ % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
+
+
+\subsection{Price Formation}
+
+Properties are exchanged on a market at a given price.
+
+exchanged through a bidding process, 
+that biding 
+
+reflects-- 
+doesn't always reflect market rates in the lit
+to link with productivity, we need a model that allows for speculation in exchange, and a realistic/plausible bidding process, but also reflects underlying economic value driven by urban productivity. 
+
+There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the actual realized market price. 
+
+
+This requires distinguishing between a number of concepts, outlined in Table
+\ref{table-price-notation},
+
+INTRODUCE ALL TERMS. any value can be expected if it's forecast. 
+
+capture markets
+
+We need several kinds of rent/price..
+warranted is xyz
+the actual  bid price, and what people will be willing to pay, acept
+and the realized price at which a property is exchanged on the market. 
+
+
+{table-price-notation}
+The warranted price for a given property, reflects the underlying economic value.
 
 
 \subsection{Warranted Rent} \label{section-warranted-rent}
 
-Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
- % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
-The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services: \gls{locational services}, access to the central city job and \gls{home services}.  
+The {warranted rent} is the maximum rent that is economically justified.
+It is based on the services a property offers.
+ In each period a house offer two kinds of services: {locational services}, access to the central city job and {home services}.  The {warranted rent} is the value of this stream of services.
 
+% \subsubsection{Locational services}
+% Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
 
-****
-
-WHICH QUANTITY?
-This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work. 
-
-
-\subsubsection{Locational services}
-Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
-
-Locational services are, on an annual basis, the rent premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center:
+\Gls{locational services} are, on an annual basis, the rent premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location, close to work:
 \[\omega- {dc}.\]
+% \subsubsection{Home services}
+\Gls{home services} proper are the value of living in a house: a place to sleep, to prepare food, the amenity of being in the home, etc. % JUSTIFY? People require housing inside and outside the city, and costs can be represented as a share of income \cite{?}, 
+Home services are modeled as a share, $a$ , of the subsistence wage, $\psi$. 
+% ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
+% Note the warranted rent is what is econoimcally jsutified, it can vary from the market rent, which is what is actually paid.  
+% Talk about unobserved variables, and 
 
-\subsubsection{Home services}
-Home services proper includes the value of living in a house: a place to sleep, to prepare food, the amenity of being in the home, etc. Since people require housing inside and outside the city, home services are modeled as paid for as a share of the subsistence wage ($a \psi$). 
-
-ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE AND THE VALUE PAID? % - if you own the services you capture it - the value experienced can differ from the value paid. *** WORK OUT NOTATION AMENITY HERE OT MAKE IT EASIER LATER.. 
-% MAYBE NOTE THEY STILL NEED TO PAY $a\psi$ OUTSIDE THE CITY. SO THAT'S THE CONSTANT
-, so the warranted rent, $\mathcal{R}_W$, the maximum rent that is economically justified is:
-% a property at $d$ offers the 
-
-Workers could pay that much in rent and additional costs and it would still worthwhile to commute. 
-
-\subsubsection{Economically warranted rent}
-The warranted rent is then the sum of the locational services and home services.
-We call the value of this stream of services the \glspl{warranted rent}, $\mathcal{R}_W$, since it is the market value of the services provided. This is the maximum a tenant might pay, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.
+% \subsubsection{Rent}
+The \gls{warranted rent} is the sum of locational services and home services.
+%We call the value of this stream of services the \gls{warranted rent}, $\mathcal{R}_W$, since it is the market value of the services provided. 
+It is the maximum a tenant might pay in rent, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.
 \begin{align}
 \mathcal{R}_W=\omega- {dc} + a\psi.
 \label{eqn-housing-price}
 \end{align}
+% It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
+% CUT? This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work.  %Workers could pay that much in rent and additional costs and it would still worthwhile to commute. 
 
-It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
+\subsubsection{Financialized investment seeks to extract the warranted rents}
+The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
 
-NOTE ON AMENITY..
+Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section 
+COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
 
-The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. 
-
-Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier\footnote{***WHERE IS MAIN DISCUSSION OF THIS? %METHOD/model/intro section - ref section
-COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS QUITE WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
-
-The warranted rent %is a frontier the market pushes the agents towards.  
+\subsubsection{Warranted rent is a frontier}
+METHODOLOGY CHAPTER? The warranted rent %is a frontier the market pushes the agents towards.  
 is a kind of frontier, which may be thought of as an equilibrium or attractor. The way this work uses that kind of frontier, drawing on equilibrium, dynamical system, and agent-based traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
 
 Making this assumption simplifies the model and, along with the focus on rents, is what makes this a ``classical'' model.  When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is the way classical economists employed the subsistence wage assumption to simplify their analysis. 
@@ -259,7 +280,7 @@ Making this assumption simplifies the model and, along with the focus on rents, 
 % We will use this value as the price for the first period 
 % $P_W=\frac{\omega- {dc} + a\psi}{r}$
 
-\subsubsection{Net Rent}
+\subsection{Net Rent}
 Warranted rent defines what agents would pay to live in a property. Net rent is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
 
 \begin{align}
@@ -267,12 +288,8 @@ Warranted rent defines what agents would pay to live in a property. Net rent is 
 &= \omega - {dc} + a\psi -  \mathcal{O} - \mathcal{T}, \\
 \end{align}
 where $\mathcal{O}$ is operating costs and  $\mathcal{T}$ taxes.   $\mathcal{R}_N$ is the maximum it's worth paying to get the capture the return on a property, so it is the value that investors when assessing the \gls{financial return} on an investment.
-consider in investment decisions. % of services and costs
-
-
-When considering the , 
-
-For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
+% consider in investment decisions. % of services and costs
+% For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
 
 \subsection{Market Rent}
 The market rent is what the investor actually pays for the property.
