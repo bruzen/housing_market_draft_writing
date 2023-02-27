@@ -1,4 +1,9 @@
 \chapter{Model} \label{chapter-model}
+% \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
+
+% COULD CALL THIS THEORETICAL DEVELOPMENT OF THE MODEL AND MAKE A SEPERATE IMPLEMENTATION CHAPTER
+
+This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
 
 \section{The general structure of the model}
 The main goal of this research as been to add a financial system to the simple Alonzo model in order to examine the impact of financial cycles on urban productivity and distribution. The \gls{agent-based model} we develop has three major components: 
@@ -6,16 +11,18 @@ The main goal of this research as been to add a financial system to the simple A
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonzo-style models. This equation is embedded in the decision of every agent.
 
-\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomerationn effects. This allows us to bypass the complexities of labour and goods market adjustments and deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
 \item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations model} of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model.
 \end{enumerate}
 
-*** QUESTION: DOES IT MAKE SENSE TO FLIP THE ORDER OF THE CHAPTERS IN LIGHT OF THIS? % Maybe start with rent, because we are introducing modern urban rent theory, then flip space and growth so we introduce the city first, then agglomeration effects, then finacialization?
+*** QUESTION: DOES IT MAKE SENSE TO FLIP THE ORDER OF THE CHAPTERS IN LIGHT OF THIS? 
 
-To recapitulate, we have a spatial model of an urban housing market, a production function, modeling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
+% Maybe start with rent, because we are introducing modern urban rent theory, then flip space and growth so we introduce the city first, then agglomeration effects, then financialization?
 
-\section{Spacial structure}
+To recapitulate, we have a spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
+
+\section{Spatial structure}
 
 % In this section, we introduce the basic structure of the model, drawing on the circular city model.  
 %  we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
@@ -31,8 +38,6 @@ Firms produce goods to sell. They can produce more goods by hiring additional wo
 There is an agglomeration effect, which means firms can also produce more goods %by operating 
 in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.
 
-We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
-
 % \subsection{Labour force}
 There are also firms that produce goods to sell. 
 Firms purchase the time of workers to capture the product of their effective labour and enjoy the product of \gls{effective labour}. 
@@ -47,26 +52,29 @@ Firms produce more goods by hiring additional workers. To attract workers, firms
 Workers give up the subsistence income, and receive the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi + w$.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
+ 
+We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
 The {urban wage premium} and transportation together determines both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
  %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
 % The  productivity of the city attracts people. 
 since agents will work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
-The higher the wage, the longer workers will commute.
-The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the the cost of transportation per unit distance. This defines the \gls{commuter shed}, the radius of the circular city.
+The higher the wage, the  farther workers will commute.
+The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the circular city and the commutershed .
 
-Given a uniform lot size, $s$, with one worker per unit land, the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
+We assume  a uniform lot size, $s$, with one worker per unit land, so the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
  L = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
    =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-This is the equilibrium \gls{urban labour supply} curve. It is the standard urban \gls{population equilibrium} condition, also called the \gls{migration equilibrium} \cite{migration_equilibOR_pop_equilib_condition}. It defines the quantity of labour available.
+This is the equilibrium \gls{urban labour supply} curve. It is the standard urban \gls{population equilibrium} condition, which is a \gls{migration equilibrium} \cite{migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
-In the agent model model, the \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agent's choice to seek work, model rules, and individual firm hiring behaviour. %and the job search process. 
-In the basic model, the outcome is identical to the analytical case.  It diverges as additional decision factors, agents, driving variable, and \gls{stochastic} elements enter the model. %\footnote{See the discussion of model extensions in Appendix \ref{appendix-future-work}.}.
+In the agent model, the \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute % model rules, and individual 
+and firm hiring behaviour. %and the job search process. 
+In practice, many other factors impinge on these choices. %additional decision factors, agents, driving variable, and \gls{stochastic} elements enter the model. %\footnote{See the discussion of model extensions in Appendix \ref{appendix-future-work}.}.
 % To get the \gls{urban wage premium}, we can write the inverse of the labour supply function:
 % \begin{equation}
 % w= (\frac{ {c}^2s}{\pi})^{0.5} L^{0.5}.
@@ -79,14 +87,14 @@ In the basic model, the outcome is identical to the analytical case.  It diverge
 % We incorporate the estimated scaling relationship in 
 %The scaling result at the level of the city allows us to incorporate the agglomeration effect in a \gls{circular city} model, 
 
-The \gls{agglomeration effect} means urban \gls{output} is more than proportional to urban population: 
+ \Glspl{agglomeration effect} ensure urban \gls{output} is more than proportional to urban population: 
  \begin{equation}
  Y\propto N^{\beta},
  \label{eqn-production-population}
  \end{equation}
 where $\beta$ is the elasticity of output with respect to capital,  $\beta >1$.   
 
-According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. This means the wage premium increase, in the same relation to population as \gls{productivity} does:
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. This means the wage premium increases in the same relation to population as \gls{productivity} does:
 \begin{equation}
 \omega\propto N^{\beta-1}.
 \label{eqn-wage-population}
@@ -105,7 +113,7 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 % In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:  $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
 % This model uses a similar functional form to look at the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. 
  
- We use a three factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change.
+ We are implicitly using a three-factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change.
  % the productivity of labour, rather than technology growing productivity over time. 
  With \gls{agglomeration}, $\Lambda(n)$, in place of technology, $A(t)$, output is:
 
@@ -115,7 +123,7 @@ Y=K^{\alpha }(\Lambda(n)n)^{\beta }.
 \end{equation}
 where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. Then $\Lambda(n)n$ is \gls{effective labour}. 
 
-MAKE SURE EQUN IS CONSISTENT WITH GROWTH CHAPTER DISCUSSION. 
+MAKE SURE EQUN IS CONSISTENT WITH GROWTH CHAPTER DISCUSSION.  IT is NOT!~ D.
 CHECK THIS IS COMPATIBLE WITH DECREASING FIRM RETURNS TO SCALE IN THE 1 FIRM CASE 
 % FOR NOW I'VE MOVED THE DISCUSION OF RETURNS TO SCALE TO  FUTURE WORK
 
@@ -172,12 +180,12 @@ Our goal is to look at the relationship between urban production/labour markets,
 
 In practice, housing is exchanged on a market. The product is properties, at a particular location, which include land and buildings, or units in larger developments. Properties have individual features including building size, style, quality, etc. that affect their desirability. %the buildings have a particular size and characteristics. %with various buildings and features. %properties on them. 
 Location also matters, %Land value  is affected by various elements
-including proximity to natural features like lakes and mountains, and human-built feature like communities, and businesses. %, as well a developments and additions on the property itself. 
+including proximity to natural features like lakes and mountains, and human-built features like communities, and businesses. WE abstract from these differences, as well a developments and additions on the property itself. 
 
-The market includes a set of agents who engage directly like buyers, sellers, renters, investors, and developers; as well as others who shape the market indirectly, including policymakers, activists, and neighbourhood and industry groups. % and those who affect the policy contexts (such as activists, developers, etc), and labour.
-These actors work within the context of a layer of policy, institutions, and rules. Financial institutions and government, structure the access to debt financing to enable purchasing,
-% and there is a a layer of policy that shapes land value. . % and rules that determine the 
-city zoning rules, allow certain uses and disallows others, and tax rules shape the expected financial return on property investment.
+The real market includes a set of agents who engage directly like buyers, sellers, renters, investors, and developers; as well as others who shape the market indirectly, including policymakers, activists, and neighbourhood and industry groups. % and those who affect the policy contexts (such as activists, developers, etc), and labour.
+These actors work within the context of a layer of policy, institutions, and rules. Financial institutions offer debt,
+% and there is a  layer of policy that shapes land value. . % and rules that determine the 
+zoning allows certain uses and disallows others, and tax rules shape financial returns.
 
 % and charges taxes and fees which are factored into the cost structure.
 % shapes the land value.
@@ -192,71 +200,18 @@ our urban production model  into a spatially explicit {housing market} with fina
 In the model, rising \gls{population} and \gls{productivity} generate an economic value for land, that's derived from its proximity to the \gls{urban center}. 
 
 
-\subsection{Home prices}
-The underlying value of a home is the capitalized value of the urban rents, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
-
-DEFINE RENTS
-%We link the housing market model model of individual and institutional actors to the model of production and employment by..
-Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
-Individuals and institutions buy and sell properties given individual goals, resources and available information.
-
-
-\subsection{***Initialization}
-
-% We explore the wealth forming dynamics of the urban agglomeration effect by modelling % a city in which 
-Agents work in the city and leave their jobs when they reach retirement age.
-New agents enter the city to work.
-
-% There is an outside world in two respects. NEAT 
- 
- If there is a housing market, agents can move. %In the analytic case above, the population stays in place, and travels to work if it is worthwhile given the transportation costs. 
-%Those who come to the city will be those for whom the benefits the city offers make it worthwhile to  whether that's building their network, accessing markets, accessing amenity, learning, finding specialized employment, or increased wages. In this model 
-The demand for labour drives urban growth. % The housing market depends on how many people from the periphery are completing to claim places in the city. TODO IF ANY RURAL AGENT COULD MOVE IF THE CITY HAS ADDITIONAL DEMAND FOR LABOUR, HOW DO WE DECIDE WHICH DO? Could use a parameter for immigration (or how 'hot' the market is) and in the simplest case (corresponding to how many agents from outside are looking at the housing/rental market), have the inflow match. % Agents have debt and there is an undifferentiated labour market
-
-
-Workers can leave the workforce and retire, and new people can come into the city. 
-
-Initially, all homes are owner-occupied. This is of interest as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. 
-
-We also start with owners who have a long run before retirement. The housing market is  during the initialisation runs to allow the wage and population to converge. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
-
-When agents reach the end of their set working lives they retire. %It is easy to introduce random life events, differentiated households and other variety, but while this kind of variation is likely to generate  complex and interesting life stories it is not what we choose to focus on at this stage.  
-Owners may sell their homes and either leave the city or move to cheaper housing. the latter would put pressure on housing supply. New entrants to the labour force come from outside of the city at various stages in their life cycle and either buy or rent homes. 
-
-\subsection{The cost of capital}
-The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ , and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
- \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
-Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-\begin{figure}[htbp]
-\begin{center}
-\input{fig/price_of_capital.tex}% Figure of cost of borrowing
-\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
-\label{Fig:CapitalCost}
-\end{center}
-\end{figure}
-If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
- 
-The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy. 
-
-%The model has been set up so that all of a workers's  income is spent on  basic living costs, $\omega$, transportation $td$ or rent. Disposable income for agent $i$ is therefore just the return  $\omega W_i$ on  financial assets.  
-
-
-\section{SORT}
-% In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent on the marginal unit of land exceeds the transportation cost. 
+\subsection{Warranted Rent} \label{section-warranted-rent}
 
 Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
- A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
- This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work. 
+ % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
+The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services: \gls{locational services}, access to the central city job and \gls{home services}.  
 
-\section{Prices and Bidding}
-% \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
 
-This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
+****
 
-\section{Rent} \label{section-housing-price}
+WHICH QUANTITY?
+This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work. 
 
-\subsection{Warranted Rent}
-The warranted price for a given property, reflects the underlying economic value. In each period a house offer two kinds of services: \gls{locational services}, access to the central city job and \gls{home services} proper.  
 
 \subsubsection{Locational services}
 Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
@@ -415,6 +370,11 @@ where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  
 
 
 \section{Bid Price}
+
+The underlying value of a home is the capitalized value of the urban rents, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
+
+%We link the housing market model model of individual and institutional actors to the model of production and employment by..
+Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
 
 The warranted price is not the same as the market price.  The market price can depart from the warranted price when there is price speculation based on expected future values or if agents make errors based on market information.
 % There is another distinction:
@@ -685,6 +645,24 @@ Each agent has their own interest rates, discount rates, mortgage share, informa
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
 
+\subsection{The cost of capital}
+The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ , and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
+Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+\begin{figure}[htbp]
+\begin{center}
+\input{fig/price_of_capital.tex}% Figure of cost of borrowing
+\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
+\label{Fig:CapitalCost}
+\end{center}
+\end{figure}
+If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
+ 
+The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy. 
+
+%The model has been set up so that all of a workers's  income is spent on  basic living costs, $\omega$, transportation $td$ or rent. Disposable income for agent $i$ is therefore just the return  $\omega W_i$ on  financial assets.  
+
+
 \section{The period and time value of money}
 In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
 %This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
@@ -830,8 +808,11 @@ We can, with some simplifications, write
 \chapter{Implementation: Relating the market model to the code}
 The chapter links the theory to the output of the simulations. %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
 
+
 \section{MOVE UP? Bargaining - The market process and bargaining}
-We consider a homogeneous city with a single wage, identical preferences, uniform identical transportation costs, identical lot sizes.
+We consider a homogeneous city with a single wage, identical preferences, uniform identical transportation costs,identical lot sizes.
+
+Individuals and institutions buy and sell properties given individual goals, resources and available information.
 
 % The process can be summarized as
 The model of the market process includes the following steps:
@@ -1624,6 +1605,8 @@ Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainm
 
 
 \section{OLD Implementation}
+
+
 Household agents have:
 \begin{enumerate}
    \item A home. Agents live somewhere, inside or outside the city,
@@ -1732,6 +1715,27 @@ Workers give up their search and leave the city if they do not find a housing un
 %\input{notes_and_references/z Background rough notes - rent history etc.tex}
 
 
+\subsection{***Initialization}
+
+% We explore the wealth forming dynamics of the urban agglomeration effect by modelling % a city in which 
+Agents work in the city and leave their jobs when they reach retirement age.
+New agents enter the city to work.
+
+% There is an outside world in two respects. NEAT 
+ 
+ If there is a housing market, agents can move. %In the analytic case above, the population stays in place, and travels to work if it is worthwhile given the transportation costs. 
+%Those who come to the city will be those for whom the benefits the city offers make it worthwhile to  whether that's building their network, accessing markets, accessing amenity, learning, finding specialized employment, or increased wages. In this model 
+The demand for labour drives urban growth. % The housing market depends on how many people from the periphery are completing to claim places in the city. TODO IF ANY RURAL AGENT COULD MOVE IF THE CITY HAS ADDITIONAL DEMAND FOR LABOUR, HOW DO WE DECIDE WHICH DO? Could use a parameter for immigration (or how 'hot' the market is) and in the simplest case (corresponding to how many agents from outside are looking at the housing/rental market), have the inflow match. % Agents have debt and there is an undifferentiated labour market
+
+
+Workers can leave the workforce and retire, and new people can come into the city. 
+
+Initially, all homes are owner-occupied. This is of interest as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. 
+
+We also start with owners who have a long run before retirement. The housing market is  during the initialisation runs to allow the wage and population to converge. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
+
+When agents reach the end of their set working lives they retire. %It is easy to introduce random life events, differentiated households and other variety, but while this kind of variation is likely to generate  complex and interesting life stories it is not what we choose to focus on at this stage.  
+Owners may sell their homes and either leave the city or move to cheaper housing. the latter would put pressure on housing supply. New entrants to the labour force come from outside of the city at various stages in their life cycle and either buy or rent homes. 
 
 \chapter{Analysis} 
 \epigraph{“An economist is someone who says, when an idea works in practice, ‘let’s see if it works in theory.'”
