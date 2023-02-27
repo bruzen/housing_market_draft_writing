@@ -211,8 +211,7 @@ reflects--
 doesn't always reflect market rates in the lit
 to link with productivity, we need a model that allows for speculation in exchange, and a realistic/plausible bidding process, but also reflects underlying economic value driven by urban productivity. 
 
-There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the actual realized market price. 
-
+There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
 
 This requires distinguishing between a number of concepts, outlined in Table
 \ref{table-price-notation},
@@ -223,7 +222,7 @@ capture markets
 
 We need several kinds of rent/price..
 warranted is xyz
-the actual  bid price, and what people will be willing to pay, acept
+the actual  bid price, and what people will be willing to pay, accept
 and the realized price at which a property is exchanged on the market. 
 
 
@@ -245,9 +244,6 @@ It is based on the services a property offers.
 % \subsubsection{Home services}
 \Gls{home services} proper are the value of living in a house: a place to sleep, to prepare food, the amenity of being in the home, etc. % JUSTIFY? People require housing inside and outside the city, and costs can be represented as a share of income \cite{?}, 
 Home services are modeled as a share, $a$ , of the subsistence wage, $\psi$. 
-% ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
-% Note the warranted rent is what is econoimcally jsutified, it can vary from the market rent, which is what is actually paid.  
-% Talk about unobserved variables, and 
 
 % \subsubsection{Rent}
 The \gls{warranted rent} is the sum of locational services and home services.
@@ -259,47 +255,61 @@ It is the maximum a tenant might pay in rent, since it is the maximum that could
 \end{align}
 % It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
 % CUT? This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work.  %Workers could pay that much in rent and additional costs and it would still worthwhile to commute. 
-
-\subsubsection{Financialized investment seeks to extract the warranted rents}
-The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
-
-Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section 
-COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
-
-\subsubsection{Warranted rent is a frontier}
-METHODOLOGY CHAPTER? The warranted rent %is a frontier the market pushes the agents towards.  
-is a kind of frontier, which may be thought of as an equilibrium or attractor. The way this work uses that kind of frontier, drawing on equilibrium, dynamical system, and agent-based traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
-
-Making this assumption simplifies the model and, along with the focus on rents, is what makes this a ``classical'' model.  When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is the way classical economists employed the subsistence wage assumption to simplify their analysis. 
-
 % \subsubsection{Land and building services}
 % Annual rent charged initially should be  equal to the annual value of services, $h$:
 % and the warranted price is 
 % \[P_W=\frac{\omega - {dc} + a\psi}{r}\]
-
 % We will use this value as the price for the first period 
 % $P_W=\frac{\omega- {dc} + a\psi}{r}$
 
-\subsection{Net Rent}
-Warranted rent defines what agents would pay to live in a property. Net rent is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
 
-\begin{align}
-\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
-&= \omega - {dc} + a\psi -  \mathcal{O} - \mathcal{T}, \\
-\end{align}
-where $\mathcal{O}$ is operating costs and  $\mathcal{T}$ taxes.   $\mathcal{R}_N$ is the maximum it's worth paying to get the capture the return on a property, so it is the value that investors when assessing the \gls{financial return} on an investment.
-% consider in investment decisions. % of services and costs
-% For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
-
+LOGICAL PLACE TO START SINCE WE EXPECT IT TO GO TO THE NET RENT..
+Serves as a clarification of the underlying machinery
+and a justification for where you start the search process when you initialize the model.
 \subsection{Market Rent}
-The market rent is what the investor actually pays for the property.
+
+% ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
+% Note the warranted rent is what is econoimcally jsutified, it can vary from the market rent, which is what is actually paid.  
+% Talk about unobserved variables, and 
+
+% They really care about what they will get- use decision rules to forcast the actual returns realized. Might guess about the biases of others
+% The market rent is what the agent actually pays in rent the property. - they can own a shre and captre some
+
+As a convenience, for the analysis here, we assume the warranted rent is paid as the market rent. This is easy to vary in the model as part of future experiments, with a range of decision rules. 
+
+It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DICSUSSION HERE...
 
 ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDICTION VALUES. THE PREDICTION VALUES ARE WHAT ARE USED. 
 THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
 WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
 
+The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
+
+Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section 
+COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
+
+METHODOLOGY CHAPTER? The warranted rent %is a frontier the market pushes the agents towards.  
+is a kind of frontier, which may be thought of as an equilibrium or attractor. The way this work uses that kind of frontier, drawing on equilibrium, dynamical system, and agent-based traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
+
+Making this assumption simplifies the model and, along with the focus on rents, is what makes this a ``classical'' model.  When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is the way classical economists employed the subsistence wage assumption to simplify their analysis. 
+
+\subsection{Net Rent}
+
+LINK RELATION WITH MARKET OR NET RENT
+Warranted rent defines what agents would pay to live in a property. Gls{Net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
+
+\begin{align}
+\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
+&= \omega - {dc} + a\psi -  \mathcal{O} - \mathcal{T}, \\
+\end{align}
+where $\mathcal{O}$ is operating costs and  $\mathcal{T}$ is taxes. $\mathcal{R}_N$ is the maximum it's worth paying to get the capture the return on a property, so it is the value that investors when assessing the \gls{financial return} on an investment. 
+
+Waranted return.
+% consider in investment decisions. % of services and costs
+% For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
+
 \subsection{Annual Taxation}
-In each  period a `mill rate' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag. The warranted price,  Equation \ref{eqn-price-warranted}.
+In each  period a `\gls{mill rate}' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag. The warranted price,  Equation \ref{eqn-price-warranted}.
 \[P_W = \frac{\omega- {dc} + a\psi}{r}.\]
 % value of the stream of services.. why 
 Since the appraised value typically lags the market value, and attempts to approximate underlying value, it is reasonable to approximated it with the warranted price \cite{apraised_value_refs}.
