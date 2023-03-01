@@ -3,7 +3,12 @@
 
 % COULD CALL THIS THEORETICAL DEVELOPMENT OF THE MODEL AND MAKE A SEPERATE IMPLEMENTATION CHAPTER
 
-This chapter links the theoretical discussions of the previous chapters with an agent-based simulation model. At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
+This chapter links (**E USE A MORE SPECIFIC WORD THAN LINKS) % #E BUILD A PCITURE OF HOW THE MODEL DRAWS THESE TOGETHER... LIKE IT TAKES THESE THREAD (LIST THEM) AND COMBINES THEM INTO A MODEL THAT EXPLORE... USE THIS PARRARAPH TO DESCRIBE THE EXACT INTERCONNECTIONS
+
+the theoretical discussions of the previous chapters with an agent-based simulation model. 
+
+At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. (???) % i DONT UNDERSTAND IF YOU ARE SAYING YOU NEED THIS? THE MODEL FILLS THIS GAP?? OR THIS IS AFILLER SENTECEN??? 
+To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
 
 \section{The general structure of the model}
 The main goal of this research as been to add a financial system to the simple Alonzo model in order to examine the impact of financial cycles on urban productivity and distribution. The \gls{agent-based model} we develop has three major components: 
@@ -32,10 +37,10 @@ Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960}, (\cite{alonso
 
 Firms produce goods to sell. They can produce more goods by hiring additional workers. 
 There is an agglomeration effect, which means firms can also produce more goods %by operating 
-in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.
+in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.(**E SEE NOTE HERE) % #E i THINK YOU NEED TO FLESH THIS OUT, i'M NOT SURE EXACTLY WHAT YOU ARE SAYING. JUST BE A BIT MORE SPECIFIC AND FLESH OUT. 
 
 % \subsection{Labour force}
-There are also firms that produce goods to sell. 
+There are also firms that produce goods to sell. (???) % #E HOW IS THIS DIFFERENT THAN THE FIRMS PRODUCING GOODS IN THE PREVIOUS PARAGRAPH???
 Firms purchase the time of workers to capture the product of their effective labour and enjoy the product of \gls{effective labour}. 
 % Firms sell the goods they produce into a commodity market. 
 For simplicity, firms produce a variety of perfectly \gls{substitutable} goods, which they sell into a commodity market. %, which are both exported and locally consumed 
@@ -185,7 +190,8 @@ zoning allows certain uses and disallows others, and tax rules shape financial r
 
 % and charges taxes and fees which are factored into the cost structure.
 % shapes the land value.
-Our simulation model extracts these features to explore a core set of questions about financialization in land markets, in a way that's extensible to study a broad range of questions about real/particular markets in particular places.
+Our simulation model extracts % #E IS THIS A TECHNICAL TERM? i DON'T KNOW WHAT IT MEANS? yOU USE THESE TOGETHER. IF ITS STANDARD USAGE IGNORE THIS COMMENT
+these features to explore a core set of questions about financialization in land markets, in a way that's extensible to study a broad range of questions about real/particular markets in particular places.
 We study \gls{financialization} in a simplified market model, integrating
 % In the simplified market model, %  owners sell when the retire.
 % we integrate the % spatially explicit property market
@@ -194,56 +200,64 @@ our urban production model  into a spatially explicit {housing market} with fina
 Urban productivity %and amenity
 drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link} ELABORATE. 
 % Other factors also shape prices, including \gls{amenity}.
-In the model, rising \gls{population} and \gls{productivity} generate an economic value for land, that's derived from its proximity to the \gls{urban center}. 
+
+% *** In the model, rising \gls{population} and \gls{productivity} generate an economic value for land, that's derived from its proximity to the \gls{urban center}. 
 
 % Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
  % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
 
-\subsection{Price Formation}
-
-To link land markets with urban productivity, we need a model that allows for bidding and speculative investment but also reflects underlying economic value driven by urban productivity. 
-
+\subsection{Price Formation} \label{sec-price-formation}
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
 \begin{table}[]
 \centering
 \begin{tabular}{r|c|c|c|c|c|c|c|}\cline{2-8}
        & Warranted  & Market & Expected & $i$'s Expected & Reservation & Asking & Bid     \\ \cline{2-8}
-Price  & $P_W$      & $P_M$  & $P_M^e$ & $P_M^{e_i}$     & $P_R$       & $P_A$  & $P_B$   \\ \cline{2-8}
+Price  & $P_{W_j}$      & $P_{M_j}$  & $P_{M_j}^e$ & $P_{M_{ij}}^{e}$     & $P_{R_{ij}}$       & $P_{A{ij}}$  & $P_{B{ij}}$   \\ \cline{2-8}
 % Rent $\mathcal{R}_W$ & $\mathcal{R}_W$ &        &       &             & $\mathcal{R}_M$ &          &               \\ \cline{2-8}
 \end{tabular}
 \caption{Price and rent notation}
+% \caption[In introducing the quantities here, we include indices for the agent, $i$, and the property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties]{Price and rent notation\protect\footnotemark} % https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption
 \label{table-price-notation}
 \end{table}
 % There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
 
-To develop the analysis, we have to keep track of a number of different quantities, outlined in Table \ref{table-price-notation}.
-The \gls{warranted price} is the economically justified price, given the urban productivity premium, $P_W$
-The \gls{market price} the price at which a property is exchanged on the market, $P_M$. 
+To link land markets with urban productivity, we need a model that allows for bidding and speculative investment but also reflects underlying economic value driven by urban productivity. 
+To develop the analysis, we have to keep track of a number of different quantities, outlined in Table \ref{table-price-notation}\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}. 
+The \gls{warranted price} is the economically justified price, given the urban productivity premium, $P_W$.
+
+The \gls{market price}, the price at which a property is exchanged on the market, $P_M$. 
 Values may not be known, in which case we work with \glspl{expectation}. For example, agents attempt to predict the market price to make decisions. Agent $i$'s expected market price is 
-$P_M^{e_i}$, which may include individual information, biases, preferences, etc.
-In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model in this dissertation, $P_M^{e}$.
+$P_{M_i}^e$, which may include individual information, biases, preferences, etc.
+In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
 
-As part of selling a property, the seller decides on a \gls{reservation price}, the minimum price they would be willing to accept from a buyer, and sets an \gls{asking price}. The buyer looks at available properties and decides what they would be willing to pay for them, the \gls{bid price}. This is followed by a negotiation process, and in the model, agents set these values with the support of a real estate agent, and based on information provided by their bank about lending rates, etc. 
+As part of selling a property, $j$, the seller, agent $i$, decides on a \gls{reservation price}, $P_{R_{ij}}$, the minimum price they would be willing to accept from a buyer, and sets an \gls{asking price}, $P_{A_{ij}}$, at which to list a property. The buyer considers available properties and selects on their own reservation price, $P_{R_{ij}}$, the maximum they'd pay, and a bid price \gls{bid price}, $P_{B_{ij}}$, to offer on each property.
+In the model, agents set these values with the support of a real estate agent, and based on information provided by their bank about lending rates, etc. After setting prices, agents engage in a negotiation process. 
 
-The link with the market is made through the value available to capture, the surplus that could be claimed.
-this is expresses as the \rent{rent} a landowner could capture, which is a share of the urban productivity gains distributed through wages. If agents own their own property, they capture the rents. If others own they property, they capture them. 
+The link with the market is made through the value available to capture.
+The rent a landowner could capture is a share of the urban productivity gains, distributed through wages. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
-Just as with prices, there is an economically \gls{warranted rent} which may differ from the \gls{market rent}. Individuals make their investment decisions on their own expectations rents. the bidding process on rental properties is abstracted in the base model. Instead of modelling the process explicitly, we make the assumption that the warranted rent is the market rent, $\mathcal{R}_W = \mathcal{R}_M$.
+Just as with prices, there  is economically \gls{warranted rent}, $\mathcal{R}_W$, and \gls{market rent}, $\mathcal{R}_M$. Since owners must pay costs, such as maintenance and taxes, investors make their decisions not based on the total rent but on the \gls{net rent}, $\mathcal{R}_N$, after expenses. As with prices, in real life, the market rent can differ from the economically warranted rent for many reasons, and individuals make decisions on their own individual expectations, which include a wide range of factors. 
 
-This is done to make clear the economic implications of the rent analysis, to show as clearly and as simply as possible the economic linkages between productivity and urban rents.
-
-
-this clarifies the core mechanisms-- what makes it a classical model.
-
-KEEP CONCEPTUAL DISCUSSION HERE? PUT IN A FOOTNOTE OR ANOTHER SECTION?
-The assumption builds the relationship between economic returns and market prices into the model in a natural way, is what makes it possible to formally explore the relationship between the scaling of urban productivity, financialized ownership to extract that value, part of the core conceptual contribution of this work. %and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier. Formalizing this relationship is part of the core conceptual contribution of this work. %\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. 
+In the base model, %we abstract the negotiation/bidding/price formation process for rental prices. I
+instead of modelling the rental price formation process explicitly, we abstract the market rent using the warranted rent as an approximation.
+We do this to make clear the economic implications of the rent analysis, and to show as clearly and as simply as possible the economic linkages between productivity and urban rents.
+% this clarifies the core mechanisms-- what makes it a classical model.
+% The assumption builds the relationship between economic returns and market prices into the model in a natural way, 
+This is what makes it possible to formally explore the relationship between the scaling of urban productivity and the financialized ownership that can extract that value. This link is part of the core conceptual contribution of this work. 
+This assumption simplifies the analysis in a way that clarifies the underlying machinery. 
+%and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier. Formalizing this relationship is part of the core conceptual contribution of this work. %\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. 
 %Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
-This, along with the focus on rents, is what makes this a ``\gls{classical}'' model.  When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that landlords are seeking to claim whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
+
+% In the discussion, refer to the value agents would be willing to pay as the $\mathcal{R}_W$, to make it clear what we are discussion, recognizing that we can vary this and explore the value of different values for rent, the role of expectations, information, amenity, etc.
+
+% This, along with the focus on rents, 
+This exploration of rents, and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
+is also what makes this a ``\gls{classical}'' model. 
+When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that landlords are seeking to claim the value of the rents. It makes it possible to explore whether and how agents get squeezed towards a \gls{subsistence frontier}. %whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
 This is the way classical economists employed the \gls{subsistence wage} assumption to simplify their analysis. 
 % It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE...
  %METHODOLOGY CHAPTER? warranted rent is a frontier .  
-
 The warranted rent is, then, a kind of \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
 
 In the agent model, the assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The values evolve from that starting point. 
@@ -264,7 +278,8 @@ In the agent model, the assumption gives a natural way to initialize agent guess
 % The market rent is what the agent actually pays in rent the property. - they can own a shre and captre some
 
 
-** ADD NOTES ON TIME IN THE FOLLOWING SECTIONS E.G. ALL RENTS REPRESENTED ON AN ANNUAL BASIS, PRESENT DISCOUNTED VALUE, ETC
+The following sections detail the model and explain how each of these terms is derived.
+**TODO ADD NOTES ON TIME IN THE FOLLOWING SECTIONS E.G. ALL RENTS REPRESENTED ON AN ANNUAL BASIS, PRESENT DISCOUNTED VALUE, ETC
 
 \subsection{Warranted Rent} \label{section-warranted-rent}
 
@@ -301,29 +316,26 @@ It is the maximum a tenant might pay in rent, since it is the maximum that could
 % $P_W=\frac{\omega- {dc} + a\psi}{r}$
 
 \subsection{Market Rent}
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. In reality, that can differ from what is economically warranted for many reasons\footnote{MARKET RENT}. %The market rent is a much more amorphous quantity.
-
-As a convenience, the price analysis that follows assumes that the market rent equals the warranted rent, %\gls{warranted rent} is paid as the \gls{market rent}
-$\mathcal{R}_W = \mathcal{R}_M$. This assumption simplifies the analysis in a way that clarifies the underlying machinery. 
-
-% In the discussion, refer to the value agents would be willing to pay as the $\mathcal{R}_W$, to make it clear what we are discussion, recognizing that we can vary this and explore the value of different values for rent, the role of expectations, information, amenity, etc.
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. As discussed in section \ref{sec-price-formation} above, it can differ from what is economically warranted. To clarify the implications of the model, the analysis of the base model,(**??) % #E i DON'T UNDERSTAND WHAT THIS MEAND. WHAT ARE YOU CLIRFIYINF? HOW ARE THESE IMPLICATIONS OF THE MODEL?? i CANT FOLLOW THIS
+that follows, assumes that the market rent equals the warranted rent, %\gls{warranted rent} is paid as the \gls{market rent}
+\[\mathcal{R}_M = \mathcal{R}_W.\] 
 
 \subsection{Net Rent}
-LINK RELATION WITH MARKET OR NET RENT
-Warranted rent defines what agents would pay to live in a property. Gls{Net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
+%Warranted rent defines what agents would pay to live in a property. 
+The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
 
 \begin{align}
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
 &= \omega - {dc} + a\psi -  \mathcal{O} - \mathcal{T}, \\
 \end{align}
-where $\mathcal{O}$ is operating costs and  $\mathcal{T}$ is taxes. $\mathcal{R}_N$ is the maximum it's worth paying to get the capture the return on a property, so it is the value that investors when assessing the \gls{financial return} on an investment. 
+where $\mathcal{O}$ is operating costs and $\mathcal{T}$ is taxes. 
 
-Waranted return.
+%$\mathcal{R}_N$ is the value that investors consider when assessing the \gls{financial return} on property, since it's the maximum that it's worth paying to capture the value renters are wiling to pay to live in a property, given the \gls{urban wage premium}. 
 % consider in investment decisions. % of services and costs
 % For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
 
 \subsection{Annual Taxation}
-In each  period a `\gls{mill rate}' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag. The warranted price,  Equation \ref{eqn-price-warranted}.
+In each  period a `\gls{mill rate}' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag on the \gls{market price},  Equation \ref{eqn-price-warranted}.
 \[P_W = \frac{\omega- {dc} + a\psi}{r}.\]
 % value of the stream of services.. why 
 Since the appraised value typically lags the market value, and attempts to approximate underlying value, it is reasonable to approximated it with the warranted price \cite{apraised_value_refs}.
