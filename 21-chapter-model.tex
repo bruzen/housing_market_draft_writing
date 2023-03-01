@@ -49,7 +49,7 @@ Workers give up the subsistence income, and receive the \gls{urban wage}, which 
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
  
-We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
+NEED TO INTRODUCE SUBSISTENCE WAGE BEFORE MENTIONING IT ABOVE We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else. %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
 The {urban wage premium} and transportation together determines both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
@@ -57,7 +57,7 @@ The {urban wage premium} and transportation together determines both the radius 
 % The  productivity of the city attracts people. 
 since agents will work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
 The higher the wage, the  farther workers will commute.
-The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the circular city and the commutershed .
+The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the circular city and the commuter shed.
 
 We assume  a uniform lot size, $s$, with one worker per unit land, so the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
 \begin{equation}
@@ -199,36 +199,59 @@ In the model, rising \gls{population} and \gls{productivity} generate an economi
 % Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
  % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
 
-
 \subsection{Price Formation}
 
-Properties are exchanged on a market at a given price.
+To link land markets with urban productivity, we need a model that allows for bidding and speculative investment but also reflects underlying economic value driven by urban productivity. 
 
-exchanged through a bidding process, 
-that biding 
 
-reflects-- 
-doesn't always reflect market rates in the lit
-to link with productivity, we need a model that allows for speculation in exchange, and a realistic/plausible bidding process, but also reflects underlying economic value driven by urban productivity. 
+% *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
+\begin{table}[]
+\centering
+\begin{tabular}{r|c|c|c|c|c|c|c|}\cline{2-8}
+       & Warranted  & Market & Expected & $i$'s Expected & Reservation & Asking & Bid     \\ \cline{2-8}
+Price  & $P_W$      & $P_M$  & $P_M^e$ & $P_M^{e_i}$     & $P_R$       & $P_A$  & $P_B$   \\ \cline{2-8}
+% Rent $\mathcal{R}_W$ & $\mathcal{R}_W$ &        &       &             & $\mathcal{R}_M$ &          &               \\ \cline{2-8}
+\end{tabular}
+\caption{Price and rent notation}
+\label{table-price-notation}
+\end{table}
+% There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
 
-There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
+To develop the analysis, we have to keep track of a number of different quantities, outlined in Table \ref{table-price-notation}.
+The \gls{warranted price} is the economically justified price, given the urban productivity premium, $P_W$
+The \gls{market price} the price at which a property is exchanged on the market, $P_M$. 
+Values may not be known, in which case we work with \glspl{expectation}. For example, agents attempt to predict the market price to make decisions. Agent $i$'s expected market price is 
+$P_M^{e_i}$, which may include individual information, biases, preferences, etc.
+In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model in this dissertation, $P_M^{e}$.
 
-This requires distinguishing between a number of concepts, outlined in Table
-\ref{table-price-notation},
+As part of selling a property, the seller decides on a \gls{reservation price}, the minimum price they would be willing to accept from a buyer, and sets an \gls{asking price}. The buyer looks at available properties and decides what they would be willing to pay for them, the \gls{bid price}. This is followed by a negotiation process, and in the model, agents set these values with the support of a real estate agent, and based on information provided by their bank about lending rates, etc. 
 
-INTRODUCE ALL TERMS. any value can be expected if it's forecast. 
+The link with the market is made through the value available to capture, the surplus that could be claimed.
+this is expresses as the \rent{rent} a landowner could capture, which is a share of the urban productivity gains distributed through wages. If agents own their own property, they capture the rents. If others own they property, they capture them. 
 
-capture markets
+Just as with prices, there is an economically \gls{warranted rent} which may differ from the \gls{market rent}. Individuals make their investment decisions on their own expectations rents. the bidding process on rental properties is abstracted in the base model. Instead of modelling the process explicitly, we make the assumption that the warranted rent is the market rent, $\mathcal{R}_W = \mathcal{R}_M$.
 
-We need several kinds of rent/price..
-warranted is xyz
-the actual  bid price, and what people will be willing to pay, accept
-and the realized price at which a property is exchanged on the market. 
+This is done to make clear the economic implications of the rent analysis, to show as clearly and as simply as possible the economic linkages between productivity and urban rents.
+
+
+this clarifies the core mechanisms-- what makes it a classical model.
+
+
+
+The terms used for rent are.
+
+The analysis based on the above quantities is developed in the following sections. 
+
+
+the bid price, and what people will be willing to pay, accept
+
+The link is made through rents
 
 
 {table-price-notation}
 The warranted price for a given property, reflects the underlying economic value.
 
+** ADD NOTES ON TIME IN THE FOLLOWING SECTIONS E.G. ALL RENTS REPRESENTED ON AN ANNUAL BASIS, PRESENT DISCOUNTED VALUE, ETC
 
 \subsection{Warranted Rent} \label{section-warranted-rent}
 
@@ -239,11 +262,13 @@ It is based on the services a property offers.
 % \subsubsection{Locational services}
 % Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
 
-\Gls{locational services} are, on an annual basis, the rent premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location, close to work:
+\Gls{locational services} are represented as %, on an annual basis, 
+the rent premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location:
 \[\omega- {dc}.\]
+
 % \subsubsection{Home services}
 \Gls{home services} proper are the value of living in a house: a place to sleep, to prepare food, the amenity of being in the home, etc. % JUSTIFY? People require housing inside and outside the city, and costs can be represented as a share of income \cite{?}, 
-Home services are modeled as a share, $a$ , of the subsistence wage, $\psi$. 
+Home services are modeled as a share, $a$, of the subsistence wage, $\psi$. 
 
 % \subsubsection{Rent}
 The \gls{warranted rent} is the sum of locational services and home services.
@@ -262,39 +287,42 @@ It is the maximum a tenant might pay in rent, since it is the maximum that could
 % We will use this value as the price for the first period 
 % $P_W=\frac{\omega- {dc} + a\psi}{r}$
 
-
-LOGICAL PLACE TO START SINCE WE EXPECT IT TO GO TO THE NET RENT..
-Serves as a clarification of the underlying machinery
-and a justification for where you start the search process when you initialize the model.
 \subsection{Market Rent}
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. In reality, that can differ from what is economically warranted for many reasons\footnote{MARKET RENT}. %The market rent is a much more amorphous quantity.
 
+As a convenience, the price analysis that follows assumes that the market rent equals the warranted rent, %\gls{warranted rent} is paid as the \gls{market rent}
+$\mathcal{R}_W = \mathcal{R}_M$. This assumption simplifies the analysis in a way that clarifies the underlying machinery. 
+
+% In the discussion, refer to the value agents would be willing to pay as the $\mathcal{R}_W$, to make it clear what we are discussion, recognizing that we can vary this and explore the value of different values for rent, the role of expectations, information, amenity, etc.
+
+KEEP CONCEPTUAL DISCUSSION HERE? PUT IN A FOOTNOTE OR ANOTHER SECTION?
+The assumption builds the relationship between economic returns and market prices into the model in a natural way, is what makes it possible to formally explore the relationship between the scaling of urban productivity, financialized ownership to extract that value, part of the core conceptual contribution of this work. %and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier. Formalizing this relationship is part of the core conceptual contribution of this work. %\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. 
+%Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
+This, along with the focus on rents, is what makes this a ``\gls{classical}'' model.  When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that landlords are seeking to claim whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
+This is the way classical economists employed the \gls{subsistence wage} assumption to simplify their analysis. 
+% It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE...
+ %METHODOLOGY CHAPTER? warranted rent is a frontier .  
+
+The warranted rent is, then, a kind of \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
+
+In the agent model, the assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The values evolve from that starting point. 
+
+% *** LOTS OF NOTES MOSTLY ON AMENITY AND OTHER DIFFERENCES BETWEEN WARRANTED AND MARKET RENTS - NEED A CLEAN PARAGRAPH OR TWO EXPLAINING
+%\footnote{The assumption $\mathcal{R}_W = \mathcal{R}_M$ is easy to vary in future experiments, 
+% Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
+%including by adding a range of decision rules. 
+% Our model of income is incomplete, and people don't only care about the income they earn. Some are paying for the amenity of urban life. In real life, many other factors cans shape amenity value including features of the housing, desire to live near clubs, sports, cafe's libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. Appendix \ref{appendix-amenity} includes a theoretical treatment of amenity in the context of the model. People also make choices with imperfect information, some are investing in living in a city
+% ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDICTION VALUES. THE PREDICTION VALUES ARE WHAT ARE USED. 
+% THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
+% WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
+% }.
 % ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
 % Note the warranted rent is what is econoimcally jsutified, it can vary from the market rent, which is what is actually paid.  
 % Talk about unobserved variables, and 
-
 % They really care about what they will get- use decision rules to forcast the actual returns realized. Might guess about the biases of others
 % The market rent is what the agent actually pays in rent the property. - they can own a shre and captre some
 
-As a convenience, for the analysis here, we assume the warranted rent is paid as the market rent. This is easy to vary in the model as part of future experiments, with a range of decision rules. 
-
-It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE...
-
-ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDICTION VALUES. THE PREDICTION VALUES ARE WHAT ARE USED. 
-THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
-WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
-
-The price analysis that follows assumes that the actual market rental price is the warranted rental price. Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
-
-Building this relationship into the model is a core conceptual contribution of this work. It makes it possible to explore formally the relationship between the scaling of urban productivity, and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section 
-COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
-
-METHODOLOGY CHAPTER? The warranted rent %is a frontier the market pushes the agents towards.  
-is a kind of frontier, which may be thought of as an equilibrium or attractor. The way this work uses that kind of frontier, drawing on equilibrium, dynamical system, and agent-based traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
-
-Making this assumption simplifies the model and, along with the focus on rents, is what makes this a ``classical'' model.  When we assume an subsistence wage $\psi$ with a specific share $a$ applied to housing we are implicitly assuming that tenants are squeezed as much as possible by landlords. This is the way classical economists employed the subsistence wage assumption to simplify their analysis. 
-
 \subsection{Net Rent}
-
 LINK RELATION WITH MARKET OR NET RENT
 Warranted rent defines what agents would pay to live in a property. Gls{Net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
 
@@ -412,17 +440,7 @@ The actual market price will be determined by a bidding process that takes into 
 
 For the sake of the computational model we define housing prices for different purposes and at different stages of the market process. The notation appears in Table \ref{table-price-notation}.
 
-*** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
-\begin{table}[]
-\centering
-\begin{tabular}{r|c|c|c|c|c|c|}\cline{2-7}
-                     & Warranted       & Asking  & Bid  & Reservation & Market          & Expected \\ \cline{2-7}
-Property price       & $P_W$           & $P_A$  & $P_B$ & $P_R$       & $P_M$           & $P_M^e$  \\ \cline{2-7}
-Rent $\mathcal{R}_W$ & $\mathcal{R}_W$ &        &       &             & $\mathcal{R}_M$ &          \\ \cline{2-7}
-\end{tabular}
-\caption{Price and rent notation}
-\label{table-price-notation}
-\end{table}
+
 
 % \renewcommand{\arraystretch}{1.5}
 % \begin{tabular}{rlrr}\
