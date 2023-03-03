@@ -335,20 +335,20 @@ where $\mathcal{O}$ is operating costs and $\mathcal{T}$ is taxes.
 % For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
 
 \subsection{Annual Taxation}
-In each  period a `\gls{mill rate}' is applied to the assessed value. For computational purposes, we will assume that, that is the warranted price.  Municipal taxes are based on the appraised value, which is based, somewhat approximately and with a lag on the \gls{market price},  Equation \ref{eqn-price-warranted}.
-\[P_W = \frac{\omega- {dc} + a\psi}{r}.\]
-% value of the stream of services.. why 
-Since the appraised value typically lags the market value, and attempts to approximate underlying value, it is reasonable to approximated it with the warranted price \cite{apraised_value_refs}.
 
-Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}. The annual tax is then:
+%For computational purposes, we will assume that, that is the warranted price.  
+ % assessed value
+One cost owners pay on a property is taxes. Municipal property taxes are based on the \gls{appraised value}, which is based, somewhat approximately and with a lag, on the \gls{market price}. % The appraised value typically lags the market value, and attempts to approximate underlying value, so we approximate it here it with the \gls{warranted price} \cite{apraised_value_refs}. 
+In our computations, the rate selected 
+
+has to be compounded for decisions made over a period of the mortgage term, so we divide by $r$, the \gls{compound interest rate} for the period. Then the taxes paid over the period are:
+
+
 \begin{align*}
-\mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_N}{r} \\
- *** FIX &= \text{mill rate} \times \frac{\omega- {dc} + a\psi}{r}
+\mathcal{T} &= \text{mill rate} \times \frac{\mathcal{P}_M}{r} \\
 \end{align*}
 
-The net rent is the one that's used in the financial assessment, and thus in price and bidding decisions, and so it is the value used in tax assessments, as tax assessments are based loosely -- on the market price. 
-
-In our computations, the rate selected has to be compounded for decisions made over a period of the mortgage term $T$.
+where the `\gls{mill rate}' is the municiple tax rate.applied to the. 
 
 \subsubsection{Annual Maintenance}
 Annual maintenance costs apply to building and lands but not to locational value.
