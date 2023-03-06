@@ -61,7 +61,7 @@ For urban theory and policy formation it is important to distinguish between fin
 \draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
 \draw [gray,-latex, line width=2mm](1.5,3)--(1.5,4);
 \draw [gray,line width=2mm,-latex](3,3)--(4,3); \node at (5.5,3)[text width=2cm]{Expansion of housing stock}; 
-\draw [gray, dashed, width=2mm,](3.1,10)--(4,3)--(3.1,0);
+\draw [gray, dashed,line width=2mm,](3.1,10)--(4,3)--(3.1,0);
 \end{tikzpicture}
 \end{center}
  \caption{Financialization vs expansion of the housing stock }
@@ -96,13 +96,53 @@ We have called attention in this section to the development  several important f
 
 \section{The microeconomics of  financialization}\label{section-micro}
 
-At  the microeconomic level, where individual decisions are made, financialization happens through the actual purchase of assets, like homes, for the sake of the  future stream of revenue and speculative gains. Real assets are bought by individuals and institutions looking to maximize the \gls{return} on the financial resources they have. In the process, the real asset takes on an additional and separate aspect as financial object that can be bought and sold. 
-
-The feature that matters most to investors is the  rate of return that  an asset offer. For any level of risk and liquidity, an investor will choose to purchase the asset with the highest rate of return. To model the market  we therefore need to calculate the rate of return on each property taking into account the rental revenue, the potential capital gain the investors cost of capital and  required return. The analysis will show the incentive structure driving the  financialization of the housing market.
+At  the microeconomic level, where individual decisions are made, financialization happens,  real assets are bought by individuals and institutions. Individual home-buyers are buying a stream of housing services and possible capital gains. Institutional buyers are buying a stream of net rents plus speculative gains. Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
 
 
 
-We derive the maximum price offer that an investor would bid for a property. This is the maximum price that allows the investor to achieve at least her  target rate of return, $r_{target}$ in Appendix \ref{appendix-bid-price}. We call this  $i's$ maximum bid. 
+%In the process, the real asset takes on an additional and separate aspect as financial object that can be bought and sold. 
+
+The feature that matters most to investors is the  \gls{rate of return} that  an asset offers. For any level of risk and liquidity, an investor will choose to purchase the asset with the highest rate of return. When a home is bought to live in, the potential buyer makes a similar calculation, perhaps with a greater emphasis on the value of the stream of housing services. When home prices are rising rapidly speculative gains may become the dominant concern of home buyers. 
+
+To model the investment decision  we therefore need to calculate the rate of return on each property taking into account the rental revenue, the potential capital gain the investors cost of capital and required return. The analysis will show the incentive structure driving the  financialization of the housing market. We do this is detail in Appendix~\ref{} 
+
+
+
+To find the maximum price offer that a buyer would bid for a property we first calculate the net present value of the purchase. We then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and  not guarantee a single-valued result.\cite{robinsonOPTIMALTERMINATIONIRR1996} } 
+
+\begin{eqnarray}
+r_{target} \le \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B}
+\end{eqnarray}
+
+which is compared to   This is the maximum price that allows the investor to achieve at least her  target rate of return, $r_{target}$ in Appendix \ref{appendix-bid-price}. We call this  $i's$ maximum bid. 
+
+
+
+
+\subsection{Maximum bid} % given the rate of return
+
+Agents bid if the RHS is larger than the target rate of return, as stated in Equation \ref{eqn-property-investment-return2}.  $P_0$ with $P_B$, and $\dot P$ with an estimator for $\dot P$, we get: % TO DO REPLACE PDOT - MAYBE WITH TILDE AND DOT..: 
+
+\begin{eqnarray}
+r_{target} \le \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B}
+\end{eqnarray}
+
+Solving for $P_{bid}$:
+
+\begin{align}
+r^{target} &\le \frac{\delta \left(1 + \dot P_M^e - (1+r)m\right)}{1-m}   +\frac{\mathcal{R}_N}{(1-m)P_B}. \nonumber \\
+(1-m)r^{target} &\le \ \ \delta \left(1 + \dot P_M^e - (1+r)m\right) + \frac{\mathcal{R}_N}{P_B} \nonumber \\ %\delta(1+L(P))- (1+r)m%
+(1-m)r^{target} - \delta \left(1 + \dot P_M^e - (1+r)m\right)  &\le  \frac{\mathcal{R}_N}{P_B} \nonumber\\
+P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
+\label{eqn-bid-price-fin}
+\end{align}
+The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation ~\ref{eqn-price-warranted}. 
+
+Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
+
+
+
 % The denominator in Equation~\ref{eqn-bid1} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
 We use this formula in the price determination process in our simulation model. 
 
