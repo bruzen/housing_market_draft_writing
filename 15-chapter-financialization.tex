@@ -3,10 +3,10 @@
 %https://www.ohchr.org/en/special-procedures/sr-housing/financialization-housing
 \epigraph{Financialization is a process whereby financial markets, financial institutions, and financial elites gain greater influence over economic policy and economic outcomes. Financialization transforms the functioning of economic systems at both the macro and micro levels.}{Thomas I. Palley \cite{palleyFinancializationWhatIt2007}}
 %*** ADD MORE ON THE LITERATURE ON FINANCIALIZATION TO SETUP OUR WORK, AS IN THE ABOVE CHAPTERS
-In this thesis we are focused on modelling the  effects of financialization on the urban housing market.  The term financialization is used in a variety of way across a fairly wide range of contexts. In finance, it is  a term for the process of developing the legal instruments that facilitate financial transaction.  At the microeconomic level it is  a  collective noun for the huge number of individual transactions, that create or transfer a financial assets. At a macro level it refers to the effect on the system itself of the new instruments and the increase in the type of transaction that they make possible.
+In this thesis we are focused on modelling the  effects of financialization on the urban housing market.  The term financialization is used in a variety of way across a fairly wide range of contexts. In finance, it is  a term for the process of developing the legal instruments that facilitate financial transaction.  At the microeconomic level it is  a  collective noun for the growth in the number of individual transactions that create or transfer financial assets. At a macro level it refers to the effect on the system itself of the new instruments and the increase in the type of transaction that they make possible. It is the macro effects that are our main interest, but to model those in an \gls{ABM} we are forced to carefully specify the microeconomics of  individual decisions. 
 
-We therefore begin in Section~\ref{section-financialize}  with a narrow definition of the act of financializing, followed by  an explanation and examples. In Section~\ref{section-micro} we describe the microeconomic objective function that individuals and our bank agent  employ in deciding to purchase a property. Finally, in  
-In Section~\ref{section-system} we explain how the term is applied at the level of systems and while markets. At that point we can introduce our specific hypotheses and how we intend to test them.
+We therefore begin in Section~\ref{section-financialize}  with a definition of the act of financializing transactions and markets,  and discuss some significant examples. In Section~\ref{section-micro} we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. Finally, in  
+In Section~\ref{section-system} we explain how the term is applied at the level of systems and while markets and how finacialization might affect  the housing market as a system. At that point we can introduce our specific hypotheses and how we intend to test them.
 % We therefore begin with a narrow and strict definition of the act of finacializing, followed by  an explanation and examples. We then go on to explain how the term is applied at the level of systems and while markets.
 
 % At that point we can introduce our specific hypotheses and how we intend to test them.
@@ -17,43 +17,106 @@ The word ``financialization'' has several quite different meanings.
 %*YOU SAY ABOVE YOU ARE GOING TO NARROW TO A SPECIFC DEFINITION, CAN YOU MAKE VERY CLEAR HERE WHAT THAT IS. LIKE THESE ARE ALL POSSIBLE DEFINITIONS. THEN STATE VERY EXPLICITLY, THIS IS THE ONE WE ARE USING. 
 
 To financialize anything is to create a  \gls{financial instrument} that represents it and can be bought and sold as an investment. Not all financial instruments are instruments of financialization. For example, mortgages are  financial instruments, but another step is required to create a financialized  market in mortgages. 
-*E i'M A BIT CONFUSED HERE... i THINK YOU ARE GOING INTO EXPLAINING HOW THEY BECAME FINANCIALIZED, BUT IT'S SET UP LIKE AND EXAMPLE... CAN YOU SAY WHERE YOU ARE GOING BEFORE OPENING THE DETAILS ABOUT THE MORTGAGE. lIKE THEY BECAME FINACICLAIZED OVER TIME... AT A BASI LEVEL A MORTGAGE MAKES POSSIBLE ETC..
 
-A mortgage  makes possible a specific transaction between one potential seller and a potential buyer. The buyer and the seller both want to transfer the ownership in exchange for a sum of money, but the buyer may not have the amount required in the present. The mortgage instrument makes the transaction possible by createing a legally binding commitment to satisfactory future payment by conferring on the initial owner the right to repossess his property if the terms of the agreement are not met. The security provided by this instrument ``de-risks'' the transaction, making it safer and therefore easier to achieve the mutual benefits of the sale. %Buyers would get loans directly from the seller – no banks or outside parties were involved. 
+%*E i'M A BIT CONFUSED HERE... i THINK YOU ARE GOING INTO EXPLAINING HOW THEY BECAME FINANCIALIZED, BUT IT'S SET UP LIKE AND EXAMPLE... CAN YOU SAY WHERE YOU ARE GOING BEFORE OPENING THE DETAILS ABOUT THE MORTGAGE. lIKE THEY BECAME FINACICLAIZED OVER TIME... AT A BASI LEVEL A MORTGAGE MAKES POSSIBLE ETC..
 
-Originally mortgages were an arrangement between just the buyer and the seller, but in the 1870s in the USA, insurance companies stepped into these transactions, paying off the seller and then collecting the principle and interest payments on behalf of the bank's shareholders. This innovation was an example of financialization that made it possible for individual insurance companies to profit by providing money to buyers.   When mortgage lending was regulated and insured  by the American government during and after the great depression it facilitated a massive increase in home ownership in the USA and contributed to the post-war construction boom and the suburbanization of American cities. 
 
+\subsection{Mortgages}
+
+Mortgages, for example, are a financial instrument that allows lenders to  participate in housing purchases in the present in exchange for a future flow of payments.  The mortgage does not create housing, but it enables the prospective buyer to become the nominal owner of an asset that produces a stream of benefits. The stream of benefits from secure housing near a source of income generally exceeds a buyer's current assets. The mortgage enables the  transfer of ownership because it makes it possible to transfer the rights to a substantial fraction of the future income of the buyer to the mortgage holder who, in effect, is the owner until the terms of the mortgage are fulfilled.  If the mortgagee fails to make those payments the mortgage holder repossess the asset. The security provided by this instrument ``de-risks'' the transaction, making it safer and therefore easier to achieve the mutual benefits of the sale.
+
+Originally mortgages were an arrangement between just the buyer and the seller, but in the 1870s in the USA, insurance companies stepped into these transactions, paying off the seller and then collecting the principle and interest payments on behalf of the bank's shareholders. This innovation was an example of financialization that made it possible for individual insurance companies to profit by providing money to buyers. When mortgage lending was regulated and insured  by the American government during and after the great depression it facilitated a massive increase in home ownership in the USA and contributed to the post-war construction boom and the suburbanization of American cities. 
 
 These mortgages were still agreements between individual lenders and buyers. When financial institutions developed markets that let them buy and sell bundles of mortgages among themselves, we say the mortgage market itself was financialized. There was then a market for the  promises to pay in addition to the underlying market for housing and the market for mortgage-type loans loans
 
-The transactions in this market do not directly affect the mortgage conditions or the home: they simply added a new product for investors or banks  to buy and sell. This new market was thought to further reduce the risk for lenders, but  between 2007 and 2010 in the USA the sub-prime mortgage crisis destabilized the financial institutions that were playing this new market. \footnote{As I understand it, that crisis resulted from overselling risky and predatory mortgages by lenders with more money to lend than the market could absorb. Eager investors seeking higher or more secure returns were willing  to buy supposedly de-risked bundles of  mortgages. (The instruments that enabled the speculative bubble were mortgage-backed securities (MBSes) and collateralized debt obligations (CDOs).) As it turned out, mortgage defaults rose, lenders' liquidity fell, rates rose, defaults increased and the market for the new instruments collapsed, taking down major financial institutions. The details don't matter for this thesis. }.  
-*E IF YOU SAY IT WAS THOUGHT TO LOWER RISK, CAN YOU FINISH THAT THOUGHT. %DID THE CRISIS SHOW IT DIDN'T? OR IS IT UNCLEAR WHETHER IT DOES? iS IT A DEBATED POINT? OR CHEANGE THE SENTENCE SO YOU DON'T SET UP IT WAS THOUGHT AND LEAVE THE CONCLUSION HANGING...
+The transactions in this market do not directly affect the mortgage conditions or the home: they simply add a new product for investors or banks to buy and sell. This new market was thought to further reduce the risk for lenders, but  between 2007 and 2010 in the USA the sub-prime mortgage crisis destabilized the financial institutions that were playing this new market. \footnote{As I understand it, that crisis resulted from overselling risky and predatory mortgages by lenders with more money to lend than the market could absorb. Eager investors seeking higher or more secure returns were willing  to buy bundles of  mortgages that were in theory de-risked. Pooling uncorrelated individual risk, as the insurance industry does, produces lower overall risk. (The instruments that enabled the speculative bubble were mortgage-backed securities (MBSes) and collateralized debt obligations (CDOs).) Pooling does not reduce systemic risk, however. As it turned out, the mortgage default rate rose, lenders' liquidity fell, mortgage rates were pushed up, defaults increased, and the market for the new instruments collapsed, taking down major financial institutions. The details don't matter for this thesis, but they provide a cautionary tale about the the potential costs of financialization.}.  
 
-Recently, the creation of \glspl{REIT}, Real Estate Investment Trusts, allowed investors to buy shares in a fund that buys properties, giving them a share of the revenue and any speculative gains the fund achieves.
+About 80\% of Canadian homes are owner-occupied and about a third of the value of the homes is held as mortgages. Approximately two-thirds of the net land rents associated with housing, therefore, accrue to owner-occupiers \cite{CanadasHomes80percentowneroccuplied-1-3rd-mortgaged}. {\color {red}CHECK THESE NUMBERS } 
+
+The mortgage demonstrates the two aspects of financial instruments. It is both a financial instrument that enables  purchase and a financial asset that can be bought and sold. When we consider urban housing, it is the right to future income generated by capital, labour, and the city itself through the agglomeration effects that drive productivity. It is an instrument that indirectly captures a share of the urban rents. As productivity rises, wages rise, rents rise, property prices rise and mortgages rise. 
+
+For urban theory and policy formation it is important to distinguish between financial instruments that enable production of real assets, and instruments like  mortgages that primarily facilitate the transfer of real assets or rights to real estate  income. Housing developers borrow to purchase land for development and builders borrow to finance construction. While important, the financial instruments involved are not driving the financialization of housing.  The size of the loans involved is affected by the amount of land purchased and the potential rents earned by that land, but the degree of non-occupant ownership is not affected. *** CLARIFY
+
+  \begin{figure}
+\begin{center}
+\begin{tikzpicture}{scale=.5}
+\draw [fill=yellow!20] (0,4)--(3,4)--(3,8.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+
+\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+ \draw [fill=gray!40,opacity=1] (0,0) rectangle (3,4); %fiancialization   
+\draw [fill=gray] (0,0) rectangle (3,2); %TENANT
+
+\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
+
+\node at (1.5,6)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt\Large Owner Occupied};
+%\node at (2,3.3) [text width=2.4cm]  {\baselineskip=20pt Mortgaged};
+\node at (1.5,1)
+    [text width=2.4cm, align=center, white]
+    {\baselineskip=20pt\Large Tenant Occupied};
+
+
+%\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
+\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
+\draw [gray,-latex, line width=2mm](1.5,3)--(1.5,4);
+\draw [gray,line width=2mm,-latex](3,3)--(4,3); \node at (5.5,3)[text width=2cm]{Expansion of housing stock}; 
+\draw [gray, dashed, width=2mm,](3.1,10)--(4,3)--(3.1,0);
+\end{tikzpicture}
+\end{center}
+ \caption{Financialization vs expansion of the housing stock }
+      \label{fig:Financialization-expansion}
+  \end{figure}
+
+%*E IF YOU SAY IT WAS THOUGHT TO LOWER RISK, CAN YOU FINISH THAT THOUGHT. %DID THE CRISIS SHOW IT DIDN'T? OR IS IT UNCLEAR WHETHER IT DOES? iS IT A DEBATED POINT? OR CHEANGE THE SENTENCE SO YOU DON'T SET UP IT WAS THOUGHT AND LEAVE THE CONCLUSION HANGING...
+
+\subsection{Stocks and stock markets}
+The \gls{joint stock company}, the basis of the modern stock market and an important mechanism for channeling investment  into productive activity,  is probably the most important financial instrument in the capitalist economy. Originally a tool to allow a group of investors to pool their money, take on large projects, and to share risks, the stocks themselves rapidly became objects of trade and speculation. Share prices on the stock market are not tightly tied to the productivity of the company they represent, which makes it clear that the financial instrument is something different from the real asset. 
+
+Stock markets are  generally described as a primary means of efficiently mobilizing long term savings and investment for  fixed capital formation.\cite{azfarMarketMobilizedCapital2003b} Most stock transactions however are speculative in nature and there is significant disagreement about the link between stock investment and investment in productive real assets.\footnote{Mork et. al \cite{morckStockMarketInvestment1990} identify four theories that attempt to explain the correlation between stock returns and subsequent investment \begin{quotation}The first says that the stock market is a passive predictor of future activity that managers do not rely on to make investment decisions. The second theory says that, in making investment decisions, managers rely on the stock market as a source of information, which may or may not be correct about future fundamentals. The third theory, which is perhaps the most common view of the stock markets influence, says that the stock market affects investment through its influence on the cost of funds and external financing. Finally, the fourth theory says that the stock market exerts pressure on investment quite aside from its informational and financing role, because managers have to cater to investors' opinions in order to protect their livelihood. For example, a low stock price may increase the probability of a takeover or a forced removal of top management.If the market is pessimistic about the firm's profitability, top management may be deterred from investing heavily by the prospect of further erosion in the stock  price.\end{quotation} None of the point to a direct connection between stock market investment and real investment.}  Mutual funds, which pool risky stocks, are a derivative  financial instrument built on top of the stock market.
+
+
+\subsection{Investment trusts}
+An example of a financial instrument designed specifically to support rent extraction and which  increases the degree of financialization of the housing supply is the  Real Estate Investment Trust (REIT).  A REIT is a company that owns, operates, or finances income-generating real estate and distribute the income to shareholders. While the company itself is an management system, the shares are are simply financial assets that are that are sold to individuals and organizations that want to share in real estate revenues and capital gains. There are other large owners of residential real estate such as life insurance companies and pension plans that behave similarly, but REITs are a relatively new financial instrument which is  expanding rapidly and attracting political attention for their effect on housing markets.  % REITs that develop new properties generally don't sell the properties they construct.
+
+REITs have become increasingly popular in recent years.  An S\&P-Dow Jones research bulletin reported that over the  25 years to 2017, REITs outperformed stocks, bonds, and commodities \cite{Dow-Jones-research-bulletin}. Because they have outperformed competing investments they have attracted  capital from other uses.
+
+Developed in the USA  in 1960 (as an amendment to the Cigar Excise Tax Extension!) and in Canada in 1993 \cite{REITsDevelopedDates}, REITs are similar to mutual funds in making it possible for an individual, often small investors to earn dividends from real estate investments without having to buy, manage, or finance any properties themselves. There are questions about preferential tax treatment, and whether some REITs are really just inappropriately sheltered real-estate corporations.  For the purpose of this thesis, they are simply one of the mechanisms for the financialization of housing.
+
+They are not simply a neutral tool for saving however. According to a paper \cite{wangAnalyzeImpactREITs2021} on REITS in the Irish housing market, ``REIT successfully reconnected the international financial market and the Irish real estate market.'' In other words, in Ireland, REITS have made it easier for international capital to buy Irish land. The entry of outside and footloose capital has had an effect on the resident population:  ``the large-scale acquisition of Irish real estate by REITs and other real estate buyers has also caused some new problems. First, the active management of assets by REITs and other investors has led to a rapid increase in rents''.\footnote{In  IMF working paper ``Capital Account Liberalization and Inequality'' \cite{furceriCapitalAccountLiberalization2015}  Furceri and Loungani reported that that for 149 countries from 1970 to 2010, ``after countries take steps to open their capital account, an increase in inequality in incomes within countries follows'' . The observation is consistent with our argument  that domestic rent-seeking in housing markets will increase inequality.}   
+
+There is evidence that REITs affect real estate markets in other ways. Bat et all  \cite{batRolePublicREITs2022} reprot that  ``they are actually financial actors that aggressively buy up property assets and manage them to extract wealth at taxpayers’ expense. '' and ``they have expanded the pool of capital available for transactions that monetize real property and turn it into tradable assets – financial widgets with little or no connection to the real purpose of the productive enterprises that occupy the properties they own.''
 
 
 
-\section{The rate of return on a property purchase}\label{section-micro}
 
-At  the microeconomic level, where individual decisions are made, financialization is the purchase of assets  like homes for the sake of the  future stream of revenue and speculative gains it offers. Real assets are bought by individuals and institutions looking to maximize the return on the financial resources they have, and thereby become financial assets. The real asset takes on an additional and separate economic meaning as financial object that can be bought and sole.
 
-investment of this sort is mediated by financial institutions on behalf of the owners of the financial assets, 
+\subsection{Financial instruments and financialization: a final comment}
+We have called attention in this section to the development  several important financial instruments -- mortgages, stocks, and REITs --  with the intention of  disentangling the concept of financial instruments from the term ``financialization''.  We say that financialization is occurring if there is an  increase the stock of financial assets associated with a stock of real assets. The development of new instruments facilitates this process. 
 
-Financialization at this level is a term for the a process  mediated by financial institutions on behalf of the owners of the financial assets that increase the stock of financial assets associated with a stock of real assets. %it may be understood as the process by which which financial institutions,  increase in size and influence. 
-% ADD TABLE WITH VARIABLE DEFINITIONS
- 
-% The rule has long run implications for the ownership of housing. 
-% *THIS SECTION SEEMS LIKE A JUMP... HAT IS THE CONTEXT? WHAT RULE?
+\section{The microeconomics of  financialization}\label{section-micro}
 
-%The implications of {\color{red} Equation~\ref{eqn-property-investment-return1}} are significant for the evolution of the urban land market and class structure.  
-Some of the implications include:
+At  the microeconomic level, where individual decisions are made, financialization happens through the actual purchase of assets, like homes, for the sake of the  future stream of revenue and speculative gains. Real assets are bought by individuals and institutions looking to maximize the \gls{return} on the financial resources they have. In the process, the real asset takes on an additional and separate aspect as financial object that can be bought and sold. 
+
+The feature that matters most to investors is the  rate of return that  an asset offer. For any level of risk and liquidity, an investor will choose to purchase the asset with the highest rate of return. To model the market  we therefore need to calculate the rate of return on each property taking into account the rental revenue, the potential capital gain the investors cost of capital and  required return. The analysis will show the incentive structure driving the  financialization of the housing market.
+
+
+
+We derive the maximum price offer that an investor would bid for a property. This is the maximum price that allows the investor to achieve at least her  target rate of return, $r_{target}$ in Appendix \ref{appendix-bid-price}. We call this  $i's$ maximum bid. 
+% The denominator in Equation~\ref{eqn-bid1} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
+We use this formula in the price determination process in our simulation model. 
+
+ Since the agent does not have perfect information, the calculation is done with their best approximation of values. % The agent does not know the future. 
+ The rate of price growth $\dot P$, is a an approximation based on rents and past market behaviour. Details of the derivations, and implementation, are discussed in the Appendix. % We calculate the bid price in Appendix \ref{appendix-bid-price}.
+
+
 
 \begin{enumerate}
 \item A large $m$ magnifies the return. (The downpayment is smaller as a fraction of the price, increasing the investor's leverage). 
 
 \item A lower mortgage interest rate increases the return by lowering interest payments.  The wealthy can generally borrow  at lower interest rates than the less wealthy. 
 
-\item A lower discount rate $\delta$ reduces the subjective rate of return.  \footnote{Poverty in assets, or cash liquidity constraints, was leading to or correlated with higher rates of time preference \cite{HoldenShiferaw--1998}. Poverty, market imperfections and time preferences: of relevance for environmental policy?   S. Holden, B. Shiferaw, M. Wik.  1998, Environment and Development Economics https://www.semanticscholar.org/paper/Poverty %2C-market-imperfections-and-time-preferences%3A-Holden-Shiferaw/55376ceb29b6f3bab2d8fb3dd83d5904826959ac
+\item A lower discount rate $\delta$ reduces the subjective rate of return.  \footnote{Poverty in assets and cash liquidity constraints are correlated with higher rates of time preference \cite{HoldenShiferaw--1998}.
 }
 \item Higher expected price appreciation increases the attractiveness of investment. The wealthy and financial corporations  are likely to have better price forecasts than  the occasional home buyer.
 \item Higher rents make the unit more profitable. higher expected  rents may result from expecting greater price appreciation raises expected profitability or greater willingness to raise rents for tenants 
@@ -72,7 +135,8 @@ Some of the implications include:
 %\item Lower tax rates decrease holding costs and increase the value of the investment
 %\end{enumerate}
 
-Since interest rates are lower for those with higher wealth, the analysis implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' *** DEFINE control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
+Since interest rates are lower for those with higher wealth, the analysis implies, consistent with the empirical evidence, that net returns for investment are increasing with wealth. Large wealth holders will get higher expected and actual rates of return on land than those with lower wealth holdings. Managers of large pools of capital will have an even greater advantage. \footnote{ Equation~\ref{Eqn:DecisionRule} implies  sales go to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } \footnote{Furthermore, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able to borrow larger amounts and at lower interest rates than the less wealthy. At any distance from the centre they will be able to make a higher bid.} %The cost of capital is known to differ for rich and poor. The implication is that those with more capital will be at an advantage in the urban housing  market. 
+
 Tax treatment of income and capital gains as well as interest deductibility will also influence Equation~\ref{Eqn:DecisionRule}'s strength and who benefits most. \footnote{Case and Schiller \cite{CaseandSchiller} observe that (source?) 
 `` ... increases in real per capita income all are positively related to excess returns or price changes over the subsequent year.''} 
 \footnote{Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time \cite{FredrickDemers}. Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca *** ELABORATE} 
@@ -100,6 +164,8 @@ The implication is that those with more capital will be at an advantage in the u
 
 These appear to be features of the economy we observe.
 
+
+ the conclusion that we draw from the analysis above is that  financialization of urban housing benefits a rentier class of urban landholders. There is evidence that it benefits a globally distributed class of rentiers.  
 
 \section{Financialization as system change}\label{section-system}
 
@@ -156,132 +222,17 @@ The discounting factor may be correlated with wealth as well.
 %%We could implement the first  explanation either by generating expectational errors based on functional class or wealth. 
 
 
-\section{Investor market behaviour}
-
-Investors  bid on houses given the expected return, $r_{return}$. %This means they need to have a sense of the maximum it would make sense to bid on a property, given the potential for a financial return.
-To find how much investors will bid, we find the maximum price that satisfies the criterion $r_{return} \geq r_{target}$ from Equation \ref{eqn-property-investment-return2}. %,  we define as the ``bid price'' %$P^{max}_{bid}$  
-as the maximum price offer that allows the investor to achieve the target rate of return, $r_{target}$.   %replacing $\mathcal{R}$ with $rP_0$. 
-
-% While equation~\ref{eqn-property-investment-return1} is expressed in terms of a given market price, $P_0$, it cannot be solved directly for $P_0$, because price cancels out.
- %, building from Equation~\ref{eqn-property-investment-value2}. We use $\mathcal{R}$ as a expression for the investor's expected net rent and $L(P)$ as the investor's estimator for the rate of price change. After recalculating the rate of $v$, we set $v \ge r_{target}$ and solve for prices that achieve at least the target rate of return. 
-The solution for agent $i's$ maximum bid is computed in Appendix \ref{appendix-bid-price}: 
-
-\begin{align}
-% r_{target} &\le \frac{\left[\dots \right]}{1-m}   +\frac{\phi \mathcal{R}}{(1-m)P_{bid}}. \\
-% %
-% (1-m)r_{target} &\le   + \frac{\phi \mathcal{R}}{P_{bid}}\\%\delta(1+L(P))- (1+r)m%
-% %
-% (1-m)r_{target}-\left[\dots\right]  &\le  \frac{\phi \mathcal{R}}{P_{bid}}\\
-% %
-% P_{bid} &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \dots\right]}\\
-% %
-%P_{bid}   &\le    +\frac{\phi \mathcal{R}}{(1-m)r_{target}-\left[ \delta(1+L(P)- (1+r)m\right]}. \nonumber \\
-P_i^{bid} & \le   \frac{ \mathcal{R}_N}{(1-m_i)r_i^{target}-\left[ \delta_i(1 + \dot P - (1 + r_i)m_i)\right]}.
-\label{eqn-bid1}
-\end{align}
-% Where $L(P)$ is the investor's estimator for the rate of price change.
-
-% The denominator in Equation~\ref{eqn-bid1} is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the net present value calculation $NPV=\frac{\mathcal{R}}{r}$. 
-We use this formula in the price determination process in our simulation model. 
- Since the agent does not have perfect information, the calculation is done with their best approximation of values. % The agent does not know the future. 
- The rate of price growth $\dot P$, is a an approximation based on rents and past market behaviour. Details of the derivations, and implementation, are discussed in the Appendix. % We calculate the bid price in Appendix \ref{appendix-bid-price}.
-
-\section{Example financial instruments: mortgages and investment trusts}
-
-\subsection{Mortgages}
-
-Mortgages, for example, are a financial instrument that allows lenders to  participate in housing purchases in the present in exchange for a future flow of payments.  The mortgage does not create housing, but it enables the prospective buyer to become the nominal owner of an asset that produces a stream of benefits. The stream of benefits from secure housing near a source of income generally exceeds a buyer's current assets. The mortgage enables the  transfer of ownership because it makes it possible to transfer the rights to a substantial fraction of the future income of the buyer to the mortgage holder who, in effect, is the owner until the terms of the mortgage are fulfilled.  If the mortgagee fails to make those payments the mortgage holder takes over the asset. 
-
-About 80\% of Canadian homes are owner-occupied and about a third of the value of the homes is held as mortgages. Approximately two-thirds of the net land rents associated with housing, therefore, accrue to owner-occupiers \cite{CanadasHomes80percentowneroccuplied-1-3rd-mortgaged}. {\color {red}CHECK THESE NUMBERS } 
-
-
-\begin{center}
-\begin{tikzpicture}{scale=.5}
-%   \coordinate (planning) at (-5,1);%PREFACE
-% \coordinate (economics) at (5,.75);%
-%  \coordinate (geography) at (-.5,-2); %history
-% \coordinate (finance) at (0,5); %  
-\draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
-
-
-\draw [fill=yellow!20] (0,4)--(3,4)--(3,9.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
-
-
-
-\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
-
-\node at (1.5,6)
-    [text width=2.4cm, align=center]
-    {\baselineskip=20pt\Large Owner Occupied};
-\node at (2,3.3)
-    [text width=2.4cm]
-    {\baselineskip=20pt Mortgaged};
-\node at (1.5,1)
-    [text width=2.4cm, align=center, white]
-    {\baselineskip=20pt\Large Tenant Occupied};
-\end{tikzpicture}
-\end{center}
-
-Figure: Housing Tenure 
-
-The mortgage demonstrates the two aspects of financial instruments. It is both a financial instrument that enables  purchase and a financial asset that can be bought and sold. When we consider urban housing, it is the right to future income generated by capital, labour and the city itself through the agglomeration effects that drive productivity. It is an instrument that indirectly captures a share of the urban rents. As productivity rises, wages rise, rents rise, property prices rise and mortgages rise. 
-
-For urban theory and policy formation it is important to distinguish between financial instruments that enable production of real assets, and instruments like  mortgages that primarily facilitate the transfer of real assets or rights to real estate  income. Housing developers borrow to purchase land for development and builders borrow to finance construction. While important, the financial instruments involved are not driving the financialization of housing.  The size of the loans involved is affected by the amount of land purchased and the potential rents earned by that land, but the degree of non-occupant ownership is not affected. *** CLARIFY
-  
-\begin{center}
-\begin{tikzpicture}{scale=.5}
-\draw [fill=yellow!20] (0,4)--(3,4)--(3,8.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
-
-\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
- \draw [fill=gray!40,opacity=1] (0,0) rectangle (3,4); %fiancialization   
-\draw [fill=gray] (0,0) rectangle (3,2); %TENANT
-
-\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
-
-\node at (1.5,6)
-    [text width=2.4cm, align=center]
-    {\baselineskip=20pt\Large Owner Occupied};
-%\node at (2,3.3)
-    [text width=2.4cm]
-    {\baselineskip=20pt Mortgaged};
-    
-
-
-\node at (1.5,1)
-    [text width=2.4cm, align=center, white]
-    {\baselineskip=20pt\Large Tenant Occupied};
-
-
-%\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
-\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
-\draw [gray,-latex, line width=2mm](1.5,3)--(1.5,4);
-\draw [gray,line width=2mm,-latex](3,3)--(4,3); \node at (5,3)[text width=2cm]{Expansion of housing stock}; 
-
-\end{tikzpicture}
-\end{center}
-
-Figure: Financialization vs expansion of the housing stock 
-
-\subsection{Investment trusts}
-
-An example of a financial instrument designed specifically to support rent extraction and which  increases the degree of financialization of the housing supply is the  Real Estate Investment Trust (REIT).  A REIT is a company that owns, operates, or finances income-generating real estate and distribute the income to shareholders. There are other large owners of residential real estate such as life insurance companies and pension plans that behave similarly, but REITs are a relatively new financial instrument which is  expanding rapidly and attracting political attention for their effect on housing markets.  % REITs that develop new properties generally don't sell the properties they construct.
-
-REITs have become increasingly popular in recent years.  An S\&P-Dow Jones research bulletin reported that over the  25 years to 2017, REITs outperformed stocks, bonds, and commodities \cite{Dow-Jones-research-bulletin}. Because they have outperformed competing investments they have attracted  capital from other uses.
-
-Developed in the USA  in 1960 (as an amendment to the Cigar Excise Tax Extension) and in Canada in 1993 \cite{REITsDevelopedDates}, REITs are similar to mutual funds in making it possible for an individual, often small investors to earn dividends from real estate investments without having to buy, manage, or finance any properties themselves. There are questions about preferential tax treatment, and whether some REITs are really inappropriately sheltered real-estate corporations.  For the purpose of this thesis, they are simply one of the mechanisms for the financialization of housing.
-
-They are not simply a neutral tool for saving however. According to a paper \cite{wangAnalyzeImpactREITs2021} on REITS in the Irish housing market, ``REIT successfully reconnected the international financial market and the Irish real estate market.'' In other words, in Ireland, REITS have made it easier for international capital to buy Irish land. The entry of outside and footloose capital has had an effect on the resident population:  ``the large-scale acquisition of Irish real estate by REITs and other real estate buyers has also caused some new problems. First, the active management of assets by REITs and other investors has led to a rapid increase in rents''.\footnote{%In IMF working paper \cite{IMF-WP-2015}/15/243 2015, Capital Account Liberalization and Inequality, 
-Davide Furceri and Prakash Loungani found that for 149 countries from 1970 to 2010, ``after countries take steps to open their capital account, an increase in inequality in incomes within countries follows'' \cite{furceriCapitalAccountLiberalization2015}. The observation is consistent with our argument  that domestic rent-seeking in housing markets will increase inequality.}   
-
-There is evidence that REITs affect real estate markets in other ways. A \href{https://www.ineteconomics.org/research/research-papers/the-role-of-public-reits-in-financialization-and-industry-restructuring}{report} from the Institute for New Economic Thinking, for example, argues that ``The evidence in this report shows that they are actually financial actors that aggressively buy up property assets and manage them to extract wealth at taxpayers’ expense. ''\footnote{The Role of Public REITs in Financialization and Industry Restructuring. Rosemary Batt and Eileen Appelbaum, with Tamar Katz* Working Paper No. 189 July 9th, 2022} ``\dots they have expanded the pool of capital available for transactions that monetize real property and turn it into tradable assets – financial widgets with little or no connection to the real purpose of the productive enterprises that occupy the properties they own.''
 
 \subsection{Financialization and productivity}
 
-When  a productive asset is acquired as a financial asset it remains productive. %African land or land in Northern Ontario 
-Land acquired by holding companies may even be made more productive. 
+When  a productive asset is acquired as a financial asset it remains productive.  The financial instrument is separate form the real asset, at least in principle, and is traded in different markets. Why then is financialization an issue?  Theory suggests that financialization is positive.  The major argument is that finacialization enables real investment. In theory then, financialization of the housing market therefore  to more housing production. It is striking that after 40 years of growing financialization across we face a hosuing crisis , increasing homelessness and falling rates of homw ownership.  Palley \cite{palleyFinancializationWhatIt2007} reproits that 
+
+\begin{quotation}At the macroeconomic level the era of financialization has been associated with generally tepid economic growth.\dots  In all countries except the U.K., average annual growth fell during the era of financialization that set in after 1979. Additionally, growth also appears to show a slowing trend so that growth in the 1980s was higher than in the 1990s, which in turn was higher than in the 2000s. \end{quotation}
+
+%African land or land in Northern Ontario 
+%Land acquired by holding companies may even be made more productive. The theory is that 
 % the goal of such investments, however, is generally to achieve a capital gain over time. Financial analysis is essentially about rates of return on financial capital invested. The opportunity for capital gains  attracts financial capital to the housing market.%Financial managers have no interest is n in assets that are not expected to increase in value. 
 
 
-% The financialization of urban housing benefits a globally distributed rentier class of urban landholders. We will make this more explicit below the incentive structure deriving the further financialization of the housing market.
 
 *IT WOULD BE HELPFUL TO CONNECT FINANCIALZATION TO KEY THREAD FROM PAST CHAPTERS AT SOME POINT EVEN IF BRIEFLY
