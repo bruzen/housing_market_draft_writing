@@ -1,9 +1,45 @@
+
+
+
+{\pagestyle{empty}
+
+\begin{figure}
+\vspace{-1cm}
+\begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+    \centering
+    \includegraphics[scale=.75]{fig/flow_full_model.png}
+    \label{Stylized model flow.}
+\caption{Model logic TODO: CAN WE SUPPRESS THE CHAPTER TITLE/PAGE NUMBER, AT TOP OF PAGE, SO THERE IS NOT A LINE ABOVE?}
+\end{adjustwidth}
+\end{figure}
+}
 \chapter{Model} \label{chapter-model}
+
+%\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+%\let\endchangemargin=\endlist \
+%\newgeometry{left=0.5cm,bottom=0.1cm,right=0.5cm}
+
+% {\pagestyle{empty}
+
+% \begin{figure}
+% \vspace{-1cm}
+% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+%     \centering
+%     \includegraphics[scale=0.4]{fig/stylized_model_flow.png}
+%     \label{Stylized model flow.}
+% \caption{Model Logic}
+% \end{adjustwidth}
+% \end{figure}
+% }
+
+% %\restoregeometry
+
+\section{Intro}
 % \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
 
 % COULD CALL THIS THEORETICAL DEVELOPMENT OF THE MODEL AND MAKE A SEPERATE IMPLEMENTATION CHAPTER
 
-This chapter links (**E USE A MORE SPECIFIC WORD THAN LINKS) % #E BUILD A PCITURE OF HOW THE MODEL DRAWS THESE TOGETHER... LIKE IT TAKES THESE THREAD (LIST THEM) AND COMBINES THEM INTO A MODEL THAT EXPLORE... USE THIS PARRARAPH TO DESCRIBE THE EXACT INTERCONNECTIONS
+This chapter describes the specific formulations (**E USE A MORE SPECIFIC WORD THAN LINKS) % #E BUILD A PCITURE OF HOW THE MODEL DRAWS THESE TOGETHER... LIKE IT TAKES THESE THREAD (LIST THEM) AND COMBINES THEM INTO A MODEL THAT EXPLORE... USE THIS PARRARAPH TO DESCRIBE THE EXACT INTERCONNECTIONS
 
 the theoretical discussions of the previous chapters with an agent-based simulation model. 
 
@@ -71,7 +107,7 @@ We assume  a uniform lot size, $s$, with one worker per unit land, so the labour
    =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-This is the equilibrium \gls{urban labour supply} curve. It is the standard urban \gls{population equilibrium} condition, which is a \gls{migration equilibrium} \cite{migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
+This is the equilibrium \gls{urban labour supply} curve. It is our version of the standard urban \gls{population equilibrium} condition for moderls of this class, which is a \gls{migration equilibrium} \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
 In the agent model, the \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute % model rules, and individual 
 and firm hiring behaviour. %and the job search process. 
@@ -198,7 +234,7 @@ We study \gls{financialization} in a simplified market model, integrating
 our urban production model  into a spatially explicit {housing market} with financial investment. %\gls{financialized} investment.
 
 Urban productivity %and amenity
-drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{productivity_price_link} ELABORATE. 
+drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{GET_productivity_price_link} ELABORATE. 
 % Other factors also shape prices, including \gls{amenity}.
 
 % *** In the model, rising \gls{population} and \gls{productivity} generate an economic value for land, that's derived from its proximity to the \gls{urban center}. 
@@ -692,7 +728,7 @@ Each agent has their own interest rates, discount rates, mortgage share, informa
 The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ , and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
 Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 \begin{center}
 \input{fig/price_of_capital.tex}% Figure of cost of borrowing
 \caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
@@ -1084,7 +1120,7 @@ c    annual tax rate on rent and home  eg  1.6\% = 16 mills, 1.2\% =.12 mills
 \section{SORT Housing services 30 percent}
 MOVE TO ASSUMPTIONS - We assume households spend a fixed fraction $a$ of their subsistence wage $\psi$ on housing. 
 
-\footnote{***JUSTIFY ASSUMPTION OF FIXED SHARE OF SUBSISTENCE HERE? This appears to be empirically justified and simplifies the model \cite{SOURCE_HOUSING_A_FIXED_SHARE_SUBSISTENCE_WAGE}. Appendix \ref{appendix-future-work} considers how the assumption may be relaxed in future work.}
+\footnote{***JUSTIFY ASSUMPTION OF FIXED SHARE OF SUBSISTENCE HERE? This appears to be empirically justified and simplifies the model \cite{GET_SOURCE_HOUSING_A_FIXED_SHARE_SUBSISTENCE_WAGE}. Appendix \ref{appendix-future-work} considers how the assumption may be relaxed in future work.}
 
 Housing services absorb about 30\% of income  we will use than number  as an approximation,  $a\psi$, where $a$ is the share of the subsistence wage and $\psi$
 
@@ -1278,9 +1314,9 @@ The relationship is clearly established empirically \cite{}, but location and sh
  
  $r_i$ depends on relative income and assets, as well as base interest rates. % compared to others. 
  The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada's %\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
- Data released in 2020 by Statistics Canada indicates that the top 1\% of Canadians made, on average, around \$512,000 in a single year \cite{stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
+ Data released in 2020 by Statistics Canada indicates that the top 1\% of Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
 
- A study by Statistics Canada found that the typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
+ A study by Statistics Canada found that the typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
 
 \subsubsection{Computing the income constraint on interest rates}\label{SS:YWealthConstraint}
 $r_i$
@@ -1691,7 +1727,7 @@ Finally agents valuate the homes offered and place bids. % For simplicity of imp
 %Place offers - low if can't afford, higher if market is tight
 %If failed, consider renting or buying next time.
 
-\begin{figure}
+\begin{figure}[htb]
     \begin{center}
  \tikzstyle{decision} = [diamond, draw, fill=blue!20, 
      text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
@@ -1731,7 +1767,8 @@ Initially all urban workers are also homeowners. When we allow the initial urban
 purchase land as a financial asset on behalf of investors.
 
 \subsection{Model Steps - Housing market}
-Figure xyz traces the flow. In each time step agents firms update wages and job availability, agents decide whether to work and whether to buy and sell homes.
+% Figure xyz traces the flow. 
+In each time step agents firms update wages and job availability, agents decide whether to work and whether to buy and sell homes.
  % Schedule: Multi step by breed
  % Steps Labour
  % step - workers: market/production, enter market to buy, list properties real estate agent matches agents - has bids 
