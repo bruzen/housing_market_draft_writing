@@ -1,18 +1,35 @@
 
+% {\newpage\thispagestyle{empty}
+% \vspace{-1.5cm}
+% \begin{figure}
+% \vspace{-1cm}
+% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+%     \centering
+%     \includegraphics[scale=.75]{fig/flow_full_model.png}
+%     \label{Stylized model flow.}
+% \caption{Model logic TODO: CAN WE SUPPRESS THE CHAPTER TITLE/PAGE NUMBER, AT TOP OF PAGE, SO THERE IS NOT A LINE ABOVE? add }%\pagestyle{headings}
+% % \usetikzlibrary{positioning}
+% %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
+% \end{adjustwidth}
+% \end{figure}
+% }
 
 
-{\pagestyle{empty}
-
-\begin{figure}
-\vspace{-1cm}
-\begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
-    \centering
+\newpage
+ \thispagestyle{empty}
+%\setlength{\TPHorizModule}{18cm}
+\begin{textblock*}{180pt}(1pt,2cm)
     \includegraphics[scale=.75]{fig/flow_full_model.png}
-    \label{Stylized model flow.}
-\caption{Model logic TODO: CAN WE SUPPRESS THE CHAPTER TITLE/PAGE NUMBER, AT TOP OF PAGE, SO THERE IS NOT A LINE ABOVE?}
-\end{adjustwidth}
-\end{figure}
-}
+\end{textblock*}
+
+
+\begin{textblock*}{400pt}(1pt,1.5cm)
+   \hspace{6cm} \textbf{\Huge Model Logic}
+\end{textblock*}
+. 
+\vspace{10cm}
+\newpage
+
 \chapter{Model} \label{chapter-model}
 
 %\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
