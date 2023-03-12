@@ -169,7 +169,26 @@ Combining these components, we have an extended theory of urban rent built on a 
 %COMPELLING DESCRIPTION OF WHAT'S MISSING IN THE LITERATURE
 %these share space, formalization in finance is spaceless
 
+
+
+% Alternative phrasing 
+%We integrate a labour market into a spatial urban model, set up to explore rent, and implications for the distribution of wealth.
+
+CUT \textbf{The model has a Solow-Swan style production model with agglomeration effects using a \gls{Cobb-Douglas} production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
+in the way neoclassical growth theory incorporates labour-augmenting technical change.}
+It integrates the production function with an Alonso-style urban model of a city economy (Alonso 1964). 
+
+We take a step beyond integrating labour markets in a city, to studying the distributional effects: who gets the surplus, what does that mean for the class structure, and ultimately the productivity of cities. 
+
+This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
+ %calculate the urban surplus, and consider who gets it. 
+ 
+% MOVE TO LIT REVIEW/CONTRIBUTION?
+%: The work draws on the Alfonso/Von Thünen model of the concentric city and Dawn Parker and Filatova's work in agent-based modelling of housing markets (see http://jasss.soc.surrey.ac.uk/12/1/3.html 2009).% We begin with a simple model of a circular city with urban agglomeration effects. In subsequent sections we will use an agent-based model to relax assumptions to look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns for individuals over space and time.
+% Most of the analysis of urban systems has employed analytical models with roots that go back to von Thunen \cite{vonThunen} and more recently Alonzo \cite{ALONZO}. These models are extremely useful, but necessarily abstract from the concrete  and variable individual behaviour and  the details  of dynamics that make real cities path-dependent. XXX \cite{GET-Dawn} have shown that agent-based models can reproduce the features of the analytical models, at least in simple cases. TODO maybe divide chapter on theoretical core, followed by chapter on implementation (general for basic and resilience experiments).
+
 \section{Position in the literature}
+This thesis relates to four major fields: classical rent theory, neoclassical production theory and growth theory, the scaling literature, and urban spatial models.
 
 Our approach draws together insights from % economics and the study of cities. 
 % Our model of the urban economy is based on work from those developed in 
@@ -403,10 +422,12 @@ Figure 4 with finance
 % methodological innovations% ROUGH LIST. TO SUMMARIZE AND SORT:
 % Each of the items above requires us to  integrate models and concepts from different parts of the literature. 
 
+% The core contribution is an exploration of the 
 
-The main contributions, as we see it, are:
+The overall goal is to provide a theory of the relationship between financialization and urban productivity. The main contributions towards achieving this goal are:
 \begin{enumerate}
-    \item The core contribution is an exploration of the relationship between financialization and urban productivity. The basic relationship is established by incorporating \gls{classical rent theory} into an agent-based urban model. This requires a how \gls{Ricardian rent theory}, a theory of distribution based on an agricultural economy, applies in an economy driven by human capital \gls{agglomeration} effects within the urban system. 
+    \item  Incorporating \gls{classical rent theory} into an \gls{agent-based} urban model. This requires modelling how \gls{Ricardian rent theory}, a theory of distribution based on an agricultural economy, applies % provides the transmission mechanism
+in an economy driven by human capital \gls{agglomeration} effects within the urban system. 
 
     \item Allowing the creation and distribution of rents to influence urban growth, productivity and  population structure. This requires articulating the links between the wealth production of cities and  how urban systems evolve.
 
@@ -414,57 +435,45 @@ The main contributions, as we see it, are:
 % We show how understanding how complex systems scale provides an 
 elegant way to model a an urban system with production.
 
-    \item Constructing an urban \gls{agent-based model} that is consistent with {neoclassical growth theory}.
-% Although many  who employ ABMs to analyse urban systems are deeply skeptical of neoclassical assumptions
-This demonstrates % in this context how %easily and productively 
-how the neoclassical framework can be implemented in the agent-based framework, and make a case 
-We case for the usefulness of an approach that link it's usefulness in linking urban rents and productivity, linking traditions that have been separate. 
+    \item Constructing an urban \gls{agent-based model} that is consistent with {neoclassical growth theory}. We show how the neoclassical framework can be implemented in the agent-based framework, and make a case for the usefulness of an approach in linking urban rents and productivity. %Chapter \ref{chapter-methodology} discuses methodological implications of this approach.
 
-In general, there is relatively little work rigorously linking analytic and agent based models, so the results can be understood formally, in relation. % incorporated into prior traditions and
-
-    \item integrating \gls{financial capital} into a standard spatial model of the urban system
-
+    \item Integrating \gls{financial capital} into a standard spatial model of the urban system, making an explicitly spatial model of the financial structures, which have traditionally been formalized in a spaceless way.
 % We are not aware of any urban simulation models that
-We introduce capital within this framework in a novel way. %as we do to examine the outcomes that concern us.
+% We introduce capital within this framework in a novel way. %as we do to examine the outcomes that concern us.
     
-    \item integrating financial capital into an \gls{overlapping generations} population model of the urban system
-
-Financial assets are central to most overlapping generations models. Our innovation is to articulate the movement of financial capital though the urban land market. 
-
-SOMETHING LIKE Adding space to finance which has been spaceless.
+    \item Integrating financial capital into an \gls{overlapping generations} population model of the urban system. While financial assets are central to most overlapping generations models, %. Our innovation is to 
+we articulate the movement of financial capital though the urban land market. 
+% SOMETHING LIKE Adding space to finance which has been spaceless.
     
-    \item using an ABM to examine how financial markets impact  urban \glspl{land market}.
+    \item Using an agent-based model to examine how financial markets impact urban \glspl{land market}.
+We began with with the fact that there is growing policy concern about the financialization of  housing. We have produced a formal simulation model that illustrates the process. 
 
-We began with with the fact that there is growing policy concern about the ``Financialization of  Housing''. We have produced a formal simulation model that illustrates the process. 
+    \item Testing for \gls{hysteresis} resulting from the business cycle in the urban system, exploring the \gls{resilience} implication's of the core spatial economic model.
+There are two types of resilience questions when any system is shocked, does it return to an 
+equilibrium state, the stability question, and does it return to the same kind of equilibrium -- the hysteresis question. % We focus on the latter question.  
 
-    \item testing for \gls{hysteresis} resulting from the business cycle   in the urban system, exploring the \gls{resilience} implication's of the core spatial economic model
-
-There are two types of resilience questions when any system is shocked, does it return to an https://www.overleaf.com/project/606a6b286ae1c9f203fadab5equilibrium state - the stability question - and does it return to the same kind of equilibrium - the hysteresis question. We focus on the latter question.  
-
-    \item building a model that is easily extended to explore a wide range of issues
-
-The model combines clear and explicit theoretical assumptions with careful and transparent implementation of the logic in flexible Python code.
-
-    \item providing a model that we believe can be used  to evaluate urban policies
-
-To be useful in policy discussions, a model must correctly simulate the relevant system features and be able to incorporate a variety of policy interventions. We have taken care to allow for  both theoretical and policy- relevant extensions in the way the simulation model is coded. 
+    \item Building a model that is easily extended to explore a wide range of issues, and can be used  to evaluate urban policies. 
+The model combines clear and explicit theoretical assumptions with careful and transparent implementation of the logic in code.. %flexible Python code.
+    % \item Providing a model that we believe 
+To be useful in policy discussions, a model must correctly simulate the relevant system features and be able to incorporate a variety of policy interventions. We have taken care to allow for  both theoretical and policy-relevant extensions in the simulation.%way the simulation model is coded. 
 \end{enumerate}
 
 \section{Document overview}
-This thesis develops a conceptual framework for a model of the housing market and then describes the model and the implications of the analysis of the model. %insights it produces. 
-There are three parts in the dissertation. 
+% This thesis develops a conceptual framework for a model of the housing market and then describes the model and the implications of the analysis of the model. %insights it produces. 
 
-MAYBE LINK ORDER TO POSITION IN THE LIT/CONTRIBTUIONS AGAIN % 3 PARTS TO THE MODEL, DEVELOPMENT FOLLOWS THE TRAJECTORY OF THIS. 
-
+There are two parts in the dissertation. 
 Part \ref{part-background} gives the background and introduces the theoretical framework for the analysis,  linking classical rent theory, neoclassical production theory, neoclassical growth theory, the scaling literature, and urban spatial models. 
 
 \begin{enumerate}
-    \item Chapter \ref{chapter-background} sketches how this thesis relates to four major fields: classical rent theory, neoclassical production theory and growth theory, the scaling literature, and urban spatial models. %..., and the role of space as a unifying factor across three of the fields. % WITH FINANCE IS SPACELESS.
+    \item Chapter \ref{chapter-financialization} discusses finacialization. % and explores the potential consequences of financialization in the housing market.  % showing it is a form of rent-seeking in the housing market and ?? 
+    % \item Chapter \ref{chapter-background} sketches how this thesis relates to four major fields: classical rent theory, neoclassical production theory and growth theory, the scaling literature, and urban spatial models. %..., and the role of space as a unifying factor across three of the fields. % WITH FINANCE IS SPACELESS.
     % *** ADD BACK? This work draws together sub-literatures including rent theory, production functions, the standard urban model, growth theory, urban growth theories, financialization, and the theory of distribution, so the chapters review those areas. % *** link the areas to the chapters better?  %theory for our analysis, 
-    \item Chapter \ref{chapter-rent} reviews the literature on rent and develop an approach suited to the analysis for this work.
-    \item Chapter \ref{chapter-growth} introduces growth theory, showing how our model is directly connected with this broad collection of linked theories. %, we use the Cobb-Douglas function, which is used across this entire range of literature - frame the relation of a tradition in context of  % After we develop the mathematical description of the relationship among these will discuss  in more detail, rent theory and our contribution, scaling laws, ......  and other issues in the literature that draw on parts of this model and % ???  apply to the specific situation we're in why rent theory is related to discussions of exploitation why it might lead the inefficiencies, whether or not this links with other important models in the literature.
+    \item     Chapter \ref{chapter-rent} reviews the literature on rent and develop an approach suited to the analysis for this work.
     \item Chapter \ref{chapter-space} develops the urban model of space drawing on the basic Alonzo model.
-    \item Finally Chapter \ref{chapter-financialization} provides a description of finacialization, and explores the potential consequences of fiancialization in the housing market.  % showing it is a form of rent-seeking in the housing market and ?? 
+    \item Chapter \ref{chapter-growth} introduces growth theory, showing how our model is directly connected with this broad collection of linked theories. %, we use the Cobb-Douglas function, which is used across this entire range of literature - frame the relation of a tradition in context of  % After we develop the mathematical description of the relationship among these will discuss  in more detail, rent theory and our contribution, scaling laws, ......  and other issues in the literature that draw on parts of this model and % ???  apply to the specific situation we're in why rent theory is related to discussions of exploitation why it might lead the inefficiencies, whether or not this links with other important models in the literature.
+    \item Finally, Chapter \ref{chapter-distribution} discusses mechanisms for the transmission of  the immediate effects of financialization to city productivity and growth.
+    
+
 \end{enumerate}
  
 Part \ref{part-model} develops the model and results.
@@ -472,23 +481,11 @@ Part \ref{part-model} develops the model and results.
     \item Chapter \ref{chapter-methodology} introduces the methodology. % In addition to the core contribution linking housing and productivity, there are three methodological lines of contribution, and there are policy implications SUMMARIZE METHODOLOGICAL CONTRIBUTIONS %(rent is key to financialization, however the main urban models don't observe the distribution of rents)
     \item Chapter \ref{chapter-model} describes an illustrative agent-based model of the urban system. 
     This model has three  parts, first a production function, modelling how urban regions generate wealth, and second a model of an urban housing market, and finally, a financial sector that can participate in the market. 
-% Alternative phrasing 
-%We integrate a labour market into a spatial urban model, set up to explore rent, and implications for the distribution of wealth.
-
-\textbf{The model has a Solow-Swan style production model with agglomeration effects using a \gls{Cobb-Douglas} production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
-in the way neoclassical growth theory incorporates labour-augmenting technical change.}
-It integrates the production function with an Alonso-style urban model of a city economy (Alonso 1964). 
-
-We take a step beyond integrating labour markets in a city, to studying the distributional effects: who gets the surplus, what does that mean for the class structure, and ultimately the productivity of cities. 
-
-This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
- %calculate the urban surplus, and consider who gets it. 
- 
-% MOVE TO LIT REVIEW/CONTRIBUTION?
-%: The work draws on the Alfonso/Von Thünen model of the concentric city and Dawn Parker and Filatova's work in agent-based modelling of housing markets (see http://jasss.soc.surrey.ac.uk/12/1/3.html 2009).% We begin with a simple model of a circular city with urban agglomeration effects. In subsequent sections we will use an agent-based model to relax assumptions to look at how the interaction between the production of social wealth in cities interacts with housing and the extraction of rent to drive patterns for individuals over space and time.
-% Most of the analysis of urban systems has employed analytical models with roots that go back to von Thunen \cite{vonThunen} and more recently Alonzo \cite{ALONZO}. These models are extremely useful, but necessarily abstract from the concrete  and variable individual behaviour and  the details  of dynamics that make real cities path-dependent. XXX \cite{GET-Dawn} have shown that agent-based models can reproduce the features of the analytical models, at least in simple cases. TODO maybe divide chapter on theoretical core, followed by chapter on implementation (general for basic and resilience experiments).
-    \item TODO experiment 1 - setup, parameter values,  analysis, and results
-    \item Chapter \ref{chapter-resilience} develops a resilience analysis of the effects of a driven version of the model, introducing the pump effects.  
+    % \item TODO experiment 1 - setup, parameter values,  analysis, and results
+    % \item MAY SPLIT MODEL, ADDING SECTIONS FOR IMPLENTATION/ANALYSIS ETC.
+  %  \item Chapter \ref{chapter-resilience} develops a resilience analysis of the effects of a driven version of the model, introducing the pump effects.  ELABORATE
+    \item Chapter \ref{chapter-analysis} analyzes the results of a series of experiments with the model, including our conclusions about the resilience of our social structure in the face of financialization.
+    \item Chapter\ref{chapter-conclusions} draws a series of conclusions from the modelling exercise.
 %Experiment 2 - setup, parameter values,  analysis, and results (TODO maybe introduce resilience ideas earlier so they are part of the mainline development, adding a resilience theory to part  \ref{chapter-background} after chapter \ref{chapter-financialization}.
 \end{enumerate}
 
@@ -502,8 +499,3 @@ This chapter introduce the urban spatial model and labour supply, models the pro
 % After we develop the mathematical description of the relationship among these will discuss in more detail, various relevant applications, and issues in the literature that draw on parts of this model and apply to the specific situation we're in why rent theory is related to discussions of exploitation why it might lead the inefficiencies, whether or not this links with other important models in the literature.
 
 % Because we draw on a wide range of methods and literatures, we discuss the relevant literature and  methodologies in the chapters where they apply 
-
-
-CONCLUSIONS/SUMMARY?
-We argue financialization %This dissertation makes the case that it
-has worrying implications for the success of cities and the nature of our social fabric. 
