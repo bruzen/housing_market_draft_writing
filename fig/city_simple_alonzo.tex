@@ -17,12 +17,13 @@
 
 % FIRST FIGURE just axes PARTITIONING THE LABOUR SHARE
 \draw [thick] (0,-\om) --(\d,-\om);  			% Zero for rural population
-\draw [thick] (0,-\om)node[left=.5]{$0$} --(0,\n)node[above]{$w$};	% Y axis
+\draw [thick] (0,-\om) --(0,\n)node[above]{\Huge $w$};	% Y axis
 %\node at (0,\n+0.5){\large $Rent$};
 
 \draw [thick] (0,0)node[left=.5]{ subsistance}--(\d,0);
 %\node at(-2,1) {$\omega$};
-\node[left=.25] at (0,3){\huge $\omega$};
+\node[left=.25] at (0,3.3){\huge $\omega$};
+\node[left=.25] at (0,-0.9){\huge $\phi$};
 %\node[left=.25] at (0,3){$w+\omega$};
 \node[left=.25] at (0,\w+.3){subsistence plus};
 \node[left=.25] at (0,\w-.4){wage premium};	
@@ -34,23 +35,23 @@
 
 %SECOND FIGURE WITH AGGLOMERATION WAGE
 %   \pause %  add urban production and net wage PARTITIONING THE LABOUR SHARE
-\draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
-\draw [fill=green] (-.25, 0) rectangle(.25, \w);
+%\draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
+%\draw [fill=green!80] (-.25, 0) rectangle(.25, \w);
 \node[right] at  (.25, \w/2){Added Productivity};
-\node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+% \node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
 \draw [ thick, ->](11.3,-\om/2)--(13, -\om/2)node [right] {\Large $d$};
 
 %  THIRD FIGURE  add wage profile PARTITIONING THE LABOUR SHARE
 % \pause
-\node[right, white, fill=white,  text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+%\node[right, white, fill=white,  text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
 \draw[func, domain=0:\w/\t+1,ultra thick] plot [samples=200] (\x,{\w-\t*\x}); %Net wageprofile  for 
-\node[right, white, fill=white] at  (.25, \w/2){Added Productivity};
-\node[right, fill=white, text width =3.5cm ] at  (1, \w/2){Declining wage  net \\of transportation\\ costs $T(d)$ };
+%\node[right, white, fill=white] at  (.25, \w/2){Added Productivity};
+%\node[right, fill=white, text width =3.5cm ] at  (1, \w/2){Declining wage  net \\of transportation\\ costs $T(d)$ };
 
 %   FOURTH FIGURE     commuters PARTITIONING THE LABOUR SHARE
 %\pause
-\draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
-\node at (4.5,-\om/2){commuters};
+%\draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+%\node at (4.5,-\om/2){commuters};
 
 %   FOURTH FIGURE    wage bill
 %\pause %add total new value
@@ -63,8 +64,8 @@
 
 \draw[fill=black!40] (0,-\om) rectangle (9.30,\w);% new product repeat
 \draw[func, domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x}); %rent profile
-\draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
-\node at (4.5,-\om/2){\Large subsistance};
+\fill[blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+\node at (4.5,-\om/2){\Large ``subsistance''};
 \draw[fill=yellow,] (0.,0.) -- (0,7)--(9.30,0.)--cycle;% Rent \w-.2
 \node at (3.,2){\Large Rent}; 		%Rent 
 \node at (5.8,5.7)[white]{\Large Transportation};
