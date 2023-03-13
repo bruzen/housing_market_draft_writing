@@ -1,45 +1,20 @@
 
 \chapter{Model}  %\label{chapter-model}
-
-The model has a Solow-Swan style production model with agglomeration effects using a \gls{Cobb-Douglas} production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
-in the way neoclassical growth theory incorporates labour-augmenting technical change.
-It integrates the production function with an Alonso-style urban model of a city economy \cite{alonzoTheoryUrbanLand1960}.
-
-This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
-
-%\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-%\let\endchangemargin=\endlist \
-%\newgeometry{left=0.5cm,bottom=0.1cm,right=0.5cm}
-
-% {\pagestyle{empty}
-
-% \begin{figure}
-% \vspace{-1cm}
-% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
-%     \centering
-%     \includegraphics[scale=0.4]{fig/stylized_model_flow.png}
-%     \label{Stylized model flow.}
-% \caption{Model Logic}
-% \end{adjustwidth}
-% \end{figure}
-% }
-
-% %\restoregeometry
-
-\section{Intro}
-% \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
+\epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh\cite{shiehWilhelmLaunhardtBidRent2004}}
 
 % COULD CALL THIS THEORETICAL DEVELOPMENT OF THE MODEL AND MAKE A SEPERATE IMPLEMENTATION CHAPTER
 
-This chapter describes the specific formulations % (**E USE A MORE SPECIFIC WORD THAN LINKS) % #E BUILD A PCITURE OF HOW THE MODEL DRAWS THESE TOGETHER... LIKE IT TAKES THESE THREAD (LIST THEM) AND COMBINES THEM INTO A MODEL THAT EXPLORE... USE THIS PARRARAPH TO DESCRIBE THE EXACT INTERCONNECTIONS
+% This chapter describes the specific formulations % (**E USE A MORE SPECIFIC WORD THAN LINKS) % #E BUILD A PCITURE OF HOW THE MODEL DRAWS THESE TOGETHER... LIKE IT TAKES THESE THREAD (LIST THEM) AND COMBINES THEM INTO A MODEL THAT EXPLORE... USE THIS PARRARAPH TO DESCRIBE THE EXACT INTERCONNECTIONS
 
-the theoretical discussions of the previous chapters with an agent-based simulation model. 
+% the theoretical discussions of the previous chapters with an agent-based simulation model. 
 
-At the heart of the model is a real estate market in which owners, tenants, new entrants to the city and non-resident investors participate. We need to specify the market process in more detail. (???) % i DONT UNDERSTAND IF YOU ARE SAYING YOU NEED THIS? THE MODEL FILLS THIS GAP?? OR THIS IS AFILLER SENTECEN??? 
-To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. 
+% At the heart of the model is a real estate mark et in which owners, tenants, new entrants to the city and non-resident investors participate. To do that we build up our model in a series of steps beginning with a notion of economic value, adding potential speculative gains, and finally describing a transaction process. %We need to specify the market process in more detail. (???) % i DONT UNDERSTAND IF YOU ARE SAYING YOU NEED THIS? THE MODEL FILLS THIS GAP?? OR THIS IS AFILLER SENTECEN??? 
 
-\section{The general structure of the model}
-The main goal of this research as been to add a financial system to the simple Alonzo model in order to examine the impact of financial cycles on urban productivity and distribution. The \gls{agent-based model} we develop has three major components: 
+% This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
+
+% \section{The general structure of the model}
+The main goal of this research is to add a financial system in a spatial urban model %to the simple Alonzo model in order 
+to examine the impact of financialization of the housing market on urban productivity and distribution. To do this we develop an \gls{agent-based model} with three major components: 
 
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonzo-style models. This equation is embedded in the decision of every agent.
@@ -51,7 +26,8 @@ The main goal of this research as been to add a financial system to the simple A
 
 To recapitulate, we have a spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
 
-
+Figure xx shows the model flow/logic. ELABORATE.
+The following sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order (CHECK ORDER IN INTRO)
 
 % {\newpage\thispagestyle{empty}
 % \vspace{-1.5cm}
@@ -68,21 +44,37 @@ To recapitulate, we have a spatial model of an urban housing market, a productio
 % \end{figure}
 % }
 
-\newpage
- \thispagestyle{empty}
-%\setlength{\TPHorizModule}{18cm}
-\begin{textblock*}{180pt}(1pt,2cm)
+% MAIN full page
+% \newpage
+%  \thispagestyle{empty}
+% %\setlength{\TPHorizModule}{18cm}
+% \begin{textblock*}{180pt}(1pt,2cm)
+%     \includegraphics[scale=.75]{fig/flow_full_model.png}
+% \end{textblock*}
+
+
+% \begin{textblock*}{400pt}(1pt,1.5cm)
+%    \hspace{6cm} \textbf{\Huge Model Logic}
+% \end{textblock*}
+% . 
+% \vspace{10cm}
+% \newpage
+
+
+{\newpage\thispagestyle{empty}
+\vspace{-1.5cm}
+\begin{figure}
+\vspace{-1cm}
+\begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+    \centering
     \includegraphics[scale=.75]{fig/flow_full_model.png}
-\end{textblock*}
-
-
-\begin{textblock*}{400pt}(1pt,1.5cm)
-   \hspace{6cm} \textbf{\Huge Model Logic}
-\end{textblock*}
-. 
-\vspace{10cm}
-\newpage
-
+    \label{Stylized model flow.}
+\caption{Model logic TODO: CAN WE SUPPRESS THE CHAPTER TITLE/PAGE NUMBER, AT TOP OF PAGE, SO THERE IS NOT A LINE ABOVE? add }%\pagestyle{headings}
+% \usetikzlibrary{positioning}
+%\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
+\end{adjustwidth}
+\end{figure}
+}
 
 \section{Spatial structure}
 
@@ -93,7 +85,7 @@ To recapitulate, we have a spatial model of an urban housing market, a productio
 
 % \subsection{Labour supply for production}
 We begin with a model of a circular city - INTRO CITY/APPROACH?
-Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960}, (\cite{alonsoLocationLandUse1964}) firms are located at the centre of a circular city, the central business district. Residents are distributed across space, can take jobs, and commute to work at the center. 
+Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960}, (\cite{alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents are distributed across space, can take jobs, and commute to work at the center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
 Firms produce goods to sell. They can produce more goods by hiring additional workers. 
@@ -125,14 +117,14 @@ since agents will work if the wage premium is greater than the cost of travel. %
 The higher the wage, the  farther workers will commute.
 The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the circular city and the commuter shed.
 
-We assume  a uniform lot size, $s$, with one worker per unit land, so the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
+We assume a uniform lot size, $s$, with one worker per unit land, so the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
  L = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
    =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-This is the equilibrium \gls{urban labour supply} curve. It is our version of the standard urban \gls{population equilibrium} condition for moderls of this class, which is a \gls{migration equilibrium} \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
+This is the equilibrium \gls{urban labour supply} curve. It is our version of the standard urban \gls{population equilibrium} condition for models of this class, which is a \gls{migration equilibrium} \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
 In the agent model, the \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute % model rules, and individual 
 and firm hiring behaviour. %and the job search process. 
@@ -1883,3 +1875,10 @@ Fr\'ed\'erick Demers found that the response of housing investment to interest r
 Friedman’s 1953 essay, ``The Case for Flexible Exchange Rates'' \cite{friedmanEssaysPositiveEconomics1953} argued that speculation is stabilizing. Market prices in this view  are set on the basis of economic fundamentals- what we call the warranted price. When prices diverge from those fundamentals that creates a profitable opportunity. Speculators then step in and buy or sell, driving prices back to the level warranted by fundamentals.
 
 Increasing the number of traders and volume of trading is also regarded as improving financial market outcomes. Increased trade volume increases market liquidity 
+
+
+
+\section{Intro conclusions/summary}
+The model has a Solow-Swan style production model with agglomeration effects using a \gls{Cobb-Douglas} production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
+in the way neoclassical growth theory incorporates labour-augmenting technical change.
+It integrates the production function with an Alonso-style urban model of a city economy \cite{alonzoTheoryUrbanLand1960}.

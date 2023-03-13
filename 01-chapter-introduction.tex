@@ -44,7 +44,7 @@ The ultimate goal of this work is to develop a modern urban theory of rent, link
 \coordinate (economics) at (-5,1);%
     \coordinate (Ricardo) at (-5,1.4);
     \coordinate (Solow) at (-6,1.25);
- \coordinate (geography) at (-.5,-2); %history
+ \coordinate (geography) at (0,-2); %history
 \coordinate (finance) at (0,5); %
 
 \draw [line width=2mm, black!15, ] (planning)--(economics);
@@ -67,59 +67,57 @@ The ultimate goal of this work is to develop a modern urban theory of rent, link
 
 % new stuff
 \node at (planning) [above=1.8cm] {\textbf{von Th\"unen}};
-\node at (planning) [above=1.3cm] {Location Theory};
+\node at (planning) [above=1.3cm] {Location theory};
 
 \node at (Ricardo) [above=2cm, ] {\textbf{Ricardo}};
-\node at (Ricardo) [above=1.5cm] {Rent Theory};
-\node at (Ricardo) [above=1.0cm] {Distribution Theory};
+\node at (Ricardo) [above=1.5cm] {Rent theory};
+\node at (Ricardo) [above=1.0cm] {Distribution theory};
 
-\node at (Solow) [below=1.6cm, align=left] {\textbf{Solow}};
-\node at (Solow) [below=2.1cm, align=left] {Neoclassical Growth Theory};
-\node at (Solow) [below=2.6cm, align=left] {\textbf{Lucas:} Endogenous Growth Theory};
-\node at (Solow) [below=3.1cm, align=left] {\textbf{Jacobs:} Urban Agglomeration Theory};
-\node at (Solow) [below=3.65cm, align=left] {\textbf{Bettencourt:} Urban Scaling};
+% \node at (Solow) [below=1.6cm, align=left] {\textbf{Solow:}};
+\node at (Solow) [below=2.1cm, align=left] {\textbf{Solow:} Modern growth theory};
+\node at (Solow) [below=2.6cm, align=left] {\textbf{Lucas:} Endogenous growth theory};
+\node at (Solow) [below=3.1cm, align=left] {\textbf{Jacobs:} Urban agglomeration theory};
+\node at (Solow) [below=3.65cm, align=left] {\textbf{Bettencourt:} Urban scaling};
 
 \node at (geography) [below=1.8cm] {\textbf{\large Alonzo}};
-\node at (geography) [below=2.3cm] {Basic Urban Model};
-\node at (geography) [below=2.8cm] {Urban Rent Profile};
+\node at (geography) [below=2.3cm] {Basic urban model};
+\node at (geography) [below=2.8cm] {Urban rent profile};
 
 %\node [circle, shading=ball, minimum width=2.4cm, white, align=center] (ball) at (finance)[text width=2cm] {Finance};
-\draw [line width=2mm, red!85, -latex ] (-.1, 7.1)--++(0,1.2)node[above=-.1] {\Large \textbf{FINANCE}};
-\draw [line width=2mm, red!85, -latex ] (0, 4.85)--++(0,1.2)node[above=-.1] {\Large \textbf{capitalization}};
-\draw [line width=2mm, red!85, -latex ] (0, 2.6)--++(0,1.2)node[above=-.1] {\Large \textbf{RENT}};
-\draw [line width=2mm, red!85, -latex ] (0, .35)--++(0,1.2)node[above=-.1] {\Large \textbf{value of location}};
-\node at (0,0) [red] {\Large \textbf{SPACE}};
+\fill[red!20] (0,0) ellipse (40pt and 10pt);
+%\node[red]at (1.2,0) {\large SPACE};
 
+\begin{scope}[shift={(0,-.34)}]
+\draw [line width=2mm, red!85, -latex ] (-.1, 7.1)--++(0,1.2)node[above=-.1] {\Large \textbf{FINANCIALIZATION}};
+\draw [line width=2mm, red!85, -latex ] (0, 4.85)--++(0,1.2)node[above=-.1] {\Large \textbf{Capitalization}};
+\draw [line width=2mm, red!85, -latex ] (0, 2.6)--++(0,1.2)node[above=-.1] {\Large \textbf{RENT}};
+\draw [line width=2mm, red!85, -latex ] (0, .35)--++(0,1.2)node[above] {\Large \textbf{Value of location}};
+%\draw [line width=2mm, red!85, -latex ] (0, -2)--++(0,-.8)node[above=-.1]  {\Large \textbf{SPACE}};
+\end{scope}
 
 \end{tikzpicture}
 
-    \caption{space and value} %***TODO FLIP ECON AND PLANNING TO FOLLOW ORDER OF CHAPTERS}
+    \caption{Space and urban rents play a foundational role in urban economics, geography, and planning, we extend the the analysis of urban rents to model the effects of financialization.} %***TODO FLIP ECON AND PLANNING TO FOLLOW ORDER OF CHAPTERS}
     \label{fig-fields}
 \end{figure}
 
 \section{Position in the literature}
-This work draws together insights from geography, planning, and urban economics. The central and shared concern all three fields is geographic space. Locational value explains the spatial distribution of human activities, urban form,  and the dynamics of economic development.  % ELABORATE% The organizing principle in the spatial models of all three disciplines is an economic variable, land rent, 
+% This work draws together insights from geography, planning, and urban economics. The central and shared concern all three fields is geographic space.
+This work draws together insights from urban economics, geography, and planning. The central and shared concern all three fields is geographic space. Locational value explains the dynamics of economic development, the spatial distribution of human activities, and urban form.  % ELABORATE% The organizing principle in the spatial models of all three disciplines is an economic variable, land rent, 
 % The three disciplines share a simple economic insight in all three area: that
 
 In all three disciplines, locational value gives rise to land rents, which is for us the link to distribution, financialization, and continuing productivity.  
-Figure~\ref{fig-fields} illustrated both the synthetic aspect of our analysis and the direction in which we develop existing  work. We begin in the region of overlap among the three disciplines with the fundamental linking construct, space. Some of the most relevant contributors in each field are listed. % The literature in each field is far too large and diverse for our figure to do it justice. 
+Figure~\ref{fig-fields} illustrated both the synthetic aspect of our analysis and the direction in which we develop existing  work. Some of the most relevant contributors in each field are listed. % The literature in each field is far too large and diverse for our figure to do it justice. 
+% In economics, theories of growth, agglomeration, in geography Alonzo's basic urban model and the spatial urban rent profile \cite{alonsoLocationLandUse1964}, and planning, j work on location theory and the or urban activities.
 
-Cklassical economist DaviuDavid rRicardo 
-
-All three fields build their theories around  the value of location, which we emphasize is expressed as locational rents, a concept well developed by classical economists like David Ricardo. Our contribution is to extend the the analysis of urban rents to take into account the effects of financialization.
-
-% NAME THEM ALL AND CITE HERE?
-% Solow
-% Lucas
-% Jacobs
-% Bettencourt
-% von Thunen \cite{}
-% Alonzo work on the basic urban model and the urban rent profile \cite{alonsoLocationLandUse1964}.
+Classical economist David Ricardo  elaborated the theory of land rents in 1815. Johann von Th/"unen 1783 -- 1850) produced the first serious treatment of spatial economics and economic geography, apparently independently in 1826. In 1961 Alonzo (and others) applied the  Ricardian and von Th/"unen theory to the urban system, launching modern urban theory. Meanwhile in economics, Solow set off a flood of work on  economic growth growth that  spilled into urban theory through through Jacobs, Lucas and Bettencourt. 
 
 % 3rd spaceless finance..
+% We begin in the region of overlap among the three disciplines with the fundamental linking construct, space. 
+All three fields build their theories around  the value of location, which we emphasize is expressed as locational rents, a concept well developed by classical economists like David Ricardo. Our contribution is to extend the the analysis of urban rents to take into account the effects of financialization.
+
 
 \section{Modelling the financialization of an urban housing market}
-
 % We take a step beyond integrating labour markets in a city, to studying the distributional effects: who gets the surplus, what does that mean for the class structure, and ultimately the productivity of cities. 
 In order to develop an analysis of the distributional effects we have to build a model with three components: a housing market that distributes income and housing, a financialization process, and a production system. 
 % The first component, the market model, is illustrated in 
@@ -135,7 +133,7 @@ The first effect of financialization, on housing allocation, arises because tena
     \centering
     \includegraphics[scale=.60]{fig/flow_impacts.png}
     \label{Figure-impacts}
-\caption{Impacts.}
+\caption{The housing market component. Financialization affects both markets the allocation of housing and its allocation of rents.}
 \end{figure}
 
 
@@ -144,7 +142,7 @@ The first effect of financialization, on housing allocation, arises because tena
     \centering
     \includegraphics[scale=.70]{fig/flow_financialization.png}
     \label{fig-financial-cycle}
-    \caption{Financial capital}
+    \caption{The financialization component. There is a feedback loop in which new investors drive up demand and thus drive up prices.}
 \end{figure}
 
 The second effect of financialization on the market is in the allocation of rents. Rents generated by the agglomeration economies in the urban system are diverted to largely non-resident owners, away from investment in local production or amenities. tenants replace owner-occupiers. % are gradually replaced by tenants. 
@@ -158,7 +156,7 @@ makes more capital available, the pattern of ownership shifts, as illustrated ab
     \centering
     \includegraphics[scale=.7]{fig/flow_Alonzo-Jacobs_cycle.png}
     \label{fig-Alonzo-Jacobs-cycle}
-\caption{The Alonzo-Jacobs cycle.}
+\caption{The production system component, incorporating the urban scaling of wealth in the urban spatial model. We name this coupling of two difference equations the Alonzo-Jacobs cycle.}
 \end{figure}
 
 Figure \ref{fig-Alonzo-Jacobs-cycle} illustrates the third component, the model of productivity incorporating agglomeration effects. %the productivity of cities, incorporates the productivity of cities.  
@@ -172,7 +170,7 @@ We incorporate that scaling result into the standard urban model, building of th
 We call the combined model the %William Alonzo and others \cite{alonzoTheoryUrbanLand1960}, calling the combined sub-model the 
 \gls{Alonzo-Jacobs cycle} because there is a positive feedback between population size and wages. This feedback loop will be vulnerable if financialization  extracts the new wealth generated by agglomeration effects, reducing wage growth and therefore the ability of the city to grow, because wage growth is what drives population growth and further agglomeration.
 % We describe The Alonzo model in Chapter ~\ref{chapter-space}.
-The green boxes in the figure represent theoretically justified simplifications we employ 
+The green boxes in the figure represent the theoretical justification of the primary simplifications in the model. 
 % We call the combined sub-model the \gls{Alonzo-Jacobs model}, then combine that with an approach to the scaling of wealth based on the growth and agglomeration work in Chapter \ref{chapter-growth}, on growth.
 
 % When these components are  combined,  
