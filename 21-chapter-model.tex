@@ -168,7 +168,7 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 % In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:  $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
 % This model uses a similar functional form to look at the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. 
  
- We are implicitly using a three-factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change, with an \gls{agglomeration} effect, $A(N)$, in place of technology, $A(t)$, output is:
+ We are implicitly using a three-factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change, with an \gls{agglomeration} effect, $A(N)$, in place of technology, $A(t)$. Output is:
 
 \begin{equation}
 Y=A(N)K^{\alpha }(A(N)N)^\beta.
@@ -249,19 +249,25 @@ Financialization happens at this microeconomic level, where individual decisions
 The feature that matters most to investors is the  \gls{rate of return} that  an asset offers. For any level of risk and liquidity, an investor will choose to purchase the asset with the highest rate of return. When a home is bought to live in, the potential buyer makes a similar calculation, perhaps with a greater emphasis on the value of the stream of housing services. When home prices are rising rapidly speculative gains may become the dominant concern of home buyers. 
 
 To model the investment decision  we therefore need to calculate the \gls{rate of return} on each property taking into account the rental revenue, the potential capital gain, the investors' costs of capital, incomes, and assets. The analysis will show the incentive structure driving the  financialization of the housing market. We do this in detail in Appendix~\ref{appendix-bid-price} 
-The model must  allow for bidding and speculative investment but also must reflects the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we therefore need to define  the relevant variables. %, including a variety of prices perceived prices  bid price3s
+The model must  allow for bidding and speculative investment but also must reflect the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we, therefore, need to define  the relevant variables, and make some distinctions among different notions  of rent and price %, including a variety of prices perceived prices  bid price3s
 \subsection {Variables}
 
 \subsubsection{Rent} \label{sec-Rent}
+The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
+is also what makes this a ``\gls{classical}'' model. 
+
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
 \begin{table}[!ht]
 \centering
+{\renewcommand{\arraystretch}{1.6}
 \begin{tabular}{r|c|c|c|c|c|c|c|}\cline{2-8}
        & Warranted  & Market & Expected & $i$'s Expected & Reservation & Asking & Bid     \\ \cline{2-8}
-Price  & $P_{W_j}$      & $P_{M_j}$  & $P_{M_j}^e$ & $P_{M_{ij}}^{e}$     & $P_{R_{ij}}$       & $P_{A{ij}}$  & $P_{B{ij}}$   \\ \cline{2-8}
+Price  & $P_{W_j}$      & $P_{M_j}$  & $P_{M_j}^\epsilon$ & $P_{M_{ij}}^{\epsilon}$     & $P_{R_{ij}}$       & $P_{A{ij}}$  & $P_{B{ij}}$   \\ \cline{2-8}
+Rent  & $\mathcal{R}_{W_j}$      & $\mathcal{R}_{M_j}$  & $\mathcal{R}_{M_j}^\epsilon$ & $\mathcal{R}_{M_{ij}}^{\epsilon}$     &       &   &   \\ \cline{2-8}
 % Rent $\mathcal{R}_W$ & $\mathcal{R}_W$ &        &       &             & $\mathcal{R}_M$ &          &               \\ \cline{2-8}
 \end{tabular}
+ }   
 \caption{Price and rent notation}
 % \caption[In introducing the quantities here, we include indices for the agent, $i$, and the property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties]{Price and rent notation\protect\footnotemark} % https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption
 \label{table-price-notation}
@@ -299,12 +305,12 @@ In each period a house offers two kinds of services: {locational services} or  a
  It a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
  
 \subsubsection{Market Rent}\label{Market-Rent}
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To clarify the implications of the model, we assume that the market rent equals the warranted rent. We are in effect imposing a   %\gls{warranted rent} is paid as the \gls{market rent}
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.  %\gls{warranted rent} is paid as the \gls{market rent}
 \[\mathcal{R}_M = \mathcal{R}_W.\] 
 
 
 \subsubsection{Net Rent}\label{Net-Rent}
-The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
+The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would receive, not the total warranted rent, but the net rent after expenses,
 
 \begin{align}
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
@@ -368,24 +374,7 @@ so we can write
  \begin{align}
 \mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
 \end{align}
-
-
-
-% We should distinguish the locational rent from the $\mathcal{R}^l = \omega - {dc}$ from the warranted rental cost of housing services.% (Maybe use a capital L?) 
-
-% Market  rental price $\mathcal{R}^w$ should  include the services of the house and land.  $\mathcal{R}^w =\mathcal{R}^l+\mathcal{R}^h$ 
-
-% Now the net  market rental price is
-
-
-% It is also net warranted  rental price that is relevant in taxation and maintenance. 
-
-
-
-
-In the base model, %we abstract the negotiation/bidding/price formation process for rental prices. I
-instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent  by using the warranted rent as an approximation.
-We do this to focus on the economic rent, and to show as clearly and as simply as possible the economic linkages between productivity and urban rents. 
+Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent  by using the warranted rent as an approximation. We do this to focus on the economic rent, and to show as clearly and as simply as possible the economic linkages between productivity and urban rents. 
 The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value which is part of  the core conceptual contribution of this work. 
  
 %and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier. Formalizing this relationship is part of the core conceptual contribution of this work. %\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. 
@@ -394,10 +383,7 @@ The assumption simplifies the analysis of the relationship between the scaling o
 % In the discussion, refer to the value agents would be willing to pay as the $\mathcal{R}_W$, to make it clear what we are discussion, recognizing that we can vary this and explore the value of different values for rent, the role of expectations, information, amenity, etc.
 
 % This, along with the focus on rents, 
-The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
-is also what makes this a ``\gls{classical}'' model. 
-When we assume an subsistence wage $\psi$ with a specific share  applied to housing we are implicitly assuming that landlords are seeking to claim the value of the rents. It makes it possible to explore whether and how tenants and even owners may be squeezed towards a \gls{subsistence frontier}. %whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
-Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way. 
+
 % It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE...
  %METHODOLOGY CHAPTER? warranted rent is a frontier .  
 
@@ -1721,7 +1707,7 @@ $\mathcal{R}^T_N=(1-\kappa-\sigma)\mathcal{R}^T$  &  PDV of net rent collected o
 \end{longtable}
 
 \begin{longtable}{lp{10cm}}
-\caption{Bidding Mechanism Notation}                                          \\
+\caption{Bidding mechanism notation}                                          \\
 \hline
 $\mathcal{R}_N$  &  Net rent                                                  \\ % was NR
 % $P_0$            &  Purchase price for a property                             \\
@@ -1895,7 +1881,7 @@ It seems likely that the agglomeration effect of adding a worker on the producti
 %		\[  \beta\frac{1}{n_i} Y_i =    w+\phi , \]
 implying firms will hire fewer than the optimal number of workers.
 \begin{table}[htbp]
-\caption{Four views of the of the marginal agglomeration effect, $\frac{A'}{A}$}
+\caption[Four views of the of the marginal agglomeration effect]{Four views of the of the marginal agglomeration effect, $\frac{A'}{A}$}
 \begin{center}
 \begin{tabular}{rlcccc}\small
     & 	\hspace{2cm}$\frac{A'}{A}=$	& $.01$ & $.01$ & $.001$  &  $4\times 10^{-7}$\\ \cline{3-4}
@@ -1918,7 +1904,7 @@ Since the increase in $A$ affects all firms, the  social marginal product of all
 \begin{figure}[tb]
 \begin{center}
 \input{fig/growth-amenity.tex}
-\caption{Multiple Marginal Products - check}
+\caption{Multiple marginal products}
 \label{fig-growth-amenity.tex}
 \end{center}
 \end{figure}

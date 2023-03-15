@@ -1,9 +1,69 @@
+% T I T L E   P A G E
+% -------------------
+\pagestyle{empty}
+\pagenumbering{roman}
+
+\begin{titlepage}
+        \begin{center}
+        \vspace*{1.0cm}
+
+        \Huge
+        {\bf Financialization of the Housing Market: A Contribution to Modern Urban Rent Theory}
+
+        \vspace*{1.0cm}
+
+        \normalsize
+        by \\
+
+        \vspace*{1.0cm}
+
+        \Large
+        Kirsten Wright \\
+
+        \vspace*{3.0cm}
+
+        \normalsize
+        A thesis \\
+        presented to the University of Waterloo \\ 
+        in fulfillment of the \\
+        thesis requirement for the degree of \\
+        Doctor of Philosophy \\
+        in \\
+        Systems Design Engineering \\
+
+        \vspace*{2.0cm}
+
+        Waterloo, Ontario, Canada, 2023 \\
+
+        \vspace*{1.0cm}
+
+        \copyright\ Kirsten Wright 2023 \\
+        \end{center}
+\end{titlepage}
+
+
 % T A B L E   O F   C O N T E N T S
 % ---------------------------------
 \renewcommand\contentsname{Table of Contents}
 \tableofcontents
 \cleardoublepage
 \phantomsection    % allows hyperref to link to the correct page
+
+% L I S T   O F   F I G U R E S
+% -----------------------------
+\addcontentsline{toc}{chapter}{List of Figures}
+{\renewcommand{\addvspace}[1]{} \listoffigures} % remove space between chapters
+% \listoffigures
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
+
+% L I S T   O F   T A B L E S
+% ---------------------------
+\addcontentsline{toc}{chapter}{List of Tables}
+{\renewcommand{\addvspace}[1]{} \listoftables} % remove space between chapters
+% \listoftables
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
 
 % % L I S T   O F   A B B R E V I A T I O N S
 % % ---------------------------
@@ -17,3 +77,6 @@
 % \printglossary[type=symbols]
 % \cleardoublepage
 % \phantomsection		% allows hyperref to link to the correct page
+
+% Change page numbering back to Arabic numerals
+\pagenumbering{arabic}
