@@ -4,9 +4,10 @@
 
 {\color{red}
 
-We begin in Section~\ref{section-financialize} with a definition of the act of financializing transactions and markets,  and discuss some significant examples. 
+%We begin in Section~\ref{section-financialize} with a definition of the act of financializing transactions and markets,  and discuss some significant examples. 
 
-Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. At that point we can introduce our specific hypotheses and how we intend to test them.
+%Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. 
+%At that point we can introduce our specific hypotheses and how we intend to test them.
 }
 % We  focused on modelling the  effects of financialization on and through the urban housing market to \textbf{WHY?}. 
 % This is where the general process of financialization At that point we can introduce our specific hypotheses and how we intend to test them.
@@ -26,8 +27,8 @@ Finally, in  Section~\ref{section-system} we explain how financialization might 
 % This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
 
 % \section{The general structure of the model}
-The main goal of this research is to add a financial system to a spatial urban model %to the simple Alonzo model in order 
-to examine the impact of financialization of the housing market on urban productivity and distribution. To do this we develop an \gls{agent-based model} with three major components: 
+The main goal of this research is to add a financial system to a spatial urban model %to the simple Alonzo model 
+in order to examine the impact of financialization of the housing market on urban productivity and distribution. To do this we develop an \gls{agent-based model} with three major components: 
 
 {\newpage\thispagestyle{empty}
 \vspace{-1.5cm}
@@ -56,8 +57,7 @@ to examine the impact of financialization of the housing market on urban product
 To recapitulate, we have a spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
 
 Figure~\ref{figure-logic} shows the model flow/logic. 
-The following sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order. (CHECK ORDER IN INTRO)
-
+The following three sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order. (CHECK ORDER IN INTRO), Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
 \section{Spatial structure}
 
@@ -74,7 +74,7 @@ Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960}, (\cite{alonso
 Firms produce perfectly \gls{substitutable} goods to sell% For simplicity, firms produce a variety of  goods, 
 which they sell into a commodity market. Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant. Firms purchase the time of workers %to capture the product of their effective labour
 %and enjoy the product of \gls{effective labour} . They can produce more goods by hiring additional workers. 
-There is an agglomeration effect that abgments the productivity of workers: firms can produce more goods with a given stock of labour if the city is larger.
+There is an agglomeration effect that augments the productivity of workers: firms can produce more goods with a given stock of labour if the city is larger (the Jacobs effect). Firms can therefore pay a premium because urban workers are more productive than rural workers due to the positive agglomeration externalities. We assume that the neoclassical model of distribution holds in the long run and workers receive their full value marginal product.
 %in a city with more people, as introduced in Chapter \ref{chapter-growth} on growth.(**E SEE NOTE HERE) % #E i THINK YOU NEED TO FLESH THIS OUT, i'M NOT SURE EXACTLY WHAT YOU ARE SAYING. JUST BE A BIT MORE SPECIFIC AND FLESH OUT. 
 % \subsection{Labour force}
 %There are also firms that produce goods to sell. (???) % #E HOW IS THIS DIFFERENT THAN THE FIRMS PRODUCING GOODS IN THE PREVIOUS PARAGRAPH???
@@ -84,10 +84,11 @@ There is an agglomeration effect that abgments the productivity of workers: firm
 % to sell into a large market, at a fixed price. 
 
  We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else.
-To attract workers to live in the city and commute to the central business district, firms pay an \gls{urban wage premium}, $\omega$, in addition to  the subsistence wage $\psi$. 
+To attract workers to live in the city and commute to the central business district, firms pay an  \gls{urban wage premium}, $\omega$, in addition to  the subsistence wage $\psi$. 
 %\footnote{See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
 % When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-Workers give up the subsistence income, and receive the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi +  \omega$.
+Urban workers give up the subsistence income, and receive the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi +  \omega$. 
+
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
  
@@ -109,30 +110,13 @@ Workers give up the subsistence income, and receive the \gls{urban wage}, which 
 % \end{figure}
 % }
 
-% MAIN full page
-% \newpage
-%  \thispagestyle{empty}
-% %\setlength{\TPHorizModule}{18cm}
-% \begin{textblock*}{180pt}(1pt,2cm)
-%     \includegraphics[scale=.75]{fig/flow_full_model.png}
-% \end{textblock*}
 
-
-% \begin{textblock*}{400pt}(1pt,1.5cm)
-%    \hspace{6cm} \textbf{\Huge Model Logic}
-% \end{textblock*}
-% . 
-% \vspace{10cm}
-% \newpage
-
-
-The {urban wage premium} and transportation together determines both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
+The {urban wage premium} and transportation cost together determine both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
  %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
 % The  productivity of the city attracts people. 
-since agents will work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
-The higher the wage, the  farther workers will commute.
-The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the circular city and the commuter shed.
+since agents will only work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
+The higher the wage, the  farther workers will commute. This is the core of the Alozo circular city model. The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the circular city and the commuter shed.
 
 We assume a uniform lot size, $s$, with one worker per unit land, so the labour available in the \gls{circular city} is simply the area of the circle divided by lot size: 
 \begin{equation}
@@ -292,34 +276,32 @@ In the model, agents set these values with the support of a real estate agent, a
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 
-\subsubsection{Warranted Rent}\label{waranted-rent}
-
-%Just as there is a warranted price, there  is 
-The economically \gls{warranted rent}, $\mathcal{R}_W$, and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent} is the maximum rent that is economically justified. It is based on the services a property offers.
- In each period a house offer two kinds of services: {locational services}, access to the central city job and {home services}.  The {warranted rent} is the value of this stream of services.
- The warranted rent is, then, a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
-
-
-\Gls{locational services} are represented as %, on an annual basis, 
-the rent premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location:
+\subsubsection{Economic Rent}\label{sssec-economic-rent}
+The economic rent is the value of the locational services, 
+This is a surplus that arise from agglomeration economies that make being close to the city core valuable. \Gls{locational services} are represented as %, on an annual basis, 
+the wage premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location:
 \[\omega- {dc}.\]
 
-% \subsubsection{Home services}
-\Gls{home services} proper are the value of living in a house: a place to sleep, to prepare food, the amenity of being in the home, etc. % JUSTIFY? People require housing inside and outside the city, and costs can be represented as a share of income \cite{?}, 
-Home services are modeled as a share, $a$, of the subsistence wage, $\psi$. 
 
-% \subsubsection{Rent}
-The \gls{warranted rent} is the sum of locational services and home services.
-%We call the value of this stream of services the \gls{warranted rent}, $\mathcal{R}_W$, since it is the market value of the services provided. 
-It is the maximum a tenant might pay in rent, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.
+\subsubsection{Warranted Rent}\label{sssec-waranted-rent}
+
+%Just as there is a warranted price, there  is 
+The economically \gls{warranted rent}, $\mathcal{R}_W$, is the value of all  the services a property offers. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent} 
+It is the maximum rent  a tenant might pay in rent, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.  
+
+In each period a house offers two kinds of services: {locational services} or  access to the central city job, and {home services}.  The {warranted rent} is the value of this double stream of services.  The value of the stream of housing services is the fraction $a$ of the subsistence wage $\psi$ that must be allocated to providing the housing independent of location. 
+
+ The warranted rent is, then, 
 \begin{align}
 \mathcal{R}_W=\omega- {dc} + a\psi.
-\label{eqn-housing-price}
+\label{eqn-warranted-rent}
 \end{align}
-
+ It a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter \ref{chapter-methodology}.
  
 \subsubsection{Market Rent}\label{Market-Rent}
-Since owners must pay costs such as maintenance and taxes, investors make their decisions not based on the warranted rent but on the \gls{net rent}, $\mathcal{R}_N$, after expenses. As with prices, in real life, the market rent can differ from the economically warranted rent for many reasons, and individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. 
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To clarify the implications of the model, we assume that the market rent equals the warranted rent. We are in effect imposing a   %\gls{warranted rent} is paid as the \gls{market rent}
+\[\mathcal{R}_M = \mathcal{R}_W.\] 
+
 
 \subsubsection{Net Rent}\label{Net-Rent}
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would claim not the total warranted rent, but the net rent after expenses,
@@ -345,64 +327,43 @@ where $\mathcal{O}$ is operating costs and $\mathcal{T}$ is taxes.
 %For computational purposes, we will assume that, that is the warranted price.  
  % assessed value
 One cost owners pay on a property is taxes. Municipal property taxes are based on the \gls{appraised value}, which is based, somewhat approximately and with a lag, on the \gls{market price}, $\mathcal{P}_M$. % The appraised value typically lags the market value, and attempts to approximate underlying value, so we approximate it here it with the \gls{warranted price} \cite{apraised_value_refs}. 
-In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate $r$, the \gls{compound interest rate} for the period. The entirely conventional  computation is described below The taxes paid over the period are then:
 
 \begin{align*}
 \mathcal{T} &= \text{mill rate} \times \mathcal{P}_M \\
 \end{align*}
-{\color{red}where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the Market price. We will assume that the market price can be approximated by the present discounted value of warranted  rents,
+where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the Market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate $c$ using the the \gls{compound interest rate} for the period. The entirely conventional  computation is described below.} The taxes paid over the period are then:
 
-
+ We will assume that the market price can be approximated by the present discounted value of warranted  rents,
 
 \begin{align*}
 \mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_W}{r} \\
 &= c \times \frac{\omega- {dc} + a\psi.}{r}
 \end{align*}
 
+
 \subsubsection{Warranted Price}\label{sssec-warranted-price}
 
-
-We will call the economically justified price, given the urban productivity premium, the \gls{warranted price},  $P_W$. This is the present discounted value of the warranted rents
-
-\begin{align*}
-P_W &=  \frac{\mathcal{R}_W}{r} \\
-&=  \frac{\omega- {dc} + a\psi.}{r}
-\end{align*}
+We will call the economically justified price, given the urban productivity premium, the \gls{warranted price}, 
+The \gls{warranted price} of a house is the present discounted value of the flow of service net of costs: $P_W$. This is the present discounted value of the warranted rents.
+\begin{equation}
+  P_W=\frac{\mathcal{R}_N}{r},  
+\label{eqn-price-warranted}
+\end{equation}
+where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains. 
 
 \subsubsection{Market Price and Expected Price}\label{sssec-market-price}
 
-The \gls{market price}, the price at which a property is exchanged on the market, $P_M$. The value may not be known, so in order to make decisions, agents must form  \glspl{expectation} or   predictions of the as yet unrealized future market price. Agent $i$'s expected market price is  $P_{M_i}^{\epsilon}$, which may include individual information, biases, preferences, etc.
+The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ may not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an  \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.
 
-
-$P_M^{E}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can include any assumptions the agent has about the behaviour of others, the system state, etc.
+%$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
 
 
 
 %In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
 
-{\color{red}
-As part of selling a property, $j$, the seller, agent $i$, decides on a \gls{reservation price}, $P_{R_{ij}}$, which is the minimum price they would be willing to accept from a buyer, and sets an \gls{asking price}, $P_{A_{ij}}$, at which to list a property. 
 
-The buyer considers available properties and selects on their own maximum bid, $P_{R_{ij}}$, as well as  an initial bid price \gls{bid price}, $P_{B_{ij}}$, to offer on each property.
-
-
-so we can write
- \begin{align}
-\mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
-\end{align}
-}
-
-}
 \subsubsection{Annual maintenance}
-Annual maintenance costs apply to building and lands but not to locational value.
-
-% \subsection{Distinguishing net market rental price and warranted rent}
-% Why? A tenant should expect to pay a market price for the combination of locational services and the services of land and buildings that they use.  The market rental price  is an equilibrium market rent, not the economic economic rent. In the real world the market rental price can  diverge from the warranted . )  
-%WE MAY  WANT A TERM FOR EQUILIBRIUM MARKET PRICE, TO DISTINGUISH IT FROM THE EVOLVED MARKET PRICE  % LIKE MARKET PRICE, IT IS THE PRODUCT OF A DISTINCT PROCESS OFMARKET EVOLUTION. THAT WOULD LET US TALK ABOUT THESE TWO KINDS OF MARKETS WE ARE LOOKING AT (E CONFUSES IT WITH EXPECTEED THOUGH.. 
-%MAYBE USE $\epsilon$ FOR EXPECTED SUPERSCRIPT e.g. $P_M^{\epsilon}$? % THEN IT IS THE EXPECTATION OF A PARTICULAR AGENT, WHICH CAN DIVERGE FROM EQULIBRIUM-- IT CAN HAVE ANY GUESSES OR SPECULATION ABOUT OTHER AGENTS THAT WE WANT TO ADD--
- % Neither is a true realized value. This probably confuses things to carry 
-
- 
+Annual maintenance costs apply to buildings and lands but not to locational value,
 so we can write
  \begin{align}
 \mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
@@ -419,9 +380,7 @@ so we can write
 
 % It is also net warranted  rental price that is relevant in taxation and maintenance. 
 
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. As discussed in section \ref{sec-price-formation} above, it can differ from what is economically warranted. To clarify the implications of the model, the analysis of the base model,(**??) % #E i DON'T UNDERSTAND WHAT THIS MEAND. WHAT ARE YOU CLIRFIYINF? HOW ARE THESE IMPLICATIONS OF THE MODEL?? i CANT FOLLOW THIS
-that follows, assumes that the market rent equals the warranted rent, %\gls{warranted rent} is paid as the \gls{market rent}
-\[\mathcal{R}_M = \mathcal{R}_W.\] 
+
 
 
 In the base model, %we abstract the negotiation/bidding/price formation process for rental prices. I
@@ -510,15 +469,29 @@ In the computational agent-based  model, the assumption gives a natural way to i
 %Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
 %That may let us simplify the exposition in the financialization chapter.
 
-\subsubsection{Warranted price}
 
-The \gls{warranted price} of a house is the present discounted value of the flow of service net of costs:
-\begin{equation}
-  P_W=\frac{\mathcal{R}_N}{r},  
-\label{eqn-price-warranted}
-\end{equation}
-where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains. 
+\subsubsection{Size of mortgage available, $m_i$}
+\[m_i= \frac{0.25Y_i}{r_i}\]
+where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
 
+\subsubsection{Cost of capital $r_i$}
+The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
+where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
+
+% \begin{figure}[htb]
+% \begin{center}
+% \input{fig/model-price-of-capital.tex}
+% \caption{Hypothetical wealth-dependent borrowing cost}
+% \label{Fig:BorrowingCost2}
+% \end{center}
+% \end{figure}%
+
+This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
+
+Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
+ 
+If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
 
 \section{Bid Price}
 
@@ -897,7 +870,7 @@ If no sale is made the owner considers becoming a landlord. if the present value
 % Agents may be able to foresee future growth. %They may even over invest if they follow market trends and bubbles form. 
 % They can claim a share of the urban wealth as it grows over time by owning the land. 
 
-If the return on housing investments is competitive with alternative investments, capital from institutions and individuals will flow into housing. Institutional investors can purchase housing.  Individual households can also allocate a larger share to housing to capture the returns.
+%If the return on housing investments is competitive with alternative investments, capital from institutions and individuals will flow into housing. Institutional investors can purchase housing.  Individual households can also allocate a larger share to housing to capture the returns.
 % If the return on investment in housing is competitive with alternative investments, can purchase housing for it's financial return. They can rent housing and sell the asset with appreciation later. We examine the conditions in which this increased demand can drive up prices in the market. 
 % Capturing future growth of the city, depending on their foresight - how much does it take to block individuals from gains-- Regime.
 % both institutional investors and individual agents can purchase additional housing for it it's return on investment even though they don't need it as a place to live. 
@@ -909,28 +882,28 @@ Households may, for example purchase a larger house than they need, purchasing a
 %The rise in spending on housing as a proportion of income can be driven by both rising prices (cutting into quality of life) and increasing investment to claim a share of the returns.  -- disaggregate and show the geometry -
 % Test how linear is this relationship? 
 
-\subsubsection{Size of mortgage available, $m_i$}
-\[m_i= \frac{0.25Y_i}{r_i}\]
-where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
+% \subsubsection{Size of mortgage available, $m_i$}
+% \[m_i= \frac{0.25Y_i}{r_i}\]
+% where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
 
-\subsubsection{Cost of capital $r_i$}
-The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
- \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
+% \subsubsection{Cost of capital $r_i$}
+% The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
+%  \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
+% where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
 
-% \begin{figure}[htb]
-% \begin{center}
-% \input{fig/model-price-of-capital.tex}
-% \caption{Hypothetical wealth-dependent borrowing cost}
-% \label{Fig:BorrowingCost2}
-% \end{center}
-% \end{figure}%
+% % \begin{figure}[htb]
+% % \begin{center}
+% % \input{fig/model-price-of-capital.tex}
+% % \caption{Hypothetical wealth-dependent borrowing cost}
+% % \label{Fig:BorrowingCost2}
+% % \end{center}
+% % \end{figure}%
 
-This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
+% This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
 
-Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
+% Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
  
-If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
+% If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
 
 \subsubsection{The rate of return on a property purchase $v$}
 To explore the implication of the financialization of the urban land market we need a function to calculate the return on a unit of land that reflects the actual gradient of opportunity in financial markets. We begin with the price appreciation, $\Delta P=P_T-P_0 = (1+\dot p)P_0-P_0 $, where $\dot p$ is the rate of price appreciation over the period $T$. Rates will all be specified for the period $T$. Transaction costs, including real estate fees, take a fraction from the value of the final sale.
@@ -1790,6 +1763,106 @@ Rural producers pay a wage $\psi$. this covers a standard house, lot, entertainm
 \chapter{MODEL PARTS CUT FROM BACKGROUND CHAPTERS}
 
 \section{GROWTH}
+
+\section{Equilibrium city size and the scale factor} 
+At this point, we can briefly describe how the discussion of this chapter relates to our overall modeling. There are four basic equations in the model. The first two link output and the wage to population. the third links the wage to the extent of the city and the last  provides the population of the city
+
+Equation one, following Bettencourt (p65) says that  urban productivity is proportional to population via a scale factor:\footnote{ In contemporary US cities productivity increases by about 11\% with each doubling of their population.  Urban Scaling and the Production Function for Cities Lobo J, Bettencourt LMA, Strumsky D, West GB (2013) PLOS ONE 8(3): e58407. https://doi.org/10.1371/journal.pone.0058407 }, 
+\[Y= GN^{\beta}\]  
+
+and has both theoretical and empirical support. 
+
+
+\cite{arvidssonUrbanScalingLaws2023} find that cities’ tails are responsible for 36–80\% of the observed superlinearities across indicators. 
+
+% \begin{tabular}{ll}
+% $Y$ is &Aggregate urban output, or GDP \\
+% %$\alpha$ & agricultural wage\\
+% $G$ is&a `prefactor', possibly time dependent, an initial population\\
+%  $N$ is& city population\\
+% $ \beta$  is& scale factor, the elasticity of output with respect to city population .\\
+% \end{tabular}\vspace{.5cm}
+
+This is illustrated in Figure~\ref{fig-scale-output} for $\beta=1.25$ and $G=1$. The significant features are the upward-bending total output curve that indicates increasing productivity per capita for the city and the rising marginal product of labour.
+
+\begin{figure}[htb]
+    \begin{center}
+    \begin{tikzpicture}
+      \draw (0,4)node[above]{$Y= GN^{\beta}$}--(0,0) --(6,0)node[below]{Population};
+       \draw[scale=1, domain=0:6, smooth, variable=\x, blue] plot ({\x}, {(\x/2)^1.25})node[below]{total output };% divide by 2 to get it on the plot
+       %\draw (0,1)node[left]{$\alpha$}--(6,3.5)node[left]{$\alpha +\rho P$};
+      \draw[scale=1, samples=200,domain=0:6, smooth, variable=\x, red] plot ({\x}, {(\x/2)^.25})node[below]{average output};% THis is the wage plot
+    \draw[scale=1, samples=200,domain=0:6, smooth, variable=\x, green] plot ({\x}, {(1.25*(\x/2)^.25)})node[above]{wage= marginal product};
+%[red] plot[samples=200, domain=-0:6] function {(\x/2)^.25}node[above]{wage};
+      %  \node [left] at (0,2){$w=\rho P$};
+         % \draw [dashed](0,3)node[left]{$Y_i$}--(6,3);
+    \end{tikzpicture}\vspace{.5cm}
+    \caption{Urban productivity is proportional to population, $\beta=1.13$}
+    \label{fig-scale-output}
+    \end{center}
+\end{figure}
+
+The right hand side of second equation is derived from the first bvy differentiation and combined with a result from the theory of the firm that says that the firm should hire until the marginal value product of labour is equal to the total wage, $\omega+w$, where $w$ is the `subsistance wage' that is earned by non-urban workers.  
+\[\omega+w = \beta GN^{\beta-1}\]
+
+The third is the population equilibrium condition, that requires that at the boundary of the city, $d^*$,  transportation costs, $td^*$, consume the entire wage:
+ \[d^*=\frac{\omega}{t}\]
+
+ The fourth is the function that generates the total urban poulation. In the standard circular city, for example, with a uniform density, $\delta$,  
+ \[N=\delta\pi (d^*)^2\]
+ % \[N=\delta\pi (\frac{\omega}{t})^2\]
+ %\[N=\delta\pi (\frac{\beta GN^{\beta-1}-w}{t})^2\]
+ 
+ The equilibrium population  is: 
+% \[N=\delta\pi (\frac{\beta GN^{\beta-1}-w}{t})^2\]
+
+\begin{eqnarray}
+    N&=&\delta\pi (\frac{\beta GN^{\beta-1}-w}{t})^2\\
+    &=&\frac{\delta\pi }{t^2} \left[\beta GN^{2\beta-2} -w^2\right]
+\end{eqnarray}
+
+This expression can be treated as a difference equation if we consider the left hand side as $M_{c}$ and the right hand side  function of the previous period's as population, $N_{{c}-1}$.
+
+
+
+\subsection{Incorporating agglomeration economies in production} \label{sec-agglomeration-production}
+%Production economies generated by agglomeration enter the production functions of the firms and, indirectly,  the aggregate production function of the city. 
+A simple way  to introduce an agglomeration effect on the production side that is consistent with the existing literature is  to use a \gls{Solow-Swan model} with labour augmenting technical change (\cite{solowContributionTheoryEconomic1956, swanEconomicGrowthCapital1956}), $Y(t)=K(t)^{\alpha }(A(t)n)^{\beta }$ where $t$ denotes time,  %$0<\alpha<1$ is the elasticity of output with respect to capital, $\beta$ the elasticity of output with respect to effective labour,
+ and $Y (t )$  represents total production. 
+We %remove time  $t$ except in the technical change term, where we replace it with the population value $n$. To avoid confusion with the consumption amenity, we
+ replace $A(t)$ %in the Solow-Swan models
+  with $A(n)$, representing a labour-augmenting agglomeration effect.\footnote{The Mankiw–Romer–Weil version of the model adds a term for human capital.  It is not clear it would make a qualitative difference for our analysis.}  This differs from  the Slow-Swan, model in which labour augmenting technical change increases according to an exogenous (exponential) law.\footnote{An attractive ways to specify $A(n)$  is to use a simple exponential, $A(n)=n^\phi$, which changes Equation~\ref{eqn-solow-swan2} 
+  We %The model  can produce increasing returns in the aggregate, which can drive city growth.
+\begin{eqnarray}
+ Y&=K^{\alpha }(n^{\phi }n)^{\beta}  \nonumber\\
+ Y&=K^{\alpha }n^{\beta(1 +\phi)}
+\label{eqn-solow-swan1}
+\end{eqnarray}
+This makes it clear that we can have increasing returns to scale for the urban economy if  $\alpha + \beta(1+ \phi)>1$ even with a production function at the firm level that is decreasing returns to scale ($\alpha +\beta<1$)).\label{footnote-psi}}  
+%Rising transportation costs may become the limit on firm or city expansion.  
+  
+  $A(n)n$ is  ``effective labour'' and 
+%\footnote{The Mankiw–Romer–Weil version of model adds a term for human capital.  It is not clear it would make a qualitative difference for our analysis.}  $T$ refers to effect of \textbf{labour-augmenting agglomeration}. The model then says that the 
+firm output is 
+\begin{equation} 
+Y=K_i^{\alpha }(A(n)n_i)^{\beta }
+\label{eqn-solow-swan2}
+\end{equation}
+% If $\beta=1-\alpha$, this is a constant returns to scale (CRS) production function. Without agglomeration effects, $T(n)=1$,  Then 
+% \textbf{$\mathbf{L(n) = T(n) n}$ 
+An individual firm will purchase labour time  and sell the product of effective labour. 
+?If labour markets are competitive, it will set $\die{Y}{L}=w$.
+We can assume  that $A(1)=1$ and $\frac{\partial A}{\partial n}>0$. 
+
+Notice that this model ascribes all agglomeration effects to labour rather than capital Deepening  and widening of the labour pool was one of Marshall's explanations of the formation of industrial districts. The model can therefor  be seen as incorporating a Jacobs/Marshall externality (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004}) of the sort often invoked as an explanation of industrial clusters. These externalities  are not a product of any firm or individual. 
+
+
+
+
+
+
+
+
 
 \subsection{Labour demand}\label{sec-labour-demand}
 %This equation shows labour supply increasing with the square of the wage.  
