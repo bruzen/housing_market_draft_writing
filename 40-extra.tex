@@ -728,3 +728,189 @@ In our model, land comes in implicitly through the demand for labour.
 
 
 
+\chapter{Model}
+
+
+
+\section{OLD Implementation}
+
+
+Household agents have:
+\begin{enumerate}
+   \item A home. Agents live somewhere, inside or outside the city,
+   \item finances: they have assets, a housing budget, income, and a spending pattern - family lending pattern  
+   shaped by profession, demographics, family structure, etc.) - risk profile
+   \item utility function: they have a utility function with location  preferences - amenity, open space, house size requirements, transportation costs - shaped by profession, demographics, family structure, etc
+\end{enumerate}	
+
+Buyers then consult with a financial agent to determine the maximum mortgage and interest rate they'd qualify for based on their income. This gives an upper bound to the range of homes they may consider. 
+
+Finally agents valuate the homes offered and place bids. % For simplicity of implementation, they place bids on all homes they consider. 
+
+%Calculate willingness to pay
+%Consider options
+%Place bids
+%
+%Calculate willingness to pay (urgency/position on the market)
+%Assess need for housing
+%- Urgency of need Unhoused, sold house or served notice? 
+%- Family or demographic changes
+%- Financial viability of current situation
+%Assess financial situation
+%Get Max mortgage and max carrying cost given income and wealth from a bank
+%Get options from real estate agent
+%Place bids based on xy
+%Consider options
+%Place bids
+%
+%BUYER
+%Enter market to buy
+%Decide level of urgency (or decide with prospect theory - functional form for optimism/urgency/time to choose)
+%(income/wealth)
+%Maximum mortgage 
+%Maximum carrying cost
+%Household attributes - household size, employment location, amenity
+%Current housing
+%
+%Realtor gives list of houses to look (real estate search -e.g. price range)
+%Place offers - low if can't afford, higher if market is tight
+%If failed, consider renting or buying next time.
+
+\begin{figure}[htb]
+    \begin{center}
+ \tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+     text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+ \tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+     text width=5em, text centered, rounded corners, minimum height=4em]
+ \tikzstyle{line} = [draw, -latex']
+ \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+     minimum height=2em]
+%
+ \begin{center}
+ \begin{tikzpicture}[node distance = 2cm, auto]
+     % Place nodes
+     \node [block] (need) {Assess need for housing};
+     \node [block, below of=need] (finance) {Assess financial situation};
+     \node [block, below of=finance] (alternatives) {Select homes to consider};    
+     \node [block, below of=alternatives] (bid) {Place bids on homes};    
+     % Draw edges
+     \path [line] (need) -- (finance);
+     \path [line] (finance) -- (alternatives);
+     \path [line] (alternatives) -- (bid);        
+ \end{tikzpicture}   
+ \end{center}
+    \caption{}
+    \label{fig:code_worker_choice}
+    \end{center}
+\end{figure}
+
+\subsection{Initial conditions}
+Initialize the model with grid. Each element contains 1 housing unit.
+
+The model space is divided into a uniform grid of single family homes % Additions: apartment buildings, a mechanism to subdivide homes, rent bedrooms, accumulate adjacent land and build new higher density buildings, an urban land boundary, a mechanism for wealth agglomeration through density.
+
+The social structure of the model begins with urban workers who commute and earn wages in the urban commuter-shed, and rural residents and landowners who may choose to move to the city. 
+We imagine the initial set of workers in our city commuting daily, being paid monthly and residing in urban housing for their working lives, which are arbitrarily set. 
+
+Initially all urban workers are also homeowners. When we allow the initial urban residents to retire, they may sell or rent out their properties to new workers. This introduces an additional \gls{class} of resident, the urban tenant. The final agent in the model is a `bank' that represents both the financial sector and the owners of financial capital. The bank provides mortgage funds can %may actively 
+purchase land as a financial asset on behalf of investors.
+
+\subsection{Model Steps - Housing market}
+% Figure xyz traces the flow. 
+In each time step agents firms update wages and job availability, agents decide whether to work and whether to buy and sell homes.
+ % Schedule: Multi step by breed
+ % Steps Labour
+ % step - workers: market/production, enter market to buy, list properties real estate agent matches agents - has bids 
+ % bidding - workers and firm consider properties and make bids (2nd step or spread over 2 steps)
+ % negotiation - sellers consider and accept bids (or real estate agents manage negotiation)
+%Buyers evaluate their need for housing.
+% Agents decide whether to enter the housing market as a renter or a buyer.
+
+at every time step 
+    1) Some new tenants arrive into the city
+    
+    2) All unhoused tenants look for a housing unit 
+    
+        a) They have to decide whether to buy or rent. Decision depends on their income, and the availability of Corporation of Public Housing loans 
+
+
+        b) If they buy, they seek apartment and evaluate, and place a bid (see ALMA)
+        
+        c) if they rent, they look for an apartment that matches xyz criteria, and place request to rent. Rental is given by the landlord to the first tenant that matches the asking rental price. 
+
+
+Workers give up their search and leave the city if they do not find a housing unit 
+
+%\input{notes_and_references/z Background rough notes - rent history etc.tex}
+
+
+\subsection{***Initialization}
+
+% We explore the wealth forming dynamics of the urban agglomeration effect by modelling % a city in which 
+Agents work in the city and leave their jobs when they reach retirement age.
+New agents enter the city to work.
+
+% There is an outside world in two respects. NEAT 
+ 
+ If there is a housing market, agents can move. %In the analytic case above, the population stays in place, and travels to work if it is worthwhile given the transportation costs. 
+%Those who come to the city will be those for whom the benefits the city offers make it worthwhile to  whether that's building their network, accessing markets, accessing amenity, learning, finding specialized employment, or increased wages. In this model 
+The demand for labour drives urban growth. % The housing market depends on how many people from the periphery are completing to claim places in the city. TODO IF ANY RURAL AGENT COULD MOVE IF THE CITY HAS ADDITIONAL DEMAND FOR LABOUR, HOW DO WE DECIDE WHICH DO? Could use a parameter for immigration (or how 'hot' the market is) and in the simplest case (corresponding to how many agents from outside are looking at the housing/rental market), have the inflow match. % Agents have debt and there is an undifferentiated labour market
+
+
+Workers can leave the workforce and retire, and new people can come into the city. 
+
+Initially, all homes are owner-occupied. This is of interest as a starting point because we are interested in the evolution of a society with widespread home ownership in the face of financialization pressures. 
+
+We also start with owners who have a long run before retirement. The housing market is  during the initialisation runs to allow the wage and population to converge. The all-ownership, no-turnover case provides a basis for expectation-formation and examining the basic population-productivity dynamic. 
+
+When agents reach the end of their set working lives they retire. %It is easy to introduce random life events, differentiated households and other variety, but while this kind of variation is likely to generate  complex and interesting life stories it is not what we choose to focus on at this stage.  
+Owners may sell their homes and either leave the city or move to cheaper housing. the latter would put pressure on housing supply. New entrants to the labour force come from outside of the city at various stages in their life cycle and either buy or rent homes. 
+
+\section{ANALYSIS - MOVE}
+\epigraph{“An economist is someone who says, when an idea works in practice, ‘let’s see if it works in theory.'”
+— Walter W. Heller, former chairman of the Council of Economic Advisers.}{ Walter W. Heller, former chairman of the Council of Economic Advisers. (\href{https://quoteinvestigator.com/2015/08/30/practice/}{1979, The Washington Star)}}
+
+
+The model shows how land rent is captured by landowners and how that affects wealth creation and the development of the city. 
+Rents go to landowners. %the owners of a given property. 
+Landowners therefore capture a fraction of the wage premium generated by agglomeration.
+If workers own their own homes, rents go to them. If others own the land, they capture them.
+
+Land value rises as the city grows, so newcomers pay more for housing near the centre.
+
+% Agglomeration benefits get extracted by landowners. Labour gets only their marginal value they don't get any of the surplus. They don't even keep always their marginal value.
+The dynamic story is that the class of landowners eventually becomes financial capital.
+PLOT RENTS HERE
+The value of land increases over time. Those who purchase land earlier claim a share of the growing value of the city. % As the city grows, they own an increasingly valuable asset.
+ 
+%In this model, workers are the initial owners, but they build this wealth which becomes a source of capital that can support them.
+EQUATION FOR THE SHARE THEY CAN CAPTURE
+
+In the case in which individual workers purchase houses and then sell them on retirement, the housing market drives the creation of classes on its own. A strictly random process in which agents have a range of ages and sell at retirement creates a structural advantage where workers who arrive earlier in the city and own land, benefit from their own labour but also get to claim a share of the productive output of the city as it grows. % those who begin work later. % to a division in wealth
+%the emergence of a class of those who came early and those who came late.
+%Early agents may also rent out their land. Could it be though of as a pyramid scheme?
+
+%With financialization, in the case where 
+If financialized buyers can access a better interest rate, they can consolidate ownership, capture rents, drive class differentials, and amplify wealth inequality. % This appears to be the case as lenders offer wealthier and larger entities lower interest rates. % We expect to observe in this class of models larger, likely power law-distributed, wealth effects.
+
+%There is a supply of money- if there's too much for other investments, some will flow here- e.g. excess liquidity.
+
+\subsection{Implications}
+- totaly tax maintained
+Germany higher natural redistribution..
+
+This fits empirical results of increasing financialzaiton 70+ financialized
+Fr\'ed\'erick Demers found that the response of housing investment to interest rates has become more pronounced over time \cite{demersModellingForecastingHousing2005}. %Modelling and Forecasting Housing Investment: The Case of Canada,  Research Department, Bank of Canada, Ottawa, Ontario, Canada K1A 0G9 fdemers@bankofcanada.ca
+
+
+
+Friedman’s 1953 essay, ``The Case for Flexible Exchange Rates'' \cite{friedmanEssaysPositiveEconomics1953} argued that speculation is stabilizing. Market prices in this view  are set on the basis of economic fundamentals- what we call the warranted price. When prices diverge from those fundamentals that creates a profitable opportunity. Speculators then step in and buy or sell, driving prices back to the level warranted by fundamentals.
+
+Increasing the number of traders and volume of trading is also regarded as improving financial market outcomes. Increased trade volume increases market liquidity 
+
+
+
+\section{Intro conclusions/summary}
+The model has a Solow-Swan style production model with agglomeration effects using a \gls{Cobb-Douglas} production function that incorporates Jacobs-style labour-augmenting agglomeration economies %(Beaudry and Schiauerova 2009, Panne 2004, J. Jacobs 1969), 
+in the way neoclassical growth theory incorporates labour-augmenting technical change.
+It integrates the production function with an Alonso-style urban model of a city economy \cite{alonzoTheoryUrbanLand1960}.

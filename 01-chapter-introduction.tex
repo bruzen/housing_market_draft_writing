@@ -21,13 +21,52 @@ This thesis argues it may also have dramatic effects on the productivity of citi
 
 \section{The financialization of housing markets}
  % in particular it's efect on productivity.
-Financialization of the housing market refers to the growth in the share of the housing stock controlled by financial institutions and investors and the overall effect this has on the outcomes of the system \cite{farhaReportFinancializationHousing2017, hansenFinanceCapitalismFinancialization2014}.
-While financialization is usually understood as capital seeking profit, in the urban context it is fundamentally a spatial phenomenon. %also a spatial  phenomenon. 
+Financialization of the housing market refers to the growth in the share of the housing stock controlled by financial institutions and investors and the overall effect this has on the outcomes of the system \cite{farhaReportFinancializationHousing2017, hansenFinanceCapitalismFinancialization2014}. 
+Figure~\ref{fig:Financialization-expansion} illustrates financialization  as a flow of money into the housing market, expanding financial ownership and tenancy while reducing the share of owner-occupied housing. Its goal is the capture of spatial rents, which we will show has implications for both the productivity and the class structure of the city. Financialization of the housing stock does not add  tot he housing stock. It is a process of transferring ownership of existing housing units.  In the urban context financialization is fundamentally rent seeking. This thesis focuses on the potential macro effects of financial capital capturing urban spatial rents. 
+
+ %also a spatial  phenomenon. 
 % ***E MAYBE MOVE THIS UP... IT MIGHT BE HELPFUL CONTEXT FOR WHAT YOU ACTUALLY DO, IT BEGINS TO ESTABLISH THE PROBLEM
-Its goal is the capture of spatial rents, which we will show has implications for both the productivity and the class structure of the city. 
  % These macro effects are our main interest. % While the term financialization can be used in a variety of ways,
-This thesis focuses on the potential macro effects of capturing urban spatial rents. % are the specific concern of this thesis.  
+ % are the specific concern of this thesis.  
 % These aspects of finacialization have been neglected in the literature.%in the urban system 
+
+
+  \begin{figure}
+\begin{center}
+\begin{tikzpicture}{scale=.5}
+\draw [fill=yellow!20] (0,4)--(3,4)--(3,8.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+
+\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+ \draw [fill=gray!40,opacity=1] (0,0) rectangle (3,4); %fiancialization   
+\draw [fill=gray] (0,0) rectangle (3,2); %TENANT
+
+\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
+
+\node at (1.5,6)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt\Large Owner Occupied};
+%\node at (2,3.3) [text width=2.4cm]  {\baselineskip=20pt Mortgaged};
+\node at (1.5,1)
+    [text width=2.4cm, align=center, white]
+    {\baselineskip=20pt\Large Tenant Occupied};
+
+
+%\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
+\draw [gray,line width=2mm](1.5,2)--(1.5,2.4) node[above, red]{Financialization}; 
+\draw [gray,-latex, line width=2mm](1.5,3)--(1.5,4);
+%\draw [gray,line width=2mm,-latex](3,3)--(4,3);
+\node at (5.5,3)[text width=2cm]{Expansion of housing stock}; 
+\draw [gray, dashed,line width=2mm,](3.1,10)--(4,3)--(3.1,0);
+
+\draw [gray,line width=2mm,-latex](-2,3)node[left]{\huge$\$$}--(0,3); \node at (5.5,3)[text width=2cm]{Expansion of housing stock}; 
+
+\draw [gray,line width=2mm,-latex](8,3)node[right]{\huge$\$$}--(7,3); 
+\node at (5.5,3)[text width=2cm]{Expansion of housing stock}; 
+\end{tikzpicture}
+\end{center}
+ \caption{Financialization vs expansion of the housing stock }
+      \label{fig:Financialization-expansion}
+  \end{figure}
 
 There's now a compelling understanding of the value that's created by cities, both empirically and theoretically \cite{jacobsEconomyCities1969, spenceUrbanizationGrowth2009, bettencourtIntroductionUrbanScience2021}, but there's no formal apparatus in standard economic theory for analyzing the distribution of the enormous value created. % that's being created. 
 Standard models of the financial operations are spaceless \footnote{In describing any theory we need to identify the kinds of objects that are theorized. Financial analysis theorizes  assets, debts, flows of revenue and costs, and the rates of change or exchange of these quantities over time. These are inherently spaceless because they are accounting entities, completely independent of location. It matters where a worker or a farm is. It does not matter where and dollar or a rouble is.}. 
@@ -245,3 +284,7 @@ Part \ref{part-model} develops the model and results.
     \item Chapter \ref{chapter-conclusions} draws a series of conclusions from the modelling and analysis.
 %Experiment 2 - setup, parameter values,  analysis, and results (TODO maybe introduce resilience ideas earlier so they are part of the mainline development, adding a resilience theory to part  \ref{chapter-background} after chapter \ref{chapter-financialization}.
 \end{enumerate}
+
+
+
+\section{Financialization and Housing Supply}
