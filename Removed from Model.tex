@@ -1,0 +1,422 @@
+
+
+
+
+\section{IMPLEMENTATION: Relating the market model to the code}
+The chapter links the theory to the output of the simulations. %is intended to explain the code and justify the modeling decisions that link the theory to the actual 
+
+
+\section{MOVE UP? Bargaining - The market process and bargaining}
+We consider a homogeneous city with a single wage, identical preferences, uniform identical transportation costs, identical lot sizes.
+
+Individuals and institutions buy and sell properties given individual goals, resources and available information.
+
+% The process can be summarized as
+The model of the market process includes the following steps:
+The core machinery of the model is the market process. At the centre of that process is a model of price formation and bargaining. % bargaining model. 
+
+\begin{enumerate}
+    \item Identify the set of sellers for the current cycle. This may include:
+    \begin{enumerate}
+        \item people retiring in this cycle,
+        \item people who retired and failed to sell, and potentially
+        \item people approaching retirement who might consider selling early and
+        \item financialized owners. % the bank? speculative owners? .
+    \end{enumerate}
+    
+    \item For each seller, calculate the expected property price: % \textbf{from real estate agent}:
+    \begin{enumerate}
+        \item Initialize with the warranted price, which is the value of the stream of services, provided by the property. Rents minus net costs:
+       \[ P_W=\frac{(\omega-{dc}) + {a}\psi}{r}\]
+        The value of the house is the rent premium minus the cost of transportation. Subtract the costs of running the house, divided by the interest rate
+    
+        IS IT MINUS A $\psi$ SINCE HIGHER COSTS LOWER PRICES?
+       
+        {\color{green} This is the expected warranted price. It might make sense just to use the homeowner's reservation price (maximum bid price)}.
+        \item in later cycles use the actual transaction price $P_M$ (with inflation added) when it is available, or use a (regression)estimate $P_{it}^e$ the real estate agent.
+    \end{enumerate}
+    
+    \item for each seller, compute a reservation price using a variant of the maximum bid price formula. 
+    {\color{green}\textit{Values like $m_i$ are going to be expected values for others.  ??? }}
+    \textit{This is what the seller thinks she should get, taking into account her expectations about the price increase etc..}
+    
+    \item for each seller, compute an asking price. 
+    \textit{Add some percentage to the reservation price. Make sure the result is above ***? $P_M^e$, since you know you might have to come down in bargaining.}   
+    
+    \item for each seller, list the asking price for bidders to see.
+    
+    \item for each property, identify a set of potential bidders.
+    \begin{enumerate}
+        \item Bank considers bidding on all listed properties.
+        the formula is the maximum bid price with its own parameters putting in the current rents.
+        \item New entrants to labour market
+       {\color{yellow} \item Retirees who might sell, move out of town and invest in a rental property}
+    \end{enumerate}
+    
+    \item for each bidder, compute a maximum price using a variant of the bid price formula. 
+    
+    \item for each bidder, compute an initial bid no higher than  the maximum price. 
+    \color{red}  
+    \textbf{(there may be two paths to consider: working from initial bids, or working with max bids )}
+    
+    \item With list of max bids, check to see if any exceed the asking price. 
+    \begin{enumerate}
+        \item If yes settle on asking price if there is just one, and the second highest max bid if there are more than one.
+        \item If no, proceed.
+    \end{enumerate}
+    
+    \item With list of max bids, check to see if any exceed the reservation price. 
+    \begin{enumerate}
+        \item If no, house is not sold, and reservation price is reduced for the next cycle.
+        \item if one max exceeds the reservation price,  split the difference between the reservation price and the maximum bid bid.
+        \item if more than one max exceeds the reservation price, choose the second highest max bid if there are more than one
+    \end{enumerate} 
+\end{enumerate} \color{black}
+
+
+-----
+
+All agents have access to the price forecast, $P_M^e$, from the real estate agent.
+
+We have five categories of potential buyers.\footnote{Types three and four  would  become landlords if the transaction is completed, which is a change of class status.} 
+\begin{enumerate}
+    \item newcomers to the city, who have a job offer  and seek to buy a home or become tenants.  
+    \item financial investors who possess financial capital and seek a rate of return better than they would receive from alternative investments. We refer to this investor as `the bank'
+    \item owner-occupiers who might mortgage their current homes  to purchase a revenue property
+    \item owner-workers who retire and might  invest in a revenue property rather than spending  their capital gain 
+    \item sellers are also default buyers, since they can buy their own home and rent it out if their \gls{reservation price} is not met.  
+\end{enumerate}
+
+
+For potential sellers the maximum bid price is also the `\gls{reservation price}' price.  
+\[P^{ask}> P^r, \qquad   P^{offer}< P^{max}\]
+
+
+All potential buyers and potential sellers  will calculate a \gls{maximum bid price} or reservation price and and an initial offer price or ask price \gls{bid  price}. 
+
+The initial bid price (offer) will be lower than the potential buyers maximum bid price. The initial ask price will be higher than the reservation price.
+
+Bargaining will occur when the maximum bid price of at least one agent exceeds the reservation price of the listing agent.
+
+Transactions can occur when the maximum bid price of at least one agent exceeds the reservation price of the listing agent.
+
+
+\subsection{Determining initial offer and ask prices}
+
+Agents can calculate their maximum bid  or their  reservation price. 
+These values are not public. We need to identify initial ask and offer prices, which is the way they appear in the market.
+
+
+\[P^{ask}> P^r> P_M^e\] 
+
+If the posted expected price exceeds their \gls{reservation price} they 
+\begin{enumerate}
+    \item list  the property for sale with the real estate age,nt.
+    \item select an asking price   
+\end{enumerate}
+
+The bank posts a \gls{maximum bid function} with the real estate agent.
+
+In practice, potential investors will make an  initial  bid that is lower than this value and subsequent bargaining will settle of a price between the initial bid and the seller's asking price.
+
+In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
+
+% If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
+% That is the highest price that a seller can get.
+
+ %This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguishable form any more complex approach. 
+
+% Will persons retiring who would leave the city invest in an urban rental?
+
+
+
+% But what is $D$? Does the bank have unlimited funds? Isn't D just a fraction of P?  If so it cancels out
+% r is the prime rate- that the bank pays? 
+
+
+
+% \begin{verbatim}
+% \end{verbatim}
+
+\section{Computing values for bid and warranted price}
+
+In the following sections we discuss % the computation of agents' bid price, outline potential discounting approaches, and discussing 
+how each component of the calculation is treated in the code. %, organizing the discussion following Equation~\ref{eqn-bid-price2}:
+
+
+\begin{align}
+P_i^{bid} \le   \frac{\mathcal{R}_N}{(1-m_i)r_i^{target}- \delta_i \left(1+L(P)- (1+ r_i)m_i\right)}.
+\end{align}
+Net rent, $\mathcal{R}_N$, is discussed in section \ref{SS:NetRent}. 
+
+Interest rates, discount rates, and borrowing ratios are discussed in section \ref{SS:RatesAndRatios},
+The borrowing ratio, $m_i$, is discussed in section \ref{SS:BorrowingRatio}, the target interest rate, $r_i^{target}$, is discussed in \ref{SS:targetr} the discount factor, $\delta_i$ is discussed in section \ref{SS:discountfactor}. The price approximation mechanism, $L(P)$ is discussed in \ref{SS:PriceForecast}, and the interest rate the buyer has to pay for the mortgage, $r_i$, is discussed in \ref{SS:BankRate}. Sections are thus numbered: 
+
+\begin{align*}
+P_i^{bid} \ge   \frac{\ref{SS:NetRent}} {(1-\ref{SS:BorrowingRatio})\ref{SS:targetr}-
+\left[ \ref{SS:discountfactor}(1+\ref{SS:PriceForecast}- (1+\ref{SS:BankRate})\ref{SS:YWealthConstraint})\right]}. 
+\end{align*}
+
+
+\section{CODE DISCUSSION}
+present value of tax on propriety over T years. 
+
+\section{Operating cost calculations}
+\begin{verbatim}
+property value * tau * (sum_(1-T) ((1/(1+r))^t).    
+    (sum_(1-T) ((delta_t)
+
+psi   = 100000 # subsistence wage
+    
+#  Annual operating cost in dollars  
+#  eg psi=100000 b=.02 , a*b*psi= 2000 per year 
+
+ compounded for 5 years Must add the discount factors  
+ \delta_t for five years 
+ \[ oppcost=  \[\frac{\omega+a\phi}{r} \tau + a\phi b\right]\sum_1^T \frac{1}{1+r}\]
+ a*b*psi/.r - (a*b*psi/r)*delta_T
+#  eg   2000/.r - (2000/r)*delta_T 
+= 2000/0.05 - (2000/0/05)*delta_T = 8658.953
+
+opperating_cost = a*b*psi/r - (a*b*psi/r)*delta_T 
+\end{verbatim}
+
+\[ oppcost=  \left(\tau\omega  +(\tau+b)a\psi\right)\sum_1^T \left(\frac{1}{1+r}\right)^t\]
+
+\begin{verbatim}
+    opperating_cost = (tau*(omega-c*d) + (tau+b) *a*psi)* sum((1/r)^t for t in range(1, T))
+    
+This is (tax on rent plus both tax and maintenance on the house and land) for (T years with discounting for each year),
+\end{verbatim}
+
+
+
+----
+
+
+The relationship between income and consumption is suppressed, because that makes xyz.. so much clearer.
+
+because it ignores
+but the relationship
+
+but the relation ship between x and y is not..
+
+don't care what they do in retirement, so ignoring it, so they're still capturing capital gains so long as they own a house
+t
+their lifetime income is changing even though their current income is not.
+
+--
+renters get none of that.
+
+
+
+$delta_T$ 
+$sum_delta_T$
+% $sum_r_T$
+
+$r_T$  present value of total interest payments made over period T
+
+
+
+
+${a}$  =  share of subsistence wage  used for land and building e.g. 0.3
+
+${b}$  = share of share of subsistence wage  used on maintenance e.g. 0.2
+
+${c}$  = annual tax rate on rent and home  e.g. 12 mills 
+
+
+a     share of subsistence wage  used for land and building
+
+b      share of share of subsistence wage used for maintaining home
+
+c    annual tax rate on rent and home  eg  1.6\% = 16 mills, 1.2\% =.12 mills
+
+% Sigma is tax share, what is the tax rate.
+% delta is density ** - - infinitesmal density increase as the city moves out. [[adjustment speed for wage N]] imagine a density function over the city. 
+
+\section{SORT Housing services 30 percent}
+MOVE TO ASSUMPTIONS - We assume households spend a fixed fraction $a$ of their subsistence wage $\psi$ on housing. 
+
+\footnote{***JUSTIFY ASSUMPTION OF FIXED SHARE OF SUBSISTENCE HERE? This appears to be empirically justified and simplifies the model \cite{GET_SOURCE_HOUSING_A_FIXED_SHARE_SUBSISTENCE_WAGE}. Appendix \ref{appendix-future-work} considers how the assumption may be relaxed in future work.}
+
+Housing services absorb about 30\% of income  we will use than number  as an approximation,  $a\psi$, where $a$ is the share of the subsistence wage and $\psi$
+
+Note, this is a simplification. It ignores any locational values of the house, as well as the costs stream, it is a net cost, but a net cost embedded in the share of the income. It is a justified simplification, but an interesting place to explore the effect of adding nuance.  MAYBE MOVE DISCUSSION OF POTENTIAL EXTENSIONS TO FUTURE WORK.
+
+\section{Net rent}\label{SS:NetRent}
+We assume that the present value of the rent % $\mathcal{R}$ 
+is known to an investor in advance. We can imagine the investors' accountant having information on the rent that the market will bear or on prior rents and including this information in the calculation of $P_B$.
+
+Uncertainty can be represented as bias or stochasticity.
+Calculation notes: I have rent from the wages. I have kappa and sigma from our ex parameter values. . omega from the wages. 
+
+Net rent, which can be written a share, $\phi$ of total rent $\mathcal{R}_N = \phi \mathcal{R}$
+$\mathcal{R}_N = \phi \mathcal{R}$
+
+Where the \gls{rent share}, phi is a fraction
+$\phi = (rent-taxes-costs) /rent$ 
+
+There's a distinction between the warranted rent, the net rent, and the rent that's actually charged.
+
+We assume that the  rent  actually charged to a tenant is the warranted economic rent, ($\mathcal{R}= \omega - {dc}$), but the relevant term to enter into the calculation of return on investment is the net rent $\mathcal{R}_N$ for a given property, because the returns are the returns an investor can get after paying taxes and operating costs.
+
+In our computational model, we do the calculation in terms of a mortgage, so we want the total returns after expenses, in present value, compounded over the mortgage  period.
+% We want the total returns after expenses, in present value, compounded over a 5 year period.
+
+\begin{align}
+\mathcal{R}_N &= \mathcal{R} - \mathcal{O} - \mathcal{T} 
+\end{align}
+
+In terms of the warranted rent, 
+\begin{align}
+\mathcal{R}_N &= (1-\kappa_j - \sigma_j)(\omega - {dc}) % was {d_j} here
+\end{align}
+
+
+% $\mathcal{R}_N = (1-\kappa_j - \sigma_j) (\omega - {c} d_j)$
+
+% {\color{red}
+% Notice that  we need here is really the fraction of the warranted rent that the owner gets to keep after maintenance costs and taxes. It is possible that the owner is charging more or less than the economic  rent, but economic rent can be seen as an equilibrium value. Economic rent is $\mathcal{R}$.  This is (tautologically) related to the price as a fraction of the actual sale price: COULD MOVE TO THE CHAPTER NOW SINCE THE THE SECTION IS MOVED THER
+% }
+% \[\mathcal{R}= \frac{\mathcal{R}}{P_0}P_0 \]
+
+If we want to know the  present value  of the \textbf{net rent}, $\mathcal{R}_N$  collect over the period  $T$, $\mathcal{R}_N^T$, we \textbf{add up} the discounted rents for each year. We may assume the rents are rising at and that the first is the current warranted rent, which gives us a computational formula. 
+\[\mathcal{R}_N^T= (\omega-dc)\sum_{t=0}^{t=T-1} \frac{(1+\dot{\mathcal{R}})^{t}} {(1+r_{r_\delta})^{t+1}} \]
+
+% \[\mathcal{R}_Nj^T= (\omega-dc_j)\sum_{\tau=0}^{\tau=T-1}\left[\frac{1+\dot{\mathcal{R}}}{1+r_{r_\delta}}\right]^\tau \]
+\noindent where $\dot{\mathcal{R}}$ is an expected rate of change of rents - possibly zero for now, and $r_\delta$ is the individual's discount rate. 
+
+TODO: problem - how to handle subscripts with net rent $\mathcal{R}_N$
+
+
+\subsection{Tax ratio}\label{SS:TaxRatio} 
+The tax ratio $\sigma$ is the share of rents that the municipality takes for services and infrastructure. This fraction of the value of the property is about 30\% based on mill rates in Ontario,  so $\sigma = 0.3$. % REFERENCE
+
+*** CHECK Total taxes paid on  property $j$, over a given mortgage period $T$ is 
+
+\[\Psi_j^T = \psi * \mathcal{R}\].  
+
+    %\href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiOmNPUvIL9AhUUmokEHX-5C9oQFnoECBIQAQ&url=https%3A%2F%2Fwww.greatersudbury.ca%2Fcity-hall%2Ftax-services%2Fpdf-documents%2F2022-tax-rates%2F&usg=AOvVaw2XEdfcC5z-5AqfOeH5t-eN}{Sudbury values}  same as https://www.greatersudbury.ca/city-hall/tax-services/pdf-documents/2022-tax-rates/
+
+\subsection{Cost tax ratio}\label{SS:CostRatio} 
+The value of $\kappa$  varies for every property based on maintenance requirements, historic rents, tenant rights, and variations in assessed values. If it varies, it may be useful as a quality indicator.
+
+%Values for $\kappa$ and $\sigma$ must be adjusted to take into account the length of the period or net rents have to be summed over the period.  NO LONGER NEEDED 
+
+Nothing prevents $\sigma+\kappa >1$, which would leave an investor unable to cover building maintenance and taxes out of current rent. 
+
+
+% image.png
+
+% image.png
+% https://www150.statcan.gc.ca/n1/pub/46-28-0001/2023001/article/00001-eng.htm
+
+% Investors now make up more than 25\% of Ontario homebuyers, pushing prices higher, experts warn. 2020
+
+% Released: 2022-04-12
+
+% New data from the Canadian Housing Statistics Program (CHSP) show the extent of inequalities in housing: multiple-property owners possess nearly one-third of all residential properties and the top 10\% wealthiest owners account for around one-quarter of residential housing value. Despite these inequalities, new data show an increase in the number of first-time home buyers from 2018 to 2019.
+% Both income and housing wealth are concentrated at the top, even among owners. When ordering individual owners by their yearly incomes, the top 10% of owners in Ontario and British Columbia each had yearly incomes above $125,000.
+ 
+
+\subsection{Borrowing ratio} \label{SS:BorrowingRatio}
+
+
+The borrowing ratio, $m_i$, is just the fraction of the price that the bank will lend to a potential buyer. \textbf{It may depend on the individual.} 
+
+Income(\ref{SS:YWealthConstraint}) and/or wealth (\ref {SS:MWealthConstraint}) may constrain individual participation in markets. 
+Here we should use the same logic as we use about the interest rate charged. (\ref{SS:BorowingRate})
+
+It is likely to be higher for institutional buyers  and for the wealthy because the bank thinks those with assets are more secure risks. they may have other assets that could be attached in the case of default.
+(note interventions with reduces interest rates, or loan assessments drawing on techniques used by foundations could have value)
+
+
+\subsection{Target interest rate}\label{SS:targetr}
+
+ The target interest rate, $r^{target}$, is the prime rate plus a margin. % required by the bank.  Question: do non-bank actors have such a term?
+
+\begin{verbatim}
+self.get-target-interest-rate(buyer)
+\end{verbatim}
+
+
+
+\subsection{Discount factor}\label{SS:discountfactor}
+
+The discount factor $\delta_i$ for THE END OF period $T$ captures the cost of waiting $T$ periods to sell the property. The usual way to treat it, which we use here, is to assume that $i$ has an interest rate $r_i$ and has been investing efficiently. This means that  the individual has a discount factor for future returns based on the year-over-year rate of return. 
+
+\[\delta^T_i=\left[\frac{1}{1+r_i}\right]^T\]
+
+
+
+
+If we want the compounded interest rate person $i$ the term T,
+\[r_i^T=(1+r_i)^T\]
+% This is the value we use in equation~\ref{EqBidPrice}.
+
+If person $i$  discounts at a discount rate $r^\delta$, the present value of a receipt at time $t$ is calculated by using the \textbf{discount factor} $\delta_i^T$.
+
+\[\delta_i^T= \left( \frac{1}{1+r_\delta} \right)^T \]
+%\[\delta_i^T= \sum_{\tau=0}^{\tau=T}\left( \frac{1}{1+r_\delta} \right)^\tau \]
+ 
+These can be combined into a function %\delta that  gives a single discounting factor  for a value  like future price that is both growing and being discounted over several (T) periods:
+\[ PDV(P_M^{Te})=P_0\left( \frac{1+\dot P}{1+r_\delta} \right)^T \]
+This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation.
+
+% \subsection{Mortgage availability}
+% For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
+
+% We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
+
+% We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
+
+\subsection{SORT Cobb-Douglas constant fraction of income on housing}
+It is convenient in this model to use a \gls{Cobb-Douglas} utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
+
+\section{SORT: Miscellaneous calculations about rates over time}
+$delta(0)=1$  for funds received now
+
+Lets calculate $S$, $\delta$ at time infinity:
+*** Why?
+
+\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
+
+\begin{align}
+delta (1)   &= 1/(1+r) \\
+delta (t)   &= (1/(1+r))^t \\
+delta (\infty)   &= \sum_0^\infty\left(1/(1+r)\right)^t\\ 
+Let\ a=1/(1+r)&<1\\
+delta (\infty)   &= \sum_0^\infty a^t\\ 
+S               &= \sum_0^\infty a^t\\ 
+               &= 1+a+a^2+a^3+a^4 \dots\\ 
+S-aS             &= 1\\ 
+S             &= 1/(1-a)\\ 
+S             &= \frac{1}{1-\frac{1}{1+r}}\\ % subing r back in for a 
+             &= \frac{1}{1-\frac{1}{1+r}}\\ 
+             &= \frac{1}{\frac{1+r-1}{1+r}}\\ 
+              &= \frac{1}{\frac{r}{1+r}}\\ 
+             &= \frac{1+r}{r}
+\end{align}
+This is the case where you get paid at the beginning of the first period. Rent might be paid in advance for each month. .
+
+For  the case where you get pay at the end of the first period. Interest on a loan  might be paid this way.  summing from t=1 this time, we get $S-aS =a$, and $S = a/(1-a)= \frac{1}{r}$. 
+
+ 
+
+%\[\delta(t)= \delta(1)^t =\left(\frac{1}{1+r}\right)^t\]
+
+Finally, we need an expression for the sum of a finite  series to T.  Doing the derivation to check my logic, notice that  omega, psi, c  and a are constants that can be factored out in the following,(\textbf{THIS IS THE WRONG PROPERTY VALUE}
+%\[\left(c*\omega + c*a*\psi \right) ->c\left(\omega-trans\ d + a\psi \right)\]
+\begin{align}%
+    tax&= \sum_{t=0}^{T-1} \delta(t) \left(c*\omega + c*a*\psi \right)\\
+        &= c(\omega + a\psi)\sum_{t=0}^T  \delta_t\\
+        &= c(\omega + a\psi)(\delta_1+\delta_2 \dots \delta_T)\\
+        &= c(\omega + a\psi) \left(\sum_0^\infty \delta_t-\sum_{T}^\infty \delta_t\right)\\
+        &= c(\omega + a\psi) \left(\frac{1+r}{r}  - \left(\frac{1}{1+r}\right)^{T+1} \left(\frac{1+r}{r} \right) \right)\\
+        &= c(\omega + a\psi) \frac{1+r}{r}\left(1  - \left(\frac{1}{1+r}\right)^{T+1} \right)
+%      &=& c(\omega + a\psi)\delta_T\\
+\end{align}
+
+
+
