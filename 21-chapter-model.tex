@@ -87,13 +87,16 @@ There is an agglomeration effect that augments the productivity of workers: firm
  %, which are both exported and locally consumed 
 % to sell into a large market, at a fixed price. 
 
- We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else.
+We assume workers receive a \gls{subsistence wage}, $\psi$, in the countryside, which could come from work in the local community, living off the land, family support, social support, or something else.\footnote{Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way.}
+ The model is set up so that all of an urban  tenant's  income is spent on  basic living costs, $\omega$, transportation $td$ or rent. Disposable income for owner occupier $i$ is therefore just the return  $\omega -dc$ which may accumulate as a financial asset.
 To attract workers to live in the city and commute to the central business district, firms pay the  \gls{urban wage premium}, $\omega$, in addition to  the subsistence wage $\psi$. 
 %\footnote{See parameter Appendix section \ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
 % When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-Urban workers give up the subsistence income and receive the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi +  \omega$. 
+%Urban workers give up the subsistence income and receive the \gls{urban wage}, which is the subsistence wage plus the urban wage premium $\psi +  \omega$. 
 % When we assume an subsistence wage with a specific share  applied to housing we are implicitly assuming that landlords are seeking to claim the value of the rents. It makes it possible to explore whether and how tenants and even owners may be squeezed towards a \gls{subsistence frontier}. %whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
-Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way. 
+
+
+
 
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
@@ -289,14 +292,14 @@ In the model, agents learn or set these values with the support of a real estate
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 
-\subsubsection{Economic Rent}\label{sssec-economic-rent}
+\subsubsection{Economic rent}\label{sssec-economic-rent}
 The economic rent is the value of the locational services, 
 This is a surplus that arise from agglomeration economies that make being close to the city core valuable. \Gls{locational services} are represented as %, on an annual basis, 
 the wage premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location:
 \[\omega- {dc}.\]
 
 
-\subsubsection{Warranted Rent}\label{sssec-waranted-rent}
+\subsubsection{Warranted rent}\label{sssec-waranted-rent}
 
 %Just as there is a warranted price, there  is 
 The economically \gls{warranted rent}, $\mathcal{R}_W$, is the value of all  the services a property offers. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent} 
@@ -314,12 +317,12 @@ In each period a house offers two kinds of services: {locational services} or  a
  We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. 
 
  
-\subsubsection{Market Rent}\label{Market-Rent}
+\subsubsection{Market rent}\label{Market-Rent}
 The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.  %\gls{warranted rent} is paid as the \gls{market rent}
 \[\mathcal{R}_M = \mathcal{R}_W.\] 
 
 
-\subsubsection{Net Rent}\label{Net-Rent}
+\subsubsection{Net rent}\label{Net-Rent}
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would receive, not the total warranted rent, but the net rent after expenses,
 
 \begin{align}
@@ -349,8 +352,14 @@ One cost owners pay on a property is taxes. Municipal property taxes are based o
 \end{align*}
 where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the Market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate $c$ using the the \gls{compound interest rate} for the period. The entirely conventional  computation is described below.} The taxes paid over the period are then:
 
+\subsubsection{Annual maintenance}
+Annual maintenance costs apply to buildings and lands but not to locational value,
+so we can write
+ \begin{align}
+\mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
+\end{align}
 
-\subsubsection{Warranted Price}\label{sssec-warranted-price}
+\subsubsection{Warranted price}\label{sssec-warranted-price}
 
 We will call the economically justified price, given the urban productivity premium, the \gls{warranted price}, 
 The \gls{warranted price} of a house is the present discounted value of the flow of service net of costs: $P_W$. This is the present discounted value of the warranted rents.
@@ -368,10 +377,12 @@ We will assume that the market price can be approximated by the present discount
 \end{align*}
 
 
-\subsubsection{Market Price and Expected Price}\label{sssec-market-price}
+The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.
 
-The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an  \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.\footnote{Since  agents do not have perfect information, the expected value  is calculated with their best approximation of values. 
- \footnote{Case and Shiller ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators.''Case and Schiller, \cite{caseThereBubbleHousing2003}} Details of the derivations, and implementation, are discussed in the Appendix. % We calculate the bid price in Appendix \ref{appendix-bid-price}.}
+\subsubsection{Market price and expected price}\label{sssec-market-price}
+
+The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an  \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since  agents do not have perfect information, the expected value  is calculated with their best approximation of values.} 
+ \footnote{Case and Shiller ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators.''Case and Schiller, \cite{caseThereBubbleHousing2003}} 
 
 %$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
 
@@ -380,12 +391,6 @@ The actual market price will be determined by a bidding process that takes into 
 %In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
 
 
-\subsubsection{Annual maintenance}
-Annual maintenance costs apply to buildings and lands but not to locational value,
-so we can write
- \begin{align}
-\mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
-\end{align}
 Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent  by using the warranted rent as an approximation. We do this to focus on the economic rent, and to show as clearly and as simply as possible the economic linkages between productivity and urban rents. 
 The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value which is part of  the core conceptual contribution of this work. 
  
@@ -516,6 +521,24 @@ The rate of return on the investment must exceed some required rate of return. T
  The agent purchases makes a down payment, $D$ on a house for a price, $P_M$, and agrees to payoff a mortgage, $M$ with interest at the end of the mortgage period. For expositional convenience, we can treat the mortgage period $T$ as a single term and express all quantities  in present-value terms. The purchaser 
  receives the increased price $P_T = (1 + \dot P)P_0$,  after a period $T$, Where $\dot P$ is the expected rate of price increase. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
 
+ 
+\subsection{The cost of capital}
+The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
+ \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
+Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+\begin{figure}[!hb]
+\begin{center}
+\input{fig/price_of_capital.tex}% Figure of cost of borrowing
+\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
+\label{Fig:CapitalCost}
+\end{center}
+\end{figure}
+If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
+ 
+The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy. 
+
+%
+
  \subsection{The value of an investment}
 The value of the investment $V$ is therefore the capital gain, minus financing costs, plus the rents, net of operating costs and taxes, $\mathcal{R}_N$.
  
@@ -593,16 +616,42 @@ The maximum price in Equation~\ref{eqn-property-investment-return1} that the inv
 \begin{eqnarray}
 P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{equation-Bidprice}\end{eqnarray}
 % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
-We call this  $i's$ maximum bid and compute it for all potential buyers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.
+We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.
 
-Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process 
+Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
-\subsection{The Bargaining Model}
-The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise the transaction does not proceed.
 
-We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus is allocated. If the initial asking price is above $P_B^{max}$, the potential buyer  makes an offer below $P_B^{max}$ and the bargaining rule selects a value between the offer and the ask that is less than $P_B^{max} 
 
-If the initial asking price is below $P_B^{max}$, the potential buyer  makes an offer below $P^{ask}$ and the bargaining rule selects a value between the offer and the ask that is above $P_R$. 
+\subsubsection{Reservation price}\label{sssec-reservation-price}
+
+We will assume,  that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} \footnote{Worker-owners remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.} 
+\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
+\footnote{As a further  extension, worker-owners in the final few years of their working life might decide to  list if  they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
+
+% \[P^{ask}>P_M^e> 0.95 P^r\]
+% Otherwise
+% \[P^{ask}> 1.10P^r>P_M^e\]
+% If no offer exceeds the reservation price, no sale is made.
+
+Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
+
+If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
+
+
+\subsection{The bargaining model}\label{sssec-bargaining}
+The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+
+We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus is allocated. If the initial asking price is above $P_B^{max}$, the potential buyer  makes an offer below $P_B^{max}$ and the bargaining rule selects a value between the offer and the ask that is less than $P_B^{max}$, say min($0.5(P^{offer}+P^{ask}), P_B^{max})$.
+
+If the initial asking price is below $P_B^{max}$, the potential buyer  makes an offer below $P^{ask}$ and the bargaining rule selects a value between the offer and the ask that is above $P_R$, say max($0.5(P^{offer}+P^{ask}), P_R)$. 
+
+
+If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.  That is the highest price that a seller can get.
+
+The details of the bargaining rule will  have little or no effect on the  behaviour of the system. 
+
+
+
 
 % unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
 
@@ -743,27 +792,27 @@ If the initial asking price is below $P_B^{max}$, the potential buyer  makes an 
 %   &=&\delta\left( (1+L(p)) - (1+r)m \right) P_B + \mathcal{R}_N  \nonumber
 % \end{eqnarray}
 
-\subsection{Maximum bid} % given the rate of return
+% \subsection{Maximum bid} % given the rate of return
 
-Agents bid if the RHS is larger than the target rate of return, as stated in Equation \ref{eqn-property-investment-return2}.  $P_0$ with $P_B$, and $\dot P$ with an estimator for $\dot P$, we get: %TO DO REPLACE PDOT - MAYBE WITH TILDE AND DOT..: 
+% Agents bid if the RHS is larger than the target rate of return, as stated in Equation \ref{eqn-property-investment-return2}.  $P_0$ with $P_B$, and $\dot P$ with an estimator for $\dot P$, we get: %TO DO REPLACE PDOT - MAYBE WITH TILDE AND DOT..: 
 
-\begin{eqnarray}
-r_{target} \le \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B}
-\end{eqnarray}
+% \begin{eqnarray}
+% r_{target} \le \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B}
+% \end{eqnarray}
 
-Solving for $P_{bid}$:
+% Solving for $P_{bid}$:
 
-\begin{align}
-r^{target} &\le \frac{\delta \left(1 + \dot P_M^e - (1+r)m\right)}{1-m}   +\frac{\mathcal{R}_N}{(1-m)P_B}. \nonumber \\
-(1-m)r^{target} &\le \ \ \delta \left(1 + \dot P_M^e - (1+r)m\right) + \frac{\mathcal{R}_N}{P_B} \nonumber \\ %\delta(1+L(P))- (1+r)m%
-(1-m)r^{target} - \delta \left(1 + \dot P_M^e - (1+r)m\right)  &\le  \frac{\mathcal{R}_N}{P_B} \nonumber\\
-P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
-% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
-\label{eqn-bid-price1}
-\end{align}
-The denominator is an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in Equation~\ref{eqn-price-warranted}. 
+% \begin{align}
+% r^{target} &\le \frac{\delta \left(1 + \dot P_M^e - (1+r)m\right)}{1-m}   +\frac{\mathcal{R}_N}{(1-m)P_B}. \nonumber \\
+% (1-m)r^{target} &\le \ \ \delta \left(1 + \dot P_M^e - (1+r)m\right) + \frac{\mathcal{R}_N}{P_B} \nonumber \\ %\delta(1+L(P))- (1+r)m%
+% (1-m)r^{target} - \delta \left(1 + \dot P_M^e - (1+r)m\right)  &\le  \frac{\mathcal{R}_N}{P_B} \nonumber\\
+% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+% % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]} \nonumber 
+% \label{eqn-bid-price1}
+% % \end{align}
 
-Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
+
+%Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
 
 % \begin{align}
 % P_i^{bid} \le   \frac{\mathcal{R}_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}.
@@ -798,30 +847,12 @@ Each agent has their own interest rates, discount rates, mortgage share, informa
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
 
-\subsection{The cost of capital}
-The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$ , and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
- \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
-Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-\begin{figure}[htb]
-\begin{center}
-\input{fig/price_of_capital.tex}% Figure of cost of borrowing
-\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
-\label{Fig:CapitalCost}
-\end{center}
-\end{figure}
-If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{Eqn:DecisionRule} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
- 
-The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy. 
-
-%The model has been set up so that all of a workers's  income is spent on  basic living costs, $\omega$, transportation $td$ or rent. Disposable income for agent $i$ is therefore just the return  $\omega W_i$ on  financial assets.  
-
-
 \section{The period and time value of money}
 In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
 %This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
 
 %In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates.
-Taking a simplified example, if the rate is $x$/year, interest payments are $xM$, a share of the total mortgage amount borrowed, $M$, for each of $T$ years. 
+Taking a simplified example, if the rate is $x$/year  and  the total mortgage amount borrowed, $M$, interest payments are $xM$  for each of $T$ years. 
 If the interest payments are all made at the end of the mortgage term, the lender will require interest on the deferred interest, so agent $i$'s payment at the end of the period $T$ will be:
 
 \begin{align*}
@@ -837,125 +868,97 @@ r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}.
 For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. This means that, while banks may quote a per period interest rates, the equations use a compounded rate. In the computational model we employ the appropriately compounded values. All %the rates are compounded in this way to provide a per-period rates, including all 
  the interest rates, the $r$'s, are compounded in this way, because they require annual or monthly payments at their stated rates.
  It does not affect the discount rates, the $\delta$'s, or the borrowing ratio $m_i$, because they are initially calculated for the term and don't require the same period payments.
- The discount factor $\delta_i$ is always a compounded version of $x$:
- \[\delta_i=\left(\frac{1}{1+x}\right)^T\].
+ The discount factor $\delta_T$ is always a compounded version of $x$:
+ \[\delta_T=\left(\frac{1}{1+\delta}\right)^T\].
 %is a feature of the individual, so it is not affected in this way.
 %The appropriate compunding expressions for other rates are displayed below.
 
  The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
 
-\section{The owner's decision to sell}
-We will assume, at least initially, that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results. On the other hand, 
-\color{red}
-if worker-owners remain in their homes after retirement, there are fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies. 
-\color{black}} 
-\footnote{\color{blue}As a second step, we may allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.\color{black}}  
+% \section{REDUNDANT Financialized capital}
+% %Individuals and institutions play a role in the housing market through credit markets and direct investment.Agent's access credit shapes worker's ability to purchase homes. Credit is offered by institutions.
+% % Agents may be able to foresee future growth. %They may even over invest if they follow market trends and bubbles form. 
+% % They can claim a share of the urban wealth as it grows over time by owning the land. 
 
-Worker-owners in the final few years of their working life may decide to  list if  they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.
+% %If the return on housing investments is competitive with alternative investments, capital from institutions and individuals will flow into housing. Institutional investors can purchase housing.  Individual households can also allocate a larger share to housing to capture the returns.
+% % If the return on investment in housing is competitive with alternative investments, can purchase housing for it's financial return. They can rent housing and sell the asset with appreciation later. We examine the conditions in which this increased demand can drive up prices in the market. 
+% % Capturing future growth of the city, depending on their foresight - how much does it take to block individuals from gains-- Regime.
+% % both institutional investors and individual agents can purchase additional housing for it it's return on investment even though they don't need it as a place to live. 
+% % Use value vs rent value. 
+% %Institutional investors can purchase housing as an investment. Individuals with more wealth may invest 
+% Households may, for example purchase a larger house than they need, purchasing additional units to rent out, or keep a house after retiring rather than downsizing.  % and individuals with sufficient means can purchase larger homes than they need to benefit from appreciation, or purchase additional units to rent to others. 
+% % Investors can also purchase housing to claim a share of the future productivity of the city. Individuals and groups can put extra money into housing. Institutional housing providers can buy up the housing supply.
+% % HYPOTHESIS FEEDBACK LOOP -- FINANCIALIZED INVESTMENT --
+% %The rise in spending on housing as a proportion of income can be driven by both rising prices (cutting into quality of life) and increasing investment to claim a share of the returns.  -- disaggregate and show the geometry -
+% % Test how linear is this relationship? 
 
-\[P^{ask}>P_M^e> 0.95 P^r\]
-Otherwise
-\[P^{ask}> 0.10P^r>P_M^e\]
-If no offer exceeds the reservation price, no sale is made.
+% % \subsubsection{Size of mortgage available, $m_i$}
+% % \[m_i= \frac{0.25Y_i}{r_i}\]
+% % where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
 
-Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
+% % \subsubsection{Cost of capital $r_i$}
+% % The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
+% %  \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
+% % where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
 
-If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. .
+% % % \begin{figure}[htb]
+% % % \begin{center}
+% % % \input{fig/model-price-of-capital.tex}
+% % % \caption{Hypothetical wealth-dependent borrowing cost}
+% % % \label{Fig:BorrowingCost2}
+% % % \end{center}
+% % % \end{figure}%
 
-\section{REDUNDANT Financialized capital}
-%Individuals and institutions play a role in the housing market through credit markets and direct investment.Agent's access credit shapes worker's ability to purchase homes. Credit is offered by institutions.
-% Agents may be able to foresee future growth. %They may even over invest if they follow market trends and bubbles form. 
-% They can claim a share of the urban wealth as it grows over time by owning the land. 
+% % This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
 
-%If the return on housing investments is competitive with alternative investments, capital from institutions and individuals will flow into housing. Institutional investors can purchase housing.  Individual households can also allocate a larger share to housing to capture the returns.
-% If the return on investment in housing is competitive with alternative investments, can purchase housing for it's financial return. They can rent housing and sell the asset with appreciation later. We examine the conditions in which this increased demand can drive up prices in the market. 
-% Capturing future growth of the city, depending on their foresight - how much does it take to block individuals from gains-- Regime.
-% both institutional investors and individual agents can purchase additional housing for it it's return on investment even though they don't need it as a place to live. 
-% Use value vs rent value. 
-%Institutional investors can purchase housing as an investment. Individuals with more wealth may invest 
-Households may, for example purchase a larger house than they need, purchasing additional units to rent out, or keep a house after retiring rather than downsizing.  % and individuals with sufficient means can purchase larger homes than they need to benefit from appreciation, or purchase additional units to rent to others. 
-% Investors can also purchase housing to claim a share of the future productivity of the city. Individuals and groups can put extra money into housing. Institutional housing providers can buy up the housing supply.
-% HYPOTHESIS FEEDBACK LOOP -- FINANCIALIZED INVESTMENT --
-%The rise in spending on housing as a proportion of income can be driven by both rising prices (cutting into quality of life) and increasing investment to claim a share of the returns.  -- disaggregate and show the geometry -
-% Test how linear is this relationship? 
-
-% \subsubsection{Size of mortgage available, $m_i$}
-% \[m_i= \frac{0.25Y_i}{r_i}\]
-% where $r_i$ is $i$'s cost of capital, $Y_i$ is $i$'s income.
-
-% \subsubsection{Cost of capital $r_i$}
-% The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
-%  \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-% where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
-
-% % \begin{figure}[htb]
-% % \begin{center}
-% % \input{fig/model-price-of-capital.tex}
-% % \caption{Hypothetical wealth-dependent borrowing cost}
-% % \label{Fig:BorrowingCost2}
-% % \end{center}
-% % \end{figure}%
-
-% This has a number of immediate implications. First, if agents discount at their borrowing rate, wealthier agents a lower discount rate and therefore value properties more highly. 
-
-% Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
+% % Second, given the  common rule that mortgage payments cannot exceed some fraction of disposable income, the wealthy will be able borrow larger amounts and at lower interest rates that the less wealthy. At any distance from the centre they will be able to make a higher bid.
  
-% If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
+% % If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they become available.
 
-\subsubsection{The rate of return on a property purchase $v$}
-To explore the implication of the financialization of the urban land market we need a function to calculate the return on a unit of land that reflects the actual gradient of opportunity in financial markets. We begin with the price appreciation, $\Delta P=P_T-P_0 = (1+\dot p)P_0-P_0 $, where $\dot p$ is the rate of price appreciation over the period $T$. Rates will all be specified for the period $T$. Transaction costs, including real estate fees, take a fraction from the value of the final sale.
+% \subsubsection{The rate of return on a property purchase $v$}
+% To explore the implication of the financialization of the urban land market we need a function to calculate the return on a unit of land that reflects the actual gradient of opportunity in financial markets. We begin with the price appreciation, $\Delta P=P_T-P_0 = (1+\dot p)P_0-P_0 $, where $\dot p$ is the rate of price appreciation over the period $T$. Rates will all be specified for the period $T$. Transaction costs, including real estate fees, take a fraction from the value of the final sale.
 
- The speculator invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs and minus the mortgage with interest.
-%footnote{We can include a use value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax},
-%$T$ at rate $t$ to affect the speculator's  decision.
+%  The speculator invests a down payment, $D$, and gets back at time $T$ the  increased price $(1+\dot p)P_0$, plus rents, minus any costs and minus the mortgage with interest.
+% %footnote{We can include a use value, $U$ in place of rent for expatriate owners to represent using the property - say one month a year - when they are not renting the property and a \textbf{vacancy tax},
+% %$T$ at rate $t$ to affect the speculator's  decision.
  
-The rate of return is the value of the gain, $V$,  over the size of the downpayment, $D$, where
-\begin{equation}https://quoteinvestigator.com/2015/08/30/practice/
-V =capital\ gain - Interest\ due  	+ Rent  - operating\ cost\    
-\end{equation}
+% The rate of return is the value of the gain, $V$,  over the size of the downpayment, $D$, where
+% \begin{equation}https://quoteinvestigator.com/2015/08/30/practice/
+% V =capital\ gain - Interest\ due  	+ Rent  - operating\ cost\    
+% \end{equation}
 
-The rate of return is $v = \frac{V}{D}$. 
+% The rate of return is $v = \frac{V}{D}$. 
 
-Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ may be functions of the agent's wealth. $\delta$ represents the net capital gains tax. It makes it possible to capture the capital gains kept. If it is set to one, it simplifies the equations, all is kept. Keeping the variable offers a policy variable to control the return on financial capital.
+% Both the  share of the price  that can be mortgaged, $m$, and the interest rate  and $r$ may be functions of the agent's wealth. $\delta$ represents the net capital gains tax. It makes it possible to capture the capital gains kept. If it is set to one, it simplifies the equations, all is kept. Keeping the variable offers a policy variable to control the return on financial capital.
 
-\begin{eqnarray*}
-V  %	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost\\
-% 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
-% 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
-%	&=& \delta (1+\dot p)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
-%	&=& \delta (1+\dot p)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
-%	&=&( \delta (1+\dot p)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
-%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
-%	&=& \left(  \delta (1+\dot p)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
-&=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\\
-&=& \delta((1+\dot p)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\\
-&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
-\end{eqnarray*}
+% \begin{eqnarray*}
+% V  %	&=& capital\ gain - Interest\ due  	+ Rent  - operating\ cost\\
+% % 	&=& \delta P_T-D \qquad \qquad \quad - (1+\delta r)M \quad	 + R  	-C\\
+% % 	&=& \delta P _T \qquad-(P_0-M) \quad- (1+\delta r)M 	 + R  	-C\\
+% %	&=& \delta (1+\dot p)  P_0 -(P_O -M)  -(1+\delta r)mP_0  + R  -C\\
+% %	&=& \delta (1+\dot p)  P_0 -P_O + M \qquad -(1+\delta r)mP_0  + R -C\\
+% %	&=&( \delta (1+\dot p)-1)  P_0  + mP_0 \quad -(1+ \delta r)mP_0  + (\rho-\kappa)P_0\\	
+% %	&=& \left(  \delta (1+\dot p)-1    + m \quad - m(1+\delta r)  + (\rho-\kappa)\right)P_0\\'
+% %	&=& \left(  \delta (1+\dot p)-1    + m \quad - m-\delta rm  + (\rho-\kappa)\right)P_0\\
+% &=& \delta(P_T- (1+r)M) \qquad \qquad 	 + R  	-C   - T\\
+% &=& \delta((1+\dot p)  P_0- (1+r)mP_0)   + \rho P_0  	-\kappa P_0 - tP_0\\
+% &=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa -t) P_0
+% \end{eqnarray*}
 
-This is the  net present value of buying, and selling after one period. \textbf{It has  6 exogenous parameters}. Operating revenue and costs $ \rho -\kappa - t$ a present value. 
+% This is the  net present value of buying, and selling after one period. \textbf{It has  6 exogenous parameters}. Operating revenue and costs $ \rho -\kappa - t$ a present value. 
 
-The rate of return is $v = \frac{V}{D}$. For expat investors, we get a \textbf{decision rule}:\begin{enumerate}
-\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
-\item If $v(no\ rent\ and\ tax) < a\leq v(with\ rent)$,  then  rent. 
-\item If $ v(with\ rent) \le a $,  then sell 
-\end{enumerate}
+% The rate of return is $v = \frac{V}{D}$. For expat investors, we get a \textbf{decision rule}:\begin{enumerate}
+% \item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
+% \item If $v(no\ rent\ and\ tax) < a\leq v(with\ rent)$,  then  rent. 
+% \item If $ v(with\ rent) \le a $,  then sell 
+% \end{enumerate}
 
-We can, with some simplifications, write
-\begin{eqnarray}
-\frac{V}{D}&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
-		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
-		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
-\end{eqnarray}
-
-\subsubsection{Returns on capital are higher for wealthy investors}
-\begin{figure}[htb]
-\begin{center}
-\input{fig/model_price_of_capital.tex}
-\caption{Hypothetical wealth-dependent borrowing cost}
-\label{Fig:BorrowingCost}
-\end{center}
-\end{figure}%
-
+% We can, with some simplifications, write
+% \begin{eqnarray}
+% \frac{V}{D}&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
+% 		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
+% 		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
+% \end{eqnarray}
 
 
 \section{IMPLEMENTATION: Relating the market model to the code}
@@ -1067,8 +1070,8 @@ These values are not public. We need to identify initial ask and offer prices, w
 
 If the posted expected price exceeds their \gls{reservation price} they 
 \begin{enumerate}
-    \item list  the property for sale.with the real estate age,nt.
-    \item select and asking price   
+    \item list  the property for sale with the real estate age,nt.
+    \item select an asking price   
 \end{enumerate}
 
 The bank posts a \gls{maximum bid function} with the real estate agent.
@@ -1077,8 +1080,8 @@ In practice, potential investors will make an  initial  bid that is lower than t
 
 In the market, the initial bid should be smaller than the bid price calculated, which is a maximum that can earn the target rate of return, The bank will definitely go this high. 
 
-If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
-That is the highest price that a seller can get.
+% If there is a  max bid among competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a very small amount higher than that of the last competitor left.
+% That is the highest price that a seller can get.
 
  %This  seems realistic enough and is very simple to implement. It should producer a path that is indistinguishable form any more complex approach. 
 
