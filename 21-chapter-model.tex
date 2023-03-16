@@ -522,6 +522,16 @@ The rate of return on the investment must exceed some required rate of return. T
  receives the increased price $P_T = (1 + \dot P)P_0$,  after a period $T$, Where $\dot P$ is the expected rate of price increase. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
 
  
+\subsubsection{Mortgage availability}\label{sssec-mortgage-availability}
+For home loans, many personal finance experts recommend total housing costs account for less than 28\% of \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
+
+We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
+
+We also have  a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. Combining tyhese conditions, %($P_0$  will not always be the same as the asking price or the warranted price.)
+
+\[M^{max}_Yi = min\left\{\frac{0.28*(\omega+w)}{r_i},  0.8P_0 \right\} \]
+
+
 \subsection{The cost of capital}
 The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
@@ -1284,7 +1294,7 @@ According to the Canada Housing Statistics Program (CHSP), first time home buyer
  
 
 \subsection{Borrowing ratio} \label{SS:BorrowingRatio}
-$m_i$
+
 
 The borrowing ratio, $m_i$, is just the fraction of the price that the bank will lend to a potential buyer. \textbf{It may depend on the individual.} 
 
@@ -1502,12 +1512,12 @@ These can be combined into a function %\delta that  gives a single discounting f
 \[ PDV(P_M^{Te})=P_0\left( \frac{1+\dot P}{1+r_\delta} \right)^T \]
 This PDV function specifically combines any expected rent increase, the individual's discount rate and the mortgage term into a single operation.
 
-\subsection{Mortgage availability}
-For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
+% \subsection{Mortgage availability}
+% For home loans, many personal finance experts recommend total housing costs account for less than 28\% of your \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
 
-We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
+% We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
 
-We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
+% We get a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. ($P_0$  will not always be the same as the asking price or the warranted price.)
 
 \subsection{SORT Cobb-Douglas constant fraction of income on housing}
 It is convenient in this model to use a \gls{Cobb-Douglas} utility function that has the property that a fixed fraction of income is spent on housing.  We can start with the assumption that earnings are fixed for the lifetime at the one-period wage, $w$. Then total spending on housing is $\beta Y, \beta <1$ and $ Y=w$. Let the transportation cost for a specific location $l$ be $T(l)$. The  equilibrium price at that location will be $P(l)= \beta Y-T(l)$.
