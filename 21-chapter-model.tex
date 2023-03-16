@@ -370,7 +370,8 @@ We will assume that the market price can be approximated by the present discount
 
 \subsubsection{Market Price and Expected Price}\label{sssec-market-price}
 
-The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an  \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.
+The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an  \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.\footnote{Since  agents do not have perfect information, the expected value  is calculated with their best approximation of values. 
+ \footnote{Case and Shiller ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators.''Case and Schiller, \cite{caseThereBubbleHousing2003}} Details of the derivations, and implementation, are discussed in the Appendix. % We calculate the bid price in Appendix \ref{appendix-bid-price}.}
 
 %$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
 
@@ -594,14 +595,17 @@ P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_
 % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
 We call this  $i's$ maximum bid and compute it for all potential buyers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.
 
-Buyers will not initially bid the maximum and sellers will generally set an asking price higher than their reservation price, so we build a simple bargaining process 
+Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process 
 
-\Subsection{The Bargaining Model}
-The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$ a deal that is between the two values is possible. Otherwise the transaction does not proceed.
-We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus is allocated.  If the initial asking price is above $P_B^{max}% unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
+\subsection{The Bargaining Model}
+The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise the transaction does not proceed.
 
-Since  agents do not have perfect information, the calculation is done with their best approximation of values. % The agent does not know the future. 
- The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.\footnote{Case and Shiller ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators.''Case and Schiller, \cite{caseThereBubbleHousing2003}} Details of the derivations, and implementation, are discussed in the Appendix. % We calculate the bid price in Appendix \ref{appendix-bid-price}.
+We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus is allocated. If the initial asking price is above $P_B^{max}$, the potential buyer  makes an offer below $P_B^{max}$ and the bargaining rule selects a value between the offer and the ask that is less than $P_B^{max} 
+
+If the initial asking price is below $P_B^{max}$, the potential buyer  makes an offer below $P^{ask}$ and the bargaining rule selects a value between the offer and the ask that is above $P_R$. 
+
+% unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
+
 
 %Thus, the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes, Case and Schiller, \cite{caseThereBubbleHousing2003} p282
 
