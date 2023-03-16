@@ -99,3 +99,48 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles
 
 
 
+\section{Table of Parameter Values}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{rlrr}\
+Symbol         & Name                                 & Value      & Formula  \\ \hline
+$a$ replace    & Share of $\psi$ for land and building &   0.3         & \\
+$b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
+$tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
+$c$       & Transportation cost & \\
+$T$       & Period & 5 years      \\
+$r$       & Individual interest rate & 0.05 \\
+$\omega$  & Locational rent & 0.012  \\
+$\psi$    & Subsistence wage & 10000 \\
+$a$       & Share of subsistence wage for land and building & 1.0 \\
+$\tau$       & Tax share & \\
+
+--        &  & \\
+$m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
+$M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
+ $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
+$IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
+$\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
+$\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
+$\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
+$\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+% $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
+$r_i^\delta$   & Individual discount rate             &            & To assign \\
+$\bar r$       & Prime interest rate                  &            & \\
+$r_i$          & Individual borrowing-rate            &            & \\
+$r^{target}$   & Target interest rate                 &            & $\bar r + margin$ \\
+$\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r_i^\delta}\right)^T$ \\
+
+
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+
+
+
+
+discount rate vs discount factor
+
+% delta(0)=1  delta (1)= 1/(1+r) 
+\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
+    $delta_T=  (1/(1+r))^T$   at T years
+    eg r=.05  T=5  delta5 =  $(1/(1+.05))^5 = 0.7835262$
