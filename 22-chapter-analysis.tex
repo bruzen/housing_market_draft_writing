@@ -294,3 +294,154 @@ The model is we employ consistent with the theories of Ricardo and Henry George 
 In the classical language, someone is exploited if someone else gets a share of the value of their labour. %(REPLACE WITH MORE PRECISE DESCRIPTION). 
  Employers capture a share of the value of workers' labour, so they exploit workers under this definition.
 Those who own land early in a growing city are also capture a share of everybody's production. Since they capture a share of the productivity of others working in the city, through the rents, they are also exploiters, they form a kind of hybrid class. %Rents could be captured directly through renting out the property after they retire away from the city,  or by selling the property at a higher value than they bought it. 
+
+
+
+\section{Differential transportation costs}
+ Urbanists agree that before the railroad and the automobile, the extent of a city was roughly determined by how far a person could walk in about an hour. The time and effort cost of transportation determined the size of cities. 
+ 
+ It also affected the distribution of the classes within the city. When everyone walked, the  wealthy may have valued their time more than the poor. In terms of the model, the willingness to pay for the rich would begin higher than it would for the poor, but would descend more rapidly with distance
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+
+    \draw[thick](0,0)--(0,5.5)node[above]{time  value of proximity}; %Y
+\draw[thick](0,0)--(7,0)node[above right]{$d$}; %X
+
+\draw[ultra thick, orange!75](0,5)--(2,0);
+\draw[ultra thick, blue](0,2.5)--(6,0);
+% \node[draw=white, fill=white] (b) at (1,2.9) {Rich};
+% \node[draw=white, fill=white] (b) at (3,1.25) {Poor};
+\draw[dashed](1.2,2.5)--(1.2,-1) ;
+\node[text width =1cm, below left] at (1,0){Rich core};
+\node[below, text width =2cm] at (4,0){Poor surrounding slum};
+\node[below, text width =1cm] at (7.5,0){Rural area};
+% \draw[ blue, dashed](0,5)--(15,2.5);
+% \node[circle,draw=black, fill=white, inner sep=3pt,minimum size=10pt] (b) at (7,3.75) {3};
+
+% \draw[ blue, dotted](0,6.75)--(15,4.25);
+% \node[circle,draw=black, dotted,fill=white, inner sep=3pt,minimum size=10pt] (b) at (7,5.5) {4};
+
+ \end{tikzpicture}\end{center}
+
+ If the technology suddenly provides the rich with commuter trains or automobiles and more attractive sites at the edge of the city, the orange line could drop enough  and become much flatter leading in a flight of the rich to the suburbs, as appears to have happened in many American cities. Lower transportation costs make cheaper land on the 
+
+\subsection {Changing transportation costs}
+
+Another application of the model is to the effect of a transportation revolution. The advent of first rail transportation and then the automobile radically changed the size, productivity, and population distribution of cities.
+periphery available, allowing larger lot sizes and larger homes for those who can afford them.
+
+\begin{figure}
+\centering
+
+
+% CHANGING TRANSPORTATION COSTS
+\begin{tikzpicture}[scale=.5]
+% EXTENT  BEFORE
+\draw[thick](0,0)--(0,8); %Y
+\draw[thick](0,0)--(8,0)node[right]{$d$};
+\node at (3.5,-.7){Extent: Walkers};
+\draw[ultra thick, blue](0,5)--(2,0); 
+\node[circle,draw=black, fill=white, inner sep=3pt,minimum size=10pt] (b) at (1,2.5) {1};
+
+% POPULATION BEFORE
+\begin{scope}[shift={(0, -15cm)},scale=1.5]%population
+\draw [fill=gray!20,] (0,0) rectangle (5,.5); 
+\draw[line width= .5mm, black!50] (0,0) rectangle (5,1.5);
+\node at (2.5,2.1){Population: Walkers};
+\end{scope}
+
+% EXTENT AFTER
+\begin{scope}[shift={(10cm, 0)}]
+\draw[thick](0,0)--(0,8); %Y
+\draw[thick](0,0)--(16,0)node[right]{$d$}; %X
+\node at (8,-.7){Extent: Drivers};
+\draw[ultra thick, blue!75, dashed](0,5)--(2,0);
+\draw[ultra thick, blue](0,2.5)--(15,0);
+
+\node[circle,draw=black, fill=white, inner sep=3pt,minimum size=10pt] (b) at (7,1.25) {2};
+
+\draw[ blue, dashed](0,5)--(15,2.5);
+\node[circle,draw=black, fill=white, inner sep=3pt,minimum size=10pt] (b) at (7,3.75) {3};
+
+\draw[ blue, dotted](0,6.75)--(15,4.25);
+\node[circle,draw=black, dotted,fill=white, inner sep=3pt,minimum size=10pt] (b) at (7,5.5) {4};
+\end{scope}
+
+% POPULATION AFTER
+\begin{scope}[shift={(15, -15cm)},scale=1.5]%population
+\draw [fill=gray!20,] (0,0) rectangle (5,2); 
+\draw[line width= .5mm, black!50] (0,0) rectangle (5,8);
+\node at (2.5,8.55){Population: Drivers};
+\node at (2.5,4.5)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt Owner Occupied};
+%\node at (2,3.3)    [text width=2.4cm]    {\baselineskip=20pt Mortgaged};
+\node at (2.5,1)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt Tenant Occupied};
+\end{scope}
+\label{fig-rent-driving}
+\end{tikzpicture}
+\caption{Housing tenure post transportation revolution.}
+\label{fig-transport-tenure}
+\end{figure} 
+ 
+%\input{fig_TransportCost.tex}
+
+The transportation cost revolution brought about by the first street cars and later automobiles made much larger cities possible.  The average walking pace is 2.5 to 4 mph, and new transportation technologies raise this rate by a factor of between five and ten, increasing potential urban area by between twenty-five and one hundred times.   
+
+% THIS IS INTERSTING K.  morgages: Effect of a finbancial instument on urban form!!  suburban flight, second half of the century
+
+%Electric trolleys drew upon manufacturing technology that appeared only in the eighteen eighties and at first only in America. 
+
+%As with other transportation revolutions, institutional as well as technological revolutions were necessary for the interurban phenomenon to succeed.  One such institutional revolution was the creation of the home mortgage in the eighteen eighties.  Another was the development of the public utility, a regulated monopoly, in the earlier twentieth. century.\footnote{https://faculty.washington.edu/jbs/itrans/charge20.htm} The automotive revolution was as important in its way as the coming of the railroads.
+
+%The automobile in time established even more powerful synergies, but they weren’t present at the beginning.  Roads suitable for automobiles scarcely existed though new methods of paving utilizing macadam or concrete had recently been invented.  Furthermore, there was no good model in place for road construction.   Unlike the case with either light or heavy rail systems, the vehicles and the road itself were not part of the same corporate entity.       
+
+%Once automotive ownership assumed certain proportions toward the close of the teens of the century, the automobile began to transform the landscape of America in an even more fundamental way than the streetcars had. 
+
+%From the second decade of the twentieth century, the automobile in America has been linked with suburban flight, and when the growth of suburbs reached a crescendo early in the second half of the century, automobile ownership became the norm. 
+
+% Because exurbs are already numerous and growing more so, they place considerable pressure on the Body Politic to ensure that fuel prices remain low, for if prices rise beyond a certain point the exurbanites will be forced to sell out, probably at ruinously low returns because few will choose to live in isolated areas without affordable transportation.  True, exurbs could conceivably be served by public transportation, but only at enormous cost per rider because the population densities are so low in the areas where they are located....
+
+% That places the vast suburb dwelling public at risk and the exurbanites most of all.
+
+Initially, rents fell at the centre and rose outside of the original city limits. Lower rents and cheaper suburban housing attract more workers, so that central rents and the land values they support  rise to the original levels and then, because the rising population makes the city more productive, beyond the original level. 
+
+It  also affected social structure and left indelible marks on the form of cities developing at the time and after. In North America, with large amounts of land, it generated massive urban sprawl, but also made land available for a growing `middle class' of homeowners. This homeowning middle class became the dominant social formation in North 
+American society. 
+
+Ultimately the urban expansion generated congestion and rising transportation cost that began to limit urban growth, put upward pressure on  housing costs including transportation, and therefore downward pressure on middle-class effective incomes. Rising congestion costs steepen the rent profile and  reduce the net productivity of cities. Although the process is not a focus of this thesis it represents a relatively simple extension for later work.
+
+\subsection{Class structure}\label{sec-class-structure}
+At the stage illustrated on the right  in Figure~\ref{fig-rent-driving},  %(Alonzo city suburbanized with owner occupiers) 
+as a result of rapidly rising productivity, falling transportation costs, and large amounts of land with relatively low productivity, a new urban social system has emerged with a land-owning working class. 
+
+The term \gls{class} is often used informally as if it refers straightforwardly to people who have different levels of wealth, but when economists talk about classes, they usually mean something slightly different. Economic classes are functionally defined:  by how they participate in production. Owners of labour participate by supplying their labour, for which they are paid a wage. Landowners own the land and receive rents for the use of their land in production. Owners of capital provide funds for starting and operating businesses, for which they receive profits.  There are three classes in this model and three kinds of income.  %It's because the surplus is differently distributed that different have different wealth levels. 
+
+This emergence of a land owning working class is a recent phenomenon, and perhaps primarily a North American one. We are concerned in this thesis with whether may also be a passing stage.
+
+America's economic transformation in the early 1800s was linked to dramatic changes in transportation networks. The construction of roads, canals, and railroads led to the expansion of markets, facilitated the movement of peoples, and altered the physical landscape. The later commuter transportation revolution further transformed cities and class structures.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}{scale=.5}
+\draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
+\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
+\node at (1.5,6)
+    [text width=2.4cm, align=center]
+    {\baselineskip=20pt\Large Owner occupied};
+\node at (2,3.3)
+    [text width=2.4cm]
+    {\baselineskip=20pt Mortgaged};
+\node at (1.5,1)
+    [text width=2.4cm, align=center, white]
+    {\baselineskip=20pt\Large Tenant occupied};
+% \caption{}
+\end{tikzpicture}
+\end{center}
+\caption{Housing tenure and mortgaged share.}
+\label{fig-mortgage-tenure}
+\end{figure}
