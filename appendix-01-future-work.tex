@@ -6,6 +6,64 @@
 % here is some code
 % \end{verbatim}
 
+\section{The transmission puzzle}
+
+
+\begin{figure}
+    \centering
+\begin{tikzpicture}[scale=.7]
+%\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+%\def\bndmin{0.2}
+\def \Y {7}  % height of y axis pecent
+\def \W {15}  % length  of x axis
+\def \Wbar {3} % jmeam wealth
+\def \omega {3}
+\def \A {1}  %was .5
+\def \B {.5}
+
+\draw [thick, color=blue!90] (0,\Y)node[left=.2cm]{$w$} -- (0,0)--(\W-4,0)node[below]{labour force};  
+ \foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.2,\yi)node[left]{};
+ 
+\tikzset{func/.style={thick,  color=blue!90}}
+% \draw[ func, domain=.2:\W-6] plot [samples=200] (\x, 2*\x^.5)node[below=.1, right]{SUPPLY};
+
+\tikzset{func/.style={  color=green}}	
+\draw[func, domain=2.45:\W-6] plot [samples=200] (\x, 10/\x+3)node[above=.1, right]{Social};
+
+\tikzset{func/.style={thick, dashed, color=black!90}}	
+\draw[func,domain=1.8:\W-6] plot [samples=200] (\x, 10/\x+1.5)node[ right]{industry-wide };
+
+\tikzset{func/.style={thick, color=blue!90}}	
+\draw[func,domain=1.5:\W-7.5] plot [samples=200] (\x, 10/\x+.4)node[below=.05, right]{Firm-wide};
+
+\tikzset{func/.style={thick,color=red!90}}	
+\draw[func,domain=8.5/6:\W-9] plot [samples=200] (\x, 10/\x)node[below]{Myopic};
+
+\draw[](0,3.425)node[left]{$\omega$}--(9,3.425)node[right]{nominal supply };
+\draw[thin,latex-](2.92,0)--(2.92,3.425); %a vertical labour supply
+\draw[ultra thick,dashed, green,-latex](2.92,3.6)--(2.92,6.2);
+%\draw [blue,  thick](13, 8.3)--(15,8.3)node [right, black] {\small A=\ 1,\ B=0.5};
+%\draw [green, thick](13, 7.6)--(15,7.6)node [right, black] {\small A=.8, B=0.8};
+
+%\node at (5,-1.5){Resulting in  profits, expansion, and/or entry: the city grows};
+ \end{tikzpicture}
+  \caption{Multiple marginal products}
+    \label{fig-Marginal-products}
+\end{figure}
+
+
+
+Figure~\ref{fig-Marginal-products} illustrates the problem. We can  make a distinction between the myopic marginal productivity curve observed by at the shop floor level and  the firm-wide effect of adding a worker. The red curve labeled ``Myopic'' represents the declining direct marginal productivity of labour as in might be observed by a shop manager, who could report how much more output one with one worker one lathe would produce. The blue line above it labeled ``Firm-wide'' represents the actual effect on firm productivity that arises because the new worker makes other workers in the firm more productive. This addition to output would be observable for managers reviewing the firm's performance over time. ' 
+
+We can go on to consider the slower and distributed effect on closely related firms, which would raise any estimate of marginal product.  If there are 10 other firms and a new worker  has a small spillover effect  $\epsilon$ on each,  the spillovers raise the industry  marginal product  by $10\epsilon$. Each of the  10 other firms  enjoys  an additional $10\epsilon$ gain in the marginal product of their workers. This should lead to additional hiring by other firms.
+
+Finally, expanding our view another step, we notice that if each of the  10 other firms hires one worker who produces an additional  $10\epsilon$ gain in output for all firms, the total spillover effect would rise by $100\epsilon$. The social marginal product of a single hire is indicated by the green line. 
+
+
+
+
+
+\section{Distribution}% not the right word
 ABMs can be run multiple times to produce distributions of expected outcomes, which makes them valuable in planning exercises. They also do not require that we use a representative agent to make them tractable. Our model is intended to be elaborated  for such use. 
 
 extensions

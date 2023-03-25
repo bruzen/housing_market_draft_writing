@@ -44,7 +44,7 @@ The source of the variation is a matter of considerable policy importance. If $\
 \begin{figure}
     \centering
     \includegraphics[scale=0.25]{fig/Residuals-Lobo.png}
-    \caption{Residuals from regressing ln(total wages) on ln(population) using data for all 943 urban areas of the United States smoothed over the 2009–2011 period. Source: Lobo et al \cite{loboUrbanScalingProduction2013}}
+    \caption{Residuals from regressing ln(total wages) on ln(population) using data for all 943 urban areas of the United States smoothed over the 2009–2011 period. Source: Lobo et al.\cite{loboUrbanScalingProduction2013}}
     \label{fig:Residuals-Lobo}
 \end{figure}
 
@@ -55,63 +55,12 @@ The source of the variation is a matter of considerable policy importance. If $\
   In this chapter, we examine a number of potential  links between urban population and productivity that have been proposed, and discuss how we  might incorporate specific policy-relevant linkages into our model.  Our interest is in how financialization might affect cities, and in this chapter specifically on the channels through which financialization might affect the productivity and growth of cities.
 
 
-%\footnote{Lobo et al are careful not to  claim that there is a causal relation between urban scaling and urban productivity. Causality, they say, stems from the ways in which being embedded inside larger agglomerations fundamentally affects how individuals interact with each other. Such micro-processses have not been demonstrated.}
+%\footnote{Lobo et al.are careful not to  claim that there is a causal relation between urban scaling and urban productivity. Causality, they say, stems from the ways in which being embedded inside larger agglomerations fundamentally affects how individuals interact with each other. Such micro-processses have not been demonstrated.}
 
 \section{The transmission puzzle}
  In our model the long-term wage is set at the social marginal product of labour, including all external effects on other firms. Wages are set, however, in private markets. It seems likely that the agglomeration effect of adding a worker on the productivity of other workers even within a firm  would be attributed to that worker. For the firm there  would be a lagged, unevenly distributed effect that would appear exogenous, and so would not be
 compensated. We should  assume therefore that firms do not take the positive externalities into account, implying firms will hire fewer than the optimal number of workers. This seems to imply that direct transmission of agglomeration economies to employment and wage growth is unlikely,  a serious challenge to our decision to model the city relying on Equation~\ref{equation-the-fact} and the  Alonzo-Jacobs cycle.
 
-
-
-\begin{figure}
-    \centering
-\begin{tikzpicture}[scale=.7]
-%\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
-%\def\bndmin{0.2}
-\def \Y {7}  % height of y axis pecent
-\def \W {15}  % length  of x axis
-\def \Wbar {3} % jmeam wealth
-\def \omega {3}
-\def \A {1}  %was .5
-\def \B {.5}
-
-\draw [thick, color=blue!90] (0,\Y)node[left=.2cm]{$w$} -- (0,0)--(\W-4,0)node[below]{labour force};  
- \foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.2,\yi)node[left]{};
- 
-\tikzset{func/.style={thick,  color=blue!90}}
-% \draw[ func, domain=.2:\W-6] plot [samples=200] (\x, 2*\x^.5)node[below=.1, right]{SUPPLY};
-
-\tikzset{func/.style={  color=green}}	
-\draw[func, domain=2.45:\W-6] plot [samples=200] (\x, 10/\x+3)node[above=.1, right]{Social};
-
-\tikzset{func/.style={thick, dashed, color=black!90}}	
-\draw[func,domain=1.8:\W-6] plot [samples=200] (\x, 10/\x+1.5)node[ right]{industry-wide };
-
-\tikzset{func/.style={thick, color=blue!90}}	
-\draw[func,domain=1.5:\W-7.5] plot [samples=200] (\x, 10/\x+.4)node[below=.05, right]{Firm-wide};
-
-\tikzset{func/.style={thick,color=red!90}}	
-\draw[func,domain=8.5/6:\W-9] plot [samples=200] (\x, 10/\x)node[below]{Myopic};
-
-\draw[](0,3.425)node[left]{$\omega$}--(9,3.425)node[right]{nominal supply };
-\draw[thin,latex-](2.92,0)--(2.92,3.425); %a vertical labour supply
-\draw[ultra thick,dashed, green,-latex](2.92,3.6)--(2.92,6.2);
-%\draw [blue,  thick](13, 8.3)--(15,8.3)node [right, black] {\small A=\ 1,\ B=0.5};
-%\draw [green, thick](13, 7.6)--(15,7.6)node [right, black] {\small A=.8, B=0.8};
-
-%\node at (5,-1.5){Resulting in  profits, expansion, and/or entry: the city grows};
- \end{tikzpicture}
-  \caption{Multiple marginal products}
-    \label{fig-Marginal-products}
-\end{figure}
-
-
-
-Figure~\ref{fig-Marginal-products} illustrates the problem. We can  make a distinction between the myopic marginal productivity curve observed by at the shop floor level and  the firm-wide effect of adding a worker. The red curve labeled ``Myopic'' represents the declining direct marginal productivity of labour as in might be observed by a shop manager, who could report how much more output one with one worker one lathe would produce. The blue line above it labeled ``Firm-wide'' represents the actual effect on firm productivity that arises because the new worker makes other workers in the firm more productive. This addition to output would be observable for managers reviewing the firm's performance over time. ' 
-
-We can go on to consider the slower and distributed effect on closely related firms, which would raise any estimate of marginal product.  If there are 10 other firms and a new worker  has a small spillover effect  $\epsilon$ on each,  the spillovers raise the industry  marginal product  by $10\epsilon$. Each of the  10 other firms  enjoys  an additional $10\epsilon$ gain in the marginal product of their workers. This should lead to additional hiring by other firms.
-
-Finally, expanding our view another step, we notice that if each of the  10 other firms hires one worker who produces an additional  $10\epsilon$ gain in output for all firms, the total spillover effect would rise by $100\epsilon$. The social marginal product of a single hire is indicated by the green line. 
 
 The challenge to our   to directly linking employment to the wage is that the firm will base its hiring decision on the red line, or at best the blue line, but it will not perceive or  respond to externalities incorporated in the green line.  The argument implies  that cities will be chronically inefficient, failing to grow as  much and as quickly as they should because private decision makers fail to take into account the agglomeration externalities. 
 
@@ -124,7 +73,7 @@ Modelling or even identifying  the actual transmission processes is beyond the s
 
 \section{The Scale-Adjusted Metropolitan Indicator}
 
- Lobo et al \cite{loboUrbanScalingProduction2013} provide an  analysis that is a useful starting point in the search for potential transmission channels and policy levers. They show that Equation~\ref{equation-the-fact} can be written as an explicit  function of specific local deviations, $\xi_i$ 
+ Lobo et al.\cite{loboUrbanScalingProduction2013} provide an  analysis that is a useful starting point in the search for potential transmission channels and policy levers. They show that Equation~\ref{equation-the-fact} can be written as an explicit  function of specific local deviations, $\xi_i$ 
  as well as population size.\footnote{
 Glaeser and Saiz \cite{glaeserRiseSkilledCity2003} find little evidence for population growth accompanying skill upgrading among growing cities,  but they did find  evidence for skill upgrading that would increase effective labour in declining cities. Their results strongly  support the hypothesis of city-specific  and history-specific transmission from left to right in our figure.}  
 They  call these terms ``Scale-Adjusted Metropolitan Indicators'' (SAMIs). The SAMIs they derive depend on local wages and capital costs and they account for the city specific residuals in Figure~\ref{fig:Residuals-Lobo} when $\beta$ is estimated using population alone. 
@@ -133,7 +82,7 @@ They  call these terms ``Scale-Adjusted Metropolitan Indicators'' (SAMIs). The S
  \[Y_i =A N^\beta_ i e^{\xi_i^Y} \eqno  \label{eqn-lobo}\]where $ e^{\xi_i^Y}$ is the city-specific residual for output $Y$ for city $i$ in their regression.\footnote{There may be several SAMIs that enter multiplicatively if data permits. As is usual in this literature, the log of Equation~\ref{eqn-lobo} lets them use  linear regression.}  They work backward from this expression to a Cobb-Douglas production function that depends only on labour and capital inputs.\footnote{In Chapter~\ref{chapter-growth} we show how the neoclassical growth theorists, in effect, worked forward from the Cobb-Douglas production function to an expression equivalent to the result from the scale literature.} They conclude that any  variables used to explain the residuals in estimates  of $\beta$ for cities must be expressed in terms of their  contribution to  the wage and capital shares of income or to  the magnitude of wage and capital inputs. 
 
  
-We can question whether the two-factor model in Lobo et al is an adequate representation. Neoclassical growth models incorporate human capital, which is itself a complex of technical knowledge, learned  skills, and social capital. In other words,  the Lobo et al  model can be seen as incorporating multiple factors conceptually while   suppressing them notationally. Similarly, classical models  include land and resources explicitly while the two-factor model suppresses them.  These simplifications have been tremendously productive, in part because they allow us to focus on the large-scale and common features of the  system. For our work they provide a reasonable starting point.
+We can question whether the two-factor model in Lobo et al.is an adequate representation. Neoclassical growth models incorporate human capital, which is itself a complex of technical knowledge, learned  skills, and social capital. In other words,  the Lobo et al. model can be seen as incorporating multiple factors conceptually while   suppressing them notationally. Similarly, classical models  include land and resources explicitly while the two-factor model suppresses them.  These simplifications have been tremendously productive, in part because they allow us to focus on the large-scale and common features of the  system. For our work they provide a reasonable starting point.
 
 
 
@@ -158,7 +107,7 @@ We can question whether the two-factor model in Lobo et al is an adequate repres
 }
 
 
- In Figure~\ref{fig-impact-channels} we illustrate how this argument relates to financialization. On the right are the variables that  Lobo et al \cite{loboUrbanScalingProduction2013} argue feed directly into determining $\beta$, which then, in our model, sets the magnitude of the \gls{Alonzo-Jacobs cycle} at the top right.\footnote{This can be seen as modifying  the parameter in  the difference equation linking population to wage.} A fine-grained model would locate these variables within the Alonzo-Jacobs cycle. It is worth noting that, however finely it is modeled, it is  a relatively slow cycle. We are considering processes that act very slowly on productivity and city size. Any interventions will take a long time to take effect and a long time to observe. They may also be very difficult to reverse. 
+ In Figure~\ref{fig-impact-channels} we illustrate how this argument relates to financialization. On the right are the variables that  Lobo et al.\cite{loboUrbanScalingProduction2013} argue feed directly into determining $\beta$, which then, in our model, sets the magnitude of the \gls{Alonzo-Jacobs cycle} at the top right.\footnote{This can be seen as modifying  the parameter in  the difference equation linking population to wage.} A fine-grained model would locate these variables within the Alonzo-Jacobs cycle. It is worth noting that, however finely it is modeled, it is  a relatively slow cycle. We are considering processes that act very slowly on productivity and city size. Any interventions will take a long time to take effect and a long time to observe. They may also be very difficult to reverse. 
  
  
  On the left in Figure~\ref{fig-impact-channels} is the self-reinforcing financialization--price-increase-- speculative-gain--financialization cycle. This is by comparison a very rapid cycle. It is unclear if it is reversible. 
@@ -181,7 +130,7 @@ We will begin with potential effects of financialization  that work through the 
 \begin{enumerate}
 \item financialization may make reduce the amount of local capital available, raising the cost of capital in the city. 
     
-\item since rising rents reduce disposable income, inflation coming from the right  side of the figure will reduce  the effective urban wage, which Lobo et al find is one of the determinants of growth.
+\item since rising rents reduce disposable income, inflation coming from the right  side of the figure will reduce  the effective urban wage, which Lobo et al.find is one of the determinants of growth.
 
 \item rent capture might influence the concentration of educated personnel by reducing the diversity and amenity of cities, making urban living less attractive, reducing labour supply or raising its cost.
 
@@ -200,7 +149,7 @@ All of these potential channels weaken the link between productivity and wages o
 
 \section{Linkages and spillovers}
 Three theories have dominated the discussion. The Marshall-Arrow-Romer (MAR) theory concerns knowledge spillovers between firms in an industry.  Marshall (1890) described how the concentration of an industry in a city helps knowledge
-spillovers between firms and, therefore, the growth of that industry and of that city. Porter (1990) argued that local competition within concentrations of industry drives innovation and growth. Both assume that technological spillovers occur within an industry. In the Jacobs-Rosenberg\cite{rosenbergTechnologicalChangeMachine1963}-Bairoch \cite{bairochCitiesEconomicDevelopment1988} model,\footnote{Glaeser et al \cite{glaeserGrowthCities1991} refer to the Jacobs model as the Jacobs-Rosenberg\cite{rosenbergTechnologicalChangeMachine1963}-Bairoch \cite{bairochCitiesEconomicDevelopment1988} model. } unlike MAR and Porter, believes that the most important knowledge transfers come from outside the core industry through cross-fertilization among a variety  of  industries. 
+spillovers between firms and, therefore, the growth of that industry and of that city. Porter (1990) argued that local competition within concentrations of industry drives innovation and growth. Both assume that technological spillovers occur within an industry. In the Jacobs-Rosenberg\cite{rosenbergTechnologicalChangeMachine1963}-Bairoch \cite{bairochCitiesEconomicDevelopment1988} model,\footnote{Glaeser et al.\cite{glaeserGrowthCities1991} refer to the Jacobs model as the Jacobs-Rosenberg\cite{rosenbergTechnologicalChangeMachine1963}-Bairoch \cite{bairochCitiesEconomicDevelopment1988} model. } unlike MAR and Porter, believes that the most important knowledge transfers come from outside the core industry through cross-fertilization among a variety  of  industries. 
 
 
 Glaeser, Kallal, Sheinkman and Shleifer \cite{glaeserGrowthCities1991} used data on 170 of the largest US cities which industries in which cities grew fastest between 1956 and 1987 and why. %They found that  industries grow slower in cities in which they are more heavily over-represented and faster where the firms in the industry are smaller than the national average  and when the city is less specialized. 
@@ -281,7 +230,7 @@ Their evidence supports the third hypothesis, that human capital only matters in
 
 
 %\subsection{Spillovers}
-%Belderbos et. al examine the simultaneous effects of spillovers due to research and development by universities and by firms \cite{belderbosWhatSpilloversUniversities2022}. %Rising urban productivity in Japan are significant. 
+%Belderbos et al. examine the simultaneous effects of spillovers due to research and development by universities and by firms \cite{belderbosWhatSpilloversUniversities2022}. %Rising urban productivity in Japan are significant. 
 
 
 
@@ -291,11 +240,11 @@ Their evidence supports the third hypothesis, that human capital only matters in
 
 %Henderson 1986 presented evidence that output per labour hour is higher i when firms in the same industry are clustered.
 
-Henderson also described "urbanization externalities" that lead different firms to locate together. In this view urbanization increases final market demand and diveristy of products, but Glaeser et al suggest that this effect does not drive growth
+Henderson also described "urbanization externalities" that lead different firms to locate together. In this view urbanization increases final market demand and diveristy of products, but Glaeser et al.suggest that this effect does not drive growth
 
-Lobos et. al examine the simultaneous effects of spillovers due to research and development by universities and by firms \cite{belderbosWhatSpilloversUniversities2022}.
+Lobos et al. examine the simultaneous effects of spillovers due to research and development by universities and by firms \cite{belderbosWhatSpilloversUniversities2022}.
 
-Glaeser et al \cite{glaeserGrowthCities1991} tested a model  of employment growth (not productivity growth) in an industry in a city as a function of the specialization of that industry in that city, local competition in the city-industry, and city diversity. None of the their results  support the importance
+Glaeser et al.\cite{glaeserGrowthCities1991} tested a model  of employment growth (not productivity growth) in an industry in a city as a function of the specialization of that industry in that city, local competition in the city-industry, and city diversity. None of the their results  support the importance
 of within-industry knowledge spillovers for growth. If such spillovers. %This may be usefull for us because it rules out a veryd ifficult channel to examine.
 %\section{Network accounts}
 Network accounts of increasing returns have drawn a good deal of attention.
@@ -312,7 +261,7 @@ They point out, drawing on Dixit and Stiglitz \cite{AvinashK.Dixit1977MCaO},  Fu
  
 
 \section{Effects through inequality}
-Barro \cite{barroInequalityGrowthInvestment1999} found that inequality had a negative effect on growth in poorer countries but no significant effect for the richer countries. Grigoli et al \cite{grigoliInequalityGrowthHeterogeneous2016} find  that the effect of income inequality on economic growth can be either positive or negative, and that at levels  of inequality  represented by a Gini coefficient below about 27  to be exact inequality hurts economic development.\footnote{Canada's Gini Coefficient Index was 66.7 in 2017. } %PUZZLE
+Barro \cite{barroInequalityGrowthInvestment1999} found that inequality had a negative effect on growth in poorer countries but no significant effect for the richer countries. Grigoli et al.\cite{grigoliInequalityGrowthHeterogeneous2016} find  that the effect of income inequality on economic growth can be either positive or negative, and that at levels  of inequality  represented by a Gini coefficient below about 27  to be exact inequality hurts economic development.\footnote{Canada's Gini Coefficient Index was 66.7 in 2017. } %PUZZLE
 
  ``On the one hand, a higher concentration of income in the hands of a few is reflected in reduced demand by a larger share of poorer individuals, which would invest less in education and health and grow a sense of social and political discontent, jeopardizing human capital and stability. Moreover, more inequality can exacerbate households’ leverage to compensate for the erosion in relative income, empower the influence of the richer population on the legislative and regulatory processes, and motivate redistribution policies that are often blamed for slowing growth, especially when aggressive. On the other hand, a certain level of inequality endows the richer population with the means to start businesses, as well as creates incentives for individuals to increase their productivity and invest their saving, hence promoting economic growth. Across income levels, only the findings for emerging markets indicate that more inequality slows economic growth. The only country groups for which we find evidence of a significant negative effect are the Middle East and Central Asia, the Western Hemisphere, and emerging markets (3/8).
 
