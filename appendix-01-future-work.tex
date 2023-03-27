@@ -1,12 +1,70 @@
 \chapter[Future Work]{Future Work}
 \label{appendix-future-work}
-%======================================================================
-% \begin{verbatim}
-% x=[0:0.1:pi];
-% here is some code
-% \end{verbatim}
 
-\section{The transmission puzzle}
+
+
+In  this chapter, we discuss potential extensions of our basic model.  Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. A model incorporating n binary choices is one of an implicit family of $2^n$ alternative models. We have sharply restricted our model  in order to focus on one process of significance, financialization.  in part so that we can explain and justify each assumption that we use, and in part because only sharply restricted models produce understandable results.
+
+Thorse esults are condition on the specific set of assumptions 
+to ensure that we have designed the model to  accommodate a range of extensions that are either theoretically or interesting or important for policy-makers. 
+
+
+
+
+\section{Population pressure and market 'hotness'} 
+Our basic model does not have a growing population. This allows us to isolate the effects of financialization. Population pressure is one of the drivers of financialization because it amplifies speculative gains. As a result, one of the first extensions must be  to introduce population pressure.
+
+There are two sources to consider: 
+\begin{enumerate}
+\item agglomeration effects that increase the wage and attract workers faster than the housing stock can respond. 
+
+Worker agents from outside the city can always consider moving and accepting a job. 
+% QUESTION - how to manage the flow of new agents?
+%, or can make more from rents and moving away
+\item immigration.
+\end{enumerate}
+
+\subsection{Market 'hotness', agent behaviour, and lags}
+Previous period events  could also affect desire and urgency in the next time step. 
+
+If there is a good fit/price ratio, their assessment of desire increases. If they dislike what they see, their desire decreases---they settle for what is there. 
+
+The higher their need, the more houses an agent considers, and the more willing they are to negotiate on price. % Buyers rank their housing ne
+
+
+
+
+ed on a scale of one to ten. 
+Buyers could consider neighbourhood pressures, demographic changes, changes in job location, desire for amenity etc. in their assessment of housing need. 
+
+With multiple bids agents can place the most competitive bids on those homes they prefer. If they have higher urgency they place strong bids on more homes. 
+
+Next buyers request a selection of homes to consider from a real estate agent. Those with higher need for housing look at more homes. The real estate agent offers a selection of homes based on the agent's requirements. A randomness parameter determines how many divergent houses are also considered. When the parameter is 1, the selection of homes is fully randomized, When it is 0, the agent sorts all available homes and offers those which fit the agents budget, space, and other requirements best.
+
+
+\subsubsection{Retirement investors and private investment properties}
+The simple turnover in this model can be replaced with a more complex set of possibilities at the agent level.  At retirement,  agents can be allowed to may choose between selling their home, renting it as an income property, or if there is sufficient amenity value for them, staying in the city. Implementing these choices complicates the agent decision and the resulting housing distribution but require very few changes to the rest of the model.
+
+
+
+
+
+\section{Theoretical development}% Feb 23 2023
+We have carefully developed the link between neoclassical growth theory and the literature on urban scaling \cite{bettencourtIntroductionUrbanScience2021} and imposed the scaling result on our model. This amounts to black-boxing the entire production and labour demand sector as well as the construction and housing production sector. We force the model to conform to the empirical data on the relationship between population and productivity.
+
+This made sense because our focus  was on the housing market and the financial sector, but the model we have constructed will allow us to ``fill the black box'' with more complete models of the production and labour market to see how they compare to the empirical data. 
+
+The  scaling  literature also provides relationships between density and population and infrastructure cost and population that we can explore in the same way.
+
+In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is perfectly consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
+
+
+
+\subsection{The transmission puzzle}
+
+The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises a policy challenge that we leave for others. CLARIFY - ALSO STILL A FOOTNOTE IN MODEL SECTION. CUT OR REF THEiR IF MOVING HERE.
+
+ It is straightforward to compute the rate of excess return for  this model. 
 
 
 \begin{figure}
@@ -61,9 +119,54 @@ Finally, expanding our view another step, we notice that if each of the  10 othe
 
 
 
+\section{Distribution of rents}
+Rents go to landowners, with a share taken for maintenance and taxes.
+Rents may also be taxed, could be shared between multiple owners, etc.
+ %\note{REPHRASE? rent is  extracted from the coalition of capital and workers.} % Rents may also be taxed, could be shared between multiple owners, etc. 
+%The rents are captured by landowners.  The capture of rents by landowners is common buy not necessary. 
+In principle the gains from urban productivity and amenity can be allocated as social wealth through shared ownership, as is often done on a small scale with cooperatives and land trusts, distributed to all citizens through something like a social wealth fund, or captured in taxes or fees as Henry George suggested. 
+%The rents would otherwise go to labour and capital.
 
 
-\section{Distribution}% not the right word
+
+
+
+\subsection{Urban Savings - Contributions?}
+THIS IS A CONTRIBUTION, BUT ALSO A DISCUSSION OF ONE WAY THIS WORK COULD BE EXTENDED, MIXED WITH A BIT OF MODEL DESCRIPTION
+
+Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require  savings at two levels. First, since we want to incorporate  households home ownership and a relationship to the financial sector through mortgages, We specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
+
+Homeowners in addition have equity $E=P-M$ in their homes.  ({\color{red}Should newcomers also have equity? or is it built into the savings. Clarify this.} 
+
+A second level of saving is the  investment in capital out of the city surplus. Even raising this question puts us into terra incognita. There are many  channels through which surplus flows into productive investment in the urban contest. One is through public investment in infrastructure. We have discussed how falling transportation costs increase surplus generation. Investments like this are made slowly and take effect over time periods much longer than our model is concerned with.  We can set a property tax rate   that we will assume is sufficient to maintain the stock of infrastructure.
+
+Public and private investment in human capital is largely urban as well, but as with infrastructure, investment and response take effect over time periods much longer than our model is concerned with. 
+
+Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
+
+We deal with this issue by linking local capital ownership with the scale factor. It is known that local ownership is associated with local investment. We will assume that local capital ownership, which consists in part of local ownership of the housing stock, can be proxied by homeowner equity as a share of local. 
+
+\subsubsection{savings and retirement behaviour}
+Agents fund their retirement from savings, as well as returns on their home if they have one to sell. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. In the real world, financial institution manages most pensions, investing in the market or in property.  All this institutional structure is probably most easily handled by implementing a savings account for each agent. We are not interested in the detailed investment behavour for the financial sector.% either in the stock market, or in pensions.
+
+%Institutional and individual investors can access debt. %
+
+also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter controls the inflow of additional money beyond local investment in the pension fund. 
+
+
+
+\subsection{Taxes, municipal government, public goods, and productivity,}
+This is a major issue with considerable development in the economics literature. Property taxes reduce the net locational value that flows to an individual owner but provides services and wages that make the city attractive. 
+
+(create a regime where particular groups have an advantage)
+
+Localized tax advantages can move a share of financialised investment into private consolidation of land.
+including the structure of taxes for investment properties, institutional investors, individuals, etc.
+
+
+
+
+\section{TO  METHODOLOGY?: Distribution}% not the right word
 ABMs can be run multiple times to produce distributions of expected outcomes, which makes them valuable in planning exercises. They also do not require that we use a representative agent to make them tractable. Our model is intended to be elaborated  for such use. 
 
 extensions
@@ -328,7 +431,7 @@ competitive markets many sellers, many buyers, monopoly single seller, monopsony
 
 Start with perfect competition, then introduce monopolistic competition is most likely.. but it's more difficult to handle. e.g. with brand names, people have some preference for some feature of your particular good so you can price it higher even though you may loose some marginal people. Firms compete on brand name and reputation, not the pure cost effect.
 
-In the spatial economy, goods are deferentially interchangeable. Put them on a line and firms pick a place along they line. Firms are in competition but are competing on a line-.. spatial model moved over to characteristic space.. -- looking at this would involve overlaying another space - the characteristic space on the physical space. .. There are also local places with local grocery stores. Polycentric stores have effectively monopolistic competition in real space. - like a named cafe downtown has the same.
+In the spatial economy, goods are deferentially interchangeable. Put them on a line and firms pick a place along they line. Firms are in competition but are competing on a line-.. spatial model moved over to characteristic space..---looking at this would involve overlaying another space - the characteristic space on the physical space. .. There are also local places with local grocery stores. Polycentric stores have effectively monopolistic competition in real space. - like a named cafe downtown has the same.
 
 \subsection{Sectors}
 ..
@@ -378,34 +481,8 @@ Some of the agglomeration wage may come from people with resources and skills di
 
 We can explore different drivers in the model.
 
-\subsection{Retirement investors and private investment properties}
 
-At retirement,  they may choose to rent or sell their home. They may chose whether to stay in the city, if there is sufficient amenity value for them, to rent their house, or to sell it. 
-
-Todo can agents choose not to retire? Can they keep working? Do they get the subsistence wage on retirement? Do they need to leave the city to get it? 
-
-..
-
-Agents fund their retirement from savings, as well as returns on their home if they own one. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. % either in the stock market, or in pensions.
-A financial institution manages the pension, investing in the market or in property.
-%Institutional and individual investors can access debt. %
-
-also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter controls the inflow of additional money beyond local investment in the pension fund. 
-
-
-\subsection{Buyer urgency, Immigration pressure and market 'hotness'} 
-Worker agents from outside the city can always consider moving and accepting a job. % QUESTION - how to manage the flow of new agents?
-%, or can make more from rents and moving away
-
-Finally Variables from last time could also affect desire and urgency in the next time step. If there is a good fit/price ratio, their assessment of desire increases. If they dislike what they see, their desire decreases -- they settle for what is there. 
-The higher their need, the more houses an agent considers, and the more willing they are to negotiate on price. % Buyers rank their housing need on a scale of one to ten. 
-Buyers could consider neighbourhood pressures, demographic changes, changes in job location, desire for amenity etc. in their assessment of housing need. 
-
-ALSO BRINGS IN AGENT PREFERENCES - They place the most competitive bids on those homes they prefer. If they have higher urgency they place strong bids on more homes. 
-
-Next buyers request a selection of homes to consider from a real estate agent. Those with higher need for housing look at more homes. The real estate agent offers a selection of homes based on the agent's requirements. A randomness parameter determines how many divergent houses are also considered. When the parameter is 1, the selection of homes is fully randomized, When it is 0, the agent sorts all available homes and offers those which fit the agents budget, space, and other requirements best.
-
-\subsection{Rural market and other cities}
+\subsection{TO METHODOLOGY: Rural market and other cities}
 
  To simplify analysis, we assume that land outside of the residential limit is costless, following th common practice of assuming a fixed price for agricultural land \cite{GET_fixed-price-ag-land}. 
 
@@ -471,19 +548,11 @@ We could add improvements
 % Reference sections on development which is different, and the contribution of amenity % Because supply is fixed for urban land, and the landowner has a monopoly claim on rents, the rents that can be depend on wages and amenity rather than the cost of improvements made to the property.
 % The source of rents is the free gifts of nature, the coming together of people to create value in cities, and the concentration of public amenity in cities. 
 
-\subsection{Distribution of rents}
-Rents go to landowners, with a share taken for maintenance and taxes.
-Rents may also be taxed, could be shared between multiple owners, etc.
- %\note{REPHRASE? rent is  extracted from the coalition of capital and workers.} % Rents may also be taxed, could be shared between multiple owners, etc. 
-%The rents are captured by landowners.  The capture of rents by landowners is common buy not necessary. 
-In principle the gains from urban productivity and amenity can be allocated as social wealth through shared ownership, as is often done on a small scale with cooperatives and land trusts, distributed to all citizens through something like a social wealth fund, or captured in taxes or fees as Henry George suggested. 
-%The rents would otherwise go to labour and capital.
-
 
 
 
 \section{SORT Rough Notes}
-what does a speculative over investment do - hollowed out store front
+what does a speculative over investment.  in housing  do? - hollowed out store front
 
 who carries what risks- banks vs individuals
 
@@ -499,38 +568,8 @@ details of typologies, transportation networks, etc
 
 - make it available as a part for other models, use other models in this model
 
-\subsection{Urban Savings - Contributions?}
-THIS IS A CONTRIBUTION, BUT ALSO A DISCUSSION OF ONE WAY THIS WORK COULD BE EXTENDED, MIXED WITH A BIT OF MODEL DESCRIPTION
-
-Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require  savings at two levels. First, since we want to incorporate  households home ownership and a relationship to the financial sector through mortgages, We specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
-
-Homeowners in addition have equity $E=P-M$ in their homes.  ({\color{red}Should newcomers also have equity? or is it built into the savings. Clarify this.} 
-
-A second level of saving is the  investment in capital out of the city surplus. Even raising this question puts us into terra incognita. There are many  channels through which surplus to flows into productive investment in the urban contest. One is through public investment in in infrastructure. We have discussed how falling transportation costs increase surplus generation. Investments like t his are made slowly and take effect over time periods much longer than our model is concerned with.  We can set a property tax rate   that we will assume is sufficient to maintain the stock of infrastructure.
-
-Public and private investment in human capital is largely urban as well, but as with infrastructure, investment and response take effect over time periods much longer than our model is concerned with. 
-
-Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
-
-We deal with this issue by linking local capital ownership with the scale factor. It is known that local ownership is associated with local investment. We will assume that local capital ownership, which consists in part of local ownership of the housing stock, can be proxied by homeowner equity as a share of local. 
-
-
-
 
  
-\section{Theoretical development}% Feb 23 2023
-We have carefully developed the link between neoclassical growth theory and the literature on urban scaling \cite{bettencourtIntroductionUrbanScience2021} and imposed the scaling result on our model. This amounts to black-boxing the entire production and labour demand sector as well as the construction and housing production sector. We force the model to conform to the empirical data on the relationship between population and productivity.
-
-This made sense because our focus  was on the housing market and the financial sector, but the model we have constructed will allow us to ``fill the black box'' with more complete models of the production and labour market to see how they compare to the empirical data. 
-
-The  scaling  literature also provides relationships between density and population and infrastructure cost and population that we can explore in the same way.
-
-In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is perfectly consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
-
 
 \subsection{Implications}
-\subsubsection{Agglomeration driven under investment}
-The transmission of productivity increases arising from agglomeration effects  to the urban wage through firms, can be modelled in many ways. The agglomeration effects are external to the firm and therefore likely to be unexpected. If  firms underestimate the marginal product of labour, labour productivity will be greater than expected, output will be higher than planned output, and revenue and profits will therefore be higher than expected. Excess demand will attract more productive capital which in turn will demand more labour,  Rising labour demand drives up the wage. The agglomeration effect driving growth is essentially a public good in which individual firms will under-invest. This raises an policy challenge that we leave for others. CLARIFY - ALSO STILL A FOOTNOTE IN MOEDEL SECTION. CUT OR REF THER IF MOVING HERE.
-
- It is straightforward to compute the rate of excess return for  this model. 
-
+\subsubsection{Agglomeration driven under-investment}
