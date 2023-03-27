@@ -13,13 +13,13 @@ different micro-foundations have very different welfare and policy implications.
 
 A growing body of research on urban scaling has demonstrated increasing returns to population. In our chapter on growth theory we showed that neoclassical growth theory associated these increasing returns to scale at the urban or national level with increasing effective human capital, which grows faster than the labour supply as a result of increased education or agglomeration effects. The two lines of research have settled on what might be termed a  common ``stylized  fact'': population and output are related according to 
 \begin{equation}
-    Y=AN^\beta,\qquad \beta>1 \label{equation-the-fact}
+    Y=AN^\beta,\qquad \beta>1 \label{eqn-population-output}
 \end{equation}
 % can be expressed as Y (\lambda N)~Z(\lambda,N)Y (N). When the scale factor Z depends only on \lambda, i.e. Z(\lambda,N)~Z(\lambda), equation (2) can be solved uniquely to give the scale-invariant result of equation (1), with Z(l\lambda)~\lambda^\beta.
 
-Equation~\ref{equation-the-fact}  is a high-level generalization---a ``coarse-grained'' model.
+Equation~\ref{eqn-population-output}  is a high-level generalization---a ``coarse-grained'' model.
 % There's a distinction between coarse grained and fine grained models. 
-Modelling always faces a trade-off between computational tractability and representing details. Coarse-grained models must capture the stylized facts, as ours does. A great deal of empirical research supports the general relationship represented by Equation~\ref{equation-the-fact}
+Modelling always faces a trade-off between computational tractability and representing details. Coarse-grained models must capture the stylized facts, as ours does. A great deal of empirical research supports the general relationship represented by Equation~\ref{eqn-population-output}
 % where the model is insenstitive to the details, you really want a representation that's small that captures the big pattern. 
 % When you move to getting the details of the model, you know you have a model that tracks the observable. 
 %Sometimes the model is sensitive to the details, and a more fine grained model is needed. There is an advantate to having a continuum of models that make it posible to represent systems with different levels of nuance/detail. We are focused on modelling a coarse grained model of the production system.
@@ -45,7 +45,7 @@ The source of the variation is a matter of considerable policy importance. If $\
     \centering
     \includegraphics[scale=0.40]{fig/residuals-lobo.png}
     \caption{Residuals from regressing ln(total wages) on ln(population) using data for all 943 urban areas of the United States smoothed over the 2009--2011 period. Source: Lobo et al. \cite{loboUrbanScalingProduction2013}.}
-    \label{fig:residuals-lobo}
+    \label{fig-residuals-lobo}
 \end{figure}
 
 
@@ -59,7 +59,7 @@ The source of the variation is a matter of considerable policy importance. If $\
 
 \section{The transmission puzzle}
  In our model the long-term wage is set at the social marginal product of labour, including all external effects on other firms. Wages are set, however, in private markets. It seems likely that the agglomeration effect of adding a worker on the productivity of other workers even within a firm  would be attributed to that worker. For the firm there  would be a lagged, unevenly distributed effect that would appear exogenous, and so would not be
-compensated. We should  assume therefore that firms do not take the positive externalities into account, implying firms will hire fewer than the optimal number of workers. This seems to imply that direct transmission of agglomeration economies to employment and wage growth is unlikely,  a serious challenge to our decision to model the city relying on Equation~\ref{equation-the-fact} and the  Alonzo-Jacobs cycle.
+compensated. We should  assume therefore that firms do not take the positive externalities into account, implying firms will hire fewer than the optimal number of workers. This seems to imply that direct transmission of agglomeration economies to employment and wage growth is unlikely,  a serious challenge to our decision to model the city relying on Equation~\ref{eqn-population-output} and the  Alonzo-Jacobs cycle.
 
 
 The challenge to our   to directly linking employment to the wage is that the firm will base its hiring decision on the red line, or at best the blue line, but it will not perceive or  respond to externalities incorporated in the green line.  The argument implies  that cities will be chronically inefficient, failing to grow as  much and as quickly as they should because private decision makers fail to take into account the agglomeration externalities. 
@@ -73,12 +73,12 @@ Modelling or even identifying  the actual transmission processes is beyond the s
 
 \section{The Scale-Adjusted Metropolitan Indicator}
 
- Lobo et al. \cite{loboUrbanScalingProduction2013} provide an  analysis that is a useful starting point in the search for potential transmission channels and policy levers. They show that Equation~\ref{equation-the-fact} can be written as an explicit  function of specific local deviations, $\xi_i$ 
+ Lobo et al. \cite{loboUrbanScalingProduction2013} provide an  analysis that is a useful starting point in the search for potential transmission channels and policy levers. They show that Equation~\ref{eqn-population-output} can be written as an explicit  function of specific local deviations, $\xi_i$ 
  as well as population size.\footnote{
 Glaeser and Saiz \cite{glaeserRiseSkilledCity2003} find little evidence for population growth accompanying skill upgrading among growing cities,  but they did find  evidence for skill upgrading that would increase effective labour in declining cities. Their results strongly  support the hypothesis of city-specific  and history-specific transmission from left to right in our figure.}  
-They  call these terms ``Scale-Adjusted Metropolitan Indicators'' (SAMIs). The SAMIs they derive depend on local wages and capital costs and they account for the city specific residuals in Figure~\ref{fig:residuals-lobo} when $\beta$ is estimated using population alone. 
+They  call these terms ``Scale-Adjusted Metropolitan Indicators'' (SAMIs). The SAMIs they derive depend on local wages and capital costs and they account for the city specific residuals in Figure~\ref{fig-residuals-lobo} when $\beta$ is estimated using population alone. 
  
- Their model treats Equation~\ref{equation-the-fact} as a production function, as we do in Chapter~\ref{chapter-growth}.  Their preferred form is the one we discussed in Chapter~\ref{chapter-growth}:
+ Their model treats Equation~\ref{eqn-population-output} as a production function, as we do in Chapter~\ref{chapter-growth}.  Their preferred form is the one we discussed in Chapter~\ref{chapter-growth}:
  \[Y_i =A N^\beta_ i e^{\xi_i^Y} \eqno  \label{eqn-lobo}\]where $ e^{\xi_i^Y}$ is the city-specific residual for output $Y$ for city $i$ in their regression.\footnote{There may be several SAMIs that enter multiplicatively if data permits. As is usual in this literature, the log of Equation~\ref{eqn-lobo} lets them use  linear regression.}  They work backward from this expression to a Cobb-Douglas production function that depends only on labour and capital inputs.\footnote{In Chapter~\ref{chapter-growth} we show how the neoclassical growth theorists, in effect, worked forward from the Cobb-Douglas production function to an expression equivalent to the result from the scale literature.} They conclude that any  variables used to explain the residuals in estimates  of $\beta$ for cities must be expressed in terms of their  contribution to  the wage and capital shares of income or to  the magnitude of wage and capital inputs. 
 
  
@@ -274,7 +274,7 @@ Bivens, reporting on the USA, argues that inequality is reducing growth by reduc
 \section{The state of the art}
 In a discussion of the  future of the new economic geography, Fujita and Krugman suggested that there are three important directions for future work: enlarging the theoretical menu, buttressing the approach with empirical work, and addressing the welfare and policy implications of the whole approach. Much the same could be said for our project. We have extended the treatment of rent in urban modes and begun to the impact of financialization on urban distribution and growth. In this chapter, we have begun the process of identifying the channels through which  that impact is likely to occur. This is a crucial step toward  addressing the welfare and policy implications of financialization in the urban housing market.
  
-Buttressing our approach with empirical work remains. Urban productivity can only evolve very slowly, so Equation~\ref{equation-the-fact} is clearly a long-term relationship. Cross-sectional studies to date are simply not yet able to identify the long-term effects of all of  the variables that might explain the varied results for  $\beta$. Empirical tests will wait on the development of extended time series on urban output.
+Buttressing our approach with empirical work remains. Urban productivity can only evolve very slowly, so Equation~\ref{eqn-population-output} is clearly a long-term relationship. Cross-sectional studies to date are simply not yet able to identify the long-term effects of all of  the variables that might explain the varied results for  $\beta$. Empirical tests will wait on the development of extended time series on urban output.
 Studies that link city size to a variety of variables, such as patent production, total factor productivity, skill mix, industry growth, and industry diversity have made considerable progress in exploring individual factors. Theoretical models that make $\beta$ depend on directly policy variables of interest are in their infancy. There are to date  none that tell us what the effects of the increasing financialisation of the urban housing market are likely to be.  
  
 
@@ -312,7 +312,7 @@ Studies that link city size to a variety of variables, such as patent production
 
 % MOVE?  YES
 
-%  Notice that this formulation implies it is possible to have increasing returns to scale for the urban economy even with a production function at the firm level with decreasing returns to scale: the return to the total economy $\alpha + \beta(1 + \gamma)$ can be greater than one, even if $\alpha +\beta$ is less than one. %.\label{Fn:PSI}}  (CITE Appendix: Excess Returns)
+%  Notice that this formulation implies it is possible to have increasing returns to scale for the urban economy even with a production function at the firm level with decreasing returns to scale: the return to the total economy $\alpha + \beta(1 + \gamma)$ can be greater than one, even if $\alpha +\beta$ is less than one. %. \label{Fn-PSI}}  (CITE Appendix: Excess Returns)
  
 % The \gls{agglomeration effect} means that although individual firm returns to scale are declining, the city can experience \gls{increasing returns to scale} in the utilization of human capital. % NEED? Individual firms have decreasing returns, but the presence of agglomeration economies external to firms but internal to the city gives the urban economy as a whole increasing returns to scale .}.
 %\footnote{The formulation is consistent with the discussion of endogenous growth theory in Chapter~\ref{chapter-growth}, which demonstrated that increasing returns at the macro level is consistent with decreasing returns at the micro level. The effects are not limited to the individual firm. \Gls{spillover effects} can be large, see Section~\ref{section-spillover}. }

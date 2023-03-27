@@ -10,7 +10,7 @@ to ensure that we have designed the model to  accommodate a range of extensions 
 
 
 
-Figure~\ref{figure-logic-extensions} illustrates  four general of extensions. The first is to move form a static population to a model with population pressure. This appears on the left as group of three new subroutines with connections to the elements of the model most directly affected. Some links are left out to keep the figure. readable. For example population affects labour supply and savings  
+Figure~\ref{fig-logic-extensions} illustrates  four general of extensions. The first is to move form a static population to a model with population pressure. This appears on the left as group of three new subroutines with connections to the elements of the model most directly affected. Some links are left out to keep the figure. readable. For example population affects labour supply and savings  
 
 
 A second extension would introduce a housing production sector. This appears on the right side of of the figure linked to the banking sector. It requires adding a dynamic housing  stock. 
@@ -24,7 +24,8 @@ A third major class of extensions, separable from production is to introduce var
 \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
 \centering
 \includegraphics[scale=.35]{fig/extensions.png}
-\caption{Extensions}\label{figure-logic-extensions}
+\caption{Extensions}
+\label{fig-logic-extensions}
 %\pagestyle{headings}
 % \usetikzlibrary{positioning}
 %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
@@ -35,7 +36,7 @@ A third major class of extensions, separable from production is to introduce var
 
 At the bottom of the figure we introduce consumer demand linked to the population structure and feeding back to growth. Savings behaviour becomes more  complex when consumer demand is made endogenous and with as more complex population structure.
 
-The fifth block of extensions illustrated in Figure~\ref{figure-logic-extensions} would replace the simple, scaling-based transmission mechanism in the Alonzo-Jacobs cycle with explicit firm and labour market behaviour. This class of extensions is obviously liked to population structure. It leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour.
+The fifth block of extensions illustrated in Figure~\ref{fig-logic-extensions} would replace the simple, scaling-based transmission mechanism in the Alonzo-Jacobs cycle with explicit firm and labour market behaviour. This class of extensions is obviously liked to population structure. It leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour.
 
 Linked to the labour market and production system is the possibility of introducing competing cities. 
 
@@ -137,13 +138,13 @@ The transmission of productivity increases arising from agglomeration effects  t
 
 %\node at (5,-1.5){Resulting in  profits, expansion, and/or entry: the city grows};
  \end{tikzpicture}
-  \caption{Multiple marginal products}
-    \label{fig-Marginal-products}
+\caption{Multiple marginal products.}
+\label{fig-marginal-products}
 \end{figure}
 
 
 
-Figure~\ref{fig-Marginal-products} illustrates the problem. We can  make a distinction between the myopic marginal productivity curve observed by at the shop floor level and  the firm-wide effect of adding a worker. The red curve labeled ``Myopic'' represents the declining direct marginal productivity of labour as in might be observed by a shop manager, who could report how much more output one with one worker one lathe would produce. The blue line above it labeled ``Firm-wide'' represents the actual effect on firm productivity that arises because the new worker makes other workers in the firm more productive. This addition to output would be observable for managers reviewing the firm's performance over time. ' 
+Figure~\ref{fig-marginal-products} illustrates the problem. We can  make a distinction between the myopic marginal productivity curve observed by at the shop floor level and  the firm-wide effect of adding a worker. The red curve labeled ``Myopic'' represents the declining direct marginal productivity of labour as in might be observed by a shop manager, who could report how much more output one with one worker one lathe would produce. The blue line above it labeled ``Firm-wide'' represents the actual effect on firm productivity that arises because the new worker makes other workers in the firm more productive. This addition to output would be observable for managers reviewing the firm's performance over time. ' 
 
 We can go on to consider the slower and distributed effect on closely related firms, which would raise any estimate of marginal product.  If there are 10 other firms and a new worker  has a small spillover effect  $\epsilon$ on each,  the spillovers raise the industry  marginal product  by $10\epsilon$. Each of the  10 other firms  enjoys  an additional $10\epsilon$ gain in the marginal product of their workers. This should lead to additional hiring by other firms.
 
@@ -388,11 +389,11 @@ Without agglomeration effects, $\Lambda(n)=1$,  Then  \textbf{$\mathbf{L(n) = T(
 \subsection{Returns to scale and firm under-investment}
 Each firm has \gls{decreasing returns to scale}, which means each new worker increases output by less than the previous worker did.
 RETURNS TO FIRM CAN BE DECLINING WHILE RETURNS TO CITY INCREASING, THEN FIRM UNDER INVESTS
-explore this in the model, see Equation~\ref{Eqn:Prod1}.
+explore this in the model, see Equation~\ref{eqn-prod1}.
 
 \begin{equation}
 Y=K_i^{\alpha }(\Lambda(n)n_i)^{\beta }.
-% \label{Eqn:Prod1}
+% \label{eqn-prod1}
 \end{equation}
 
 MOVE DISCUSSION HERE FOR NOW
@@ -482,7 +483,7 @@ these are averages-- some are structurally below average so some are always behi
 
 
 
-\subsection{Hiring process and unemployment} \label{rockefeller}
+\subsection{Hiring process and unemployment} \label{section-rockefeller}
  In our model, non-urban landowners are those who live too far from the urban job center to justify commuting.  Agents join the urban market by adding their names to the firm's list of job applicants when the rent on the marginal unit of land exceeds the transportation cost. 
 
 adjustment speeds..
@@ -492,7 +493,7 @@ i(did extended modelling in the Rockefeller social innovation lab)- barriers of 
 Could explore that kind of structure in this model
 
 \subsection{Demographics}
-Could build a population model suited to particualr data sets %\ref{rockefeller}
+Could build a population model suited to particualr data sets %\ref{section-rockefeller}
 
 \subsection{Skills and individual productivity}
 The basic model consideres a non-differentiated workforce. We can add particular skills.

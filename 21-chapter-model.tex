@@ -42,7 +42,7 @@ in order to examine the impact of financialization of the housing market on urba
 \vspace{-1.5cm}
 \begin{figure}
 \vspace{-1cm}
-\caption{Model logic }\label{figure-logic}
+\caption{Model logic }\label{fig-logic}
 \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
     \centering
     \includegraphics[scale=.75]{fig/flow_full_model.png}
@@ -59,19 +59,20 @@ in order to examine the impact of financialization of the housing market on urba
 
 \item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and  instead to deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
-\item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of  individual decisions. In Section~\ref{section-micro}, therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
+\item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of  individual decisions. % In Section~\ref{section-micro},
+We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
 To recapitulate, we have a spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system.
 
-Figure~\ref{figure-logic} shows the model flow/logic. 
+Figure~\ref{fig-logic} shows the model flow/logic. 
 The following three sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order. (CHECK ORDER IN INTRO), Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
 \section{Spatial structure}
 
 % In this section, we introduce the basic structure of the model, drawing on the circular city model.  
 %  we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
-% % In subsequent sections  .. (Derivation details in Section~\ref{Sec:Derivations})
+% % In subsequent sections  .. (Derivation details in Section~\ref{section-derivations})
 % We build a spatially explicit agent model where agents work in one location and incur costs travelling to work. This work integrates a model of production and labour into a standard spatial model of the city. In this section, we introduce an analytic model of production and a labour market in a stylized circular city. 
 
 % \subsection{Labour supply for production}
@@ -116,7 +117,7 @@ To attract workers to live in the city and commute to the central business distr
 % \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
 %     \centering
 %     \includegraphics[scale=.75]{fig/flow_full_model.png}
-%     \label{Stylized model flow.}
+%     \label{fig-stylized-model-flow.}
 % \caption{Model logic TODO: CAN WE SUPPRESS THE CHAPTER TITLE/PAGE NUMBER, AT TOP OF PAGE, SO THERE IS NOT A LINE ABOVE? add }%\pagestyle{headings}
 % % \usetikzlibrary{positioning}
 % %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
@@ -176,7 +177,7 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 % In the \gls{Solow-Swan model}:
 % \begin{equation} 
 % Y(t) = K(t)^{\alpha}(A(t)L(t))^{\beta}
-% \label{Eqn:Solow-Swann}
+% \label{eqn-solow-swann}
 % \end{equation}
 % where $Y$, $K$ and $L$ are aggregate output, capital, and labour, respectively,  $A$ is the term the Solow-Swan model introduced for technology. The technology term capture the growth of labour productivity over time, $\alpha$ is the \gls{elasticity} of output with respect to capital, $\beta$ the elasticity of \gls{output} with respect to \gls{effective labour}, and $t$ time. If $\beta=1-\alpha$, this is a constant returns to scale \gls{CRS} production function at the firm level.
 % In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:  $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
@@ -186,7 +187,7 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 
 \begin{equation}
 Y=A(N)K^{\alpha }(A(N)N)^\beta.
-\label{Eqn:Prod1}
+\label{eqn-prod1}
 \end{equation}
 where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. $A(N)$ incorporates Jacob-style agglomeration externalities. $A(N)N$ is \gls{effective labour} \footnote{The function  was discussed in Chapter~\ref{chapter-growth}}. 
 
@@ -255,7 +256,7 @@ that affect their desirability. %the buildings have a particular size and charac
 % Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
  % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
 
-%\subsection{The microeconomics of  financialization}\label{section-micro}
+%\subsection{The microeconomics of  financialization} \label{section-micro}
 
 Financialization happens at this microeconomic level, where individual decisions are made and  real assets are bought by individuals and institutions. Individual home-buyers are buying a stream of housing services and possible capital gains. Institutional buyers are buying a stream of net rents plus speculative gains. Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ.
 
@@ -267,7 +268,7 @@ To model the investment decision  we therefore need to calculate the \gls{rate o
 The model must  allow for bidding and speculative investment but also must reflect the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we, therefore, need to define  the relevant variables, and make some distinctions among different notions  of rent and price %, including a variety of prices perceived prices  bid price3s
 \subsection {Variables}
 
-\subsubsection{Rent} \label{sec-Rent}
+\subsubsection{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
 is also what makes this a ``\gls{classical}'' model. 
 
@@ -297,14 +298,14 @@ In the model, agents learn or set these values with the support of a real estate
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 
-\subsubsection{Economic rent}\label{sssec-economic-rent}
+\subsubsection{Economic rent} \label{section-economic-rent}
 The economic rent is the value of the locational services, 
 This is a surplus that arise from agglomeration economies that make being close to the city core valuable. \Gls{locational services} are represented as %, on an annual basis, 
 the wage premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location:
 \[\omega- {dc}.\]
 
 
-\subsubsection{Warranted rent}\label{sssec-waranted-rent}
+\subsubsection{Warranted rent} \label{section-waranted-rent}
 
 %Just as there is a warranted price, there  is 
 The economically \gls{warranted rent}, $\mathcal{R}_W$, is the value of all  the services a property offers. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent} 
@@ -322,12 +323,12 @@ In each period a house offers two kinds of services: {locational services} or  a
  We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. 
 
  
-\subsubsection{Market rent}\label{Market-Rent}
+\subsubsection{Market rent} \label{section-market-rent}
 The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.  %\gls{warranted rent} is paid as the \gls{market rent}
 \[\mathcal{R}_M = \mathcal{R}_W.\] 
 
 
-\subsubsection{Net rent}\label{Net-Rent}
+\subsubsection{Net rent} \label{section-net-rent}
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would receive, not the total warranted rent, but the net rent after expenses,
 
 \begin{align}
@@ -364,7 +365,7 @@ so we can write
 \mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
 \end{align}
 
-\subsubsection{Warranted price}\label{sssec-warranted-price}
+\subsubsection{Warranted price} \label{section-warranted-price}
 
 We will call the economically justified price, given the urban productivity premium, the \gls{warranted price}, 
 The \gls{warranted price} of a house is the present discounted value of the flow of service net of costs: $P_W$. This is the present discounted value of the warranted rents.
@@ -384,9 +385,9 @@ We will assume that the market price can be approximated by the present discount
 
 The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.
 
-\subsubsection{Market price and expected price}\label{sssec-market-price}
+\subsubsection{Market price and expected price} \label{section-market-price}
 
-The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an  \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since  agents do not have perfect information, the expected value  is calculated with their best approximation of values.} 
+The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since  agents do not have perfect information, the expected value  is calculated with their best approximation of values.} 
  \footnote{Case and Shiller point out ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.} 
 
 %$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
@@ -400,7 +401,7 @@ Instead of modelling the rental price formation process explicitly, we abstract 
 The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value which is part of  the core conceptual contribution of this work. 
 
 
-% \subsection{Price forecast approximation} \label{SS:PriceForecast}
+% \subsection{Price forecast approximation} \label{section-price-forecast}
 % $L(p)$
 
 % $p$ is all the price data plus any exogenous information (e.g. policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
@@ -470,7 +471,7 @@ In the computational agent-based  model, the assumption gives a natural way to i
 
 % \begin{align*}
 % V &= \delta \left(P_T - (1+r)M\right) +      \mathcal{R}^w_N  \tag{B6} \\
-%   &= \delta \left((1+\dot P)    - (1+r)m    \right) P_B + \mathcal{R}^w_N%\label{eqn-property-investment-value1}
+%   &= \delta \left((1+\dot P)    - (1+r)m    \right) P_B + \mathcal{R}^w_N% \label{eqn-property-investment-value1}
 % \end{align*}
 % Similarly, Equation B7 becomes
 
@@ -538,11 +539,11 @@ The rate of return on the investment must exceed some required rate of return. T
  receives the increased price $P_T = (1 + \dot P)P_0$,  after a period $T$, Where $\dot P$ is the expected rate of price increase. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
 \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
-\subsection{Prime interest rate}\label{SS:BankRate}
+\subsection{Prime interest rate}\label{section-bank-rate}
 
 The bank's interest rate, $r$, is just the bank rate (prime rate? set by the Bank of Canada. Exogenous. Just assign  a value like 4\%.
 
-\subsection{Wealth constraint on m} \label{SS:WealthConstraint}
+\subsection{Wealth constraint on m} \label{section-wealth-constraint}
 
 According to the Canada Housing Statistics Program (CHSP), first-time home buyers require a combination of sufficient income and savings in order to enter the housing market. (insert tables? from the CHSP?) We have implemented these facts by making interest rates and mortgage share depend on income and wealth.
 We can define individual wealth as:
@@ -557,7 +558,7 @@ $S_i$ & personal savings = $age*d*W$\\
 
 The availability of capital differs for rich and poor. 
 
-The borrowing ratikon, $m$ is the fraction of a propewerty 's pricxe that can be mortgaged.: $m=M/p_M$. We can develop an expression to capture the relationship between the \gls{borrowing ratio}, $m_i$,  and individual wealth. Figure~\ref{Fig:Borrowingratio} illustrates a plausible mortgage availability  model that is written:
+The borrowing ratikon, $m$ is the fraction of a propewerty 's pricxe that can be mortgaged.: $m=M/p_M$. We can develop an expression to capture the relationship between the \gls{borrowing ratio}, $m_i$,  and individual wealth. Figure~\ref{fig-borrowing-ratio} illustrates a plausible mortgage availability  model that is written:
 
  \[ m_i = 9-\left(\frac{W_i}{\bar W}\right)^{0.1} \]
 
@@ -590,13 +591,13 @@ The relationship is clearly established empirically \cite{}, but location and sh
 \draw[func,domain=0:\W] plot [samples=200] (\x,(9-\x^.5/2);
  \end{tikzpicture}
 \caption{Individual borrowing ratio $m_i$ as a function of wealth (in tenths)}
- \label{Fig:Borrowingratio}
+ \label{fig-borrowing-ratio}
 \end{figure}
 
 
-\subsubsection{Individualized borrowing rates}\label{SS:BorowingRate}
+\subsubsection{Individualized borrowing rates} \label{section-borowing-rate}
 
- The cost of capital is known to differ for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{Fig:CapitalCost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
+ The cost of capital is known to differ for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
  
 
  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
@@ -611,17 +612,17 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The medi
 \begin{center}
 \input{fig/price_of_capital.tex}% Figure of cost of borrowing
 \caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
-\label{Fig:CapitalCost}
+\label{fig-capital-cost}
 \end{center}
 \end{figure}
-%The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{Fig:Borrowingrate1} % and ref{Fig:Borrowingrate1} 
+%The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
 %illustratea a  possible  cost-of-borrowing models 
 
 % \begin{align}
-%  r_i =  &  \left(A + B \frac{\bar{W}}{W_i}\right) \bar r       \label{eq:incomeandr1}  \\
-%  r_i =  &  \left(\bar r - A + B *\frac{\bar W}{W_i - C}\right) \label{eq:incomeandr2}  \\
+%  r_i =  &  \left(A + B \frac{\bar{W}}{W_i}\right) \bar r       \label{eqn-incomeandr1}  \\
+%  r_i =  &  \left(\bar r - A + B *\frac{\bar W}{W_i - C}\right) \label{eqn-incomeandr2}  \\
 % \end{align}
-% Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eq:incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
+% Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eqn-incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
 
 
 % \begin{figure}
@@ -659,7 +660,7 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The medi
 % % KEY
 % \end{tikzpicture}
 % \caption{Individual borrowing cost as a function of wealth}
-% \label{Fig:Borrowingrate1}
+% \label{fig-borrowingrate1}
 % \end{figure}
 
 
@@ -691,14 +692,14 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The medi
 
 %  \end{tikzpicture}
 % \caption{Individual borrowing cost as a function of wealth II}
-% \label{Fig:Borrowingrate2}
+% \label{fig-borrowingrate2}
 % \end{figure}
 
 % The rates $\delta,\ \sigma,$ and $r$ depend on the period, $T$. 
 
 
  
-\subsubsection{Mortgage availability}\label{sssec-mortgage-availability}
+\subsubsection{Mortgage availability} \label{section-mortgage-availability}
 The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy.
 
 Many personal finance experts recommend total housing costs account for less than 28\% of \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of \[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
@@ -711,14 +712,14 @@ We also have  a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] whe
 
 
 % \subsection{The cost of capital}
-% The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{Fig:BorrowingCost} illustrates the cost of the borrowing model we implement, 
+% The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-borrowing-cost} illustrates the cost of the borrowing model we implement, 
 %  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
 % Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
 % \begin{figure}[!hb]
 % \begin{center}
 % \input{fig/price_of_capital.tex}% Figure of cost of borrowing
 % \caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
-% \label{Fig:CapitalCost}
+% \label{fig-capital-cost}
 % \end{center}
 % \end{figure}
 If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
@@ -781,7 +782,7 @@ r^{target}\le r^{return}
 % We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
 % 
 % \begin{eqnarray}
-% Rate\ of\ return\ on\ capital\ invested = \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B}\label{equation-RoR}
+% Rate\ of\ return\ on\ capital\ invested = \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B} \label{eqn-return-on-investment}
 % \end{eqnarray}
 % where 
 % 
@@ -792,7 +793,7 @@ r^{target}\le r^{return}
 % $m$             &=&  fraction of the price that can be mortgaged \\
 % $\mathcal{R}_N$ &=&  net  market rent
 % \end{tabular}
-% Equation~\ref{equation-RoR} makes it clear that the estimated rate of return depends on subjective magnitudes,$\delta$ and $\dot P_M^e$, attributes of the property, $ \mathcal{R}_N$, and  individual financial position, $r$, $m$.
+% Equation~\ref{eqn-return-on-investment} makes it clear that the estimated rate of return depends on subjective magnitudes,$\delta$ and $\dot P_M^e$, attributes of the property, $ \mathcal{R}_N$, and  individual financial position, $r$, $m$.
 % 
 % The individual's Rate of return on capital  invested  for each project  is compared to the investor's target rate, $r_{target}$, providing  an investment criterion:
 % \begin{eqnarray}
@@ -804,7 +805,7 @@ r^{target}\le r^{return}
 The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
 
 \begin{eqnarray}
-P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{equation-Bidprice}\end{eqnarray}
+P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
 % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
 We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.
 
@@ -812,7 +813,7 @@ Buyers will not initially bid the maximum and sellers will generally set an aski
 
 
 
-\subsubsection{Reservation price}\label{sssec-reservation-price}
+\subsubsection{Reservation price} \label{section-reservation-price}
 
 We will assume,  that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} \footnote{Worker-owners remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.} 
 \footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
@@ -828,7 +829,7 @@ Once an owner reached retirement age, if no sale is made the reservation price i
 If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
 
-\section{The bargaining model}\label{sec-bargaining}
+\section{The bargaining model} \label{section-bargaining}
 The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
 
 We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
@@ -973,8 +974,8 @@ If there  are competing buyers, the second highest max bid should be the sale pr
 % %++++++++++++++++
 
 % \begin{align}  
-%   v  & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}\\
-%   & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m}\label{eq:RULE}
+%   v  & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m} \\
+%   & =  \frac{\delta ((1+\dot P)  - (1+r)m)\  + \psi r}{1-m} \label{eqn-rule}
 % \end{align}
 
 % \begin{eqnarray}
@@ -1012,11 +1013,11 @@ If there  are competing buyers, the second highest max bid should be the sale pr
 
 % \begin{eqnarray}%. OLD VERSION: WRONG
 % %r^{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
-%    P_{max_bid} &=&\frac{r^{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} %\label{EqBidPrice2} 
+%    P_{max_bid} &=&\frac{r^{target} - \mathcal{R}_N}{\delta\left((1+L(p)) - (1+r)m \right)} %\label{eqn-bid-price2} 
 % \end{eqnarray}
 
 % \section{Finding bid price}
-% We start with Equation~\ref{B2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
+% We start with Equation~\ref{eqn-b2}. for convenience, replace $\rho -\kappa - \sigma $ with $\mathcal{R}_N$ (net Rent). 
 
 % Replace $P^T$ with $(1+\dot P)P_B$ assuming that the bidder is bidding the equilibrium market price for the period.
 
@@ -1033,7 +1034,7 @@ If there  are competing buyers, the second highest max bid should be the sale pr
 % {\color{red}
 % \begin{eqnarray}
 % r^{target}&=& \delta\left( (1+L(p)) - (1+r)m \right) P^{max}_{bid} + \mathcal{R}_N  \nonumber\\
-%    P^{max}_{bid} &=&\frac{r^{target}-\mathcal{R}_N}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{EqBidPrice} 
+%    P^{max}_{bid} &=&\frac{r^{target}-\mathcal{R}_N}{\delta\left( (1+L(p)) - (1+r)m \right)} \label{eqn-bid-price} 
 % \end{eqnarray}}
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
@@ -1102,13 +1103,13 @@ If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or grow
 % % \subsubsection{Cost of capital $r_i$}
 % % The cost of capital is known to differ for rich and poor. Say for example, the cost of borrowing, $r_i$ for agent $i$ if the base lending rate is $\bar{r}$
 % %  \[ r_i = (A + B \frac{\bar{W}}{W_i})\bar r\]
-% % where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{Fig:BorrowingCost} illustrates the effect.
+% % where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. %Figure~\ref{fig-borrowing-cost} illustrates the effect.
 
 % % % \begin{figure}[htb]
 % % % \begin{center}
 % % % \input{fig/model-price-of-capital.tex}
 % % % \caption{Hypothetical wealth-dependent borrowing cost}
-% % % \label{Fig:BorrowingCost2}
+% % % \label{fig-borrowing-cost2}
 % % % \end{center}
 % % % \end{figure}%
 
@@ -1160,5 +1161,5 @@ If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or grow
 % \begin{eqnarray}
 % \frac{V}{D}&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{D}   \nonumber\\
 % 		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
-% 		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{Eqn:DecisionRule}
+% 		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{eqn-decision-rule}
 % \end{eqnarray}
