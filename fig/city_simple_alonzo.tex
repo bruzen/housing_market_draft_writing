@@ -1,6 +1,5 @@
 
 % Simple Alonzo model
-
 %%%%%%%%%%%%%%%%%%%%%%%% PARTITIONING THE LABOUR SHARE
 \begin{tikzpicture}[scale=.65]
 \def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
@@ -17,15 +16,15 @@
 
 % FIRST FIGURE just axes PARTITIONING THE LABOUR SHARE
 \draw [thick] (0,-\om) --(\d,-\om);  			% Zero for rural population
-\draw [thick] (0,-\om) --(0,\n)node[above]{\Huge $w$};	% Y axis
+\draw [thick] (0,-\om) --(0,\n); %node[above]{\Huge $w$};	% Y axis
 %\node at (0,\n+0.5){\large $Rent$};
 
-\draw [thick] (0,0)node[left=.5]{ subsistance}--(\d,0);
+% \draw [thick] (0,0)node[left=.5]{Subsistence}--(\d,0);
 %\node at(-2,1) {$\omega$};
 \node[left=.25] at (0,3.3){\huge $\omega$};
-\node[left=.25] at (0,-0.9){\huge $\phi$};
+\node[left=.25] at (0,-0.9){\huge $\psi$};
 %\node[left=.25] at (0,3){$w+\omega$};
-\node[left=.25] at (0,\w+.3){subsistence plus};
+\node[left=.25] at (0,\w+.3){Subsistence plus};
 \node[left=.25] at (0,\w-.4){wage premium};	
 
 %\foreach \xi in {0,..., \n} \draw (\xi,0)--(\xi,-.1)node[below=1]{\small$\xi$};
@@ -65,12 +64,12 @@
 \draw[fill=black!40] (0,-\om) rectangle (9.30,\w);% new product repeat
 \draw[func, domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x}); %rent profile
 \fill[blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
-\node at (4.5,-\om/2){\Large ``subsistance''};
+\node at (4.5,-\om/2){\Large Subsistance};
 \draw[fill=yellow,] (0.,0.) -- (0,7)--(9.30,0.)--cycle;% Rent \w-.2
 \node at (3.,2){\Large Rent}; 		%Rent 
 \node at (5.8,5.7)[white]{\Large Transportation};
 \node at (6.3,4.8)[white]{\Large expenditure};
-\node at (9.3,-1.5)[below]{ $d^*$};
-\node at (4.8,\w)[above]{\huge $d^*$};
+\node at (9.3,-1.5)[below]{\Large  $d^*$};
+% \node at (4.8,\w)[above]{\huge $d^*$};
  \end{tikzpicture}
  
