@@ -1,5 +1,148 @@
 \chapter{TODO}
-“
+
+The model with begins a simple observation - that people are more productive in cities. This is an observation that was explored by Sir William Arthur Lewis (1915 -- 1991)  \emph{Economic Development with Unlimited Supplies of Labour} described a model 
+\cite{Lewis1954EconomicDW}. Lewis received the Nobel Prize in Economics in 1979, (sharing it with Theodore Schultz) for  ``pioneering research into economic development research with particular consideration of the problems of developing countries." The observation implies that labour will move from the countryside to cities.  Graphically we could present the situation that Lewis analyzed as follows
+
+
+\begin{tikzpicture}[scale=.5]
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% definitions for schematic
+\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
+\def\bndmin{0.2}
+\def \n {10}  % height of y axis
+\def \d {12}  % length  of x axis
+\def \t {.75}  %  cost of transportation per unit x
+\def \th {1}   % theta?
+\def \w {7}    %  wage premium
+\def \om{1.5}%  omega =rural wage Zero for urban population
+\def \azero{2}
+\def \aprime {-.0}	
+\tikzset{func/.style={thick,color=blue!90}}	
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% definitions for Cone3
+%\node at (0, 2.5){\input{SA_Cone3.tex}};
+     \pgfmathsetmacro{\radiush}{9.7};%Cone base radius was 9.6
+        \pgfmathsetmacro{\theight}{7.1}%Cone height (negative if you want a inverse cone)
+        \pgfmathsetmacro{\cheightp}{.03}%Cut height in percent of cone height
+
+        %Calculating coordinates
+        \coordinate (center) at (0,0);
+        \pgfmathsetmacro{\radiusv}{.2 * \radiush}; %HORIZONTAL RADIUS
+        \coordinate (peak) at ($(center) + (0,\theight)$);     
+        \pgfmathsetmacro{\sradiush}{\radiush * (1 - \cheightp)};%ADJUST FOR COVERAGE AT CORNERS
+        \pgfmathsetmacro{\sradiusv}{.2 * \sradiush};
+   %     \pgfmathsetmacro{\sradiusv} {\sradiusv -.1 };
+
+\coordinate (antipeak) at ($(center) + (0,-\theight)$);  %thanks  %I added this
+\coordinate (vert1) at ($(center)+(\radiush,-.2)$);
+\coordinate (vert2) at ($(center)-(\radiush,.2)$);
+%problem
+   
+\coordinate (svert1) at ($(vert1)!\cheightp!(peak) +(0.1,.75)$);
+\coordinate (svert2) at ($(vert2)!\cheightp!(peak)+(.5,.75)$);  
+    % \coordinate (svert3) at ($svert1+(0,\w)$);
+    % \coordinate (svert4) at ($vert2)+(0,\w)$);  
+    %  \coordinate (svert3) at ($svert1+(0,7)$ );  % Shifting up by W
+    % \coordinate (svert4) at ($svert2 + (0,\w)$0;
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+ 
+%\draw[step=.5,black,thin] (-9.6,0) grid (9.6,7);
+ 
+% % Cone Drawing    
+%  \fill[ left color=red!70, right color=red!70,  opacity=20,middle color=red!20,shading=axis] (svert1) -- (peak) -- (svert2) arc (170:370:\sradiush cm and \sradiusv cm);
+
+%     % FAT GREEN BAR
+%  \draw [fill=green,opacity=80] (-.2, 0) rectangle(.2, \w);
+%  \node[above] at (0,\w){$\omega$};
+ 
+%Uncomment this for top of cylinder
+      \fill[inner color=gray!5,outer color=gray!50,shading=radial,opacity=.5] ($(center) + (.35,\theight)$ ) circle (9.4 cm and 1.55 cm );
+      
+        \draw [thick]($(svert1) +(.3,-.3)$)-- ++ (90:\w-.2);
+        \draw [thick]($(svert2)-(.2,.3)$)-- ++ (90:\w-.2);
+        %Lines, \h in percent of cone height
+ def \sradiusv2 \sradiusv cm -.1 cm)
+% Cylinder drawing
+  \fill[ left color=black!50, right color=red!20,  middle color=red!20,shading=axis,opacity=.2]  (-9.05,.5) 
+  arc (180:360:\sradiush cm and \sradiusv cm)-- ++(90:\w-.2) 
+  arc (360:180:\sradiush cm and \sradiusv2 cm -.1 cm)--(-9.05,.5);  
+
+   \node[above] at (0,\w){\Large $\omega$};
+% TRY TO Make a cylinder
+%\draw ($svert2 + (0,\theight)$) [arc (180:360:\sradiush cm and \sradiusv cm)]; 
+%     \fill[left color=gray!70,right color=gray!70,middle color=gray!30,shading=axis] (vert1) -- (svert1) arc (0:-180:\sradiush cm and \sradiusv cm) -- (vert2) arc (180:360:\radiush cm and \radiusv cm);
+
+% DASHED LINE AT BACK OF CONE
+\foreach \h in {0.03}{   %.38,.34,.30, .7
+            \pgfmathsetmacro{\rh}{-\radiush * (1 - \h)}
+            \pgfmathsetmacro{\rv}{.2 * \rh}
+            \draw[black!70,densely dashed] ($(svert2)!\h!(peak)-(.3,.9)$) arc (370:170:\rh cm and \rv cm);%$(vert2)!\h!(peak)$)
+        }
+  %      \draw[opacity=.90, line width=.05cm, green] (0,0)--(0,{\theight - .05});
+%     \foreach \h in {0, .38,.34,.30, .7}{
+%            \pgfmathsetmacro{\rh}{\radiush * (1 - \h)} %            \pgfmathsetmacro{\rv}{.2 * \rh}
+%            \draw[black!70,densely dashed] ($(antipeak)!\h!(vert2)$) arc (180:360:\rh cm and \rv cm);
+%   }
+%  \draw[red] (antipeak) arc (30:60:3);
+%  \draw[dashed, thick] arc (0:-180:\sradiush cm and \sradiusv cm) -- (vert2) arc (180:360:\radiush cm and \radiusv cm);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %\foreach \xi in {0,..., \n} \draw (\xi,0)--(\xi,-.1)node[below=1]{\small$\xi$};
+% %\foreach \yi in {1,...,\n} \draw (0,\yi)--(-.1,\yi)node[left]{$\yi$};
+% %\foreach \i in {1,4,9,16} {
+% %\node at (7,-\om/2){people scattered uniformly across the land  };
+
+% %SECOND FIGURE WITH AGGLOMERATION WAGE
+% %  add urban production and net wage
+% %\draw[fill=white, white] (0.1,-0.1) rectangle (14,-\om+.1);
+
+% \node[right, text width=4cm] at  (3, \w+1){Added Productivity due to agglomeration};
+% %\node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+ \draw [ thick, ->](0,0)--(2.5, 0)node [right] {\Large $d$};
+
+
+% \draw[thick] (0,0) -- ++ (50:2.6cm);  %   diagonal for perspective
+% \draw[thick] (0,0) -- ++ (230:2.35cm); 
+
+% %  THIRD FIGURE  add RENT profile in blue
+
+% %\node[right, white, fill=white,  text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
+% \draw[func, domain=0:\w/\t+1,ultra thick] plot [samples=200] (\x,{\w-\t*\x}); %Net wageprofile  for 
+% %\node[right, white, fill=white] at  (.25, \w/2){Added Productivity};
+% %\node[right, fill=white, text width =3.5cm ] at  (1, \w/2){Declining wage  net \\of transportation\\ costs $T(d)$ };
+% %\node[right, fill=white, text width =3.5cm ] at  (4,9){Declining wage  net \\of transportation\\ costs  };
+% %
+% %\node at (0, 1.5){\includegraphics{\input{SA_Cone3.tex}} };
+% %\node at (0, 2.5){\input{SA_Cone3.tex}};
+
+% %   FOURTH FIGURE     commuters
+% %\pause
+% %\draw[fill=blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+% \node at (4.5,.4*\om){commuters};
+
+
+\end{tikzpicture}
+
+
+
+
+This essay  is written in the classical tradition, making the classical assumption, and asking the classical question. The classics, from Smith to Marx,  all  assumed,  or argued, that an unlimited supply of labour was available at subsistence wages. They then enquired how production grows through time. They found the answer in capital accumulation, which they explained in terms of their analysis of the distribution of income. Classical systems thus determined simultaneously   income distribution and income growth, with the relative prices of commodities as a  minor bye-product.
+
+The purpose of this essay is thus to see what  can be made of the classical  framework  in  solving  problems of distribution, accumulation, and growth, first in a closed and then in an open economy. 
+
+
+
+
+
+According to  Lewis Cecil Gray, Rent Under the Assumption of Exhaustibility \cite{Gray1914RentUT}
+``Ricardo modified the economic concept of land as the source of a rent payment, and introduced the assumption that rent is a payment for " the indestructible qualities of the soil.''
+
+ In this sense the basis of rent may be indestructible. The clearest illustration is urban land.
+``The entire return attributable to land is a surplus which accrues so long as the conditions of demand and supply remain unchanged.''
+
 ‘all-hands-on-deck’
 let’s
 
