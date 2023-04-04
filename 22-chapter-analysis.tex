@@ -6,7 +6,6 @@ In the base model, we only allow the radius of the city to change, and not the d
 % model rules, and individual 
 %and the job search process. 
 % In practice, many other factors impinge on these choices. %additional decision factors, agents, driving variable, and \gls{stochastic} elements enter the model. 
----
 
 
 \section{Class}
@@ -266,8 +265,7 @@ Resilience is a concept that has to with the way in which a system resists distu
 There are a class of systems that this idea of resilience should be applicable or illuminating for, however the concepts and measures that exist already are ill-suited to the dynamics of the system. 
 The work in this thesis draws from the measures from existing measures and concepts of resilience from various discipline to evolve a measure that can apply to this other class of systems. 
 
-Shaping this c
-ore broadly applicable concept that 
+Shaping this core broadly applicable concept that 
 We can approach change in various systems using technical tools that are transferable. 
 The concept 
 
@@ -398,7 +396,7 @@ Series of interrelationships between individuals and groups and institutions for
 
 (TODO: introduce the idea of class in the resilience section, and link it to the resilience of the wealth trajectories.)  
 reversibility/hysteresis, and how class is treated in the literature.
-Three spatially segregated ``\glspl{class}.'' Capitalists live in some spaceless utopia,  Urban workers who commute and earn wages in the urban commuter-shed, and  rural residents and landowners who may choose to move to the city. There may be a band surrounding the city or persons who do not commute but enjoy urban consumption amenities. 
+Three spatially segregated `classes.' Capitalists live in some spaceless utopia,  Urban workers who commute and earn wages in the urban commuter-shed, and  rural residents and landowners who may choose to move to the city. There may be a band surrounding the city or persons who do not commute but enjoy urban consumption amenities. 
 a fourth class, the urban tenant. 
 Developed in Chapter~\ref{chapter-model} on modelling.
 
@@ -408,7 +406,24 @@ In the classical language, someone is exploited if someone else gets a share of 
  Employers capture a share of the value of workers' labour, so they exploit workers under this definition.
 Those who own land early in a growing city are also capture a share of everybody's production. Since they capture a share of the productivity of others working in the city, through the rents, they are also exploiters, they form a kind of hybrid class. %Rents could be captured directly through renting out the property after they retire away from the city,  or by selling the property at a higher value than they bought it. 
 
+\section{Municipal costs and revenue}
 
+\begin{figure}
+\begin{center}
+\input{fig/municipal-costs.tex}
+\end{center}
+\caption[The Alonzo model with municipal costs and revenue.]{The Alonzo model \gls{rent profile}, as illustrated in Figure~\ref{fig-alonzo-simple}, with cost and municipal costs and revenue added.} %service fees added.}
+\label{fig-municipal-costs}
+\end{figure}
+ 
+
+ANALYSIS SECTION - PRODUCTIVITY AND SERVICING - DENSITY RELATIONSHIPS For example, two stylized facts should be noticed. The first is that the marginal cost of servicing generally  rises with the distance from the centre. Figure illustrates the general form of servicing costs, but not  the relative scales of rent and servicing costs. When this observation is combined with the \gls{Henry George Theorem} the conclusion is that the optimal size of the city  is at  $d^{**}$, where marginal service cost intersects with the marginal increase in total urban rent.  Walter Christaller, 1933
+
+ANALYSIS SECTION - PRODUCTIVITY AND TAX - The second stylized fact is that property taxes, which are generally  fixed as a share of property value, decline as the distance from the centre increases. Figure~\ref{fig-municipal-costs} illustrates the general form of tax liabilities, although it does not  accurately represent their relationship to rent or  servicing costs. This implies that in many or most urban situations the residents at the outer edges pay less than the average amount in property tax per unit of land, but cost  the community budget more than the average amount. In essence, the central city subsidizes the suburbs. (see Perverse Cities \ref{blaisPerverseCitiesHidden2011}). This arrangement is both economically inefficient and unfair, but it has been built into the fiscal structure of cities largely as a result of automobile-based urban growth. It is likely that this fiscal misallocation saps some of the potential productivity growth of cities. Property taxation reduces the market value of properties, but it also funds services and amenities that increase the value of properties. 
+
+Both servicing and taxation effects are more variable and than the simple model suggests.  One conclusion urban theorists draw based on variants of the Alonzo model is that because property owners in the low-density urban margin are subsidized,  the subsidy is likely to create serious fiscal problems for municipalities in the long-term and result in serious inefficiency in land use.
+
+Political opposition is essentially rent seeking.
 
 \section{Differential transportation costs}
  Urbanists agree that before the railroad and the automobile, the extent of a city was roughly determined by how far a person could walk in about an hour. The time and effort cost of transportation determined the size of cities. 
@@ -539,27 +554,6 @@ This emergence of a land owning working class is a recent phenomenon, and perhap
 
 America's economic transformation in the early 1800s was linked to dramatic changes in transportation networks. The construction of roads, canals, and railroads led to the expansion of markets, facilitated the movement of peoples, and altered the physical landscape. The later commuter transportation revolution further transformed cities and class structures.
 
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}{scale=.5}
-\draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
-\draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
-\draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
-\node at (1.5,6)
-    [text width=2.4cm, align=center]
-    {\baselineskip=20pt\Large Owner occupied};
-\node at (2,3.3)
-    [text width=2.4cm]
-    {\baselineskip=20pt Mortgaged};
-\node at (1.5,1)
-    [text width=2.4cm, align=center, white]
-    {\baselineskip=20pt\Large Tenant occupied};
-% \caption{}
-\end{tikzpicture}
-\end{center}
-\caption{Housing tenure and mortgaged share.}
-\label{fig-mortgage-tenure}
-\end{figure}
 
 
 \section{Analysis list}
@@ -567,8 +561,51 @@ America's economic transformation in the early 1800s was linked to dramatic chan
 - why people hold onto baby boomer homes
 - what happens with suburbanization
 - speculative agent cycle- 
-- pernicious cycle - lean into investment, rentals, lowered interst and increased supply actually amplify the problem
+- pernicious cycle - lean into investment, rentals, lowered interest and increased supply actually amplify the problem
 - pumps wealth out on the way up and on the way down
 
 
 Potential interventions and systems shifts.. oasis cities..
+
+
+
+\section{Development and financialization}
+
+Financialization is not expansion of the housing stock, it is transfer of ownership. It is a process orthogonal to development.
+
+% - it can lead to efforts to extract more rents by displacing people to invest in a shift in built form.
+There are a number of potential links with the development process.
+
+\begin{figure}
+\begin{center}
+\input{fig/financialization-expansion.tex}
+\end{center}
+\caption{Financialization expands investor ownership, but does not in expand the housing stock. Yellow represents privately owned homes for which ownership is partially held by mortgage lenders.}
+\label{fig-financialization-expansion}
+\end{figure}
+
+
+% OLDER JUST BOX LIKE ABOVE IMAGE WITHOUT FINANCIALIZATION, MONEY IN OR MONEY OUT
+% \begin{figure}
+% % \input{fig/financialization-expansion}
+% \begin{center}
+% \begin{tikzpicture}{scale=.5}
+% \draw [fill=gray,] (0,0) rectangle (3,2); %TENANT
+% \draw [fill=yellow!40] (0,2)--(3,2)--(3,7.33); --cycle;% MORTGAGE %Calculation. 80\%owner, so  8 above the tenant line. 2/3*8=5.333. 5.333+2=
+% \draw[line width= 1mm, black!50] (0,0) rectangle (3,10);
+% \node at (1.5,6)
+%     [text width=2.4cm, align=center]
+%     {\baselineskip=20pt\Large Owner occupied};
+% \node at (2,3.3)
+%     [text width=2.4cm]
+%     {\baselineskip=20pt Mortgaged};
+% \node at (1.5,1)
+%     [text width=2.4cm, align=center, white]
+%     {\baselineskip=20pt\Large Tenant occupied};
+% % \caption{}
+% \end{tikzpicture}
+% \end{center}
+% \caption{Housing tenure and mortgaged share.}
+% \label{fig-mortgage-tenure}
+% \end{figure}
+

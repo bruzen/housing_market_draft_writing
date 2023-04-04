@@ -54,14 +54,14 @@
  \node[above] at (0,\w){$\omega$};
  
 %Uncomment this for top of cylinder
-      \fill[inner color=gray!5,outer color=gray!50,shading=radial,opacity=.5] ($(center) + (.35,\theight)$ ) circle (9.4 cm and 1.55 cm );
+      \fill[inner color=gray!2,outer color=gray!40,shading=radial,opacity=.5] ($(center) + (.35,\theight)$ ) circle (9.4 cm and 1.55 cm );
       
-        \draw [thick]($(svert1) +(.3,-.3)$)-- ++ (90:\w-.2);
-        \draw [thick]($(svert2)-(.2,.3)$)-- ++ (90:\w-.2);
+        % \draw [thick]($(svert1) +(.3,-.3)$)-- ++ (90:\w-.2);
+        % \draw [thick]($(svert2)-(.2,.3)$)-- ++ (90:\w-.2);
         %Lines, \h in percent of cone height
  def \sradiusv2 \sradiusv cm -.1 cm)
 % Cylinder drawing
-  \fill[ left color=black!50, right color=red!20,  middle color=red!20,shading=axis,opacity=.2]  (-9.05,.5) 
+  \fill[ left color=black!50, right color=red!30,  middle color=red!30,shading=axis,opacity=.2]  (-9.05,.5) 
   arc (180:360:\sradiush cm and \sradiusv cm)-- ++(90:\w-.2) 
   arc (360:180:\sradiush cm and \sradiusv2 cm -.1 cm)--(-9.05,.5);  
 

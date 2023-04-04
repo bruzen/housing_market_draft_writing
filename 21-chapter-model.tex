@@ -49,7 +49,7 @@ The three model components are:
 \vspace{-1cm}
 \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
     \centering
-    \includegraphics[scale=.75]{fig/flow_full_model.png}
+    \includegraphics[scale=.6]{fig/flow_full_model.png}
     \label{Stylized model flow.}
 %\pagestyle{headings}
 % \usetikzlibrary{positioning}
@@ -601,9 +601,9 @@ The relationship is clearly established empirically \cite{}, but location and sh
 %node[left]{\small$\yi$};
 %\foreach \yi in {0,2,4,6,8,10}node at (-.1,yi) {{10*yi}} ;
 \draw[func,domain=0:\W] plot [samples=200] (\x,(9-\x^.5/2);
- \end{tikzpicture}
+\end{tikzpicture}
 \caption{Individual borrowing ratio $m_i$ as a function of wealth (in tenths)}
- \label{fig-borrowing-ratio}
+\label{fig-borrowing-ratio}
 \end{figure}
 
 
@@ -611,8 +611,11 @@ The relationship is clearly established empirically \cite{}, but location and sh
 
  The cost of capital is known to differ for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
  
-
- \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
+\begin{equation}
+r_i = (A + B \frac{\bar{W}}{W_i})\omega \label{eqn-interest-wealth-relationship}
+\end{equation}
+ 
+ 
 Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s %\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
 % Data released in 2020 by Statistics Canada indicates that t
  The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
@@ -623,7 +626,7 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The medi
 \begin{figure}[!hb]
 \begin{center}
 \input{fig/price_of_capital.tex}% Figure of cost of borrowing
-\caption{Borrowing cost for  $A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red);  $A=.8$  $B=0.8$ (green);}
+\caption{Borrowing cost for agents depending on wealth, with different values for parameters $A$ and $B$ in Equation~\ref{eqn-interest-wealth-relationship}.} %$A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red), and  $A=.8$  $B=0.8$ (green).}
 \label{fig-capital-cost}
 \end{center}
 \end{figure}

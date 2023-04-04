@@ -3,10 +3,11 @@
 
 Since the industrial revolution, widely distributed property ownership, particularly in North America, has contributed to the wide and relatively equal distribution of {wealth} \cite{pikettyCapitalTwentyfirstCentury2014, harrisGrowthHomeOwnership1977, chevanGrowthHomeOwnership1989, andrewsEvolutionHomeownershipRates2011}.\footnote{The role of housing in wealth accumulation is well known. After a detailed  examination of data from the US Survey of Consumer Finance (SCF) and the Panel Study of Income Dynamics (PSID), Herbert et al. concluded that ``there continues to be strong support for the association between owning a home and accumulating wealth.'' The effect persists even among minorities and lower-income households. In lower-income minority households, on average, renters do not see any gains in wealth \cite{herbertHomeownershipStillEffective2013}.} However, property ownership is now going through a great transformation in structure, with financial capital coming to own a larger share of the urban land and housing stock \cite{farhaReportFinancializationHousing2017, palleyFinancializationWhatIt2007}. For the first time in Canadian history the rate of homeownership has declined, falling from 69\%  in 2011 to 66.5\% in 2021 \cite{statisticscanadaBuyRentHousing2022}. % BLACKSTONE
 In Ontario, 70\% of new condo units are owned by investors not residents \cite{GET77percent}. 
+% https://kitchener.ctvnews.ca/investors-own-77-per-cent-of-new-condos-in-waterloo-region-1.6273766 % Ontario numbers in email from DiR
 
 This process has been called financialization \cite{farhaReportFinancializationHousing2017, hansenFinanceCapitalismFinancialization2014, tomaskovic-deveyFinancializationCausesInequality2013, palleyFinancializationWhatIt2007, seccarecciaUnderstandingFinancializationHistory2013, nemtinFinancializationHousingSocial2021}. Financialization is one of two major transformations changing society. The other is urbanization. In this thesis, we are concerned with how these processes are beginning to interact. To explore this question, we have built a model of an urban system, to explore financialization in the context of housing markets. Specifically we explore the systemic effects of the shifting ownership of property in cities, on the distribution of wealth and the potential that this shift can actually change the ability of cities to grow, thrive, and produce wealth.
 
-\section{Financialization and the value created by cities}
+
 There's now a compelling understanding of the value that's created by cities, both empirically and theoretically \cite{jacobsEconomyCities1969, spenceUrbanizationGrowth2009, bettencourtIntroductionUrbanScience2021}. 
  It is well established that when people concentrate in cities, it increases productivity across a range of measures of output including GDP and GNP \cite{bettencourtIntroductionUrbanScience2021}. There's never been a rapidly developed urban city without growing productivity \cite{annezUrbanizationGrowthSetting2009}. The effects of urbanization are so profound that cities now produce most of the wealth of society \cite{GET_cities-most-of-wealth}. 
 
@@ -15,60 +16,10 @@ The city generates a surplus, and finacialization is about capturing surplus. Fi
 Financialization is not neutral. It is increasingly associated with declining affordability and rising homelessness in Canada. These issues have become so extreme in recent years that Canada is now widely understood to be in a housing crisis. The Ontario Housing Affordability Task Force, for example, reported that home ownership is now ``beyond the reach of most first-time buyers across the province ... Housing has become too expensive for rental units ... The system is not working as it should.'' While discussions about whether and how financialization affects affordability are becoming more prevalent, what has not been explored as thoroughly are the systemic effects of financialization. % ENCAMPMENTS
 
 \section{A modern theory of urban rent}
+\section{Financialization and the value created by cities}
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}{scale=.5}
-% Find color for ball. Stop line short of node
-\coordinate (planning) at (5,.75); % Preface
-\coordinate (economics) at (-5,1); 
-\coordinate (Ricardo) at (-5,1.4);
-\coordinate (Solow) at (-6,1.25);
-\coordinate (geography) at (0,-2); % History
-\coordinate (finance) at (0,5); 
-
-\draw [line width=2mm, black!15, ] (planning)--(economics);
-\draw [line width=2mm, black!20, ] (geography)--(economics);
-\draw [line width=2mm, black!20, ] (geography)--(planning);
-%\draw [line width=2mm, black!25, ] (geography)--(finance);
-%\draw [line width=2mm, black!20, ] (planning)--(finance);
-%\draw [line width=2mm, black!20, ] (finance)--(economics);
-%color=black!60!red
-%\shade [ball color=blue!70] (5,5) circle (1.1cm)node[white] {\textbf{Planning}};
- 
-\node [circle,shading=ball,  minimum width=2.2cm, white, align=center] (ball) at (planning) {Planning};
-\node [circle, shading=ball, minimum width=2.2cm, white, align=center] (ball) at (economics) {Economics};
-\node [circle,shading=ball, minimum width=3cm, white, align=center] (ball) at (geography)[text width=2cm] {\large Urban \\ Geography};
-%\node [circle, shading=ball, minimum width=2.4cm, white, align=center] (ball) at (finance)[text width=2cm] {Finance};
-%\node at (-.3,-.1) [red] {\Large \textbf{RENT}};
-
-\node at (planning) [above=1.8cm] {\textbf{von Th\"unen}};
-\node at (planning) [above=1.3cm] {Location theory};
-
-\node at (Ricardo) [above=2cm,]   {\textbf{Ricardo}};
-\node at (Ricardo) [above=1.5cm] {Rent theory};
-\node at (Ricardo) [above=1.0cm] {Distribution theory};
-
-% \node at (Solow) [below=1.6cm, align=left] {\textbf{Solow:}};
-\node at (Solow) [below=2.1cm, align=left] {\textbf{Solow} Modern growth theory};
-\node at (Solow) [below=2.6cm, align=left] {\textbf{Lucas} Endogenous growth theory};
-\node at (Solow) [below=3.1cm, align=left] {\textbf{Jacobs} Urban agglomeration theory};
-\node at (Solow) [below=3.65cm, align=left] {\textbf{Bettencourt} Urban scaling};
-
-\node at (geography) [below=1.8cm] {\textbf{Alonzo}};
-\node at (geography) [below=2.3cm] {Basic urban model};
-\node at (geography) [below=2.8cm] {Urban rent profile};
-%\node [circle, shading=ball, minimum width=2.4cm, white, align=center] (ball) at (finance)[text width=2cm] {Finance};
-
-\fill[red!20] (0,0) ellipse (40pt and 10pt);
-%\node[red]at (1.2,0) {\large SPACE};
-\begin{scope}[shift={(0,-.34)}]
-\draw [line width=2mm, red!85, -latex ] (-.1, 7.1)--++(0,1.2)node[above=-.1] {\Large \textbf{FINANCIALIZATION}};
-\draw [line width=2mm, red!85, -latex ] (0, 4.85)--++(0,1.2)node[above=-.1] {\Large \textbf{Capitalization}};
-\draw [line width=2mm, red!85, -latex ] (0, 2.6)--++(0,1.2)node[above=-.1] {\Large \textbf{RENT}};
-\draw [line width=2mm, red!85, -latex ] (0, .35)--++(0,1.2)node[above] {\Large \textbf{Value of location}};
-%\draw [line width=2mm, red!85, -latex ] (0, -2)--++(0,-.8)node[above=-.1]  {\Large \textbf{SPACE}};
-\end{scope}
-\end{tikzpicture}
+\input{fig/fields}
 \caption[Linking space and urban rents to the effects of financialization.]{Space and urban rents play a foundational role in urban economics, geography, and planning. We extend the the analysis of urban rents to model the effects of financialization.}
 \label{fig-fields}
 \end{figure}
@@ -88,8 +39,17 @@ Our contribution is to extend the the analysis of urban rents to take into accou
 
 The model makes it possible to analyze the potential macro effects of financial capital capturing spatial urban rents. Our focus is on changes in who captures these rents, and how that affects the city. The distribution of locational rents, we believe, goes some distance to explaining core social issues like class structure, inequality, and political political power.
 
+
 The ultimate goal of this work is to develop a modern urban theory of rent, linking spatial rent, housing markets, and urban production. 
 Figure~\ref{fig-fields} illustrated both the synthetic aspect of our analysis and the direction in which we develop existing work. The following sections introduce how this work fits in the literature and the basic structure the core model, then list the main contribution, and give an outline for the thesis.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=.60]{fig/flow_impacts.png}
+\caption[The housing market component of the model.]{The housing market component. Financialization affects both the allocation of housing and its allocation of rents.}
+\label{fig-impacts}
+\end{figure}
+
 
 \section{Modelling financialization of urban housing markets}
 In order to develop an analysis of the distributional effects we have to build a model with three components: a housing market, a financialization process, and a production system. The housing market sub-model  distributes the ownership of the housing stock that comes up for sale in each period to based on bids. % Both new entrants to the labour pool and financial investors can bid. If a new entrant fails to buy  housing that agent becomes a renter. 
@@ -100,33 +60,22 @@ It shows two primary effects financialization has on the housing market: how it 
 the housing stock, and how it allocates the \glspl{rent} generated by the urban system. 
 The first effect of financialization, on housing allocation, arises because tenants replace owners. While owner-occupiers share in the growing land rents generated by urban agglomeration effects, tenants do not. As a result, a declining fraction of urban residents accumulate capital through their participation in the housing market, and therefore fewer enter the class of workers with both wage and capital income defined by John Roemer \cite{roemerGeneralTheoryExploitation1982}. 
 
-\begin{figure}[!ht]
-\centering
-\includegraphics[scale=.60]{fig/flow_impacts.png}
-\label{fig-impacts}
-% \label{fig-flow-impacts}
-\caption[The housing market component of the model.]{The housing market component. Financialization affects both the allocation of housing and its allocation of rents.}
-\end{figure}
-
+The second effect of financialization on the market is in the allocation of spatial rents, generated in part by the growing productivity of cities. Rents generated by the \gls{agglomeration} economies in the urban system are diverted to largely non-resident owners, away from investment in local production or amenities, as tenants replace owner-occupiers.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=.70]{fig/flow_financialization.png}
-\label{fig-financial-cycle}
-% \label{fig-flow-financialization}
 \caption[The financialization component of the model.]{The financialization component. There is a feedback loop in which new investors drive up demand and thus drive up prices.}
+\label{fig-financial-cycle}
 \end{figure}
-
-The second effect of financialization on the market is in the allocation of spatial rents, generated in part by the growing productivity of cities. Rents generated by the \gls{agglomeration} economies in the urban system are diverted to largely non-resident owners, away from investment in local production or amenities, as tenants replace owner-occupiers.
 
 Figure~\ref{fig-financial-cycle} illustrates the second component of our model, the financialization process. We develop an explicit model of investor behaviour to explain the market decisions of buyers and the role of financial capital. The key observation is that investors enter the housing market. In doing so they drive up prices by increasing total demand. The rising price generates an expectation of capital gains, which enter the investors' calculations. Investors have, as research shows, better access to capital than most new entrants to the housing market. When the financial sector, the bank in the model, makes more capital available, the pattern of ownership shifts, as illustrated above.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=.7]{fig/flow_alonzo-jacobs_cycle.png}
-\label{fig-alonzo-jacobs-cycle}
-% \label{fig-flow-alonzo-jacobs-cycle}
 \caption[Production system.]{The production system component, incorporating the urban scaling of wealth in the urban spatial model. We name this coupling of two difference equations the Alonzo-Jacobs cycle.}
+\label{fig-alonzo-jacobs-cycle}
 \end{figure}
 
 Figure~\ref{fig-alonzo-jacobs-cycle} illustrates the third component, the model of productivity incorporating agglomeration effects. A fundamental feature in recent empirical work on scaling laws is the persistent relationship between population and productivity. The productivity of cities increases superlinearly with population. Cities are the locus of a positive feedback loop with rising populations raising productivity, and rising productivity attracting more people and resources, a theoretical argument associated with the work of Jane Jacobs \cite{jacobsEconomyCities1969}, with strong empirical support from recent work on the scaling of urban productivity  \cite{bettencourtGrowthInnovationScaling2007, bettencourtOriginsScalingCities2013, dongUnderstandingMesoscopicScaling2020, loboUrbanScalingProduction2013}.
