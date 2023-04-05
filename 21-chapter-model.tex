@@ -282,7 +282,7 @@ The model must  allow for bidding and speculative investment but also must refle
 
 \subsubsection{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
-is also what makes this a ``\gls{classical}'' model. 
+is also what makes this a \gls{classical} model. 
 
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
@@ -330,7 +330,7 @@ In each period a house offers two kinds of services: {locational services} or  a
 \mathcal{R}_W=\omega- {dc} + a\psi.
 \label{eqn-warranted-rent}
 \end{align}
- It a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter~\ref{chapter-methodology}.
+ It a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Appendix~\ref{chapter-methodology}.
 
  We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. 
 
@@ -582,6 +582,7 @@ The relationship is clearly established empirically \cite{}, but location and sh
 % TODO *** why two axis labels? - and need to label y axis properly
 
 \begin{figure}[htb]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 %\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
 %\def\bndmin{0.2}
@@ -602,6 +603,7 @@ The relationship is clearly established empirically \cite{}, but location and sh
 %\foreach \yi in {0,2,4,6,8,10}node at (-.1,yi) {{10*yi}} ;
 \draw[func,domain=0:\W] plot [samples=200] (\x,(9-\x^.5/2);
 \end{tikzpicture}
+\end{center}
 \caption{Individual borrowing ratio $m_i$ as a function of wealth (in tenths)}
 \label{fig-borrowing-ratio}
 \end{figure}
@@ -616,12 +618,7 @@ r_i = (A + B \frac{\bar{W}}{W_i})\omega \label{eqn-interest-wealth-relationship}
 \end{equation}
  
  
-Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s %\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
-% Data released in 2020 by Statistics Canada indicates that t
- The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
- %A study by Statistics Canada found that t
- The typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
-} 
+
 
 \begin{figure}[!hb]
 \begin{center}
@@ -630,6 +627,16 @@ Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The medi
 \label{fig-capital-cost}
 \end{center}
 \end{figure}
+
+Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s %\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
+% Data released in 2020 by Statistics Canada indicates that t
+ The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
+ %A study by Statistics Canada found that t
+ The typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
+} 
+
+
+
 %The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
 %illustratea a  possible  cost-of-borrowing models 
 
