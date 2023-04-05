@@ -50,3 +50,31 @@
 %\draw [line width=2mm, red!85, -latex ] (0, -2)--++(0,-.8)node[above=-.1]  {\Large \textbf{SPACE}};
 \end{scope}
 \end{tikzpicture}
+
+
+% % JUST THE BOTTOM 3 BALLS FOR PLANNING, ECONOMICS AND URBAN GEOGRAPHY
+% \begin{figure}
+% \begin{tikzpicture}{scale=.5}
+% % find color cotrol for ball. Tind way to stop line short of node
+% \coordinate (planning) at (-5,1);%PREFACE
+% \coordinate (economics) at (5,.75);%
+%  \coordinate (geography) at (-.5,-2); %history
+% \coordinate (finance) at (0,5); %
+
+% \draw [line width=2mm, black!15, ] (planning)--(economics);
+% \draw [line width=2mm, black!20, ] (geography)--(economics);
+% \draw [line width=2mm, black!20, ] (geography)--(planning);
+
+% %\draw [line width=2mm, black!25, ] (geography)--(finance);
+% %\draw [line width=2mm, black!20, ] (planning)--(finance);
+% %\draw [line width=2mm, black!20, ] (finance)--(economics);
+% \node [circle,shading=ball, minimum width=2.1   cm, white, align=center] (ball) at (planning) {Planning};
+% \node [circle,shading=ball, minimum width=2.2cm, white, align=center] (ball) at (economics) {Economics};
+% \node [circle,shading=ball, minimum width=3cm, white, align=center] (ball) at (geography)[text width=2cm] {\large Urban\\ Geography};
+% %\node [circle, shading=ball, minimum width=2.4cm, white, align=center] (ball) at (finance)[text width=2cm] {Finance};
+
+% \node at (-.3,-.1) [red] {\Large \textbf{Space}};
+% \end{tikzpicture}
+% \caption{The common concern of three fields topic }
+%     \label{fig-three-fields}
+% \end{figure}

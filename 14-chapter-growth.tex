@@ -129,7 +129,7 @@ if the model was augmented by including human capital $H$, it would fit the data
 Y=A(t)K^\alpha H^\gamma L^\beta 
 % \label{eqn-mankiw}    
 \end{equation*}
- They assume $\alpha+\gamma<1$ which implies decreasing returns to all capital.} 
+They assume $\alpha+\gamma<1$ which implies decreasing returns to all capital.} 
 To understand the relation between saving, population growth, and income, it was necessary to go beyond the textbook Solow model.%, which assumed  diminishing returns to capital and labour separately and constant returns to both factors jointly, 
 
 To understand the subsequent growth theories based on human capital, or what is sometimes called `effective labour' it is helpful to notice that Solo's formulation is unchanged if we substitute `labour times  skill' for $L$ in his model. both components of `labour times  skill,' or effective labour grow over time. Output then grows at the same rate as the effective labour supply. The apparent effect of increasing labour supply and technological change could be, in fact, the combined effect of rising labour supply, technological change, and increasing labour skill. Later studies would attempt to disentangle the three.
@@ -187,47 +187,6 @@ The evidence supports the existence of significant learning spillovers in a vari
 
 
 \subsection{Adding Jacobs-style agglomeration effects}
-A device in this thesis is to focus on the urban wage premium that attracts workers to the city and pays their living and transportation costs. As we have argued above, there is a premium because of a variety of agglomeration effects that we do not specify that make urban labour more productive than non-urban labour. % The process has deep historical roots and we do not need to provide an origin story for our project. 
-We do need to emphasize the self-reinforcing nature of the mechanism.
-
-An increase in the productivity due to the various spillover effects discussed in the literature eventually is passed through, at least in part, to the wage. Conventional microeconomic theory can be brought to bear to provide a rough sketch the  complex process, which is generally slow, variable, and may involve many unsynchronized lags.  The basic process is that a firm, discovering its workers are  more productive than expected, enjoys unexpected output and profits. Since the marginal product of each worker is higher that expected, the firm  wants to hire more workers. To do so in a city with full employment, it must raise its wage offer. The increased wage attracts workers from other firms, putting pressure on them to also increase their wage. Wages rise across the city. The general increase in the wage attracts more workers to the city. 
-
-The increase in wages appears at first as a benefit to workers as workers. The area in blue-green represents the worker's share of the increased productivity of the city. The increase is also translated with further lags into rising home prices across the city and rising rental prices for tenants. 
-
-% CHANGING WAGE PREMIUM
-
-\begin{figure}
-
-\begin{center}
-\begin{tikzpicture}[scale=.75]
-\def\bndmax{8} 
-\tikzset{func/.style={color=blue!80}}	
-% EXTENT  BEFORE
-\draw[thick](0,0)--(0,8)node[above, text width=1.5cm]{wage \newline premium}; % Y axis
-\draw[thick](0,0)--(8,0)node[right=.5, text width=1.5cm]{city\newline extent};  % X axis
-%\node at (3.5,-.7){Extent: Walkers};
-\draw[thick, blue](0,5)node[left]{$\omega_0$}--(6,0)node[below]{$d^*_0$};
-\draw[ thick, blue](0,{5*1.3})node[left]{$\omega_1$}--({6*1.3},0)node[below]{$d^*_1$};
-\draw[fill=green!30!blue!30](0,5)--(0,{5*1.3})--(6,5*0.3)--(6,0)--cycle;
-\draw[fill=orange!30]({6*1.3},0)--(6,5*0.3)--(6,0)--cycle;
-\draw[func, domain=0:7, line width=.3mm,blue, text width=2cm] plot [samples=200] (\x,{\x^2/7})node[below left]{population};
-\draw[func,  domain=0:6, line width=.3mm, orange, text width=2cm] plot [samples=200] (\x,{\x^2.3/7})node[below left]{output};
-%\node[circle,draw=black, fill=white, inner sep=3pt,minimum size=10pt] (b) at (1,2.5) {1};
-\end{tikzpicture}
-\end{center}
-\caption{ADD A CAPTION}
-\label{fig----fix_my_label}
-\end{figure}
-
-Assuming that marginal and use per new resident is constant, city size will eventually increase in proportion to the increase in the wage, shown as the distance $d^*_0--d^*_1$. Aggregate rent  further expands by the area shown in orange. Population increases in proportion to the square of the increase in the wage, as illustrated with the blue line.  Output increases super-linearly with population, illustrated by the orange line. 
-
-Adding to the  housing stock is a slow process, introducing potentially complex stock/stock-price dynamics.
-
-The increase in population will eventually generate additional agglomeration benefits, further increasing wages. At the aggregate level, this positive feedback appears to be solidly supported, but locally, within firms and between firms there will be long and variable lags. Analytical equilibrium models seek to bypass these messy processes, while agent-based models attempt to incorporate them.
-
-
-
-
 
 
 Jane Jacobs argued that when people come together in cities they make each other more productive \cite{jacobsEconomyCities1969}. This is in essence, a theory of urban agglomeration that can be written
@@ -236,16 +195,38 @@ Jane Jacobs argued that when people come together in cities they make each other
 Y = A(t) K(t)^\alpha L^\beta 
 \label{eqn-production-jacobs}
 \end{equation}
-where $L$ stands for the size of the urban labour force. Since urban labour force and population are closely correlated, the familiar model is observationally equivalent to
+where $L$ stands for the size of the urban labour force. Since urban labour force and population are closely correlated, the familiar model is observationally equivalent\footnote{ To see why, let  $cN$ be labour employed by capital in firms, where $N$ represents the urban population and assume a constant capital-labour ratio $1/d$. Replace $K$ with $dcN$
+\[Y = A(t) (dcN)^\alpha (cN)^\beta) \]
+But  $dc^\alpha$ and $c^\beta$ are simply multiplicative constants that can be incorporated into the scale factor $A$, so the function becomes 
+\[Y = A(d, c,\alpha, \beta, t)N^{\alpha+\beta}\]
+} to
 \begin{equation}
 Y = A(t)N^{\alpha+\beta}
 \label{eqn-production-jacobs-2}
 \end{equation}
-\footnote{ To see why, let  $cN$ be labour employed by capital in firms, where $N$ represents the urban population and assume a constant capital-labour ratio $1/d$. Replace $K$ with $dcN$
-\[Y = A(t) (dcN)^\alpha (cN)^\beta) \]
-But  $dc^\alpha$ and $c^\beta$ are simply multiplicative constants that can be incorporated into the scale factor $A$, so the function becomes 
-\[Y = A(d, c,\alpha, \beta, t)N^{\alpha+\beta}\]
-}
+
+\begin{figure}[!tb]
+\begin{center}
+\input{fig/rising-wages}
+\end{center}
+\caption[Rising wage and increasing city size]{Rising wage and increasing city size. Agglomeration effects increases the wage premium from $\omega_0$ to $\omega_1$, a higher wage attracts more people to the city, leading to city growth from $d_0^*$ to $d_1^*$, which then begins another cycle of agglomeration and growth }
+\label{fig-rising-wages}
+\end{figure}
+
+A device in this thesis is to focus on the urban wage premium that attracts workers to the city and pays their living and transportation costs. 
+As we have argued above, there is a premium because of a variety of agglomeration effects that we do not specify that make urban labour more productive than non-urban labour. % The process has deep historical roots and we do not need to provide an origin story for our project. 
+We can use Figure~\ref{fig-rising-wages} to emphasize the self-reinforcing nature of the mechanism. 
+The blue line  shows population rising as the city boundary moves outward and the orange line shows productivity rising even more quickly due to agglomeration effects. 
+Starting with a city that has grown to size $d_0^*$ based on a wage premium $\omega_0$ in Figure~\ref{fig-rising-wages}, an increase in the productivity due to the various spillover effects discussed in the literature eventually is passed through, at least in part, to the wage raising it to $\omega_1$. 
+
+Conventional microeconomic theory can be brought to bear to provide a rough sketch of the  complex process, which is generally slow, variable, and may involve many unsynchronized lags.  The basic process is that a firm, discovering its workers are  more productive than expected, enjoys unexpected output and profits. Since the marginal product of each worker is higher than expected, the firm  wants to hire more workers. To do so in a city with full employment, it must raise its wage offer. The increased wage attracts workers from other firms, putting pressure on them to also increase their wage. Wages rise across the city. The general increase in the wage attracts more workers to the city. 
+
+The increase in population will eventually generate additional agglomeration benefits, further increasing wages. At the aggregate level, this positive feedback appears to be solidly supported, but locally, within firms and between firms there will be long and variable lags. Analytical equilibrium models seek to bypass these messy processes, while agent-based models attempt to incorporate them.
+
+
+The increase in wages appears  as a benefit to workers as workers. In Figure~\ref{fig-rising-wages} the area in blue-green represents the worker's share of the increased productivity of the city. Assuming that marginal land use per new resident is constant, city size will eventually increase in proportion to the increase in the wage, shown as the distance $d^*_0--d^*_1$. Aggregate rent  further expands by the area shown in orange. Population increases in proportion to the square of the increase in the wage, as  the blue line shows, bu output increases proportionally, as indicated by  the orange line. 
+
+The increased wage is also translated, with further lags, into rising home prices across the city and rising rental prices for tenants. This means that landowners capture some of the gains due to agglomeration. Owner-occupiers retain the gain and eventually realize it as increased  property values. Tenants eventually see the wage gain converted into higher rents. Higher rents and home values would be expected to lead to expansion of the housing stock. Adding to the housing stock is a slow process, introducing potentially complex stock/stock-price dynamics which we ignore.
 
 A model of a national economy that uses the number of urban dwellers would track as well as one using the number employed. As countries develop, cities account for an ever-increasing share of  national populations and an ever-increasing share of national income.  This is  even more likely when we recall that the principle insights coming out of neoclassical growth theory point to human capital and education as the mystery factor in growth and cities are where the most skilled workers concentrate and where the strongest educational institutions tend to be. The mysterious contribution to growth pursued in the previous sections might  actually be a consequence of urbanization.
 
