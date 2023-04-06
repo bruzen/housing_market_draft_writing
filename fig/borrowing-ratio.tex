@@ -2,17 +2,23 @@
 % \def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
 % \def\bndmin{0.2}
 \def\Y{10}  % height of y axis pecent
+\def\y{1} 
 \def\W{20}  % length  of x axis
 \def\Wbar{4}
+\def\scale{0,...,1}
 \def\rbar{8}% this is the prime rate
 % Equation   \[ r_i = (A + .5 \frac{\bar{W}}{W_i})\omega\]
 % \def\Wmin{.63}  %This sets the lower limit fo the 
 \def\Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds
 \tikzset{func/.style={thick,color=blue!90}}	
-\draw [thick](\W,\Y)-- (0,\Y)node[left=.5cm]{\Large$1$}node[above=.25cm]{$m_i$} -- (0,0)node[left=.5cm]{\Large$0$}--(\W,0)node[below]{Wealth}--cycle;  	% Axes box
+% BOX
+\draw [](\W,\Y)-- (0,\Y)node[above=.5cm, left]{$m_i$} -- (0,0)--(\W,0)node[below]{Wealth}--cycle;  	% Axes box
+
 \draw [dashed, thick] (0,\rbar) -- (\W,\rbar);  	% Axes
 \draw [thick,dashed] ( \Wbar,0)node[below=.5cm]{$\bar{W}$} -- (\Wbar,\Y);  	% Axes
-\foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};
+
+%\foreach \i\j in {1/A,2/B,3/C,4/D,5/E,6/F}
+\foreach \yi\s in {0/0.0, 1/0.1,2/0.2,3/0.3,4/0.4,5/0.5, 6/0.6, 7/0.7, 8/0.8, 9 /0.9, 10/1.0} \draw (0,\yi)--(-.1,\yi)node[left]{\footnotesize$\s$};
 % \foreach \yi in {0,2,4,6,8,10} \draw (0,\yi)--(-.1,\yi));
 % node[left]{\small$\yi$};
 % \foreach \yi in {0,2,4,6,8,10}node at (-.1,yi) {{10*yi}} ;

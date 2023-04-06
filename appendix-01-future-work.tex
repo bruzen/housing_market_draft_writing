@@ -5,7 +5,7 @@ In  this chapter, we discuss potential extensions of our basic model.  Models ar
 % Those results are condition on the specific set of assumptions to ensure that 
 We have designed the model to  accommodate a range of extensions that are either theoretically or interesting or important for policy-makers. 
 
-Figure~\ref{fig-logic-extensions} illustrates  five general types of extension. The first is to move from a static population to a model with population pressure. This appears on the left as a group of three new subroutines with connections to the elements of the model most directly affected. Some links are left out to keep the figure readable. Examples of omitted links  are the channels through which  population affects labour supply and savings.  
+Figure~\ref{fig-extensions-logic} illustrates  five general types of extension. The first is to move from a static population to a model with population pressure. This appears on the left as a group of three new subroutines with connections to the elements of the model most directly affected. Some links are left out to keep the figure readable. Examples of omitted links  are the channels through which  population affects labour supply and savings.  
 
 A second class of extension would introduce a housing production sector. This appears on the right side of of the figure linked to the banking sector. It requires adding a dynamic housing  stock. 
 
@@ -17,21 +17,19 @@ A third major class of extensions, separable from production is to introduce var
 \vspace{-4.5cm}
 \begin{adjustwidth}{-0.24\textwidth}{-0.2\textwidth}
 \centering
-\includegraphics[scale=.22]{fig/extensions.png}
+\includegraphics[scale=.22]{fig/extensions-logic.png}
 \end{adjustwidth}
 \caption{Extensions}
-\label{fig-logic-extensions}
+\label{fig-extensions-logic}
 %\pagestyle{headings}
 % \usetikzlibrary{positioning}
 %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
-
-\end{figure}
-}
+\end{figure}}
 
 
 At the bottom of the figure we introduce consumer demand linked to the population structure and feeding back to growth. Savings behaviour becomes more  complex when consumer demand is made endogenous and with as more complex population structure.
 
-The fifth block of extensions illustrated in Figure~\ref{fig-logic-extensions} would replace the simple, scaling-based transmission mechanism in the Alonzo-Jacobs cycle with explicit firm and labour market behaviour. This class of extensions is obviously linked to population structure. It leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour.
+The fifth block of extensions illustrated in Figure~\ref{fig-extensions-logic} would replace the simple, scaling-based transmission mechanism in the Alonzo-Jacobs cycle with explicit firm and labour market behaviour. This class of extensions is obviously linked to population structure. It leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour.
 
 Linked to the labour market and production system is the possibility of introducing competing cities. 
 
@@ -139,45 +137,10 @@ The transmission of productivity increases arising from agglomeration effects  t
 
 
 \begin{figure}
-    \centering
-\begin{tikzpicture}[scale=.7]
-%\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
-%\def\bndmin{0.2}
-\def \Y {7}  % height of y axis pecent
-\def \W {15}  % length  of x axis
-\def \Wbar {3} % jmeam wealth
-\def \omega {3}
-\def \A {1}  %was .5
-\def \B {.5}
-
-\draw [thick, color=blue!90] (0,\Y)node[left=.2cm]{$w$} -- (0,0)--(\W-4,0)node[below]{labour force};  
- \foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.2,\yi)node[left]{};
- 
-\tikzset{func/.style={thick,  color=blue!90}}
-% \draw[ func, domain=.2:\W-6] plot [samples=200] (\x, 2*\x^.5)node[below=.1, right]{SUPPLY};
-
-\tikzset{func/.style={  color=green}}	
-\draw[func, domain=2.45:\W-6] plot [samples=200] (\x, 10/\x+3)node[above=.1, right]{Social};
-
-\tikzset{func/.style={thick, dashed, color=black!90}}	
-\draw[func,domain=1.8:\W-6] plot [samples=200] (\x, 10/\x+1.5)node[ right]{industry-wide };
-
-\tikzset{func/.style={thick, color=blue!90}}	
-\draw[func,domain=1.5:\W-7.5] plot [samples=200] (\x, 10/\x+.4)node[below=.05, right]{Firm-wide};
-
-\tikzset{func/.style={thick,color=red!90}}	
-\draw[func,domain=8.5/6:\W-9] plot [samples=200] (\x, 10/\x)node[below]{Myopic};
-
-\draw[](0,3.425)node[left]{$\omega$}--(9,3.425)node[right]{nominal supply };
-\draw[thin,latex-](2.92,0)--(2.92,3.425); %a vertical labour supply
-\draw[ultra thick,dashed, green,-latex](2.92,3.6)--(2.92,6.2);
-%\draw [blue,  thick](13, 8.3)--(15,8.3)node [right, black] {\small A=\ 1,\ B=0.5};
-%\draw [green, thick](13, 7.6)--(15,7.6)node [right, black] {\small A=.8, B=0.8};
-
-%\node at (5,-1.5){Resulting in  profits, expansion, and/or entry: the city grows};
- \end{tikzpicture}
+\centering
+\input{fig/multiple-marginal-products}
 \caption{Multiple marginal products.}
-\label{fig-marginal-products}
+\label{fig-multiple-marginal-products}
 \end{figure}
 
 

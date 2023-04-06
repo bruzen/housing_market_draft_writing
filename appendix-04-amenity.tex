@@ -23,40 +23,13 @@ In a migration equilibrium, land rent rises to absorb all of the utility premium
 
 \begin{figure}[htbp]
 \begin{center}
-\begin{tikzpicture}[scale=.5]
-\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
-\def\bndmin{0.2}
-\def \n {10}
-\def \m {15}
-\def \t {.5}
-\def \th {1}
-\def \w {7}
-\tikzset{func/.style={thick,color=blue!90}}	
-\draw [thick] (0,\n)node[above=10]{\large$Rent$}--(0,0);
-\draw [thick] (0,0)--(\m,0)node[right=10]{\Large $d$};
-%\foreach \xi in {0,..., \m} \draw (\xi,0)--(\xi,-.1)node[below=1]{\small$\xi$};
-%\foreach \yi in {1,...,\n} \draw (0,\yi)--(-.1,\yi)node[left]{$\yi$};
-%%\foreach \i in {1,4,9,16} {
-	\draw[func,domain=0:\m] plot [samples=200] (\x,{\w-\t*\x});
-%	\draw[func,domain=0:\m, dashed] plot [samples=200] (\x,{\w+\azero-\th*\x+\aprime*\x});
-
-\node at (14,1.2){$w-T(d)$};
-\def \azero{2}
-\def \aprime {-.25}	
-\tikzset{func/.style={thick,color=orange!90}}	
-	\draw[func,domain=0:\m] plot [samples=200] (\x,{\w+\azero-\t*\x+\aprime*\x});
-\node at (4,8.5){$w +A(d)-T(d)$};
-%\node at(-.8,2) [left]{base $2^1=$};
-%\node at(-.8,1) [left]{$2^0=$};
-%\draw[dotted] (0,2)--(1,2)--(1,0); 
- \end{tikzpicture}
+\input{fig/amenity}
 \end{center}
 \caption{Rent profile with amenities}
-\label{fig-amenity1}
-
+\label{fig-amenity}
 \end{figure}
 
- If $A=0$ and $T=td$,  \ref{eqn-u} this model produces the standard result in the Alonzo model (land rent declining linearly with distance) as the blue line in Figure~\ref{fig-amenity1} shows.\footnote{The very simple results rests on several assumptions - no other housing expense, housing all the same size, wages all equal, preferences identical, transportation costs.}  The triangle below the line is the rent accruing to landowners.
+ If $A=0$ and $T=td$,  \ref{eqn-u} this model produces the standard result in the Alonzo model (land rent declining linearly with distance) as the blue line in Figure~\ref{fig-amenity} shows.\footnote{The very simple results rests on several assumptions - no other housing expense, housing all the same size, wages all equal, preferences identical, transportation costs.}  The triangle below the line is the rent accruing to landowners.
 
 In the familiar version of the model there is no amenity and there is no wage outside of the city limits.
 What we call the wage premium is simply the urban wage in simple models. A model with amenity declining with $d$ and no transportation cost would produced the  standard result. 
@@ -69,7 +42,7 @@ The  higher rent comes not from a housing budget but from household demand for a
     
  % \textbf{A city with higher amenity may have a lower equilibrium wage.} (When will this occur?)
    
-If  amenity goes below zero in the outer regions of the city as illustrated by the orange line  in Figure~\ref{fig-amenity1}, the geographical size of the  city will be smaller.  With  linear functions this happens if $\frac{a}{b} < \frac{w}{t}$. There would be a band of land around the city with negative amenity. 
+If  amenity goes below zero in the outer regions of the city as illustrated by the orange line  in Figure~\ref{fig-amenity}, the geographical size of the  city will be smaller.  With  linear functions this happens if $\frac{a}{b} < \frac{w}{t}$. There would be a band of land around the city with negative amenity. 
   
 The far more likely case is that $A(d) > 0$ when $w-T(d)$ falls to zero. In this case there is a band of  residents around the city, outside of the population commuting to work. They do not travel to work,  do not collect a wage, but still enjoy the amenity of being close to a city. This might be a population of retired persons enjoying occasional visits and health-care facilities.
 
@@ -81,7 +54,7 @@ The far more likely case is that $A(d) > 0$ when $w-T(d)$ falls to zero. In this
 Since employers will not pay for the amenity, some amenities may be financed publicly. It is common to introduce the cost of generating amenities as a tax on residents. Publicly financed amenities, however, may work as a wage subsidy,  	
 
 \section{Rent}
-In Figure~\ref{fig-amenity1}, the height of the orange line above $\omega$ represents the rental value of a property at $d$, which is 
+In Figure~\ref{fig-amenity}, the height of the orange line above $\omega$ represents the rental value of a property at $d$, which is 
 \begin{equation}
 Rent(d)  =  w  + A(d) - T(d)	
 \label{eqn-rent-at-d}\end{equation}
