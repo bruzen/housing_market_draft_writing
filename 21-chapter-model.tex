@@ -30,13 +30,17 @@
 
 % This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
 
+DON'T EXPLAIN WHAT AN URBAN MODEL IS AT ALL. WHAT IS THE CONTEXT, WHAT QUESTIONS ARE THEY TRYING TO ANSWER. 
+SOUNDS LIKE THEY ARE TRYING TO DO THE SAME THINGS AS ECONOMISTS DO WITHOUT THE SAME TOOLS. 
+THEY DON'T HAVE THE SAME PROBLEMS.
+
 Recent urban models %, on the other hand, 
 tend to ignore the production process and consider the locational implications of land and transportation costs on the location of people. Wealth distribution is often ignored. 
 % - need to  model production, specifically the rising production with density. 
 There is an extensive formal apparatus in economics for considering the relation of production and output. 
 
 % \section{The general structure of the model}
-We add a financial system to a spatial urban model %to the simple Alonzo model 
+We add a financial system to a spatial urban model %to the simple Alonso model 
 in order to examine the impact of financialization of the housing market on urban productivity and distribution. 
 % To do this, we develop a 
 To do this we develop an agent based  spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system. 
@@ -60,11 +64,11 @@ The three model components are:
 }
 
 \begin{enumerate}
-\item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonzo-style models. This equation is embedded in the decision of every agent because it determines the economic rent  for each piece of property.
+\item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonso-style models. This equation is embedded in the decision of every agent because it determines the economic rent  for each piece of property.
 
-\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and  instead to deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonzo model an \gls{Alonzo-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and  instead to deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
-\item To link the Alonzo-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of  individual decisions. % In Section~\ref{section-micro},
+\item To link the Alonso-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of  individual decisions. % In Section~\ref{section-micro},
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
@@ -79,7 +83,7 @@ Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following thre
 
 % \subsection{Labour supply for production}
 We begin with a model of a circular city %- INTRO CITY/APPROACH?
-Following the \gls{Alonzo model} \cite{alonzoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
+Following the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
 Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of  goods, 
@@ -96,7 +100,7 @@ workers receive the value of their marginal product.
 %NEED TO INTRODUCE SUBSISTENCE WAGE BEFORE MENTIONING IT ABOVE %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
 
-As in the Alonzo model, described in Chapter~\ref{chapter-space}. The {urban wage premium} and transportation costs together determine both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
+As in the Alonso model, described in Chapter~\ref{chapter-space}. The {urban wage premium} and transportation costs together determine both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
  %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
 % The  productivity of the city attracts people. 
