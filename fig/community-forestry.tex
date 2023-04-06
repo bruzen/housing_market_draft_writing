@@ -1,13 +1,13 @@
-\documentclass[tikz,minimum size=20cm]{standalone}
-\usepackage{tikz}
-\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.16}
-\usepackage{mathtools,amssymb}
-%\input{Preamble}
-%\input{(SpecialDistanceCourse}
-%\input{FRAMES}
-\begin{document} 
+% \documentclass[tikz,minimum size=20cm]{standalone}
+% \usepackage{tikz}
+% \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.16}
+% \usepackage{mathtools,amssymb}
+% %\input{Preamble}
+% %\input{(SpecialDistanceCourse}
+% %\input{FRAMES}
+% \begin{document} 
  
  \begin{tikzpicture}%[scale=.8]
     \tikzstyle{every node}=[font=\small]
@@ -64,8 +64,8 @@
 \node [] at			 (f) 		(plan)		{\Huge PLAN};
 			%\draw [fill=blue, fill opacity=0.35] (b)node [text width=2cm, align=center, black, opacity=1] 			(history){History: New is Old} circle (1.2cm);
 \node[circle, draw, text width=1cm, align=center, black, opacity=1]at 	(b)(history){History} ;
-			%\draw [fill=pink, fill opacity=0.5] 		(h) node [text width=2cm, black, opacity=1] 								(tenure) 	{\color{black}tenure} circle (1.2cm);
-\node[circle, draw,  text width=1cm, align=center, black] at 				(h) (tenure) 	{tenure} ;
+			%\draw [fill=pink, fill opacity=0.5] 		(h) node [text width=2cm, black, opacity=1] 								(tenure) 	{\color{black}Tenure} circle (1.2cm);
+\node[circle, draw,  text width=1cm, align=center, black] at 				(h) (tenure) 	{Tenure} ;
 \node[circle, draw,  text width=1.5cm, align=center]at							 (j) (whatis) 	{\color{black}What is Community Forestry} ;
 \node[regular polygon, regular polygon sides=6, draw, align=center]at (l) (joint) 	{\color{black}A theory\\ of  urban\\ rents} ;
 
@@ -92,14 +92,14 @@
 
 %.  POLYGON NODES
 \node[regular polygon, regular polygon sides=6, draw, align=center] at (p) (externalities)	 {An urban \\spatial\\model};
-\node[regular polygon, regular polygon sides=6, draw, align=center, fill=yellow!40] at (t) (pubgoods) {groewth\\theory} ;
+\node[regular polygon, regular polygon sides=6, draw, align=center, fill=yellow!40] at (t) (pubgoods) {Growth\\theory} ;
 \node[regular polygon, regular polygon sides=6, draw, align=center] at (r) (trans)	{Rent theory\\history};
 
 
 
-%\draw [fill=yellow, fill opacity=0.15] 	(C) node [text width=2cm, black, opacity=1] 							(forestryEC){forestry \\ economics} circle (1.4cm);
+%\draw [fill=yellow, fill opacity=0.15] 	(C) node [text width=2cm, black, opacity=1] 							(forestryEC){Forestry \\ economics} circle (1.4cm);
 \node[regular polygon, regular polygon sides=6, draw, align=center, fill=gray!.25] at (C) (forestryEC){forestry \\ economics};
-\draw [] 	(D) node [text width=1.1cm, black, opacity=1] 							(foresters)	{foresters} circle (.8cm);
+\draw [] 	(D) node [text width=1.1cm, black, opacity=1] 							(Foresters)	{Foresters} circle (.8cm);
 
   %%%%%JOINT PRODUCTS  AND TRANSACTION COSTS
 %\draw [fill=orange, fill opacity=0.5] (G) node [text width=2cm, black, opacity=1] 								{efficiency} circle (1.4cm);
@@ -124,4 +124,4 @@
 \draw  [gray, line width=.5mm,-> ,dashed](joint) to[bend left=7](forestryEC);
 \end{tikzpicture} 
 
-\end{document}
+% \end{document}
