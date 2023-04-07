@@ -1,7 +1,9 @@
 \chapter{Theories of Growth and Scaling} 
 \label{chapter-growth}
 
-\epigraph{If we postulate only the usual list of economic forces, cities should fly apart. The theory of production contains nothing to hold a city together. A city is simply a collection of factors of production---capital, people, and land---and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits?}{}
+\epigraph{If we postulate only the usual list of economic forces, cities should fly apart. The theory of production contains nothing to hold a city together.} 
+% A city is simply a collection of factors of production---capital, people, and land---and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits?}
+{}
 
 \epigraph{Since 1980, the US economy has experienced urban-biased growth, with wages in large cities rising substantially faster than wages in smaller cities and rural areas. The left panel of Figure 1 shows average wages across US commuting zones ordered by density. In 1980, workers in the cities with the highest population density (New York and Chicago) earned, on average, 34\% more than workers in cities with the lowest population density. By 2015, the gap had risen to around 62\%.}{Eckert, Ganapati and Walsh \cite{eckertUrbanBiasedGrowthMacroeconomic2022}}
 
@@ -25,7 +27,7 @@
 % however, that `` a national economy is a completely arbitrary unit to consider.'' and that ``we know from ordinary experience that there are group interactions that are central to individual productivity and that involve groups larger than the immediate family and smaller than the human race as a whole.''  
 
 
-EXTEND/CUT AND PUT HERE JACOB'S VISION OF THE DYNAMISM OF THE CITY AND HOW IT ACTUALLY CREATES VALUE.
+% EXTEND/CUT AND PUT HERE JACOB'S VISION OF THE DYNAMISM OF THE CITY AND HOW IT ACTUALLY CREATES VALUE.
 In The Economy of Cities (1969) % , Jane Jacobs \dots \cite{jacobsEconomyCities1969}
 
 Jacob's analysis answers an important question in economics. 
@@ -40,7 +42,7 @@ Lucas goes on to suggest `` that the 'force' we need to postulate account for th
 % This insight, which parallels ours, has not been adequately explored, in our view.  Allowing Lucas to expand on his observation about Jacobs, 
 
 This observation provides a natural link to the scaling literature on cities.
-The value in cities is not static, it actually grows over time.  In this chapter, we'll link the basic spatial model to the scaling of urban productivity, providing the foundation for our model of urban agglomeration effects.
+The value in cities is not static, it actually grows over time. In this chapter, we'll link the basic spatial model to the scaling of urban productivity, providing the foundation for our model of urban agglomeration effects.
 
 \section{Cities and the scaling literature}
 The scaling literature has confirmed this basic result about the value of urban density:
@@ -81,26 +83,20 @@ Much of growth theory was concerned with identifying the dynamics of such system
 
 
 \section{Neoclassical growth theories}  \label{section-growth}
-
 Given there is such a strung theoretical and empirical grounding for urban agglomeration effects in the city, we center them in the model.  The urban scaling law is a persistent, relationship, so we can embed it directly in the model. To develop the model, we draw on neoclassical growth theories.
 
-
- \subsection{The Solow-Swan growth model}
+\subsection{The Solow-Swan growth model}
 In 1956 Robert Solow\footnote{A Contribution to the Theory of Economic Growth,  Robert M. Solow, The Quarterly Journal of Economics, Vol. 70, No. 1 (Feb., 1956), pp. 65-94. Stable URL: http://www.jstor.org/stable/1884513} 
 addressed a gap/failure in  neoclassical production theory. It missed something empirically. Productivity actually grew over time.  
 He developed an approach to modelling how productivity grew, that we can draw on to model urban agglomeration.  % His work became know as 
 He provided a possible explanation for these results, opening the field for a further series of refinements in an enterprise that became known as `growth theory.'\footnote{Solow and his contemporary, Edward F. Denison in his 1961 monograph, \textit{The Sources of Economic Growth in the United States}, were attempting to account for the main features of U.S. economic growth, not to provide a theory of economic development.}%   R.E. Lucas, Jr., On the mechanics of economic development.}
 
-
 BACKGROUND FROM ABOVE SHOWING NEOCLASSICAL PRODUCTION THEORY WAS INSUFFICIENT. The production function was not producing good results over time. FIX LINKS
 The \gls{Cobb-Douglas} form for representing production technology captured  important regularities in the cross-sectional national data,\footnote{ A 2021 meta-analysis of 3186 estimates concluded that ``the weight of evidence accumulated in the empirical literature emphatically rejects the Cobb-Douglas specification.''Gechert, Havranek, Irsova, Kolcunova (2021), ``Measuring capital-labour substitution: The importance of method choices and publication bias,'' Review of Economic Dynamics, doi:10.1016/j.red.2021.05.003, S2CID 236400765. More sophisticated models  such as the CES and translog functions have been developed since.} 
 but the estimates soon showed a systematic bias with time series. 
 
-
 Essentially the value of the $A$ seemed to rise over time. Something that was not captured in the initial model  contributed to productivity over time: 
  \[Y=A(t)K^\alpha L^\beta\]
-
-
 
 Solow argued ``As a result of exogenous population growth the labour force increases at a constant relative rate n,'' so
   \[L(t)= L_0e^{nt}\] 
@@ -178,17 +174,7 @@ The difference between Romer and Lucas style theories is that endogenous growth 
 Again we see the  internal effects of human capital, where the individual worker undergoing training becomes more productive, and an external or `spillover' effect which increases the productivity of the economy. 
 The evidence supports the existence of significant learning spillovers in a variety of industries. Using survey data, Mansfield (1985) found that information about new processes and products in ten industries surveyed had widely diffused within a year. Spillovers have also been found in econometric studies: Irwin and Klenow (1994) find them in semiconductors; Thornton and Thompson (2001) in wartime shipbuilding; Lieberman (1989) in chemicals; Foster and Rosenzweig (1995) in the adoption of high-yielding seed varieties; and Conley and Udry (2007) in the adoption of best practices by Ghanaian pineapple farmers. 
 
-
-
-
-
-
-
-
-
 \subsection{Adding Jacobs-style agglomeration effects}
-
-
 Jane Jacobs argued that when people come together in cities they make each other more productive \cite{jacobsEconomyCities1969}. This is in essence, a theory of urban agglomeration that can be written
 
 \begin{equation}
@@ -223,7 +209,6 @@ Conventional microeconomic theory can be brought to bear to provide a rough sket
 
 The increase in population will eventually generate additional agglomeration benefits, further increasing wages. At the aggregate level, this positive feedback appears to be solidly supported, but locally, within firms and between firms there will be long and variable lags. Analytical equilibrium models seek to bypass these messy processes, while agent-based models attempt to incorporate them.
 
-
 The increase in wages appears  as a benefit to workers as workers. In Figure~\ref{fig-rising-wages} the area in blue-green represents the worker's share of the increased productivity of the city. Assuming that marginal land use per new resident is constant, city size will eventually increase in proportion to the increase in the wage, shown as the distance $d^*_0--d^*_1$. Aggregate rent  further expands by the area shown in orange. Population increases in proportion to the square of the increase in the wage, as  the blue line shows, bu output increases proportionally, as indicated by  the orange line. 
 
 The increased wage is also translated, with further lags, into rising home prices across the city and rising rental prices for tenants. This means that landowners capture some of the gains due to agglomeration. Owner-occupiers retain the gain and eventually realize it as increased  property values. Tenants eventually see the wage gain converted into higher rents. Higher rents and home values would be expected to lead to expansion of the housing stock. Adding to the housing stock is a slow process, introducing potentially complex stock/stock-price dynamics which we ignore.
@@ -254,8 +239,7 @@ The answer lies in making the synergies that Jacobs point to explicit: we requir
 % \[Y = A K^\alpha (N^\gamma* N)^\beta= AK^\alpha N^{\beta+\gamma}\]
 Where $\phi=\beta +\gamma$ or $\beta +\gamma^\alpha$. Each of these yields an exponent on $N$ that may be greater than one, consistent with both Jacobs and neoclassical growth theory. 
 
-The question now is whether we can find estimates of t. This is what the empircal work on scaling laws profides.
-
+The question now is whether we can find estimates of $t$. This is what the empirical work on scaling laws provides.
 
 The model used is familiar. Omitting subscripts for time, $t$ and city, $i$, \footnote{Bettancourt (2021) writes the model \[Y_i = Y_0(t)N_i(t)^\beta e^{\xi(t)}\].}
 \[Y = Y_0e^{n(t)}N^\beta\]
@@ -276,11 +260,9 @@ Personal income & 1.35 & [1.19, 1.53]  & South Africa & 8   & 2001        & MMs 
 \caption[Observed scaling exponents]{Observed scaling exponents for urban systems around the world}
 \label{table-scaling-exponents}
 \small Source: Bettencourt, table 3.1
-
 \end{table}
 
 WHERE TO PUT THIS? \cite{arvidssonUrbanScalingLaws2023} find that cities' tails are responsible for 36--80\% of the observed superlinearities across indicators. 
-
 
 %will raise the wage, attracting more workers. If they are added in suburbs at the edge of the city (Ricardo's extensive margin) virtually all of the wage premium they receive is dissipated in transportation costs. Closer to the centre,  land rents rise. Owner-occupiers capture the increase as property value appreciation. Tenants are likely to be faced with higher rents.      
 
@@ -289,6 +271,5 @@ WHERE TO PUT THIS? \cite{arvidssonUrbanScalingLaws2023} find that cities' tails 
 %The rural population consists of uniformly distributed efficient mix of rural capital producers and workers, all of whom receive $\omega$.%\footnote{This does nothing but fix the price of produced capital in terms of the rural wage.} 
 
  %Owners of urban firms are  conventional  capitalists, who may earn excess profit if they can capture an unearned surplus from labour.  Any unearned surplus increases the return to urban capital relative to rural capital, resulting in continual expansion of the urban economy. Continuous growth in turn results in continuously rising urban land prices and hence housing costs. We ignore the distributional implications of this feature of the model, and focus instead on the part of value produced by the city that appears as land rent. 
-
 
 \section{ADD Summary}
