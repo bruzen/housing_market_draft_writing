@@ -54,8 +54,8 @@
 
 %   FOURTH FIGURE    wage bill
 %\pause %add total new value
-\draw[fill=green!40] (0,-\om) rectangle(9.30,\w);% new product
-\node at (4.5,\w/2){\Large urban wage bill};
+% \draw[fill=green!40] (0,-\om) rectangle(9.30,\w);% new product
+% \node at (4.5,\w/2){\Large urban wage bill};
 
 %%   FIFTH FIGURE   distribution
 %\pause
@@ -65,7 +65,7 @@
 \draw[func, domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x}); %rent profile
 \fill[blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
 \node at (4.5,-\om/2){Subsistence};
-\draw[fill=yellow,] (0.,0.) -- (0,7)--(9.30,0.)--cycle;% Rent \w-.2
+\draw[fill=yellow!70,] (0.,0.) -- (0,7)--(9.30,0.)--cycle;% Rent \w-.2
 \node at (3.,2){Rent}; 		%Rent 
 \node at (5.8,5.7)[white]{Transportation};
 \node at (6.3,4.8)[white]{expenditure};

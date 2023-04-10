@@ -1,4 +1,6 @@
+%======================================================================
 \chapter{Methodology} \label{chapter-methodology}
+%======================================================================
 
 % Answer to coarse graining and connection
 % 1. tools for choice, used in labs and
@@ -10,18 +12,250 @@
 % - everybody will get poor, inevitably on the basis of our general assumptions.
 % 3 little sub routines - the market model is still too complicated.
 
+Our focus has been on building a model that speaks to a core issue, while remaining simple enough that % undergraduates could build an work with it, and that 
+academics or policy makers could introduce it in a workshop, and someone with undergraduate training could build and work with it, while maintaining extensible, policy relevance, and tight integration with core theoretical concepts. %from 200 years of economic and social thought.
+
+% While making it 
+
+% classical economics is not tightly integrated into modern agent based modelling.
+% in general there is need for substantial work showing the relationship between big modern agent models and the rich set of insights from small classical/historical/neoclassical models.
+
+% As tools to think with, it's important to understand where results come from. 
+% Testing small, alternative models and theoreti- dividing it so individual assumption can be compared and black boxed makes that it much easier to understand the source of results and achieve conceptual clarity.
+
+% The model came out of this general approach\footnote{The approach was grounded in building lots of models with policy makers, rooted in Holings tradition, and the systems modelling tradition- how to find and piece together the kinds of models needed. E.g. how to model the youth employment system, fruit. Part of that is connecting the formal modelling with the implicit models people hold in their heads, often either half formed or derived from minimal economics training, and test those assumptions against alternatives.}
+% This general approach gave us three insights or things to explore
+
 In this chapter we discuss the (eclectic) methodological approach of the thesis, as well as a number of modelling decisions. 
 
-Because we draw on techniques and results in several fields, on approaches from several historical periods, and  concerns associated with differing ideological perspectives,  the analysis and modelling for this study raises a number of interesting methodological issues. For example, our model combines elements  of classical rent theory and neoclassical distribution theory. We employ equilibrium arguments derived from models of optimizing agents who make decisions at the margin  with an Agent-Based Model (ABM) in which agents simply make periodic discrete choices from  a small set of alternatives. We combine coarse generalizations about long-term agglomeration effects with fine-grained market processes. We examine in (moderate)detail how financial decisions affect home ownership, but simply black-box  the transmission of  agglomeration effects through firms  from aggregate productivity gains to population growth.
+Because we draw on techniques and results in several fields, on approaches from several historical periods, and  concerns associated with differing ideological perspectives,  the analysis and modelling for this study raises a number of interesting methodological issues. For example, our model combines elements  of classical rent theory and neoclassical distribution theory. We employ equilibrium arguments derived from models of optimizing agents who make decisions at the margin  with an Agent-Based Model (ABM) in which agents simply make periodic discrete choices from  a small set of alternatives. We combine coarse generalizations about long-term agglomeration effects with fine-grained market processes. We examine in (moderate) detail how financial decisions affect home ownership, but simply black-box  the transmission of  agglomeration effects through firms  from aggregate productivity gains to population growth.
 None of these represent methodological transgressions although the combinations may be unusual. The methodological questions are interesting, however, and we get additional insight into the financialization of housing markets by examining them further,   
 
-\section{Classical, neoclassical and modern theory} 
-Classical economic theory, neoclassical theory and agent based modelling are traditionally fairly distinct areas, in terms their methodology and their central problematics. Neoclassical and classical theories are often seen as opposed ideologically, since the classicals paid great attention to the extraction of rent or surplus  as the foundation of the class structure of the day, while the neoclassical  economists emphasized the market allocation of income based on one's contribution to production at the margin. 
-At the same time, many  who employ ABMs to analyse urban systems are deeply skeptical of neoclassical assumptions, while ignoring the rent;-based distributional analyses of the classicals.
+%----------------------------------------------------------------------
+\section{Feedback loops and systems design}
+%----------------------------------------------------------------------
 
-These ideological overlays are not helpful in making choices about how to model. We would argue that ABM modellers who assume mainstream economists actually believe that the neoclassical technique of reasoning based on informed rational agents is based on faith or ideology are mistaken. The neoclassical approach is a modelling technique and a  methodological convenience,that is valuable when it is used correctly. . 
+% https://en.wikipedia.org/wiki/James_J._Kay
+% https://www.researchgate.net/scientific-contributions/James-J-Kay-2162967174
+% https://uwaterloo.ca/systems-design-engineering/about-systems-design-engineering/department-history
 
-To the extend that it is limited, it's limitates are best explored by making it inter operable with a model that makes it systematically possible to relax each constraint, and draw on assumption to look at.
+Feedback loops are a fundamental feature of almost all systems. They have probably been recognized by theorists for centuries. Marx, to take one relatively modern example, identified the growth dynamic of the capitalist system  as a feedback loop, with capital investments producing a surplus that was fed back into investment, growing the stock of capital. He  claimed that this loop produced dynamic instability and a great deal of subsequent work has supported his insight \cite{dumenilStabilityInstabilityDynamic1986}.\cite{schumpeterInstabilityCapitalism1928}. More recently, the Keynsian multiplier is a result of feedback in macro models between expenditure and income. That loop produces a stable equilibrium. Neoclassical growth theory built on that mechanism to explore the determinants of economic growth using differential and difference equations. Forrester, the creator of system dynamics computer simulation modeling, argued that change over time is caused by the process of accumulation..
+
+
+The feedback concept formally entered the social sciences through two channels:cybernetics, pioneered by Nobert Wiener  and the participants of the Macy Foundation Conferences, and the servomechanism/control engineering thread championed by Jay W. Forrester and others. Both threads were picked up and applied by prominent economists. \footnote{Richardson \cite{richardsonFeedbackThoughtSocial1991} mentions Oscar Lange (1970), Kenneth Boulding, and Alfred Eichner, Phillips,  R. G. D. Allen (1956), and Axel Leijonhufvud.} There is now a niche sub-discipline in economics called ``Feedback Economics'' \cite{radzickiIntroductionFeedbackEconomics, cavanaFeedbackEconomicsEconomic2021}  The servomechanism/control engineering thread is the one most closely related to \gls{system dynamics} modeling and to ideas used in this thesis.
+
+Our model incorporates two feedback loops. One, driven by agglomeration, we call the Alonzo-Jacobs cycle. The other is a price-financialization feedback that directly changes the ownership pattern in the urban housing market. The two loops are linked. One mechanism is that rising productivity raises wages which then works through two paths. It can raise rents, effectively transferring the productivity gains to landowners, or it can draw more workers, enhancing the Alonzo-Jacobs cycle. 
+
+A rapid increase in housing prices will choke off urban population growth and cause the Alonzo-Jacobs cycle to stall. Rapid expansion of the housing stock should have the opposite effect. Much depends on the speed of response of the housing stock and the rate of transmission of agglomeration effects to wages. Our base model allows the housing stock to respond instantly and automatically increments the wage with a small lag. In the base model financial flows are unrestricted but the rate of financialization is limited by the rate of turnover of ownership. We then parameterize the rate of adjustment for each of the stocks in a simple way in order to conduct sensitivity analysis.
+
+
+%----------------------------------------------------------------------
+\section{Agent based modelling}
+%----------------------------------------------------------------------
+
+ABMs developed in the 1940's when von Neumann and Ulam examined cellular automata, a simple form of agent model where agents are typically squares on a grid following rules based only on the state of their neighbours \cite{banks_statistical_2009}. ABMs %provide a disaggregated way to understand the structure of models. They 
+are part of a wide class of models that incorporate the behaviour of  distinct entities and explore the interactions among them. Related modelling approaches include individual-based models, cellular automata, Ising models of atomic spin, the use of swarm phenomena for modelling fabric or fluid motion, and even finite element analysis and parts of graph theoretic modelling. % While the details of implementation differ, the underlying principles and patterns of behaviour in ABMs apply across domains \cite{shalizi_methods_2006}.  
+
+Agent-based models replace single equation models of sub-systems with populations of simple submodels (automata, or agents) \cite{shalizi_methods_2006}. Just as a system of equations can produce emergent phenomena, so can subsystems of agents. The emergent phenomena occur because agents do not make exactly the same decision at exactly the same time. Decisions and timing depend on the speed of information flows, proximities, and other factors. As a result, suites of agents can behave very differently than suites of  ``representative agents" like those typical in economic models \cite{darley_towards_1999, tesfatsion_agent-based_2002}.
+
+
+By including individuals explicitly, agent based models offer particular nuance in exploring the effects of individuals on a system. The structures that emerge from the actions of those in a system emerge directly from modelling the postulated patterns. Agent based models thus make it possible to explore the non-obvious implications of structural changes \cite{darley_towards_1999, happe_agricultural_2004}. %cite some of the people who show it can be used for structural change)
+% Studying large messy models like these has many of the features of studying real social systems. 
+Where it is helpful, other types of models can be linked with agent based models or used as subsystems. % "For instance in an agent model, physical subsystems can be represented naturally using systems of differential equations (e.g. climate, energy, etc.)  (Chappin, Dijkema and Vries, 2010; Chappin and Dijkema, 2009; Davis et al., 2009; Nikolic, 2009)"  (\cite{chappin_simulating_2011} p 61).
+
+ %There is a large literature on agent based models. 
+ ABMs have proven effective across a range of domains. Recent results from disciplines including physics, biology, anthropology, and economics have built a record of empirical results \cite{parker_multi-agent_2003, helbing_social_2011-1}. These have shown ABMs reliably produce phenomena through simulation that were difficult if not impossible to derive from simpler analytical/closed form expressions.
+Examples of ABMs range from models of Bali's traditional economic and social structure, delays in traffic flow, economic bubbles, 
+traditional foraging patterns, % (in the Sugarscape models), 
+social segregation, ecological succession networks, to patterns of poverty and crime \cite{open_agent_based_modeling_consortium_comses_????}. %, _netlogo_????}.
+ 
+%There are good text books as well. Agent models make it possible to represent phenomenal that are hard to represent otherwise including traffic jam, bubbles and crashes, power law and other fat tail phenomenal, critical transitions.
+
+
+%%%%%%%%LOSLY SPEAKING (Economics has looked at those areas where the behaviour of many individuals can be reduced. Sociology has looked at those areas where individuals matter. Because of constraints from the (1800s) economics has used math and sociology has not.) ABMs are starting to bring math to social theory. Network theorists and big data people are getting hired both in sociology and and economics for this reason. It is because the math is a different kind of thing.
+
+The main problem with ABMs is that they can be hard to extract meaningful information from. ABMs can be computationally intensive, raising significant problems for analysis since there is so much happening in them. This can make them difficult to use in a practical context. % Furthermore, since much of the interest in ABM's lies in system behaviour in response to changes in policy \cite{helbing_social_2011-1}, %integrative design paper 
+% questions of observability become central. 
+% Raising significant challenges for analysis 
+%They thus make it possible to look at the effect of the structural impact of policy makers on real individuals. 
+% 
+
+Of course their complexity is also their strength. %One advantage particularly relevant for policy makers is that agent based models. 
+One advantage, particularly relevant for policy makers, is that agent based models represent the structure of individuals interacting in social systems. % They represent specifically the structures that policy makers engage with: how do actions affect individuals, communities, and societies it affects how people act. It provides the capacity to look at those different levels. % They are process models.
+% They provide a natural form for modelling transient and long term dynamics as individuals interact over time.  %They include interacting individuals so 
+They thus make it possible to look at the structural impact of policy on particular individuals, and to provide a more accurate picture of the whole systems policy makers would be working in.
+
+% Since the system level behaviour comes from the interaction of individuals the model does not need to impose distributions on the outcomes over sets of individuals. The distributions can emerge from the system. 
+
+
+
+%\textbf{Agent based models have a number of advantages:} 
+%Maybe include some of these.
+%
+%* We want to model dynamics
+%What are the transient and long term effects? 
+%How do the details of what individuals do affect the system. How do the changes in the system affect particular people. Not just what is the mean, but what is the distribution? How does it affect an individual?
+%
+%* We want to be able to model structural change.
+%"Although there are proposed examples of SDs with changing structures (Duggan, 2008), they have not yet matured: in SD the structure of the system is fixed (Yücel, 2010)."
+%The other models fix structure.
+%
+%* There are advantages to process models. 
+%It does what we want in the way the system does it.
+%
+%The cost is that disabragating makes for larger models. They are computationally more intensive and they are more difficult to draw insight from. 
+%
+%If a simpler model is adequate, a more complex one should not be used. 
+%
+%This suggest a process model where phenomena that emerge from interacting individuals are modelled as 
+%And phenomena represented well by continuos processes are represented in that way (NEwton is many interacting bodies.)
+%And where events are modelled using discrete events. 
+
+% This section reviews approaches to models and makes the case that computer models and specifically agent based computer models are particularly well suited to the problem of understanding how interventions shape social systems.
+
+% "Fundamentally, I'm not sure that agent-based modeling amounts to anything other than object-oriented programming for disaggregated simulations `` \cite{http://vserver1.cscs.lsa.umich.edu/~crshalizi/notebooks/agent-based-modeling.html}
+
+% "Complex  systems models can also serve as stochastic models {\bf Ergodic deterministic systems might as well be stochastic}  Some of them are related to standard, modern stochastic models e.g., {\bf agent-based models are “interacting hidden Markov models” or “dynamic Bayes nets with latent variables}"\cite{Cosma talk on stats complex}
+
+
+%%%%%%%%%%% FROM PAMPAS DOCUMENTATION 
+% "We adopt agent-based modeling as a suitable approach to quantitatively model agricultural systems, their \textbf{structural change}, and endogenous adjustment to policy interventions (Happe et al., 2004). Agent- based modeling is a powerful technique for simulating the actions and interactions of autonomous individuals to \textbf{assess emerging system level patterns} (Gilbert, 2008; North and Macal, 2007). An ABM consists of a collection of autonomous and heterogeneous decision-making entities (agents) interacting with one another and an environment. Agents have \textbf{information} about attributes or state of other agents and the environment, and have access to past and current values of their own state variables (e.g., economic outcomes). Agents make \textbf{decisions} using both prescribed rules and analytical functions; decisions are based on the information agents have available (Gilbert, 2008). An ABM also includes \textbf{rules} that define the relationship between agents and their environment, and rules that determine \textbf{scheduling} of actions in the model (Parker et al., 2003)."
+
+
+%----------------------------------------------------------------------
+\subsection{Notation for a general agent based model}
+%----------------------------------------------------------------------
+
+An agent-based model is a simulation of autonomous agents \cite{shalizi_methods_2006}. %The formulation varies widely by application domain. % One of the simplest classes of agent-based models is cellular automata (CAs). 
+In a typical agent-based model, each cell is an agent and the only agent property is a state vector which typically includes a location in a two dimensional grid and a set of network relationships with other agents. % Simple agent models %, particularly the subset called cellular automata  are well suited to modelling propagating phenomena. %CAs are well suited to modelling propagating phenomena. 
+
+
+ In a general agent model, each individual has a state vector. %$\underbar{x}_{i,t} \in R^k$ at a given time $t$, where $t = 0,1,...,T$ denotes the time.   The 'agent's' location is fixed and the agent's neighbourhood is defined spatially. 
+ The state at time $t$ for agent $i$ is $\underbar{x}_{i,t}$. %where agents are indexed by $i = 1,..,M$, 
+The state vector for the system can be lexicographically reordered into a single state vector \cite{fieguth_statistical_2010}, and written as $\underbar{x}_t = (\underbar{x}_{1,t}',\underbar{x}_{2,t}',...,\underbar{x}'_{M,t})'$.  % The computational problem %(of rules for each/all ?) 
+% increases rapidly  with the number of neighbours. 
+When the state is sampled at each time step and for each agent the observed value of the state vector is $\underbar{m}_{i,t}= h(\underbar{x}_{i,t})$, where $h$ is some measurement operator.
+
+%%%%% TAKE OUT FOR NOW SINCE PAUL SAYS IN INCONSISTENT. ADD BACK IN AFTER!!!More often, the problem is either over or underdetermined and the number of observations is not the same as the number of time steps. Similarly it may not be individual agent states that are observed but rather some aggregate or finer scale phenomena. In the more general case, the observations may not correspond to individual agents and may be observed at different times (in that case we would define $\underbar{m}_{j,k} = h(\underbar{x}_{i,t})$ where j = 0,1,2,...,J is the element that is observed and k = 0,1,...,K is the survey time). %(NOTE PROBABLY EASIER TO REMOVE SUBSCRIPTS BY CONSIDERING THE WHOLE LIST..)
+% STILL NEED TO DISTINGUISH BETWEEN BACKGROUND, TRUTH, AND ANALYSIS FOR AGENT CASE??
+
+%----------------------------------------------------------------------
+\subsubsection{State Transitions}
+%----------------------------------------------------------------------
+
+% \cite{Statistical ABM} %CITE STATISTICAL ABM
+A propagation operator $f$ %They used $h$ 
+determines how the state of each agent changes over time. The propagation operator consists of rules $R$ and a neighbourhood $N$.  A more general  class of models called cell-space models  includes cases where rules vary over time or neighbourhoods vary over space \cite{zeigler_discrete_1982}. % Development sometimes follows a probabilistic pattern. 
+ 
+%\subsection{ADD Simple Example of a Market} % should this heading be here? somewhere else? nowhere?
+The rules can take many forms \cite{iltanen_cellular_2012, kennedy_modelling_2012}. %Batty 2005 covers many strict transition rules.}. 
+In strictly defined cellular automata models, the state of each element is only influenced by they agent's current state and the state of its nearest neighbours. In ABMs there are few constraints on allowable rule sets.
+Sometimes instead of a set of rules, $R$, differential equations or some other formalism controls agent behaviour:
+  \begin{equation}
+  \underbar{x}_{i,t+1} = f_i(\underbar{x}_{i,t},\underbar{x}_{-i,t},\alpha)
+\end{equation}
+
+% For a continuous process that evolves over time ($T$) and space ($S$), 
+% REPETITION BUT LIKE PHRASING .. we get observations $m_{i,t}$ at discrete points in time and space, where $t$ denotes time and $i$ donates location.
+
+
+%For a simple social ABM we can define a social network $N$ such that:% NOT SURE IF WE NEED THIS
+%
+%\begin{equation}
+%  N ^{kl} = f(N^l,N^t)f
+%\end{equation}
+%
+ %note comment if it is a true state.. 
+
+%- following \cite{richiardi_common_2006}?
+%We can consider a transition rule as..
+
+
+\noindent{where $\underbar{x}_{-1,t}$ refers to the state of all agents excluding agent $i$ at time $t$, and $\alpha$ is a vector with other parameters. The state vector in the next time step is some function of the last state of the agent itself and all other agents, as well as any additional parameters needed to specify the model.}
+
+%----------------------------------------------------------------------
+\subsubsection{A Simple Example of an Agent Based Model}
+%----------------------------------------------------------------------
+
+To give a highly constrained example, in a minimal model of an economic market    
+% INCOMPLETE.. UNDER WHAT CONDITIONS NEIGHBOUR STATES ARE bb bh bs hh hs ss  OR 33 32 31 22 21 11 ... ASSIGN SOME TO EACH NEW STATE (OR INCLUDING THE SEFL hhhh )
+where each agent has the choice of selling, holding, or buying a stock in each time step,  the possible states are:
+
+$$
+S_{i,t} =
+\begin{cases}
+s  \text{ if } i \text{ will sell	 } \\ % n/2, & \text{if }n\text{ is even} \\
+h \text{ if } i \text{ will  hold} \\ % 3n+1, & \text{if }n\text{ is odd}
+b \text{ if } i \text{ will buy}. % 3n+1, & \text{if }n\text{ is odd}.
+\end{cases}
+$$
+
+
+\noindent{Transition rules are defined, determining the next step for each agent given the state of both neighbours. For example, using the two dimensional neighbourhood with radius one %\footnote{The Rook's neighbourhood includes two neighbours, one adjacent on each side. The Moore neighbourhood, which includes all eight adjacent cells, is more common but larger. Other neighbourhood definitions include just a subset. The von Neumann neighbourhood, for instance, includes only the four compass directions N, S, E, W. }
+and assigning each agent a fixed location in a two dimensional grid to neighbourhood\footnote{Since each agent has a fixed spatial location and the transition rules are based on neighbourhood state, the model is a Cellular Automata model (CA) one of the simplest class of agent-based models.}, one possible set of rules is:}
+$$
+R_{i,t} =
+\begin{cases}
+s  \text{ sell if } i \text{'s neighbouring states are ss or sh} \\ % n/2, & \text{if }n\text{ is even} \\
+h \text{ hold if } i \text{'s neighbouring states are  hh or sb} \\ % 3n+1, & \text{if }n\text{ is odd}
+b \text{ buy if } i \text{ 's neighbouring states are  bb or bh}. % 3n+1, & \text{if }n\text{ is odd}
+\end{cases}
+$$
+
+
+%----------------------------------------------------------------------
+\subsubsection{Aggregate Statistics, and Input Output Equations}
+%----------------------------------------------------------------------
+
+If we are interested in statistics over the whole population, we can look at an aggregate measure Y:
+
+\begin{equation}
+  Y_t = s(\underbar{x}_{1,t},...,\underbar{x}_{M,t}).
+\end{equation}
+
+\noindent It is also possible to formulate the input-output equation % /input-output transformation equations.
+ (or equation of motion) in terms of some function of the initial conditions:
+ 
+ \begin{equation}
+  Y_t = g_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_J) ,
+\end{equation}
+
+\noindent{where $J$ is the number of independent parameters. Being able to characterize the initial conditions thus gives you what is necessary to propagate the equation forward in time. % Data assimilation can play an important role in solving initial value problems generally. %They use j = n. Why?}
+% In agent models, the system of equations is often too large and nonlinear for analytical evaluation. 
+ %This thesis will computational analysis of simulated data from multiple simulation runs to evaluate the causal patterns generated by models. %, often generated with Monte Carlo methods.
+
+Equilibrium, whether of individual or system level phenomena, is defined as the convergence of the equation above to an equation that is independent of time\footnote{"These statistics can either be a macro system level phenomena or of an individual level phenomena \cite{richiardi_common_2006}} % such as the strategy of an iaggregate, or a micro indicator, as in the case of individual strategies. In both cases, as a general rule all individual actions, which in turn depend on individual states, matter".}.
+
+\begin{equation}
+ Y_e = \lim_{t \rightarrow \infty}  Y_t = g_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_j). 
+\end{equation}
+
+\noindent We can then examine the system statistically with experiments varying parameters and initial conditions. We can impose a metamodel on the simulated data:
+\begin{equation}
+  Y_t = \hat{g}_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_j;\beta),
+\end{equation}
+
+\noindent where $\beta$ are estimated coefficients. % Essentially this amounts to performing a kind of sensitivity analysis over parameter combinations. %('this is a sensitivity analysis on parameters together')
+
+% ** EROR? "In general model error is calculated as the total absolute difference between the real and predicted values, normalised in a variety of ways. The bias of a model can be examined by using the total non-absolute difference, as this will highlight con- sistently great or lesser predictions (if our inputs are reliable, a consistent bias is usually indicative of an issue with the model form). Despite these relatively simple outlines, where the error between a model and reality is given, the statistic used in detail needs considerable and careful thought, especially where the error is het- eroscedastic. Gupta et al. (1998) summarise some of the measures commonly used for aspatial value predictions, especially multi-objective predictions that need combining, while Knudsen and Fotheringham (1986) discuss errors in the context of spatial predictions. `` \cite{evans_uncertainty_2012}
+
+
+%----------------------------------------------------------------------
+\section{Classical, neoclassical and modern economic theory} 
+%----------------------------------------------------------------------
+
+Classical economic theory, neoclassical theory and agent based modelling are  fairly areas, in terms their methodology and their central problematics. 
+
+We identify the classical period loosely as 
+
+Neoclassical and classical theories are often seen as opposed ideologically, since the classicals paid great attention to the extraction of rent or surplus  as the foundation of the class structure of the day, while the neoclassical  economists emphasized the market allocation of income based on one's contribution to production at the margin. The  opposition in our view is exagerated. 
+ 
+
+Many  who employ ABMs to analyse urban systems are deeply skeptical of neoclassical assumptions, while ignoring the rent;-based distributional analyses of the classicals.
+
+These ideological overlays are not helpful in making choices about how to model. We would argue that ABM modellers who assume mainstream economists actually believe that the neoclassical technique of reasoning based on informed rational agents is based on faith or ideology are mistaken. The neoclassical approach is a modelling technique and a  methodological convenience,that is valuable when it is used correctly.  
+
+To the extend that it is limited, it's limitations are best explored by making it inter operable with a model that makes it systematically possible to relax each constraint, and draw on assumption to look at.
 
 % The limatations then become testable, and it's use
 
@@ -105,7 +339,9 @@ We consider the rent theory of the classicals an essential tool for analyzing ur
 % smooth but the parts matter
 % a grove, an atractor
 
+%----------------------------------------------------------------------
 \subsection{Equilibrium versus agent-based modeling}
+%----------------------------------------------------------------------
 
 Economists rely heavily on equilibrium analysis in their study of complex systems. 
 %In Economic modelling the most familiar approach is the  analysis of systems in equilibrium. 
@@ -397,3 +633,17 @@ In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined 
 % worked iwith the games intstitued ith design \dots
 
 
+
+
+\section{Models in Labs}
+
+Models can act as a boundary object, letting people with different perspectives communicate and build understanding within a system.
+
+1. Where the uncertainty, disputed values, and high stakes, and the decisions that must be made are urgent, the field of study is often referred to as \textbf{post-normal science}. While many different disciplinary and non-academic perspectives are needed here, bringing people together is often difficult and necessitates the development of shared languages that people working in the problem area can use to communicate with each other.
+ 
+2. To help develop these shared languages, design can be used to facilitate communication. Design thinking is embedded throughout lab processes in both the work conducted by researchers and the workshops that bring together participants to build small-scale prototype interventions. In our view, the prototypes themselves are \textbf{‘boundary objects’} that enable people from different perspectives to communicate with each other easily. It is in the reduced cost of communication, not in producing preliminary interventions, that prototypes have their primary impact.
+
+3. These reduced communication costs enable participants to coordinate activities with each other. Sometimes these coordinated activities will include most participants in a common strategy, though this is not the primary goal. Instead, overlapping subsets of participants, often simply pairs, can use the opportunities created by the lab process to build joint projects or to engage in exchange with each other. These new agreements between participants add value and help build capacity for innovation and adaptation in the problem space.
+
+
+"For example, the \textbf{developmental impact investing approach} argues that using deep knowledge of a complex social-ecological system like affordable housing to guide impact investment can not only lead to more effective impact investments, it can also build a better understanding of the system that impact investors are working to change. This generates a virtuous cycle that can build multidirectional \textbf{pathways to scaling} social innovation (Geobey, Westley, Weber, 2012).
