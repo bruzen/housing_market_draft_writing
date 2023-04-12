@@ -121,7 +121,7 @@ get units held off the market.
 
 
 Model to hold the developer.. 
-Need a desnity function, go to a different density..
+Need a density function, go to a different density..
 look to see when it's better to wait to invest in increasing density.
 
 \subsection{Class structure} \label{section-class-structure}
@@ -139,11 +139,15 @@ LINK BACK TO THE TRAS
 
 Class, hysteresis, irreversibly.
 
+\section{Extensions of the Alonso model}
+
+The Alonzo model has been used to illustrate a wide range of urban issues. Incorporating these extensions, we can explore relatively fine-grained effects of financialization. The examples that follow  illustrate   ways the model can be applied and suggest further hypotheses that we  would like to test using our model.
+
 
 \subsection{Differential transportation costs}
  Urbanists agree that before the railroad and the automobile, the extent of a city was roughly determined by how far a person could walk in about an hour. The time and effort cost of transportation determined the size of cities. 
  
- It also affected the distribution of the classes within the city. When everyone walked, the  wealthy may have valued their time more than the poor. In terms of the model, the willingness to pay of the rich would higher higher near the core than than the willingness (or ability) to pay of  the poor, but would descend more rapidly with distance
+ It also affected the distribution of the classes within the city. When everyone walked, the  wealthy may have valued their time more than the poor. In terms of the model, the willingness to pay of the rich would higher  near the core than  the willingness (or ability) to pay of  the poor, but would descend more rapidly with distance
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -152,6 +156,7 @@ Class, hysteresis, irreversibly.
 \draw[thick](0,0)--(7,0)node[above right]{$d$}; %X
 
 \draw[ultra thick, orange!75](0,5)--(2,0);
+\draw[ultra thick, orange!75, dashed ](0,2)--(8,0);
 \draw[ultra thick, blue](0,2.5)--(6,0);
 % \node[draw=white, fill=white] (b) at (1,2.9) {Rich};
 % \node[draw=white, fill=white] (b) at (3,1.25) {Poor};
@@ -169,7 +174,9 @@ Class, hysteresis, irreversibly.
 % \label{fig_fix_my_label}
 \end{figure}
 
- If the technology suddenly provides the rich with commuter trains or automobiles and more attractive sites at the edge of the city, the orange line could drop enough  and become much flatter leading in a flight of the rich to the suburbs, as appears to have happened in many American cities. Lower transportation costs make cheaper land on the 
+ If the technology suddenly provides the rich with commuter trains or automobiles and more attractive sites at the edge of the city, the orange line could drop enough  and become much flatter leading in a flight of the rich to the suburbs, as appears to have happened in many American cities. Lower transportation costs make cheaper land on the edge of the city attractive. This would  offer  more space and the opportunity to build larger homes, a pattern that has emerged in some cities.
+
+
 
 \subsection {Changing transportation costs}
 
@@ -256,4 +263,25 @@ It  also affected social structure and left indelible marks on the form of citie
 American society. 
 
 Ultimately the urban expansion generated congestion and rising transportation cost that began to limit urban growth, put upward pressure on  housing costs including transportation, and therefore downward pressure on middle-class effective incomes. Rising congestion costs steepen the rent profile and  reduce the net productivity of cities. Although the process is not a focus of this thesis it represents a relatively simple extension for later work.
+
+
+\section{Municipal costs and revenue}
+
+\begin{figure}
+\begin{center}
+\input{fig/municipal-costs.tex}
+\end{center}
+\caption[The Alonso model with municipal costs and revenue.]{The Alonso model \gls{rent profile}, as illustrated in Figure~\ref{fig-alonso-simple}, with cost and municipal costs and revenue added.} %service fees added.}
+\label{fig-municipal-costs}
+\end{figure}
+ 
+
+ Two stylized facts should be noticed. The first is that the marginal cost of servicing generally rises with the distance from the centre. Figure illustrates the general form of servicing costs, but not the relative scales of rent and servicing costs. When this observation is combined with the \gls{Henry George Theorem} the conclusion is that the optimal size of the city  is at  $d^{**}$, where marginal service cost intersects with the marginal increase in total urban rent.  Walter Christaller, 1933
+
+The second stylized fact is that property taxes, which are generally  fixed as a share of property value, decline as the distance from the centre increases. Figure~\ref{fig-municipal-costs} illustrates the general form of tax liabilities, although it does not  accurately represent their relationship to rent or  servicing costs. This implies that in many or most urban situations the residents at the outer edges pay less than the average amount in property tax per unit of land, but cost  the community budget more than the average amount. In essence, the central city subsidizes the suburbs. (see Perverse Cities \ref{blaisPerverseCitiesHidden2011}). This arrangement is both economically inefficient and unfair, but it has been built into the fiscal structure of cities largely as a result of automobile-based urban growth. It is likely that this fiscal misallocation saps some of the potential productivity growth of cities. Property taxation reduces the market value of properties, but it also funds services and amenities that increase the value of properties. 
+
+Both servicing and taxation effects are more variable and than the simple model suggests.  One conclusion urban theorists draw based on variants of the Alonso model is that because property owners in the low-density urban margin are subsidized,  the subsidy is likely to create serious fiscal problems for municipalities in the long-term and result in serious inefficiency in land use.
+
+Political opposition is essentially rent seeking.
+
 

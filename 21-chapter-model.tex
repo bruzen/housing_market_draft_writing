@@ -262,9 +262,29 @@ For any level of risk and liquidity, an investor will choose to purchase the ass
 
 To model the investment decision  we therefore need to calculate the \gls{rate of return} on each property taking into account the rental revenue, the potential capital gain, the investors' costs of capital, incomes, and assets. The analysis will show the incentive structure driving the  financialization of the housing market. We do this in detail in Appendix~\ref{appendix-bid-price} 
 The model must  allow for bidding and speculative investment but also must reflect the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we, therefore, need to define  the relevant variables, and make some distinctions among different notions  of rent and price %, including a variety of prices perceived prices  bid price3s
-\subsection {Variables}
 
-\subsubsection{Rent} \label{section-rent}
+
+{\color{red}
+
+\section{System dynamics}
+Combined, the three submodels we have just described make up a complex system with many different types of agents interaction over time. It is an open and growing system, with financial and population flows in and out. We have simplified greatly by assuming that there is a competitive market for output driving the system. There are two main feedback loops: the productivity-wage population-productivity loop we call the Alonso-Jacobs cycle, and the speculative investment-price inflation-investment cycle that may produce price bubbles. A system of this sort inevitably has distinct dynamics that can, depending on critical parameters, produce surprising and even counter-intuitive results.  
+
+Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
+
+
+System behaviour depends on the  speed with which system  stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values.  
+
+We have not introduced any stochastic elements into the core model one the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
+
+One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distribution on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
+
+It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size may affect amenity - which we have not models - and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
+
+}
+
+\section {Variables}
+
+\subsection{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
 is also what makes this a \gls{classical} model. 
 
