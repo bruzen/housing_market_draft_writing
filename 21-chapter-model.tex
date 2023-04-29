@@ -40,18 +40,6 @@
 In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
 
 
-\begin{lstlisting}
-// Hello.java
-import javax.swing.JApplet;
-import java.awt.Graphics;
-
-public class Hello extends JApplet {
-    public void paintComponent(Graphics g) {
-        g.drawString("Hello, world!", 65, 95);
-    }    
-}
-\end{lstlisting}
-
 In Section~\ref{sec_model_blocks} we  begin by describing the major blocks of the model. 
 
 In Section~\ref{sec_model_dynamics}  we make some comments on the dynamic properties of the model we have constructed. 
@@ -403,11 +391,10 @@ One cost owners pay on a property is taxes. Municipal property taxes are based o
 \begin{align*}
 \mathcal{T} &= \text{mill rate} \times \mathcal{P}_M \\
 \end{align*}
-where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the Market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate $c$ using the the \gls{compound interest rate} for the period. The entirely conventional  computation is described below.} The taxes paid over the period are then:
+where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate $c$ using the the \gls{compound interest rate} for the period. The entirely conventional  computation is described below.} The taxes paid over the period are then:
 
 \subsubsection{Annual maintenance}
-Annual maintenance costs apply to buildings and lands but not to locational value,
-so we can write
+Annual maintenance costs apply to buildings and lands but not to locational value, so we can write
  \begin{align}
 \mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
 \end{align}
@@ -434,19 +421,15 @@ The rate of price growth $\dot P$, is an approximation based on rents and past m
 
 \subsubsection{Market price and expected price} \label{section-market-price}
 
-The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or   prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price  may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since  agents do not have perfect information, the expected value  is calculated with their best approximation of values.} 
+The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since agents do not have perfect information, the expected value is calculated with their best approximation of values.} 
  \footnote{Case and Shiller point out ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.} 
 
 %$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
 
-
-
 %In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
-
 
 Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent  by using the warranted rent as an approximation. We do this to focus on the economic rent, and to show as clearly and as simply as possible the economic linkages between productivity and urban rents. 
 The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value which is part of  the core conceptual contribution of this work. 
-
 
 % \subsection{Price forecast approximation} \label{section-price-forecast}
 % $L(p)$
@@ -467,7 +450,6 @@ The assumption simplifies the analysis of the relationship between the scaling o
 
 % It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE \dots
  %METHODOLOGY CHAPTER? warranted rent is a frontier .  
-
 
 In the computational agent-based  model, the assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The values evolve from that starting point. 
 

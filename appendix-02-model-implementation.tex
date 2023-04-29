@@ -1,10 +1,24 @@
-\chapter[Bidding]{Prices and Bidding}
-\label{appendix-bid-price}
+\chapter[Model Implementation]{Model Implementation}
+\label{appendix-model-implementation}
 
-% TODO: ARE THERE PIECES TO MOVE BACK HERE, TO THE APPENDIX, FROM THE MODELLING SECTION, AFTER REVISING? PROBABLY AT LEAST SOME OF THE DERIVATIONS/IMPLEMENTATION DETAILS. IT MAY OR MAY NOT BE SEPARATE FROM THE PARAMETER APPENDIX
+\subsection{Max mortgage calculation}
+
+\begin{lstlisting}
+# Max mortgage
+import javax.swing.JApplet;
+import java.awt.Graphics;
+
+public class Hello extends JApplet {
+    public void paintComponent(Graphics g) {
+        g.drawString("Hello, world!", 65, 95);
+    }    
+}
+\end{lstlisting}
+
 
 % wealth = property_value + 
 wealth $W_i = P_e-M+S$.  
+
 - Also need mean wealth. $\bar W$ , which you have to calculate from the sums for property values total mortgages issued, and individual savings. The bank could keep these values
 - Individual borrowing rate 
 $r_i = (A + B \frac{\bar{W}}{W_i})\bar r=(.1 + B \frac{\bar{W}}{W_i})\bar r$.
@@ -16,4 +30,3 @@ $r_i = (0 + B \frac{\bar{W}}{W_i})(\bar r_i+ bank\ margin)$.
 - Maximum M  from income = $M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}$ 
 % - Maximum M  $M= min(0.28*(omega+phi)/r_i,  0.8P$,  (9-(W_i/\bar W)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i}   } $
 - 
-
