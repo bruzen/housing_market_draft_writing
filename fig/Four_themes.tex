@@ -1,0 +1,63 @@
+% \documentclass[tikz,minimum size=20cm]{standalone}
+% \usepackage{tikz}
+% Four Themes for  housing research April 21
+
+% \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.16}
+% \usepackage{mathtools,amssymb}
+% %\input{Preamble}
+% %\input{(SpecialDistanceCourse}
+% %\input{FRAMES}
+% \begin{document} 
+ 
+ \begin{tikzpicture}%[scale=.8]
+    \tikzstyle{every node}=[font=\small]
+%\draw[help lines,step=.5] (0,-11) grid (11,11);
+
+%  LOCATION OF ALL NODES
+\coordinate (Extraction) at (0,3);%PREFACE
+\coordinate (Tenure) at (5,3);%
+ \coordinate (Corridor) at (5,0); %history
+\coordinate (Lifeboat) at (0,0); %
+%\coordinate (d) at (9,9);%
+
+
+%.  CIRCLE NODES
+% \fill[red, fill opacity=.8] (0,0) circle (4cm);
+%\fill [gray, fill opacity=0.2] (m) node [text width=2cm, black, opacity=1] 				(community)	{} circle (3cm);
+%\fill [gray, fill opacity=0.1] (oo)  node [text width=2cm, align=left, black, opacity=1] 		(econ) {} circle (3.5cm);
+% \node at (e) [ ] 		(comLtabel) {Data};
+% \node at (g) [ ] 		(ecLabel) {THEORY};
+	
+%\node [circle, draw,  fill=gray, opacity=.5,, text width=1.5cm] at			 (aa) 		(preface)		{HYPOTHESIS};
+%\node [] at			 (f) 		(plan)		{\Huge PLAN};
+			%\draw [fill=blue, fill opacity=0.35] (b)node [text width=2cm, align=center, black, opacity=1] 			(history){History: New is Old} circle (1.2cm);
+
+\node[fill=red!30, regular polygon, regular polygon sides=6, draw, align=center]at (Extraction) (ExtractionP) 	{\color{black}Rent  \&\\Finance};%Extraction \\and \\Financialization} ;
+
+\node[fill=yellow!30, regular polygon, regular polygon sides=6, draw, align=center] at (Tenure) (TenureP) {Tenure\\ and\\ Wealth} ;
+
+\node[regular polygon, regular polygon sides=6, draw, align=center] at (Corridor) (CorridorP)	{Socal\\ Wealth \\Corridor};
+
+\node[fill=green!30, regular polygon, regular polygon sides=6, draw, align=center] at (Lifeboat) (LifeboatP)	 {Lifeboat\\Canada};
+
+% LINKS
+%\draw (J) node [text width=6cm, text centered] {Economic Development };
+%\draw ()--();
+\draw [gray, line width=2mm,-> ](ExtractionP)to [bend left=35](TenureP);
+\draw  [gray, line width=2mm,->](TenureP)to [bend left=60](CorridorP);
+\draw  [gray, line width=2mm,-> ](CorridorP)to [bend left=35](LifeboatP);
+\draw  [gray, line width=2mm,-> ](LifeboatP)to [bend left=60](ExtractionP);
+
+% \draw [gray, line width=2mm,-> ](whatis)--(joint);
+% \draw [gray, line width=1mm,-> ](joint) to [bend right=25](efficiency);
+% \draw  [gray, line width=1mm,-> ] (joint) to [bend left=20](capital);
+% \draw [gray, line width=1mm,-> ](joint) to [bend right=20](externalities);
+% \draw [gray, line width=1mm,-> ](joint) to [bend left=25](trans);
+% \draw  [gray, line width=1mm,-> ](joint)->(pubgoods);
+% \draw  [gray, line width=.5mm,-> ](capital) to[bend left=25](small);
+% \draw  [gray, line width=.5mm,-> ,dashed](joint) to[bend left=7](forestryEC);
+\end{tikzpicture} 
+
+% \end{document}

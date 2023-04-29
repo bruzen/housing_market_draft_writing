@@ -29,18 +29,52 @@
 
 % This chapter introduce the urban spatial model and labour supply, models the production function with urban scaling of agglomeration effects with density, then introduces a model of financial investment/speculation into a spatially explicit land market model, then calculates profit, considers who gets the profit, and draws conclusions. 
 
-The goal of this work is to make a model as simple as the Alonzo model, that gives a clear set of insights.
 
-Recent urban models %, on the other hand, 
-tend to ignore the production process and consider the locational implications of land and transportation costs on the location of people. Wealth distribution is often ignored. 
+
+%     MOVE THIS?
+%Recent urban models %, on the other hand, tend to focus on the locational implications of land and transportation costs on the location of people. Wealth distribution is  often ignored. 
+
 % - need to  model production, specifically the rising production with density. 
-There is an extensive formal apparatus in economics for considering the relation of production and output. 
-
+%There is an extensive formal apparatus in economics for considering the relation of production and output. 
 % \section{The general structure of the model}
-We add a financial system to a spatial urban model %to the simple Alonso model 
-in order to examine the impact of financialization of the housing market on urban productivity and distribution. 
-% To do this, we develop a 
-To do this we develop an agent based spatial model of an urban housing market, a production function modelling how urban regions generate wealth, and an analysis of distribution within that model that incorporates the financial system. The three model components are:
+In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
+
+
+\begin{lstlisting}
+// Hello.java
+import javax.swing.JApplet;
+import java.awt.Graphics;
+
+public class Hello extends JApplet {
+    public void paintComponent(Graphics g) {
+        g.drawString("Hello, world!", 65, 95);
+    }    
+}
+\end{lstlisting}
+
+In Section~\ref{sec_model_blocks} we  begin by describing the major blocks of the model. 
+
+In Section~\ref{sec_model_dynamics}  we make some comments on the dynamic properties of the model we have constructed. 
+
+In Section~\ref{sec_model_variables} we describe how a series of key  variables are constructed. The variables enter the decision-making process of agents in the market. 
+
+In Section~\ref{sec_model_bid_price}     
+
+In Section~\ref{sec_model_bargaining}    
+
+ The treatment of time a periods and discounting is discussed in Section~\ref{sec_model_time}. 
+ Section~\ref{sec_model_price_expectataions}
+
+
+In Subsection ~\ref{SSec:Production-fn} we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
+
+% % In subsequent sections  .. (Derivation details in Section~\ref{section-derivations})
+
+
+\section{The three major blocks of the model}\label{sec_model_blocks}
+
+Our goal has been to make a model as accessible as the Alonzo model that can still provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution. In pursuing this goal we kept the first two components, i.e.,  the spatial structure and the growth mechanism,  as simple as possible, but we have modeled the market for housing in more detail. Specifically,
+%The  model has three major blocks:
 
 {\newpage\thispagestyle{empty}
 \vspace{-1.5cm}
@@ -61,19 +95,18 @@ To do this we develop an agent based spatial model of an urban housing market, a
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonso-style models. This equation is embedded in the decision of every agent because it determines the economic rent for each piece of property.
 
-\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and  instead to deal with the underlying long-term relationship between city  population and production. We have called the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}.  Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We have called the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
 \item To link the Alonso-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of individual decisions. % In Section~\ref{section-micro},
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
-Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following three sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order. Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
+Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following three sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order. % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
-\section{Spatial structure}
+\subsection{Spatial structure}
 
 % In this section, we introduce the basic structure of the model, drawing on the circular city model.  
-%  we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
-% % In subsequent sections  .. (Derivation details in Section~\ref{section-derivations})
+%  
 % We build a spatially explicit agent model where agents work in one location and incur costs travelling to work. This work integrates a model of production and labour into a standard spatial model of the city. In this section, we introduce an analytic model of production and a labour market in a stylized circular city. 
 
 % \subsection{Labour supply for production}
@@ -119,7 +152,8 @@ In an equilibrium analysis, this would be the equilibrium \gls{urban labour supp
 % \label{eqn-inverse-labour-supply}
 % \end{equation}
 
-\section{Agglomeration}
+\subsection{Agglomeration and productivity}\label{SSec:Production-fn}
+
 % *** ADD BACK? To study the productivity of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}), using an approach similar to the way the \gls{Solow-Swan model} incorporates labour-augmenting technical change with a \gls{Cobb-Douglas} production function, and building the production function into a standard Alonso-style model of an urban economy.
 %, using a simple Cobb-Douglas production function. 
 % We incorporate the estimated scaling relationship in 
@@ -214,7 +248,7 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 
 % We have a two factor model of production with labour and capital.  
 
-\section{Financialization} 
+\subsection{Financialization} 
 %Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship we build a simplified model of a \gls{housing market}.% CALL IT LAND, PROPERTY, OR HOUSING MARKET? % - it is the housing use, combined with location we're interested in. % we introduce a \gls{land market}.% Agents purchase homes though a housing market. 
 
 In cities, housing is exchanged on a market. The product is properties %, at a particular location, which include
@@ -266,23 +300,21 @@ The model must  allow for bidding and speculative investment but also must refle
 
 {\color{red}
 
-\section{System dynamics}
-Combined, the three submodels we have just described make up a complex system with many different types of agents interaction over time. It is an open and growing system, with financial and population flows in and out. We have simplified greatly by assuming that there is a competitive market for output driving the system. There are two main feedback loops: the productivity-wage population-productivity loop we call the Alonso-Jacobs cycle, and the speculative investment-price inflation-investment cycle that may produce price bubbles. A system of this sort inevitably has distinct dynamics that can, depending on critical parameters, produce surprising and even counter-intuitive results.  
+\section{System dynamics}\label{sec_model_dynamics}
+Combined, the three submodels we have just described make up a complex system with many different types of agents interacting over time. It is an \gls{open system} that is growing, with financial and population flows in and out of the system. We have simplified greatly by assuming that there is a competitive market for output driving the system. There are two main \glspl{feedback loop}: the productivity-wage population-productivity loop that we call the Alonso-Jacobs cycle, and the speculative investment-price inflation-investment cycle that may produce price bubbles. 
 
-Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
+A system of this sort inevitably has distinct dynamics that can, depending on \glspl{critical parameter}, produce surprising and even counter-intuitive results.  Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not, and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
 
+System behaviour depends on the speed with which system stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values. We know that certain variables , like ownership  shares are bounded between zero and one although the housing stock itself is variable.  
 
-System behaviour depends on the  speed with which system  stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values.  
+We have not introduced  stochastic elements into the core model on the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
 
-We have not introduced any stochastic elements into the core model one the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
+One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distributions on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
 
-One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distribution on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
-
-It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size may affect amenity - which we have not models - and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
-
+It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size or composition may affect amenity - which we have not models---and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
 }
 
-\section {Variables}
+\section {Variables}\label{sec_model_variables}
 
 \subsection{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
@@ -505,7 +537,7 @@ In the computational agent-based  model, the assumption gives a natural way to i
 %That may let us simplify the exposition in the financialization chapter.
 
 
-\subsection{Bid Price}
+\section{Bid Price}\label{sec_model_bid_price}
 To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. More specifically, we need to find the maximum price that they are willing to pay. 
 %As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer  considering knows a vector of attributes of the house, the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. 
 %All of these factors are taken into account  to determine whether an investment is profitable. To make a comparison with alternative investments  it is necessary to compute a rate of return. 
@@ -573,7 +605,7 @@ $S_i$ & personal savings = $age*d*W$\\
 
 The availability of capital differs for rich and poor. 
 
-The borrowing ratikon, $m$ is the fraction of a propewerty 's pricxe that can be mortgaged.: $m=M/p_M$. We can develop an expression to capture the relationship between the \gls{borrowing ratio}, $m_i$,  and individual wealth. Figure~\ref{fig-borrowing-ratio} illustrates a plausible mortgage availability  model that is written:
+The borrowing ratio, $m$ is the fraction of a property's price that can be mortgaged.: $m=M/p_M$. We can develop an expression to capture the relationship between the \gls{borrowing ratio}, $m_i$,  and individual wealth. Figure~\ref{fig-borrowing-ratio} illustrates a plausible mortgage availability  model that is written:
 
  \[ m_i = 9-\left(\frac{W_i}{\bar W}\right)^{0.1} \]
 
@@ -598,30 +630,32 @@ The relationship is clearly established empirically \cite{}, but location and sh
  The cost of capital is known to differ for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
  
 \begin{equation}
-r_i = (A + B \frac{\bar{W}}{W_i})\omega \label{eqn-interest-wealth-relationship}
+r_i = (A + B \frac{\bar{W}}{W_i})\bar r\label{eqn-interest-wealth-relationship}
 \end{equation}
  
 
- Capital cost equation
+%  Capital cost equation
  
-\[   r^h=\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m}    \]
+% \[   r^h=\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m}    \]
 
-\begin{figure}[!hb]
-\begin{center}
-\input{fig/capital-cost.tex}% Figure of cost of borrowing
-\caption[Borrowing cost for agents depending on wealth.]{Borrowing cost for agents depending on wealth, with different values for parameters $A$ and $B$ in Equation~\ref{eqn-interest-wealth-relationship}.} %$A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red), and  $A=.8$  $B=0.8$ (green).}
-\label{fig-capital-cost}
-\end{center}
-\end{figure}
+% \begin{figure}[!hb]
+% \begin{center}
+% \input{fig/capital-cost.tex}% Figure of cost of borrowing
+% \caption[Borrowing cost for agents depending on wealth.]{Borrowing cost for agents depending on wealth, with different values for parameters $A$ and $B$ in Equation~\ref{eqn-interest-wealth-relationship}.} %$A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red), and  $A=.8$  $B=0.8$ (green).}
+% \label{fig-capital-cost}
+% \end{center}
+% \end{figure}
 
-Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s %\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
+Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth
+.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s 
+%\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
 % Data released in 2020 by Statistics Canada indicates that t
  The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
  %A study by Statistics Canada found that t
  The typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
 } 
 
-
+\input{fig/price_of_capital}
 
 %The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
 %illustratea a  possible  cost-of-borrowing models 
@@ -675,7 +709,7 @@ V &= \delta \left(P_T - (1+r)M\right) +   \mathcal{R}^w_N   \\
 This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 
 
-\subsubsection{Rate of return on investment}
+\subsection{Rate of return on investment}
 Since an investor is interested in the rate of return on funds invested, we divide V by the size of the down payment, $D$ to get the required rate of return  
 
 \begin{align}
@@ -688,7 +722,7 @@ r^{return}
 \end{align}
 
 
-\subsubsection{Criterion for investment}
+\subsection{Criterion for investment}
 Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if  their expected return is greater than the target return, they are seeking:
 \begin{equation}
 r^{target}\le r^{return} 
@@ -734,24 +768,31 @@ r^{target}\le r^{return}
 % \end{eqnarray}
 % In Appendix~\ref{appendix-bid-price} this expression is solved for $P_B$, the  maximum price that allows the investor can pay and still achieve at least her  target rate of return, $r_{target}$.  
 
-\subsubsection{Maximum bids}
+\subsection{Maximum bids}
 The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
 
 \begin{eqnarray}
 P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
 % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
-We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.
+We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
 
-Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
+%Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
 
 
-\subsubsection{Reservation price} \label{section-reservation-price}
+\subsection{Reservation price} \label{section-reservation-price}
 
-We will assume,  that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} \footnote{Worker-owners remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.} 
-\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
-\footnote{As a further  extension, worker-owners in the final few years of their working life might decide to  list if  they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
+We will assume,  that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
+If no sale is made the owner would consider becoming a landlord.\footnote{Worker-owners could remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.}  This would be a rational choice if the present value of net rent is above the the best selling price price. 
 
+The value of the stream of rent is therefore the most reasonable reservation price.   This stream must be discounted at the personal discount rate or at the personal borrowing rate.\footnote{As a further  extension, worker-owners in the final few years of their working life might decide to  list if  they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
+
+
+The seller would  post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we will treat the asking price and bids a mere ''cheap talk'' and assume instead that if there is a deal it will result in a price between the  bid and the reservation price. a rice outside of this range can not be a rational choice for both sides and is ruled out  in Nash bargaining theory.
+% In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world. 
+
+
+%
 % \[P^{ask}>P_M^e> 0.95 P^r\]
 % Otherwise
 % \[P^{ask}> 1.10P^r>P_M^e\]
@@ -762,18 +803,57 @@ Once an owner reached retirement age, if no sale is made the reservation price i
 If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
 
-\subsection{The bargaining model} \label{section-bargaining}
-The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+\section{The bargaining model} \label{sec_model_bargaining}
 
-We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
+The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible.  Otherwise, the transaction does not proceed.
 
-If the posted asking price is above $P_B^{max}$, the potential buyer  makes an offer below $P_B^{max}$ and the bargaining rule selects a value between the offer and the ask that is less than $P_B^{max}$, say min($0.5(P^{offer}+P^{ask}), P_B^{max})$.
+If there are competing buyers with maximum bids higher than the reservation price, only the highest two need be considered.  The second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left.  That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey \gls{second-price auction} theory. Bidders are asked to submit sealed bids b1, \dots The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
 
-If the posted asking price is below $P_B^{max}$, the potential buyer  makes an offer below $P^{ask}$ and the bargaining rule selects a value between the offer and the ask that is above $P_R$, say max($0.5(P^{offer}+P^{ask}), P_R)$. 
+If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+\[P = xP_B^{max*}+(1-x)P_R\]
+where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price cannot exceed the maximum profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
 
-If there  are competing buyers, the second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left.  That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey, or second price, auction theory. Bidders are asked to submit sealed bids b1, \dots , bn. The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
 
- 
+
+\begin{figure}[!hb]
+    \centering
+\begin{tikzpicture}
+%\draw[step=0.5cm,color=gray] (0,-3) grid (8,7);
+\node [above](Bank)at (1,7) {Bank};
+\node [above](Buyers)at (5,7) {Buyers $i$};
+\node [above](Seller)at (7,7) {Seller};
+
+
+
+\draw[ultra thick, -latex](Bank)--++(0,-1.5)node[below]{$P_B^{max}$};
+\draw[ultra thick, -latex](Buyers)--++(0,-1.5)node[below]{$P_i^{max}$};
+\draw[ultra thick, blue!60,-latex](Seller)--++(0,-1.5)node[below]{$P_R$};
+
+\node[above, red, text width=1.55cm, align=center]at (3,5){Select two highest bids};
+
+
+
+\begin{scope}[shift={(0,-1)}]
+\draw[ultra thick](1,6.)--(5,6.0); % Bar
+\draw[ultra thick, blue!60,-latex](7,6.2)--++(0,-1)--++(-4,0)node[left, red]{Compare};  %Pass P_R to if-then
+\draw[ultra thick, -latex](3,6)--++(0,-1.5)--++(-2.,-.5);% down and left
+\draw[ultra thick, -latex](3,5)--++(0,-1)node[below, text width=1.5cm, align=center]{none above {$P_R$} };%
+\draw[ultra thick, -latex](3,5)--++(0,-.5)--++(2.2,-.5)node[below, text width=1.cm, align=center]{One above {$P_R$} };
+% down and Right
+
+\draw[ultra thick, -latex](.1,2.5)node[above, text width=2.cm, align=center]{two or more above {$P_R$} }--++(0,-.75)node[below, text width=3cm, align=center]{Auction: price is second highest $P_i^{max}$, house goes to highest bidder};
+
+\draw[ultra thick, -latex](3,2.5)--++(0,-.75)node[below, text width=2cm, align=center]{No sale};
+
+\draw[ultra thick, -latex](5.5,2.5)--++(0,-.75)node[below, text width=2cm, align=center]{Bargain: price is power-modified mean};
+\end{scope}
+
+\end{tikzpicture}
+    \caption{The Bargaining model and price determination}
+    \label{fig:Bargaining}
+\end{figure}
+%We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$ is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
+
 
 
 
@@ -972,7 +1052,7 @@ If there  are competing buyers, the second highest max bid should be the sale pr
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
 
-\subsection{The period and time value of money}
+\section{The period and time value of money}\label{sec_model_time}
 In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
 %This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
 
@@ -1001,7 +1081,7 @@ For the sake of notational simplicity and clarity of exposition,  we omit the co
  The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
 
  
-\subsection{Incorporating price growth}
+\section{Incorporating price growth}\label{sec_model_price_expectataions}
 %We need a time period T for calculations. For use in any calculation, 
 
 With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 

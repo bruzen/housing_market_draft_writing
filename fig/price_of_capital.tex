@@ -24,6 +24,9 @@
 \def \A {.8}
 \draw[func,domain=\Wmin:\W, green] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\omega});
 
+\def \A {.5} \def \B {.5}
+\draw[func,domain=\Wmin:\W, black] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\omega});
+
 \def \A {1}
 \def \B {.8}
 \draw[func,domain=\Wmin:\W, red] plot [samples=200] (\x,{(\A+\B*\Wbar/\x)*\omega});
