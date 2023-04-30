@@ -46,27 +46,34 @@ def __init__(self, width = 50, height = 1,
              subsistence_wage         = 40000., # psi
              working_periods          = 40,     # in years
              savings_rate             = 0.3,
+            #  initial_savings: if agents save anything before reaching working age
              init_wage_offer          = 10.,
              init_interest_rate       = 0.03,
              prefactor                = 0.2, # 251., 
+             # Prefactor - should be much higher than .2
              agglomeration_ratio      = 1.2,  # was scaling_factor
              wage_share               = 1.0,
+             workers_share            = 0.8   # lambda
              property_tax_annually    = 0.04, # tau, was c
              mortgage_period          = 5.0,  # T, in years
              housing_services_share   = 0.3,  # a
              maintenance_share        = 0.2,  # b
              r_prime                  = 0.05,
              r_premium                = 0.00,
+            #  r_premium_bank = 0.00, # TODO: heterogenous discount rates and premiums
              ):
 \end{lstlisting}
 
+\subsection{Workers share}
+The worker's of the surplus, $lambda$ It might be 0.8. It is used in...
 
 \section{Urban wage premium}
 
 $\omega$ is the urban wage premium. It is a share of the urban agglomeration effect. 
-I think of this as worker income, $\psi+\omega+savings$ 
 
-The wage income  $\psi+\omega$ part has to be related to the marginal productivity of workers. The urban output function from Lobo et al \cite{loboUrbanScalingProduction2013} is  
+I think of this as worker income, $\psi + \omega + savings$ 
+
+The wage income  $\psi + \omega$ part has to be related to the marginal productivity of workers. The urban output function from Lobo et al \cite{loboUrbanScalingProduction2013} is  
 \[Y=AN^\beta\]
 Where $\beta=1.13$ is the scale factor for example  a la Bettencourt, so the \textbf{total urban marginal productivity of a worker} is  
 \[UMPL=\beta AN^{\beta-1}=\frac{\beta Y}{N} =\]
@@ -84,7 +91,7 @@ where $(1-\alpha)=0.8$ is a common estimate. If we assume that this sets the rur
  \[\omega= \lambda(\beta -1) \frac{Y}{N} =\lambda(\beta -1) \frac{AN^\beta}{N} \] 
  
 
-This is the workers share of the surplus over and above the constant returns to scale (CRS) case.
+$(\beta -1)$ is agglom and  $\lambda(\beta -1)$ is the workers share of the surplus over and above the constant returns to scale (CRS) case.   $\lambda(\beta -1)$ is 
 
 \begin{lstlisting}
 # Firm step function updates wage, omega
@@ -92,25 +99,16 @@ def step(self):
     prefactor  = self.model.prefactor
     agglom     = self.model.agglomeration_ratio
     population = self.model.agglomeration_population
-    wage_share = self.model.wage_share
-    self.wage  = wage_share * prefactor * population**agglom
+    wage_share = self.model.wage_share  
+    self.wage = wage_share * agglom * prefactor * population**agglom
 \end{lstlisting}
 
-where the worker's share is:
-
-\begin{lstlisting}
-# CUT def get_workers_share(self):
-def get_urban_wage_premium(self):
-    """Share of agglomeration effect that goes to workers, omega """
-    psi        = self.subsistence_wage
-    wage_share = self.wage_share
-    agglom     = self.agglomeration_ratio
-    return wage_share * agglom * psi
-\end{lstlisting}
+Where wage share is a parameter input to the model.
 
 
-\section{Computations}
 
+
+\section{Bidding}
 \subsection{Subjective discounting}
 \begin{lstlisting}
 def get_discounting(self):
@@ -182,7 +180,7 @@ def get_discounting(self):
 
 
 
-\section{Warranted price}
+\subsection{Warranted price}
 \begin{lstlisting}
 @property
 def warranted_price(self):
@@ -190,12 +188,19 @@ def warranted_price(self):
     return self.model.firm.wage/(self.transport_cost + 1) 
 \end{lstlisting}
 
-\section{Maximum mortgage calculation}
+\subsection{Maximum mortgage calculation}
+
+% **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank
+
 
 \begin{lstlisting}
 # Max mortgage
+wealth = property_value - mortgage + savings
+mean_weath = sum(wealth)/number_of_people
+
 def get_max_mortgage(self, applicant):
     max_mortgage =  ...
+    
     return max_mortgage
 \end{lstlisting}
 
@@ -215,7 +220,7 @@ $r_i = (0 + B \frac{\bar{W}}{W_i})(\bar r_i+ bank\ margin)$.
 % - Maximum M  $M= min(0.28*(omega+phi)/r_i,  0.8P$,  (9-(W_i/\bar W)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i}   } $
 - 
 
-\section{Net Rent}
+\subsection{Net Rent}
 
 \begin{lstlisting}
 def get_net_rent(self, property):
@@ -241,7 +246,7 @@ def get_net_rent(self, property):
     # urban_wage = self.model.firm.wage
 \end{lstlisting}
 
-\section{Max Bid}
+\subsection{Max Bid}
 
 Calculate max desired bid for an agent
 \begin{lstlisting}
