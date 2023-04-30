@@ -37,31 +37,36 @@
 % - need to  model production, specifically the rising production with density. 
 %There is an extensive formal apparatus in economics for considering the relation of production and output. 
 % \section{The general structure of the model}
-In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
+In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
 
+The model is introduced in the following sections:
+\begin{enumerate}
+\item In Section~\ref{sec_model_blocks} we  begin by describing the major blocks of the model. 
 
-In Section~\ref{sec_model_blocks} we  begin by describing the major blocks of the model. 
+\item In Section~\ref{sec_model_dynamics}  we make some comments on the dynamic properties of the model we have constructed. 
 
-In Section~\ref{sec_model_dynamics}  we make some comments on the dynamic properties of the model we have constructed. 
+\item In Section~\ref{sec_model_variables} we describe how a series of key  variables are constructed. The variables enter the decision-making process of agents in the market. 
 
-In Section~\ref{sec_model_variables} we describe how a series of key  variables are constructed. The variables enter the decision-making process of agents in the market. 
+\item In Section~\ref{sec_model_bid_price}     
 
-In Section~\ref{sec_model_bid_price}     
+\item In Section~\ref{sec_model_bargaining}    
 
-In Section~\ref{sec_model_bargaining}    
-
- The treatment of time a periods and discounting is discussed in Section~\ref{sec_model_time}. 
+\item The treatment of time a periods and discounting is discussed in Section~\ref{sec_model_time}. 
  Section~\ref{sec_model_price_expectataions}
 
 
-In Subsection ~\ref{SSec:Production-fn} we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
+\item In Subsection~\ref{sec:Production-fn} we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
+
+\item Appendix~\ref{appendix-model-implementation} gives more details, describing the calculations, and showing how the model is implemented in code. 
+
+\end{enumerate}
 
 % % In subsequent sections  .. (Derivation details in Section~\ref{section-derivations})
 
 
 \section{The three major blocks of the model}\label{sec_model_blocks}
 
-Our goal has been to make a model as accessible as the Alonzo model that can still provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution. In pursuing this goal we kept the first two components, i.e.,  the spatial structure and the growth mechanism,  as simple as possible, but we have modeled the market for housing in more detail. Specifically,
+Our goal has been to make a model as accessible as the Alonzo model that can still provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution. In pursuing this goal we kept the first two components, i.e.,  the spatial structure and the growth mechanism,  as simple as possible, but we have modeled the market for housing in more detail. Specifically:
 %The  model has three major blocks:
 
 {\newpage\thispagestyle{empty}
@@ -83,7 +88,7 @@ Our goal has been to make a model as accessible as the Alonzo model that can sti
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonso-style models. This equation is embedded in the decision of every agent because it determines the economic rent for each piece of property.
 
-\item We incorporate the fundamental wealth production process of the city by using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We have called the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We have called the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
 \item To link the Alonso-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of individual decisions. % In Section~\ref{section-micro},
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
@@ -98,7 +103,7 @@ Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following thre
 % We build a spatially explicit agent model where agents work in one location and incur costs travelling to work. This work integrates a model of production and labour into a standard spatial model of the city. In this section, we introduce an analytic model of production and a labour market in a stylized circular city. 
 
 % \subsection{Labour supply for production}
-We begin with a model of a circular city %- INTRO CITY/APPROACH?
+We begin with a model of a circular city. %- INTRO CITY/APPROACH?
 Following the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
@@ -140,7 +145,7 @@ In an equilibrium analysis, this would be the equilibrium \gls{urban labour supp
 % \label{eqn-inverse-labour-supply}
 % \end{equation}
 
-\subsection{Agglomeration and productivity}\label{SSec:Production-fn}
+\subsection{Agglomeration and productivity}\label{sec:Production-fn}
 
 % *** ADD BACK? To study the productivity of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}), using an approach similar to the way the \gls{Solow-Swan model} incorporates labour-augmenting technical change with a \gls{Cobb-Douglas} production function, and building the production function into a standard Alonso-style model of an urban economy.
 %, using a simple Cobb-Douglas production function. 
@@ -162,7 +167,7 @@ To focus the model on urban productivity and the growing urban wage premium, we 
 %\footnote{See parameter appendix Section~\ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
 % When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
 
-Urban workers give up the subsistence income and receive the \gls{urban wage}, which is the subsistence wage plus the \gls{urban wage premium} $\psi +  \omega$, firms pay to attract workers. 
+Urban workers give up the subsistence income and receive the \gls{urban wage}, $\psi +  \omega$, the subsistence wage plus the \gls{urban wage premium} that firms pay to attract workers. 
 % When we assume an subsistence wage with a specific share  applied to housing we are implicitly assuming that landlords are seeking to claim the value of the rents. It makes it possible to explore whether and how tenants and even owners may be squeezed towards a \gls{subsistence frontier}. %whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
 
 
@@ -189,7 +194,7 @@ The urban wage premium scales with the agglomeration effect. The \glspl{agglomer
  Y\propto N^{\beta},
  \label{eqn-production-population}
  \end{equation}
-where $\beta$ is the elasticity of output with respect to capital,  $\beta >1$.   
+where $\beta$ is the elasticity of output with respect to capital, $\beta > 1$ where the agglomeration effect is positive. % Setting $\beta = 1$ would be the constant returns to scale. $\beta - 1$ is the extra return that comes from adding to people the city. That return is the agglomeration effect that belongs to the city, it could go to the people.
 
 We can put this together using a model of the production function. We implicitly use a three-factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change, with an \gls{agglomeration} effect, $A(N)$, in place of technology, $A(t)$. Output is:
 

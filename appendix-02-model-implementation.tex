@@ -60,17 +60,56 @@ def __init__(self, width = 50, height = 1,
              ):
 \end{lstlisting}
 
-\section{Computations}
 
-\subsection{Worker's share}
+\section{Urban wage premium}
+
+$\omega$ is the urban wage premium. It is a share of the urban agglomeration effect. 
+I think of this as worker income, $\psi+\omega+savings$ 
+
+The wage income  $\psi+\omega$ part has to be related to the marginal productivity of workers. The urban output function from Lobo et al \cite{loboUrbanScalingProduction2013} is  
+\[Y=AN^\beta\]
+Where $\beta=1.13$ is the scale factor for example  a la Bettencourt, so the \textbf{total urban marginal productivity of a worker} is  
+\[UMPL=\beta AN^{\beta-1}=\frac{\beta Y}{N} =\]
+This is not the same as the \textbf{firm-level marginal productivity of a worker}. The worker total share in Lobo et al. is \[W= (1-\alpha)Y \] 
+so the individual share, which should be the competitive wage, is
+\[W= \frac{(1-\alpha)Y}{N} \] 
+where $(1-\alpha)=0.8$ is a common estimate. If we assume that this sets the rural wage,$\phi$, then $\omega$ has to come out of the  urban surplus per worker,
+
+\[surp= \frac{\beta -(1-\alpha)Y}{N} \] 
+
+ so set a fraction $\lambda$ of the surplus a, and 
+ \[\omega= \lambda\frac{\beta -(1-\alpha)Y}{N}= (1.13-.8) \frac{Y}{N} \] 
+
+ Since capital expects 0.2 as its payment and labor 0.8, the surplus available to share has to be taken out of the 0.13. The easiest formulation then is probably 
+ \[\omega= \lambda(\beta -1) \frac{Y}{N} =\lambda(\beta -1) \frac{AN^\beta}{N} \] 
+ 
+
+This is the workers share of the surplus over and above the constant returns to scale (CRS) case.
+
 \begin{lstlisting}
-def get_workers_share(self):
-    """Share of wage premium that goes to workers, omega """
+# Firm step function updates wage, omega
+def step(self):
+    prefactor  = self.model.prefactor
+    agglom     = self.model.agglomeration_ratio
+    population = self.model.agglomeration_population
+    wage_share = self.model.wage_share
+    self.wage  = wage_share * prefactor * population**agglom
+\end{lstlisting}
+
+where the worker's share is:
+
+\begin{lstlisting}
+# CUT def get_workers_share(self):
+def get_urban_wage_premium(self):
+    """Share of agglomeration effect that goes to workers, omega """
     psi        = self.subsistence_wage
     wage_share = self.wage_share
     agglom     = self.agglomeration_ratio
     return wage_share * agglom * psi
 \end{lstlisting}
+
+
+\section{Computations}
 
 \subsection{Subjective discounting}
 \begin{lstlisting}
@@ -139,17 +178,8 @@ def get_discounting(self):
 \begin{lstlisting}
 
 \end{lstlisting}
-\section{Urban wage}
 
-\begin{lstlisting}
-# Firm step function updates wage
-def step(self):
-    prefactor  = self.model.prefactor
-    agglom     = self.model.agglomeration_ratio
-    population = self.model.agglomeration_population
-    wage_share = self.model.wage_share
-    self.wage  = wage_share * prefactor * population**agglom
-\end{lstlisting}
+
 
 
 \section{Warranted price}
