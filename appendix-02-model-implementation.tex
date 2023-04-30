@@ -1,18 +1,172 @@
 \chapter[Model Implementation]{Model Implementation}
 \label{appendix-model-implementation}
 
-\subsection{Max mortgage calculation}
+
+\section{Parameter values}
+
+\begin{lstlisting}
+"""Combining a labour market and land market.
+
+:param width: Width of the spatial grid. Each property ocupies one unit.
+:param height: Weight of the spatial grid. Each property ocupies one unit.
+:param transport_cost_per_dist: The cost of traveling a distance of one
+    grid space. :meth:`transport_cost` cancluates travel costs using
+    euclidean distance.
+:param subsistence_wage: The value of the subsistence wage which workers
+    could achieve working in the countryside. Workers will work in the
+    city if it offers a wage premium above this subsistence wage.
+:param working_periods: The number of time steps from when a worker
+    begins work till retirement.
+:param savings_rate: The share of the subsistence wage a worker can save
+in each time step, with undifferentiated labour and a uniform savings rate.
+:param init_wage_offer: Initial urban wage offer. TODO consider replacing
+:param init_interest_rate: TODO make this prime interest rate?
+:param prefactor: Multiplier for the wage aglomeration effect 
+:param agglomeration_ratio: Exponent for the aglomeration wage.
+:param wage_share: Share of the agglomeration effect that goes to workers.
+:param property_tax_annually: Property tax rate.
+:param mortgage_period: The period for the mortgage. Number of years.
+:param housing_services_share: Share of subsitance wage going to housing 
+sevices, a.
+:param maintenance_share: Share of housing sevices going to maintenance and 
+sevices, b.
+:param r_prime:  Expected return on alternative investments.
+:param r_premium_person: Person's desired return over and above 
+alternative investments.
+:param r_premium_bank: Bank's desired return over and above alternative 
+investments
+TODO wage should have an adjustment rate
+TODO update for new parameter values, prefactor, scaling factor etc
+"""
+\end{lstlisting}
+
+\begin{lstlisting}
+def __init__(self, width = 50, height = 1,
+             transport_cost_per_dist  = 0.1,    # c
+             subsistence_wage         = 40000., # psi
+             working_periods          = 40,     # in years
+             savings_rate             = 0.3,
+             init_wage_offer          = 10.,
+             init_interest_rate       = 0.03,
+             prefactor                = 0.2, # 251., 
+             agglomeration_ratio      = 1.2,  # was scaling_factor
+             wage_share               = 1.0,
+             property_tax_annually    = 0.04, # tau, was c
+             mortgage_period          = 5.0,  # T, in years
+             housing_services_share   = 0.3,  # a
+             maintenance_share        = 0.2,  # b
+             r_prime                  = 0.05,
+             r_premium                = 0.00,
+             ):
+\end{lstlisting}
+
+\section{Computations}
+
+\subsection{Worker's share}
+\begin{lstlisting}
+def get_workers_share(self):
+    """Share of wage premium that goes to workers, omega """
+    psi        = self.subsistence_wage
+    wage_share = self.wage_share
+    agglom     = self.agglomeration_ratio
+    return wage_share * agglom * psi
+\end{lstlisting}
+
+\subsection{Subjective discounting}
+\begin{lstlisting}
+def get_discounting(self):
+    """
+    Delta is the subjective individual discount factor for agent
+    after one year. 
+    A factor may be a compounded rate.
+    It is the present value of one dollar in one year 
+    Turns one dollar in one period into dollars of present value.
+    sum_delata is sum of the of infinite series 
+    minus discounted infinite series after mortgage_period years
+    It is the preasent value of annual payments from one to 
+    mortgage_period years e.g. of mortgage payments or rent received
+    delta_mortgage_period was called   delta_period_T
+    """
+    delta = self.r_prime
+    delta_period_1 = 1 / (1 + delta) 
+    delta_mortgage_period = delta_period_1**self.mortgage_period
+    sum_delta =  delta_mortgage_period * (1 - delta_mortgage_period)
+    # TODO: why minus?
+    return sum_delta
+\end{lstlisting}
+
+\subsection{Maintenance costs}
+\begin{lstlisting}
+    def get_maintenance(self):
+        """Maintenance share of property service (a*psi summed and discounted)
+        OR IS IT TOTAL maintenance COST OVER THE MORTGAGE PERIOD?
+        maintenance_T = (b*a*psi) * sum_delta_T
+        """
+        a   = self.housing_services_share
+        b   = self.maintenance_share
+        psi = self.subsistence_wage
+        sum_delta = self.sum_delta # TODO: rename?
+        return (a * b * psi) * sum_delta
+\end{lstlisting}
+
+\subsection{Taxes}
+\begin{lstlisting}
+    def get_tax(self):
+        """ 
+        THIS DOES NOT CHANGE WITH INCREASING WAGES?
+        BUT THAT IS THE MAIN WAY TO FUND A CITY
+
+        WHAT TO CALL THIS WEHRE DOES IT GO. WHERE DO WE USE THIS VS TAU
+        Just for initialization? - warranted price. 
+        Use warranted prices as initialization
+        Tax costs for the mortgage period, T. 
+        (Example of rate for an  multiperiod annual rate)
+        tax_T= tau*(omega-c*d + a*psi) * sum_delta_T
+        This is assuming taxes are paid at the end of each year for T years
+        tau_T       = tau * sum_T_delta 
+        #  present value of the tax rate over T years        
+        """
+        tau   = self.model.property_tax_annually
+        omega = self.model.workers_share
+        psi   = self.model.subsistence_wage
+        a     = self.model.housing_services_share
+        c     = self.model.transport_cost_per_dist # RENAME
+        d     = self.distance_from_center
+        sum_delta = self.model.sum_delta
+        return tau * (omega - c*d + a*psi) * sum_delta
+\end{lstlisting}
+
+\begin{lstlisting}
+
+\end{lstlisting}
+\section{Urban wage}
+
+\begin{lstlisting}
+# Firm step function updates wage
+def step(self):
+    prefactor  = self.model.prefactor
+    agglom     = self.model.agglomeration_ratio
+    population = self.model.agglomeration_population
+    wage_share = self.model.wage_share
+    self.wage  = wage_share * prefactor * population**agglom
+\end{lstlisting}
+
+
+\section{Warranted price}
+\begin{lstlisting}
+@property
+def warranted_price(self):
+    # USELESS PLACEHOLDER - GET CALCULATION
+    return self.model.firm.wage/(self.transport_cost + 1) 
+\end{lstlisting}
+
+\section{Maximum mortgage calculation}
 
 \begin{lstlisting}
 # Max mortgage
-import javax.swing.JApplet;
-import java.awt.Graphics;
-
-public class Hello extends JApplet {
-    public void paintComponent(Graphics g) {
-        g.drawString("Hello, world!", 65, 95);
-    }    
-}
+def get_max_mortgage(self, applicant):
+    max_mortgage =  ...
+    return max_mortgage
 \end{lstlisting}
 
 
@@ -30,3 +184,81 @@ $r_i = (0 + B \frac{\bar{W}}{W_i})(\bar r_i+ bank\ margin)$.
 - Maximum M  from income = $M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}$ 
 % - Maximum M  $M= min(0.28*(omega+phi)/r_i,  0.8P$,  (9-(W_i/\bar W)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i}   } $
 - 
+
+\section{Net Rent}
+
+\begin{lstlisting}
+def get_net_rent(self, property):
+    """Compute the rent for a land parcel, or what someone could afford
+    to pay to live there. 
+
+    Rent depends on the urban wage premium over and above the subsistence
+    wage, and on transportation costs and the distance to the
+    central business district. Applies with a single wage. Adjust for
+    differential urban wages.
+
+    :param property: the land parcel to get rent information for.
+    """
+    a     = self.model.housing_services_share
+    b     = self.model.maintenance_share
+    c     = self.model.transport_cost_per_dist # RENAME
+    d     = property.distance_from_center 
+    tau   = self.model.property_tax_annually 
+    # property_tax_rate # IS THIS FOR THE MORTGAGE PERIOD
+    psi   = self.model.subsistence_wage
+    omega = self.model.workers_share
+    return omega - c*d - a*psi - b*a*psi - tau*a*psi
+    # urban_wage = self.model.firm.wage
+\end{lstlisting}
+
+\section{Max Bid}
+
+Calculate max desired bid for an agent
+\begin{lstlisting}
+    def get_max_bid(self, property, bidder):
+        net_rent = self.get_net_rent(property)
+        r        = self.model.r_prime   
+        r_target = r + self.model.r_premium
+        m        = 0.8 # TODO FIX - ADD WEALTH
+        # I can't do delta_T. It reads as delta_transpose to me.
+        delta    = self.model.sum_delta 
+        p_dot    = 0.01 # TODO - estimate rate of price change
+        return net_rent/((1 - m)*r_target - delta*(1 + p_dot - (1 + r)*m))
+\end{lstlisting}
+
+Agent will bid the min of the desired bid or the max allowed mortgage
+\begin{lstlisting}
+max_mortgage = self.bank.get_max_mortgage(self)
+min_downpayment = self.bank.min_down_payment_share * max_mortgage
+downpayment = min(min_downpayment, self.savings)
+max_allowed_bid = max_mortgage + downpayment
+for sale_property in (self.model.realtor.sale_listing):
+    # max_bid = self.bank.get_max_bid(sale_property, self)
+    # TODO Fix
+    max_desired_bid = self.model.bank.get_max_bid(sale_property, self)
+    max_bid = min(max_allowed_bid, max_desired_bid)
+\end{lstlisting}
+
+\section{Negotiation Process}
+
+Bidding.
+
+There is a problem in that they bid on all properties as a short cut. If the number of bids structures the negotiation process, we need to limit their bids or do something much more iterative. (see above section)
+
+
+
+
+\section{Individual Accounting}
+
+\begin{lstlisting}
+# FIX - NEED TO ADD THIS
+# Update savings
+self.savings += self.model.savings_per_step
+
+# TODO pay costs for any properties owned
+# if self.residence in self.properties_owned:
+#     # TODO pay mortgage if needed pay costs
+#     pass
+# else:
+#     self.savings -= self.rent # TODO check this is right rent
+\end{lstlisting}
