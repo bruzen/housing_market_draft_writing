@@ -51,7 +51,7 @@ def __init__(self, width = 50, height = 1,
              init_interest_rate       = 0.03,
              prefactor                = 0.2, # 251., 
              # Prefactor - should be much higher than .2
-             agglomeration_ratio      = 1.2,  # was scaling_factor
+             agglomeration_ratio      = 1.2,  # beta, was scaling_factor
              wage_share               = 1.0,
              workers_share            = 0.8   # lambda
              property_tax_annually    = 0.04, # tau, was c
@@ -91,7 +91,7 @@ where $(1-\alpha)=0.8$ is a common estimate. If we assume that this sets the rur
  \[\omega= \lambda(\beta -1) \frac{Y}{N} =\lambda(\beta -1) \frac{AN^\beta}{N} \] 
  
 
-$(\beta -1)$ is agglom and  $\lambda(\beta -1)$ is the workers share of the surplus over and above the constant returns to scale (CRS) case.   $\lambda(\beta -1)$ is 
+$(\beta -1)$ is agglom and  $\lambda(\beta -1)$ is the workers' share of the surplus over and above the constant returns to scale (CRS) case.   $\lambda(\beta -1)$ is 
 
 \begin{lstlisting}
 # Firm step function updates wage, omega
@@ -100,13 +100,13 @@ def step(self):
     agglom     = self.model.agglomeration_ratio
     population = self.model.agglomeration_population
     wage_share = self.model.wage_share  
-    self.wage = wage_share * agglom * prefactor * population**agglom
+    wage_premium = wage_share * (agglom-1) * prefactor * population**agglom # omega
+    self.wage = wage_premium + self.model.psi
+    # k thought # self.wage_premium = (wage_share * prefactor * population**agglom)/ population # omega    
+    # note surplus is: (beta - 1) * (prefactor * population**agglom)
 \end{lstlisting}
 
 Where wage share is a parameter input to the model.
-
-
-
 
 \section{Bidding}
 \subsection{Subjective discounting}
@@ -114,35 +114,44 @@ Where wage share is a parameter input to the model.
 def get_discounting(self):
     """
     Delta is the subjective individual discount factor for agent
-    after one year. 
+    after one year. This will be close to ri
     A factor may be a compounded rate.
     It is the present value of one dollar in one year 
     Turns one dollar in one period into dollars of present value.
-    sum_delata is sum of the of infinite series 
+    sum_delta is sum of the infinite series 
     minus discounted infinite series after mortgage_period years
     It is the preasent value of annual payments from one to 
     mortgage_period years e.g. of mortgage payments or rent received
     delta_mortgage_period was called   delta_period_T
     """
-    delta = self.r_prime
+    
+    delta = self.r_prime # if constant 
     delta_period_1 = 1 / (1 + delta) 
     delta_mortgage_period = delta_period_1**self.mortgage_period
-    sum_delta =  delta_mortgage_period * (1 - delta_mortgage_period)
-    # TODO: why minus?
+    sum_delta = delta_mortgage_period * (1 - delta_mortgage_period)
+    # Note delta_mortgage_period is subtracted to subtract the long tail
     return sum_delta
 \end{lstlisting}
 
+Delta could also depend on wealth. For example,  use the bank rate, which is the rational rate but people who are poor typically have higher rates.  It would not change as the central bank changes r-pirme
+% delta could be wealth based typically higher for poor.
+
+\begin{lstlisting}
+# A version with delta depending on wealth
+wealth = self.wealth
+delta =
+\end{lstlisting}
+ 
 \subsection{Maintenance costs}
 \begin{lstlisting}
     def get_maintenance(self):
-        """Maintenance share of property service (a*psi summed and discounted)
+        """Maintenance share of property service (a*b*psi summed and discounted)
         OR IS IT TOTAL maintenance COST OVER THE MORTGAGE PERIOD?
-        maintenance_T = (b*a*psi) * sum_delta_T
         """
         a   = self.housing_services_share
         b   = self.maintenance_share
         psi = self.subsistence_wage
-        sum_delta = self.sum_delta # TODO: rename?
+        sum_delta = self.sum_delta # CALCULATE PER PERSON
         return (a * b * psi) * sum_delta
 \end{lstlisting}
 
@@ -164,23 +173,17 @@ def get_discounting(self):
         #  present value of the tax rate over T years        
         """
         tau   = self.model.property_tax_annually
-        omega = self.model.workers_share
+        omega = self.firm.wage_premium # FIXED
         psi   = self.model.subsistence_wage
         a     = self.model.housing_services_share
         c     = self.model.transport_cost_per_dist # RENAME
         d     = self.distance_from_center
-        sum_delta = self.model.sum_delta
+        sum_delta = self.model.sum_delta # TODO - make individual  - this would have to be average discounting - THIS TAKE SUM DELTA OUT - AND PUT WITH LARGER CALCULATION.. - CACLULATE FOR A PERSON/PROPERTY COMBINATION..
         return tau * (omega - c*d + a*psi) * sum_delta
 \end{lstlisting}
 
-\begin{lstlisting}
 
-\end{lstlisting}
-
-
-
-
-\subsection{Warranted price}
+\subsection{TODO Warranted price}
 \begin{lstlisting}
 @property
 def warranted_price(self):
@@ -188,10 +191,9 @@ def warranted_price(self):
     return self.model.firm.wage/(self.transport_cost + 1) 
 \end{lstlisting}
 
-\subsection{Maximum mortgage calculation}
+\subsection{TODO Maximum mortgage calculation}
 
 % **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank
-
 
 \begin{lstlisting}
 # Max mortgage
@@ -203,7 +205,6 @@ def get_max_mortgage(self, applicant):
     
     return max_mortgage
 \end{lstlisting}
-
 
 % wealth = property_value + 
 wealth $W_i = P_e-M+S$.  
@@ -218,9 +219,38 @@ $r_i = (0 + B \frac{\bar{W}}{W_i})(\bar r_i+ bank\ margin)$.
   Check if $(W_i/\bar W)0.9P$ will work. 
 - Maximum M  from income = $M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}$ 
 % - Maximum M  $M= min(0.28*(omega+phi)/r_i,  0.8P$,  (9-(W_i/\bar W)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i}   } $
-- 
 
-\subsection{Net Rent}
+
+ 
+\subsection{Net rent based on}
+Tenant willing to pay, vs what it is worth for a company to buy a property.
+
+\begin{lstlisting}
+def get_net_rent(self, property):
+    """Compute the rent for a land parcel, or what someone could afford
+    to pay to live there. 
+
+    Rent depends on the urban wage premium over and above the subsistence
+    wage, and on transportation costs and the distance to the
+    central business district. Applies with a single wage. Adjust for
+    differential urban wages.
+
+    :param property: the land parcel to get rent information for.
+    """
+    a     = self.model.housing_services_share
+    b     = self.model.maintenance_share
+    c     = self.model.transport_cost_per_dist # RENAME
+    d     = property.distance_from_center 
+    tau   = self.model.property_tax_annually 
+    # property_tax_rate # IS THIS FOR THE MORTGAGE PERIOD
+    psi   = self.model.subsistence_wage
+    omega = self.model.workers_share
+    return omega - c*d - a*psi - b*a*psi - tau*a*psi
+    # urban_wage = self.model.firm.wage
+\end{lstlisting}
+
+
+\subsection{Net rent based on ..}
 
 \begin{lstlisting}
 def get_net_rent(self, property):
@@ -256,9 +286,9 @@ Calculate max desired bid for an agent
         r_target = r + self.model.r_premium
         m        = 0.8 # TODO FIX - ADD WEALTH
         # I can't do delta_T. It reads as delta_transpose to me.
-        delta    = self.model.sum_delta 
+        sum_delta    = self.model.sum_delta 
         p_dot    = 0.01 # TODO - estimate rate of price change
-        return net_rent/((1 - m)*r_target - delta*(1 + p_dot - (1 + r)*m))
+        return net_rent/((1 - m)*r_target - sum_delta*(1 + p_dot - (1 + r)*m))
 \end{lstlisting}
 
 Agent will bid the min of the desired bid or the max allowed mortgage
