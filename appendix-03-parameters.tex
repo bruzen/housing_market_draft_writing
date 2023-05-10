@@ -1,6 +1,218 @@
 \chapter[Parameters]{Parameter Values} \label{appendix-paremeters}
 
-\section{Model}
+
+\section{Parameter values}
+It is convenient to set up the model using initial values that are close to equilibrium values It is also helpful if the values are somewhat ``realistic" to develop an intuitive feeling for whether model behaviour is plausible. 
+% We have to do some initial calculations because we want to start near the equilibrium value. 
+
+Basic values that have to be chosen because they are used in calculating other values are
+\begin{description}
+\item  [subsistence wage] $\phi$=  \$40.000 %  that is within range of resonable subsistance wage in canada for after-tax income.
+\item  [width=height] = $f^2$ extent of the city--number of lot to the margin 
+\item [seed population] We need to seed it with an initial population at the center that anchors the population. cities aren't unseeded.  Zero if possible, but it is something to adjust to get reasonable behaviour
+\item  [density ] worker per lot. (This give us population)
+\item  [wage premium] ratio, 0.04--0.30 
+\item [worker share of urban agglomeration surplus] 
+WS =1 
+
+Calculate/count baseline population 
+% $N=density* width*height$
+% $N=density * f * f$
+$N=density * f * f  + town\_population$
+
+Calculate  equilibrium wage premium = $1+wage\_premium ratio * \phi$
+
+Calculate equilibrium cost of transportation c = $\omega/width$
+
+Define the urban agglomeration surplus as $A(N^\beta-N)$.
+ 
+\item  [$\alpha'$ ]  elasticity of output with respect to capital for a single firm. 0.18
+\item  [$\beta'$ ]  elasticity of output with respect to labour for a single firm.  0.72
+
+Calculate the output of the typical rural firm. This is done below for a firm with 100 workers and a marginal product of labour of $\phi$. I get \$20 million.
+
+\item  [$\beta$ =1.12] Urban agglomeration coefficient: elasticity of URBAN output with respect to population 
+
+Calculate the urban scale coefficient 
+\[A = \frac{wage\_premium}{WS(population^{\beta-1}-1)}\]
+
+(This relies on defining the surplus as $A(N^\beta-N)$.)
+
+\end{description}
+
+
+Several relationships constrain parameters if the model is near an equilibrium path. 
+\begin{enumerate}
+    \item From the urban model, the extent of the city is determined by transportation costs:   $\omega =c*width$.  Only two of these parameters can be set independently.
+
+    \item From the urban model population is determined by arean and density   $N=density* width*height$. we assume the city is symmetric, so $Width=height$ and we assume plots  of land are identical, so  - $area=width*height$. Only two of height, desity and N can be set independently.  
+
+    \item From the scale literature $Y=AN^\beta$ This establishes a relationship between urban GDP and population, which we intitially make equal to the workforce. 
+
+    \item From neoclassical distribution theory, the equilibrium competitive labour share of output is $\beta'$
+    
+    \item From the urban model the urban wage is the subsistence wage plus the urban wage premium $\omega+\phi$ 
+
+    \item From neoclassical distribution theory, the equilibrium competitive labour wage is the marginal product of labour. This should hold both in the urban and rural economies. $\omega$ is therefore the difference in the marginal productivities of labour between urban and rural, ${MPL^uMPL^R}$ .  This implies that if we set the subsistence wage, $\omega$ is constrained to satisfy \[\frac{\omega+\phi}{\phi}= \frac{MPL^U}{MPL^R}\] 
+    
+    \item Using a Cobb-Douglas production function, we can get explicit expressions for the marginal productivities of labour and capital. We can do this for a model rural firm to get firm-level parameters:
+    \begin{quotation} \color{orange}
+        We want the marginal product of labour in the rural economy at the firm level to be at least close to \$40,000.  We can create a generic rural firm and then consider an urban firm with agglomeration effects to get the parameters we need. 
+
+Firm employment $L$ is small relative to  urban employment {N}. Assume it is 100 workers. 
+
+Assume that the rural production function is 
+\[Y^R=A^R K^\alpha L^\beta\]
+where $\alpha=0.18$  and $\beta=0.761$.\footnote{These values give uys diminishing marginal product at the firm level and factor shares of 0.8 and 0.2 as required. The tricky point is that factor share are $\frac{\alpha}{\alpha + \beta}$ and $\frac{\beta}{\alpha + \beta}$. }  The marginal products pf labour and capital are 
+\[MPL=\beta Y/L=\$40,000\] and\[\ MPK=\alpha Y/K =0.05\]
+From the first, 
+
+\[Y=\frac{L*\phi}{\beta}=\frac{L*\$40,000}{0..72}=\$5.555\ million\]
+This is firm revenue. From the MPK, 
+
+\[K=  \frac{\alpha Y }{r}=\frac{0..18 \$.5555\ million}{0.05} =\$20\ million \]
+
+We now have the capital, labour and output for a model firm with a marginal product of labour  equal to the subsistence wage we have chosen. We can calculate the Scale coefficient 
+\begin{equation}  
+A^R= \frac{Y}{K^\alpha L^\beta}=\frac{5,000,000}{20,000,000^\alpha 100^\beta}\label{eqn-AR}\end{equation} 
+So $A^R$ can be computes using equation~\ref{eqn-AR}
+
+
+We now consider that this firm operates in the city and enjoys  urban agglomeration benefits. The value of the  marginal product of labour must rise to $\phi+\omega$. We to know  the urban wage premium that is consistent with the subsistence wage. Papageorgiou \cite{papageorgiouOccupationalMatchingCities2022} found a 4.1\% premuim. D'costa and Overman   show that working in London is associated with a 35.5\% higher wage than working in a rural area. The comparable figures are
+10.6\% for big cities and 8.3\% for small cities and an elasticity of
+wages with respect to city size of 1.6\%.. Estimates of the premium are lower  when they control of individual characteristics.   
+
+
+
+If the $ scale\ coefficient=1.12$, $\omega$ would be $1.12*\phi$, or $4,800$. 
+
+
+This supports an urban wage premium of $\omega\$8,000$.
+
+We need to have a population size or a number of firms with a firm size. Assume the population is 10,000 and firms still have 100 workers. (All firms will have the same marginal product of labour in a competitive labour market, so size should not matter.)
+
+\[Y^U=A^R N^\gamma K^\alpha L^\beta = N^\gamma Y^R\]
+where $N^\gamma$ represents the agglomeration effect. The marginal product of labour is 
+\[MPL^u=\$44,800=N^\gamma \beta Y^R/L=N^\gamma *\$40,000\]
+so $N^\gamma= 1.2$ and $\gamma = \frac{log(1.12)}{log(10,000)} =.012$. 
+
+
+This value is consistent with an empirical  value for  the agglomeration exponent of $\beta =  1.012$. The value is much lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one , the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
+
+A second interesting possible implication of our calculation is that only part of the agglomeration effect appears in wages. Urban rents  are large, but agglomeration effects are much larger.
+
+\hspace{-1cm}\input{fig/production_functions}
+    \end{quotation}
+
+    
+
+  
+
+    
+    
+
+    \end{enumerate}
+
+
+
+From the production function  $Y=Y_0N^\beta$.
+
+Tørsløv et al \cite{torslovMissingProfitsNations2023} show that affiliates of foreign multinational firms are an order of magnitude more profitable than local firms in a number of low-tax countries. Leveraging this differential profitability, thgey estimate that 36\% of multinational profits are shifted to tax havens globally. US multinationals shift twice as much profit as other multinationals relative to the size of their foreign earnings.
+
+\input{appendix-05-agglomeration-model} % bbbb{appendix-05-agglomeration model}
+
+\begin{lstlisting}
+"""Combining a labour market and land market.
+
+:param width: Width of the spatial grid. Each property ocupies one unit.
+:param height: Height of the spatial grid. Each property ocupies one unit.
+:param density: **** workers per grid cell
+:param population: **** width*height*density.    #.  ****
+
+:param transport_cost_per_dist: The cost of traveling a distance of one
+    grid space. :meth:`transport_cost` cacluates travel costs using
+    euclidean distance.
+    
+:param subsistence_wage: The value of the subsistence wage which workers
+    could achieve working in the countryside. Workers will work in the
+    city if it offers a wage premium above this subsistence wage.
+:param working_periods: The number of time steps from when a worker
+    begins work till retirement.
+:param savings_rate: **** The share of the subsistence wage and net rent a worker can save in each time step, with undifferentiated labour and a uniform savings rate.
+
+
+:param init_wage_offer: Initial urban wage offer. TODO consider replacing
+:param init_interest_rate: TODO make this prime interest rate? YES
+
+:param prefactor: Multiplier for the wage aglomeration effect 
+:param agglomeration_ratio: Exponent for the aglomeration wage.
+:param wage_share: Share of the agglomeration effect that goes to workers.
+:param property_tax_annually: Property tax rate.
+:param mortgage_period: The period for the mortgage. Number of years.
+:param housing_services_share: Share of subsitence wage going to housing services, a.
+:param maintenance_share: Share of housing services going to maintenance and sevices, b.
+
+:param r_prime: **** BANK RATE ????  Expected return on alternative investments.
+:param r_alt: **** Expected return on alternative investments.
+:param r_premium_person: Person's desired return over and above 
+alternative investments.
+:param r_premium_bank: Bank's desired return over and above alternative investments
+
+TODO wage should have an adjustment rate
+
+TODO update for new parameter values, prefactor, scaling factor etc
+"""
+\end{lstlisting}
+
+% For some variables, we choose arbitrarily starting values that seem resonable, because that makes it possible to check that variables that follow from computation also seem resonable, as a kind of informal sanity check.
+
+\begin{enumerate}
+\item To start with a population of around 10,000, we begin with width = 10, height = 10 and \textbf{density} per unit of 100. 
+
+\item If we arbitrarily assume an initial wage premium around 20\%, and wish to start near equilibrium, % bettencourt assumed aggomeration exponent is indepent)
+we can select transportation costs. A transportation cost of 0.1  would give a distance of $\omega/.01$, which is huge. Could this be 1/10 of the starting wage premium $\omega_0$? It would then be \$800 per year, per unit distance and would give us height and width of 10. 
+% (divide into omega) - we want to start close to equilibirum. omega/cost = width
+\item We should have a wage premium of about \$8000 to be consistent with the subsistance wage. % since we are assuming the wage premium of around 20%. Total wage has to be subsistence wage + wage premium, think of an average rural subistance wage seems like 45K .. 
+
+\item Your proposed prefactor was 0.2,  251. It should be very large, based on the above numbers and the consistency constraints. I get 1507 in appendix-05-agglomeration model
+
+\item Teminology: Y=prefactor*N**scaling\_exponent
+
+\end{enumerate}
+
+\begin{lstlisting}
+def __init__(self, width = 50, height = 1,  # ****
+             transport_cost_per_dist  = 0.1,    # c   ****
+             subsistence_wage         = 40000. # psi
+             working_periods          = 20,     # in years ****
+             savings_rate             = 0.2, ****
+            #  initial_savings: if agents save anything before reaching working age
+             init_wage_offer          = 10.,  #. Makes no sense  ****
+             init_interest_rate       = 0.05,
+
+             #AGGLOMERATION MODEL features  -20% wage premium over subsistence wage, Y=prefactor*N**scaling exponent
+             prefactor                = 0.2, # 251., ??????  ****. should be very large. I get 1507 
+             # Prefactor - should be much higher than YES scaling_factor           =   # this is A scaling_exponent         =  1.13 # this is beta in LOBO. ****
+             agglomeration_ratio      = 1.2,  # beta, was 
+             wage_share               = 1.0,  # of agglomer3ation benefits
+             workers_share            = 0.8   # emponent? in Slae models?
+             property_tax_annually    = 0.04, # tau, was c
+             mortgage_period          = 5.0,  # T, in years
+             housing_services_share   = 0.3,  # a
+             maintenance_share        = 0.2,  # b
+             r_prime                  = 0.05,
+             r_premium                = 0.005, ****
+            #  r_premium_bank = 0.00, # TODO: heterogenous discount rates and premiums
+             ):
+\end{lstlisting}
+
+\subsection{Workers share}
+The worker's of the surplus, $lambda$ It might be 0.8. It is used in...
+
+NOTE: 0.8 is the value of beta in a Cobb-Douglas, corresponding to the wage-share in production. It is the value used in Lobo et al
+
+
+\section{Older Parameter Value Discussion}
 
 \subsection{Time}
  The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily 
