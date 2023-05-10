@@ -1,0 +1,53 @@
+
+\begin{tikzpicture}[scale=.7, my plot/.style={thick, smooth, samples=100, domain=0.1:2.2},
+plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
+                    my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1}},
+                    my axis/.style={latex-latex}]
+ 
+ \draw[my axis] (0,13)node[left] {$Y(\cdot)$} --(0,0)-- (15.4, 0) node[below] {$L$}; %creates the axis a little 
+
+\coordinate (origin) at (0,0);
+\def\x{0.45}
+\def\y{2.1}
+\def\b {$15/(2*ln(\y)+.05)$};
+%\def\p{0.55} % define the x, y and p )(midpointvalues
+%\draw[my plot] (0,0) plot (\x,{ln(\x)});  %Draws curve
+%\draw[my plot] (0,0) plot ({\x-.08},{2.3+ln(\x)}); 
+\coordinate (Uy) at (\y,{2*ln(\y)+.05});
+
+\draw [](0,.54)--(15, 11.49625);   %diagonal. line
+
+\draw[plot2] (0,0) plot ({\x-.08},{(\x/1.5)^1.12+.54});
+\node at (11.8,11.5) [left, text width=4.5cm]{\large agglomerations\\ exhibit increasing\\ returns to population};
+\draw[latex-latex] (13, 11.7)node [right=.2cm, text width=1.5cm]{\textbf{agglomeration surplus}}--(13, 10.2);
+\draw[latex-latex] (13, 9)--(13, 9.9)node [below right, text width=1.5cm]{\textbf{$\pi$}};
+
+\draw[plot2, dashed] (0,0) plot ({\x-.08},{(\x/1.5)^0.98 +.54});
+\node at (13.5,6)[text width=3.8cm]{\large agglomerations might exhibit \\decreasing returns to population};
+
+\begin{scope}[ yscale=.5,xscale=1]% shift={(1.9,0)} ,
+	\coordinate (Uy) at (\y, {2.3+ln(\y)});
+	\draw[my plot] (0,0) plot ({\x-.08},{2.3+ln(\x)})node[below right, text width=5.5cm]{\large firms exhibit decreasing returns to labour}; 
+	\draw[dashed](.75, 0)node[below]{$L_i$} --(.75, 3.4);
+\end{scope}
+%
+%
+%\begin{scope}[shift={(1.9,0)}]
+%
+% \def\x{0.45}\def\y{2}\def\p{0.55} % define the x, y and p )(midpointvalues
+%\draw[my plot] (0,0) plot (\x,{ln(\x)});  %Draws curve
+%
+%\coordinate (start plot) at (0.6,{ln(0.16)}); % domain start
+%\coordinate (end plot) at (10,10); % domain end
+%%\draw[my axis] ([shift={(-0.5cm,0.5cm)}]start plot |- end plot) node[left] {$Y(\cdot)$} |- node[coordinate](origin){} ([shift={(0.5cm,-0.5cm)}]start plot -| end plot) node[below] {$L$}; %creates the axis a little 
+%
+%\coordinate (Ux) at (\x,{ln(\x)}); % set the u(x) coordinate on the curve. Not used
+%\coordinate (Uy) at (\y,{ln(\y)}); % set the u(y) coordinate on the curve
+%
+%\draw [](origin)--(Uy)  ; 
+%
+%\draw[my grid] (Uy) |- node[below]{$L*$} (origin) |- node[left]{$Y^*$} cycle;%below from on curve, the 
+%
+%\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,85 @@
+\renewcommand{\sfdefault}{phv}
+
+\section{Initial values for  the agglomeration parameter}
+Conclusion:
+
+{\Large  $Prefactor = 1506.712$ based on width=height=10 and density=100} and agglomeration\_coefficient= 1.2,
+We need to get the scales of the parameters and the population size roughly consistent.
+
+I assume the 10X10 grid is full. 
+
+\section{Computing the prefactor: details}
+We have set the subsistence\_wage to \$40,000.
+
+The urban wage premium is in the range of 13-20\%  Assume 20\% and we get \$8,000
+
+Under the neoclassical assumption  \$40,000 is the  marginal productivity of rural worker
+
+The urban production function is 
+\[Y=AN^\beta\]
+\[Y=prefactor*working\_population**scaling\_exponent\]
+
+where $working\_population = width*height*density$ 
+
+so 
+\[Y=prefactorA*(width*height*density)^{\beta}\]
+
+We have more conditions that this has to satisfy: The marginal product must be consistent with the urban wage and the distribution rule. The wage cannot add up to more than total output output. Workers cannot get 1.2Y/N, for example. With CRS they would get 0.8Y/N.    
+
+\subsection{approach one: from agglomeration surplus}
+\[urban\_wage= subsistence\_wage + wage\_share * agglomeration\_surlpus\]
+The \textbf{agglomeration surplus} is the excess relative to the CRS case when $\beta=1$:
+\[agglomeration\_surplus= A(N^{1.2} -N^1) \]
+The urban wage premium is then the share for each worker:
+\[\omega= wage\_share * \frac{agglomeration\_surlpus}{N}\]
+
+and this becomes
+\[\omega= wage\_share * A\left(\frac{N^{1.2}-N^1}{N}\right)=1 * A\left(N^{0.2}-1\right)\]
+
+To see what this looks like, consider a population of 10,000 when  wage\_share=1
+\[\omega= \$8,000 = A\left( 6.309-1 \right)\]
+
+{\Large So $A = 1506.712$ based on width=height=10 and density=100}  
+
+Smaller N makes A bigger
+
+% Say width=height=15 and density= 200:
+% \[\omega= \$8,000 = A\left(10000-1\right)\]
+
+\subsection{Approach 2: from Marginal product and subsistance wage}
+We want the marginal product of labour in the rural economy at the firm level to be at least close to \$40,000.
+
+Firm employment $L$ is small relative to  urban employment {N}.  We can create a generic rural firm and then consider an urban firm with agglomeration effects to get the parameters we need. 
+
+Assume that the rural p[rooduction function is 
+\[Y^R=A^R K^\alpha L^\beta\]
+where $\alpha=0.2$  and $\beta=0.8$. The marginal products are 
+\[MPL=\beta Y/L=\$40,000\] and\[\ MPK=\alpha Y/K =0.05\]
+From the first, 
+
+\[Y=\frac{L*\$40,000}{0.8}=\$5\ million\]
+
+This is firm revenue. From the MPK, 
+
+\[ \frac{0.2 \$5\ million}{0.05}=K =\$20\ million \]
+
+We now have the capital, labour and output for a model firm with a marginal product of labour  equal to the subsistence wage we have chosen.
+
+We now consider that this firm operates in the city and enjoys  urban agglomeration benefits.  If the scale coefficient=1.12$,$ $\omega$ would be as a first appr Say that the marginal product rises to \$48,000. This supports an urban wage premium of $\omega\$8,000$.
+
+We need to have a population size or a number of firms with a firm size. Assume the population is 10,000 and firms have 100 workers. All firms will have the same marginal product of labour in a competitive labour market, so size should not matter. 
+
+\[Y^U=A^R N^\gamma K^\alpha L^\beta = N^\gamma Y^R\]
+with a marginal product of 
+\[MPL^u=\$48,000=N^\gamma \beta Y^R/L=N^\gamma *\$40,000\]
+so $N^\gamma=1.2$ and $\gamma = .019$. 
+
+
+This value is consistent with an empirical  value for $\beta$   1.02. The value is lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one million the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
+
+A second interesting possible implication of our calculation is that only part of the agglomeration effect appears in wages. Urban rents  are large, but agglomeration effects are much larger.
+
+
+ 
+
+%\[subsistance_wage= MPL(\beta=.= \]
