@@ -1,17 +1,25 @@
 \chapter[Parameters]{Parameter Values} \label{appendix-paremeters}
 
-
-\section{Parameter values}
 It is convenient to set up the model using initial values that are close to equilibrium values It is also helpful if the values are somewhat ``realistic" to develop an intuitive feeling for whether model behaviour is plausible. 
 % We have to do some initial calculations because we want to start near the equilibrium value. 
 
-Basic values that have to be chosen because they are used in calculating other values are
+To summarize the discussion bellow, there are several parameter values we must set for the model. These are summarized in TABLE.
+
 \begin{description}
-\item  [subsistence wage] $\phi$=  \$40.000 %  that is within range of resonable subsistance wage in canada for after-tax income.
-\item  [width=height] = $f^2$ extent of the city--number of lot to the margin 
-\item [seed population] We need to seed it with an initial population at the center that anchors the population. cities aren't unseeded.  Zero if possible, but it is something to adjust to get reasonable behaviour
-\item  [density ] worker per lot. (This give us population)
-\item  [wage premium] ratio, 0.04--0.30 
+    \item
+\end{description}
+
+There are also  basic values for which we use initial values in order to calculate initialize other variables are. These are not fixed: % that have to be chosen because they are used in calculating other values are:
+
+\begin{description}
+\item  [subsistence wage] $\phi$=  \$40,000 %  that is within range of resonable subsistance wage in canada for after-tax income. Try also lower values.
+\item  [extent of the city] the number of lots where it's worthwhile to work, $f$. This is different from the width of the grid.  %[width=height] = $f^2$ 
+\item [seed population] %We need to seed it with 
+an initial %core urban 
+population at the center that anchors the population. %Cities aren't unseeded.  
+Zero initially. %, but it is something to adjust to get reasonable behaviour
+\item  [density ] workers per lot, this give us suburban population. VARIABLE FOR DENSITY % Also explore a density of 1 with a higher seed population.
+\item  [wage premium] ratio, 0.04--0.30 from various sources.
 \item [worker share of urban agglomeration surplus] 
 WS =1 
 
@@ -26,8 +34,8 @@ Calculate equilibrium cost of transportation c = $\omega/width$
 
 Define the urban agglomeration surplus as $A(N^\beta-N)$.
  
-\item  [$\alpha'$ ]  elasticity of output with respect to capital for a single firm. 0.18
-\item  [$\beta'$ ]  elasticity of output with respect to labour for a single firm.  0.72
+\item  [$\alpha'$ ] =  0.18, elasticity of output with respect to capital for a single firm with a production function $Y_i'=A' K_i^{\alpha '}L^{\beta '}_i$
+\item  [$\beta'$ ]  + 0.72 elasticity of output with respect to labour for a single firm.
 
 Calculate the output of the typical rural firm. This is done below for a firm with 100 workers and a marginal product of labour of $\phi$. I get \$20 million.
 
