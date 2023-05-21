@@ -1,42 +1,50 @@
 \chapter[Model Implementation]{Model Implementation}
 \label{appendix-model-implementation}
 
-\section{Urban wage premium}
+% \section{Urban wage premium}
 
-$\omega$ is the urban wage premium. It is a share of the urban agglomeration effect. 
+% $\omega$ is the urban wage premium. It is a share of the urban agglomeration effect. 
 
-I think of this as worker income, $\psi + \omega + r_prime*savings$ 
+% I think of this as worker income, $\psi + \omega + r_prime*savings$ 
 
-The wage income  $\psi + \omega$ part has to be related to the marginal productivity of workers. The urban output function from Lobo et al \cite{loboUrbanScalingProduction2013} is  
-\begin{equation}Y=AN^\beta\label{LoboEqn2}\end{equation}
+% The wage income  $\psi + \omega$ part has to be related to the marginal productivity of workers. The urban output function from Lobo et al \cite{loboUrbanScalingProduction2013} is  
+% \begin{equation}Y=AN^\beta\label{LoboEqn2}\end{equation}
 
-Where $\beta$  is the scaling exponent, with a value of,  for example, 1.13  \`a la 
-Lobo. $A$ is called the ``scale factor.''\footnote{Much of the analysis assumes scale invariance of  $A$.}  The \textbf{total urban marginal productivity of a worker} is  
-\[UMPL=\beta AN^{\beta-1}=\frac{\beta Y}{N} =\]
-This is not the same as the \textbf{firm-level marginal productivity of a worker}. The worker total share in Lobo et al. is \[W= (1-\alpha)Y \] 
-so the individual share, which should be the competitive wage, is
-\[W= \frac{(1-\alpha)Y}{N} \] 
-where $(1-\alpha)=0.8$ is a common estimate. If we assume that this sets the rural wage,$\phi$, then $\omega$ has to come out of the  urban surplus per worker,
+% Where $\beta$  is the scaling exponent, with a value of,  for example, 1.13  \`a la 
+% Lobo. $A$ is called the ``scale factor.''\footnote{Much of the analysis assumes scale invariance of  $A$.}  The \textbf{total urban marginal productivity of a worker} is  
+% \[UMPL=\beta AN^{\beta-1}=\frac{\beta Y}{N} =\]
+% This is not the same as the \textbf{firm-level marginal productivity of a worker}. The worker total share in Lobo et al. is \[W= (1-\alpha)Y \] 
+% so the individual share, which should be the competitive wage, is
+% \[W= \frac{(1-\alpha)Y}{N} \] 
+% where $(1-\alpha)=0.8$ is a common estimate. If we assume that this sets the rural wage,$\phi$, then $\omega$ has to come out of the  urban surplus per worker,
 
-\[surp= \frac{\beta -(1-\alpha)Y}{N} \] 
+% \[surp= \frac{\beta -(1-\alpha)Y}{N} \] 
 
- so set a fraction $\lambda$ of the surplus a, and 
- \[\omega= \lambda\frac{\beta -(1-\alpha)Y}{N}= (1.13-.8) \frac{Y}{N} \] 
+%  so set a fraction $\lambda$ of the surplus a, and 
+%  \[\omega= \lambda\frac{\beta -(1-\alpha)Y}{N}= (1.13-.8) \frac{Y}{N} \] 
 
- Since capital expects 0.2 as its payment and labor 0.8, the surplus available to share has to be taken out of the 0.13. The easiest formulation then is probably 
- \[\omega= \lambda(\beta -1) \frac{Y}{N} =\lambda(\beta -1) \frac{AN^\beta}{N} \] 
+%  Since capital expects 0.2 as its payment and labor 0.8, the surplus available to share has to be taken out of the 0.13. The easiest formulation then is probably 
+%  \[\omega= \lambda(\beta -1) \frac{Y}{N} =\lambda(\beta -1) \frac{AN^\beta}{N} \] 
  
 
-$(\beta -1)$ is agglom and  $\lambda(\beta -1)$ is the workers' share of the surplus over and above the \gls{constant returns to scale} (CRS) case.   $\lambda(\beta -1)$ is 
+% $(\beta -1)$ is agglom and  $\lambda(\beta -1)$ is the workers' share of the surplus over and above the \gls{constant returns to scale} (CRS) case.   $\lambda(\beta -1)$ is 
 
+\section{Wage calculation}
+Firms will make as hiring decision faced with a market wage. This is typical in \glspl{competitive market} where firms are price-takers. They do not make  wage offers in this model. That happens when firms have a degree of market power.)
+
+
+When aggregate firm labour demand exceeds N, wages rise 
+% Common to think of the variations in local wages as variations around a mean, in this context - perfect labour market.
+% We're using this number at the agregate level, raise the market wage to a level that attracts that many. Divide available workers among the firms, then they want to raise the wage again. It's more transparent to do it at the agregate level than at the firm level, but we still have the rising supply curve. A more detailed agent model could implement the hiring and wage adjustment mechanisms for firms dirrectly, but the side effect of increased ocmplication is it also can obscure the clarity of the rent results, our focus wit this work. 
 \begin{lstlisting}
+# TODO FIX TOTALY - MOVE THIS TO THE MODEL SECTION NOW #
 # Firm step function updates wage, omega
 def step(self):
     prefactor  = self.model.prefactor
     agglom     = self.model.agglomeration_ratio
     population = self.model.agglomeration_population
     wage_share = self.model.wage_share  
-    wage_premium = wage_share * (agglom-1) * prefactor * population**agglom # omega
+    wage_premium = wage_share * (agglom-1) * prefactor * population**agglom # omega # ****** 
     self.wage = wage_premium + self.model.psi
     # k thought # self.wage_premium = (wage_share * prefactor * population**agglom)/ population # omega    
     # note surplus is: (beta - 1) * (prefactor * population**agglom)
@@ -46,26 +54,36 @@ Where wage share is a parameter input to the model.
 
 \section{Bidding}
 \subsection{Subjective discounting}
-\begin{lstlisting}
-def get_discounting(self):
-    """
-    Delta is the subjective individual discount factor for agent
-    after one year. This will be close to ri
-    A factor may be a compounded rate.
+Growth rate= rt
+Growth factor =($1+r)^t$
+discount rate= r
+discount factor = $1/(1+r)^t$
+
+\gls{discount rate} vs
+\gls{discount factor}
+   A factor may be a compounded rate.
     It is the present value of one dollar in one year 
     Turns one dollar in one period into dollars of present value.
-    sum_delta is sum of the infinite series 
-    minus discounted infinite series after mortgage_period years
+    sum\_delta is sum of the infinite series 
+    minus discounted infinite series after mortgage\_period years
     It is the present value of annual payments from one to 
-    mortgage_period years e.g. of mortgage payments or rent received
-    delta_mortgage_period was called   delta_period_T
-    """
+    mortgage\_period years e.g. of mortgage payments or rent received
+    delta\_mortgage\_period was called   delta\_period\_T
     
+\begin{lstlisting}
+def get_discounting(self): RENAME TO
+def get_discount_factor(self):
+    """
+    Delta is the subjective individual discount rate for agent
+    after one year. This will be close to r_i
+    EXLAIN WHAT A FACTOR IS HERE
+    """    
     delta = self.r_prime # if constant 
     delta_period_1 = 1 / (1 + delta) 
     delta_mortgage_period = delta_period_1**self.mortgage_period
-    sum_delta = delta_mortgage_period * (1 - delta_mortgage_period)
-    # Note delta_mortgage_period is subtracted to subtract the long tail
+#   sum_delta = delta_mortgage_period * (1 - delta_mortgage_period)
+    sum_delta = (1 - delta_mortgage_period)/delta # corrected  ****
+    # Note delta_mortgage_period is subtracted to subtract the long tail. 1/delta gives the PV of an infineite series of payments
     return sum_delta
 \end{lstlisting}
 
@@ -77,7 +95,7 @@ Delta could also depend on wealth. For example,  use the bank rate, which is the
 wealth = self.wealth
 delta =
 \end{lstlisting}
- 
+% savings =(sum(0-age)((1+r)**age)*savings_rate*subsistence)
 \subsection{Maintenance costs}
 \begin{lstlisting}
     def get_maintenance(self):
@@ -222,7 +240,7 @@ def get_net_rent(self, property):
     # urban_wage = self.model.firm.wage
 \end{lstlisting}
 
-\subsection{Max Bid}
+\subsection{Max bid}
 
 Calculate max desired bid for an agent
 \begin{lstlisting}

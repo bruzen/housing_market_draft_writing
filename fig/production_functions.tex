@@ -4,7 +4,7 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
                     my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1}},
                     my axis/.style={latex-latex}]
  
- \draw[my axis] (0,13)node[left] {$Y(\cdot)$} --(0,0)-- (15.4, 0) node[below] {$L$}; %creates the axis a little 
+ \draw[my axis] (0,13)node[left] {$Y(\cdot)$} --(0,0)-- (15.4, 0) node[below] {$N$}; %creates the axis a little 
 
 \coordinate (origin) at (0,0);
 \def\x{0.45}
@@ -15,20 +15,24 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 %\draw[my plot] (0,0) plot ({\x-.08},{2.3+ln(\x)}); 
 \coordinate (Uy) at (\y,{2*ln(\y)+.05});
 
-\draw [](0,.54)--(15, 11.49625);   %diagonal. line
+% THREE SCALE POSSIBILITIES
+\draw [thick, ](0,0)--(14, 10.22583);   %diagonal line CRS
+\draw[plot2, dashed] (0,0) plot ({\x-.08},{(\x)^0.9/1.5 }); %DRS
+\draw[plot2, ultra thick, green] (0,0) plot ({\x-.08},{(\x/1.5)^1.15});%
 
-\draw[plot2] (0,0) plot ({\x-.08},{(\x/1.5)^1.12+.54});
-\node at (11.8,11.5) [left, text width=4.5cm]{\large agglomerations\\ exhibit increasing\\ returns to population};
-\draw[latex-latex] (13, 11.7)node [right=.2cm, text width=1.5cm]{\textbf{agglomeration surplus}}--(13, 10.2);
-\draw[latex-latex] (13, 9)--(13, 9.9)node [below right, text width=1.5cm]{\textbf{$\pi$}};
+%  TEXT
+\node at (13.8,12.5) [left, text width=4.5cm]{ cities exhibit increasing\\ returns to population\\ $\beta>1$};%IRS
+\node at (13.5,6.5)[text width=4.5cm, align=right] {cities might\\ exhibit decreasing \\returns to population \\ $\beta<1$};% DRS
 
-\draw[plot2, dashed] (0,0) plot ({\x-.08},{(\x/1.5)^0.98 +.54});
-\node at (13.5,6)[text width=3.8cm]{\large agglomerations might exhibit \\decreasing returns to population};
+% ARROW
+\draw[latex-latex, ultra thick] (13, 11.22)--(13, 9.6);
+\node at (15.2, 10.9)[ text width=2.5cm, align=right]{\textbf{agglomeration\\ surplus}};
+%\draw[latex-latex] (13, 8.4)--(13, 9.5)node [below right, text width=1.5cm]{\textbf{$\pi$}};
 
-\begin{scope}[ yscale=.5,xscale=1]% shift={(1.9,0)} ,
+\begin{scope}[ yscale=.75,xscale=1.5]% shift={(1.9,0)} ,
 	\coordinate (Uy) at (\y, {2.3+ln(\y)});
-	\draw[my plot] (0,0) plot ({\x-.08},{2.3+ln(\x)})node[below right, text width=5.5cm]{\large firms exhibit decreasing returns to labour}; 
-	\draw[dashed](.75, 0)node[below]{$L_i$} --(.75, 3.4);
+  \draw[my plot] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right, text width=5.5cm]{ firms exhibit decreasing returns to labour}; % production function for generic ferm
+	\draw[dashed](.75, 0)node[below]{$n_i$} --(.75, 3.4);
 \end{scope}
 %
 %
