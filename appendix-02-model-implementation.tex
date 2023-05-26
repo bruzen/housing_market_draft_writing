@@ -54,41 +54,35 @@ Where wage share is a parameter input to the model.
 
 \section{Bidding}
 \subsection{Subjective discounting}
-Growth rate= rt
-Growth factor =($1+r)^t$
-discount rate= r
-discount factor = $1/(1+r)^t$
 
-\gls{discount rate} vs
-\gls{discount factor}
-   A factor may be a compounded rate.
-    It is the present value of one dollar in one year 
-    Turns one dollar in one period into dollars of present value.
-    sum\_delta is sum of the infinite series 
-    minus discounted infinite series after mortgage\_period years
-    It is the present value of annual payments from one to 
-    mortgage\_period years e.g. of mortgage payments or rent received
-    delta\_mortgage\_period was called   delta\_period\_T
+The discount factor gives the present value of one dollar received at particular point in the future, given the date of receipt and the discount rate.
+
+% growth rate= rt
+% growth factor =($1+r)^t$
+% discount rate= r
+% discount factor = $1/(1+r)^t$
     
 \begin{lstlisting}
-def get_discounting(self): RENAME TO
 def get_discount_factor(self):
     """
+    The discount factor gives the present value of one dollar received at particular point in the future, given the date of receipt and the discount rate.
     Delta is the subjective individual discount rate for agent
-    after one year. This will be close to r_i
-    EXLAIN WHAT A FACTOR IS HERE
+    after one year. This will be close to the prime interest rate, r_i.
     """    
-    delta = self.r_prime # if constant 
+    delta = self.r_prime
     delta_period_1 = 1 / (1 + delta) 
     delta_mortgage_period = delta_period_1**self.mortgage_period
-#   sum_delta = delta_mortgage_period * (1 - delta_mortgage_period)
-    sum_delta = (1 - delta_mortgage_period)/delta # corrected  ****
-    # Note delta_mortgage_period is subtracted to subtract the long tail. 1/delta gives the PV of an infineite series of payments
+    sum_delta = (1 - delta_mortgage_period)/delta
     return sum_delta
 \end{lstlisting}
-
-Delta could also depend on wealth. For example,  use the bank rate, which is the rational rate but people who are poor typically have higher rates.  It would not change as the central bank changes r-pirme
+% #   sum_delta = delta_mortgage_period * (1 - delta_mortgage_period) # Old
+Delta could als%o depend on wealth. For example,  use the bank rate, which is the rational rate but people who are poor typically have higher rates.  It would not change as the central bank changes r-pirme
 % delta could be wealth based typically higher for poor.
+
+% sum\_delta is sum of the infinite series minus discounted infinite series after mortgage\_period years
+% Here, it is the present value of annual payments from one to mortgage\_period years e.g. of mortgage payments or rent received. 
+% delta\_mortgage\_period was previously called   delta\_period\_T 
+% # Note delta_mortgage_period is subtracted to subtract the long tail. 1/delta gives the PV of an infineite series of payments
 
 \begin{lstlisting}
 # A version with delta depending on wealth
@@ -96,38 +90,41 @@ wealth = self.wealth
 delta =
 \end{lstlisting}
 % savings =(sum(0-age)((1+r)**age)*savings_rate*subsistence)
+
 \subsection{Maintenance costs}
 \begin{lstlisting}
-    def get_maintenance(self):
-        """Maintenance share of property service (a*b*psi summed and discounted)
-        OR IS IT TOTAL maintenance COST OVER THE MORTGAGE PERIOD?
-        """
-        a   = self.housing_services_share
-        b   = self.maintenance_share
-        psi = self.subsistence_wage
-        sum_delta = self.sum_delta # CALCULATE PER PERSON
-        return (a * b * psi) * sum_delta
+def get_maintenance(self):
+    """Maintenance share of property service (a*b*psi summed and discounted)
+    OR IS IT TOTAL maintenance COST OVER THE MORTGAGE PERIOD?
+    """
+    a   = self.housing_services_share
+    b   = self.maintenance_share
+    psi = self.subsistence_wage
+    sum_delta = self.sum_delta # CALCULATE PER PERSON
+    return (a * b * psi) * sum_delta
 \end{lstlisting}
 
 \subsection{Taxes}
+TODO Should taxes depend on wages? Maybe depend on the urban wage?
+% THIS DOES NOT CHANGE WITH INCREASING WAGES?
+% BUT THAT IS THE MAIN WAY TO FUND A CITY
+
+% WHAT TO CALL THIS WEHRE DOES IT GO. WHERE DO WE USE THIS VS TAU
+%         Just for initialization? - warranted price. 
+%         Use warranted prices as initialization
+%         Tax costs for the mortgage period, T. 
+%         (Example of rate for an  multiperiod annual rate)
+%         tax_T= tau*(omega-c*d + a*psi) * sum_delta_T
+%         This is assuming taxes are paid at the end of each year for T years
+%         tau_T       = tau * sum_T_delta 
+%         #  present value of the tax rate over T years        
+%         """
+
+        
 \begin{lstlisting}
     def get_tax(self):
-        """ 
-        THIS DOES NOT CHANGE WITH INCREASING WAGES?
-        BUT THAT IS THE MAIN WAY TO FUND A CITY
-
-        WHAT TO CALL THIS WEHRE DOES IT GO. WHERE DO WE USE THIS VS TAU
-        Just for initialization? - warranted price. 
-        Use warranted prices as initialization
-        Tax costs for the mortgage period, T. 
-        (Example of rate for an  multiperiod annual rate)
-        tax_T= tau*(omega-c*d + a*psi) * sum_delta_T
-        This is assuming taxes are paid at the end of each year for T years
-        tau_T       = tau * sum_T_delta 
-        #  present value of the tax rate over T years        
-        """
         tau   = self.model.property_tax_annually
-        omega = self.firm.wage_premium # FIXED
+        omega = self.model.firm.wage_premium # FIXED
         psi   = self.model.subsistence_wage
         a     = self.model.housing_services_share
         c     = self.model.transport_cost_per_dist # RENAME
@@ -138,29 +135,95 @@ delta =
 
 
 \subsection{TODO Warranted price}
+
+TEMP
+\begin{align*}
+\mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_W}{r} \\
+&= c \times \frac{\omega- {dc} + a\psi.}{r}
+\end{align*}
+
 \begin{lstlisting}
 @property
 def warranted_price(self):
+    omega = self.model.firm.wage_premium # FIXED
+    psi   = self.model.subsistence_wage
+    a     = self.model.housing_services_share
+    c     = self.model.transport_cost_per_dist # RENAME
+    d     = self.distance_from_center
+    r     = self.model.prime # CHECK name
+    return c * (omega - d*c + a*psi) / r
+    
     # USELESS PLACEHOLDER - GET CALCULATION
     return self.model.firm.wage/(self.transport_cost + 1) 
 \end{lstlisting}
 
+
+\subsection{TODO Maximum bid price}
+
+Agents compute their maximum bid, and the negotiation process adjusts downwards as appropriate REF.
+
+\begin{eqnarray}
+P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
+
+In banking with individual information on a land parcel and person.
+\begin{lstlisting}
+def get_max_bid_price(self, bidder, property):
+    net_rent = property.get_net_rent()
+    m        = bidder.get_max_mortgage()
+    r        = self.model.sum_r # SAME AS SUM_R? RENAME?
+    r_target = r_prime + agents_premium # FIX
+    delta    = self.model.sum_delta # SAME AS SUM_DELTA? RENAME?
+    P_dot    = GET FROM THE CURVE FIT
+    denominator = (1-m)*r_target - delta*(1 + P_dot  - (1+r)*m)
+    return net_rent / denominator   
+\end{lstlisting}
+
+\textbf{TODO FIX - little m is the max someone qualifies for.. we also have a maximum amount. Need to reconcile those two approaches.}
+ 
 \subsection{TODO Maximum mortgage calculation}
 
-\textbf{wealth-based  mortgage maximum} 
+\begin{tikzpicture}	[scale=1.5]
+\draw[thick] (0,4)node[above left, align = center,rotate=90]{\small \\Mortgage (\$)} --(0,0)--(5,0)node[below left]{\small Price (\$)}; 
+\draw[dashed] (0,0)--(4,4)node[right]{\small $M=P$};
+\draw[] (0,2)--(4.5,2)node[right]{\small $M_i^{max}$};
+\draw[] (0,0)--(4,3.2)node[above right]{\small $M=m_iP$};
+\draw[ultra thick, red, opacity=.5] (0,0)--(2.5,2)node[below right,  text width=4cm, align = center]{\small \\ Maximum mortgage \\ $M=min\{M_i^{max}, m_iP\}$}--(4.5,2);
+\draw[latex-latex] (3,2)node[above right] {\small Savings}--(3,3);
+\end{tikzpicture}
+
+Mortgage gives 2 numbers. First it pays for a share of the purchase price, second it has an actual maximum. There's a line with a kink because there's 2 constraints.  The difference between the two diagonal lines is what you pay from savings. 
+The diagonal line - the top dashed diagonal line is just the line where the mortgage would be price.
+% This is just the constraint. Up to the kink, little $m_i$ is a fraction of price. beyond rhtat little mi becomes a different number - number based on little $m_i$ for everyone
+% banks have an advantage since they can practically bid anything
+% m - mortgage share
+% P - realized price
+% M - maximum - 
+
+\textbf{Wealth-based  mortgage maximum} 
  \[max\ m_i = 9-\left(\frac{W_i}{\bar W}\right)^{0.1} \]
 
 % **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank
 
-\textbf{income-based  mortgage maximum} of 
+\textbf{Income-based  mortgage maximum}
 
-\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
-
+\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.  0.28 is a parameter \gls{ability to cover a mortgage}.
+ 
 \textbf{Combined  mortgage maximum}
-\[ M_i^Y{max} = min \{9-\left(\frac{W_i}{\bar W}\right)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i} \}\]
+\[ M_i^{max} = min \{9-\left(\frac{W_i}{\bar W}\right)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i} \}\]
+Because we use $m_i$ in calculating the maximum bid for individuals and it in effect changes after the inflection point in the graph, we need some adjustments. 
+
+First, the maximum price that will be offered is the minimum of $M^{max_i} +S$ and the maximum bid calculated using $m_i$ (which is calculated independently) if 
+$P\le \frac{M_i^{max}}{m_i}$ 
+and $m_i^*$ if 
+$P\ge \frac{M_i^{max}}{m_i}$, where 
+\[m_i^*=\frac{M_i^{max}}{P}\]
 
 \begin{lstlisting}
+# parameters - max interest payment 
+max_mortgage_share = 0.28 # ability to cover a mortgage
+
 # Max mortgage
+
 wealth = property_value - mortgage + savings
 mean_weath = sum(wealth)/number_of_people
 
@@ -189,6 +252,8 @@ $r_i = (0 + B \frac{\bar{W}}{W_i})(\bar r_i+ bank\ margin)$.
 \subsection{Net rent based on}
 Tenant willing to pay, vs what it is worth for a company to buy a property.
 
+CHECKED - PUT CHANGE BACK IN CODE.
+
 \begin{lstlisting}
 def get_net_rent(self, property):
     """Compute the rent for a land parcel, or what someone could afford
@@ -208,7 +273,7 @@ def get_net_rent(self, property):
     tau   = self.model.property_tax_annually 
     # property_tax_rate # IS THIS FOR THE MORTGAGE PERIOD
     psi   = self.model.subsistence_wage
-    omega = self.model.workers_share
+    omega = self.model.firm.wage_premium 
     return omega - c*d - a*psi - b*a*psi - tau*a*psi
     # urban_wage = self.model.firm.wage
 \end{lstlisting}
@@ -216,42 +281,43 @@ def get_net_rent(self, property):
 
 \subsection{Net rent based on ..}
 
-\begin{lstlisting}
-def get_net_rent(self, property):
-    """Compute the rent for a land parcel, or what someone could afford
-    to pay to live there. 
+REPETITION - CUT
+% \begin{lstlisting}
+% def get_net_rent(self, property):
+%     """Compute the rent for a land parcel, or what someone could afford
+%     to pay to live there. 
 
-    Rent depends on the urban wage premium over and above the subsistence
-    wage, and on transportation costs and the distance to the
-    central business district. Applies with a single wage. Adjust for
-    differential urban wages.
+%     Rent depends on the urban wage premium over and above the subsistence
+%     wage, and on transportation costs and the distance to the
+%     central business district. Applies with a single wage. Adjust for
+%     differential urban wages.
 
-    :param property: the land parcel to get rent information for.
-    """
-    a     = self.model.housing_services_share
-    b     = self.model.maintenance_share
-    c     = self.model.transport_cost_per_dist # RENAME
-    d     = property.distance_from_center 
-    tau   = self.model.property_tax_annually 
-    # property_tax_rate # IS THIS FOR THE MORTGAGE PERIOD
-    psi   = self.model.subsistence_wage
-    omega = self.model.workers_share
-    return omega - c*d - a*psi - b*a*psi - tau*a*psi
-    # urban_wage = self.model.firm.wage
-\end{lstlisting}
+%     :param property: the land parcel to get rent information for.
+%     """
+%     a     = self.model.housing_services_share
+%     b     = self.model.maintenance_share
+%     c     = self.model.transport_cost_per_dist # RENAME
+%     d     = property.distance_from_center 
+%     tau   = self.model.property_tax_annually 
+%     # property_tax_rate # IS THIS FOR THE MORTGAGE PERIOD
+%     psi   = self.model.subsistence_wage
+%     omega = WAGE_PREMIUM self.model.workers_share
+%     return omega - c*d - a*psi - b*a*psi - tau*a*psi
+%     # urban_wage = self.model.firm.wage
+% \end{lstlisting}
 
 \subsection{Max bid}
 
 Calculate max desired bid for an agent
 \begin{lstlisting}
     def get_max_bid(self, property, bidder):
-        net_rent = self.get_net_rent(property)
-        r        = self.model.r_prime   
-        r_target = r + self.model.r_premium
-        m        = 0.8 # TODO FIX - ADD WEALTH
+        net_rent  = self.get_net_rent(property)
+        r         = self.model.r_prime   
+        r_target  = r + self.model.r_premium
+        m         = 0.8 # TODO FIX - ADD WEALTH
         # I can't do delta_T. It reads as delta_transpose to me.
-        sum_delta    = self.model.sum_delta 
-        p_dot    = 0.01 # TODO - estimate rate of price change
+        sum_delta = self.model.sum_delta 
+        p_dot     = 0.01 # TODO - estimate rate of price change
         return net_rent/((1 - m)*r_target - sum_delta*(1 + p_dot - (1 + r)*m))
 \end{lstlisting}
 
@@ -272,15 +338,17 @@ for sale_property in (self.model.realtor.sale_listing):
 
 Bidding.
 
-There is a problem in that they bid on all properties as a short cut. If the number of bids structures the negotiation process, we need to limit their bids or do something much more iterative. (see above section)
+There is a problem in that they bid on all properties as a shortcut. If the number of bids structures the negotiation process, we need to limit their bids or do something much more iterative. (see above section)
 
 
 \section{Individual Accounting}
-
+UPDATE CODE
+GET prime interest rate - R
 \begin{lstlisting}
 # FIX - NEED TO ADD THIS
 # Update savings
-self.savings += self.model.savings_per_step
+
+self.savings += self.model.savings_per_step + r*self.savings
 
 # TODO pay costs for any properties owned
 # if self.residence in self.properties_owned:
