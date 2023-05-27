@@ -1,4 +1,4 @@
-\chapter[Model Implementation]{Model Implementation}
+\chapter[OLD Model Implementation]{OLD Model Implementation}
 \label{appendix-model-implementation}
 
 % \section{Urban wage premium}
@@ -29,8 +29,11 @@
 
 % $(\beta -1)$ is agglom and  $\lambda(\beta -1)$ is the workers' share of the surplus over and above the \gls{constant returns to scale} (CRS) case.   $\lambda(\beta -1)$ is 
 
+
+{\color{orange} THIS BLOCK HAS BEEN MOVED TO APPENDIX 3 ON PARAMETERS
+
 \section{Wage calculation}
-Firms will make as hiring decision faced with a market wage. This is typical in \glspl{competitive market} where firms are price-takers. They do not make  wage offers in this model. That happens when firms have a degree of market power.)
+Firms make two decisions faced with a market wage. They hire and they adjust their wage. This is typical in \glspl{competitive market} where firms are price-takers. They do not make  wage offers in this model. That happens when firms have a degree of market power.)
 
 
 When aggregate firm labour demand exceeds N, wages rise 
@@ -199,17 +202,17 @@ The diagonal line - the top dashed diagonal line is just the line where the mort
 % P - realized price
 % M - maximum - 
 
-\textbf{Wealth-based  mortgage maximum} 
+\textbf{Wealth-based mortgage maximum} 
  \[max\ m_i = 9-\left(\frac{W_i}{\bar W}\right)^{0.1} \]
 
 % **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank
 
-\textbf{Income-based  mortgage maximum}
+\textbf{Income-based mortgage maximum}
 
-\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.  0.28 is a parameter \gls{ability to cover a mortgage}.
+\[M^{max}_Yi = \frac{0.28*(\psi + \omega)}{r_i}\] It is the maximum the bank will let you pay.  0.28 is a parameter {ability to carry a mortgage}.
  
-\textbf{Combined  mortgage maximum}
-\[ M_i^{max} = min \{9-\left(\frac{W_i}{\bar W}\right)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i} \}\]
+\textbf{Combined mortgage maximum}
+\[ M_i^{max} = min \{9-\left(\frac{W_i}{\bar W}\right)^{0.1}P,  \frac{0.28*(\psi + \omega)}{r_i} \}\]
 Because we use $m_i$ in calculating the maximum bid for individuals and it in effect changes after the inflection point in the graph, we need some adjustments. 
 
 First, the maximum price that will be offered is the minimum of $M^{max_i} +S$ and the maximum bid calculated using $m_i$ (which is calculated independently) if 
@@ -220,11 +223,17 @@ $P\ge \frac{M_i^{max}}{m_i}$, where
 
 \begin{lstlisting}
 # parameters - max interest payment 
-max_mortgage_share = 0.28 # ability to cover a mortgage
+ability_to_carry_mortgage = .28 # ability to cover a mortgage OR 9?
+max_mortgage_share = 0.9
+WHAT IS 0.1?
 
-# Max mortgage
+# Agents initialize wealth and update in each step ..
+# set newcomer property_value and mortgage size to 0
 
-wealth = property_value - mortgage + savings
+def get_max_mortgage(self, applicant):
+    wealth = applicant.wealth
+    mean_wealth = self.model.mean_wealth
+    wealth_max = applicant.max_mortgage_share - (wealth/mean_wealth)**
 mean_weath = sum(wealth)/number_of_people
 
 def get_max_mortgage(self, applicant):
@@ -237,20 +246,28 @@ def get_max_mortgage(self, applicant):
 wealth $W_i = P_e-M+S$.  
 
 - Also need mean wealth. $\bar W$ , which you have to calculate from the sums for property values total mortgages issued, and individual savings. The bank could keep these values
+
 - Individual borrowing rate 
 $r_i = (A + B \frac{\bar{W}}{W_i})\bar r=(.1 + B \frac{\bar{W}}{W_i})\bar r$.
 The value .1 can be seen as the bank's share of the prime rate set by the Bank of Canada. this is an easy place to insert that value. We should discuss this detail. An alternative is
 $r_i = (0 + B \frac{\bar{W}}{W_i})(\bar r_i+ bank\ margin)$.
 
 - Maximum M  from wealth constraint = $(9-(W_i/\bar W)^{0.1}P$
+
+where 9 is the maximum mortgage share. (SHOULD IT BE 0.9?)
+
   Check if $(W_i/\bar W)0.9P$ will work. 
+
+
+END OF TRANSFERRED BLOCK
+}
+
 - Maximum M  from income = $M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}$ 
 % - Maximum M  $M= min(0.28*(omega+phi)/r_i,  0.8P$,  (9-(W_i/\bar W)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i}   } $
-
-
  
 \subsection{Net rent based on}
 Tenant willing to pay, vs what it is worth for a company to buy a property.
+
 
 CHECKED - PUT CHANGE BACK IN CODE.
 

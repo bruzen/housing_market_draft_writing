@@ -1,13 +1,10 @@
-\chapter[Parameters]{Parameter Values} \label{appendix-paremeters}
+\chapter[Model Implementation]{Model Implementation}
 
-
-
-
-\section{Setting up the model}
-It is convenient to set up the model using initial values that are close to equilibrium values It is also helpful if the values are somewhat `realistic' to develop an intuitive feeling for whether model behaviour is plausible. 
+\section{Setting up the model:\newline parameters and initial values}
+% It is convenient to set up the model using initial values that are close to equilibrium values 
+It is helpful if initial values are somewhat `realistic' to develop an intuitive feeling for whether model behaviour is plausible. 
 % We have to do some initial calculations because we want to start near the equilibrium value. 
-
-There are several parameter values we must set for the model. There are also endogenous values we compute in order to initialize the model. These values are listed in sections \ref{sec-param-values-list}, and \ref{sec-init-value-list} respectively. The following sections discuss where those numbers come from. % These are summarized in TABLE.
+There are several parameter values we must set for the model. There are also endogenous values we compute in order to initialize the model. These values are listed in sections \ref{sec-param-values}, and \ref{sec-init-value-list} respectively. The following sections discuss where those numbers come from. % These are summarized in TABLE.
 
 In the lower left of Figure~\ref{fig:Agglomeration-surplus}  we illustrate a single firm with decreasing returns to scale operating at its optimal scale, $n$. The thick diagonal line represents the effect of  increasing the number of firms operating at the optimal scale. It is the constant returns (CRS) line. If congestion effects from bringing a large number of firms together were dominant, a city would exhibit decreasing returns to  scale,  $N$, and agglomeration would not occur. Research indicates that cities exhibit increasing returns to scale, illustrated by the upper line, which shows the city generating and increasing surplus as it grows a the CRS case
 
@@ -24,113 +21,125 @@ We need to distinguish the parameters of production functions for rural and urba
 
 In addition, there is an aggregate production function for the city from the scaling literature which we write $Y=AN^\beta$. We omit the subscript $C$  the parameters of the aggregate production function
 
-\subsection{Parameter values} \label{sec-param-values}
+\subsection{Parameter values}\label{sec-param-values}
 
+\subsubsection{City}
 \begin{description}
 
-\item[\gls{ability to cover a mortgage}] The ability to carry a mortgage or the share of income that can be used to cover mortgage interest. (rule of thumb: don't spend more than 25\% or 30\% we use 0.28.)
+\item [seed population] $P_0=0$. % An initial population at the center that anchors the population. % We need to seed it with an initial core urban Cities aren't unseeded.  Zero initially. , but it is something to adjust to get reasonable behaviour
 
-\item[maximum mortgage share of price] parameter in calculation of $m_i$. Specific to functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available. 
+\item [baseline population] $N_0=density * f_0 * f_0 + P_0$.
+\item  [initial wage premium ratio] $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
+\item  [initial extent of the city*] $f_0$ to get the number of lots ($f_0^2$) where it's worthwhile to work. This is different from the width of the grid. We use $f_0$ and $\omega_)$ to calculate $c$. **** Alternatively we could set  $c$. Suburban area is  = $f^2$ 
+\item  [density]  workers per lot, Combined with the city extent, $f$, this gives us suburban population. VARIABLE FOR DENSITY. A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. Notice we can set density individually for each cell in the grid, so density is really a vector variable.% Also explore a density of 1 with a higher seed population.
+\item [worker share of urban agglomeration surplus] $\lambda=\beta_F$ (Workers are getting the same share of the surplus and they do of output with no agglomeration effects.)
+\item  [$\mathbf{\beta}$ = 1.12] Urban agglomeration coefficient for the city: elasticity of urban output with respect to population (empirical)
+\item [z] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. 
+\item [equilibrium cost of transportation] $c = \omega/f$. Constant
+\textbf{***do. we have to make sure that this is calculated using last period values.}
 
-\item[Wealth sensitivity of maximum mortgage share of price] parameter in calculation of $m_i$. Specific to functional form used. Set at 0.1. Based on stylized facts from the literature.  No empirical estimates are available. 
+\item[property tax rate] $tau$
+\end{description}
 
-\item[wage adjustment coefficient for new workers ] $adj^{new}_\omega$
 
-\item[wage adjustment coefficient for existing workers] $adj^{existing}_\omega$
+\subsubsection{Land}
+\begin{description}
+\item[Maintenance costs] discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($as\psi$) over the mortgage period (T). This is used in computing bids.
+\begin{lstlisting}
+def get_maintenance(self):
+    """Maintenance share of property service (a*b*psi summed and discounted)
+    OR IS IT TOTAL maintenance COST OVER THE MORTGAGE PERIOD?
+    """
+    a   = self.housing_services_share
+    b   = self.maintenance_share
+    psi = self.subsistence_wage
+    sum_delta = self.sum_delta # CALCULATE PER PERSON
+    return (a * b * psi) * sum_delta  
+\end{lstlisting}
+\end{description}
 
-\item  [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistance wage in Canada for after-tax income. Try also lower values.
+\subsubsection{Person}
+\begin{description}
+\item[subjective discount rate] delta=r+prime
+\end{description}
 
-\item  [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms. The urban firm value will evolve over time: $n_{Ut}$ 
+\subsubsection{Firm}
+\begin{description}
+\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistance wage in Canada for after-tax income. Try also lower values.
+
+\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms. The urban firm value will evolve over time: $n_{Ut}$ 
 
 \item [price of output] = 1. (If you wanted to be able to vary this, you would put a price parameter in front the % of marginal products. 
 \gls{marginal product of labour}. %pMPL)
 
 \item [firm cost of capital] $r = 0.05$ or 5\%.
 
-\item [seed population] $P_0=0$. % An initial population at the center that anchors the population. % We need to seed it with an initial core urban Cities aren't unseeded.  Zero initially. , but it is something to adjust to get reasonable behaviour
-
-\item  [density]  workers per lot, Combined with the city extent, $f$, this gives us suburban population. VARIABLE FOR DENSITY. A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. Notice we can set density individually for each cell in the grid, so density is really a vector variable.% Also explore a density of 1 with a higher seed population.
-
-\item [worker share of urban agglomeration surplus] $\lambda=\beta_F$ (Workers are getting the same share of the surplus and they do of output with no agglomeration effects.)
-
-\item  [$\mathbf{\alpha_F}$ ] =  0.18 (typically 0.2 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects),  for a single firm with a production function $Y_{Fi}=A_F K_i^{\alpha_F }L^{\beta_F}_i$ (empirical range =)\footnote{``In the U.S. from 1948-1995 the capital elasticity bounds were 0.18-0.33, and rose to 0.21-0.39 in 1995-2018.'' Dietrich Vollrath, (2021) The Elasticity of Aggregate Output with Respect to Capital and Labor. Hwe akso found that the capital elasticity in the private business sector is 0.09-0.28 from 1948-1995, and 0.16-0.33 from 1995-2018, and it is lower if intellectual capital is excluded.}
-
-\item  [$\mathbf{\beta_F}$ ]  = 0.72 (typically 0.8 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects) elasticity of output with respect to labour for a single firm. (empirical)\footnote{Douglas  obtained a result for the exponent of labour of 0.75—which was subsequently confirmed by the National Bureau of Economic Research to be 0.741} 
-
-\item  [$\mathbf{\beta}$ =1.12] Urban agglomeration coefficient for the city: elasticity of urban output with respect to population (empirical)
-
-\item [$z$] Scaling adjustment for calculating the number of new entrants 
-
-\item [equilibrium cost of transportation] $c = \omega/f$. Constant
-
-\end{description}
-
-
-
-\subsection{Initial values for endogenous variables} \label{sec-init-value-list}
-
-There are also  initial  values that we calculate based on the parameters above. These are not fixed: Some, like "Output for a typical rural firm", are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
-
-\begin{description}
-
-\item  [initial wage premium ratio], $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
-
-\item  [initial extent of the city*] $f_0$ to get the number of lots ($f_0^2$) where it's worthwhile to work. This is different from the width of the grid. We use $f_0$ and $\omega_)$ to calculate $c$. **** Alternatively we could set  $c$. Suburban area is  = $f^2$ 
-
-\item  [initial wage premium ]  \[\omega_0=(1+p)\psi\]
+\item [initial wage premium ]  \[\omega_0=(1+p)\psi\]
 
 \begin{lstlisting}
 # Initial values for endogenous variables
 # Initial wage premium
 # The initial_wage_premium_ratio is p
 self.wage_premium = (1 + initial_wage_premium_ratio) * self.subsistence wage
+#do we need to specifiy initial? *DO
 \end{lstlisting}
 
-\item[initial labour force for urban firms] initially try values similar to the rural firm size and vary it $n_R=n$. *****%may have implicagtions later for the notation
+\end{description}
 
-\item [baseline population] $N_0=density * f_0 * f_0 + P_0$.
 
-\item[labour cost for typical rural firm] $L_R = n_R*\psi$. This is expressed as a money quantity: e.g., 100 workers*\$40,000/worker.  
+    \subsubsection{Bank and mortgage parameters}
+\begin{description}
+\item[mortgage period]  mortgage_period (T)
+\item[cost of capital for the bank] r_prime
+\item[target return] $r_target = r_prime$ %+ ***DO
 
-% \item[Initial labour cost for typical urban firm] ]  $L_U = n_R(\psi+\omega_0)$.
+\item [{ability to carry a mortgage}] the share of income that can be used to cover mortgage interest. (rule of thumb: don't spend more than 25\% or 30\% we use 0.28.)
+\item [maximum mortgage share of price] parameter in calculation of $m_i$. Specific to functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available. 
+
+\item [wealth sensitivity of maximum mortgage share of price] parameter in calculation of $m_i$. Specific to functional form used. Set at 0.1. Based on stylized facts from the literature.  No empirical estimates are available. 
+
+\end{description}
+
+    \subsubsection{Realtor}
+\begin{description}
+\item[xz] 
+\end{description}
+
+\begin{description}
+
+
+
+    \subsubsection{Firm level}
+\item  [$\mathbf{\alpha_F}$] = 0.18 (typically 0.2 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects),  for a single firm with a production function $Y_{Fi}=A_F K_i^{\alpha_F }L^{\beta_F}_i$ (empirical range =)\footnote{``In the U.S. from 1948-1995 the capital elasticity bounds were 0.18-0.33, and rose to 0.21-0.39 in 1995-2018.'' Dietrich Vollrath, (2021) The Elasticity of Aggregate Output with Respect to Capital and Labor. Hwe akso found that the capital elasticity in the private business sector is 0.09-0.28 from 1948-1995, and 0.16-0.33 from 1995-2018, and it is lower if intellectual capital is excluded.}
+
+\item  [$\mathbf{\beta_F}$ ] = 0.72 (typically 0.8 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects) elasticity of output with respect to labour for a single firm. (empirical)\footnote{Douglas  obtained a result for the exponent of labour of 0.75—which was subsequently confirmed by the National Bureau of Economic Research to be 0.741} 
+
+\item [wage adjustment coefficient for new workers ] $adj^{new}_\omega$
+
+\item [wage adjustment coefficient for existing workers] $adj^{existing}_\omega$
+
+    
+\end{description}
+
+
+
+
+\subsection{Initial values for endogenous variables} \label{sec-init-value-list}
+
+These are \textbf{initial values} that we calculate based on the parameters above. These are not fixed: Some, like "Output for a typical rural firm", are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
+
+
+\subsubsection{City}
+\begin{description}
 
 \item[number of urban firms] $F_0=\frac{N_0}{n_0}$.****
 
-\item[output for typical rural firm]  
-\[Y_R=\frac{n_R*\psi}{\beta_F}\]
-This is a constant for any initial values. Derived from the marginal productivity condition. See item~\ref{item-paramlist-firm-level} in the orange  block. The numerical calculation is done  for a firm with 100 workers and a marginal product of labour of $\psi$. I get \$20 million for those values. 
-
-
-\item[initial output for an urban firm] 
-\[Y_0^U=N^\gamma Y^R\]  
-Taking the marginal product with respect to $n$, we get a useful fact that will allow us to tie down $\gamma$
-\[Y_{U,0}=\frac{n*(\psi+\omega)}{\beta_F}\]
-
-{\color{red}
 \item[elasticity of urban output with respect to population.] $\gamma$. Combining the two marginal productivity conditions, 
 \begin{align}
 \frac{n\psi}{\beta_F}  &= \frac{n(\psi+\omega)}{N^\gamma \beta_F}  \\
 N^\gamma &= (1+\omega)/\psi)\\
 \gamma &= \frac{log(1+p)}{log(N)}
 \end{align}
-}
-
-\item[capital for typical rural firm]. (Derived from the marginal productivity condition.)
-\[K_F=  \frac{\alpha_F Y_F }{r}\]
-This is also a constant.
- 
-\item[initial capital for an urban firm]. (Derived from the marginal productivity condition.)
-\[K_{U,0}=  \frac{\alpha_F Y_F }{r}\]
-This is also a constant.
-
-\item[scale factor A for typical  firm] 
-\[A_F= \frac{Y_R}{K_R^{\alpha_F} L_R^{\beta_F}}\]
-This is a constant used for both rural and urban production functions. The explicit function is a bit  messy but the numeric value is easily computed because we have $L_r=n_R\psi$, and have calculated $Y_F$, and  $K_F$
-
-
-\item[equilibrium wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $
-
-\item[equilibrium wage] = $\omega_t +\psi $
 
 \item [agglomeration surplus $\mathcal{S}$] We define the agglomeration surplus as the difference between the output produced by  the city with population N and a set of $N/n$ standardized rural firms each with a labour force $n$ and with a total workforce of $N$. 
 \[\mathcal{S_0}=A^U N^\beta-F_0Y_R \] 
@@ -148,32 +157,278 @@ The surplus can also be expressed in terms of the wage premium:
 AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\ 
   A&=\frac{\omega+\psi}{\beta_FN^{\beta-1}}
 \end{align*}
-\textbf{NOTE: A is scale independent and all of the population agglomeration effect appears in $N^\gamma$.}
+\textbf{NOTE: A is scale independent and all of the population agglomeration effects, which are confined to $N^\gamma$.}
+\end{description}
+
+
+    \subsubsection{Land}
+\begin{description}
+\item[property taxes]
+\begin{align*}
+\mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_W}{r} \\
+&= \tau \times \frac{\omega_t- {dc} + a\psi.}{r}
+\end{align*}
+
+
+\begin{lstlisting}
+@property
+def warranted_price(self):
+    omega = self.model.firm.wage_premium # FIXED
+    psi   = self.model.subsistence_wage
+    a     = self.model.housing_services_share
+    c     = self.model.transport_cost_per_dist # RENAME
+    d     = self.distance_from_center
+    r     = self.model.prime # CHECK name
+    return tau * (omega - d*c + a*psi) / r
+    
+    # USELESS PLACEHOLDER - GET CALCULATION
+    return self.model.firm.wage/(self.transport_cost + 1) 
+\end{lstlisting}
+
+\end{description}
+
+    \subsubsection{Person}
+\begin{description}
+\item[Subjective discounting] The discount factor gives the present value of one dollar received at a particular point in the future, given the date of receipt and the discount rate.
+% growth rate= rt
+% growth factor =($1+r)^t$
+% discount rate= r
+% discount factor = $1/(1+r)^t$   
+\begin{lstlisting}
+def get_discount_factor(self):
+    """
+    The discount factor gives the present value of one dollar received at particular point in the future, given the date of receipt and the discount rate.
+    Delta is the subjective individual discount rate for agent
+    after one year. This will be close to the prime interest rate, r_i.
+    """    
+    delta = self.r_prime
+    delta_period_1 = 1 / (1 + delta) 
+    delta_mortgage_period = delta_period_1**self.mortgage_period
+    sum_delta = (1 - delta_mortgage_period)/delta
+    return sum_delta
+\end{lstlisting}
+% #   sum_delta = delta_mortgage_period * (1 - delta_mortgage_period) # Old
+Delta could also depend on wealth. For example,  use the bank rate, which is the rational rate but people who are poor typically have higher rates.  It would not change as the central bank changes r-pirme
+% delta could be wealth based typically higher for poor.
+
+% sum\_delta is sum of the infinite series minus discounted infinite series after mortgage\_period years
+% Here, it is the present value of annual payments from one to mortgage\_period years e.g. of mortgage payments or rent received. 
+% delta\_mortgage\_period was previously called   delta\_period\_T 
+% # Note delta_mortgage_period is subtracted to subtract the long tail. 1/delta gives the PV of an infineite series of payments
+
+\begin{lstlisting}
+# A version with delta depending on wealth
+wealth = self.wealth
+delta =
+\end{lstlisting}
+% savings =(sum(0-age)((1+r)**age)*savings_rate*subsistence)
+
+
+\end{description}
+
+\subsubsection{Firm}
+\begin{description}
+\item[initial labour force for urban firms] $n_0=n_R$.initially try values similar to the rural firm size and vary it  %*****%may have implicagtions later for the notation
+\item[Initial wage premium] $\omega_0=p_0*\phi$
+\item[Initial wage] = $\omega_0=\omega_t +\psi =(1+p_0)\psi)$
+%The wage  is set as the marginal product of labour for initialization of the model. 
+
+\item[labour cost for typical rural firm] $L_R = n_R*\psi$. This is expressed as a money quantity: e.g., 100 workers*\$40,000/worker.  
+
+% \item[Initial labour cost for typical urban firm] ]  $L_U = n_R(\psi+\omega_0)$.
+
+\item[output for typical rural firm]  
+\[Y_R=\frac{n_R*\psi}{\beta_F}\]
+This is a constant for any initial values. Derived from the marginal productivity condition. See item~\ref{item-paramlist-firm-level} in the orange  block. The numerical calculation is done  for a firm with 100 workers and a marginal product of labour of $\psi$. I get \$20 million for those values. 
+
+
+\item[initial output for an urban firm] 
+\[Y_0^U=N_0^\gamma Y^R\]  
+Taking the marginal product with respect to $n$, we get a useful fact that will allow us to tie down $\gamma$
+\[Y_{U,0}=\frac{n*(\psi+\omega)}{\beta_F}\]
+
+\item[capital for typical rural firm] (Derived from the marginal productivity condition.)
+\[K_F=  \frac{\alpha_F Y_F }{r}\]
+This is also a constant.
+ 
+\item[initial capital for an urban firm] (Derived from the marginal productivity condition.)
+\[K_{U,0}=  \frac{\alpha_F Y_F }{r}\]
+This is also a constant.
+
+\item[scale factor A for typical  firm] 
+\[A_F= \frac{Y_R}{K_R^{\alpha_F} L_R^{\beta_F}}\]
+We will assume that this is a constant used for both rural and urban production functions. (The explicit function is a bit  messy but the numeric value is easily computed because we have $L_r=n_R\psi$, and have calculated $Y_F$, and  $K_F$)
+
+\item[initial wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $
+
+\end{description}
+
+\subsubsection{Bank}
+\begin{description}
+\item[None] 
+\end{description}
+
+\subsubsection{Realtor}
+\begin{description}
+\item[None] 
+\end{description}
+
 
 \textbf{NOTE: With the initial values calculated in this section $\omega$ is consistent with $N_0$.as a result, population should not grow. }
 
-% \item[initial-wage-offer] Initial urban wage offer, The wage  is the marginal product of labour for initialization of the model. 
 
-%  \item[Urban firms' initial marginal product of labour]
-% \[MPL_{t} = \frac{\beta_{F}N_0^\gamma Y_{R}}{ n}\]   
-\end{description}
+{\color{red} This block has been moved here From appendix 2 to integrate with the parameter and formulae. 
 
-\subsection{Computations to update endogenous variables}
+\section{Bidding}
 
-\subsubsection{Model}
-\subsection{Land}
-\subsection{Person}
-\subsection{Firm}
-\subsection{Bank}
-\subsection{Realtor}
-Variables recalculated in each step. 
-% between periods e.g. omega
-\begin{itemize}
+
+\subsection{TODO Maximum bid price}
+
+Agents compute their maximum bid, and the negotiation process adjusts downwards as appropriate REF.
+
+\begin{eqnarray}
+P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
+
+In banking with individual information on a land parcel and person.
+\begin{lstlisting}
+def get_max_bid_price(self, bidder, property):
+    net_rent = property.get_net_rent()
+    m        = bidder.get_max_mortgage()
+    r        = self.model.sum_r # SAME AS SUM_R? RENAME?
+    r_target = r_prime + agents_premium # FIX
+    delta    = self.model.sum_delta # SAME AS SUM_DELTA? RENAME?
+    P_dot    = GET FROM THE CURVE FIT
+    denominator = (1-m)*r_target - delta*(1 + P_dot  - (1+r)*m)
+    return net_rent / denominator   
+\end{lstlisting}
+
+\textbf{TODO FIX - little m is the max someone qualifies for.. we also have a maximum amount. Need to reconcile those two approaches.}
+ 
+\subsection{TODO Maximum mortgage calculation}
+
+\begin{tikzpicture}	[scale=1.5]
+\draw[thick] (0,4)node[above left, align = center,rotate=90]{\small \\Mortgage (\$)} --(0,0)--(5,0)node[below left]{\small Price (\$)}; 
+\draw[dashed] (0,0)--(4,4)node[right]{\small $M=P$};
+\draw[] (0,2)--(4.5,2)node[right]{\small $M_i^{max}$};
+\draw[] (0,0)--(4,3.2)node[above right]{\small $M=m_iP$};
+\draw[ultra thick, red, opacity=.5] (0,0)--(2.5,2)node[below right,  text width=4cm, align = center]{\small \\ Maximum mortgage \\ $M=min\{M_i^{max}, m_iP\}$}--(4.5,2);
+\draw[latex-latex] (3,2)node[above right] {\small Savings}--(3,3);
+\end{tikzpicture}
+
+Mortgage gives 2 numbers. First it pays for a share of the purchase price, second it has an actual maximum. There's a line with a kink because there's 2 constraints.  The difference between the two diagonal lines is what you pay from savings. 
+The diagonal line - the top dashed diagonal line is just the line where the mortgage would be price.
+% This is just the constraint. Up to the kink, little $m_i$ is a fraction of price. beyond at little mi becomes a different number - number based on little $m_i$ for everyone
+% banks have an advantage since they can practically bid anything
+% m - mortgage share
+% P - realized price
+% M - maximum - 
+
+\textbf{Wealth-based  mortgage maximum} 
+ \[max\ m_i = 9-\left(\frac{W_i}{\bar W}\right)^{0.1} \]
+
+% **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank
+
+\textbf{Income-based  mortgage maximum}
+
+\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.  0.28 is a parameter \gls{ability to cover a mortgage}.
+ 
+\textbf{Combined  mortgage maximum}
+\[ M_i^{max} = min \{9-\left(\frac{W_i}{\bar W}\right)^{0.1}P,  \frac{0.28*(\omega+w)}{r_i} \}\]
+Because we use $m_i$ in calculating the maximum bid for individuals and it in effect changes after the inflection point in the graph, we need some adjustments. 
+
+First, the \textbf{maximum bid} (price that will be offered) is the minimum of $M^{max_i} +S$ and the maximum bid calculated using $m_i$ (which is calculated independently) if 
+$P\le \frac{M_i^{max}}{m_i}$ 
+and $m_i^*$ if 
+$P\ge \frac{M_i^{max}}{m_i}$, where 
+\[m_i^*=\frac{M_i^{max}}{P}\]
+
+\begin{lstlisting}
+# parameters - max interest payment 
+max_mortgage_share = 0.28 # ability to cover a mortgage
+
+# Max mortgage
+
+wealth = property_value - mortgage + savings
+mean_weath = sum(wealth)/number_of_people
+
+def get_max_mortgage(self, applicant):
+    max_mortgage =  ...
+    
+    return max_mortgage
+\end{lstlisting}
+
+}
+
+
+
+
+
+\section{Model execution}
+Variables that are recalculated in each step.\footnote{\begin{itemize}
     \item Variables have to have a time subscript. 
-    \item We also have to distinguish the urban firm from the basic rural firm.  Only the urban firm changes its behaviour.  I use a subscript $_U$. 
+    \item We also distinguish the urban firm from the basic rural firm.  Only the urban firm changes its behaviour.  I use a subscript $_U$. 
     \item I omit the subscript for $n_t$ because only the urban firm changes its workforce size.
-\end{itemize}
+\end{itemize} }
 
+
+\subsection{City}
+\subsubsection{Wage premium ratio}
+
+$p_t= \frac{\omega_t}{psi_t}$ 
+
+
+\subsection{Land}
+
+\subsubsection{Property taxes}
+are imposed on the value of the housing services from the period before
+\begin{lstlisting}
+    def get_tax(self):
+        tau   = self.model.property_tax_annually
+        omega = self.model.firm.wage_premium # FIXED
+        psi   = self.model.subsistence_wage
+        a     = self.model.housing_services_share
+        c     = self.model.transport_cost_per_dist # RENAME
+        d     = self.distance_from_center
+        sum_delta = self.model.sum_delta # TODO - make individual  - this would have to be average discounting - THIS TAKE SUM DELTA OUT - AND PUT WITH LARGER CALCULATION.. - CACLULATE FOR A PERSON/PROPERTY COMBINATION..
+        return tau * (omega - c*d + a*psi) * sum_delta
+\end{lstlisting}
+
+\subsection{Person}
+
+\subsection{Firm}
+
+\subsubsection{Wage calculation}
+Firms make two decisions faced with a market wage. They hire and they adjust their
+wage. This is typical in \glspl{competitive market} where firms are price-takers. 
+
+
+When aggregate firm labour demand exceeds N, wages rise at the city level
+% Common to think of the variations in local wages as variations around a mean, in this context - perfect labour market.
+% We're using this number at the agregate level, raise the market wage to a level that attracts that many. Divide available workers among the firms, then they want to raise the wage again. It's more transparent to do it at the agregate level than at the firm level, but we still have the rising supply curve. A more detailed agent model could implement the hiring and wage adjustment mechanisms for firms dirrectly, but the side effect of increased ocmplication is it also can obscure the clarity of the rent results, our focus wit this work. 
+\begin{lstlisting}
+# Firm step function updates wage, omega
+def step(self):
+    prefactor  = self.model.prefactor
+    agglom     = self.model.agglomeration_ratio
+    population = self.model.agglomeration_population
+    wage_share = self.model.wage_share  
+    wage_premium = wage_share * (agglom-1) * prefactor * population**agglom # omega # ****** 
+    self.wage = wage_premium + self.model.psi
+    # k thought # self.wage_premium = (wage_share * prefactor * population**agglom)/ population # omega    
+    # note surplus is: (beta - 1) * (prefactor * population**agglom)
+\end{lstlisting}
+
+Where wage share is a parameter input to the model.
+
+
+\subsection{Bank}
+
+
+\subsection{Realtor}
+
+
+
+\subsection{Firms}
 \begin{description}
 \item[number of firms] $F_{t}=\frac{N_{t-1}}{n^{target}_{t-1}}$. Firm formation uses current variables to set number of firms for the next period 
 (\color{red}
