@@ -26,39 +26,37 @@ In addition, there is an aggregate production function for the city from the sca
 
 \subsection{Parameter values}\label{sec-param-values}
 
-    \subsubsection{City}
+\subsubsection{City}
 \begin{description}
-\item [density]  workers per lot, Combined with the city extent, $f$, this gives us suburban population. VARIABLE FOR DENSITY. A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. Notice we can set density individually for each cell in the grid, so density is really a vector variable. (100) % Also explore a density of 1 with a higher seed population.
+\item [density] 100 workers per lot, Combined with the city extent, $f$, this gives us suburban population. VARIABLE FOR DENSITY. A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. Notice we can set density individually for each cell in the grid, so density is really a vector variable.  % Also explore a density of 1 with a higher seed population.
 \item [seed population] $P_0=0$. % An initial population at the center that anchors the population. % We need to seed it with an initial core urban Cities aren't unseeded.  Zero initially, but it is something to adjust to get reasonable behaviour or to explore additional factors such as a service population or a retired population. 
 \item [baseline population] $N_0=density * f_0 * f_0 + P_0$.
 
 \item [initial wage premium ratio] $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
-\item [worker share of urban agglomeration surplus] $\lambda=\beta_F$ (Workers are getting the same share of the surplus and they do of output with no agglomeration effects.)
-\item [$\beta$ = 1.12] Urban agglomeration coefficient for the city: elasticity of urban output with respect to population (empirical)
-\item [z] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. 
-\item [equilibrium cost of transportation] $c = \omega/f$. Constant.
-\textbf{***do. we have to make sure that this is calculated using last-period values.}
+\item [worker share of urban agglomeration surplus] 0.72 or 0.8 $\lambda=\beta_F$ (Workers are getting the same share of the surplus and they do of output with no agglomeration effects.)
+\item [urban agglomeration coefficient $\beta$ = 1.12] for the city: elasticity of urban output with respect to population (empirical)
 
-\item [property tax rate] $tau$
+\item [scaling adjustment factor z] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. 
+
+\item [equilibrium cost of transportation] $c = \omega/f$. Constant.
+\item [property tax rate annually. $\tau=0.04$] $\tau$ 
+\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistance wage in Canada for after-tax income. Try also lower values.
+\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms.
 \end{description}
 
 
 \subsubsection{Land}
-\begin{description}
-\item[Main]
-\end{description}
+% \begin{description}
+% \end{description}
 
 \subsubsection{Person}
 \begin{description}
-\item[subjective discount rate] delta=r+prime
+\item[subjective discount rate] delta=r\_prime
+\item[working\_period] age or working period out of the total number of working\_periods (40). People are initialized with a random working period between 0 and 40.
 \end{description}
 
 \subsubsection{Firm}
 \begin{description}
-\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistance wage in Canada for after-tax income. Try also lower values.
-
-\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms.
-
 \item [initial workforce of a standard urban firm] $n_0=n$.  The urban firm workforce will evolve over time: $n_{Ut}$. 
 
 \item [price of output] = 1. (If you wanted to be able to vary this, you would put a price parameter in front the % of marginal products. 
@@ -66,23 +64,16 @@ In addition, there is an aggregate production function for the city from the sca
 
 \item [firm cost of capital] $r = 0.05$ or 5\%.
 
-\item [initial wage premium ]  \[\omega_0=(1+p)\psi\]
-
-\begin{lstlisting}
-# Initial values for endogenous variables
-# Initial wage premium
-# The initial_wage_premium_ratio is p
-self.wage_premium = (1 + initial_wage_premium_ratio) * self.subsistence wage
-# do we need to specifiy initial? *DO
-\end{lstlisting}
-
-\end{description}
+\item [initial wage premium ]  \[\omega_0 = p \psi\] where $p$ is the wage_premium_ratio.
 
 
-\begin{description}
+
+
 \item  [$\mathbf{\alpha_F}$] = 0.18 (typically 0.2 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects),  for a single firm with a production function $Y_{Fi}=A_F K_i^{\alpha_F }L^{\beta_F}_i$ (empirical range =)\footnote{``In the U.S. from 1948-1995 the capital elasticity bounds were 0.18-0.33, and rose to 0.21-0.39 in 1995-2018.'' Dietrich Vollrath, (2021) The Elasticity of Aggregate Output with Respect to Capital and Labor. They also found that the capital elasticity in the private business sector is 0.09-0.28 from 1948-1995, and 0.16-0.33 from 1995-2018, and it is lower if intellectual capital is excluded.}
 
 \item  [$\mathbf{\beta_F}$] = 0.72 (typically 0.8 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects). Also called the elasticity of output with respect to labour for a single firm. (empirical)\footnote{Douglas  obtained a result for the exponent of labour of 0.75—which was subsequently confirmed by the National Bureau of Economic Research to be 0.741. Lower values  are associated with stronger decreasing returns to scale for the firm in our model.} 
+
+DONE TO HERE.
 
 \item [wage adjustment coefficient for new workers ] $adj^{new}_\omega$
 
@@ -124,13 +115,14 @@ N^\gamma &= (1+\omega)/\psi)\\
 \gamma &= \frac{log(1+p)}{log(N)}
 \end{align}
 
-\item [agglomeration surplus $\mathcal{S}$] We define the agglomeration surplus as the difference between the output produced by  the city with population N and a set of $N/n$ standardized rural firms each with a labour force $n$ and with a total workforce of $N$. 
+\item [agglomeration surplus $\mathcal{S}$] We define the agglomeration surplus as the difference between the output produced by  the city with population N and a set of $N/n$ standardized rural firms each with a labour force $n$. 
 \[\mathcal{S_0}=A^U N^\beta-F_0Y_R \] 
 This is illustrated in Figure~\ref{fig:Agglomeration-surplus}
 
-The surplus can also be expressed in terms of the wage premium:
+The surplus can also be expressed in terms of the wage premium and the workers' share of the surplus:
 \[\mathcal{S_0}=N\omega_0/\lambda=\frac{N\omega_0}{\beta_F}\] 
-
+The logic is that the wage premium is the worker's share of the urban surplus. We have assumed that $\lambda=\beta$ as a convenience but we could 
+The logic is that the wage premium is the worker's share of the urban surplus. 
 
 \item[urban scale coefficient $A$] Combining the two expressions for $\mathcal{S}$
 \begin{align*}
@@ -140,7 +132,7 @@ The surplus can also be expressed in terms of the wage premium:
 AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\ 
   A&=\frac{\omega+\psi}{\beta_FN^{\beta-1}}
 \end{align*}
-\textbf{NOTE: A is scale independent and all of the population agglomeration effects, which are confined to $N^\gamma$.}
+\textbf{NOTE: A is scale independent and all of the population agglomeration effects, which are confined to $N^\gamma$.}\footnote{We have assumed that $\lambda=\beta_F$ as a convenience but we could say $\lambda=zork*\beta_F$, making $A=\frac{\omega/zork +\psi}{\beta_FN^{\beta-1}}$ }
 \end{description}
 
 
@@ -157,6 +149,9 @@ AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\
 
     \subsubsection{Person}
 \begin{description}
+\item [savings] $age_i*savings\_rate*\psi$
+\item[personal wealth] $W_{i0}= savings + warranted\_price $
+\item[average wealth] $\bar W_{0}= \sum_i W_i$
 \item[Subjective discounting] The discount factor gives the present value of one dollar received at a particular point in the future, given the date of receipt and the discount rate.
 % growth rate= rt
 % growth factor =($1+r)^t$
@@ -196,6 +191,9 @@ delta =
 
 \subsubsection{Firm}
 \begin{description}
+
+\item[initial urban wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $
+
 \item[initial labour force for urban firms] $n_0=n_R$.initially try values similar to the rural firm size and vary it  %*****%may have implicagtions later for the notation
 \item[Initial wage premium] $\omega_0=p_0*\phi$
 \item[Initial wage] = $\omega_0=\omega_t +\psi =(1+p_0)\psi)$
@@ -216,18 +214,16 @@ Taking the marginal product with respect to $n$, we get a useful fact that will 
 \[Y_{U,0}=\frac{n*(\psi+\omega)}{\beta_F}\]
 
 \item[capital for typical rural firm] (Derived from the marginal productivity condition.)
-\[K_F=  \frac{\alpha_F Y_F }{r}\]
+\[K_R=  \frac{\alpha_R Y_R }{r}\]
 This is also a constant.
  
 \item[initial capital for an urban firm] (Derived from the marginal productivity condition.)
-\[K_{U,0}=  \frac{\alpha_F Y_F }{r}\]
+\[K_{U,0}=  \frac{\alpha Y_{U,0} }{r}\]
 This is also a constant.
 
 \item[scale factor A for typical  firm] 
-\[A_F= \frac{Y_R}{K_R^{\alpha_F} L_R^{\beta_F}}\]
+\[A_F= \frac{Y_R}{K_R^{\alpha} {n\psi}^{\beta_F}}\]
 We will assume that this is a constant used for both rural and urban production functions. (The explicit function is a bit  messy but the numeric value is easily computed because we have $L_r=n_R\psi$, and have calculated $Y_F$, and  $K_F$)
-
-\item[initial wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $
 
 \end{description}
 
@@ -274,7 +270,7 @@ def warranted_price(self):
     d     = self.distance_from_center
     r     = self.model.r_prime # CHECK name
   
-    return (omega -c*d + a*psi}
+    return (omega -c*d + a*psi)/r
 \end{lstlisting}
 
 \subsubsection{Maintenance costs} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($as\psi$) over the mortgage period (T). This may be used in computing bids.
@@ -305,76 +301,78 @@ are imposed on the  warranted price (i.e., the value of the housing services) fr
 
 \subsection{Person}
 Does sum\_delta go here in person, or above the land (property ) calculations?  
+
 \subsection{Firm}
 
-\subsubsection{Wage calculation}
-Firms make one decision faced with a market wage. They choose a target workforce. This is typical in \glspl{competitive market} where firms are price-takers. 
+\subsubsection{number of firms} $F_{t}=\frac{N_{t-1}}{n^{target}_{t-1}}$. Firm formation uses current variables to set number of firms for the next period 
 
-
-When \textbf{aggregate} firm labour demand exceeds N, wages rise at the city level
-
-
-\subsection{Firms}
-\begin{description}
-\item[number of firms] $F_{t}=\frac{N_{t-1}}{n^{target}_{t-1}}$. Firm formation uses current variables to set number of firms for the next period 
-(\color{red}
-\item[actual urban firms' employment] 
+\subsubsection{actual urban firms' employment} 
 $n_t^{actual}= \frac{N_t}{F_t} $. Available workers are divided among existing firms.   
 
-\item[actual urban firms' capital] Should be based on planned output rather than the labour available in the period, so we begin with \[\omega_{t}+\psi = \frac{\beta_{F}Y^{target}_{t-1}}{n_{t-1}^{target}}\]
+
+\textbf{actual urban firms' capital} in period t should be based on planned output rather than the labour available in the period, so we begin with the marginal productivity of labour equation, \[\omega_{t}+\psi = \frac{\beta_{F}Y^{target}_{t-1}}{n_{t-1}^{target}}\]
 which gives us 
 
 
-\item[urban firms' actual marginal product of labour]
+\textbf{urban firms' actual marginal product of labour}
 \[MPL_{t} = \frac{\beta_{F}Y^{actual}_{U,t}}{n_t^{actual}}\] \noindent Firms observe their output, Yt and find  MPL= that they want to set equal to the wage. Al the values have been determined in the previous  and $n^{actual}_t$ is calculated using values from the  previous period, we get
 
-\item[urban firms' output] by solving the above for Y
+\textbf{urban firms' output} by solving the above for Y
 \[Y_{U,t}=  n_t^{actual}\frac{\omega+\psi}{\beta_{F}} \] 
 This is used to calculate target employment.
 % \item[(urban firms' capital)] (May not be needed)
 % \[ K_{U,t}= \frac{\alpha}{\beta} \frac{n_{t-1}(\omega_{t-1}+\phi)}{r}\]
 
-\item[urban firms' target employment for $t+1$] Firms examine their own output and marginal product of labour, all calculated with values determined in the previous period. Following the  optimality rule, MPL=wage and MPK-r, they compute a target value for $n$ and $K$
+
+{\color{red}
+\subsubsection{urban firms' target employment for $t+1$} Firms examine their own output and marginal product of labour, all calculated with values determined in the previous period. Following the  optimality rule, MPL=wage and MPK-r, they compute a target value for $n$ and $K$
 \[ n^{target}_{t+1}= \frac{\beta Y_{t}}{\omega_t + \phi} \]
 
 
 
-\item[aggregate urban labour demand of existing firms $N_{F,t+1}^{target}$] 
+\subsubsection{aggregate urban labour demand of existing firms $N_{F,t+1}^{target}$} 
 
 \[N_{F,t+1}^{target} = \frac{n^{target}_{t+1}}{n^{actual}_{t}} N_t\].   
 This makes sense because Y is produced with the previous year's target assuming  $\gamma$ was constant but  $\gamma$ could have risen. (This should be the same result as  multiplying $n^{target}_{t+1} \times F_{t} $)
 
 
 
-\item[New entrant labour demand,  $n\Delta F$] Firms enter when $MPL > wage$, which with existing technology permits profit making. New firms would set the same target employment as existing firms. 
+\subsubsection{New entrant labour demand,  $n\Delta F$} Firms enter when $MPL > wage$, which with existing technology permits profit making. New firms would set the same target employment as existing firms. 
 \[n\Delta F =Z\frac{MPL_t-\omega_t -\psi}{\omega_t +\psi}F n^{target}_{t+1}\]
 This makes sense because the number of entrants as a fraction of the existing number of entrants should be larger when the profit margin is larger. New firms would set the same target employment as existing firms and 
 
-\item[aggregate urban labour demand of existing firms $N_{Total,t+1}^{target}$] 
+\subsubsection{Aggregate urban labour demand of existing firms $N_{Total,t+1}^{target}$} 
 \[N_{Total,t+1}^{target}= N_{F,t+1}^{target}+n\Delta F\]
 
-\item[number of firms] 
+\subsubsection{Number of firm adjustment} 
 \[F_{t+1}=\frac{N_{Total,t+1}^{target}}{n^{target}_{F,t+1}}\] 
 This adjusts over time, keeping the firm labour force near the optimal level. 
 {
 \color{blue}
-\item[wage adjustment for NEW workers] 
+    \subsubsection{Wage adjustment for NEW workers} 
 Firms want to increase output so they bid for new workers
 \[wage_t^{new}= (1-adj_\omega)\omega_{t-1} + adj_\omega MPL_{t-1}  +\psi\] 
 
-\item[wage adjustment for EXISTING workers ]
+\subsubsection{Wage adjustment for EXISTING workers }
 Existing workers demand catchup increases
 \[ wage_t^{existing}= (1-adj_{exist})*\omega_{t-2} + adj_{exist}* wage_{t-1}^{new}  +\psi\]
 Do we have to worry about workers switching firms? Would switchers get the full  bid new workers get? 
 }
-\item[wage adjustment factor] This is the fraction by which desired labour exceeds actual labour
+}
+\textbf{wage adjustment factor} This is the fraction by which desired labour exceeds actual labour
 \[\nu_t =\frac{N^{target}_{t+1}-N_{t}}{N_{t}}\]
 or 
 \[\nu_t =\frac{n^{target}_{t+1}-n_{t}}{n_{t}}\]
 
 
 
-\item[wage adjustment] 
+\subsubsection{Wage adjustment} 
+
+\textbf{Wage calculation}
+Firms make one decision faced with a market wage. They choose a target workforce. This is typical in \glspl{competitive market} where firms are price-takers. 
+
+
+When \textbf{aggregate} firm labour demand exceeds N, wages rise at the city level
 
 To get labour supply $N^s$ in terms of  $\omega$ we combine $N=f^2 *density$ and $f=2\omega/c$. 
 
@@ -386,7 +384,7 @@ Should the adjustment occur in a single period?
 It may be useful to put in an adjustment factor $adj \le 1$.
 \[\omega_{t+1}=\omega_{t} + adj \Delta_t  \omega\]
 
-\end{description}
+
 
 
 % Common to think of the variations in local wages as variations around a mean, in this context - perfect labour market.
