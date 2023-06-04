@@ -1,5 +1,5 @@
 
-\begin{tikzpicture}[scale=.5]
+\begin{tikzpicture}[scale=.5].  %  Individual borrowing rate r\_i
 %\def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
 %\def\bndmin{0.2}
 
@@ -15,9 +15,9 @@
 %\def \Wmin{(\B*\Wbar)/(\Y/\rbar-\A)} %function to keep in in bounds. NEEDS WORK
 	
 \tikzset{func/.style={thick}}	
-\draw [thick] (0,\Y)node[above=.25cm]{lending rate} -- (0,0)--(\W,0)node[below]{Wealth}node[below=.5cm] {in hundred thousands};   	% Axes
+\draw [thick] (0,\Y)node[above=.25cm]{$r_i=$ lending rate} -- (0,0)--(\W,0)node[below]{Wealth (\$)}node[below=.5cm] {};   	% Axes
 
-\draw [thin] (0,\rbar) node[left=.5cm]{$\bar r$} -- (\W, \rbar);  	% % bank rate line
+\draw [thin] (0,\rbar) node[left=.5cm]{$r^{prime}$} -- (\W, \rbar);  	% % bank rate line
 \draw [thin, dashed] (0,\target) node[left=.5cm]{$r^{target}$} -- (\W, \target);  	% % target rate line
 \node at ( \Wbar, 0)[below=.5cm]{$\$400,000$};  
 \foreach \yi in {0,...,\Y} \draw (0,\yi)--(-.1,\yi)node[left]{\small$\yi$};  %$ put the scale on the y axis
