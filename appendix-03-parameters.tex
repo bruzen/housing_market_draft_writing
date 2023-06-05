@@ -91,19 +91,16 @@ Notice we can set density individually for each cell in the grid, so density is 
 
 \item [firm cost of capital] $r = 0.05$ or 5\%.
 
-\item [initial wage premium ]  \[\omega_0 = p \psi\] where $p$ is the wage premium ratio.
+\item [initial wage premium]  \[\omega_0 = p \psi\] where $p$ is the wage premium ratio.
 
 \item  [$\mathbf{\alpha_F}$] = 0.18 (typically 0.2 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects),  for a single firm with a production function $Y_{Fi}=A_F K_i^{\alpha_F }L^{\beta_F}_i$ (empirical range =)\footnote{``In the U.S. from 1948-1995 the capital elasticity bounds were 0.18-0.33, and rose to 0.21-0.39 in 1995-2018.'' Dietrich Vollrath, (2021) The Elasticity of Aggregate Output with Respect to Capital and Labor. They also found that the capital elasticity in the private business sector is 0.09-0.28 from 1948-1995, and 0.16-0.33 from 1995-2018, and it is lower if intellectual capital is excluded.}
 
 \item  [$\mathbf{\beta_F}$] = 0.72 (typically 0.8 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects). Also called the elasticity of output with respect to labour for a single firm. (empirical)\footnote{Douglas  obtained a result for the exponent of labour of 0.75—which was subsequently confirmed by the National Bureau of Economic Research to be 0.741. Lower values  are associated with stronger decreasing returns to scale for the firm in our model.} 
 
-
-
 \item [wage adjustment coefficient for new workers ] $adj^{new}_\omega=.5$
 
 \item [wage adjustment coefficient for existing workers] $adj^{existing}_\omega=.5$
 \end{description}
-
 
 \subsubsection{Bank} % and mortgage parameters
 \begin{description}
@@ -113,22 +110,16 @@ Notice we can set density individually for each cell in the grid, so density is 
 \item [r\_target] reference rate that the bank demands on loans on 
 $ r^{target}= r^{prime} +r^{margin}$ ? 
 
-
-
-
-
 \item[lending rate/borrowing rate $r_i$]  
 \[r_i=r^{prime} + r^{target} + \mathrm{individual\_wealth\_adjustment}\]
 
-
 \input{fig/price_of_capital}\label{fig-capital-cost}
 
-\item [{ability to carry a mortgage}] the share of income that can be used to cover mortgage interest. (rule of thumb: don't spend more than 25\% or 30\% we use 0.28.)
+\item [{ability to carry a mortgage}] the share of income that can be used to cover mortgage interest. This represents the rule of thumb for households that they should not spend more than 25\% or 30\% of their income on on housing. We use 0.28.
+
 \item [maximum mortgage share of price] parameter in calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available.
 \item[wealth sensitivity] of maximum mortgage share of price. This is a parameter in the calculation of $m_i$. It is specific to functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  No empirical estimates are available. Used in Equation~\ref{eqn-wealth-based-mortgage}.
 \end{description}
-
-DONE TO HERE.
 
 \subsubsection{Realtor}
 
@@ -137,7 +128,7 @@ DONE TO HERE.
 
 \subsubsection{locational rent}  $\omega-cd$ 
 
-\subsubsection{warranted market rent} $\mathcal{R}_W=\omega-cd +a\psi$
+\subsubsection{warranted market rent} $\mathcal{R}_W = \omega - cd+ + a\psi$
 
 The amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as the initial rent cost for tenants,  $\mathcal{R}_{W0}$.
 
@@ -146,7 +137,10 @@ The amount needed to fully pay housing costs and locational rent. This will incl
 This is the present discounted value of the warranted rents.  Use as initial market price.  (We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. )
 
 \subsubsection{Annual property taxation}
-\[\mathcal{T} = \tau  \mathcal{P}_{M, t-1}\]
+
+Property tax is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
+
+\[\mathcal{T} = \tau  \mathcal{P}_{A} =  \tau \mathcal{P}_{M, t-1} \]
 
 \subsubsection{Annual maintenance}
 \[\mathcal{O}=   ba\psi \]
@@ -161,7 +155,7 @@ This is what agents actually pay.\footnote{The market rent can in principle diff
 
 
 \subsubsection{Net rent for investors} {\color{green}}
-\[\mathcal{R}_N = \mathcal{R}_W - \mathcal{O} - \mathcal{T}= \omega - {dc} + a\psi(1-b) -\tau  \mathcal{P}_{M, t-1}\]
+\[\mathcal{R}_N = \mathcal{R}_W - \mathcal{O} - \mathcal{T}= (\omega - {dc} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1}\]
 
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an investor would receive, not the total warranted rent, but the net rent after expenses,
 }
@@ -171,10 +165,11 @@ The \gls{net rent} is the warranted rent net of costs. Homes must be maintained 
 
 These are \textbf{initial values} that we calculate based on the parameters above. These initial values provide  a starting point consistent with the production theory that we apply. They will be adjusted as the model iterates.  Some, like "Output for a typical rural firm", are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
 
+
+
 \subsubsection{City}
 \begin{description}
-
-\item[number of urban firms] $F_0=\frac{N_0}{n_0}$.****
+\item[number of urban firms]  $F_0=\frac{N_0}{n_0}$. % **** TODO FIX - this says the baseline population over the number of workers per firm. - the initial value is this. The ongoing calculation is the number of workers $n_0$ is the initialu urban workforce. just count the workforce
 
 \item[elasticity of urban output with respect to population.] $\gamma$. Combining the two marginal productivity conditions, 
 \begin{align}
@@ -204,22 +199,19 @@ AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\
 \end{description}
 
 
-    \subsubsection{Land}
+\subsubsection{Land}
 \begin{description}
 \item[property taxes]
 \begin{align*}
 \mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_W}{r} \\
 &= \tau \times \frac{\omega_t- {dc} + a\psi.}{r}
 \end{align*}
-
-
 \end{description}
 
-    \subsubsection{Person}
+
+\subsubsection{Person}
 \begin{description}
 \item [savings] $age_i*savings\_rate*\psi$
-
-
 \item[personal wealth] $W_{i0}= savings + warranted\_price $
 \item[average wealth] $\bar W_{0}= \sum_i W_i$
 \item[Subjective discounting] The discount factor gives the present value of one dollar received at a particular point in the future, given the date of receipt and the discount rate.

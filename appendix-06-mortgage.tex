@@ -17,7 +17,7 @@ sum\_delta, sum\_r?
 \item [r\_margin] The bank's markup on funds when it lends.  
 % \item [r\_target] reference rate that the bank demands on loans on $r^{target}= r^{prime } +r^{margin}$ ? 
 \item[lending rate/borrowing rate] The bank lends preferentially to wealthier clients.  
-\[r_i=r^{prime} + r^{margin} + \mathrm{individual_wealth_adjustment}\] 
+\[r_i=r^{prime} + r^{margin} + \mathrm{individual\_wealth\_adjustment}\] 
 
 \begin{figure}
     \centering
@@ -29,7 +29,7 @@ sum\_delta, sum\_r?
  
 
 \item [maximum mortgage share of price] parameter in the calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available. 
-\item[wealth sensitivity] of maximum mortgage share of price. This is a parameter in the calculation of $m_i$. It is specific to functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  No empirical estimates are available.  Used in Equation~\ref{eqn-wealth-based-mortgage}.
+\item[wealth sensitivity] of maximum mortgage share of price given total \gls{wealth}, including savings, income and assets. This is a parameter in the calculation of $m_i$. It is specific to functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  No empirical estimates are available.  Used in Equation~\ref{eqn-wealth-based-mortgage}. 
 
 \item [ability to carry a mortgage] 
 
@@ -81,58 +81,51 @@ The difference between the two diagonal lines is what the purchaser pays from sa
 \begin{figure}
     \centering
 \input{fig/borrowing-ratio}
-    \caption{Individual borrowing ratio mi as a function of wealth}
+    \caption{Individual borrowing ratio $m_i$ as a function of wealth}
     \label{fig:Individual-borrowing-rate}
 \end{figure}
 
 
 \textbf{Wealth-based mortgage maximum} 
-\begin{equation} m_i^{max\_permitted} = 0.9-\left(\frac{W_i}{\bar W}\right)^{0.1} \end{equation} \label{eqn-wealth-based-mortgage}
+\begin{align}
+m_i^{max\_permitted} = \mathrm{max\_mortgage\_share} - \left(\frac{W_i}{\bar W}\right)^{\mathrm{wealth\_sensitivity}} \label{eqn-wealth-based-mortgage}    
+% m_i^{max\_permitted} = 0.9 - \left(\frac{W_i}{\bar W}\right)^{0.1} 
+\end{align} 
 
 % **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank.
+% Where 0.9 is the maximum fraction that can be mortgaged and 0.1 is the wealth sensitivity parameter.
 
-Where 0.9 is the maximum fraction that can be mortgaged and 0.1 is the wealth sensitivity parameter.
+\textbf{Income-based mortgage maximum}
 
-
-\textbf{Income-based  mortgage maximum}
-
-\[M^{max\_permitted}_i\ = \frac{0.28*(\omega+\psi+ r_{prime}* \mathrm{savings})}{r_i}\]
-Where 0.28 is a parameter for \gls{ability to cover a mortgage}, the maximum the bank will let an applicant pay based on their wealth.
+\[M^{max\_permitted}_i\ = \frac{\mathrm{ability\_to\_carry\_mortgage}*(\omega+\psi+ r_{prime}* \mathrm{savings})}{r_i}\]
+Where ability to carry a mortgage, is the maximum the bank will let an applicant pay based on their wealth.
  
-\textbf{Combined  mortgage maximum}
+\textbf{Combined mortgage maximum}
 
 The above  two equations specify two constraints on the mortgage,  combining we get:
 \begin{align} 
 M_i^{max} &= min \left\{ m_i^{max\_permitted}*P, \ M^{max\_permitted}_i \right\} \\
-&= min \left\{ \left(0.9- \left( \frac{W_i}{\bar W}\right)^{0.1}\right)P, \  \frac{0.28*(\omega+\psi)}{r_i} \right\} 
+% &= min \left\{ \left(0.9- \left( \frac{W_i}{\bar W}\right)^{0.1}\right)P, \  \frac{0.28*(\omega+\psi)}{r_i} \right\}, 
 \label{eqn-max-mortgage2}
 \end{align}
 
-\begin{lstlisting}
-
-
-get_max_bid
-
-\end{lstlisting}
-
-We assume that a buyer always takes the maximum mortgage available. Doing so maximizes the financial return on the transaction. % That means that the  
-
-
-\subsubsection{maximum price that one can bid} is $ P_i^{max}=M_i^{max} + \mathrm{savings_i}$.
+where small $m_i$ a ratio of income, and capital $M_i$ a maximum dollar value.
 
 
 \subsection{Maximum bid}
-The maximum price a person can bid is 
+
+Assuming that a buyer always takes the maximum mortgage available, maximizes the financial return on the transaction. % That means that the  
+
+With this assumption, the maximum price a person can bid is:
+% RULE 2 The maximum price that one can bid is $ P_i^{max}=M_i^{max} + \mathrm{savings_i}$
 
 \begin{align}
-P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}     
+P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}     
 \end{align}
  
-where little $m_i$ is a ratio, capital $M_i$ is a dollar value
 
-
-\subsubsection{Bid price for first-time buyer}
-Use $P_i^{max}$  as we used to call ``maximum bid'' in the bargaining process.
+% \subsubsection{Bid price for first-time buyer}
+% Use $P_i^{max}$  as we used to call ``maximum bid'' in the bargaining process.
  
 
 \subsubsection{reservation price}
@@ -145,17 +138,24 @@ A second home buyer may have a mortgage. The bank will require that the sum of t
 
 
 \subsection{Maximum bids}
-The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
 
+Equation~\ref{eqn-property-investment-return1} gives the rate of return for a property, rented out. An investor will invest if the expected return on their investment is greater than their target rate of return, % that the investor can price offer for the property and still satisfy
+defined by the inequality~\ref{eqn-property-investment-return2}. 
 
+The maximum bid is the maximum bid that satisfies this inequality $P_B^{max}$  \ref{eqn-bid-price}:
 
-TODO: Need to consider the case where it is better to rent/not-buy. Need the market rent for every house. What would you rent it out for.
-\begin{eqnarray}
-P_{person}^{max\_bid} & = min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \label{eqn-bid-price-P} \end{eqnarray}
 
 
 \begin{eqnarray}
 P_{bank}^{max\_bid} & =   \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price-B} \end{eqnarray}
+
+
+REPETITION?
+% TODO: Need to consider the case where it is better to rent/not-buy. Need the market rent for every house. What would you rent it out for.
+\begin{eqnarray}
+P_{person}^{max\_bid} & = min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+\end{eqnarray}
+
 
 \subsection{Reservation prices}
 
