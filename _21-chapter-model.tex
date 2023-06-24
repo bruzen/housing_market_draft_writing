@@ -644,16 +644,13 @@ We call this  $i's$ maximum bid and compute it for all potential buyers and sell
 
 
 
-\subsection{Reservation price} \label{section-reservation-price}
+\subsection{The seller's reservation price} \label{section-reservation-price}
 
-We will assume,  that for owners, deciding to sell is a life-cycle decision: home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
+We will assume,  that for owners, deciding to sell is a life-cycle decision. Home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.%\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
+
+
 If no sale is made the owner would consider becoming a landlord.\footnote{Worker-owners could remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.}  This would be a rational choice if the present value of net rent is above the the best selling price price. 
-
-The value of the stream of rent is therefore the most reasonable reservation price.   This stream must be discounted at the personal discount rate or at the personal borrowing rate.\footnote{As a further  extension, worker-owners in the final few years of their working life might decide to  list if  they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
-
-
-The seller would  post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we will treat the asking price and bids a mere ''cheap talk'' and assume instead that if there is a deal it will result in a price between the  bid and the reservation price. a rice outside of this range can not be a rational choice for both sides and is ruled out  in Nash bargaining theory.
-% In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world. 
+The value of the stream of rent is therefore the most reasonable reservation price. This stream must be discounted at the personal discount rate or at the personal borrowing rate.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
 
 
 %
@@ -662,40 +659,22 @@ The seller would  post an asking price greater than the reservation price. All a
 % \[P^{ask}> 1.10P^r>P_M^e\]
 % If no offer exceeds the reservation price, no sale is made.
 
-Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
-
-If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
-
-
-\section{The bargaining model} \label{sec_model_bargaining}
-
-The bargaining  mechanism then simply has to compare the maximum bid price  $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible.  Otherwise, the transaction does not proceed.
-
-If there are competing buyers with maximum bids higher than the reservation price, only the highest two need be considered.  The second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left.  That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey \gls{second-price auction} theory. Bidders are asked to submit sealed bids b1, \dots The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
-
-If $P_B^{max}>P_R$,  the bargaining rule selects a value 
-\[P = xP_B^{max*}+(1-x)P_R\]
-where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price cannot exceed the maximum profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
-
-
+% Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
+% If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
 \begin{figure}[!hb]
-    \centering
+\centering
 \begin{tikzpicture}
 %\draw[step=0.5cm,color=gray] (0,-3) grid (8,7);
 \node [above](Bank)at (1,7) {Bank};
 \node [above](Buyers)at (5,7) {Buyers $i$};
 \node [above](Seller)at (7,7) {Seller};
 
-
-
 \draw[ultra thick, -latex](Bank)--++(0,-1.5)node[below]{$P_B^{max}$};
 \draw[ultra thick, -latex](Buyers)--++(0,-1.5)node[below]{$P_i^{max}$};
 \draw[ultra thick, blue!60,-latex](Seller)--++(0,-1.5)node[below]{$P_R$};
 
 \node[above, red, text width=1.55cm, align=center]at (3,5){Select two highest bids};
-
-
 
 \begin{scope}[shift={(0,-1)}]
 \draw[ultra thick](1,6.)--(5,6.0); % Bar
@@ -713,24 +692,31 @@ where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers 
 \end{scope}
 
 \end{tikzpicture}
-    \caption{The Bargaining model and price determination}
-    \label{fig:Bargaining}
+\caption{The Bargaining model and price determination}
+\label{fig:Bargaining}
 \end{figure}
 %We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$ is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
 
 
+\section{The bargaining model} \label{sec_model_bargaining}
 
+In reality, sellers often post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we assume instead that if there is a deal, it will result in a price between the bid and the reservation price, treating the higher asking price and bids as `cheap talk'\footnote{In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world.} since a price outside of this range cannot be a rational choice for both sides, so it is ruled out in Nash bargaining theory.
+
+The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+
+If there are competing buyers with maximum bids higher than the reservation price, only the highest two need be considered. The second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left. That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey \gls{second-price auction} theory. Bidders are asked to submit sealed bids. %b1, \dots 
+The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
+
+If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+\[P = xP_B^{max*}+(1-x)P_R\]
+where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
 
 
 % unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
 
-
 %Thus, the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes, Case and Schiller \cite{caseThereBubbleHousing2003} p282.
 
 %  GET?? Case, Karl E., and Robert J. Shiller. 1988. ``The Behavior of Home Buyers in Boom and Postboom Markets.'' New England Economic Review (November-- December), pp. 29--46.
-
-
-
 
 % So the condition is 
 % \begin{align*}

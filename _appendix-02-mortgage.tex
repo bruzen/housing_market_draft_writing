@@ -1,13 +1,125 @@
 
 \chapter[Mortgage Model]{Mortgage Model}
-Transaction costs on property sales are omitted. Add a parameter or variable.
 
-This appendix contains a fairly complete description of the mortgage model with all the equations and figures.
+Individuals qualify for some size of mortgage at a particular borrowing rate. 
 
-This model is needed to describe bank/buyer behaviour and to calculate the maximum bid that agents make. Mortgage conditions limit the potential bid.
+\section{Individualized borrowing rates} \label{section-borowing-rate}
 
-ADD? the discounting equations for the mortgage period"?
-sum\_delta, sum\_r?
+The cost of capital differs for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to The lender's target rate $r^{target}$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
+ 
+\begin{equation}
+r_i = r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})\label{eqn-interest-wealth-relationship}
+\end{equation}
+%  \begin{equation}. %.  OLD
+% r_i = (A + B \frac{\bar{W}}{W_i})\bar r\label{eqn-interest-wealth-relationship}
+% \end{equation}
+
+%  Capital cost equation
+ 
+% \[   r^h=\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m}    \]
+
+\begin{figure}[!hb]
+\begin{center}
+\input{fig/capital-cost.tex}% Figure of cost of borrowing
+\caption[Borrowing cost for agents depending on wealth.]{Borrowing cost for agents depending on wealth, with different values for parameters $A$ and $B$ in Equation~\ref{eqn-interest-wealth-relationship}.} %$A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red), and  $A=.8$  $B=0.8$ (green).}
+\label{fig-capital-cost}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\centering
+\input{fig/price_of_capital}\label{fig-capital-cost}
+\caption{Individual borrowing rate $r\_i$ price of capital}
+\label{fig:Wealth-based}
+\end{figure}
+
+Where  $r^{target}$ is the bank's target rate of return,  $\bar{W}$ is mean wealth and $W_i$ is individual wealth, $W_{min}$ is the level of wealth the bank requires to lend at all, and $K$ is a parameter for the wealth-sensitivity of lending.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s 
+%\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
+% Data released in 2020 by Statistics Canada indicates that t
+ The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
+ %A study by Statistics Canada found that t
+ The typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
+} The denominator in the last two terms is simply wealth above the lender's minimum. The final term ensures that the target rate is charged for borrowers with average wealth.
+
+
+%The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
+%illustratea a  possible  cost-of-borrowing models 
+
+% \begin{align}
+%  r_i =  &  \left(A + B \frac{\bar{W}}{W_i}\right) \bar r       \label{eqn-incomeandr1}  \\
+%  r_i =  &  \left(\bar r - A + B *\frac{\bar W}{W_i - C}\right) \label{eqn-incomeandr2}  \\
+% \end{align}
+% Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eqn-incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
+
+
+
+
+
+
+ 
+\section{Mortgage availability} \label{section-mortgage-availability}
+The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy.
+
+Many personal finance experts recommend total housing costs account for less than 28\% of \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of 
+
+\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
+
+We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
+
+We also have  a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. Combining these conditions, %($P_0$  will not always be the same as the asking price or the warranted price.)
+
+\[M^{max}_Yi = min\left\{\frac{0.28*(\omega+w)}{r_i},  0.8P_0 \right\} \]
+
+
+% \subsection{The cost of capital}
+% The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-borrowing-cost} illustrates the cost of the borrowing model we implement, 
+%  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
+% Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
+
+If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
+ 
+
+\section{Maximum mortgage calculation}
+The bank puts two  limits on the size of the mortgage, one based on income (a \textbf{carrying constraint}) and one based on wealth (a \textbf{wealth constraint}).
+
+% Mortgage gives 2 numbers. First it pays for a share of the purchase price, second it has an actual maximum. 
+
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}	[scale=1.5]
+%AXES
+\draw[thick] (0,4.5) --(0,0)--(5,0)node[below left]{\small Price (\$)};
+\node at (-.25, 3.5)[ rotate=90]{\small Mortgage, Price (\$)};
+% M =Mi MAX
+\draw[dashed] (0,0)--(4,4)node[right]{\small $P$};
+\draw[] (0,2)node[left]{\small $M_i^{max}$}--(4.5,2);%node[right, red]{\small $M = M_i^{max}$};
+% M =mi MAX
+\draw[] (0,0)--(4,3.2)node[above right]{\small $M = m_iP$};
+% COMBINED MAX RED
+\draw[ultra thick, red, opacity=.5] (0,0)--(2.5,2)node[below right,  text width=4cm, align = center]{\small \\ Maximum mortgage \\ $M=min\{M_i^{max}, m_iP\}$}--(4.0,2);
+% SAVINGS
+\draw[latex-latex] (3,2)node[above right] {\small $Savings_i$}--(3,3);
+% PMAX
+\draw[dotted,latex- ] (3,0)node[below] {$P_i^{max}$}--(3,1.2);
+\draw[dotted ] (3,2)--(3,1.72);
+\end{tikzpicture}
+\caption{The bank's dual mortgage constraint and the savings constraint determine the maximum bid price}
+\label{fig:my_label2}
+\end{figure}
+
+
+The two constraints on  mortgage size that the bank imposes are incorporated in the kinked red line in Figure~\ref{fig:Wealth-based}. The maximum  permitted mortgage is combined with the savings constraint to determine the maximum price that a potential home buyer can offer.   
+
+% a kink because there are 2 constraints.  The actual mortgage must be below both lines.
+The diagonal line, the top dashed diagonal line, is just the price, P = mortgage + savings.
+The difference between the two diagonal lines is what the purchaser pays from savings.  
+% This is just the constraint. Up to the kink, little $m_i$ is a fraction of price. beyond at little mi becomes a different number - number based on little $m_i$ for everyone
+% banks have an advantage since they can practically bid anything
+% m - mortgage share
+% P - realized price
+% M - maximum - 
 
 
 \subsection{Wealth constraint on m} \label{section-wealth-constraint}
@@ -40,161 +152,11 @@ The general relationship is clearly established empirically \cite{}, but locatio
 \begin{center}
 \input{fig/borrowing-ratio}
 \end{center}
-\caption{Individual borrowing ratio $m_i$ as a function of wealth (in tenths)}
-\label{fig-borrowing-ratio}
+\caption{Individual borrowing ratio $m_i$ as a function of wealth}
+\label{fig-individual-borrowing-rate}
 \end{figure}
 
-
-\subsubsection{Individualized borrowing rates} \label{section-borowing-rate}
-
- The cost of capital is known to differ for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to The lender's target rate $r^{target}$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
- 
-\begin{equation}
-r_i = r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})\label{eqn-interest-wealth-relationship}
-\end{equation}
-%  \begin{equation}. %.  OLD
-% r_i = (A + B \frac{\bar{W}}{W_i})\bar r\label{eqn-interest-wealth-relationship}
-% \end{equation}
-
-%  Capital cost equation
- 
-% \[   r^h=\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m}    \]
-
-% \begin{figure}[!hb]
-% \begin{center}
-% \input{fig/capital-cost.tex}% Figure of cost of borrowing
-% \caption[Borrowing cost for agents depending on wealth.]{Borrowing cost for agents depending on wealth, with different values for parameters $A$ and $B$ in Equation~\ref{eqn-interest-wealth-relationship}.} %$A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red), and  $A=.8$  $B=0.8$ (green).}
-% \label{fig-capital-cost}
-% \end{center}
-% \end{figure}
-
-Where  $r^{target}$ is the bank's target rate of return,  $\bar{W}$ is mean wealth and $W_i$ is individual wealth, $W_{min}$ is the level of wealth the bank requires to lend at all, and $K$ is a parameter for the wealth-sensitivity of lending.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s 
-%\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
-% Data released in 2020 by Statistics Canada indicates that t
- The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
- %A study by Statistics Canada found that t
- The typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
-} The denominator in the last two terms is simply wealth above the lender's minimum. The final term ensures that the target rate is charged for borrowers with average wealth.
-
-
-\input{fig/price_of_capital}\label{fig-capital-cost}
-
-%The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
-%illustratea a  possible  cost-of-borrowing models 
-
-% \begin{align}
-%  r_i =  &  \left(A + B \frac{\bar{W}}{W_i}\right) \bar r       \label{eqn-incomeandr1}  \\
-%  r_i =  &  \left(\bar r - A + B *\frac{\bar W}{W_i - C}\right) \label{eqn-incomeandr2}  \\
-% \end{align}
-% Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eqn-incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
-
-
-
-
-
-
- 
-\subsubsection{Mortgage availability} \label{section-mortgage-availability}
-The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy.
-
-Many personal finance experts recommend total housing costs account for less than 28\% of \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of 
-
-\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
-
-We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
-
-We also have  a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. Combining these conditions, %($P_0$  will not always be the same as the asking price or the warranted price.)
-
-\[M^{max}_Yi = min\left\{\frac{0.28*(\omega+w)}{r_i},  0.8P_0 \right\} \]
-
-
-% \subsection{The cost of capital}
-% The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-borrowing-cost} illustrates the cost of the borrowing model we implement, 
-%  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
-% Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-
-If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
- 
-
-
-\subsubsection{Bank mortgage parameters}
-
-\begin{description}
-\item [mortgage period]  mortgage\_period (T)
-\item [cost of capital for the bank] r\_prime. The bank's interest rate, $r$, is just the bank rate, (r\_prime) set, for instance, by the Bank of Canada.  
-\item [r\_margin] The bank's markup on funds when it lends.  
-% \item [r\_target] reference rate that the bank demands on loans on $r^{target}= r^{prime } +r^{margin}$ ? 
-\item[lending rate/borrowing rate] The bank lends preferentially to wealthier clients.  
-\[r_i=r^{prime} + r^{margin} + \mathrm{individual\_wealth\_adjustment}\] 
-
-\begin{figure}
-    \centering
- \input{fig/price_of_capital}\label{fig-capital-cost}   
-    \caption{Individual borrowing rate r\_i}
-    \label{fig:Wealth-based}
-\end{figure}
-
- 
-
-\item [maximum mortgage share of price] parameter in the calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available. 
-\item[wealth sensitivity] of maximum mortgage share of price given total \gls{wealth}, including savings, income and assets. This is a parameter in the calculation of $m_i$. It is specific to functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  No empirical estimates are available.  Used in Equation~\ref{eqn-wealth-based-mortgage}. 
-
-\item [ability to carry a mortgage] 
-
-The share of income that can be used to cover mortgage interest. (rule of thumb: don't spend more than 25\% or 30\% we use 0.28.)
-\end{description}
-%
-
-\subsection{Maximum mortgage calculation}
-The bank puts two  limits on the size of the mortgage, one based on income (a \textbf{carrying constraint}) and one based on wealth (a \textbf{wealth constraint}).
-
-% Mortgage gives 2 numbers. First it pays for a share of the purchase price, second it has an actual maximum. 
-
-
-\begin{figure}
-\centering
-\begin{tikzpicture}	[scale=1.5]
-%AXES
-\draw[thick] (0,4.5) --(0,0)--(5,0)node[below left]{\small Price (\$)};
-\node at (-.25, 3.5)[ rotate=90]{\small Mortgage, Price (\$)};
-% M =Mi MAX
-\draw[dashed] (0,0)--(4,4)node[right]{\small $P$};
-\draw[] (0,2)node[left]{\small $M_i^{max}$}--(4.5,2);%node[right, red]{\small $M = M_i^{max}$};
-% M =mi MAX
-\draw[] (0,0)--(4,3.2)node[above right]{\small $M = m_iP$};
-% COMBINED MAX RED
-\draw[ultra thick, red, opacity=.5] (0,0)--(2.5,2)node[below right,  text width=4cm, align = center]{\small \\ Maximum mortgage \\ $M=min\{M_i^{max}, m_iP\}$}--(4.0,2);
-% SAVINGS
-\draw[latex-latex] (3,2)node[above right] {\small $Savings_i$}--(3,3);
-% PMAX
-\draw[dotted,latex- ] (3,0)node[below] {$P_i^{max}$}--(3,1.2);
-\draw[dotted ] (3,2)--(3,1.72);
-\end{tikzpicture}
-\caption{The bank's dual mortgage constraint and the savings constraint determine the maximum bid price}
-\label{fig:my_label2}
-\end{figure}
-
-
-The two constraints on  mortgage size   that the bank imposes are incorporated in the kinked red line in Figure~\ref{fig:Wealth-based}. The maximum  permitted mortgage  is combined with the savings constraint to determine the maximum price that a potential home buyer can offer.   
-
-% a kink because there are 2 constraints.  The actual mortgage must be below both lines.
-The diagonal line, the top dashed diagonal line, is just the price, P = mortgage + savings.
-The difference between the two diagonal lines is what the purchaser pays from savings.  
-% This is just the constraint. Up to the kink, little $m_i$ is a fraction of price. beyond at little mi becomes a different number - number based on little $m_i$ for everyone
-% banks have an advantage since they can practically bid anything
-% m - mortgage share
-% P - realized price
-% M - maximum - 
-
-\begin{figure}
-    \centering
-\input{fig/borrowing-ratio}
-    \caption{Individual borrowing ratio $m_i$ as a function of wealth}
-    \label{fig:Individual-borrowing-rate}
-\end{figure}
-
-
-\textbf{Wealth-based mortgage maximum} 
+\subsection{Wealth-based mortgage maximum} 
 \begin{align}
 m_i^{max\_permitted} = \mathrm{max\_mortgage\_share} - \left(\frac{W_i}{\bar W}\right)^{\mathrm{wealth\_sensitivity}} \label{eqn-wealth-based-mortgage}    
 % m_i^{max\_permitted} = 0.9 - \left(\frac{W_i}{\bar W}\right)^{0.1} 
@@ -203,7 +165,7 @@ m_i^{max\_permitted} = \mathrm{max\_mortgage\_share} - \left(\frac{W_i}{\bar W}\
 % **Source**: Ch:model line 580, page 87.. I have done some fiddling Wealth $W_i = P-M+S.  for i - real estate agents estimated price wealth of a property owner as assessed by the bank.
 % Where 0.9 is the maximum fraction that can be mortgaged and 0.1 is the wealth sensitivity parameter.
 
-\textbf{Income-based mortgage maximum}
+\subsection{Income-based mortgage maximum}
 
 \begin{align}M^{max\_permitted}_i\ = \frac{\mathrm{ability\_to\_carry\_mortgage}*(\omega+\psi+ r_{prime}* \mathrm{savings})}{r_i}\end{align}\label{eqn-income-based-mortgage}
 Where ability to carry a mortgage, is the maximum the bank will let an applicant pay based on their wealth.
