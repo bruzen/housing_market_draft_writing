@@ -1,5 +1,6 @@
 
 \chapter[Mortgage Model]{Mortgage Model}
+Transaction costs on property sales are omitted. Add a parameter or variable.
 
 This appendix contains a fairly complete description of the mortgage model with all the equations and figures.
 
@@ -38,7 +39,7 @@ The share of income that can be used to cover mortgage interest. (rule of thumb:
 %
 
 \subsection{Maximum mortgage calculation}
-The bank puts two  limits on the size of the mortgage, one based on income and one based on wealth.
+The bank puts two  limits on the size of the mortgage, one based on income (a \textbf{carrying constraint}) and one based on wealth (a \textbf{wealth constraint}).
 
 % Mortgage gives 2 numbers. First it pays for a share of the purchase price, second it has an actual maximum. 
 
@@ -97,77 +98,154 @@ m_i^{max\_permitted} = \mathrm{max\_mortgage\_share} - \left(\frac{W_i}{\bar W}\
 
 \textbf{Income-based mortgage maximum}
 
-\[M^{max\_permitted}_i\ = \frac{\mathrm{ability\_to\_carry\_mortgage}*(\omega+\psi+ r_{prime}* \mathrm{savings})}{r_i}\]
+\begin{align}M^{max\_permitted}_i\ = \frac{\mathrm{ability\_to\_carry\_mortgage}*(\omega+\psi+ r_{prime}* \mathrm{savings})}{r_i}\end{align}\label{eqn-income-based-mortgage}
 Where ability to carry a mortgage, is the maximum the bank will let an applicant pay based on their wealth.
  
-\textbf{Combined mortgage maximum}
+\subsection{Combined mortgage maximum permitted by the bank for new buyers and second home buyers}
 
 The above  two equations specify two constraints on the mortgage,  combining we get:
 \begin{align} 
-M_i^{max} &= min \left\{ m_i^{max\_permitted}*P, \ M^{max\_permitted}_i \right\} \\
+M_i^{max} &= min \left\{ m_i^{max\_permitted}*P, \ M^{max\_permitted}_i \right\} 
 % &= min \left\{ \left(0.9- \left( \frac{W_i}{\bar W}\right)^{0.1}\right)P, \  \frac{0.28*(\omega+\psi)}{r_i} \right\}, 
-\label{eqn-max-mortgage2}
+\label{eqn-max-mortgage-combined}
 \end{align}
 
 where small $m_i$ a ratio of income, and capital $M_i$ a maximum dollar value.
 
 
-\subsection{Maximum bid}
-
-Assuming that a buyer always takes the maximum mortgage available, maximizes the financial return on the transaction. % That means that the  
-
-With this assumption, the maximum price a person can bid is:
-% RULE 2 The maximum price that one can bid is $ P_i^{max}=M_i^{max} + \mathrm{savings_i}$
-
-\begin{align}
-P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}     
-\end{align}
- 
-
-% \subsubsection{Bid price for first-time buyer}
-% Use $P_i^{max}$  as we used to call ``maximum bid'' in the bargaining process.
- 
-
-\subsubsection{reservation price}
-Sellers should use the calculated before  as their reservation price in the bargaining process. If they can't get a higher price they  can keep the home as a rental  investment and use the home as collateral for a mortgage on a house in the country.
-
-\subsubsection{Bid price for second home buyer}
-A second home buyer may have a mortgage. The bank will require that the sum of the two mortgages be supportable. 
 
 
 
 
-\subsection{Maximum bids}
 
-Equation~\ref{eqn-property-investment-return1} gives the rate of return for a property, rented out. An investor will invest if the expected return on their investment is greater than their target rate of return, % that the investor can price offer for the property and still satisfy
-defined by the inequality~\ref{eqn-property-investment-return2}. 
+\section{Maximum bids and reservation price for investors }.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+There are two types of investment buyers: institutional buyers and homeowners buying an investment home. They use the same investment formula
 
-The maximum bid is the maximum bid that satisfies this inequality $P_B^{max}$  \ref{eqn-bid-price}:
+We assume that institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints form Equation ~\ref{eqn-max-mortgage2} and have different rates $r_i^{target},\ \delta_i$, and $r_i$.
+
+Equation~\ref{eqn-property-investment-return1} gave us the rate of return for a property, rented out. An investor will invest if the expected return on their investment is greater than their target rate of return, % that the investor can price offer for the property and still satisfy
+defined by the inequality~\ref{eqn-property-investment-return2}, and equation~\ref{eqn-bid-price}, repeated below, gives the maximum bid price:
+
+\begin{eqnarray}\label{eqn-max-investment-bid}
+P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+\end{eqnarray}
+This implies for the bargaining process that if any other potential  has  higher maximum bid, an investor can be eliminated. Combine this observation that each potential bidder will bid up to their maximum bid price, and we know that only the two highest bids matter need be considered.  
 
 
+
+\subsubsection{Maximum bid second house buyer}
+
+We assume that existing owners with sufficient savings can bid. They are limited by the limits  that the bank imposes  borrowing capacity.   Purchasing a revenue house is only attractive if the rate return on a rental house exceeds the cost of capital $r_i$. Call this the \textbf{profitability constraint} The maximum bid for this investor is given by Equation~\ref{eqn-max-investment-bid} using one period values for $r_i^{target},\ m_i,\ \delta_i$, and $r_i$.
+
+ \begin{eqnarray}\label{eqn-max-second-bid}
+P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)} 
+\end{eqnarray}
+Notice that this simplifies if any of $r_i^{target},\ \delta_i$, and $r_i$ are set equal. It is possible the cost of capital and the target rate will be the same.
+
+Combining the investment \textbf{profitability constraint} and mortgage constraints
 
 \begin{eqnarray}
-P_{bank}^{max\_bid} & =   \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price-B} \end{eqnarray}
-
-
-REPETITION?
-% TODO: Need to consider the case where it is better to rent/not-buy. Need the market rent for every house. What would you rent it out for.
-\begin{eqnarray}
-P_{person}^{max\_bid} & = min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
 \end{eqnarray}
 
+\subsubsection{Reservation prices for investment owners}
+If the current owner of an investment  property gets an high offer higher than their own maximum bid, they will always sell.  
 
-\subsection{Reservation prices}
 
-For a homeowner, the reservation price is tricky. 
-At this point we only have retirement as a hard boundary to consider. We assume that a homeowner can move to the country and purchase a home for $\frac{a\psi}{r_prime}$. Since at the moment there are no urban amenities and no transaction costs, the gain from moving to the country is \begin{equation}
-P_{ij}^{expected}-\frac{a\psi}{r_prime}    
-\end{equation}\label{eq:movers-gain}
+\section{New buyer maximum bids and reservation prices }
+A new buyer chooses to move if the income in the city, including the wage amenities exceed the rural income after housing costs, $\psi+A^{Rural}$. 
 
-This amount is added to savings in retirement, increasing consumption. 
-We could subtract an urban amenity term, $U_{ij}$ and an transaction cost from equation~\ref{eq:move3rs-gain}. The amenity term is likely to have little effect, since a buyer will pay extra for the amenity. 
+There are two cases - moving as a buyer and moving as a renter.
 
-My suggestion is that $P_{ij}^{expected}$ is the \textbf{initial reservation price}. If the seller does not get this  she reduces the reservation price for the next period by (say) 5\% .
+\subsection{Moving as a renter}
+The gain for a potential renter is 
+\begin{align}
+gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
+=&\left[\psi+\omega-cd+\mathbb{A}^{city}-\mathcal{R}\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
+\label{eq-move-to-rent}
+\end{align}
+If rent $\mathcal{R}$ exactly capture housing cost and locational rent, the gain reduces to $\mathbb{A}^{city}-\mathbb{A}^{Rural}$. Normally we would expect property rents to capture this component  as well. 
+
+\subsection{Moving as a buyer}
+The gain for a buyer is 
+\begin{align}
+gain^{buy}=&\ net^{city}-net^{Rural}\nonumber\\
+=&\left[\psi+\omega-cd+\mathbb{A}^{city}+(\dot p-r_im_i)P-a\psi\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P  \label{eq-move-to-buy}
+\end{align}
+This requires that the sum of  locational rent, net amenity and net capital gain be greater than or equal to zero for the in-migrant to buy.
+
+The two decisions  are 
+\begin{enumerate}
+    \item Move only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
+    
+    \item Buy a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
+\end{enumerate}
+
+The buyer is subject to the mortgage constraints in Equation~\ref{eqn-max-mortgage-combined}.
+
+We will assume that a first-home buyer always takes the maximum mortgage available to maximize the financial return on the transaction. 
+
+The maximum price a new buyer can bid is also given the bank imposed liquidity constraint is given by Equation~\ref{eqn-max-mortgage-combined}, which we repeat here
+
+
+\begin{align}
+P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+\end{align}
+
+
+\subsection{reservation price for retirees}
+Both owners and tenants retire. Homes only become available if they move to the country. 
+
+
+
+\subsubsection{Why would a renter move to the country?} 
+f the rent is greater than the cost of housing in the country and the lost amenity
+\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
+
+
+\subsubsection{Why would an owner move to the country?}
+Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
+\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\label{eq:movers-gainA}\]
+
+
+This value provides a \textbf{reservation price}: 
+\[P^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \label{eq:movers-gainB}\]
+This just says that the lowest prices one would sensibly accept is the cost of a house in the country plus enough to cover the mortgage, plus capitalized net amenity.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+
+Should a retiree rent the house out? only if the rent exceeds the  interest on income from the sale:
+\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
+This value provides a \textbf{another reservation price}: 
+\[P^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \label{eq:movers-gainC}\]
+
+
+Sellers should use the investment rule calculated before  do determine a  reservation price in the bargaining process. If they can't get a higher price they  can keep the home as a rental  investment and use the home as collateral for a mortgage on a house in the country.
+% For a homeowner, the reservation price is tricky. 
+% At this point we only have retirement as a hard boundary to consider. That means that the householder wants to sell in the current period. The gain from moving to the country is 
+% \begin{equation}
+% Gain=P_{ij}^{expected}-M-\frac{a\psi}{r\_prime} - transaction\ costs - Urban Amenity\  
+% \end{equation}\label{eq:movers-gain}
+% In the initial model  there are no urban amenities and no transaction costs. We could subtract an urban amenity term, $U_{ij}$ and an transaction cost from equation~\ref{eq:movers-gain}. The amenity term is likely to have little effect, since a buyer will pay extra for the amenity. the transaction cost is actually large and is likely to significantly affect land allocation efficiency.  
+
+The reservation price in in Equation~\ref {eq:movers-gain} is the minimum provides an incentive to sell a home immediately on retiring from the workforce. 
+
+
+
+If the sale is delayed by one period, however, the gain is deferred, so the present discounted cost of waiting is, $Gain*\frac{\delta}{1+\delta}$.\footnote{This is simply (1 minus the discount factor) times the deferred amount.} A seller would accept a lower price to avoid this cost of waiting. 
+
+My suggestion is that $\frac{\delta}{1+\delta}P_{ij}^{expected}$ is the \textbf{initial reservation price} for a homeowner on retirement. If the seller does not get this she reduces the reservation price for the next period by (say) 5\% .
+
+
+\subsubsection{for the Investor-owner}
+\textbf{For financial sector in general including those holding investment properties} the problem is easier if anyone offers more than your maximum bid, you should sell the property. 
+\begin{eqnarray}
+P_{bank}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-B} \end{eqnarray}
+
+% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
+We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula. 
+
+
 
 \subsubsection{expected price}
 So what is the \textbf{expected price}? this should be the expected price from a weighted price regression.\footnote{Wheaton \cite{wheatonVacancySearchPrices1990} suggests ``The combination of price and expected sales time determines the ``expected price'' for a house: market price discounted by expected sales time.'' In his model, vacancy, matching, sales time, and prices with positive vacancy, matching, sales time, and prices are all jointly determined.} Crudely it might be
@@ -176,16 +254,12 @@ where $\beta_1$ captures spatial correlation and $\beta_2$ captures serial corre
 
 You could add $+ \beta_3 (P_{d,t-1}-P_{d,t-2})$ to capture the changing  price change. 
 
-\textbf{Alternative approaches to the reservation price}
 
-\begin{eqnarray}
-P_{person}^{reservation} & =   \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-P} \end{eqnarray}
-For the bank the problem is easier = if an9yon offers more that the maximum bid, the bank should sell
-\begin{eqnarray}
-P_{bank}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-B} \end{eqnarray}
 
-% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
-We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula. 
+%\textbf{Alternative approaches to the reservation price}
+
+%\begin{eqnarray}
+% P_{person}^{reservation} & =   \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-P} \end{eqnarray}
 
 
 % \begin{tabular}{p{1.5cm}|p{4.5cm}|p{4.5cm}}
@@ -229,10 +303,9 @@ This will appear in your data as a set of bids and a reservation price for each 
     \end{enumerate}
 \item \textbf{identify the pool of buyers} 
     \begin{enumerate}
-        \item the bank. May buy many, (There must be a capital (C) constraint something like $C/\bar P$ to select a number of bank bids in any period.)
      \item newcomers, 
      \item individuals as investors.
-     \item the bank
+     \item the bank may buy many, (There must be a capital (C) constraint something like $C/\bar P$ to select a number of bank bids in any period.)
     \end{enumerate}
 
 \item \textbf{count buyers and sellers} and use the counts to identify sellers or buyers' market. \# Sellers > \# buyers is a buyers/ market. For a buyer's market  choose the lower price. \footnote{.The is often done with buyers/vacancies. Changes in this ratio are observed to trigger significant movement in rent r market prices.\cite{wheatonVacancySearchPrices1990}. Lisi and Iacobini \cite{lisiEstimatingHousingPrice2015} found  that in the Italian market, ``the difference between the actual selling price and the price obtained in an ideal situation of frictionless housing market – is remarkable. ... the higher the trading frictions on the demand side (more buyers and less sellers), the higher the actual selling price (the price adjustment is positive), whereas the higher the trading frictions on the supply side (less buyers and more sellers), the lower the actual selling price (the price adjustment is negative). '' (they point out that ``Trading frictions are obvious in the housing market, as it takes weeks or months to buy or sell a house (Caplin and Leahy, 2011; Rocheteau and Weill, 2011).'')}  
@@ -252,7 +325,7 @@ If the market is efficient, the allocation will maximize the sum or seller and b
 that they are of the same length by dropping the lowest bids or the highest reservation prices. 
 
 \newpage
-\textbf{Possibly relevant Example of a matching problem drawn from my game theory text}
+\textbf{Possibly relevant Example of a matching problem drawn from game theory text}
 
 There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
 
@@ -337,4 +410,88 @@ def get_max_mortgage(self, applicant):
     return max_mortgage
 \end{lstlisting}
 
+
+
+
+
+\newpage\hrule
+\section{TABLE OF BID AND RESERVATION PRICES}
+\hrule
+
+
+
+
+\section{For investors}
+ Institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints .
+maximum bid price:\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+
+\begin{eqnarray}\label{eqn-max-investment-bid}
+P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+\end{eqnarray}
+
+
+\subsubsection{Maximum bid second house buyer}
+
+ \begin{eqnarray}\label{eqn-max-second-bid}
+P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)}  \nonumber
+\end{eqnarray}
+
+Combining the investment \textbf{profitability constraint} and mortgage constraints
+
+\begin{eqnarray}
+P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+\end{eqnarray}
+
+\subsubsection{Reservation prices for investment owners}
+ if anyone offers more than your maximum bid, you should sell the property. 
+\begin{eqnarray}
+P_{investor}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \nonumber\end{eqnarray}
+
+
+\section{For new buyers}
+
+There are two cases - moving as a buyer and moving as a renter.
+
+\subsection{Moving to the city and renting}
+The gain for a potential renter is 
+\begin{align}
+gain^{rent}
+=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
+  \nonumber
+\end{align}
+
+\subsection{Moving to the city and  buying}
+The gain for a buyer is 
+\begin{align}
+gain^{buy}=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P   \nonumber
+\end{align}
+\textbf{The rule to apply}
+\begin{enumerate}
+    \item \textbf{Move} only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
+    
+    \item \textbf{Buy} a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
+\end{enumerate}
+\textbf{Maximum bid for new  resident}
+\begin{align}
+P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+\end{align}
+
+
+\section{Behaviour of  retirees}
+Both owners and tenants retire. Homes only become available if they move to the country. 
+\subsubsection{A renter move to the country if} 
+\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
+\subsubsection{An owner sells and moves to the country if}
+\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\] \subsection{ Combined owner reservation price}: 
+\[P_{owner-sell}^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \]
+
+\subsubsection{An owner Rents and moves to the country if} 
+\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
+This value provides a \textbf{another reservation price}: 
+\[P_{owner-rent}^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \]
+
+\subsubsection{Retiring owner's reservation price}
+\[P_{owner-combined}^{reservation}= max\left\{ P_{owner-sell}^{reservation} ,\ P_{owner-rent}^{reservation}\right\}\]
+
+\hrule
 

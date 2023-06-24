@@ -3,10 +3,56 @@
 % We will also include an urban wage premium. Otherwise the amenity factor is the only attractor. The wage premium provides a reason to travel to the city centre. The literature supports the notion that there is an  urban wage premium.  We will consider later how the premium arises from agglomeration externalities in production. 
 
 
+
+Jane Jacobs was the first to define cities as problems of organized complexity. A city is a system with many interrelated variables which are  in constant simultaneous change. 
+There is a danger in simplification with complex systems, and our model runs that risk. 
+
+In our model, agglomeration effects run between local productivity  of exporting firms and the population. But the agglomeration of firms and people also drives the agglomeration of other businesses and the creation of a variety of amenities. When positive urban amenities prevail, rents will be higher in larger cities, but wages may be unaffected \cite{robackWagesRentsAmenities1988, dalmazzoAmenitiesSkillbiasedAgglomeration2011}.
+
+
+
+Most of the literature on amenities appears to deal with livability  and the benefits for individual. There is a strand in the literature that links amenities to  growth. In 1954  
+Edward Ullman \cite{ullmanAmenitiesFactorRegional1954} published  ``Amenities as a Factor in Regional Growth,'' an article that came to be seen in the geographical literature over the following 50 years as prescient \cite{walcottCommentsEdwardUllman2010} for introducing  the notion that amenities could be an important mobility magnet. Richard Florida, in a series of articles and books beginning in 2002 (see \cite{floridaCreativeClassEconomic2014}) examined the notion that urban growth depended on attracting  the creative class and that in turn rested in part on the amenities a city offered. 
+A 2008  Statistics Canada study, `Cities and Growth: The left Brain of North American Cities,' Beckstead et al  \cite{becksteadCitiesGrowthLeft2008} found substantial differences in average growth for cities with higher cultural employment and urban amenities.\footnote{Beckstead et al identify amenities with the unexplained median urban house price after controlling for median household income:  The basic premise would be that after conditioning on household income, variation in home prices across cities would be a function of the relative attractiveness of these places. 
+The residuals  yield a continuous ranking of cities based on the estimated variation in urban amenities.} In 2023 Clark et al \cite{clarkAmenitiesDriveUrban2002} argue that much of Chicago's recent growth  should be attributed to reforms instituted by Mayor Richard M.  Daley  explicitly linked to amenities and quality of life issues, including parks and schools.
+
+  Boualam \cite{boualamDoesCultureAffect2014} provides evidence specialization in cultural occupations is not strong enough to affect factor prices at the city level, however. Abouy \cite{albouyWhatAreCities2016} finds that wage and housing cost differences across metropolitan areas are accounted for more by productivity than quality-of-life differences. Rappaport \cite{rappaportConsumptionAmenitiesCity2008}, on the other hand, presents empirical evidence  that amenities do support high-density levels, and that amenities  cause approximately one-fifth of the cross-sectional variation in metro population density. 
+
+  Dalmazzo and  de Blasio\cite{dalmazzoAmenitiesSkillbiasedAgglomeration2011} conclude that urban agglomeration is predominantly a source of positive amenities for residents rather than a wage premium. Highly-educated individuals seem to care about the welfare effects of agglomeration more than their less-educated counter-parts. 
+
+% Molotch's (1976) metaphor suggests that the city is a machine geared to creating growth, with growth loosely defined as the intensification of land use and thus higher rent collections associated professional fees and locally based profits. Many urban economists, planners, and political scientists have made similar arguments (e.g., Bradbury, Downs, & Small, 1982; Mollenkopf, 1983; Stone, 1989). However, a quarter century later in the contemporary competition among US cities, the growth machine model has lost much of its power.
+
+Amenities would be likely to have a number of other significant effects on the city. For example, it is likely that the presence of amenities will attract higher bids for housing. Since such private amenities are not directly increasing marginal productivity there is o reason to expect that wages will rise to pay for them. Two channels may come into play. Rising costs for housing may drive up wages. The natural adjustment for firms would be to reduce employment by shifting production to cheaper locations or  employing labour-saving technologies.
+
+The other obvious channel is that the amenity induced rise in housing prices absorbs what would otherwise be consumption behaviour.
+
+In either case, there will be distributional effects. Property owners will capture increased land rents. If amenities are funded out of taxes, the burden probably falls roughly equally on tenants and owner occupiers. since property taxes are approximately related to housing consumption, but the land rents are captured by institutional owners as well as owner-occupiers.
+
+Transportation improvements that reduce commuting time would seem to increase effective wages ($\partial{\omega-cd}{c}>0$) but not labour costs, making labour more available for the same wage premium. 
+
+Kaufmann et all investigate the  general statistical patterns in the quantity and spatial distribution of different urban amenities including public spaces and institutions as well as businesses, which all provide different services to urban populations, such as  restaurants, parks, or universities. 
+
+They argue that amenities are  central for generating and supporting economic agglomeration effects, attracting investment to ``developing neighborhoods, promoting economic growth, supporting innovation clusters and facilitating businesses linkages''. 
+
+They show that the aggregate quantity of amenities in an urban area  scales sub-linearly  with population size across US metropolitan areas. The model used is exactly the same as the one used to demonstrate that a scaling law holds for  urban GDP. Instead of GDP, however, the dependent variable is a measure of amenity density based on data extracted from a unique new Google Places dataset, Google Places API (2012).
+
+When they disaggregate, however, they find that for approximately 74\% of amenity types, they cannot reject linear scaling. Four percent exhibit super-linear scaling. They list take-away restaurants and travel agents in this range. 
+
+Sub-linear scaling is associated with libraries, universities, and movie theatres.
+
+The authors argue that the scaling features they describe can be used when constructing a new city, planning the development of a growing city, or promoting changes in a city. They may indicate the minimum number of people required to support the introduction of new urban activities. They might also be used in the planning process to identify gaps in the amenity character of a city. In a city undergoing densification, the scaling patterns may be useful in  making land use provisions for new amenities.
+
+\section{application}
+I have not figured out how to apply this. 
+
+A simple approach is to assume that the base employment that we consider demands a layer of amenities that represent the additional fraction of  the population needed to provide the amenities - say 10\%
+
+
+\section{old section}
 Basic New Economic Geography models posit two centripetal forces: households' preference for variety in the consumer goods they can buy; and economies of scale in manufacturing (\cite{gurwitzCatastrophicAgglomeration2019}).\footnote{In NEG models the variety of consumption goods comes from specifying production sectors in which larger markets support more variety.} We will deal first with the first of these.  A simple way to incorporate agglomeration amenities is to include what might be called a `utility premium' for urban dwellers  as non-monetary location income 
 $A(d; n), \die{a}{n}\leq 0)$ depending on distance, $d$ from the centre and population $n$, A simple linear  function representing the utility premium on location is convenient for illustration:
 \begin{equation}
-U(w,d)= w+ \omega+ A(d; n) - T(d))
+U(w,d)= \psi+ \omega-cd + A(d; n) - T(d))
 \label{eqn-u}
 \end{equation}
 where $w$  is an urban wage premium, $T(d)$ is transportation cost from the centre to $d$.
@@ -29,7 +75,7 @@ In a migration equilibrium, land rent rises to absorb all of the utility premium
 \label{fig-amenity}
 \end{figure}
 
- If $A=0$ and $T=td$,  \ref{eqn-u} this model produces the standard result in the Alonso model (land rent declining linearly with distance) as the blue line in Figure~\ref{fig-amenity} shows.\footnote{The very simple results rests on several assumptions - no other housing expense, housing all the same size, wages all equal, preferences identical, transportation costs.}  The triangle below the line is the rent accruing to landowners.
+ If $A=0$ and $T=cd$,  \ref{eqn-u} this model produces the standard result in the Alonso model (land rent declining linearly with distance) as the blue line in Figure~\ref{fig-amenity} shows.\footnote{The very simple results rests on several assumptions - no other housing expense, housing all the same size, wages all equal, preferences identical, transportation costs.}  The triangle below the line is the rent accruing to landowners.
 
 In the familiar version of the model there is no amenity and there is no wage outside of the city limits.
 What we call the wage premium is simply the urban wage in simple models. A model with amenity declining with $d$ and no transportation cost would produced the  standard result. 
@@ -51,7 +97,7 @@ The far more likely case is that $A(d) > 0$ when $w-T(d)$ falls to zero. In this
 
 %Agglomeration amenity is likely to raise wages outside of the city though competition if the overall labour supply is fixed and labour is used outside of the city.
 
-Since employers will not pay for the amenity, some amenities may be financed publicly. It is common to introduce the cost of generating amenities as a tax on residents. Publicly financed amenities, however, may work as a wage subsidy,  	
+Since employers will not willingly pay for the amenity, some amenities may be financed publicly. It is common to introduce the cost of generating amenities as a tax on residents. Publicly financed amenities, however, may work as a wage subsidy,  	
 
 \section{Rent}
 In Figure~\ref{fig-amenity}, the height of the orange line above $\omega$ represents the rental value of a property at $d$, which is 

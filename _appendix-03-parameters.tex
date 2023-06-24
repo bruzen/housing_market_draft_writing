@@ -52,33 +52,63 @@ Notice we can set density individually for each cell in the grid, so density is 
 \begin{lstlisting}
  self.baseline_population = density*width*height + self.seed_population
 \end{lstlisting}
+
+\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms.
+
+
+\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistence wage in Canada for after-tax income. Try also lower values.
+
+
 \item [initial wage premium ratio] $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
 \item [worker share of urban agglomeration surplus] 0.72 or 0.8 $\lambda=\beta_F$ (Workers are getting the same share of the surplus and they do of output with no agglomeration effects.)
 \item [urban agglomeration coefficient $\beta$ = 1.12] for the city: elasticity of urban output with respect to population (empirical)
 
-\item [scaling adjustment factor] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. 
+\item [scaling adjustment factor] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. BAD NAME. ****
 
 \item [equilibrium cost of transportation] $c = \omega/f$. Constant.
-\item [property tax rate annually. $\tau=0.04$]
-\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistence wage in Canada for after-tax income. Try also lower values.
-\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms.
+\item [property tax rate annually. $\tau=0.04$] This is applied to the assessed value.
+
+
 
 \item[a: housing services share] Share of subsistence wage going to housing 
 % services, a.
 
-
 \item[b: maintenance share  of housing services ] Share of housing services going to maintenance.
+
+\item [Annual maintenance]
+\[\mathcal{O}=   ba\psi \]
+
+
+{\color{red}
+\item[Assessment ratio] 
+Needed because the property tax is based on assessed value, which is less than market values. It is generally a fraction of a lagged value, say $\kappa$,  of the warranted price
+\[P^{assesssed}=  \kappa P_{t-1}^{market}\]
+$\kappa$ is associated with the tax rate multiplicatively. Annual property tax is $\tau\kappa P_{t-1}^{market}$
+
+\item [Property tax] is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
+
+\[\mathcal{T} = \tau\kappa  \mathcal{P}_{A} =  \tau\kappa \mathcal{P}_{M, t-1} \]
+}
 \end{description}
 
 
 \subsubsection{Land}
 \begin{description}
-\item[distance from center] 
+\item[distance from center  $d$] 
 \end{description}
 
 \subsubsection{Person}
 \begin{description}
-\item[subjective discount rate] set $\mathrm{delta} = \mathrm{r_prime}$
+{\color{red}
+\item[subjective discount rate] set $\mathrm{delta} = 0.10$.  For a formula based on Kureishi et al, consider $\delta- 20-0.22*age$.}
+\footnote{Note that this value is a subject of serious debate on several accounts. It is generally thought to be higher than the bank rate. In addition, it has been shown to be age-dependent. Using Japanese data Kureishi et al \cite{kureishiTimePreferencesLife2021} found the discount rate to be linearly and negatively dependent on age, as well as health, wealth, and schooling with a mean of 14.14\%  declining %(at about 22.% per year) 
+to about 10\% (see Fig. 4) neat 65 yearsa of age and more rapidly if risk aversion is accounted accounted for. 
+
+ \underline{Kureishi et al Figure 3} \includegraphics[scale=.35, angle=-90, trim= 5cm  0cm 5cm 0cm,clip]{fig/age_dependent_discount_rates.pdf}
+}
+
+
+
 \item[working period] age or working period out of the total number of working periods. People are initialized with a random working period between 0 and the number of working period (40).
 \end{description}
 
@@ -117,48 +147,60 @@ $ r^{target}= r^{prime} +r^{margin}$ ?
 
 \item [{ability to carry a mortgage}] the share of income that can be used to cover mortgage interest. This represents the rule of thumb for households that they should not spend more than 25\% or 30\% of their income on on housing. We use 0.28.
 
-\item [maximum mortgage share of price] parameter in calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available.
-\item[wealth sensitivity] of maximum mortgage share of price. This is a parameter in the calculation of $m_i$. It is specific to functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  No empirical estimates are available. Used in Equation~\ref{eqn-wealth-based-mortgage}.
+\item [\gls{maximum mortgage share} of price] parameter in calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  No empirical estimates are available.
+\item[wealth sensitivity] of maximum mortgage share of price. This is a parameter in the calculation of $m_i$. It is specific to the functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  No empirical estimates are available. Used in Equation~\ref{eqn-wealth-based-mortgage}.
 \end{description}
 
 \subsubsection{Realtor}
 
 
 \subsection{TO ADD. Mostly definitions}
+\subsubsection{Amenity $\mathbb{A}=0$} 
+The local site-specific and urban amenity \textbf{function}.  I use the symbol to distinguish it from the $A$s in the production functions. I also  considered  $\bar\forall$ and $\mathbb{H}$ for Hedonic value. You choose
 
+This will turn out to be an important feature and I think it will be important to build it in as an unused option. See Kaufmann eta  al \cite{kaufmannScalingUrbanAmenities2022} We are assuming it is zero initially.
 \subsubsection{locational rent}  $\omega-cd$ 
 
-\subsubsection{warranted market rent} $\mathcal{R}_W = \omega - cd+ + a\psi$
+\subsubsection{Warranted market rent} $\mathcal{R}_W = \omega - cd+ + a\psi + \mathbb{A},$
+where $A$ is the local site-specific and urban amenity function. The Warranted \gls{market rent} is the amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as an initial rent cost for tenants.\footnote{The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.} 
 
-The amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as the initial rent cost for tenants,  $\mathcal{R}_{W0}$.
 
-\subsubsection{warranted market price}   $P_W=\frac{\mathcal{R}_W }{r}$,  
+\subsection{initial market rent} 
+Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
 
-This is the present discounted value of the warranted rents.  Use as initial market price.  (We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. )
 
+\subsubsection{warranted market price}  
+This is  an initial value for market price 
+ $P_W=\frac{\mathcal{R}_W }{r}$,  
+
+This is the present discounted value of the flow of housing services.  Use this as initial market price.  It can reasonably be seen as an equilibrium or attractor towards which prices should  evolve.  Notice that it includes $\mathbb{A}$
+
+
+
+
+{\color{red}
+Net benefit may be economically interesting later . You do not need to include it. 
+
+If you own a home, after maintenance and taxes your \textbf{net benefit B} in each period is 
+\[B= \omega-cd +(a-ab)\phi +\mathbb{A} - \tau P^{assesssed}\]
+Capitalizing this we get a measure of the value of net benefits, 
+
+If the assessed price is a fraction, say $\kappa$,  of the warranted price
+\[B^{capitalized}=\frac{\omega-cd +(a-ab)\phi + \mathbb{A}}{(1- \tau\kappa)r}\]
+}
 \subsubsection{Annual property taxation}
 
-Property tax is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
-
-\[\mathcal{T} = \tau  \mathcal{P}_{A} =  \tau \mathcal{P}_{M, t-1} \]
-
-\subsubsection{Annual maintenance}
-\[\mathcal{O}=   ba\psi \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%
- {\color{blue}
-\subsubsection{initial \gls{market rent}} 
-$\mathcal{R}_{M, 0}= \mathcal{R}_W$ 
 
 
-This is what agents actually pay.\footnote{The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.} 
 
 
 \subsubsection{Net rent for investors} {\color{green}}
 \[\mathcal{R}_N = \mathcal{R}_W - \mathcal{O} - \mathcal{T}= (\omega - {dc} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1}\]
 
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an investor would receive, not the total warranted rent, but the net rent after expenses,
-}
+
 
 
 \subsection{Initial values for endogenous variables} \label{sec-init-value-list}
@@ -169,6 +211,13 @@ These are \textbf{initial values} that we calculate based on the parameters abov
 
 \subsubsection{City}
 \begin{description}
+\item [initial market rent] 
+Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
+
+
+\item [Initial market price] 
+$P_0= P_W=\frac{\mathcal{R}_W }{r}$,  
+
 \item[number of urban firms]  $F_0=\frac{N_0}{n_0}$. % **** TODO FIX - this says the baseline population over the number of workers per firm. - the initial value is this. The ongoing calculation is the number of workers $n_0$ is the initialu urban workforce. just count the workforce
 
 \item[elasticity of urban output with respect to population.] $\gamma$. Combining the two marginal productivity conditions, 
@@ -201,11 +250,14 @@ AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\
 
 \subsubsection{Land}
 \begin{description}
+{\color{red}
 \item[property taxes]
 \begin{align*}
-\mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_W}{r} \\
+\mathcal{T} &= \text{mill rate} \times  \\
 &= \tau \times \frac{\omega_t- {dc} + a\psi.}{r}
 \end{align*}
+}
+]
 \end{description}
 
 
@@ -257,8 +309,10 @@ We use the familiar Cobb-Douglas production function \cite{chiangFundamentalMeth
 
 \item[initial urban wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $
 
-\item[initial labour force for urban firms] $n_0=n_R$.initially try values similar to the rural firm size and vary it  %*****%may have implicagtions later for the notation
+\item[initial labour force for urban firms] $n_0=n_R$.  Initially we will try values similar to the rural firm size and vary it  %*****%may have implica=tions later for the notation
+
 \item[Initial wage premium] $\omega_0=p_0*\phi$
+
 \item[Initial wage] = $\omega_0=\omega_t +\psi =(1+p_0)\psi)$
 %The wage  is set as the marginal product of labour for initialization of the model. 
 
@@ -337,6 +391,7 @@ def warranted_price(self):
 \end{lstlisting}
 
 \subsubsection{Maintenance costs for T} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($a\psi$) over the mortgage period (T). This may be used in computing bids.
+
 \begin{lstlisting}
 def get_maintenance(self):
     """Maintenance share of property service (a*b*psi summed over mortgage period and discounted, like property tax)
@@ -348,8 +403,8 @@ def get_maintenance(self):
     return (a * b * psi) * sum_delta  
 \end{lstlisting}
 
-\subsubsection{Property tax rate for  T}
-are imposed on the  warranted price (i.e., the value of the housing services) from the period before. They  are discounted value (sum\_delta)  over the mortgage period (T). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
+\subsubsection{Value of taxes for T}
+Property taxes are imposed on the  lagged property price. They  are discounted and summed (sum\_delta)  over the mortgage period (T). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
 \begin{lstlisting}
     def get_tax(self):
         tau   = self.model.property_tax_annually
@@ -468,34 +523,10 @@ def step(self):
 Where wage share is a parameter input to the model.
 
 
-\subsection{Bank}\label{Parameters_for_Mortgages}
+\subsection{Bank}\label{Parameters for Mortgages}
 
 
 \section{Bidding}
-
-
-\subsection{TODO Maximum bid price}
-
-Agents compute their maximum bid, and the negotiation process adjusts downwards as appropriate REF.
-
-\begin{eqnarray}
-P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
-
-In banking with individual information on a land parcel and person.
-\begin{lstlisting}
-def get_max_bid_price(self, bidder, property):
-    net_rent = property.get_net_rent()
-    m        = bidder.get_max_mortgage()
-    r        = self.model.sum_r # SAME AS SUM_R? RENAME?
-    r_target = r_prime + agents_premium # FIX
-    delta    = self.model.sum_delta # SAME AS SUM_DELTA? RENAME?
-    P_dot    = GET FROM THE CURVE FIT
-    denominator = (1-m)*r_target - delta*(1 + P_dot  - (1+r)*m)
-    return net_rent / denominator   
-\end{lstlisting}
-
-\textbf{TODO FIX - little m is the max someone qualifies for.. we also have a maximum amount. Need to reconcile those two approaches.}
- 
 
 
 \subsection{Realtor}
@@ -760,12 +791,14 @@ Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles
 \subsection{Value of transportation price to use in model}
 \[ {c}=(0.012 w+ \$295)/km year \]
 
+\subsection{Transaction costs} on sales are omitted. Add a parameter or variable. the usual form  would be a fixed cost  plus a percentage of the sale price.
 
-
+\newpage
 \section{Table of parameter values}
-
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{rlrr}
+\renewcommand{\arraystretch}{2}
+\begin{longtable}{lp{5cm}cp{2.5cm}}
+\caption{Table of parameter values}\label{tab:parameters}\\
+\hline 
 Symbol         & Name                                 & Value      & Formula  \\ \hline
 $a$ replace    & Share of $\psi$ for land and building &   0.3         & \\
 $b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
@@ -782,28 +815,126 @@ $\tau$       & Tax share & \\
 $m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
 $M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
  $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
-$IS$           & Income share for housing debt        & 0.25-0.35  & Missing? \\
+$IS$           & Income share for housing debt        & 0.25-0.35  & higher for the poor \\
 $\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
 $\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
+
 $\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
 $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
-$r_i^\delta$   & Individual discount rate             &            & To assign \\
+% $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$
 $\bar r$       & Prime interest rate                  &            & \\
-$r_i$          & Individual borrowing-rate            &            & \\
 $r^{target}$   & Target interest rate                 &            & $\bar r + margin$ \\
+$r_i$          & Individual borrowing-rate            & \multicolumn{2}{c}{ $r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})$}\\
+$\delta_i$   & Individual discount rate        &  USE $\rho$?          & To assign \\
 $\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r_i^\delta}\right)^T$ \\
-
-
-\end{tabular}
+\hline
+\end{longtable}
 \renewcommand{\arraystretch}{1.0}
 
 
 
 
-discount rate vs discount factor
+\subsection{discount rate vs discount factor}
+We have called the  discount rate is $\delta$ (it might be better to call it $rho$.) We assumed it equal to $r_i$. This. is a pretty strong assumption. \
 
+The discount \textbf{factor} $\delta(t)$ is a function of $\delta_i$ and the time until the event, $t$
 % delta(0)=1  delta (1)= 1/(1+r) 
-\[\delta(t)=\left(\frac{1}{1+r}\right)^t\]
-    $delta_T=  (1/(1+r))^T$   at T years
-    eg r=.05  T=5  delta5 =  $(1/(1+.05))^5 = 0.7835262$
+\[\delta(t)=\left(\frac{1}{1+\delta}\right)^t\]
+    \[delta(T)=  (1/(1+\delta))^T\]   
+    
+
+    eg r=.05  t=5  $\delta(5)$ =  $(1/(1+.05))^5 = 0.7835262$
+
+\chapter{Three Questions}
+
+The three questions I promised to deal with were
+\begin{enumerate}
+    \item should we add interest to the net rent calculation? (yes)
+    \item should I subtract the purchase price from the calculation of the value of a purchase?
+    \item in the bid price, how is the present-value deflator computed?
+\end{enumerate}
+
+
+
+
+ \subsection{The value of an investment}
+The value of the investment $V$ is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus the discounted sum ((of rents and interest on rents net of operating costs and taxes)), which I will call $\delta sum\mathcal{R}_N$.  
+
+\subsubsection{Defining Net Rent carefully}
+
+The annual \gls{net rent} is the property rental price  net of costs. Homes must be maintained and taxes paid, so an investor would receive, not the total warranted rent, but the net rent after expenses,
+\textbf{Market rent is used in computing net rent. The initial value for the market rent is \gls{warranted rent}}.
+
+market or warranted..
+Warranted market rent is defined as value of housing services:
+\[\mathcal{R}_M = \omega - cd+ + a\psi + \mathbb{A}\]
+
+The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
+ \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
+
+Net annual rent for investors is then  defined this way 
+
+\begin{align}\mathcal{R}_N &= \mathcal{R}_M - \mathcal{O} - \mathcal{T} + F(v, rM)\nonumber\\
+&= (\omega - {dc} + a\psi )+ \mathbb{A} - a b \psi - \tau  \mathcal{P}_{M, t-1}  + F(v, rM)
+\end{align}
+
+This term enters into the computation of housing prices. We assume it is deposited each year and earns interest $r$
+
+The discounted value with accumulated interest in T years 
+\[\delta-sum\mathcal{R}_N=\delta^T\mathcal{R}_N (1+r)\frac{(1+r)^{T-1}-1}{r} \]
+
+% This net rent term has the form
+%  \[\delta sum\mathcal{R}_N = \delta(T)H(\mathcal{R}_{N,1} +\dots+ \mathcal{R}_{,T})\]
+
+\subsection{Answer to question 1} about whether to add interest to the rent term: YES
+
+\section{The value of an investment}
+ 
+ This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate: 
+
+ Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $\begin{enumerate}
+     \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
+     \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
+     \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
+     \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
+     \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
+ \end{enumerate} 
+(This is terrible notation)
+\subsection{Answer to question 2} 
+Do we subtract $P_0$: YES 
+
+Four change just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
+
+\begin{align}
+V &= \delta^T \left(\dot P^T P_0- (1 + sumT(1+r))M +  \right) +\delta sum\mathcal{R}^w_N   \\
+&= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +      \delta sum\mathcal{R}^w_N \label{first_sub}\\
+  &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 + \delta sum\mathcal{R}^w_N 
+\end{align}
+This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
+
+
+\subsection{Rate of return on investment}
+We divide V by the size of the down payment, $D$ to get the required rate of return  
+
+\begin{align}
+r^{return} 
+  &= \frac{V}{D}  \nonumber \\
+  &= \left(\delta^T \left(\dot P^T - (1 + sumT(1+r))m\right) \ \right) \frac{P_0}{D}  + \frac{\delta sum\mathcal{R}^w_N}{D}      \nonumber \\
+  &= \left(\delta^T \left(\dot P^T - (1 + sumT(1+r))m \right) \ \right)\frac{P_0}{P_0-mP_0} +  \frac{\delta sum\mathcal{R}^w_N }{P_0-mP_0}  \\ 
+  &= \frac{\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right) }{1-m} +\frac{\delta sum\mathcal{R}^w_N }{(1-m)P_0}\label{revised}
+\end{align}
+Although this looks more complicated, there is only one change. It looks different from the original because the compounding effects has finally been made explicit.
+
+
+
+\section{in the bid price, how is the present-value deflator computed}
+
+Using the simplified version of equation~\ref{revised} we  calculated  as Equation~\ref{eqn-bid-price} that the maximum bid that achieves the target return on the down payment is
+\begin{align*}
+P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \end{align*}
+
+Using the extended and corrected version this becomes
+\begin{align}
+P_B^{max} & \le    \frac{\delta sum\mathcal{R}^w_N } {(1 + sumT(1+r))r^{target}-\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right)} \label{eqn-bid-revised} \end{align}
+
+$\dot P^T$  is the expected rate of change in the market price over the term of the mortgage.
