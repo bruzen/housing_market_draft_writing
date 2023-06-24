@@ -39,35 +39,34 @@
 % \section{The general structure of the model}
 In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
 
-The model is introduced in the following sections:
-\begin{enumerate}
-\item In Section~\ref{sec_model_blocks} we  begin by describing the major blocks of the model. 
+% The model is introduced in the following sections:
+% \begin{enumerate}
+% \item In Section~\ref{sec_model_blocks} we  begin by describing the major blocks of the model. 
 
-\item In Section~\ref{sec_model_dynamics}  we make some comments on the dynamic properties of the model we have constructed. 
+% \item In Section~\ref{sec_model_dynamics}  we make some comments on the dynamic properties of the model we have constructed. 
 
-\item In Section~\ref{sec_model_variables} we describe how a series of key  variables are constructed. The variables enter the decision-making process of agents in the market. 
+% \item In Section~\ref{sec_model_variables} we describe how a series of key  variables are constructed. The variables enter the decision-making process of agents in the market. 
 
-\item In Section~\ref{sec_model_bid_price}     
+% \item In Section~\ref{sec_model_bid_price}     
 
-\item In Section~\ref{sec_model_bargaining}    
+% \item In Section~\ref{sec_model_bargaining}    
 
-\item The treatment of time a periods and discounting is discussed in Section~\ref{sec_model_time}. 
- Section~\ref{sec_model_price_expectataions}
-
-
-\item In Subsection~\ref{sec:Production-fn} we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
-
-\item Appendix~\ref{appendix-model-implementation} gives more details, describing the calculations, and showing how the model is implemented in code. 
-
-\end{enumerate}
-
-% % In subsequent sections  .. (Derivation details in Section~\ref{section-derivations})
+% \item The treatment of time a periods and discounting is discussed in Section~\ref{sec_model_time}. 
+%  Section~\ref{sec_model_price_expectataions}
 
 
-\section{The three major blocks of the model}\label{sec_model_blocks}
+% \item In Subsection~\ref{sec:Production-fn} we introduce the production function, introduce the labour supply and the urban model, the source of the surplus,  then we calculate profit, consider who gets the profit, and from there we draw our conclusions.. then we calculate the urban surplus, and consider who gets it. 
 
-Our goal has been to make a model as accessible as the Alonzo model that can still provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution. In pursuing this goal we kept the first two components, i.e.,  the spatial structure and the growth mechanism,  as simple as possible, but we have modeled the market for housing in more detail. Specifically:
-%The  model has three major blocks:
+% \item Appendix~\ref{appendix-model-implementation} gives more details, describing the calculations, and showing how the model is implemented in code. 
+
+% \end{enumerate}
+
+% % % In subsequent sections  .. (Derivation details in Section~\ref{section-derivations})
+
+
+% \section{The three major blocks of the model}\label{sec_model_blocks}
+
+Our goal has been to make a model as accessible as the Alonzo model that can still provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:
 
 {\newpage\thispagestyle{empty}
 \vspace{-1.5cm}
@@ -94,7 +93,9 @@ Our goal has been to make a model as accessible as the Alonzo model that can sti
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
-Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following three sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order. % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
+Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following three sections with discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modeling the market for housing in more detail. 
+
+% ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
 \subsection{Spatial structure}
 
@@ -202,7 +203,7 @@ We can put this together using a model of the production function. We implicitly
 Y=A(N)K^{\alpha }(A(N)N)^\beta.
 \label{eqn-prod1}
 \end{equation}
-where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. $A(N)$ incorporates Jacob-style agglomeration externalities. $A(N)N$ is \gls{effective labour} \footnote{The function  was discussed in Chapter~\ref{chapter-growth}}. 
+where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. $A(N)$ incorporates Jacob-style agglomeration externalities. $A(N)N$ is \gls{effective labour}.\footnote{The function  was discussed in Chapter~\ref{chapter-growth}.}
 
 % \section{Agglomeration Appendix: Production Function}
 % SORT APPENDIX/OTHER STUFF
@@ -244,9 +245,7 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 \subsection{Financialization} 
 %Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship we build a simplified model of a \gls{housing market}.% CALL IT LAND, PROPERTY, OR HOUSING MARKET? % - it is the housing use, combined with location we're interested in. % we introduce a \gls{land market}.% Agents purchase homes though a housing market. 
 
-In cities, housing is exchanged on a market. The product is properties %, at a particular location, which include
-whether they're apartments, or land with the buildings on it. Properties have features including building size, style, quality, and location %, and even neighbourhood features 
-that affect their desirability. %the buildings have a particular size and characteristics. %with various buildings and features. %properties on them. 
+% In cities, housing is exchanged on a market. The product is properties, whether they're apartments, or land with the buildings on it. Properties have features including building size, style, quality, and location  that affect their desirability. %the buildings have a particular size and characteristics. %with various buildings and features. %properties on them. 
 %Location also matters, %Land value  is affected by various elements
 %including proximity to natural features like lakes and mountains, and human-built features like communities, and businesses, as well a developments and additions on the property itself. 
 %Thereal market invovles  a set of agents who engage directly like buyers, sellers, renters, investors, and developers; as well as others who shape the market indirectly, including policymakers, activists, and neighbourhood and industry groups.
@@ -271,54 +270,28 @@ that affect their desirability. %the buildings have a particular size and charac
 
 %\subsection{The microeconomics of  financialization} \label{section-micro}
 
-Financialization happens at this microeconomic level, where individual decisions are made and real assets are bought by individuals and institutions. Individual home-buyers are buying a stream of housing services and possible capital gains. Institutional buyers are buying 
-
-
-
-
-The return on housing as an investment is part of all agent's decision process. 
-Investors buy a stream of net rents plus speculative gains. 
-Private homeowners buy stream of housing services and potential capital gains. When a home is bought to live in, the potential buyer %makes a similar calculation, perhaps with a 
-may place particular emphasis on the value of the stream of housing services to then individually. And when home prices are rising rapidly, speculative gains may become the dominant concern of home buyers. 
-
+Financialization happens at this microeconomic level, where individual decisions are made and real assets are bought by individuals and institutions. 
+Properties have features including building size, style, quality, and location that affect their desirability. 
+Agents exchange properties on a market,  
+% Individual home-buyers are buying a stream of housing services and possible capital gains. Institutional buyers are buying 
+and the return on housing as an investment is part of all agent's decision process. 
+Private homeowners live in the properties they purchase, so when they purchase a property, they are buying both a stream of housing services and potential capital gains. %When a home is bought to live in, the potential buyer %makes a similar calculation, perhaps with a 
+They may place particular emphasis on the value of the stream of housing services that matter to them individually. When home prices rise rapidly, speculative gains may become the dominant concern of home buyers. 
+Investors, on the other hand, buy a stream of net rents plus speculative gains.
 Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ. 
 %In the process, the real asset takes on an additional and separate aspect as financial object that can be bought and sold.  % The feature that matters most to investors is the  \gls{rate of return} that  an asset offers. 
 
-For any level of risk and liquidity, an investor will choose to purchase the asset with the highest rate of return. 
+Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. The first two can be treated as a constant.\footnote{Section~\ref{sec-extensions-conversion}, in Appendix~\ref{appendix-future-work}, discusses the potential for more detailed modelling of the land assembly and development process.} The third and fourth are the focus of this work. The value of accessibility in our model is determined by the urban wage premium, which rests on the productivity of the city. Expected future rent increases are driven by increases in the value of accessibility, which is to say, the rising productivity of the city. Productivity rises in our model due to pure agglomeration effects. Our concern is with what happens to the city and its people when financial capital captures the growing value generated by the agglomeration process.  
 
-
-To model the investment decision  we therefore need to calculate the \gls{rate of return} on each property taking into account the rental revenue, the potential capital gain, the investors' costs of capital, incomes, and assets. The analysis will show the incentive structure driving the  financialization of the housing market. We do this in detail in Appendix~\ref{appendix-bid-price} 
-The model must  allow for bidding and speculative investment but also must reflect the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we, therefore, need to define  the relevant variables, and make some distinctions among different notions  of rent and price %, including a variety of prices perceived prices  bid price3s
-
-
-{\color{red}
-
-\section{System dynamics}\label{sec_model_dynamics}
-Combined, the three submodels we have just described make up a complex system with many different types of agents interacting over time. It is an \gls{open system} that is growing, with financial and population flows in and out of the system. We have simplified greatly by assuming that there is a competitive market for output driving the system. There are two main \glspl{feedback loop}: the productivity-wage population-productivity loop that we call the Alonso-Jacobs cycle, and the speculative investment-price inflation-investment cycle that may produce price bubbles. 
-
-A system of this sort inevitably has distinct dynamics that can, depending on \glspl{critical parameter}, produce surprising and even counter-intuitive results.  Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not, and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
-
-System behaviour depends on the speed with which system stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values. We know that certain variables , like ownership  shares are bounded between zero and one although the housing stock itself is variable.  
-
-We have not introduced  stochastic elements into the core model on the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
-
-One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distributions on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
-
-It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size or composition may affect amenity - which we have not models---and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
-}
+% For any level of risk and liquidity, an investor will choose to purchase the asset with the highest expected rate of return. 
+To model the investment decision  we calculate the \gls{rate of return} on each property taking into account the rental revenue, the potential capital gain, the investors' costs of capital, incomes, and assets. The analysis will show the incentive structure driving the  financialization of the housing market. We do this in detail in Appendix~\ref{appendix-bid-price} 
+The model must  allow for bidding and speculative investment but also must reflect the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we, therefore, need to define the relevant variables, and make some distinctions among different notions of rent and price %, including a variety of prices perceived prices  bid price3s
 
 % \section {Variables}\label{sec_model_variables}
 
-\subsection{Four components of land price}
-
-Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. 
-
-The first two can be treated as a constant. The third and fourth two are the focus of this thesis. The value of accessibility in our model is determined by the urban wage premium, which rests on the productivity of the city. Expected future rent increases are driven by increases in the value of accessibility, which is to say, the rising productivity of the city. Productivity rises in our model due to pure agglomeration effects. Our concern is with what happens to the city and its people when financial capital captures the growing value generated by the agglomeration process.  
 
 \subsection{Rent} \label{section-rent}
-The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage}
-is also what makes this a \gls{classical} model. 
-
+The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage} is what makes this a \gls{classical} model. 
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
 \begin{table}[!ht]
@@ -337,7 +310,7 @@ Rent  & $\mathcal{R}_{W_j}$      & $\mathcal{R}_{M_j}$  & $\mathcal{R}_{M_j}^\ep
 \end{table}
 % There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
 
-To develop the analysis, we have to keep track of a number of different quantities, outlined in Table~\ref{table-price-notation}\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}. 
+To develop the analysis, we track the quantities, outlined in Table~\ref{table-price-notation}.\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}
 
 In the model, agents learn or set these values with the support of a real estate agent, and based on information provided by their bank about lending rates, etc. After setting prices, agents engage in a negotiation process. 
 
@@ -349,7 +322,7 @@ The economic rent is the value of the locational services,
 This is a surplus that arise from agglomeration economies that make being close to the city core valuable. \Gls{locational services} are represented as %, on an annual basis, 
 the wage premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. That is the value of living in a particular location:
 \[\omega- {dc}.\]
-
+% *amenity
 
 \subsubsection{Warranted rent} \label{section-waranted-rent}
 
@@ -357,8 +330,9 @@ the wage premium, $w$, minus the transportation costs, $c$, for a property a giv
 The economically \gls{warranted rent}, $\mathcal{R}_W$, is the value of all  the services a property offers. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent} 
 It is the maximum rent  a tenant might pay in rent, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.  
 
-In each period a house offers two kinds of services: {locational services} or  access to the central city job, and {home services}.  The {warranted rent} is the value of this double stream of services.  The value of the stream of housing services is the fraction $a$ of the subsistence wage $\psi$ that must be allocated to providing the housing independent of location. 
+In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of this double stream of services.  The value of the stream of housing services is the fraction $a$ of the subsistence wage $\psi$ that must be allocated to providing the housing independent of location. 
 
+% *amenity
  The warranted rent is, then, 
 \begin{align}
 \mathcal{R}_W=\omega - {dc} + a\psi.
@@ -370,12 +344,18 @@ In each period a house offers two kinds of services: {locational services} or  a
 
  
 \subsubsection{Market rent} \label{section-market-rent}
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.  %\gls{warranted rent} is paid as the \gls{market rent}
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. 
+
+Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent, using the warranted rent as an approximation. The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value. We are in effect imposing a long-term equilibrium value, rather than modeling the adjustment process. We do this to focus on the economic rent, and to show the economic linkages between productivity and urban rents, because clarifying that linkage is part of the core conceptual contribution of this work. 
+
+% To simplify the model, we assume that the market rent equals the warranted rent.  %\gls{warranted rent} is paid as the \gls{market rent}
 \[\mathcal{R}_M = \mathcal{R}_W.\] 
 
+% In the computational agent-based  model, 
+% The assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The realized prices evolve from that starting point. 
 
 \subsubsection{Net rent} \label{section-net-rent}
-The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner would receive, not the total warranted rent, but the net rent after expenses,
+The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner receives, not the total warranted rent, but the net rent after expenses,
 
 \begin{align}
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
@@ -402,7 +382,7 @@ One cost owners pay on a property is taxes. Municipal property taxes are based o
 \begin{align*}
 \mathcal{T} &= \text{mill rate} \times \mathcal{P}_M \\
 \end{align*}
-where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate $c$ using the][] \gls{compound interest rate} for the period. The entirely conventional  computation is described below.} The taxes paid over the period are then:
+where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.} The taxes paid over the period are then:
 
 \subsubsection{Annual maintenance}
 Annual maintenance costs apply to buildings and lands but not to locational value, so we can write
@@ -432,15 +412,12 @@ The rate of price growth $\dot P$, is an approximation based on rents and past m
 
 \subsubsection{Market price and expected price} \label{section-market-price}
 
-The actual market price will be determined by a bidding process that takes into account potential capital gains.  We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since agents do not have perfect information, the expected value is calculated with their best approximation of values.} 
+A bidding process determines an actual realized market price that, taking into account potential capital gains. We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since agents do not have perfect information, the expected value is calculated with their best approximation of values.} 
  \footnote{Case and Shiller point out ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.} 
 
 %$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
 
 %In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
-
-Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent  by using the warranted rent as an approximation. We do this to focus on the economic rent, and to show as clearly and as simply as possible the economic linkages between productivity and urban rents. 
-The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value which is part of  the core conceptual contribution of this work. 
 
 % \subsection{Price forecast approximation} \label{section-price-forecast}
 % $L(p)$
@@ -462,7 +439,7 @@ The assumption simplifies the analysis of the relationship between the scaling o
 % It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE \dots
  %METHODOLOGY CHAPTER? warranted rent is a frontier .  
 
-In the computational agent-based  model, the assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The values evolve from that starting point. 
+
 
 % *** LOTS OF NOTES MOSTLY ON AMENITY AND OTHER DIFFERENCES BETWEEN WARRANTED AND MARKET RENTS - NEED A CLEAN PARAGRAPH OR TWO EXPLAINING
 %\footnote{The assumption $\mathcal{R}_W = \mathcal{R}_M$ is easy to vary in future experiments, 
@@ -531,12 +508,12 @@ In the computational agent-based  model, the assumption gives a natural way to i
 
 
 \section{Bid Price}\label{sec_model_bid_price}
-To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. More specifically, we need to find the maximum price that they are willing to pay. 
+To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. Specifically, we must find the maximum price that they are willing to pay. 
 %As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer  considering knows a vector of attributes of the house, the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. 
 %All of these factors are taken into account  to determine whether an investment is profitable. To make a comparison with alternative investments  it is necessary to compute a rate of return. 
 
 
-We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
+We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
 The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
 
 
@@ -578,115 +555,6 @@ The rate of return on the investment must exceed some required rate of return. T
  The agent who purchases makes a down payment, $D$ on a house for a price, $P_M$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period. For expositional convenience, we can treat the mortgage period $T$ as a single term and express all quantities  in present-value terms. The purchaser  receives the increased price $P_T = (1 + \dot P)P_0$,  after a period $T$, Where $\dot P$ is the expected rate of price increase. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
 \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
-\subsection{Prime interest rate}\label{section-bank-rate}
-
-The bank's interest rate, $r$, is just the bank rate (prime rate? set by the Bank of Canada. Exogenous. Just assign  a value like 4\%.
-
-\subsection{Wealth constraint on m} \label{section-wealth-constraint}
-
-According to the Canada Housing Statistics Program (CHSP), first-time home buyers require a combination of sufficient income and savings in order to enter the housing market. (insert tables? from the CHSP?) We have implemented these facts by making interest rates and mortgage share depend on income and wealth.
-We can define individual wealth as:
-\[W_i= P_i -M_i  +S_i\]
-where 
-
-\begin{tabular}{ll}
-$P_i$ & value of owned home\\
-$M_i$ & Mortgage on owned home\\
-$S_i$ & personal savings = $age*d*W$\\
-\end{tabular}
-
-The availability of capital differs for rich and poor. 
-
-The borrowing ratio, $m$ is the fraction of a property's price that can be mortgaged.: $m=M/p_M$. We can develop an expression to capture the relationship between the \gls{borrowing ratio}, $m_i$,  and individual wealth. Figure~\ref{fig-borrowing-ratio} illustrates a plausible mortgage availability  model that is written:
-
- \[ m_i = 9-\left(\frac{W_i}{\bar W}\right)^{0.1} \]
-
- 
-Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-The general relationship is clearly established empirically \cite{}, but location and shape of the curve may vary somewhat. The curve is parameterized, here, so that the bank has a borrowing ratio close to one, perhaps 0.9, since it has many assets. The borrowing ratio for the median wealth holder, perhaps 0.8.
-
-
-% TODO *** why two axis labels? - and need to label y axis properly
-
-\begin{figure}[htb]
-\begin{center}
-\input{fig/borrowing-ratio}
-\end{center}
-\caption{Individual borrowing ratio $m_i$ as a function of wealth (in tenths)}
-\label{fig-borrowing-ratio}
-\end{figure}
-
-
-\subsubsection{Individualized borrowing rates} \label{section-borowing-rate}
-
- The cost of capital is known to differ for rich and poor. We tie the individual cost of capital,  $r_i$ for agent $i$, to The lender's target rate $r^{target}$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is  roughly consistent  with the stylized facts about lenders. 
- 
-\begin{equation}
-r_i = r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})\label{eqn-interest-wealth-relationship}
-\end{equation}
-%  \begin{equation}. %.  OLD
-% r_i = (A + B \frac{\bar{W}}{W_i})\bar r\label{eqn-interest-wealth-relationship}
-% \end{equation}
-
-%  Capital cost equation
- 
-% \[   r^h=\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m}    \]
-
-% \begin{figure}[!hb]
-% \begin{center}
-% \input{fig/capital-cost.tex}% Figure of cost of borrowing
-% \caption[Borrowing cost for agents depending on wealth.]{Borrowing cost for agents depending on wealth, with different values for parameters $A$ and $B$ in Equation~\ref{eqn-interest-wealth-relationship}.} %$A=1$  $B=0.5$ (blue);  $A=1$  $B=0.8$ (red), and  $A=.8$  $B=0.8$ (green).}
-% \label{fig-capital-cost}
-% \end{center}
-% \end{figure}
-
-Where  $r^{target}$ is the bank's target rate of return,  $\bar{W}$ is mean wealth and $W_i$ is individual wealth, $W_{min}$ is the level of wealth the bank requires to lend at all, and $K$ is a parameter for the wealth-sensitivity of lending.\footnote{The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada.%'s 
-%\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
-% Data released in 2020 by Statistics Canada indicates that t
- The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
- %A study by Statistics Canada found that t
- The typical Canadian household now has a median net worth of \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
-} The denominator in the last two terms is simply wealth above the lender's minimum. The final term ensures that the target rate is charged for borrowers with average wealth.
-
-
-\input{fig/price_of_capital}\label{fig-capital-cost}
-
-%The individual cost of capital,  $r_i$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
-%illustratea a  possible  cost-of-borrowing models 
-
-% \begin{align}
-%  r_i =  &  \left(A + B \frac{\bar{W}}{W_i}\right) \bar r       \label{eqn-incomeandr1}  \\
-%  r_i =  &  \left(\bar r - A + B *\frac{\bar W}{W_i - C}\right) \label{eqn-incomeandr2}  \\
-% \end{align}
-% Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eqn-incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
-
-
-
-
-
-
- 
-\subsubsection{Mortgage availability} \label{section-mortgage-availability}
-The borrowing of most agents will be constrained. A common rule is that mortgage payments cannot exceed some fraction of disposable income. The wealthy will be able borrow larger amounts and at lower interest rates than the less wealthy.
-
-Many personal finance experts recommend total housing costs account for less than 28\% of \textbf{gross} household income, This gives us an \textbf{income-based  mortgage maximum} of 
-
-\[M^{max}_Yi = \frac{0.28*(\omega+w)}{r_i}\] It is the maximum the bank will let you pay.
-
-We assume $r_i$ is based on the individual's assets, on relative wealth. Where is it calculated for the householder or the bank?
-
-We also have  a \textbf{price-based mortgage maximum} \[M^{max}_P = 0.8P_0\] where $P_0$ is the actual sale price. This is based on the maximum amount of risk that the bank is willing to take on. Combining these conditions, %($P_0$  will not always be the same as the asking price or the warranted price.)
-
-\[M^{max}_Yi = min\left\{\frac{0.28*(\omega+w)}{r_i},  0.8P_0 \right\} \]
-
-
-% \subsection{The cost of capital}
-% The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  $r_i$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-borrowing-cost} illustrates the cost of the borrowing model we implement, 
-%  \[ r_i = (A + B \frac{\bar{W}}{W_i})\omega\]
-% Where $\bar{W}$ is mean wealth and $W_i$ is individual wealth. 
-
-If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.\footnote{As pointed out previously,  Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control - with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits. } 
- 
 
 
 

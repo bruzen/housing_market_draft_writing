@@ -17,6 +17,22 @@ In the base model, we only allow the radius of the city to change, and not the d
 %and the job search process. 
 % In practice, many other factors impinge on these choices. %additional decision factors, agents, driving variable, and \gls{stochastic} elements enter the model. 
 
+{\color{red}
+
+\section{System dynamics}\label{sec_model_dynamics}
+Combined, the three submodels we have just described make up a complex system with different types of agents interacting over time. It is an \gls{open system} that is growing, with financial and population flows in and out of the system. We have simplified, assuming that there is a competitive market for output driving urban productivity. There are two main \glspl{feedback loop}: the productivity-wage, population-productivity loop that we call the Alonso-Jacobs cycle, and the speculative investment-price, inflation-investment cycle that may produce price bubbles. 
+
+A system of this sort inevitably has distinct dynamics that can, depending on \glspl{critical parameter}, produce surprising and even counter-intuitive results.  Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not, and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
+
+System behaviour depends on the speed with which system stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values. We know that certain variables , like ownership  shares are bounded between zero and one although the housing stock itself is variable.  
+
+We have not introduced  stochastic elements into the core model on the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
+
+One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distributions on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
+
+It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size or composition may affect amenity - which we have not models---and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
+}
+
 \section{Financialization: implications of  population or productivity growth}
 
 Our model is a dynamic  one, concerned with growth and financialization. We have described the components separately and  generally described them in static terms. Rent theory in  particular was a static described as though rents never changed. With a small addition to the figure from Chapter~\ref{chapter-space}, however, we can begin to explore the effects of rising population or productivity. 
