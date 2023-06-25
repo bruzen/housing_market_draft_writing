@@ -3,46 +3,63 @@
 \section{Setting up the model:\newline parameters and initial values}
 % It is convenient to set up the model using initial values that are close to equilibrium values 
 % For some variables, we choose arbitrarily starting values that seem resonable, because that makes it possible to check that variables that follow from computation also seem resonable, as a kind of informal sanity check.
-It is helpful if initial values are somewhat `realistic' to develop an intuitive feeling for whether model behaviour is plausible. 
+It is helpful if initial values are somewhat `realistic' to assess whether model behaviour is plausible. 
 % We have to do some initial calculations because we want to start near the equilibrium value. 
-There are several parameter values we set. There are also endogenous values computed to initialize the model. These values are listed in sections \ref{sec-param-values}, and \ref{sec-init-value-list} respectively. The following sections discuss where those numbers come from. % These are summarized in TABLE.
+There are several parameter values set. There are also endogenous values computed to initialize the model. These values are listed in sections \ref{sec-param-values}, and \ref{sec-init-value-list} respectively. The following sections discuss where those numbers come from, beginning with a discussion of constraints on parameter values, followed by a discussion of parameters and initial values for variables. % These are summarized in TABLE.
 
-Our treatment of the urban surplus which is central to this thesis, is illustrated in Figure~\ref{fig:Agglomeration-surplus}. In the lower left, we illustrate a single firm with decreasing returns to scale operating at its optimal scale, $n$. The thick diagonal line represents the effect of increasing the number of firms operating at the optimal scale. It is the constant returns (CRS) line. If congestion effects from bringing a large number of firms together were dominant, a city would exhibit decreasing returns to  scale,  $N$, and agglomeration would not occur. Research indicates that cities exhibit increasing returns to scale, illustrated by the upper line, which shows the city generating an increasing surplus as it grows, which is the increasing returns to scale case. The curvature of the line is determined by a function of the form $N^\gamma$, which we include in the production function for urban firms. 
+\section{Relationships that constrain parameters }
 
-We assume there are many firms operating at their optimal scale in both the rural and urban sector, but the production function of the urban firm is augmented by the term $N^\gamma$. 
+Explaining relationships that constrain parameters if the model is near an equilibrium path: 
 
-NOTE ON EXPONENTS
+CONSTRAINTS DIRECTLY FROM RESEARCH ON THE URBAN WAGE PREMIUM
+\begin{enumerate}
+     \item  Empirically the urban wage premium  $\omega$ is some fraction $p$ of the non-urban wage $\psi$.   This implies that if we set the subsistence wage, The urban wage is $(1+p)\psi$ and $\omega= p*\Psi$.
+\end{enumerate}
 
-\begin{figure}[htb]
-    \centering
-\input{fig/production_functions}
-    \caption{While each individual firm exhibits decreasing returns to scale, the city as a whole exhibits increasing returns to scale, and thus produces an agglomeration surplus, $A(N^\beta)-\frac{N}{n}Y_F$.}
-    \label{fig:Agglomeration-surplus}
-\end{figure}
+CONSTRAINTS DIRECTLY FROM THE CORE URBAN MODEL
+\begin{enumerate}
+    \item From the urban model, the extent of the city is determined by transportation costs:   $\omega =c*width$.  Only two of these parameters can be set independently.
 
-We need to distinguish the parameters of production functions for rural and urban firms and for the city as a whole. We assume that  rural and  urban firms use the same Cobb-Douglas technology $Y=A_FK^{\alpha_F}L^{\beta_F}$. The difference is that the urban firm enjoy a  multiplicative agglomeration externalize $N^\gamma$ which we assume is negligible for the rural firm and omit. $Y=A_FN^\gamma  K^{\alpha_F}L^{\beta_F}$.
+    \item From the urban model population is determined by area and density   $N=density* f^2$. we assume the city is symmetric  and we assume plots  of land are identical, so  - $area=f^2$. If there is a core (or seed) population it must be added.  
+   
+    \item From the urban model the urban wage is the subsistence wage plus the urban wage premium $\omega+\psi$ 
+\end{enumerate}
 
-In addition, there is an aggregate production function for the city from the scaling literature which we write $Y=AN^\beta$. We omit the subscript $C$ for city from  the aggregate production function.    
+CONSTRAINTS DIRECTLY FROM THE AGGLOMERATION/SCALE MODEL
+\begin{enumerate}
+    \item From the scale literature the value of aggregate output is $Y=AN^\beta$ for the city. This establishes a relationship between urban GDP and population. We initially make population equal to the workforce. 
 
-\subsection{TODO}
+    \item Empirically, $\beta \approx 1.13$
+\end{enumerate}
+
+CONSTRAINTS DIRECTLY FROM THE NEOCLASSICAL THEORY OF THE FIRM
+\begin{enumerate}
+    \item From neoclassical theory of the firm the competitive equilibrium wage is the  marginal product of labour in the firm.      This should hold both in the urban and rural economies. This implies       $ MPL^R=\psi$  and $ MPL^U=\omega+\psi $.
+
+    Using a Cobb-Douglas production function, we can get explicit expressions for the marginal productivities of labour and capital. 
+\end{enumerate}
+
+CONSTRAINTS DIRECTLY FROM THE COBB-DOUGLAS PRODUCTION FUNCTION
+\begin{enumerate}
+\item The firm production functions are 
+\begin{align}
+Y_R  &= \quad  A_FK^{\alpha_F}L^{\beta_F}\\
+Y_{R, )} &= N^\gamma A_FK^{\alpha_F}L^{\beta_F}
+\end{align}
+We start with firm labour forces  being equal at $n$.
+
+\item $\sum_X \alpha_X \le 1$ is required for diminishing returns to scale. 
+
+% \item From the theory of the firm with a general production function, an increase in the price of one-factor  results in increasing factor proportions for other factors.  
+\end{enumerate}
 
 
-WHERE IS A?: param prefactor:  a  calculated initial value. Multiplier for e, called A. and empirical values form range in LOBO MOVE TO A
+\section{Parameter values}\label{sec-param-values}
 
-THINK ABOUT WHAT IT MEANS TO SAVE A SHARE OF NET RENTS IF ALL THOSE RENTS CAN BE PAID IN HOUSING RENT. CHECK IT'S DOCUMENTED
-    %:param savings_rate: The share of the subsistence wage and net 
-    % rent a worker can save in each time step, with undifferentiated labour 
-    % and a uniform savings rate. SAME? TODO FIX
+\subsubsection{Time}
+ The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily, value 5 years. 
 
-
-THINK ABOUT PREMIUM - ONLY BANK?
-%     :param r_premium_person: Person's desired return over and above 
-%     alternative investments.
-%     :param r_premium_bank: Bank's desired return over and above 
-%     alternative investments
-
-\subsection{Parameter values}\label{sec-param-values}
-
+ 
 \subsubsection{City}
 \begin{description}
 \item [density] workers per lot, maybe 100 initially, Combined with the city extent, $f$, this gives suburban population. % A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. 
@@ -68,8 +85,6 @@ Notice we can set density individually for each cell in the grid, so density is 
 \item [equilibrium cost of transportation] $c = \omega/f$. Constant.
 \item [property tax rate annually. $\tau=0.04$] This is applied to the assessed value.
 
-
-
 \item[a: housing services share] Share of subsistence wage going to housing 
 % services, a.
 
@@ -77,7 +92,6 @@ Notice we can set density individually for each cell in the grid, so density is 
 
 \item [Annual maintenance]
 \[\mathcal{O}=   ba\psi \]
-
 
 {\color{red}
 \item[Assessment ratio] 
@@ -102,7 +116,7 @@ $\kappa$ is associated with the tax rate multiplicatively. Annual property tax i
 {\color{red}
 \item[subjective discount rate] set $\mathrm{delta} = 0.10$.  For a formula based on Kureishi et al, consider $\delta- 20-0.22*age$.}
 \footnote{Note that this value is a subject of serious debate on several accounts. It is generally thought to be higher than the bank rate. In addition, it has been shown to be age-dependent. Using Japanese data Kureishi et al \cite{kureishiTimePreferencesLife2021} found the discount rate to be linearly and negatively dependent on age, as well as health, wealth, and schooling with a mean of 14.14\%  declining %(at about 22.% per year) 
-to about 10\% (see Fig. 4) neat 65 yearsa of age and more rapidly if risk aversion is accounted accounted for. 
+to about 10\% (see Fig. 4) neat 65 years of age and more rapidly if risk aversion is accounted accounted for. 
 
  \underline{Kureishi et al Figure 3} \includegraphics[scale=.35, angle=-90, trim= 5cm  0cm 5cm 0cm,clip]{fig/age_dependent_discount_rates.pdf}
 }
@@ -147,8 +161,6 @@ $ r^{target}= r^{prime} +r^{margin}$ ?
 \item[lending rate/borrowing rate $r_i$]  
 \[r_i=r^{prime} + r^{target} + \mathrm{individual\_wealth\_adjustment}\]
 
-\input{fig/price_of_capital}\label{fig-capital-cost}
-
 \item [{ability to carry a mortgage}] the share of income that can be used to cover mortgage interest. This represents the rule of thumb for households that they should not spend more than 25\% or 30\% of their income on on housing. We use 0.28.
 
 \item [\gls{maximum mortgage share} of price] parameter in calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  % No empirical estimates are available.
@@ -158,30 +170,79 @@ Used in Equation~\ref{eqn-wealth-based-mortgage}.
 
 \subsubsection{Realtor}
 
+\section{Transportation costs}
+Transport costs have two parts:
+1) fuel and vehicle costs per km
+2) time costs per km
 
-\subsection{TO ADD. Mostly definitions}
-\subsubsection{Amenity $\mathbb{A}=0$} 
+\subsection{Vehicle related costs}
+Use one year as the wage period, converting transportation costs per km to annual cost for consideration in the household budget. Starting with the cost per km, calculate the cost per year:
+
+\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
+
+ \textbf{work trips per year} 2 way * 5 days/week * 50 weeks work days = 500. [range: 450-550]
+
+\textbf{cost per km-year} = work trips per year*cost per km
+
+=\$0.59/km*500 trips/year  =  \$295/km year 
+
+\subsection{Time costs}
+\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
+
+(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
+
+\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
+ 
+\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
+
+\textbf{money cost of time per km year} 
+
+= time cost per km-year* wage(including subsistence) 
+
+= 0.012 year* wage per year
+
+\subsection{Total cost per km year of commuting for one agent}
+\textbf{money cost of time per km year + \$295/km year * distance} \\
+= (0.012 w+ \$295)/km year 
+    \begin{quotation}
+    \textbf{Example}
+    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is equal to the wage
+
+\[(0.012 w+ \$295)/km year)*30 =  w\] 
+\[.36w+ 8850=w\]
+\[w=13828.12\]
+\begin{quotation}
+\textbf{PLAUSIBILITY CHECK}
+This is plausible land rent, but does not include building rent. 
+Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles from city centre
+\end{quotation}
+\end{quotation}
+
+
+
+\subsection{Value of transportation price to use in model}
+\[ {c}=(0.012 w+ \$295)/km year \]
+
+
+\section{Amenity} 
+$\mathbb{A}=0$
 The local site-specific and urban amenity \textbf{function}.  I use the symbol to distinguish it from the $A$s in the production functions. I also  considered  $\bar\forall$ and $\mathbb{H}$ for Hedonic value. You choose
 
 This will turn out to be an important feature and I think it will be important to build it in as an unused option. See Kaufmann eta  al \cite{kaufmannScalingUrbanAmenities2022} We are assuming it is zero initially.
-\subsubsection{locational rent}  $\omega-cd$ 
+
+\subsubsection{Locational rent}  $\omega-cd$ 
 
 \subsubsection{Warranted market rent} $\mathcal{R}_W = \omega - cd+ + a\psi + \mathbb{A},$
 where $A$ is the local site-specific and urban amenity function. The Warranted \gls{market rent} is the amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as an initial rent cost for tenants.\footnote{The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, we assume that the market rent equals the warranted rent. We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.} 
 
-
-\subsection{initial market rent} 
+\subsection{Initial market rent} 
 Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
 
-
-\subsubsection{warranted market price}  
+\subsubsection{Warranted market price}  
 This is  an initial value for market price 
  $P_W=\frac{\mathcal{R}_W }{r}$,  
 
 This is the present discounted value of the flow of housing services.  Use this as initial market price.  It can reasonably be seen as an equilibrium or attractor towards which prices should  evolve.  Notice that it includes $\mathbb{A}$
-
-
-
 
 {\color{red}
 Net benefit may be economically interesting later . You do not need to include it. 
@@ -195,18 +256,10 @@ If the assessed price is a fraction, say $\kappa$,  of the warranted price
 }
 \subsubsection{Annual property taxation}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 \subsubsection{Net rent for investors} {\color{green}}
 \[\mathcal{R}_N = \mathcal{R}_W - \mathcal{O} - \mathcal{T}= (\omega - {dc} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1}\]
 
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an investor would receive, not the total warranted rent, but the net rent after expenses,
-
-
 
 \subsection{Initial values for endogenous variables} \label{sec-init-value-list}
 
@@ -218,7 +271,6 @@ These are \textbf{initial values} that we calculate based on the parameters abov
 \begin{description}
 \item [initial market rent] 
 Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
-
 
 \item [Initial market price] 
 $P_0= P_W=\frac{\mathcal{R}_W }{r}$,  
@@ -272,6 +324,20 @@ AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\
 \item[personal wealth] $W_{i0}= savings + warranted\_price $
 \item[average wealth] $\bar W_{0}= \sum_i W_i$
 \item[Subjective discounting] The discount factor gives the present value of one dollar received at a particular point in the future, given the date of receipt and the discount rate.
+
+{discount rate vs discount factor}
+
+We have called the  discount rate is $\delta$ (it might be better to call it $rho$.) We assumed it equal to $r_i$. This is a pretty strong assumption.
+
+The discount \textbf{factor} $\delta(t)$ is a function of $\delta_i$ and the time until the event, $t$
+% delta(0)=1  delta (1)= 1/(1+r) 
+\[\delta(t)=\left(\frac{1}{1+\delta}\right)^t\]
+\[delta(T)=  (1/(1+\delta))^T\]   
+    
+
+eg r=.05  t=5  $\delta(5)$ =  $(1/(1+.05))^5 = 0.7835262$
+
+
 % growth rate= rt
 % growth factor =($1+r)^t$
 % discount rate= r
@@ -308,70 +374,28 @@ delta =
 
 \end{description}
 
-\subsubsection{Firm $Y_{F,i}=A_FK_i^\alpha n_i^{\beta_F}$}
-We use the familiar Cobb-Douglas production function \cite{chiangFundamentalMethodsMathematical2002} to set relationships among variables that are consistent with basic neoclassical production theory. 
-\begin{description}
-
-\item[initial urban wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $
-
-\item[initial labour force for urban firms] $n_0=n_R$.  Initially we will try values similar to the rural firm size and vary it  %*****%may have implica=tions later for the notation
-
-\item[Initial wage premium] $\omega_0=p_0*\phi$
-
-\item[Initial wage] = $\omega_0=\omega_t +\psi =(1+p_0)\psi)$
-%The wage  is set as the marginal product of labour for initialization of the model. 
-
-\item[labour cost for typical rural firm] $L_R = n_R*\psi$. This is expressed as a money quantity: e.g., 100 workers*\$40,000/worker.  
-
-% \item[Initial labour cost for typical urban firm] ]  $L_U = n_R(\psi+\omega_0)$.
-
-\item[output for typical rural firm]  
-\[Y_R=\frac{n_R*\psi}{\beta_F}\]
-This is a constant for any initial values. Derived from the marginal productivity condition. See item~\ref{item-paramlist-firm-level} in the orange  block. The numerical calculation is done  for a firm with 100 workers and a marginal product of labour of $\psi$. I get \$20 million for those values. 
 
 
-\item[initial output for an urban firm] 
-\[Y_0^U=N_0^\gamma Y^R\]  
-Taking the marginal product with respect to $n$, we get a useful fact that will allow us to tie down $\gamma$
-\[Y_{U,0}=\frac{n*(\psi+\omega)}{\beta_F}\]
-
-\item[capital for typical rural firm] (Derived from the marginal productivity condition.)
-\[K_R=  \frac{\alpha_R Y_R }{r}\]
-This is also a constant.
- 
-\item[initial capital for an urban firm] (Derived from the marginal productivity condition.)
-\[K_{U,0}=  \frac{\alpha Y_{U,0} }{r}\]
-This is also a constant.
-
-\item[scale factor A for typical  firm] 
-\[A_F= \frac{Y_R}{K_R^{\alpha} {n\psi}^{\beta_F}}\]
-We will assume that this is a constant used for both rural and urban production functions. (The explicit function is a bit  messy but the numeric value is easily computed because we have $L_r=n_R\psi$, and have calculated $Y_F$, and  $K_F$). The prefactor.
-
-\end{description}
 
 \subsubsection{Bank}
 \begin{description}
 \item[mean initial wealth $\bar W$] $= \frac {a\psi}{r_prime}+savings_0$
 \end{description}
 
-\subsubsection{Realtor}
-\begin{description}
-\item[None] 
-\end{description}
 
 
-\textbf{NOTE: With the initial values calculated in this section $\omega$ is consistent with $N_0$.as a result, population should not grow. }
 
 
 
 
 
 \section{Model execution}
-Variables that are recalculated in each step.\footnote{\begin{itemize}
-    \item Variables have to have a time subscript. 
-    \item We also distinguish the urban firm from the basic rural firm.  Only the urban firm changes its behaviour.  I use a subscript $_U$. 
-    \item I omit the subscript for $n_t$ because only the urban firm changes its workforce size.
-\end{itemize} }
+Variables that are recalculated in each step.
+% \footnote{\begin{itemize}
+%     \item Variables have to have a time subscript. 
+%     \item We also distinguish the urban firm from the basic rural firm.  Only the urban firm changes its behaviour.  I use a subscript $_U$. 
+%     \item I omit the subscript for $n_t$ because only the urban firm changes its workforce size.
+% \end{itemize} }
 
 
 \subsection{City}
@@ -380,318 +404,15 @@ Variables that are recalculated in each step.\footnote{\begin{itemize}
 $p_t= \frac{\omega_t}{\psi_t}$ 
 
 
-    \subsection{Land}
+\subsection{Land}
 \subsubsection{Warranted price} The value of housing services including locational services. (Copied from the initial value calculation.)
-\begin{lstlisting}
-@property
-def warranted_price(self):
-    omega = self.model.firm.wage_premium # FIXED
-    psi   = self.model.subsistence_wage
-    a     = self.model.housing_services_share
-    c     = self.model.transport_cost_per_dist # RENAME
-    d     = self.distance_from_center
-    r     = self.model.r_prime # CHECK name
-  
-    return (omega -c*d + a*psi)/r
-\end{lstlisting}
 
 \subsubsection{Maintenance costs for T} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($a\psi$) over the mortgage period (T). This may be used in computing bids.
 
-\begin{lstlisting}
-def get_maintenance(self):
-    """Maintenance share of property service (a*b*psi summed over mortgage period and discounted, like property tax)
-    """
-    a   = self.housing_services_share
-    b   = self.maintenance_share
-    psi = self.subsistence_wage
-    sum_delta = self.sum_delta # CALCULATE PER PERSON
-    return (a * b * psi) * sum_delta  
-\end{lstlisting}
-
 \subsubsection{Value of taxes for T}
 Property taxes are imposed on the  lagged property price. They  are discounted and summed (sum\_delta)  over the mortgage period (T). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
-\begin{lstlisting}
-    def get_tax(self):
-        tau   = self.model.property_tax_annually
-        omega = self.model.firm.wage_premium 
-        psi   = self.model.subsistence_wage
-        a     = self.model.housing_services_share
-        c     = self.model.transport_cost_per_dist
-        d     = self.distance_from_center
-        sum_delta = self.model.sum_delta # TODO - make individual  - this would have to be average discounting - THIS TAKE SUM DELTA OUT - AND PUT WITH LARGER CALCULATION.. - CACLULATE FOR A PERSON/PROPERTY COMBINATION.
-        return tau * (omega - c*d + a*psi) * sum_delta
-\end{lstlisting}
 
-\subsection{Person}
-Does sum\_delta go here in person, or above the land (property ) calculations?  
-
-\subsection{Firm}
-
-\subsubsection{number of firms} $F_{t}=\frac{N_{t-1}}{n^{target}_{t-1}}$. Firm formation uses current variables to set number of firms for the next period 
-
-\subsubsection{actual urban firms' employment} 
-$n_t^{actual}= \frac{N_t}{F_t} $. Available workers are divided among existing firms.   
-
-
-\textbf{actual urban firms' capital} in period t should be based on planned output rather than the labour available in the period, so we begin with the marginal productivity of labour equation, \[\omega_{t}+\psi = \frac{\beta_{F}Y^{target}_{t-1}}{n_{t-1}^{target}}\]
-which gives us 
-
-
-\textbf{urban firms' actual marginal product of labour}
-\[MPL_{t} = \frac{\beta_{F}Y^{actual}_{U,t}}{n_t^{actual}}\] \noindent Firms observe their output, Yt and find  MPL= that they want to set equal to the wage. Al the values have been determined in the previous  and $n^{actual}_t$ is calculated using values from the  previous period, we get
-
-\textbf{urban firms' output} by solving the above for Y
-\[Y_{U,t}=  n_t^{actual}\frac{\omega+\psi}{\beta_{F}} \] 
-This is used to calculate target employment.
-% \item[(urban firms' capital)] (May not be needed)
-% \[ K_{U,t}= \frac{\alpha}{\beta} \frac{n_{t-1}(\omega_{t-1}+\phi)}{r}\]
-
-
-{\color{red}
-\subsubsection{urban firms' target employment for $t+1$} Firms examine their own output and marginal product of labour, all calculated with values determined in the previous period. Following the  optimality rule, MPL=wage and MPK-r, they compute a target value for $n$ and $K$
-\[ n^{target}_{t+1}= \frac{\beta Y_{t}}{\omega_t + \phi} \]
-
-
-
-\subsubsection{aggregate urban labour demand of existing firms $N_{F,t+1}^{target}$} 
-
-\[N_{F,t+1}^{target} = \frac{n^{target}_{t+1}}{n^{actual}_{t}} N_t\].   
-This makes sense because Y is produced with the previous year's target assuming  $\gamma$ was constant but  $\gamma$ could have risen. (This should be the same result as  multiplying $n^{target}_{t+1} \times F_{t} $)
-
-
-
-\subsubsection{New entrant labour demand,  $n\Delta F$} Firms enter when $MPL > wage$, which with existing technology permits profit making. New firms would set the same target employment as existing firms. 
-\[n\Delta F =Z\frac{MPL_t-\omega_t -\psi}{\omega_t +\psi}F n^{target}_{t+1}\]
-This makes sense because the number of entrants as a fraction of the existing number of entrants should be larger when the profit margin is larger. New firms would set the same target employment as existing firms and 
-
-\subsubsection{Aggregate urban labour demand of existing firms $N_{Total,t+1}^{target}$} 
-\[N_{Total,t+1}^{target}= N_{F,t+1}^{target}+n\Delta F\]
-
-\subsubsection{Number of firm adjustment} 
-\[F_{t+1}=\frac{N_{Total,t+1}^{target}}{n^{target}_{F,t+1}}\] 
-This adjusts over time, keeping the firm labour force near the optimal level. 
-{
-\color{blue}
-    \subsubsection{Wage adjustment for NEW workers} 
-Firms want to increase output so they bid for new workers
-\[wage_t^{new}= (1-adj_\omega)\omega_{t-1} + adj_\omega MPL_{t-1}  +\psi\] 
-
-\subsubsection{Wage adjustment for EXISTING workers }
-Existing workers demand catchup increases
-\[ wage_t^{existing}= (1-adj_{exist})*\omega_{t-2} + adj_{exist}* wage_{t-1}^{new}  +\psi\]
-Do we have to worry about workers switching firms? Would switchers get the full  bid new workers get? 
-}
-}
-\textbf{wage adjustment factor} This is the fraction by which desired labour exceeds actual labour
-\[\nu_t =\frac{N^{target}_{t+1}-N_{t}}{N_{t}}\]
-or 
-\[\nu_t =\frac{n^{target}_{t+1}-n_{t}}{n_{t}}\]
-
-
-
-\subsubsection{Wage adjustment} 
-
-\textbf{Wage calculation}
-Firms make one decision faced with a market wage. They choose a target workforce. This is typical in \glspl{competitive market} where firms are price-takers. 
-
-
-When \textbf{aggregate} firm labour demand exceeds N, wages rise at the city level
-
-To get labour supply $N^s$ in terms of  $\omega$ we combine $N=f^2 *density$ and $f=2\omega/c$. 
-
-So $\die{N^s}{omega}=4fden/c$ and \[\Delta \omega=  \frac{c}{4fden}\Delta N = \frac{c}{4fden}(N_{Total,t+1}^{target}-N_t)\]
-This is the discrete wage adjustment that would attract the desired number of new workers, providing housing is available.\footnote{What happens is housing is not available? Maybe workers can't come to the city until the housing stock adjusts. Firms have labour shortages.  The wage stays high or may rise more. House prices will rise.} We can think of this as the wage demand of new workers.\footnote{What if only new workers get the new wage? This is interesting: firms will make excess profits. New firms will be attracted by excess profits but may not be able to get workers at the old wage!}
-
-Should the adjustment occur in a single period?
-
-It may be useful to put in an adjustment factor $adj \le 1$.
-\[\omega_{t+1}=\omega_{t} + adj \Delta_t  \omega\]
-
-
-
-
-% Common to think of the variations in local wages as variations around a mean, in this context - perfect labour market.
-% We're using this number at the aggregate level, raise the market wage to a level that attracts that many. Divide available workers among the firms, then they want to raise the wage again. It's more transparent to do it at the aggregate level than at the firm level, but we still have the rising supply curve. A more detailed agent model could implement the hiring and wage adjustment mechanisms for firms directly, but the side effect of increased complication is it also can obscure the clarity of the rent results, our focus with this work. 
-\begin{lstlisting}
-# Firm step function updates wage, omega
-def step(self):
-    prefactor  = self.model.prefactor
-    agglom     = self.model.agglomeration_ratio
-    population = self.model.agglomeration_population
-    wage_share = self.model.wage_share  
-    wage_premium = wage_share * (agglom-1) * prefactor * population**agglom # omega # ****** 
-    self.wage = wage_premium + self.model.psi
-    # k thought # self.wage_premium = (wage_share * prefactor * population**agglom)/ population # omega    
-    # note surplus is: (beta - 1) * (prefactor * population**agglom)
-\end{lstlisting}
-
-Where wage share is a parameter input to the model.
-
-
-\subsection{Bank}\label{Parameters for Mortgages}
-
-
-\section{Bidding}
-
-
-\subsection{Realtor}
-
-
-\newpage
-
-\section{Relationships that constrain parameters }
-
-Explaining relationships that constrain parameters if the model is near an equilibrium path: 
-
-CONSTRAINTS DIRECTLY FROM RESEARCH ON THE URBAN WAGE PREMIUM
-\begin{enumerate}
-     \item  Empirically the urban wage premium  $\omega$ is some fraction $p$ of the non-urban wage $\psi$.   This implies that if we set the subsistence wage, The urban wage is $(1+p)\psi$ and $\omega= p*\Psi$.
-
-
-CONSTRAINTS DIRECTLY FROM THE CORE URBAN MODEL
-    \item From the urban model, the extent of the city is determined by transportation costs:   $\omega =c*width$.  Only two of these parameters can be set independently.
-
-    \item From the urban model population is determined by area and density   $N=density* f^2$. we assume the city is symmetric  and we assume plots  of land are identical, so  - $area=f^2$. If there is a core (or seed) population it must be added.  
-   
-    \item From the urban model the urban wage is the subsistence wage plus the urban wage premium $\omega+\psi$ 
-
-CONSTRAINTS DIRECTLY FROM THE AGGLOMERATION/SCALE MODEL
-    \item From the scale literature the value of aggregate output is $Y=AN^\beta$ for the city. This establishes a relationship between urban GDP and population. We initially make population equal to the workforce. 
-
-    \item Empirically, $\beta \approx 1.13$
-
-
-CONSTRAINTS DIRECTLY FROM THE NEOCLASSICAL THEORY OF THE FIRM
-    \item From neoclassical theory of the firm the competitive equilibrium wage is the  marginal product of labour in the firm.      This should hold both in the urban and rural economies. This implies       $ MPL^R=\psi$  and $ MPL^U=\omega+\psi $.
-
-    Using a Cobb-Douglas production function, we can get explicit expressions for the marginal productivities of labour and capital. 
-
-CONSTRAINTS DIRECTLY FROM THE COBB-DOUGLAS PRODUCTION FUNCTION
-The firm production functions are 
-\begin{align}
-Y_R  &= \quad  A_FK^{\alpha_F}L^{\beta_F}\\
-Y_{R, )} &= N^\gamma A_FK^{\alpha_F}L^{\beta_F}
-\end{align}
-We start with firm labour forces  being equal at $n$.
-
-\item $\sum_X \alpha_X \le 1$ is required for diminishing returns to scale. 
-
-% \item From the theory of the firm with a general production function, an increase in the price of one-factor  results in increasing factor proportions for other factors.  
-
-\begin{quotation} \color{orange}
-\subsubsection{Firm level production}   
-(This is incorporated above.) We want the marginal product of labour in the rural economy at the firm level to be at least close to \$40,000.  We can create a generic rural firm and then consider an urban firm with agglomeration effects to get the parameters we need. 
-
-Firm employment $L$ is small relative to  urban employment {N}. Assume it is 100 workers. 
-
-Assume that the rural production function is 
-\[ Y_{iF}^R=A_{F} K^{\alpha_F} L_F^{\beta_F} \]
-where  $L_F=n*\psi$, $\alpha_F=0.18 $,  and $\beta_F=0.76$.notice that the MPL is the partial derivative with respect to $n$ and not L. 
-\footnote{These values give us diminishing marginal product at the firm level. If we require product exhaustion we have factor shares of  0.8 and 0.2.The tricky point is that factor share are 
- $\frac{\alpha}{\alpha + \beta}$ and $\frac{\beta}{\alpha + \beta}$
-(*If not there is surplus profit  which we will ignore.)}   
-The marginal products pf labour and capital are 
-\[MPL=n*\beta_F Y_F/L_F=\$40,000\] and\[\ MPK=\alpha_F Y_F/K_F =0.05\]
-From the first, 
-
-\[Y_F=\frac{n*\psi}{\beta_F}=\frac{100*\$40,000}{0.72}=\$5,555,556\]
-This is firm revenue. From the MPK, 
-
-\[K_F=  \frac{\alpha_F Y_F }{r}=\frac{0.18 *\$5.5555\ million}{0.05} =\$20\ million = 1.039568 \]
-
-We now have the capital, labour and output for a model firm with a marginal product of labour  equal to the subsistence wage we have chosen. We can calculate the \textbf{scale factor} 
-
-\begin{equation}  
-A_F= \frac{Y_F}{K^{\alpha_F} L^{\beta_F}}=\frac{5,555,000}{20,000,000^{\alpha_F} 100^{\beta_F}} = 1.039568 \label{eqn-AR}\end{equation} 
-So $A_F$ can be computed using equation~\ref{eqn-AR} for any set of coefficients and firm size. Expanding the expression,
-
-% \begin{equation}  %   arithmetic error here
-% A_F 
-% =\frac{\frac{n*\psi}{\beta_F}}{\frac{\alpha_F  \left(\frac{n*\psi}{\beta_F} \right)}{r}  L^{\beta_F}} 
-% =\frac{\frac{n*\psi}{\beta_F}}{\frac{\alpha_F \frac{n*\psi}{\beta_F} }{r}  L^{\beta_F}} 
-% =\frac{r}{\alpha_F  L^{\beta_F} }
-% =6.944444e-08???? \label{eqn-AR2}\end{equation} 
-
-Furthermore, we can compute the output for a city of size N if it consists of $N/n$ firms of this type. With a population of 10,000, for example,  there would have to be  100 firms and an output of \$555,555,600. 
-
- \subsubsection{The urban level of production}
- \textbf{This section now redundant and has been commented out}
-% We now consider that this firm operates in the city and enjoys  urban agglomeration benefits. The value of the  marginal product of labour must rise to $\psi+\omega$. We to know  the urban wage premium that is consistent with the subsistence wage. Papageorgiou \cite{papageorgiouOccupationalMatchingCities2022} found a 4.1\% premium. D'costa and Overman   show that working in London is associated with a 35.5\% higher wage than working in a rural area. The comparable figures are
-% 10.6\% for big cities and 8.3\% for small cities and an elasticity of wages with respect to city size of 1.6\%.. Estimates of the premium are lower  when they control of individual characteristics.   
-
-% If the $ scale\ coefficient=1.12$, $=\omega$ would be $1.12*\psi$, or $4,800$. 
-
-% This supports an urban wage premium of $\omega\$8,000$.
-
-% We need to have a population size or a number of firms with a firm size. Assume the population is 10,000 and firms still have 100 workers. (All firms will have the same marginal product of labour in a competitive labour market, so size should not matter.)
-
-% \[Y^U=A^R N^\gamma K^\alpha L^\beta = N^\gamma Y^R\]
-% where $N^\gamma$ represents the agglomeration effect. The marginal product of labour is 
-% \[MPL^u=\$44,800=N^\gamma \beta Y^R/L=N^\gamma *\$40,000\]
-% so $N^\gamma= 1.2$ and $\gamma = \frac{log(1.12)}{log(10,000)} =.012$. 
-
-
-% This value is consistent with an empirical  value for  the agglomeration exponent of $\beta =  1.012$. The value is much lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one , the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
-
-% % A second interesting possible implication of our calculation is that only part of the agglomeration effect appears in wages. Urban rents  are large, but agglomeration effects are much larger.
-\end{quotation}
-
-\end{enumerate}
-
-
-
-\footnote{Tørsløv et al \cite{torslovMissingProfitsNations2023} show that affiliates of foreign multinational firms are an order of magnitude more profitable than local firms in a number of low-tax countries. Leveraging this differential profitability, they estimate that 36\% of multinational profits are shifted to tax havens globally. US multinationals shift twice as much profit as other multinationals relative to the size of their foreign earnings.}
-
-
-\textbf{appendix-05-agglomeration-model - REDUNDANT} %\input{appendix-05-agglomeration-model} % bbbb{appendix-05-agglomeration model}
-
-
-
-\begin{enumerate}
-\item To start with a population of around 10,000, we begin with width = 10, height = 10 and \textbf{density} per unit of 100. 
-
-\item If we arbitrarily assume an initial wage premium around 20\%, and wish to start near equilibrium, % bettencourt assumed aggomeration exponent is indepent)
-we can select transportation costs. A transportation cost of 0.1  would give a distance of $\omega/.01$, which is huge. Could this be 1/10 of the starting wage premium $\omega_0$? It would then be \$800 per year, per unit distance and would give us height and width of 10. 
-% (divide into omega) - we want to start close to equilibirum. omega/cost = width
-\item We should have a wage premium of about \$8000 to be consistent with the subsistance wage. % since we are assuming the wage premium of around 20%. Total wage has to be subsistence wage + wage premium, think of an average rural subistance wage seems like 45K .. 
-
-\item Your proposed prefactor was 0.2,  251. It should be very large, based on the above numbers and the consistency constraints. I get 1507 in appendix-05-agglomeration model
-
-\item Teminology: Y=prefactor*N**scaling\_exponent
-
-\end{enumerate}
-
-\begin{lstlisting}
-def __init__(self, width = 50, height = 1,  # ****
-             transport_cost_per_dist  = 0.1,    # c   ****
-             subsistence_wage         = 40000. # psi
-             working_periods          = 20,     # in years ****
-             savings_rate             = 0.2, ****
-            #  initial_savings: if agents save anything before reaching working age
-             init_wage_offer          = 10.,  #. Makes no sense  ****
-             init_interest_rate       = 0.05,
-
-             #AGGLOMERATION MODEL features  -20% wage premium over subsistence wage, Y=prefactor*N**scaling exponent
-             prefactor                = 0.2, # 251., ??????  ****. should be very large. I get 1507 
-             # Prefactor - should be much higher than YES scaling_factor           =   # this is A scaling_exponent         =  1.13 # this is beta in LOBO. ****
-             agglomeration_ratio      = 1.2,  # beta, was 
-             wage_share               = 1.0,  # of agglomer3ation benefits
-             workers_share            = 0.8   # emponent? in Slae models?
-             property_tax_annually    = 0.04, # tau, was c
-             mortgage_period          = 5.0,  # T, in years
-             housing_services_share   = 0.3,  # a
-             maintenance_share        = 0.2,  # b
-             r_prime                  = 0.05,
-             r_premium                = 0.005, ****
-            #  r_premium_bank = 0.00, # TODO: heterogenous discount rates and premiums
-             ):
-\end{lstlisting}
-
-\subsection{Workers share}
-The worker's of the surplus, $lambda$ It might be 0.8. It is used in...
-
-NOTE: 0.8 is the value of beta in a Cobb-Douglas, corresponding to the wage-share in production. It is the value used in Lobo et al
-
+Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}
 
 \section{Older parameter value discussion}
 
@@ -701,9 +422,7 @@ NOTE: 0.8 is the value of beta in a Cobb-Douglas, corresponding to the wage-shar
 % underestimates the the value of the urban center. Actuall effects  
 % could be stronger. onsider alternative appraoches to forcasting value, risk, etc.#     What time frame do agents consider? Is their model linear?
 
-\subsection{Time}
- The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily 
- 
+
 \subsection{Wage premium} \label{section-wage-premium}
 
 Hirsch Wage \cite{hirschUrbanWagePremium2019} observe that, ``Following Glaeser and Maré \cite{glaeserCitiesSkills2001},  a  large  empirical  literature  has  investigated differences in wages across labour markets of different sizes. The general finding of this literature is that a significant urban wage premium exists. and that this premium consists both of a level effect and a growth effect that arises as workers gain urban work experience.'' 
@@ -715,140 +434,45 @@ Almeida et al \cite{almeidaUrbanWagePremium2022} found for Brazil, that the fema
 Spillover effects can be large. Irwin and Klenow  studied learning in chip production focusing  on the key issue of spillovers. They found learning rates of 10 to 27 per cent, averaging 20 per cent. They indicated that a good part of learning is internal, and that national spillovers were no greater than international spillovers. " \dots a firm learns three times as much from an additional unit of its own cumulative output as from another firm's cumulative output, regardless of the other firm's country of location. However, rest-of-world cumulative production is typically more than three times any given firm's cumulative production. This means that the absolute contribution of world cumulative production to each firm's experience outweighs the absolute contribution of its own cumulative production. In this sense, spillovers are substantial." (pp. 1217-1218).
 
 
-\subsection{Property taxes}
 
-mills
+% \section{TODO FIX/CUT Table of parameter values}
+% \renewcommand{\arraystretch}{2}
+% \begin{longtable}{lp{5cm}cp{2.5cm}}
+% \caption{Table of parameter values}\label{tab:parameters}\\
+% \hline 
+% Symbol         & Name                                 & Value      & Formula  \\ \hline
+% $a$ replace    & Share of $\psi$ for land and building &   0.3         & \\
+% $b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
+% $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
+% $c$       & Transportation cost & \\
+% $T$       & Period & 5 years      \\
+% $r$       & Individual interest rate & 0.05 \\
+% $\omega$  & Locational rent & 0.012  \\
+% $\psi$    & Subsistence wage & 10000 \\
+% $a$       & Share of subsistence wage for land and building & 1.0 \\
+% $\tau$       & Tax share & \\
 
-Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}
+% ---       &  & \\
+% $m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
+% $M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
+%  $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
+% $IS$           & Income share for housing debt        & 0.25-0.35  & higher for the poor \\
+% $\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
+% $\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
 
-
-\section{Transportation parameter values}
-In the following sections we and present illustrative values for parameter values.
-
-
-%==========================EXAMPLE=========================== https://www.kaggle.com/code/prateekmaj21/basic-financial-calculations-using-python/notebook
-  
-% def compound_interest(p,r,t):  %EXAMPLE
-    
-%     print('Amount: ', p)
-%     print("Rate of Interest (Per Annum)", r)
-%     print("Time (In Years): ",t)
-    
-%     a= p*((1+r/100)**t)
-    
-%     ci= a-p
-%     print("Final Amount: ", a)
-%     print("Compound Interest: ", ci)
- 
-
-\section{Transportation costs}
-Transport costs have two parts:
-1) fuel and vehicle costs per km
-2) time costs per km
-
-\subsection{Vehicle related costs}
-Use one year as the wage period, converting transportation costs per km to annual cost for consideration in the household budget. Starting with the cost per km, calculate the cost per year:
-
-\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
-
- \textbf{work trips per year} 2 way * 5 days/week * 50 weeks work days = 500. [range: 450-550]
-
-\textbf{cost per km-year} = work trips per year*cost per km
-
-=\$0.59/km*500 trips/year  =  \$295/km year 
+% $\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
+% $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+% % $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$
+% $\bar r$       & Prime interest rate                  &            & \\
+% $r^{target}$   & Target interest rate                 &            & $\bar r + margin$ \\
+% $r_i$          & Individual borrowing-rate            & \multicolumn{2}{c}{ $r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})$}\\
+% $\delta_i$   & Individual discount rate        &  USE $\rho$?          & To assign \\
+% $\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r_i^\delta}\right)^T$ \\
+% \hline
+% \end{longtable}
+% \renewcommand{\arraystretch}{1.0}
 
 
-
-\subsection{Time costs}
-\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
-
-(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
-
-\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
- 
-\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
-
-\textbf{money cost of time per km year} 
-
-=time cost per km-year* wage(including subsistence) 
-
-= 0.012 year* wage per year
-
-\subsection{Total cost per km year of commuting for one agent}
-\textbf{money cost of time per km year + \$295/km year * distance} \\
-= (0.012 w+ \$295)/km year 
-    \begin{quotation}
-    \textbf{Example}
-    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is equal to the wage
-
-\[(0.012 w+ \$295)/km year)*30 =  w\] 
-\[.36w+ 8850=w\]
-\[w=13828.12\]
-        \begin{quotation}
-        \textbf{PLAUSIBILITY CHECK}
-This is plausible land rent, but does not include building rent. 
-Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles from city centre
-        \end{quotation}
-    \end{quotation}
-
-
-
-\subsection{Value of transportation price to use in model}
-\[ {c}=(0.012 w+ \$295)/km year \]
-
-\subsection{Transaction costs} on sales are omitted. Add a parameter or variable. the usual form  would be a fixed cost  plus a percentage of the sale price.
-
-\newpage
-\section{Table of parameter values}
-\renewcommand{\arraystretch}{2}
-\begin{longtable}{lp{5cm}cp{2.5cm}}
-\caption{Table of parameter values}\label{tab:parameters}\\
-\hline 
-Symbol         & Name                                 & Value      & Formula  \\ \hline
-$a$ replace    & Share of $\psi$ for land and building &   0.3         & \\
-$b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
-$tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
-$c$       & Transportation cost & \\
-$T$       & Period & 5 years      \\
-$r$       & Individual interest rate & 0.05 \\
-$\omega$  & Locational rent & 0.012  \\
-$\psi$    & Subsistence wage & 10000 \\
-$a$       & Share of subsistence wage for land and building & 1.0 \\
-$\tau$       & Tax share & \\
-
----       &  & \\
-$m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
-$M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
- $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
-$IS$           & Income share for housing debt        & 0.25-0.35  & higher for the poor \\
-$\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
-$\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
-
-$\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
-$\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$
-$\bar r$       & Prime interest rate                  &            & \\
-$r^{target}$   & Target interest rate                 &            & $\bar r + margin$ \\
-$r_i$          & Individual borrowing-rate            & \multicolumn{2}{c}{ $r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})$}\\
-$\delta_i$   & Individual discount rate        &  USE $\rho$?          & To assign \\
-$\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r_i^\delta}\right)^T$ \\
-\hline
-\end{longtable}
-\renewcommand{\arraystretch}{1.0}
-
-
-
-
-\subsection{discount rate vs discount factor}
-We have called the  discount rate is $\delta$ (it might be better to call it $rho$.) We assumed it equal to $r_i$. This. is a pretty strong assumption. \
-
-The discount \textbf{factor} $\delta(t)$ is a function of $\delta_i$ and the time until the event, $t$
-% delta(0)=1  delta (1)= 1/(1+r) 
-\[\delta(t)=\left(\frac{1}{1+\delta}\right)^t\]
-    \[delta(T)=  (1/(1+\delta))^T\]   
-    
-
-    eg r=.05  t=5  $\delta(5)$ =  $(1/(1+.05))^5 = 0.7835262$
 
 \chapter{Three Questions}
 
@@ -859,10 +483,7 @@ The three questions I promised to deal with were
     \item in the bid price, how is the present-value deflator computed?
 \end{enumerate}
 
-
-
-
- \subsection{The value of an investment}
+\subsection{The value of an investment}
 The value of the investment $V$ is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus the discounted sum ((of rents and interest on rents net of operating costs and taxes)), which I will call $\delta sum\mathcal{R}_N$.  
 
 \subsubsection{Defining Net Rent carefully}
@@ -897,13 +518,14 @@ The discounted value with accumulated interest in T years
  
  This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate: 
 
- Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $\begin{enumerate}
+ Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
+ \begin{enumerate}
      \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
      \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
      \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
      \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
      \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
- \end{enumerate} 
+\end{enumerate} 
 (This is terrible notation)
 \subsection{Answer to question 2} 
 Do we subtract $P_0$: YES 
