@@ -87,7 +87,7 @@ Our goal has been to make a model as accessible as the Alonzo model that can sti
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonso-style models. This equation is embedded in the decision of every agent because it determines the economic rent for each piece of property.
 
-\item We incorporate the fundamental wealth production process of the city using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We have called the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Two difference equations operating on two aggregate variables incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We call the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Together these two difference equations, operating on two aggregate variables, incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
 
 \item To link the Alonso-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of individual decisions. % In Section~\ref{section-micro},
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
@@ -355,7 +355,9 @@ The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market 
 The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, % we assume that the market rent equals the warranted rent. % We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.
 Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent, using the warranted rent as an approximation. The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value. We are in effect imposing a long-term equilibrium value, rather than modeling the adjustment process. We do this to focus on the economic rent, and to show the economic linkages between productivity and urban rents, because clarifying that linkage is part of the core conceptual contribution of this work. 
 
-
+% \subsection{Initial market rent} 
+Initial market rent approximated as %rent cost for tenants  
+$\mathcal{R}_{M, 0}= \mathcal{R}_W$.
 
 % To simplify the model, we assume that the market rent equals the warranted rent.  %\gls{warranted rent} is paid as the \gls{market rent}
 \[\mathcal{R}_M = \mathcal{R}_W.\] 
@@ -366,6 +368,16 @@ Instead of modelling the rental price formation process explicitly, we abstract 
 \subsubsection{Net rent} \label{section-net-rent}
 % The warranted rent is the amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as an initial rent cost for tenants.
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner receives, not the total warranted rent, but the net rent after expenses,
+
+
+COMBINE The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an investor would receive, not the total warranted rent, but the net rent after expenses,
+
+\[\mathcal{R}_N = \mathcal{R}_W - \mathcal{O} - \mathcal{T}= (\omega - {dc} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1}\]
+
+
+
+
+
 
 \begin{align}
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}\\
@@ -419,6 +431,13 @@ We will assume that the market price can be approximated by the present discount
 
 
 The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.
+
+COMBINE {Warranted market price}  
+This is  an initial value for market price 
+ $P_W=\frac{\mathcal{R}_W }{r}$,  
+
+This is the present discounted value of the flow of housing services.  Use this as initial market price.  It can reasonably be seen as an equilibrium or attractor towards which prices should  evolve.  Notice that it includes $\mathbb{A}$
+
 
 \subsubsection{Market price and expected price} \label{section-market-price}
 
@@ -570,7 +589,11 @@ The rate of return on the investment must exceed some required rate of return. T
 
 
  \subsection{The value of an investment}
-The value of the investment $V$ is therefore the capital gain, minus financing costs, plus the rents, net of operating costs and taxes, $\mathcal{R}_N$.
+
+% \subsection{The value of an investment}
+The value of the investment $V$ is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus the discounted sum ((of rents and interest on rents net of operating costs and taxes)), or $\delta sum\mathcal{R}_N$.  
+ 
+OR The value of the investment $V$ is therefore the capital gain, minus financing costs, plus the rents, net of operating costs and taxes, $\mathcal{R}_N$.
  
  This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate:\footnote{The down payment could be deducted in advance, but if the discount rate is equal to the interest rate it drops out completely.}
  

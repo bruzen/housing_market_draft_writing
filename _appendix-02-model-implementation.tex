@@ -1,3 +1,92 @@
+% \chapter{Three Questions}
+
+% The three questions I promised to deal with were
+% \begin{enumerate}
+%     \item should we add interest to the net rent calculation? (yes)
+%     \item should I subtract the purchase price from the calculation of the value of a purchase?
+%     \item in the bid price, how is the present-value deflator computed?
+% \end{enumerate}
+
+
+\subsubsection{Defining Net Rent carefully}
+
+The annual \gls{net rent} is the property rental price  net of costs. Homes must be maintained and taxes paid, so an investor would receive, not the total warranted rent, but the net rent after expenses,
+\textbf{Market rent is used in computing net rent. The initial value for the market rent is \gls{warranted rent}}.
+
+market or warranted..
+Warranted market rent is defined as value of housing services:
+\[\mathcal{R}_M = \omega - cd+ + a\psi + \mathbb{A}\]
+
+The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
+ \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
+
+Net annual rent for investors is then  defined this way 
+
+\begin{align}\mathcal{R}_N &= \mathcal{R}_M - \mathcal{O} - \mathcal{T} + F(v, rM)\nonumber\\
+&= (\omega - {dc} + a\psi )+ \mathbb{A} - a b \psi - \tau  \mathcal{P}_{M, t-1}  + F(v, rM)
+\end{align}
+
+This term enters into the computation of housing prices. We assume it is deposited each year and earns interest $r$
+
+The discounted value with accumulated interest in T years 
+\[\delta-sum\mathcal{R}_N=\delta^T\mathcal{R}_N (1+r)\frac{(1+r)^{T-1}-1}{r} \]
+
+% This net rent term has the form
+%  \[\delta sum\mathcal{R}_N = \delta(T)H(\mathcal{R}_{N,1} +\dots+ \mathcal{R}_{,T})\]
+
+% \subsection{Answer to question 1} about whether to add interest to the rent term: YES
+
+\section{The value of an investment}
+ 
+ This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate: 
+
+ Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
+ \begin{enumerate}
+     \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
+     \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
+     \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
+     \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
+     \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
+\end{enumerate} 
+(This is terrible notation)
+\subsection{Answer to question 2} 
+Do we subtract $P_0$: YES 
+
+Four change just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
+
+\begin{align}
+V &= \delta^T \left(\dot P^T P_0- (1 + sumT(1+r))M +  \right) +\delta sum\mathcal{R}^w_N   \\
+&= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +      \delta sum\mathcal{R}^w_N \label{first_sub}\\
+  &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 + \delta sum\mathcal{R}^w_N 
+\end{align}
+This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
+
+
+\subsection{Rate of return on investment}
+We divide V by the size of the down payment, $D$ to get the required rate of return  
+
+\begin{align}
+r^{return} 
+  &= \frac{V}{D}  \nonumber \\
+  &= \left(\delta^T \left(\dot P^T - (1 + sumT(1+r))m\right) \ \right) \frac{P_0}{D}  + \frac{\delta sum\mathcal{R}^w_N}{D}      \nonumber \\
+  &= \left(\delta^T \left(\dot P^T - (1 + sumT(1+r))m \right) \ \right)\frac{P_0}{P_0-mP_0} +  \frac{\delta sum\mathcal{R}^w_N }{P_0-mP_0}  \\ 
+  &= \frac{\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right) }{1-m} +\frac{\delta sum\mathcal{R}^w_N }{(1-m)P_0}\label{revised}
+\end{align}
+Although this looks more complicated, there is only one change. It looks different from the original because the compounding effects has finally been made explicit.
+
+
+
+\section{in the bid price, how is the present-value deflator computed}
+
+Using the simplified version of equation~\ref{revised} we calculated  as Equation~\ref{eqn-bid-price} that the maximum bid that achieves the target return on the down payment is
+\begin{align*}
+P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \end{align*}
+
+Using the extended and corrected version this becomes
+\begin{align}
+P_B^{max} & \le    \frac{\delta sum\mathcal{R}^w_N } {(1 + sumT(1+r))r^{target}-\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right)} \label{eqn-bid-revised} \end{align}
+
+$\dot P^T$  is the expected rate of change in the market price over the term of the mortgage.
 \chapter{Firm model}
 Our treatment of the urban surplus which is central to this thesis, is illustrated in Figure~\ref{fig:Agglomeration-surplus}. In the lower left, we illustrate a single firm with decreasing returns to scale operating at its optimal scale, $n$. The thick diagonal line represents the effect of increasing the number of firms operating at the optimal scale. It is the constant returns (CRS) line. If congestion effects from bringing a large number of firms together were dominant, a city would exhibit decreasing returns to  scale,  $N$, and agglomeration would not occur. Research indicates that cities exhibit increasing returns to scale, illustrated by the upper line, which shows the city generating an increasing surplus as it grows, which is the increasing returns to scale case. The curvature of the line is determined by a function of the form $N^\gamma$, which we include in the production function for urban firms. 
 
@@ -231,42 +320,13 @@ we can select transportation costs. A transportation cost of 0.1  would give a d
 
 \end{enumerate}
 
-\begin{lstlisting}
-def __init__(self, width = 50, height = 1,  # ****
-             transport_cost_per_dist  = 0.1,    # c   ****
-             subsistence_wage         = 40000. # psi
-             working_periods          = 20,     # in years ****
-             savings_rate             = 0.2, ****
-            #  initial_savings: if agents save anything before reaching working age
-             init_wage_offer          = 10.,  #. Makes no sense  ****
-             init_interest_rate       = 0.05,
-
-             #AGGLOMERATION MODEL features  -20% wage premium over subsistence wage, Y=prefactor*N**scaling exponent
-             prefactor                = 0.2, # 251., ??????  ****. should be very large. I get 1507 
-             # Prefactor - should be much higher than YES scaling_factor           =   # this is A scaling_exponent         =  1.13 # this is beta in LOBO. ****
-             agglomeration_ratio      = 1.2,  # beta, was 
-             wage_share               = 1.0,  # of agglomer3ation benefits
-             workers_share            = 0.8   # emponent? in Slae models?
-             property_tax_annually    = 0.04, # tau, was c
-             mortgage_period          = 5.0,  # T, in years
-             housing_services_share   = 0.3,  # a
-             maintenance_share        = 0.2,  # b
-             r_prime                  = 0.05,
-             r_premium                = 0.005, ****
-            #  r_premium_bank = 0.00, # TODO: heterogenous discount rates and premiums
-             ):
-\end{lstlisting}
-
 \subsection{Workers share}
 The worker's of the surplus, $lambda$ It might be 0.8. It is used in...
 
 NOTE: 0.8 is the value of beta in a Cobb-Douglas, corresponding to the wage-share in production. It is the value used in Lobo et al
 
 
-
 \chapter{Market and bargaining model}
-
-
 \section{Maximum bids and reservation price for investors }.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
 There are two types of investment buyers: institutional buyers and homeowners buying an investment home. They use the same investment formula
 
@@ -544,20 +604,20 @@ At the same time, for each p. NOT. DONE
 P_{bank}^{reservation} & \le  P_{person}^{max\_bid} \end{eqnarray}
 
 
-\begin{lstlisting}
-# parameters - max interest payment 
-max_mortgage_share = 0.28 # ability to cover a mortgage
+% \begin{lstlisting}
+% # parameters - max interest payment 
+% max_mortgage_share = 0.28 # ability to cover a mortgage
 
-# Max mortgage
+% # Max mortgage
 
-wealth = property_value - mortgage + savings
-mean_weath = sum(wealth)/number_of_people
+% wealth = property_value - mortgage + savings
+% mean_weath = sum(wealth)/number_of_people
 
-def get_max_mortgage(self, applicant):
-    max_mortgage =  ...
+% def get_max_mortgage(self, applicant):
+%     max_mortgage =  ...
     
-    return max_mortgage
-\end{lstlisting}
+%     return max_mortgage
+% \end{lstlisting}
 
 
 

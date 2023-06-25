@@ -1,17 +1,15 @@
-
-
-
+\section{COMBINED PRICES - FILE}
 \subsection{Combined mortgage maximum permitted by the bank for new buyers and second home buyers}
 
 \begin{align} 
 M_i^{max} &= min \left\{ m_i^{max\_permitted}*P, \ M^{max\_permitted}_i \right\} 
 % &= min \left\{ \left(0.9- \left( \frac{W_i}{\bar W}\right)^{0.1}\right)P, \  \frac{0.28*(\omega+\psi)}{r_i} \right\}, 
-  \nonumber
+\nonumber
 \end{align}
 
 
-\section{Maximum bids and reservation price for investors}.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
- institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints .
+\subsection{Maximum bids and reservation price for investors}.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+institutional borrowers have no limit on their borrowing capacity ($m_i=1$). Existing owners face mortgage constraints .
 maximum bid price:
 
 \begin{eqnarray}\label{eqn-max-investment-bid}
@@ -21,7 +19,7 @@ P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \d
 
 \subsubsection{Maximum bid second house buyer}
 
- \begin{eqnarray}\label{eqn-max-second-bid}
+\begin{eqnarray}\label{eqn-max-second-bid}
 P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)}  \nonumber
 \end{eqnarray}
 
@@ -37,11 +35,11 @@ P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savin
 P_{investor}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \nonumber\end{eqnarray}
 
 
-\section{New buyer maximum bids and reservation prices }
+\subsection{New buyer maximum bids and reservation prices }
 
 There are two cases - moving as a buyer and moving as a renter.
 
-\subsection{Moving as a renter}
+\subsubsection{Moving as a renter}
 The gain for a potential renter is 
 \begin{align}
 gain^{rent}=&]
@@ -66,7 +64,7 @@ P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  
 \end{align}
 
 
-\subsection{reservation price for retirees}
+\subsection{Reservation price for retirees}
 Both owners and tenants retire. Homes only become available if they move to the country. 
 \subsubsection{A renter move to the country if} 
 \[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
