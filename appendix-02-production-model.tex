@@ -23,82 +23,40 @@ We set $\alpha_F$ and $\beta_F$ as a parameters, but will have to calculate a va
 In addition, there is an aggregate production function for the city from the scaling literature which we write $Y=AN^\beta$. $\beta$ is not the same as the value of $\beta_F$ in the firm's production function. We omit the subscript $C$ for city from  the aggregate production function.    
 
 
-\section{The adjustment process}
-The simplest version of our story is that the profit-maximizing price-taking firms make a decision to expand employment at a given wage. They do so because realized labour productivity is higher than expected,  a result of agglomeration effects.
-
-As price-takers, the firms are not aware that if they all increase labour demanded, wages must rise. We know the actual supply curve, however. It is constrained by the transportation cost. In our ABM with uniform density, population is simply the square of twice the distance that workers will travel for a given wage premium: $N=density*2(\omega/c)^2$.\footnote{the greatest distance  an agent will travel to work in the city is $\omega/c$. This results in an area of $2(\omega/c)^2$. (With the block metric for travel, the area is a square with a diagonal $2\omega/c$. using Pythagoras the side of the square is $\sqrt(2)\omega/c$ , and the given area.} Aggregate employment is then $N = Fn= density*2(\omega/c)^2$. Solving for $\omega$ in terms of $n$ gives us the urban labour supply curve, 
-
-\begin{figure}result of 
-    \centering
-   \begin{tikzpicture}[scale=.75]
-% \draw[style=help lines,step=0.5cm] (-4,-4) grid (4,4)        [step=0.5cm]; %   (1,2) grid +(1,1);
-% \node at (0,0){x};
- \draw[->] (-4,-4) -- (4.5,-4) node[right] {$N$};%
- \draw[] (-4,0)node[left] {$\omega_0$} -- (5,0);
-\draw[dashed] (-4,2)node[left] {$\omega_0^{target}$} -- (5,2);
-\draw[dashed] (2,-4)node[below] {$N^{target}$} -- (2,4);
-
- \draw[->] (-4,-4) -- (-4,4) node[above] {$\omega$};
-%  \draw[->,red] (8,0.05) -- (8,3.2) -- (0.1,3.2)node[left] {$F(X^*)$};
-
-\draw [ blue](-.85,4)node[above]{$MPL^{expected}$}-- (.65, -3); % 
-\draw [ blue,dashed](1,4)node[right]{$MPL^{realized}$} -- (2.8, -3);
-\draw [ ultra thick](-2,-2) -- (4, 4)node[right]{$N^S$}; 
-
-\draw[ red, ultra thick](0,0) -- (2,0)  -- (2,2)--(1.5,2) -- (1.5,1.5)--(1.75, 1.5) --(1.75, 1.7)-- (1.7,1.7);%--(1.7, 1.6)--(1.7, 1.6) ;% node[right] {$X$};  CYCLING
-    
- \end{tikzpicture}
-    \caption {Labour market adjustment}
-    \label{fig:cobweb}
-\end{figure}
-
-\begin{equation}
-   \omega^{target}_{t}= c\sqrt(\frac{F_{t-1}n^{target}_{t-1}}{2 * density})
-\end{equation}
-
-Adjustment of  the labour market can be modelled as a cobweb process, as illustrated in the simplified cobweb Figure~\ref{fig:cobweb}. It is clear from the figure that the result of the market adjustment is that firms will be able to hire fewer than they target at a higher wage than they had enjoyed. 
-
-\textbf{The slopes of the demand and supply curve would allow s to calculate the outcome. Both can be calculated  from the specified model. As a simple way of mimicking the market process we can simply calculate a partial adjustment, since we do not  expect a full equilibrium to be achieved in any period.}
-
-For example
-\begin{equation}
-   \omega_{t}= 0.5 \omega_{t-1} +0.5 \omega^{target}_{t}
-\end{equation}
-
-The number of firms will also adjust as firms increase their capital stock and reduce their labour force in response to rising labour costs. At the same time, increasing employment will shift the marginal productivity curve outward.
-
 \section{Where do we start?}
 In each period we have the size of the existing workforce $N$ and the number of firms $F$ and $k_t$. \footnote{We also inherit the size of the existing firms. We can simplify by firms do not change their capital stocks as wages change. This would be incorrect but would do as a first approximation.}
 
-\subsubsection{actual urban firms' employment} 
+\subsubsection{Actual urban firms' employment} 
 Aggregate labour supply is established by the process  above.  Available workers are divided among existing firms.   \begin{equation}
     n_t= \frac{N_t}{F_t} 
 \end{equation}
 
-From this, using the production function we can calculate the both output and  MPL
+From this, using the production function we can calculate the both output and  $MPL_t$.
 
 \textbf{urban firms' output}
 \begin{equation}
-    {y}_t=A_FN_t^\gamma k_t^{\alpha_F}n_t^{\beta_F}
+    {y}_t=A_FN_t^\gamma k_t^{\alpha_F}n_t^{\beta_F} \label{eqn-urban-firm-output}
 \end{equation}
 
 \textbf{urban firms'  marginal product of labour}
 \begin{equation}MPL_{t} = \frac{\beta_{F}{y}_{t}}{n_t}\end{equation} 
 
 This is used to calculate target employment.
-% \item[(urban firms' capital)] (May not be needed)
-% \[ K_{U,t}= \frac{\alpha}{\beta} \frac{n_{t-1}(\omega_{t-1}+\phi)}{r}\]
+
 Firms observe their output, ${y}_t$ and find their $MPL_t$. They want to adjust labour so that the $MPL_t$ is equal to the wage. 
 
+\textbf{urban firms'  marginal product of capital} 
+\begin{equation} MPK_t = \frac{\alpha_{F}{y}_{t}^{target}}{k_{t}}\end{equation} 
+This is used to calculate target capital stock and the number of new firms.
 
 
+\section{Planning for the next period}
 
- \section{planning for the next period}
-
-\subsubsection{urban firms' target employment for $t+1$} Firms examine their own output and marginal product of labour, all calculated with values determined in the previous period. 
+\subsubsection{Urban firms' target employment for $t+1$} Firms examine their own output and marginal product of labour, all calculated with values determined in the previous period. 
 Following the  optimality rule, for profit maximizing firms, MPL should equal the wage, $MPL_t= {\omega_t + \psi}$, however it doesn't because urban output includes the urban agglomeration effect. Effectively firms, are surprised. They take into account the effect due their own increase in labour. They don't take into account the overall effect on  productivity increase  through $N^\gamma$ due to every other firm increasing their labour force at the same time.
 Firms thus compute a target value for $n_{t+1}$ based on the realized output  assuming the current wage. % They act like they are not changing the labour market by hiring more, however all firms hiring will actually affect the required wage, and they'll have to go back to revisit it. This uses simple equations to capture the dynamics of an itterative market process. 
-\begin{equation} n^{target}_{t+1}= \frac{\beta_F {y}_{t}}{\omega_t + \psi} \end{equation}
+\begin{equation} n^{target}_{t+1}= \frac{\beta_F {y}_{t}}{\omega_t + \psi} \label{eqn-urban-firm-target}
+\end{equation}
 
 
 %\subsubsection{number of firms}  Firm formation uses current variables to set number of firms for the next period. Decisions to enter or leave in the next period are based on current values. 
@@ -109,37 +67,143 @@ Firms thus compute a target value for $n_{t+1}$ based on the realized output  as
 % \end{equation}
 
 
-\textbf{urban firms' target capital for $t+1$} 
-Firms also find their marginal product of capital, $MPK_t$ which should equality the cost of capital, $r$. 
-\begin{equation}r= \frac{\alpha_{F}{y}_{t}}{k_{t}}\end{equation} 
+\textbf{Urban firms' target capital for $t+1$} 
 
-Where $y$ is calculated using $n^{target}_{t+1}$
-and adjust the capital stock so that the MPK$_t$ is equal to r. 
+Firms also find their marginal product of capital, $MPK_t$ which should equality the cost of capital, $r_F$. % and adjust the capital stock so that the MPK$_t$ is equal to $r_F$. 
 
-\begin{equation}k_{t+1}^{target}= \frac{\alpha_{F}{y}^{target}_{t}}{r}\end{equation} 
-in period t should be based on planned output rather than the labour available in the period, so we begin with the marginal productivity of labour equation, 
+\begin{equation}k_{t+1}^{target}= \frac{\alpha_{F}{y}^{target}_{t}}{r_F}\end{equation},
+
+
+
+using a new output, $y_t^{target}$, which is calculated using $n^{target}_{t+1}$. % into Equation~\ref{eqn-urban-firm-output}.
+
+It is based on planned output using planned labour rather than the labour available in the period, so we begin with the marginal productivity of labour equation, 
 which gives us 
 
 
 
-\subsubsection{aggregate urban labour demand of existing firms $N_{F,t+1}^{target}$} 
+\subsubsection{Aggregate urban labour demand of existing firms $N_{t+1}^{target}$} 
 
-\begin{equation}N_{F,t+1}^{target} = \frac{n^{target}_{t+1}}{n_{t}} N_t\end{equation}   
+The firms are identical, so the aggregate urban labour demand for existing firms increases in proportion to firm labour demand:
+
+\begin{equation}N_{t+1}^{target} = \frac{n^{target}_{t+1}}{n_{t}} N_t\end{equation}   
  % (This should be the same result as  multiplying $n^{target}_{t+1} \times F_{t} $.)
 
 % Y is produced with the year's realized workforce.
 
+\subsubsection{Additional urban labour demand for new firms}
+If \[ MPK_t > r_F \] firms are making a profit and standard micro theory tells us new firms will enter the market. Theory tells us nothing about how many except that this adjustment will almost certainly be much slower than the adjustment of the labour market adjustment rate, $\frac{n^{target}_{t+1}}{n_{t}}$. If we (arbitrarily) assume the rate is 0.25  of the labour market adjustment rate, 
+\begin{equation}
+F_{t+1}= 0.25\frac{n^{target}_{t+1}}{n_{t}}F_t
+\end{equation} 
+The value 0.25 is a measure of the ease of entry into the market.
+ 
 
-{\color{red}}
-\subsubsection{New entrant labour demand,  $n\Delta F$} Firms enter when $MPL > wage$, which with existing technology permits profit making. New firms would set the same target employment as existing firms. 
-\begin{equation}n\Delta F =Z\frac{MPL_t-\omega_t -\psi}{\omega_t +\psi}F n^{target}_{t+1}\end{equation}
-This makes sense because the number of entrants as a fraction of the existing number of entrants should be larger when the profit margin is larger. New firms would set the same target employment as existing firms and 
 
-\subsubsection{Aggregate urban labour demand of existing firms $N_{Total,t+1}^{target}$} 
-\[N_{Total,t+1}^{target}= N_{F,t+1}^{target}+n\Delta F\]
+\subsubsection{Total aggregate urban labour demand of existing and new firms $N_{T,t+1}^{target}$} 
+Total labour demand will be
+\begin{equation}N_{total,t+1}^{target} = 1.25\frac{n^{target}_{t+1}}{n_{t}} N_t\end{equation}  
+
+Target employment is used in  calculating  next period employment and wage premium .
+\section{The adjustment process}
+In conventional economic analysis of markets with many firms, in order to compute an equilibrium, firms are treated as price takers. In an ABM equilibrium is not imposed. Realistically, firms must raise their wage offer to get more workers. New workers have to be induced to enter the market. We do not model the wage bargaining process, however. We simply introduce a plausible adjustment process that takes account of both the firm's demand and the actual supply constraints.  
+
+%Given target labour demand, firm numbers, firms must adjust the wage to bid for new workers.
+
+The simplest version of our story is that the profit-maximizing price-taking firms make a decision to expand employment at a given wage. They do so because realized labour productivity is higher than expected,  a result of agglomeration effects.
+
+%To capture the iterative dynamics of the market, 
+% Individual firms have limited market power and we model of them as thinking of themselves as price-takers. 
+Firms need not take into account that if they all increase labour demanded, wages must rise. We know that the actual supply curve, however, is constrained by the transportation cost. In our ABM with uniform density, population is simply the square of twice the distance that workers will travel for a given wage premium: $N=density*2(\omega/c)^2$.\footnote{The greatest distance  an agent will travel to work in the city is $\omega/c$. This results in an area of $2(\omega/c)^2$. With the block metric for travel, the area is a square with a diagonal length of $2\omega/c$. Using Pythagoras the side of the square is $\sqrt(2)\omega/c$, and the given area is the square of that value.} %Aggregate target employment is then $N_{t+}^{target} = F_t^{target} n_t^{target}= density*2(\omega/c)^2$. 
+Solving for $\omega$ in terms of $N$, %=F_{t+1}^{target} n_{t+1}^{target}$ 
+gives us the target urban labour supply curve, 
+
+\begin{equation}
+   \omega^{target}_{t+1}= c\sqrt(\frac{N^{target}_{t+1}}{2 * density})
+\end{equation}
+
+\begin{figure}
+    \centering
+   \begin{tikzpicture}[scale=.75]
+% \draw[style=help lines,step=0.5cm] (-4,-4) grid (4,4)        [step=0.5cm]; %   (1,2) grid +(1,1);
+% \node at (0,0){x};
+ \draw[->] (-4,-4) -- (4.5,-4) node[right] {$N$};%
+ \draw[] (-4,0)node[left] {$\omega_t$} -- (5,0);
+\draw[dashed] (-4,2)node[left] {$\omega_{t+1}^{target}$} -- (3.5,2);
+\draw[dashed] (2,-4)node[below] {$N_{t+1}^{target}$} -- (2,3.5);
+
+ \draw[->] (-4,-4) -- (-4,4) node[above] {$\omega$};
+%  \draw[->,red] (8,0.05) -- (8,3.2) -- (0.1,3.2)node[left] {$F(X^*)$};
+
+\draw [ blue](-.85,4)node[above]{$MPL^{expected}$}-- (.65, -3); % 
+\draw [ blue, dashed](1,4)node[above right]{$MPL^{realized}$} -- (2.8, -3);
+\draw [ ultra thick](-2,-2) -- (4, 4)node[below right]{Labour supply}; 
+
+\draw[ red, ultra thick](0,0) -- (2,0)  -- (2,2)--(1.5,2) -- (1.5,1.5)--(1.75, 1.5) --(1.75, 1.7)-- (1.7,1.7);%--(1.7, 1.6)--(1.7, 1.6) ;% node[right] {$X$};  CYCLING
+    
+ \end{tikzpicture}
+    \caption {Labour market adjustment}
+    \label{fig:cobweb}
+\end{figure}
+
+
+
+Adjustment of  the labour market can be modelled as a cobweb process, as illustrated in the simplified cobweb Figure~\ref{fig:cobweb}. It is clear from the figure that the result of the market adjustment is that firms will be able to hire fewer than they target at a higher wage than they had enjoyed. 
+
+\textbf{The slopes of the demand and supply curve would allow us to calculate a precise  outcome up. Both can be calculated  from the specified model. As a simple way of mimicking the market process we can simply calculate a partial adjustment, since we do not  expect a full equilibrium to be achieved in any period.}
+
+For example
+\begin{equation}
+   \omega_{t+1}= 0.25 \omega_{t} +0.75 \omega^{target}_{t+1}
+\end{equation}
+where the value 0.75 is intended 
+
+\begin{figure}
+    \centering
+   \begin{tikzpicture}[scale=.75]
+% \draw[style=help lines,step=0.5cm] (-4,-4) grid (4,4)        [step=0.5cm]; %   (1,2) grid +(1,1);
+% \node at (0,0){x};
+ \draw[->] (-4,-4) -- (4.5,-4) node[right] {$N$};%
+ \draw[] (-4,0)node[left] {$\omega_t$} -- (5,0);
+\draw[dashed] (-4,2)node[above left] {$\omega_{t+1}^{target}$} -- (3.5,2);
+
+\draw[dashed, thick, red, latex-] (-4,1.5)node[ left] {$\omega_{t}^{estimated}$} -- (1.2,1.5); %NEW
+\draw[dashed] (2,-4)node[below] {$N_{t+1}^{target}$} -- (2,3.5);
+
+ \draw[->] (-4,-4) -- (-4,4) node[above] {$\omega$};
+%  \draw[->,red] (8,0.05) -- (8,3.2) -- (0.1,3.2)node[left] {$F(X^*)$};
+
+\draw [ blue!30](-.85,4)node[above]{$MPL^{expected}$}-- (.65, -3); % 
+\draw [ blue!30, dashed](1,4)node[above right]{$MPL^{realized}$} -- (2.8, -3);
+\draw [ ultra thick](-2,-2) -- (4, 4)node[below right]{Labour supply}; 
+
+\draw[ red!30, ultra thick](0,0) -- (2,0)  -- (2,2)--(1.5,2) -- (1.5,1.5)--(1.75, 1.5) --(1.75, 1.7)-- (1.7,1.7);%--(1.7, 1.6)--(1.7, 1.6) ;% node[right] {$X$};  CYCLING
+    
+ \end{tikzpicture}
+    \caption {Labour market adjustment}
+    \label{fig:cobweb2}
+\end{figure}
+
+We could  directly calculate aggregate labour demand:
+\begin{equation}
+  N_{t+1}= \frac {\omega_{t-1}} {\omega_{t}} N_t
+\end{equation}
+
+However, in the agent model the agents decide whether to work in the urban market individually, considering the wage and transportation costs.
+
+
+\subsubsection{New firm labour demand,  $N_{new, t+1}$} 
+The number of firms will also adjust as well for the following period.\footnote{There are additional second-order adjustments we could consider. Firms will increase their capital stock and reduce their labour force in response to rising labour costs. At the same time, increasing employment will shift the marginal productivity curve outward.}
+Firms enter when $MPL$ is greater than the wage, %, $MPL > wage$, which with existing technology 
+permitting profit making with existing technology. For simplicity, new firms set the same target employment as existing firms. 
+\begin{equation}N_{new, t+1}^{target} = n_{t+1}^{target} F_{new, t+1} = n_{t+1}^{target}Z\frac{MPL_t- (\omega_t + \psi)}{\omega_t +\psi}F_{t}\end{equation}
+where $Z\in\{0\dots\infty\}$ is an adjustment parameter. The number of entrants as a fraction of the existing number of firms is larger when the profit margin is larger.
+
+\subsubsection{Aggregate urban labour demand $N_{total,t+1}^{target}$} 
+\[N_{total,t+1}^{target}= N_{t+1}^{target}+N_{new, t+1}^{target} \]
 
 \subsubsection{Number of firm adjustment} 
-\[F_{t+1}=\frac{N_{Total,t+1}^{target}}{n^{target}_{F,t+1}}\] 
+\[F_{t+1}=\frac{N_{total,t+1}^{target}}{n^{target}_{t+1}}\] 
 This adjusts over time, keeping the firm labour force near the optimal level. 
 
 \color{blue}
