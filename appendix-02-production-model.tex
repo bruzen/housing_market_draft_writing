@@ -52,6 +52,11 @@ This is used to calculate target capital stock and the number of new firms.
 
 \section{Planning for the next period}
 
+
+\subsubsection{Aggregate urban labour demand $N_{total,t+1}^{target}$} 
+\[N_{total,t+1}^{target}= N_{t+1}^{target}+N_{new, t+1}^{target} \]
+
+
 \subsubsection{Urban firms' target employment for $t+1$} Firms examine their own output and marginal product of labour, all calculated with values determined in the previous period. 
 Following the  optimality rule, for profit maximizing firms, MPL should equal the wage, $MPL_t= {\omega_t + \psi}$, however it doesn't because urban output includes the urban agglomeration effect. Effectively firms, are surprised. They take into account the effect due their own increase in labour. They don't take into account the overall effect on  productivity increase  through $N^\gamma$ due to every other firm increasing their labour force at the same time.
 Firms thus compute a target value for $n_{t+1}$ based on the realized output  assuming the current wage. % They act like they are not changing the labour market by hiring more, however all firms hiring will actually affect the required wage, and they'll have to go back to revisit it. This uses simple equations to capture the dynamics of an itterative market process. 
@@ -104,7 +109,27 @@ The value 0.25 is a measure of the ease of entry into the market.
 Total labour demand will be
 \begin{equation}N_{total,t+1}^{target} = 1.25\frac{n^{target}_{t+1}}{n_{t}} N_t\end{equation}  
 
-Target employment is used in  calculating  next period employment and wage premium .
+Target employment is used in  calculating  next period employment and wage premium.
+
+We could  directly calculate aggregate labour demand:
+\begin{equation}
+  N_{t+1}= \frac {\omega_{t-1}} {\omega_{t}} N_t
+\end{equation}
+
+However, in the agent model the agents decide whether to work in the urban market individually, considering the wage and transportation costs.
+
+
+\subsubsection{New firm labour demand,  $N_{new, t+1}$} 
+The number of firms will also adjust as well for the following period.\footnote{There are additional second-order adjustments we could consider. Firms will increase their capital stock and reduce their labour force in response to rising labour costs. At the same time, increasing employment will shift the marginal productivity curve outward.}
+Firms enter when $MPL$ is greater than the wage, %, $MPL > wage$, which with existing technology 
+permitting profit making with existing technology. For simplicity, new firms set the same target employment as existing firms. 
+\begin{equation}N_{new, t+1}^{target} = n_{t+1}^{target} F_{new, t+1} = n_{t+1}^{target}Z\frac{MPL_t- (\omega_t + \psi)}{\omega_t +\psi}F_{t}\end{equation}
+where $Z\in\{0\dots\infty\}$ is an adjustment parameter. The number of entrants as a fraction of the existing number of firms is larger when the profit margin is larger.
+
+\subsubsection{Number of firm adjustment} 
+\[F_{t+1}=\frac{N_{total,t+1}^{target}}{n^{target}_{t+1}}\] 
+This adjusts over time, keeping the firm labour force near the optimal level. 
+
 \section{The adjustment process}
 In conventional economic analysis of markets with many firms, in order to compute an equilibrium, firms are treated as price takers. In an ABM equilibrium is not imposed. Realistically, firms must raise their wage offer to get more workers. New workers have to be induced to enter the market. We do not model the wage bargaining process, however. We simply introduce a plausible adjustment process that takes account of both the firm's demand and the actual supply constraints.  
 
@@ -184,33 +209,11 @@ where the value 0.75 is intended
     \label{fig:cobweb2}
 \end{figure}
 
-We could  directly calculate aggregate labour demand:
-\begin{equation}
-  N_{t+1}= \frac {\omega_{t-1}} {\omega_{t}} N_t
-\end{equation}
-
-However, in the agent model the agents decide whether to work in the urban market individually, considering the wage and transportation costs.
-
-
-\subsubsection{New firm labour demand,  $N_{new, t+1}$} 
-The number of firms will also adjust as well for the following period.\footnote{There are additional second-order adjustments we could consider. Firms will increase their capital stock and reduce their labour force in response to rising labour costs. At the same time, increasing employment will shift the marginal productivity curve outward.}
-Firms enter when $MPL$ is greater than the wage, %, $MPL > wage$, which with existing technology 
-permitting profit making with existing technology. For simplicity, new firms set the same target employment as existing firms. 
-\begin{equation}N_{new, t+1}^{target} = n_{t+1}^{target} F_{new, t+1} = n_{t+1}^{target}Z\frac{MPL_t- (\omega_t + \psi)}{\omega_t +\psi}F_{t}\end{equation}
-where $Z\in\{0\dots\infty\}$ is an adjustment parameter. The number of entrants as a fraction of the existing number of firms is larger when the profit margin is larger.
-
-\subsubsection{Aggregate urban labour demand $N_{total,t+1}^{target}$} 
-\[N_{total,t+1}^{target}= N_{t+1}^{target}+N_{new, t+1}^{target} \]
-
-\subsubsection{Number of firm adjustment} 
-\[F_{t+1}=\frac{N_{total,t+1}^{target}}{n^{target}_{t+1}}\] 
-This adjusts over time, keeping the firm labour force near the optimal level. 
-
 \color{blue}
     \subsubsection{Wage adjustment for NEW workers} 
 Firms want to increase output so they bid for new workers
 \begin{equation}wage_t^{new}= (1-adj_\omega)\omega_{t-1} + adj_\omega MPL_{t-1}  +\psi\end{equation}
-where $adj_\omega$ s the speed at which the wage (i.e., the wage the firm would offer for NEW workers) adjusts toward the Marginal product of labour for the firm]
+where $adj_\omega$ is the speed at which the wage (i.e., the wage the firm would offer for NEW workers) adjusts toward the Marginal product of labour for the firm]
 \subsubsection{Wage adjustment for EXISTING workers }
 Existing workers demand catch-up increases in wages
 
