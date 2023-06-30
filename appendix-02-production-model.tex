@@ -114,22 +114,31 @@ The firms are identical, so the aggregate urban labour demand for existing firms
 % Y is produced with the year's realized workforce.
 
 \subsubsection{Additional urban labour demand for new firms}
-If  $MPK_t > r_F$  firms are making a profit and standard micro theory tells us new firms will enter the market $dF/dt >0$. The converse is true as well: $MPK_t > r_F \rightarrow dF/dt <0$. Theory tells us nothing about how many except that this adjustment will almost certainly be much slower than the adjustment of the labour market adjustment rate, $\frac{n^{target}_{t+1}}{n_{t}}$. If we (arbitrarily) assume the rate is 0.25  of the labour market adjustment rate, 
-\begin{equation}
-F_{exist,t+1}= 0.25\frac{n^{target}_{t+1}}{n_{t}}F_t
-\end{equation} 
-The value 0.25 is a measure of the ease of entry into the market.
- 
+If  $MPK_t > r_F$  firms are making a profit and standard micro theory tells us new firms will enter the market $dF/dt >0$. The converse is true as well: $MPK_t > r_F \rightarrow dF/dt <0$. Theory tells us nothing about how many except that this adjustment will almost certainly be much slower than the adjustment of the labour market adjustment rate, $\frac{n^{target}_{t+1}}{n_{t}}$. If we (arbitrarily) assume the rate is 0.25  of the target growth rate of the labour force,
+% \begin{equation}
+% F_{exist,t+1}= 0.25\frac{n^{target}_{t+1}}{n_{t}}F_t
+% \end{equation} 
 
+ \begin{equation}
+F_t^{target}= \frac{n^{target}_{t+1}}{n_{t}}F_t
+\end{equation} 
+\begin{equation}
+F_{t+1}= (1-0.25)F_t + 0.25F_t^{target}
+\end{equation} 
+The value 0.25 is a measure of the ease of entry into the market.\footnote{We could replace .25 with a more complex function that responded to a proxy for profits, such as $Z=\frac{MPL-(\omega+\psi)}{\omega+\psi}$}
 
 \subsubsection{Total aggregate urban labour demand of existing and new firms $N_{T,t+1}^{target}$} 
-Total labour demand will be\footnote{We could  directly calculate aggregate labour demand:
+Total labour demand will be
+\footnote{We could  directly calculate aggregate labour demand:
 \begin{equation}
-  N_{total,t+1}^{target}= \frac {\omega_{t-1}} {\omega_{t}} N_t \nonumber
+  N_{total,t+1}^{target}= 
+  \frac {\omega_{t-1}} {\omega_{t}} N_t \nonumber
 \end{equation}
 However, in the agent model the agents decide whether to work in the urban market individually, considering the wage and transportation costs.
 }
-\begin{equation}N_{total,t+1}^{target} = 1.25\frac{n^{target}_{t+1}}{n_{t}} N_t\end{equation}  
+
+\begin{equation}
+N_{total,t+1}^{target} = F_{t+1}n^{target}_{t+1}\end{equation}  
 
 % Target employment 
 % This is used in bellow to calculate next period employment and wage premium.
@@ -137,12 +146,8 @@ However, in the agent model the agents decide whether to work in the urban marke
 
 
 
-\subsubsection{New firm labour demand,  $N_{new, t+1}$} 
-The number of firms will also adjust for the following period.\footnote{There are additional second-order adjustments we could consider. Firms will increase their capital stock and reduce their labour force in response to rising labour costs. At the same time, increasing employment will shift the marginal productivity curve outward.}
-Firms enter when $MPL$ is greater than the wage, %, $MPL > wage$, which with existing technology 
-permitting profit making with existing technology. For simplicity, new firms set the same target employment as existing firms. 
-\begin{equation}N_{new, t+1}^{target} = n_{t+1}^{target} F_{new, t+1} = n_{t+1}^{target}Z\frac{MPL_t- (\omega_t + \psi)}{\omega_t +\psi}F_{t}\end{equation}
-where $Z\in\{0\dots\infty\}$ is an adjustment parameter. The number of entrants as a fraction of the existing number of firms is larger when the profit margin is larger.
+\footnote{There are additional second-order adjustments we could consider. Firms will increase their capital stock and reduce their labour force in response to rising labour costs. At the same time, increasing employment will shift the marginal productivity curve outward.}
+
 
 \subsubsection{Number of firm adjustment} 
 \begin{equation}
@@ -164,8 +169,14 @@ Solving for $\omega$ in terms of $N$, %=F_{t+1}^{target} n_{t+1}^{target}$
 gives us the target urban labour supply curve, 
 
 \begin{equation}
-   \omega= c\sqrt{\frac{N}{2 * density}}
+   \omega= c\, \sqrt{\frac{N}{2 * density}}
 \label{eqn:Labour-supply}\end{equation}
+
+For a given $N^{target}$ we can calculate the required wage premium
+\begin{equation}
+   \omega^{required}= c\, \sqrt{\frac{N^{target}}{2 * density}}
+\label{eqn:Labour-supply}\end{equation}
+
 
 \begin{figure}
     \centering
@@ -174,7 +185,7 @@ gives us the target urban labour supply curve,
 % \node at (0,0){x};
  \draw[->] (-4,-4) -- (4.5,-4) node[right] {$N$};%
  \draw[] (-4,0)node[left] {$\omega_t$} -- (5,0);
-\draw[dashed] (-4,2)node[left] {$\omega_{t+1}^{target}$} -- (3.5,2);
+\draw[dashed] (-4,2)node[left] {$\omega_{t+1}^{required}$} -- (3.5,2);
 \draw[dashed] (2,-4)node[below] {$N_{t+1}^{target}$} -- (2,3.5);
 
  \draw[->] (-4,-4) -- (-4,4) node[above] {$\omega$};
@@ -198,7 +209,7 @@ Adjustment of the labour market can be modelled as a cobweb process, as illustra
 Additional computations would allow us to find an exact adjustment-to-equilibrium value, but in ABMs we  do not impose equilibrium conditions or expect equilibrium to be achieved in any period. Furthermore, retaining the partial adjustment parameter gives us additional control of the adjustment dynamics.} 
 
 \begin{equation}
-\omega_{t+1}= (1-adj)\omega_{t} + adj\ \omega^{target}_{t+1}
+\omega_{t+1}= (1-adj)\omega_{t} + adj\ \omega^{required}_{t+1}
 \end{equation}
 where $0\le adj \le 1$ is the partial adjustment factor coefficient
 .\footnote{We could implement the wage adjustment in a more sophisticated way. For instance, the wage the firm would offer new workers may adjust toward the marginal product of labour for the firm: % while exiting workers' wages are unchanged:
@@ -320,9 +331,11 @@ We will assume that this is a constant used for both rural and urban production 
 \end{description}
 % \textbf{NOTE: With the initial values calculated in this section $\omega$ is consistent with $N_0$.as a result, population should not grow.}
 
-\begin{quotation} \color{orange}
+% \begin{quotation} 
+
 \section{Firm level production}  
- \textbf{This section includes numerical examples. It has been commented out}
+ \textbf{This section includes numerical examples.% It has been commented out
+ }
 (This is incorporated above.) We want the marginal product of labour in the rural economy at the firm level to be at least close to \$40,000.  We can create a generic rural firm and then consider an urban firm with agglomeration effects to get the parameters we need. 
 
 Firm employment $L$ is small relative to  urban employment {N}. Assume it is 100 workers. 
@@ -331,8 +344,7 @@ Assume that the rural production function is
 
 \[ Y_{iF}^R=A_{F} K^{\alpha_F} L_F^{\beta_F} \]
 
-where $Y$ is the value of output, $L_F=n*\psi$, $K=r*k$
-.\footnote{These values give us diminishing marginal product at the firm level. If we require product exhaustion we have factor shares of  0.8 and 0.2.The tricky point is that factor share are 
+where $Y$ is the value of output, $L_F=n*\psi$, $K=r*k$.\footnote{These values give us diminishing marginal product at the firm level. If we require product exhaustion we have factor shares of  0.8 and 0.2 .The tricky point is that factor share are 
  $\frac{\alpha}{\alpha + \beta}$ and $\frac{\beta}{\alpha + \beta}$
 (*If not there is surplus profit  which we will ignore.)}
 Further assume that $\alpha_F=0.18 $,  and $\beta_F=0.76$. Notice that the value-MPL is the partial derivative with respect to $n$ and not L. 
@@ -354,12 +366,13 @@ A_F= \frac{Y_F}{K^{\alpha_F} L^{\beta_F}}=\frac{5,555,000}
 %
 $A_F$ can be computed using equation~\ref{eqn-AR} for any set of coefficients and firm size.\footnote{Furthermore, we can compute the output for a city of size N if it consists of $N/n$ firms of this type. With a population of, for example 10,000. Based on the model of the rural firm above,   there would have to be  100 firms and an output of \$555,555,600$N^\gamma$. This is offered simply to see if the initial values we work with are plausible.}
 
+
+\color{orange}
  \subsubsection{The urban level of production}
 % \textbf{This section now redundant and has been commented out}
 We now consider a firm with the same production function that operates in the city and enjoys  urban agglomeration benefits as an externality. The value of the  marginal product of labour must rise to $\psi+\omega$. We to know  the urban wage premium that is consistent with the subsistence wage. \footnote{Papageorgiou \cite{papageorgiouOccupationalMatchingCities2022} found a 4.1\% premium. D'costa and Overman   show that working in London is associated with a 35.5\% higher wage than working in a rural area. The comparable figures are 10.6\% for big cities and 8.3\% for small cities and an elasticity of wages with respect to city size of 1.6\%.. Estimates of the premium are lower  when controlling for individual city characteristics.}   
 
 If the scale coefficient =.12 $=\omega$ would be $1.12*\psi$, or $4,800$.
-
 
 We need to have a population size or a number of firms with a firm size. Assume the population is 10,000 and firms still have 100 workers. (All firms will have the same marginal product of labour in a competitive labour market, so using a representative firm should not affect our calculated values .)
 
@@ -371,15 +384,16 @@ The marginal product of labour is
 so $N^\gamma= 1.12$ and $\gamma = \frac{log(1.12)}{log(10,000)} =.012$. 
 
 {\color{red}
-To get a  $\gamma$  consistent with an empirical  value for  the wage premium  $\omega/\psi$\%, 
+To get a  $\gamma$  consistent with an empirical  value for  the wage premium  $\omega / \psi$, 
 \begin{equation}
-\gamma= \frac{log(1+\omega/\psi)}{log(N_0)}\label{eqn:gamma-define}\end{equation}
+\gamma= \frac{log(1+\omega/\psi)}{log(N_0)}\label{eqn:gamma-define}
+\end{equation}
 }
 
-This value is consistent with an empirical  value for  beta_city (the urban scale exponent) of $\beta =  1.012$. The value is much lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one , the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
+This value is consistent with an empirical  value for  beta city (the urban scale exponent) of $\beta =  1.012$. The value is much lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one , the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
 
 % A second interesting possible implication of our calculation is that only part of the agglomeration effect appears in wages. Urban rents  are large, but agglomeration effects are much larger.
-\end{quotation}
+% \end{quotation}
 
 
 
