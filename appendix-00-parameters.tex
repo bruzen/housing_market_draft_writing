@@ -1,6 +1,20 @@
 \chapter[Model Implementation]{Model Implementation}
-\textbf{May 29 -- added: T, a, b, d}
-\section{Setting up the model:\newline parameters and initial values}
+\textbf{June 29 --}
+
+Teminology: Y=prefactor*N**scaling\_exponent
+
+beta\_firm.  can be called the firm labour exponent
+
+beta  (no subscript).  can be called the  (labour) scaling  exponent
+
+alpha\_firm.   can be called the firm capital exponent
+
+
+A\_firm = 53.34721 = scale factor for  firm. 
+
+A\_city =  ????? = prefactor for city
+
+\section{Setting up the model: parameters and initial values}
 % It is convenient to set up the model using initial values that are close to equilibrium values 
 % For some variables, we choose arbitrarily starting values that seem resonable, because that makes it possible to check that variables that follow from computation also seem resonable, as a kind of informal sanity check.
 It is helpful if initial values are somewhat `realistic' to assess whether model behaviour is plausible. 
@@ -63,7 +77,7 @@ We start with firm labour forces  being equal at $n$.
 \subsubsection{City}
 \begin{description}
 \item [density] workers per lot, maybe 100 initially, Combined with the city extent, $f$, this gives suburban population. % A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. 
-Notice we can set density individually for each cell in the grid, so density is really a vector variable.  % Also explore a density of 1 with a higher seed population.
+Notice that in the ABM we can set density individually for each cell in the grid, so density is really a vector variable.  % Also explore a density of 1 with a higher seed population.
 \item [seed population] $P_0=0$. % An initial population at the center that anchors the population. % We need to seed it with an initial core urban Cities aren't unseeded. Zero initially, adjustable to get reasonable behaviour or to explore additional factors such as a service population or a retired population. 
 \item [baseline population]  $N_0=\mathrm{density} * f_0 * f_0 + P_0$ 
 \begin{lstlisting}
@@ -77,7 +91,8 @@ Notice we can set density individually for each cell in the grid, so density is 
 
 
 \item [initial wage premium ratio] $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
-\item [worker share of urban agglomeration surplus] 0.72 or 0.8 $\lambda=\beta_F$ (Workers are getting the same share of the surplus and they do of output with no agglomeration effects.)
+
+\item [worker share of urban agglomeration surplus] 0.72 or 0.8 $\lambda=\beta_F$ (Workers are getting the same share of the surplus as they do of output with no agglomeration effects.) 
 \item [urban agglomeration coefficient $\beta$ = 1.12] for the city: elasticity of urban output with respect to population (empirical)
 
 \item [scaling adjustment factor] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. BAD NAME. ****
@@ -132,19 +147,27 @@ to about 10\% (see Fig. 4) neat 65 years of age and more rapidly if risk aversio
 \end{description}
 
 \subsubsection{Firm}
+We use a Cobb-Douglas production function $Y=A_F k_F^\alpha  n_F^\beta$ with diminishing returns to scale. 
+
 \begin{description}
+
+\item [scale factor $A_F$] = 53.34721 (computed in production appendix.)
+
+\item  [alpha\_firm  $\mathbf{\alpha_F}$] = 0.18 (typically 0.2 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects),  for a single firm with a production function $Y_{Fi}=A_F K_i^{\alpha_F }L^{\beta_F}_i$ (empirical range =)\footnote{According to Vollrath,``In the U.S. from 1948-1995 the capital elasticity bounds were 0.18-0.33, and rose to 0.21-0.39 in 1995-2018.''\cite{vollrathElasticityAggregateOutput2021} Vollrath also found that the capital elasticity in the private business sector is 0.09-0.28 from 1948-1995, and 0.16-0.33 from 1995-2018, and it is lower if intellectual capital is excluded.}
+
+\item  [beta\_firm $\mathbf{\beta_F}$] = 0.72 (typically 0.8 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects). Also called the elasticity of output with respect to labour for a single firm. (empirical)\footnote{Douglas  obtained a result for the exponent of labour of 0.75—which was subsequently confirmed by the National Bureau of Economic Research to be 0.741. Lower values  are associated with stronger decreasing returns to scale for the firm in our model.} 
+\item [initial workforce of a standard rural firm] $n_R=100$. This is constant in our modeling. 
+
 \item [initial workforce of a standard urban firm] $n_0=n$.  The urban firm workforce will evolve over time: $n_{Ut}$. 
 
 \item [price of output] = 1. (If you wanted to be able to vary this, you would put a price parameter in front the % of marginal products. 
 \gls{marginal product of labour}. %pMPL)
 
 \item [firm cost of capital] $r = 0.05$ or 5\%.
-
-\item [initial wage premium]  \[\omega_0 = p \psi\] where $p$ is the wage premium ratio.
-
-\item  [$\mathbf{\alpha_F}$] = 0.18 (typically 0.2 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects),  for a single firm with a production function $Y_{Fi}=A_F K_i^{\alpha_F }L^{\beta_F}_i$ (empirical range =)\footnote{``In the U.S. from 1948-1995 the capital elasticity bounds were 0.18-0.33, and rose to 0.21-0.39 in 1995-2018.'' Dietrich Vollrath, (2021) The Elasticity of Aggregate Output with Respect to Capital and Labor. They also found that the capital elasticity in the private business sector is 0.09-0.28 from 1948-1995, and 0.16-0.33 from 1995-2018, and it is lower if intellectual capital is excluded.}
-
-\item  [$\mathbf{\beta_F}$] = 0.72 (typically 0.8 in macro models, but empirically values are lower, and lower values leave room for agglomeration effects). Also called the elasticity of output with respect to labour for a single firm. (empirical)\footnote{Douglas  obtained a result for the exponent of labour of 0.75—which was subsequently confirmed by the National Bureau of Economic Research to be 0.741. Lower values  are associated with stronger decreasing returns to scale for the firm in our model.} 
+\item[wage premium ratio $p$] is the 
+\item [initial wage premium]  
+\[\omega_0 = p \psi\] 
+where $p$ is the wage premium ratio. If it is 0.2, then $\omega_0= 0.2*\psi =\$8000$ and the urban wage is 1.2 times the rural wage.
 
 \item [wage adjustment coefficient for new workers ] $adj^{new}_\omega=.5$
 
