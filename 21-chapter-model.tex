@@ -317,11 +317,13 @@ In the model, agents learn or set these values with the support of a real estate
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 
-{\color{red}
+
 \subsection{Warranted rent} \label{section-waranted-rent}
-We anchor our housing price expectations in \gls{warranted rent}, $\mathcal{R}_W$. It is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
-\footnote{The warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices will evolve. Including it in the model, in effect, introduces a long-run equilibrium value, rather than modeling the adjustment process. The combination of modeling attractor dynamics analytically and integrating that analysis with distributed agent interactions, to capture individual and distributional effect, is what makes it possible to analyze the distributional effects of standard \gls{classical} and \gls{neoclassical} economic analysis. Chapter~\ref{chapter-methodology}, on methodology, discusses the approach. % limit or \gls{frontier}  The it functions as an .this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} analysis, is treated in the discussion of methodology in  % which, based on the literature can reasonably be seen as an equilibrium or attractor the market pushes agents toward.
-} 
+We anchor our housing price expectations in \gls{warranted rent}. It is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
+\footnote{The warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve, abstracting %. Including it in the model introduces a long-run equilibrium value, rather than modeling 
+the adjustment process. % independent of the tendencies of the market.  
+Combining a model of long-run attractor dynamics with distributed agent interactions, combines the advantages of agent-based modeling and standard \gls{classical} and \gls{neoclassical} economic analysis to give insight into the dynamics of financialization. Chapter~\ref{chapter-methodology} on methodology discusses the approach.} 
+
 Warranted rent includes three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
 
 \subsubsection{Locational economic rent} \label{section-economic-rent}
@@ -332,23 +334,20 @@ the wage premium, $\omega$, minus the transportation costs, $c$, for a property 
 
 \subsubsection{Locational amenity} \label{section-locational-rent}
 
-The warranted locational rent includes  the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location:
+The warranted locational rent includes  the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location $\mathbb{A}$. For most of the discussion in this chapter we ignore locational amenities, although we make provision for them in our computational model.
 
-\[\omega - {dc} + \mathbb{A}.\]
-% *amenity
-% \subsubsection{Locational rent}  $\omega-dc$ 
-For most of the discussion in this chapter we ignore locational amenities, although we make provision for them in our computational model.
 
 \subsubsection{Housing services} \label{section-housing-services}
-Housing services $\mathcal{H}_j$ are tied to a particular property. To maintain our focus on locational rents, we fix the value of housing services for all properties, setting the value of the stream of housing services at a fraction $a$ of the subsistence wage, $a\psi$.
+Housing services $\mathcal{H}_j$ are  tied to a particular property. They include the value of features like a building having a certain number of rooms, particular finishes, or landscaping, extensions or upgrades. To maintain our focus on locational rents, we simplify, fixing %the value of housing services, setting 
+the value of the stream of housing services to a fraction $a$ of the subsistence wage, $a\psi$.
 
 %Just as there is a warranted price, there  is 
 %  $\mathcal{R}_W$, also includes the value of the locational services and 
 % psi$ of the subsistence wage  that must be allocated to providing the housing independent of location. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent}  
   
-}
 %In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services.  
 
+\subsubsection{Combined equation}
 % *amenity
 Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}_W$, is then: 
 \begin{align}
@@ -360,18 +359,15 @@ Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}
 
 
 \subsection{Market rent} \label{section-market-rent}
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents, setting rents based on market conditions and their own expectations, which take into account a range of factors. 
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market differs from the economically warranted rent as investors make individual decisions about rents, setting rents based on market conditions and their own expectations. %, which take into account a range of factors. 
 
 % To simplify the model, instead of modeling the rental price formation process explicitly,  % we assume that the market rent equals the warranted rent. % We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.
-{\color{red} 
-We abstract from the complexities of market rent, using the warranted rent as an initial approximation. 
-\[\mathcal{R}_{M, 0}= \mathcal{R}_W.\] 
-As the simulation continues the market price will diverge from net rents as agents bid on and purchase rental properties.
-We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. When all financing costs are passed on the tenant effectively buys the property for the investor.
-}
 
-These assumptions allow us to focus on the relationship between the scaling of urban productivity and the financialized ownership that can extract that value, which is 
- the core conceptual contribution of this work. 
+% We abstract from the complexities of market rent, 
+As an initial approximation, we simplify, using the warranted rent to approximate the market rent:
+
+\[\mathcal{R}_{M, 0}= \mathcal{R}_W.\] 
+As the simulation continues the market price is the price realized through the agent based housing market mechanism, so it diverges from net rents.
 
 
  
@@ -379,16 +375,10 @@ These assumptions allow us to focus on the relationship between the scaling of u
 % In the computational agent-based  model, 
 % The assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The realized prices evolve from that starting point. 
 
-\subsubsection{Net rent} \label{section-net-rent}
+\subsection{Net rent} \label{section-net-rent}
 %. net ECONOMIC rent?
-The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner receives, not the total warranted rent, but the net rent after expenses,
-
-
-\begin{align}
-\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T} - F(v, rM)
- % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1} - F(v, rM),
-\end{align}
-where $\mathcal{O}$ is operating costs, $\mathcal{T}$ is taxes, and $F(v, rM)$ is a function of financing costs that depends on how tight the market, $v$ is vacancy, $r$ financing cost, and $M$ the size of the mortgage to be financed. 
+% The \gls{net rent} is the warranted rent net of costs. Homes must be maintained, financed, and taxes paid, so 
+Owners receives, not the total warranted rent, but the \gls{net rent} after expenses, including maintenance, taxes, and the cost of financing. The following sections detail the computation of each expense, and their combination into the net rent calculation.
 
 
 % \begin{quotation}
@@ -403,51 +393,52 @@ where $\mathcal{O}$ is operating costs, $\mathcal{T}$ is taxes, and $F(v, rM)$ i
 
 %For computational purposes, we will assume that, that is the warranted price.  
  % assessed value
-One cost owners pay on a property is taxes. Municipal property taxes are based on the \gls{appraised value}, which is based, somewhat approximately and with a lag, on the \gls{market price}, $\mathcal{P}_M$. % The appraised value typically lags the market value, and attempts to approximate underlying value, so we approximate it here it with the \gls{warranted price} \cite{apraised_value_refs}. 
+Owners pay property taxes %. Municipal property taxes are 
+based on \gls{appraised value}, which is based, somewhat approximately and with a lag, on the \gls{market price}, $\mathcal{P}_M$: % The appraised value typically lags the market value, and attempts to approximate underlying value, so we approximate it here it with the \gls{warranted price} \cite{apraised_value_refs}. 
 
 \begin{align*}
 % \mathcal{T} = \text{mill rate} \times \mathcal{P}_M 
-\mathcal{T} = \tau  \mathcal{P}_{M, t-1} \\
+\mathcal{T} = \tau  \mathcal{P}_{M, t-1}. \\
 \end{align*}
-
-
-TODO CHANGE TO ASSESSED VALUE. - GET FROM APPENDIX
-
-where $\tau$ is the municipal tax rate, or `\gls{mill rate},' applied to the market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.} The taxes paid over the period are then:
+where $\tau$ is the municipal tax rate, or `\gls{mill rate}.' % applied to the market price.
 
 \subsubsection{Annual maintenance}
-Annual maintenance costs apply to buildings and lands but not to locational value, so we can write:
+Annual maintenance costs apply to buildings and lands but not to locational value, so it can be modelled as a share, $b$, of the housing services costs, $a \psi$: % we can write:
 
 \begin{align}
 \mathcal{O} &= a b \psi.
 \end{align}
 
-TODO OR something from 
-
-\begin{align}
-\mathcal{R}_N^w &= \omega - {dc}  + a\psi -   ba\psi - c(\omega-{dc}+a\psi) \\
-\end{align}
-
-
 \subsubsection{Financing costs}
+Agents who have purchased a house, can pass financing costs through to tenants, %. Their ability to pass costs along 
+depending on market power, %We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. 
+$F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
+vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor.
 
-TODO add
+TODO - HOW TO CALCULATE THIS.
+
+\subsubsection{Combined equation}
+
+Combining, the \gls{net rent} is:
+\begin{align}
+\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T} - F(v, rM).
+ % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1} - F(v, rM),
+\end{align}
 
 \subsection{Warranted price} \label{section-warranted-price}
 
-Capturing future rents due to the urban wage premium and amenity, justifies a purchase price for urban land that is higher than that of rural land. We call the economically justified price, %, given the urban productivity premium, 
-the \gls{warranted price}, $P_W$.
-The \gls{warranted price}, for a property, is the present discounted value of the flow of service net of costs. This is the present discounted value of the warranted rents.
+Capturing future rents due to the urban wage premium and amenity justifies a purchase price for urban land that is higher than that of rural land. 
+% We call the financially justified price. %, given the urban productivity premium, the \gls{warranted price}, $P_W$.
+The economically \gls{warranted price}, for a property, is the present discounted value of the flow of service net of costs. 
+
+The present discounted value of an infinite stream of net rents is
 
 \begin{equation}
   P_W=\frac{\mathcal{R}_N}{r},  
 \label{eqn-price-warranted}
 \end{equation}
 
-TODO CHECK TIME VALUE OF MONEY CALCULATION
-
-where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains. 
-
+where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components. 
 We will assume that the market price can be approximated by the present discounted value of warranted  rents.  We can therefore write taxes
 
 \begin{align*}
@@ -457,6 +448,9 @@ We will assume that the market price can be approximated by the present discount
 
 
 The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.
+
+\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.} The taxes paid over the period are then:
+
 
 COMBINE {Warranted market price}  
 This is  an initial value for market price 
@@ -614,7 +608,7 @@ The rate of return on the investment must exceed some required rate of return. T
 
 
 
- \subsection{The value of an investment}
+ \subsection{COMBINE WITH BELOW The value of an investment}
 
 % \subsection{The value of an investment}
 The value of the investment $V$ is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus the discounted sum ((of rents and interest on rents net of operating costs and taxes)), or $\delta sum\mathcal{R}_N$.  
@@ -628,6 +622,33 @@ V &= \delta \left(P_T - (1+r)M\right) +   \mathcal{R}^w_N   \\
 &= \delta \left((1+\dot P) P_0 - (1+r)mP_M\right)  +      \mathcal{R}^w_N \\
 %V &=& \delta \left(P_T - (1+r)M\right) +  \mathcal{R}^w_N\\
   &= \delta \left((1+\dot P)    - (1+r)m    \right) P_M + \mathcal{R}^w_N 
+\end{align}
+This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
+
+
+
+\section{COMBINE WITH ABOVE - The value of an investment}
+ 
+ This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate: 
+
+ Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
+ \begin{enumerate}
+     \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
+     \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
+     \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
+     \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
+     \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
+\end{enumerate} 
+(This is terrible notation)
+\subsection{Answer to question 2} 
+Do we subtract $P_0$: YES 
+
+Four change just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
+
+\begin{align}
+V &= \delta^T \left(\dot P^T P_0- (1 + sumT(1+r))M +  \right) +\delta sum\mathcal{R}^w_N   \\
+&= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +      \delta sum\mathcal{R}^w_N \label{first_sub}\\
+  &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 + \delta sum\mathcal{R}^w_N 
 \end{align}
 This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 

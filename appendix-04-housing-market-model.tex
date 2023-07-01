@@ -1,3 +1,4 @@
+{\color{orange}
 \chapter{Three Questions}
 
 % The three questions I promised to deal with were
@@ -27,8 +28,9 @@ Net annual rent for investors is then  defined this way
 &= (\omega - {dc} + a\psi )+ \mathbb{A} - a b \psi - \tau  \mathcal{P}_{M, t-1}  + F(v, rM)
 \end{align}
 
-This term enters into the computation of housing prices. We assume it is deposited each year and earns interest $r$
+This term enters into the computation of housing prices. We assume it is deposited each year by an investor and earns interest $r$
 
+}
 {\color{blue}
 The discounted value with accumulated interest in T years is\footnote{Any annual payment for a period multiplied by the factor $\frac{(1+r)^n-1}{r}$ is called a  ``uniform series compound amount''.%source https://www.e-education.psu.edu/eme460/node/659
 }
@@ -43,30 +45,6 @@ The discounted value with accumulated interest in T years is\footnote{Any annual
 
 % \subsection{Answer to question 1} about whether to add interest to the rent term: YES
 
-\section{The value of an investment}
- 
- This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate: 
-
- Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
- \begin{enumerate}
-     \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
-     \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
-     \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
-     \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
-     \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
-\end{enumerate} 
-(This is terrible notation)
-\subsection{Answer to question 2} 
-Do we subtract $P_0$: YES 
-
-Four change just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
-
-\begin{align}
-V &= \delta^T \left(\dot P^T P_0- (1 + sumT(1+r))M +  \right) +\delta sum\mathcal{R}^w_N   \\
-&= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +      \delta sum\mathcal{R}^w_N \label{first_sub}\\
-  &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 + \delta sum\mathcal{R}^w_N 
-\end{align}
-This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 
 
 \subsection{Rate of return on investment}
