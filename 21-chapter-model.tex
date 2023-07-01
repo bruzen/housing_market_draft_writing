@@ -319,8 +319,10 @@ The link with urban productivity is made through the land rents distributed thro
 
 {\color{red}
 \subsection{Warranted rent} \label{section-waranted-rent}
-We anchor our housing price expectations in warranted rents. Warranted rent is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher  level of rent would convince tenants they are better off leaving the city. It includes three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.\footnote{The economically \gls{warranted rent}, $\mathcal{R}_W$, can be thought of as a kind of limit or \gls{frontier} that the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter~\ref{chapter-methodology}. % which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve.
-}
+We anchor our housing price expectations in \gls{warranted rent}, $\mathcal{R}_W$. It is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
+\footnote{The warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices will evolve. Including it in the model, in effect, introduces a long-run equilibrium value, rather than modeling the adjustment process. The combination of modeling attractor dynamics analytically and integrating that analysis with distributed agent interactions, to capture individual and distributional effect, is what makes it possible to analyze the distributional effects of standard \gls{classical} and \gls{neoclassical} economic analysis. Chapter~\ref{chapter-methodology}, on methodology, discusses the approach. % limit or \gls{frontier}  The it functions as an .this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} analysis, is treated in the discussion of methodology in  % which, based on the literature can reasonably be seen as an equilibrium or attractor the market pushes agents toward.
+} 
+Warranted rent includes three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
 
 \subsubsection{Locational economic rent} \label{section-economic-rent}
 The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
@@ -335,6 +337,7 @@ The warranted locational rent includes  the economic rent as well as a locationa
 \[\omega - {dc} + \mathbb{A}.\]
 % *amenity
 % \subsubsection{Locational rent}  $\omega-dc$ 
+For most of the discussion in this chapter we ignore locational amenities, although we make provision for them in our computational model.
 
 \subsubsection{Housing services} \label{section-housing-services}
 Housing services $\mathcal{H}_j$ are tied to a particular property. To maintain our focus on locational rents, we fix the value of housing services for all properties, setting the value of the stream of housing services at a fraction $a$ of the subsistence wage, $a\psi$.
@@ -347,34 +350,37 @@ Housing services $\mathcal{H}_j$ are tied to a particular property. To maintain 
 %In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services.  
 
 % *amenity
-Cobining, the economically \gls{warranted rent}, $\mathcal{R}_W$, is then: %includes three distinct streams of services
+Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}_W$, is then: 
 \begin{align}
 \mathcal{R}_W=\omega - {dc} + \mathbb{A} + a\psi.
 \label{eqn-warranted-rent}
 \end{align}
-We will omit the 
 
 
 
-\subsubsection{Initial market rent} \label{section-market-rent}
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. 
 
-The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. To simplify the model, % we assume that the market rent equals the warranted rent. % We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.
-Instead of modelling the rental price formation process explicitly, we abstract from the complexities  of market rent, using the warranted rent as an approximation. The assumption simplifies the analysis of the relationship between the scaling of urban productivity and the financialized ownership that can extract that value. We are in effect imposing a long-term equilibrium value, rather than modeling the adjustment process. We do this to focus on the economic rent, and to show the economic linkages between productivity and urban rents, because clarifying that linkage is part of the core conceptual contribution of this work. 
+\subsection{Market rent} \label{section-market-rent}
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents, setting rents based on market conditions and their own expectations, which take into account a range of factors. 
 
-% To simplify the model, we assume that the market rent equals the warranted rent.  %\gls{warranted rent} is paid as the \gls{market rent}
-
-Initial market rent approximated as: %rent cost for tenants  
-
+% To simplify the model, instead of modeling the rental price formation process explicitly,  % we assume that the market rent equals the warranted rent. % We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.
+{\color{red} 
+We abstract from the complexities of market rent, using the warranted rent as an initial approximation. 
 \[\mathcal{R}_{M, 0}= \mathcal{R}_W.\] 
+As the simulation continues the market price will diverge from net rents as agents bid on and purchase rental properties.
+We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. When all financing costs are passed on the tenant effectively buys the property for the investor.
+}
 
-As the simulation continues the market price will diverge from net rents as agents bid on and purchase properties. 
+These assumptions allow us to focus on the relationship between the scaling of urban productivity and the financialized ownership that can extract that value, which is 
+ the core conceptual contribution of this work. 
+
+
+ 
 
 % In the computational agent-based  model, 
 % The assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The realized prices evolve from that starting point. 
 
-\subsection{Net rent} \label{section-net-rent}
-% The warranted rent is the amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as an initial rent cost for tenants.
+\subsubsection{Net rent} \label{section-net-rent}
+%. net ECONOMIC rent?
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner receives, not the total warranted rent, but the net rent after expenses,
 
 
@@ -382,7 +388,7 @@ The \gls{net rent} is the warranted rent net of costs. Homes must be maintained 
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T} - F(v, rM)
  % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1} - F(v, rM),
 \end{align}
-where $\mathcal{O}$ is operating costs, $\mathcal{T}$ is taxes, and $F(v, rM)$ is a of function of financing costs that depends on how tight the market, $v$ is vacancy, $r$ financing cost, and $M$ the size of the mortgage to be financed. 
+where $\mathcal{O}$ is operating costs, $\mathcal{T}$ is taxes, and $F(v, rM)$ is a function of financing costs that depends on how tight the market, $v$ is vacancy, $r$ financing cost, and $M$ the size of the mortgage to be financed. 
 
 
 % \begin{quotation}
