@@ -15,10 +15,11 @@ The annual \gls{net rent} is the property rental price  net of costs. Homes must
 
 market or warranted.
 Warranted market rent is defined as value of housing services:
-\[\mathcal{R}_M = \omega - cd+ + a\psi + \mathbb{A}\]
+\[\mathcal{R}_M = \omega - dc + a\psi + \mathbb{A}\]
 
 The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
  \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
+ 
 
 Net annual rent for investors is then  defined this way 
 
@@ -28,8 +29,14 @@ Net annual rent for investors is then  defined this way
 
 This term enters into the computation of housing prices. We assume it is deposited each year and earns interest $r$
 
-The discounted value with accumulated interest in T years 
-\[\delta-sum\mathcal{R}_N=\delta^T\mathcal{R}_N (1+r)\frac{(1+r)^{T-1}-1}{r} \]
+{\color{blue}
+The discounted value with accumulated interest in T years is\footnote{Any annual payment for a period multiplied by the factor $\frac{(1+r)^n-1}{r}$ is called a  ``uniform series compound amount''.%source https://www.e-education.psu.edu/eme460/node/659
+}
+
+\[\delta.sum.\mathcal{R}_N=
+\delta^T\mathcal{R}_N 
+\frac{(1+r)^n-1}{r} \]
+}
 
 % This net rent term has the form
 %  \[\delta sum\mathcal{R}_N = \delta(T)H(\mathcal{R}_{N,1} +\dots+ \mathcal{R}_{,T})\]

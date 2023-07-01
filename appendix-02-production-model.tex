@@ -289,49 +289,77 @@ Slow wage adjustment for existing workers would increase firm profitability and 
 
 \section{Firm initial values}
 
-\subsubsection{Firm $Y_{F,i}=A_Fk_i^\alpha n_i^{\beta_F}$}
-We use the familiar Cobb-Douglas production function \cite{chiangFundamentalMethodsMathematical2002} to set relationships among variables that are consistent with basic neoclassical production theory. 
-\begin{description}
 
-\item[initial urban wage premium] = $\omega_0 = (wage\_premium\_ratio) * \psi = p*\psi $, where $p$ is selected to provide a plausible initial relationship between $\psi$ and $\omega$. $p$ will vary as $\omega$ evolves. 
+% \subsubsection{Firm $Y_{F,i}=A_Fk_i^\alpha n_i^{\beta_F}$}
+% We use the familiar Cobb-Douglas production function \cite{chiangFundamentalMethodsMathematical2002} to set relationships among variables that are consistent with basic neoclassical production theory. 
+% \begin{description} \item[initial urban wage premium]
 
-\item[initial labour force for urban firms] $n_0=n_R$.  Initially, we will try values similar to the rural firm size and allow it to adjust.  %*****%may have implica=tions later for the notation
+\subsubsection{Initial wage premium for urban firms}
+An wage premium ratio defines the initial relationship between the urban wage premium and the subsistence wage, $\omega_0 = \mathrm{wage\_premium\_ratio} * \psi$. % = p*\psi $, where $p$ is selected
+ %. $p$ will vary as $\omega$ evolves. 
+% \item[Initial wage premium] $\omega_0=p_0*\psi$
 
-\item[Initial wage premium] $\omega_0=p_0*\psi$
+In this section we use subscripts rural, $R$, and urban, $U$. Outside of this section, we simplify the presentation by dropping subscripts for the urban firm, since that is the focus of the analysis, and rural properties are fixed after initial calculation. 
 
-\item[Initial urban wage] = $\omega_0=\omega_t +\psi =(1+p_0)\psi)$
+Parameters $\beta_F$ and $\alpha_F$ are the same for both rural firms and urban firms in this model. 
+%Initial values for the urban firm's production model are set so the are reasonable, relative to the properties of the urban firm. To explore urban agglomeration effects, the rural firm parameters remain fixed, while the rural firm evolves as more people work in the city. 
+
+\subsubsection{Initial labour force for urban firms}
+To set the initial urban labour force, treat it as initially approximately the same as the rural labour force,  $n_{U,0}=n_R$. % Initially, we will try values similar to the rural firm size and allow it to adjust.  %*****%may have implica=tions later for the notation
+
+% \item[Initial urban wage] = $\omega_0=\omega_t +\psi =(1+p_0)\psi)$
 %The wage  is set as the marginal product of labour for initialization of the model. 
 
-\item[labour cost for typical rural firm] $L_R = n_R*\psi$. This is expressed as a money quantity: e.g., 100 workers * \$40,000/worker. We do not include other labour costs or taxes. 
+% \textbf{NOTE: With the initial values calculated in this section $\omega$ is consistent with $N_0$.as a result, population should not grow.}
+
+% \begin{quotation} 
+
+\subsubsection{Initial urban scale factor}
+
+We can also calculate the urban scale factor in several steps.
+
+\begin{description}
+\item[NEED THIS? labour cost for typical rural firm] $L_R = n_R*\psi$. % This is expressed as a money quantity: e.g., 100 workers * \$40,000/worker. We do not include other labour costs or taxes.  NEED THIS?
 
 % \item[Initial labour cost for typical urban firm] ]  $L_U = n_R(\psi+\omega_0)$.
 
 \item[output for typical rural firm]  
 \[Y_R=\frac{n_R*\psi}{\beta_F}\]
-In our model, this is a constant for any initial values on the RHS. Derived from the marginal productivity condition. See item~\ref{item-paramlist-firm-level} in the orange  block. The numerical calculation is done  for a firm with 100 workers and a marginal product of labour of $\psi$. %I get \$20 million for those values. 
+Derived from the marginal productivity condition.
+% In our model, this is a constant for any initial values on the RHS. Derived from the marginal productivity condition. See item~\ref{item-paramlist-firm-level} in the orange  block. The numerical calculation is done for a firm with 100 workers and a marginal product of labour of $\psi$. %I get \$20 million for those values. 
 
 
 \item[initial output for an urban firm] 
-\[Y_0^U=N_0^\gamma Y^R\]  
+\[Y_{U, 0} = N_0^\gamma Y^R\]  
 Taking the marginal product with respect to $n$, we get a useful fact that will allow us to tie down $\gamma$
-\[Y_{U,0}=\frac{n*(\psi+\omega)}{\beta_F}\]
+\[Y_{U,0} = \frac{n_{U,0}*(\psi+\omega_0)}{\beta_F}\]
+
 
 \item[capital for typical rural firm] (Derived from the marginal productivity condition.)
-\[k_R=  \frac{\alpha_R Y_R }{r}\]
+\[k_R=  \frac{\alpha_F Y_R }{r}\]
 This is also a constant.
  
 \item[initial capital for an urban firm] (Derived from the marginal productivity condition.)
-\[k_{U,0}=  \frac{\alpha Y_{U,0} }{r}\]
+\[k_{U,0}=  \frac{\alpha_F Y_{U,0} }{r}\]
+
+
 This differs from capital  for the rural firm because of the term $n^\gamma$. 
 
+WHAT? WHERE IS GAMMA
+
+
 \item[scale factor A for typical  firm] 
-\[A_F= \frac{Y_R}{k_R^{\alpha} {n\psi}^{\beta_F}}\]
-We will assume that this is a constant used for both rural and urban production functions. (The explicit function is a bit  messy but the numeric value is easily computed because we have $L_r=n_R\psi$, and have calculated $Y_F$, and  $K_F$). The prefactor.
+\[A_F= \frac{Y_R}{k_R^{\alpha_F} {n_R\psi}^{\beta_F}}\]
+We will assume that this is a constant used for both rural and urban production functions. 
+
+CUT? (The explicit function is a bit  messy but the numeric value is easily computed because we have a rural firm labour force cost, $L_R=n_R\psi$, and have calculated $Y_F$, and  $k_F$). The prefactor.
+
+CHANGED: SHOULD THIS BE $\alpha_F$? n RURAL OR URBAN?
 
 \end{description}
-% \textbf{NOTE: With the initial values calculated in this section $\omega$ is consistent with $N_0$.as a result, population should not grow.}
 
-% \begin{quotation} 
+
+
 
 \section{Firm level production}  
  \textbf{This section includes numerical examples.% It has been commented out
