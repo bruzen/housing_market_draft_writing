@@ -316,32 +316,28 @@ In the model, agents learn or set these values with the support of a real estate
 
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
+
+{\color{red}
 \subsection{Warranted rent} \label{section-waranted-rent}
-Warranted rent is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher  level of rent would convince tenants they are better off leaving the city.
+We anchor our housing price expectations in warranted rents. Warranted rent is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher  level of rent would convince tenants they are better off leaving the city. It includes three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.\footnote{The economically \gls{warranted rent}, $\mathcal{R}_W$, can be thought of as a kind of limit or \gls{frontier} that the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter~\ref{chapter-methodology}. % which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve.
+}
 
 \subsubsection{Locational economic rent} \label{section-economic-rent}
-The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city  where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
-the wage premium, $\omega$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center.
+The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
+the wage premium, $\omega$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center:
 
 \[\omega - {dc}.\]
 
 \subsubsection{Locational amenity} \label{section-locational-rent}
 
-The \gls{warranted rent} includes with the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location:
+The warranted locational rent includes  the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location:
 
 \[\omega - {dc} + \mathbb{A}.\]
 % *amenity
 % \subsubsection{Locational rent}  $\omega-dc$ 
 
-TODO: okay to treat A not as a function of distance?
-TODO: - MENTION THIS IS ANNUAL - OMEGA IS ANNUAL SINCE SUBSISTENCE WAGE IS ANNUAL WAGE. MAKE A NOTE.. 
-
 \subsubsection{Housing services} \label{section-housing-services}
-
-{\color{red}
-\footnote{}
-
-We fix the value of housing services, $\mathcal{H}_j$  We set value of the stream of housing services at a fraction $a$ of the subsistance wage, i.e., at $a\psi$ in order to maintain our focus on locational rents.
+Housing services $\mathcal{H}_j$ are tied to a particular property. To maintain our focus on locational rents, we fix the value of housing services for all properties, setting the value of the stream of housing services at a fraction $a$ of the subsistence wage, $a\psi$.
 
 %Just as there is a warranted price, there  is 
 %  $\mathcal{R}_W$, also includes the value of the locational services and 
@@ -351,16 +347,15 @@ We fix the value of housing services, $\mathcal{H}_j$  We set value of the strea
 %In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services.  
 
 % *amenity
-The economically \gls{warranted rent}, $\mathcal{R}_W$, includes three distinct streams of services
+Cobining, the economically \gls{warranted rent}, $\mathcal{R}_W$, is then: %includes three distinct streams of services
 \begin{align}
 \mathcal{R}_W=\omega - {dc} + \mathbb{A} + a\psi.
 \label{eqn-warranted-rent}
 \end{align}
 We will omit the 
- It a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter~\ref{chapter-methodology}.
 
- We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. 
- 
+
+
 \subsubsection{Initial market rent} \label{section-market-rent}
 The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market rent can in principle differ from the economically warranted rent as individual investors make decisions about rents and setting rents based on their own expectations, which include a wide range of factors. 
 
