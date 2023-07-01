@@ -104,8 +104,8 @@ Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following thre
 % We build a spatially explicit agent model where agents work in one location and incur costs travelling to work. This work integrates a model of production and labour into a standard spatial model of the city. In this section, we introduce an analytic model of production and a labour market in a stylized circular city. 
 
 % \subsection{Labour supply for production}
-We begin with a model of a circular city. \footnote{In or computational model we use a grid structure with and a block metric,} %- INTRO CITY/APPROACH?
-Following the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
+We begin with a model of a circular city. \footnote{In our computational model we use a grid structure with  a block metric, which is computationally more convenient and provides a slightly more natural representation of the property structure of actual cities.} %- INTRO CITY/APPROACH?
+In the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
 Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of  goods, 
@@ -317,30 +317,45 @@ In the model, agents learn or set these values with the support of a real estate
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 
-\subsubsection{Economic rent} \label{section-economic-rent}
-The economic rent is the value of the locational services, 
-This is a surplus that arise from agglomeration economies that make being close to the city core valuable. \Gls{locational services} are represented as %, on an annual basis, 
-the wage premium, $w$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center. There is also a locational amenity, $\mathbb{A}$, the local site-specific and urban amenity function. That is the value of living in a particular location:
-\[\omega- {dc} + \mathbb{A}.\]
+\subsubsection{Locational economic rent} \label{section-economic-rent}
+The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city  where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
+the wage premium, $\omega$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center.
+
+\[\omega - {dc}.\]
+
+\subsubsection{Locational rent} \label{section-locational-rent}
+
+The \gls{locational rent} includes the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location:
+
+\[\omega - {dc} + \mathbb{A}.\]
 % *amenity
 % \subsubsection{Locational rent}  $\omega-dc$ 
 
 TODO: okay to treat A not as a function of distance?
+TODO: - MENTION THIS IS ANNUAL - OMEGA IS ANNUAL SINCE SUBSISTENCE WAGE IS ANNUAL WAGE. MAKE A NOTE.. 
 
+\subsubsection{Housing ser} \label{section-locational-rent}
+
+{\color{red}
 \subsubsection{Warranted rent} \label{section-waranted-rent}
+Warranted rent is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher  level of rent would convince tenants they are better off leaving the city.\footnote{}
+
+We fix the value of housing services, $\mathcal{H}_j$  We set value of the stream of housing services at a fraction $a$ of the subsistance wage, i.e., at $a\psi$ in order to maintain our focus on locational rents.
 
 %Just as there is a warranted price, there  is 
-The economically \gls{warranted rent}, $\mathcal{R}_W$, is the value of all  the services a property offers. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent} 
-It is the maximum rent a tenant might pay in rent, since it is the maximum that could be extracted from tenants before they decide they are better off leaving the city.  
-
-In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of this double stream of services.  The value of the stream of housing services is the fraction $a$ of the subsistence wage $\psi$ that must be allocated to providing the housing independent of location. 
+%  $\mathcal{R}_W$, also includes the value of the locational services and 
+% psi$ of the subsistence wage  that must be allocated to providing the housing independent of location. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent}  
+  
+}
+%In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services.  
 
 % *amenity
- The warranted rent is, then, 
+The economically \gls{warranted rent}, $\mathcal{R}_W$, includes three distinct streams of services
 \begin{align}
 \mathcal{R}_W=\omega - {dc} + \mathbb{A} + a\psi.
 \label{eqn-warranted-rent}
 \end{align}
+We will omit the 
  It a kind of limit or \gls{frontier} the market pushes agents towards. It may be thought of as an \gls{equilibrium} or \gls{attractor}. The way this work uses that kind of frontier, drawing on \gls{equilibrium}, \gls{dynamical system}, and \gls{agent-based} traditions of analysis, is treated in detail in the discussion of methodology in Chapter~\ref{chapter-methodology}.
 
  We anchor our housing price expectations in warranted rents, which, based on the literature can reasonably be seen as an equilibrium or attractor towards which prices will evolve. 
@@ -389,19 +404,20 @@ where $\mathcal{O}$ is operating costs, $\mathcal{T}$ is taxes, and $F(v, rM)$ i
 One cost owners pay on a property is taxes. Municipal property taxes are based on the \gls{appraised value}, which is based, somewhat approximately and with a lag, on the \gls{market price}, $\mathcal{P}_M$. % The appraised value typically lags the market value, and attempts to approximate underlying value, so we approximate it here it with the \gls{warranted price} \cite{apraised_value_refs}. 
 
 \begin{align*}
-\mathcal{T} &= \text{mill rate} \times \mathcal{P}_M =  \tau  \mathcal{P}_{M, t-1} \\
+% \mathcal{T} = \text{mill rate} \times \mathcal{P}_M 
+\mathcal{T} = \tau  \mathcal{P}_{M, t-1} \\
 \end{align*}
 
 
-TODO want one or the other or BOTH?
+TODO CHANGE TO ASSESSED VALUE. - GET FROM APPENDIX
 
-where the `\gls{mill rate}' is the municipal tax rate $c$ applied to the market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.} The taxes paid over the period are then:
+where $\tau$ is the municipal tax rate, or `\gls{mill rate},' applied to the market price.\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.} The taxes paid over the period are then:
 
 \subsubsection{Annual maintenance}
-Annual maintenance costs apply to buildings and lands but not to locational value, so we can write
+Annual maintenance costs apply to buildings and lands but not to locational value, so we can write:
 
 \begin{align}
-\mathcal{O} &= a b \psi
+\mathcal{O} &= a b \psi.
 \end{align}
 
 TODO OR something from 
@@ -417,12 +433,17 @@ TODO add
 
 \subsubsection{Warranted price} \label{section-warranted-price}
 
-We will call the economically justified price, given the urban productivity premium, the \gls{warranted price}, 
-The \gls{warranted price} of a house is the present discounted value of the flow of service net of costs: $P_W$. This is the present discounted value of the warranted rents.
+Capturing future rents due to the urban wage premium and amenity, justifies a purchase price for urban land that is higher than that of rural land. We call the economically justified price, %, given the urban productivity premium, 
+the \gls{warranted price}, $P_W$.
+The \gls{warranted price}, for a property, is the present discounted value of the flow of service net of costs. This is the present discounted value of the warranted rents.
+
 \begin{equation}
   P_W=\frac{\mathcal{R}_N}{r},  
 \label{eqn-price-warranted}
 \end{equation}
+
+TODO CHECK TIME VALUE OF MONEY CALCULATION
+
 where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains. 
 
 We will assume that the market price can be approximated by the present discounted value of warranted  rents.  We can therefore write taxes
