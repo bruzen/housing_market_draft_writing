@@ -316,6 +316,8 @@ In the model, agents learn or set these values with the support of a real estate
 
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
+\subsection{Warranted rent} \label{section-waranted-rent}
+Warranted rent is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher  level of rent would convince tenants they are better off leaving the city.
 
 \subsubsection{Locational economic rent} \label{section-economic-rent}
 The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city  where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
@@ -323,9 +325,9 @@ the wage premium, $\omega$, minus the transportation costs, $c$, for a property 
 
 \[\omega - {dc}.\]
 
-\subsubsection{Locational rent} \label{section-locational-rent}
+\subsubsection{Locational amenity} \label{section-locational-rent}
 
-The \gls{locational rent} includes the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location:
+The \gls{warranted rent} includes with the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location:
 
 \[\omega - {dc} + \mathbb{A}.\]
 % *amenity
@@ -334,11 +336,10 @@ The \gls{locational rent} includes the economic rent as well as a locational ame
 TODO: okay to treat A not as a function of distance?
 TODO: - MENTION THIS IS ANNUAL - OMEGA IS ANNUAL SINCE SUBSISTENCE WAGE IS ANNUAL WAGE. MAKE A NOTE.. 
 
-\subsubsection{Housing ser} \label{section-locational-rent}
+\subsubsection{Housing services} \label{section-housing-services}
 
 {\color{red}
-\subsubsection{Warranted rent} \label{section-waranted-rent}
-Warranted rent is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher  level of rent would convince tenants they are better off leaving the city.\footnote{}
+\footnote{}
 
 We fix the value of housing services, $\mathcal{H}_j$  We set value of the stream of housing services at a fraction $a$ of the subsistance wage, i.e., at $a\psi$ in order to maintain our focus on locational rents.
 
@@ -377,7 +378,7 @@ As the simulation continues the market price will diverge from net rents as agen
 % In the computational agent-based  model, 
 % The assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The realized prices evolve from that starting point. 
 
-\subsubsection{Net rent} \label{section-net-rent}
+\subsection{Net rent} \label{section-net-rent}
 % The warranted rent is the amount needed to fully pay housing costs and locational rent. This will include taxes and maintenance. Use  $\mathcal{R}_W$ as an initial rent cost for tenants.
 The \gls{net rent} is the warranted rent net of costs. Homes must be maintained and taxes paid, so an owner receives, not the total warranted rent, but the net rent after expenses,
 
@@ -431,7 +432,7 @@ TODO OR something from
 
 TODO add
 
-\subsubsection{Warranted price} \label{section-warranted-price}
+\subsection{Warranted price} \label{section-warranted-price}
 
 Capturing future rents due to the urban wage premium and amenity, justifies a purchase price for urban land that is higher than that of rural land. We call the economically justified price, %, given the urban productivity premium, 
 the \gls{warranted price}, $P_W$.
@@ -560,7 +561,7 @@ A bidding process determines an actual realized market price that, taking into a
 %That may let us simplify the exposition in the financialization chapter.
 
 
-\section{Bid Price}\label{sec_model_bid_price}
+\section{Bid price}\label{sec_model_bid_price}
 To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. Specifically, we must find the maximum price that they are willing to pay. 
 %As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer  considering knows a vector of attributes of the house, the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. 
 %All of these factors are taken into account  to determine whether an investment is profitable. To make a comparison with alternative investments  it is necessary to compute a rate of return. 
