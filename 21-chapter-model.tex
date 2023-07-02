@@ -290,7 +290,7 @@ The model must  allow for bidding and speculative investment but also must refle
 % \section {Variables}\label{sec_model_variables}
 
 
-\subsection{Rent} \label{section-rent}
+\section{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage} is what makes this a \gls{classical} model. 
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
@@ -391,16 +391,16 @@ Owners receives, not the total warranted rent, but the \gls{net rent} after expe
 
 \subsubsection{Annual taxation}
 
-%For computational purposes, we will assume that, that is the warranted price.  
- % assessed value
-Owners pay property taxes %. Municipal property taxes are 
-based on \gls{appraised value}, which is based, somewhat approximately and with a lag, on the \gls{market price}, $\mathcal{P}_M$: % The appraised value typically lags the market value, and attempts to approximate underlying value, so we approximate it here it with the \gls{warranted price} \cite{apraised_value_refs}. 
-
+Owners pay property taxes based on appraised price, $P_{\tau}$:
 \begin{align*}
 % \mathcal{T} = \text{mill rate} \times \mathcal{P}_M 
-\mathcal{T} = \tau  \mathcal{P}_{M, t-1}. \\
+\mathcal{T} &= \tau  \mathcal{P}_{\tau}.
+% \mathcal{P}_{\tau, t} &= fraction \mathcal{P}_{M, t-1}.
 \end{align*}
-where $\tau$ is the municipal tax rate, or `\gls{mill rate}.' % applied to the market price.
+ 
+Where $\tau$ is the municipal tax rate or \gls{mill rate}, and the \gls{appraised value} is based somewhat approximately, and with a lag, on the \gls{market price}, so $\mathcal{P}_{\tau}$ is some fraction of $\mathcal{P}_{M, t-n}$.
+
+
 
 \subsubsection{Annual maintenance}
 Annual maintenance costs apply to buildings and lands but not to locational value, so it can be modelled as a share, $b$, of the housing services costs, $a \psi$: % we can write:
@@ -410,10 +410,13 @@ Annual maintenance costs apply to buildings and lands but not to locational valu
 \end{align}
 
 \subsubsection{Financing costs}
-Agents who have purchased a house, can pass financing costs through to tenants, %. Their ability to pass costs along 
+Agents who have purchased a house, may be able to pass financing costs through to tenants, %. Their ability to pass costs along 
 depending on market power, %We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. 
 $F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
 vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor.
+
+% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
+% Annual financing costs are $rM$. 
 
 TODO - HOW TO CALCULATE THIS.
 
@@ -425,9 +428,47 @@ Combining, the \gls{net rent} is:
  % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1} - F(v, rM),
 \end{align}
 
+{\color{red}
+\section{WHERE DO WE WANT THIS? The period and time value of money}\label{sec_model_time}
+In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
+%This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
+
+%In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates.
+Taking a simplified example, if the rate is $x$/year  and  the total mortgage amount borrowed, $M$, interest payments are $xM$  for each of $T$ years. 
+If the interest payments are all made at the end of the mortgage term, the lender will require interest on the deferred interest, so agent $i$'s payment at the end of the period $T$ will be:
+
+\begin{align*}
+\text{Payment} &= (1+r_i)M                                 \\ 
+    &= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
+    &= M\left(1+ x\sum_{z=T-1}^0(1+x)^{z}\right).          \\ 
+\end{align*}
+Therefore, the interest payment is:
+\begin{align*}
+r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}.
+\end{align*}
+
+For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. This means that, while banks may quote a per period interest rates, the equations use a compounded rate. In the computational model we employ the appropriately compounded values. All %the rates are compounded in this way to provide a per-period rates, including all 
+ the interest rates, the $r$'s, are compounded in this way, because they require annual or monthly payments at their stated rates.
+ It does not affect the discount rates, the $\delta$'s, or the borrowing ratio $m_i$, because they are initially calculated for the term and don't require the same period payments.
+ The discount factor $\delta_T$ is always a compounded version of $x$:
+ \[\delta_T=\left(\frac{1}{1+\delta}\right)^T\].
+%is a feature of the individual, so it is not affected in this way.
+%The appropriate compunding expressions for other rates are displayed below.
+
+ The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
+
+ 
+
+
+}
+
+
+\section{Price}
+
+
 \subsection{Warranted price} \label{section-warranted-price}
 
-Capturing future rents due to the urban wage premium and amenity justifies a purchase price for urban land that is higher than that of rural land. 
+Capturing future rents due to the urban wage premium and amenity justifies a purchase price for urban land with housing  that is higher than that of rural land with housing. 
 % We call the financially justified price. %, given the urban productivity premium, the \gls{warranted price}, $P_W$.
 The economically \gls{warranted price}, for a property, is the present discounted value of the flow of service net of costs. 
 
@@ -437,14 +478,10 @@ The present discounted value of an infinite stream of net rents is
   P_W=\frac{\mathcal{R}_N}{r},  
 \label{eqn-price-warranted}
 \end{equation}
+where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components. 
+We will assume that the market price can be approximated by the present discounted value of warranted  rents. 
 
-where $\mathcal{R}_N$ is the net value of rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components. 
-We will assume that the market price can be approximated by the present discounted value of warranted  rents.  We can therefore write taxes
 
-\begin{align*}
-\mathcal{T} &= \text{mill rate} \times \frac{\mathcal{R}_W}{r} \\
-&= \tau \times \frac{\omega- {dc} + a\psi.}{r}
-\end{align*}
 
 
 The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.
@@ -459,7 +496,7 @@ This is  an initial value for market price
 This is the present discounted value of the flow of housing services.  Use this as initial market price.  It can reasonably be seen as an equilibrium or attractor towards which prices should  evolve.  Notice that it includes $\mathbb{A}$
 
 
-\subsubsection{Market price and expected price} \label{section-market-price}
+\subsection{Market price and expected price} \label{section-market-price}
 
 A bidding process determines an actual realized market price that, taking into account potential capital gains. We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since agents do not have perfect information, the expected value is calculated with their best approximation of values.} 
  \footnote{Case and Shiller point out ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.} 
@@ -556,7 +593,7 @@ A bidding process determines an actual realized market price that, taking into a
 %That may let us simplify the exposition in the financialization chapter.
 
 
-\section{Bid price}\label{sec_model_bid_price}
+\subsection{Bid price}\label{sec_model_bid_price}
 To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. Specifically, we must find the maximum price that they are willing to pay. 
 %As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer  considering knows a vector of attributes of the house, the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. 
 %All of these factors are taken into account  to determine whether an investment is profitable. To make a comparison with alternative investments  it is necessary to compute a rate of return. 
@@ -601,73 +638,127 @@ The rate of return on the investment must exceed some required rate of return. T
 
 % We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to solve for the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
     
- The agent who purchases makes a down payment, $D$ on a house for a price, $P_M$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period. For expositional convenience, we can treat the mortgage period $T$ as a single term and express all quantities  in present-value terms. The purchaser  receives the increased price $P_T = (1 + \dot P)P_0$,  after a period $T$, Where $\dot P$ is the expected rate of price increase. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
+ The agent who purchases makes a down payment, $D$ on a house for a price, $P_0$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period. For expositional convenience, we can treat the mortgage period $T$ as a single term and express all quantities  in present-value terms. The purchaser  receives the increased price $P_T = (1 + \dot P)^TP_0 = (1+\dot P^T)P_0$,  
+ after a period $T$, Where $\dot P$ is the expected annual rate of price increase and we define $\dot P^T$ as the T-period  interest rate. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
+
+With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
+the expected price at the end of the period is:
+
+\[P_M^{Te}=P_0(1+\dot P)^T\]
+
+If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
+
+
+ 
 \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
 
 
 
 
- \subsection{COMBINE WITH BELOW The value of an investment}
 
+{\color{blue}
+ \subsubsection{The value of an investment}
 % \subsection{The value of an investment}
-The value of the investment $V$ is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus the discounted sum ((of rents and interest on rents net of operating costs and taxes)), or $\delta sum\mathcal{R}_N$.  
+The value $V$ of a property investment over a period of T years is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus net rent revenues. Both mortgage payments and net rent revenues can  be calculated as sum  of regular payments, each of  which accumulates interest to the end of the mortgage period. This is called a ``uniform series compound amount'' and is calculated for net rent as\footnote{Any annual payment for a period multiplied by the factor $\frac{(1+r)^n-1}{r}$ is called a  ``uniform series compound amount''.%source https://www.e-education.psu.edu/eme460/node/659
+} 
+\[\mathcal{\bar{R}}^T_N= \frac{(1+r)^T-1}{r}\mathcal{R}_N  \]
+The regular mortgage payment is  $rM=rmP_0$,\footnote{we assume that the regular payment covers only the interest and that the full mortgage is due at the end of the period } and the uniform series compound amount is
+\[\bar{rmP_0}^T= \frac{(1+r)^T-1}{r}rmP_0  \]
+Both these amounts are discounted by $\delta^T$ to the present in our calculation.
  
-OR The value of the investment $V$ is therefore the capital gain, minus financing costs, plus the rents, net of operating costs and taxes, $\mathcal{R}_N$.
  
- This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate:\footnote{The down payment could be deducted in advance, but if the discount rate is equal to the interest rate it drops out completely.}
+% \[\mathcal{\bar{R}}^T_N=  \delta^T\frac{(1+r)^T-1}{r}\mathcal{R}_N  \]
+% To keep the notation simple, let 
+% \[\delta_r^T=\delta^T\frac{(1+r)^T-1}{r}\]
+% The present value of the mortgage repayment plus the accumulated interest be 
+% \[\bar M^T_r = \delta^T\frac{(1+r)^T-1}{r}\]
+ We can write $V$ in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate:%\footnote{The down payment could be deducted in advance, but if the discount rate is equal to the interest rate it drops out completely.}
  
-\begin{align}
-V &= \delta \left(P_T - (1+r)M\right) +   \mathcal{R}^w_N   \\
-&= \delta \left((1+\dot P) P_0 - (1+r)mP_M\right)  +      \mathcal{R}^w_N \\
-%V &=& \delta \left(P_T - (1+r)M\right) +  \mathcal{R}^w_N\\
-  &= \delta \left((1+\dot P)    - (1+r)m    \right) P_M + \mathcal{R}^w_N 
+ \begin{align}
+V &= \delta^T\left( P^T-P_0- \left(\frac{(1+r)^T-1}{r}rM\right)- M\right)+ \mathcal{\bar{R}}^T_N       \\
+&= \delta^T \left(
+\dot P^T P_0 -\left((1+r)^T-1\right)mP_0-mP_0
+\right)  +   \delta^T\mathcal{\bar{R}}^T_N 
+\label{first_sub}\\
+  &= \delta^T \left(\dot P^T - (1+r)^T)m \right)P_0 +   \delta^T\mathcal{\bar{R}}^T_N
 \end{align}
-This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
+% \begin{align}
+% V &= \delta^T \left(P_T - P_0- (1+r)M\right) +   \mathcal{R}^w_N   \\
+% &= \delta^T \left((1+\dot P^T) P_0 - (1+r)mP_M\right)  +      \mathcal{R}^w_N \\
+% &= \delta^T \left((1+\dot P^T)    - (1+r)m    \right) P_M + \mathcal{R}^w_N 
+% \end{align}
+% \begin{align}
+% V &= \delta^T \left(P^T - P_0- (1 + sumT(1+r))M +  \right) +   \mathcal{\bar{R}}^T_N      \\
+% &= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +    \delta_r^T\mathcal{R}_N 
+% \label{first_sub}\\
+%   &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 +   \delta_r^T\mathcal{R}_N 
+% \end{align}
+where $\dot P^T$  is the expected rate of change in the market price over the term of the mortgage.
+$V$ is the net present value of buying and selling after one mortgage renewal period of $T$ years. %All rates are scaled to the length of the period to avoid the need for compounding calculations. 
+The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 
 
+%  Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
+%  \begin{enumerate}
+%      \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
+%      \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
+%      \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
+%      \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
+%      \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
+% \end{enumerate} 
+% (This is terrible notation)
+% \subsection{Answer to question 2} 
+% Do we subtract $P_0$: YES 
+% Four changes just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
 
-\section{COMBINE WITH ABOVE - The value of an investment}
- 
- This may be written in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate: 
+{\color{red}
 
- Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
- \begin{enumerate}
-     \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
-     \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
-     \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
-     \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
-     \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
-\end{enumerate} 
-(This is terrible notation)
-\subsection{Answer to question 2} 
-Do we subtract $P_0$: YES 
-
-Four change just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
-
-\begin{align}
-V &= \delta^T \left(\dot P^T P_0- (1 + sumT(1+r))M +  \right) +\delta sum\mathcal{R}^w_N   \\
-&= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +      \delta sum\mathcal{R}^w_N \label{first_sub}\\
-  &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 + \delta sum\mathcal{R}^w_N 
-\end{align}
-This is the net present value of buying, and selling after one planning period. All rates are scaled to the length of the period to avoid the need for compounding calculations. The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
-
-
-\subsection{Rate of return on investment}
-Since an investor is interested in the rate of return on funds invested, we divide V by the size of the down payment, $D$ to get the required rate of return  
+\subsubsection{Rate of return on investment}
+We divide V by the size of the down payment, $D$ to get the required rate of return  
 
 \begin{align}
 r^{return} 
   &= \frac{V}{D}  \nonumber \\
-  &= \left(\delta \left(1+\dot P - (1+r)m\right) \ \right) \frac{P_0}{D}  + \frac{\mathcal{R}^w_N }{D}      \nonumber \\
-  &= \left(\delta \left(1+\dot P - (1+r)m\right)  \right) \frac{P_0}{P_0-mP_0} +  \frac{\mathcal{R}^w_N }{P_0-mP_0}  \\ 
-  &= \frac{\delta \left(1+\dot P - (1+r)m\right) }{1-m} +\frac{\mathcal{R}^w_N }{(1-m)P_0}.
-\label{eqn-property-investment-return1}
+  &=\delta^T \left(\dot P^T - (1+r)^Tm \right) \frac{P_0}{D} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{D}\nonumber \\
+&=\delta^T \left(\dot P^T - (1+r)^Tm \right) \frac{P_0}{P_0-mP_0} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{P_0-mP_0}\nonumber \\ 
+&=\delta^T \left(\dot P^T - (1+r)^Tm \right) \frac{P_0}{1-m}P_0 +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{(1-m)P_0}\nonumber \\
+&=\frac{\delta^T \left(\dot P^T - (1+r)^Tm \right) }{1-m} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{(1-m)P_0}\label{eq:rate-of-return-on-investment}
+%% &= \left(\delta^T \left(\dot P^T - (1 + sumT(1+r))m \right) \ \right)\frac{P_0}{P_0-mP_0} +  \frac{\delta sum\mathcal{R}^w_N }{P_0-mP_0}  \\ 
+%  &= \frac{\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right) }{1-m} +\frac{\delta \mathcal{R}^w_N }{(1-m)P_0}\label{revised}
 \end{align}
+Notice that the return depends on the price paid, $P_0$.
 
 
-\subsection{Criterion for investment}
-Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if  their expected return is greater than the target return, they are seeking:
+% \section{in the bid price, how is the present-value deflator computed}
+
+% Using the simplified version of equation~\ref{revised} we calculated  as Equation~\ref{eqn-bid-price} that the maximum bid that achieves the target return on the down payment is
+% \begin{align*}
+% P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \end{align*}
+
+% Using the extended and corrected version this becomes
+% \begin{align}
+% P_B^{max} & \le    \frac{\delta sum\mathcal{R}^w_N } {(1 + sumT(1+r))r^{target}-\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right)} \label{eqn-bid-revised} \end{align}
+
+
+
+}
+
+% \subsection{Rate of return on investment}
+% Since an investor is interested in the rate of return on funds invested, we divide V by the size of the down payment, $D$ to get the required rate of return  
+
+% \begin{align}
+% r^{return} 
+%   &= \frac{V}{D}  \nonumber \\
+%   &= \left(\delta \left(1+\dot P - (1+r)m\right) \ \right) \frac{P_0}{D}  + \frac{\mathcal{\bar{R}}^T_N}{D}      \nonumber \\
+%   &= \left(\delta \left(1+\dot P - (1+r)m\right)  \right) \frac{P_0}{P_0-mP_0} +  \frac{\mathcal{\bar{R}}^T_N}{P_0-mP_0}  \\ 
+%   &= \frac{\delta \left(1+\dot P - (1+r)m\right) }{1-m} +\frac{\mathcal{\bar{R}}^T_N}{(1-m)P_0}.
+% \label{eqn-property-investment-return1}
+% \end{align}
+
+
+\subsubsection{Criterion for investment}
+Equation~\ref{{eq:rate-of-return-on-investment}} provides a criterion for investors. Agents invest if  their expected return is greater than the target return, they are seeking:
 \begin{equation}
 r^{target}\le r^{return} 
 \label{eqn-property-investment-return2}
@@ -712,19 +803,26 @@ r^{target}\le r^{return}
 % \end{eqnarray}
 % In Appendix~\ref{appendix-bid-price} this expression is solved for $P_B$, the  maximum price that allows the investor can pay and still achieve at least her  target rate of return, $r_{target}$.  
 
-\subsection{Maximum bids}
+\subsubsection{Maximum bids}
 The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
 
-\begin{eqnarray}
-P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
-% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
-We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
+\begin{align}
+r^t&\le\frac{\delta^T \left(\dot P^T - (1+r)^Tm \right) }{1-m} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{(1-m)P_B^{max}} \nonumber\\
+(1-m)r^t/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \nonumber\\
+(1-m)r^t/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
+P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^t/\delta^T - \dot P^T + (1+r)^Tm}
+\end{align}
 
+% \begin{eqnarray}
+% P_B^{max} & \le    \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
+% % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
+We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
+}
 %Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
 
 
-\subsection{The seller's reservation price} \label{section-reservation-price}
+\subsection{Seller's reservation price} \label{section-reservation-price}
 
 We will assume,  that for owners, deciding to sell is a life-cycle decision. Home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.%\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
 
@@ -982,44 +1080,607 @@ where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers 
 % %(What makes. this work is that I do not use an identity to get $\dot P$, which made the system of equations singular.)
 % \newpage
 
-\section{The period and time value of money}\label{sec_model_time}
-In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
-%This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
 
-%In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates.
-Taking a simplified example, if the rate is $x$/year  and  the total mortgage amount borrowed, $M$, interest payments are $xM$  for each of $T$ years. 
-If the interest payments are all made at the end of the mortgage term, the lender will require interest on the deferred interest, so agent $i$'s payment at the end of the period $T$ will be:
 
-\begin{align*}
-\text{Payment} &= (1+r_i)M                                 \\ 
-    &= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
-    &= M\left(1+ x\sum_{z=T-1}^0(1+x)^{z}\right).          \\ 
-\end{align*}
-Therefore, the interest payment is:
-\begin{align*}
-r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}.
-\end{align*}
 
-For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. This means that, while banks may quote a per period interest rates, the equations use a compounded rate. In the computational model we employ the appropriately compounded values. All %the rates are compounded in this way to provide a per-period rates, including all 
- the interest rates, the $r$'s, are compounded in this way, because they require annual or monthly payments at their stated rates.
- It does not affect the discount rates, the $\delta$'s, or the borrowing ratio $m_i$, because they are initially calculated for the term and don't require the same period payments.
- The discount factor $\delta_T$ is always a compounded version of $x$:
- \[\delta_T=\left(\frac{1}{1+\delta}\right)^T\].
-%is a feature of the individual, so it is not affected in this way.
-%The appropriate compunding expressions for other rates are displayed below.
 
- The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
+
+
+
+
+
+{\color{red}
+WHERE DOES THIS GO?
+
+\section{Market and bargaining model}
+\subsection{Maximum bids and reservation price for investors }.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+There are two types of investment buyers: institutional buyers and homeowners buying an investment home. They use the same investment formula
+
+We assume that institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints form Equation ~\ref{eqn-max-mortgage2} and have different rates $r_i^{target},\ \delta_i$, and $r_i$.
+
+Equation~\ref{eqn-property-investment-return1} gave us the rate of return for a property, rented out. An investor will invest if the expected return on their investment is greater than their target rate of return, % that the investor can price offer for the property and still satisfy
+defined by the inequality~\ref{eqn-property-investment-return2}, and equation~\ref{eqn-bid-price}, repeated below, gives the maximum bid price:
+
+\begin{eqnarray}\label{eqn-max-investment-bid}
+P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+\end{eqnarray}
+This implies for the bargaining process that if any other potential  has  higher maximum bid, an investor can be eliminated. Combine this observation that each potential bidder will bid up to their maximum bid price, and we know that only the two highest bids matter need be considered.  
+
+
+
+\subsubsection{Maximum bid second house buyer}
+
+We assume that existing owners with sufficient savings can bid. They are limited by the limits  that the bank imposes  borrowing capacity.   Purchasing a revenue house is only attractive if the rate return on a rental house exceeds the cost of capital $r_i$. Call this the \textbf{profitability constraint} The maximum bid for this investor is given by Equation~\ref{eqn-max-investment-bid} using one period values for $r_i^{target},\ m_i,\ \delta_i$, and $r_i$.
+
+ \begin{eqnarray}\label{eqn-max-second-bid}
+P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)} 
+\end{eqnarray}
+Notice that this simplifies if any of $r_i^{target},\ \delta_i$, and $r_i$ are set equal. It is possible the cost of capital and the target rate will be the same.
+
+Combining the investment \textbf{profitability constraint} and mortgage constraints
+
+\begin{eqnarray}
+P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+\end{eqnarray}
+
+\subsubsection{Reservation prices for investment owners}
+If the current owner of an investment  property gets an high offer higher than their own maximum bid, they will always sell.  
+
+
+\subsection{New buyer maximum bids and reservation prices }
+A new buyer chooses to move if the income in the city, including the wage amenities exceed the rural income after housing costs, $\psi+A^{Rural}$. 
+
+There are two cases - moving as a buyer and moving as a renter.
+
+\subsection{Moving as a renter}
+The gain for a potential renter is 
+\begin{align}
+gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
+=&\left[\psi+\omega-cd+\mathbb{A}^{city}-\mathcal{R}\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
+\label{eq-move-to-rent}
+\end{align}
+If rent $\mathcal{R}$ exactly capture housing cost and locational rent, the gain reduces to $\mathbb{A}^{city}-\mathbb{A}^{Rural}$. Normally we would expect property rents to capture this component  as well. 
+
+\subsection{Moving as a buyer}
+The gain for a buyer is 
+\begin{align}
+gain^{buy}=&\ net^{city}-net^{Rural}\nonumber\\
+=&\left[\psi+\omega-cd+\mathbb{A}^{city}+(\dot p-r_im_i)P-a\psi\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P  \label{eq-move-to-buy}
+\end{align}
+This requires that the sum of  locational rent, net amenity and net capital gain be greater than or equal to zero for the in-migrant to buy.
+
+The two decisions  are 
+\begin{enumerate}
+    \item Move only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
+    
+    \item Buy a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
+\end{enumerate}
+
+The buyer is subject to the mortgage constraints in Equation~\ref{eqn-max-mortgage-combined}.
+
+We will assume that a first-home buyer always takes the maximum mortgage available to maximize the financial return on the transaction. 
+
+The maximum price a new buyer can bid is also given the bank imposed liquidity constraint is given by Equation~\ref{eqn-max-mortgage-combined}, which we repeat here
+
+
+\begin{align}
+P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+\end{align}
+
+
+\subsection{reservation price for retirees}
+Both owners and tenants retire. Homes only become available if they move to the country. 
+
+
+
+\subsubsection{Why would a renter move to the country?} 
+f the rent is greater than the cost of housing in the country and the lost amenity
+\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
+
+
+\subsubsection{Why would an owner move to the country?}
+Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
+\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\label{eq:movers-gainA}\]
+
+
+This value provides a \textbf{reservation price}: 
+\[P^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \label{eq:movers-gainB}\]
+This just says that the lowest prices one would sensibly accept is the cost of a house in the country plus enough to cover the mortgage, plus capitalized net amenity.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+
+Should a retiree rent the house out? only if the rent exceeds the  interest on income from the sale:
+\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
+This value provides a \textbf{another reservation price}: 
+\[P^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \label{eq:movers-gainC}\]
+
+
+Sellers should use the investment rule calculated before  do determine a  reservation price in the bargaining process. If they can't get a higher price they  can keep the home as a rental  investment and use the home as collateral for a mortgage on a house in the country.
+% For a homeowner, the reservation price is tricky. 
+% At this point we only have retirement as a hard boundary to consider. That means that the householder wants to sell in the current period. The gain from moving to the country is 
+% \begin{equation}
+% Gain=P_{ij}^{expected}-M-\frac{a\psi}{r\_prime} - transaction\ costs - Urban Amenity\  
+% \end{equation}\label{eq:movers-gain}
+% In the initial model  there are no urban amenities and no transaction costs. We could subtract an urban amenity term, $U_{ij}$ and an transaction cost from equation~\ref{eq:movers-gain}. The amenity term is likely to have little effect, since a buyer will pay extra for the amenity. the transaction cost is actually large and is likely to significantly affect land allocation efficiency.  
+
+The reservation price in in Equation~\ref {eq:movers-gain} is the minimum provides an incentive to sell a home immediately on retiring from the workforce. 
+
+
+
+If the sale is delayed by one period, however, the gain is deferred, so the present discounted cost of waiting is, $Gain*\frac{\delta}{1+\delta}$.\footnote{This is simply (1 minus the discount factor) times the deferred amount.} A seller would accept a lower price to avoid this cost of waiting. 
+
+My suggestion is that $\frac{\delta}{1+\delta}P_{ij}^{expected}$ is the \textbf{initial reservation price} for a homeowner on retirement. If the seller does not get this she reduces the reservation price for the next period by (say) 5\% .
+
+
+\subsubsection{for the Investor-owner}
+\textbf{For financial sector in general including those holding investment properties} the problem is easier if anyone offers more than your maximum bid, you should sell the property. 
+\begin{eqnarray}
+P_{bank}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-B} \end{eqnarray}
+
+% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
+We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula. 
+
+
+
+\subsubsection{expected price}
+So what is the \textbf{expected price}? this should be the expected price from a weighted price regression.\footnote{Wheaton \cite{wheatonVacancySearchPrices1990} suggests ``The combination of price and expected sales time determines the ``expected price'' for a house: market price discounted by expected sales time.'' In his model, vacancy, matching, sales time, and prices with positive vacancy, matching, sales time, and prices are all jointly determined.} Crudely it might be
+\[P_{d,t}^e=\beta_1 d + \beta_2 P_{d,t-1} +\epsilon\]
+where $\beta_1$ captures spatial correlation and $\beta_2$ captures serial correlation. In this model $\beta_2=1+\dot P$. This simple relationship would tend to change in each period, so the regression would be repeated  at the end of each period  to be used by everyone in the next period. 
+
+You could add $+ \beta_3 (P_{d,t-1}-P_{d,t-2})$ to capture the changing  price change. 
+
+
+
+%\textbf{Alternative approaches to the reservation price}
+
+%\begin{eqnarray}
+% P_{person}^{reservation} & =   \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-P} \end{eqnarray}
+
+
+% \begin{tabular}{p{1.5cm}|p{4.5cm}|p{4.5cm}}
+%     & reservation & maximum bid\\\hline
+% person-buyer    &   & $min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\} $ \\\hline
+%    person-new  &   & $min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\} $ \\\hline
+% Bank    &$ min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},$$\newline$$\mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  $ & \hline
+% \end{tabular}
+
+% ALTERNATIVE, NOT USED CALCULATION
+%An alternative way to do this, based on old calculations is to compute the realized mortgage share. The realized mortgage $m_i$
+
+%$m_i$ is follows the wealth based rule, $m_i*$ follows the savings based mortgage rule. The realized mortgage share is whichever of these is chosen by the rule in Equation~\ref{eqn-max-mortgage}.
+
+%$m_i^*$, and get the savings.
+% We use $m_i$ in calculating the maximum bid for individuals.
+%The \textbf{maximum bid} (price that will be offered) is the minimum of $M^{max_i} +S$ and the maximum bid calculated using $m_i$, , (which is calculated independently) if price
+% $P\le \frac{M_i^{max}}{m_i}$ 
+% and $m_i^*$ if 
+% $P\ge \frac{M_i^{max}}{m_i}$, where 
+% \[m_i^*=\frac{M_i^{max}}{P}\]
+
+\subsection{Price setting}
+\textbf{We have a many-to-many matching problem}. Many buyers and sellers single sellers for each unit. Therefore, for each property that comes on the market each potential seller has a reservation price $P_{ij}^{reservation}$ and there will be a set\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  of potential buyers with maximum bids $P_{ij}^{maxbid}$.
+
+
+This will appear in your data as a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. The rule is simple: 
+\begin{enumerate}
+    \item if there is only one maximum bid above the reservation price, split the difference.
+
+    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest
+\end{enumerate}
+
+\subsubsection{The process}
+\begin{enumerate}
+\item \textbf{identify the pool of sellers} for each cycle.
+    \begin{enumerate}
+        \item Agents who a) own and b) age out
+        \item Agent  who failed to sell in the previous period.
+        \item the bank
+    \end{enumerate}
+\item \textbf{identify the pool of buyers} 
+    \begin{enumerate}
+         \item newcomers, 
+         \item individuals as investors.
+         \item the bank may buy many, (There must be a capital (C) constraint something like $C/\bar P$ to select a number of bank bids in any period.)
+    \end{enumerate}
+
+\item \textbf{count buyers and sellers} and use the counts to identify sellers or buyers' market. \# Sellers > \# buyers is a buyers/ market. For a buyer's market  choose the lower price. \footnote{.The is often done with buyers/vacancies. Changes in this ratio are observed to trigger significant movement in rent r market prices.\cite{wheatonVacancySearchPrices1990}. Lisi and Iacobini \cite{lisiEstimatingHousingPrice2015} found  that in the Italian market, ``the difference between the actual selling price and the price obtained in an ideal situation of frictionless housing market – is remarkable. ... the higher the trading frictions on the demand side (more buyers and less sellers), the higher the actual selling price (the price adjustment is positive), whereas the higher the trading frictions on the supply side (less buyers and more sellers), the lower the actual selling price (the price adjustment is negative). '' (they point out that ``Trading frictions are obvious in the housing market, as it takes weeks or months to buy or sell a house (Caplin and Leahy, 2011; Rocheteau and Weill, 2011).'')}  
+
+%a key role is played by the so-called “time-on-the-market (TOM)”. The time it takes to sell a property or “the expected time until the asset is sold when following the optimal policy” (Lippman and McCall, 1986) – commonly known as the TOM – measures the degree of illiquidity of the real estate asset and is a fundamental characteristic differentiating real estate from financial assets. \cite{lisiSearchMatchingProcess2019}
+\item \textbf{The pooling problem}  Houses should go at different prices if they have different net rents.  Assume buyers and sellers are indifferent about location (no  local amenities) so only the net rent matters for the ban and only the full rent for individuals.
+
+\item \textbf{Create lists} for the buyer pool and the seller pool. (The bank can appear on the list many times.) 
+
+If the market is efficient, the allocation will maximize the sum or seller and buyer surplus.
+
+\item To select the set of transactors, \textbf{order the lists}. Buyers from highest to lowest, sellers from lowest to highest.
+
+\end{enumerate}
+
+
+% Ensure that they are of the same length by dropping the lowest bids or the highest reservation prices. 
+
+\newpage
+\textbf{Possibly relevant Example of a matching problem drawn from game theory text}
+
+There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
+
+\begin{center}
+Value and number of houses
+
+\begin{tabular}{|c|c|}
+ 
+\begin{tabular}{lcc}
+max bid&start&end  \\ \hline
+985  & 0 & 2 \\
+829  & 0 & 1 \\
+740  & 0 & 1 \\
+650  & 0 & 1 \\
+643  & 0 & 1 \\
+611  & 0 & 1 \\\hline
+532  & 0 & \color{red}1  \\
+356  & 0 & \color{red} 1   \\
+270  & 0 & \color{red} 1  \\
+135  & 0 & 0    \\%69 & 1  & 0
+   
+\end{tabular}
+
+&
+\begin{tabular}{lcc}
+reservation&start&end \\ \hline
+ 50 & 1  & 0 \\
+127 & 1  & 0 \\
+190 & 1  & 0  \\
+245 & 1  & 0 \\
+ 324 & 1  & 0 \\
+ 522 & 1 & \color{red} 1\\\hline
+ 738 & 1  &  \color{blue}0 \\
+ 829 &1  &  \color{blue}0 \\
+832 & 1 & \color{blue}0\\
+   &  &              \\%69 & 1  & 0 
+\end{tabular}
+
+\end{tabular}
+\end{center}
+
 
  
-\section{Incorporating price growth}\label{sec_model_price_expectataions}
-%We need a time period T for calculations. For use in any calculation, 
+  \begin{tikzpicture}[scale=.8]
+%  \draw [gray, opacity=.7]
+ (0,0) grid (7,7);
+\draw [<->] (0,10.5) node[above]{value}-- (0,0) -- (10,0) node[below]{Houses};
 
-With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
-the expected price at the end of the period is:
+\draw [red, thick] (0,9.85)node[above right]{985}--(1,9.85)--(1,8.29 )node[above right]{829}--(2,8.29 )--(2,7.40 )node[above right]{740}--(3,7.40 )--(3,6.50 )node[above right]{350}--(4,6.50 )--(4,6.43)node[above right]{643}--(5,6.43)--(5,6.11)node[above right]{611}--(6,6.11)--(6,5.32)node[above right]{532}--(7,5.32)--(7,3.56)node[above right]{356}--(8,3.56)--(8,2.70)node[above right]{270}--(9,2.70)--(9,1.35)node[left]{DEMAND}node[above right]{135}--(10,1.35); 
 
-\[P_M^{Te}=P_0(1+\dot P)^T\]
+\draw [blue, thick] (0,.50)node[above right]{50}--(1,.5)--(1,1.27 )node[above right]{127}--(2,1.27 )--(2,1.90 )node[above right]{190}--(3,1.90 )--(3,2.45 )node[above right]{245}--(4,2.45 )--(4,3.24)node[above right]{324}--(5,3.24)--(5,5.22)node[above right]{522}--(6,5.22)--(6,7.38)node[above right]{738}--(7,7.38)--(7,8.29)node[above right]{829}--(8,8.29)--(8,8.32)node[above right]{832}--(9,8.32)node[right]{SUPPLY}; 
+%,2.5) ;
+%\draw [blue, dashed] (0,4.5) node[left]{large bill}--(8.33, 4.5)-- (8.33,0)node[below] {large user Q};
+%\draw [green, dashed] (0,0) --(8.33, 4.5);
+%\draw [green, dashed] (0,0) --(1.66, 2.5);
 
-If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
+%\draw [<->, shift={(7 cm,0)}] (0,6) -- (0,0) -- (5,0);
+\end {tikzpicture}
+
+The gain for any person is the difference between the transaction price  for a house and the amount they value a house
+
+
+
+
+At the same time, for each p. NOT. DONE
+\begin{eqnarray}
+P_{bank}^{reservation} & \le  P_{person}^{max\_bid} \end{eqnarray}
+
+
+% \begin{lstlisting}
+% # parameters - max interest payment 
+% max_mortgage_share = 0.28 # ability to cover a mortgage
+
+% # Max mortgage
+
+% wealth = property_value - mortgage + savings
+% mean_weath = sum(wealth)/number_of_people
+
+% def get_max_mortgage(self, applicant):
+%     max_mortgage =  ...
+    
+%     return max_mortgage
+% \end{lstlisting}
+
+
+
+
+
+\newpage\hrule
+\subsection{TABLE OF BID AND RESERVATION PRICES}
+\hrule
+
+
+
+
+\subsection{For investors}
+ Institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints .
+maximum bid price:\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+
+\begin{eqnarray}\label{eqn-max-investment-bid}
+P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+\end{eqnarray}
+
+
+\subsubsection{Maximum bid second house buyer}
+
+ \begin{eqnarray}\label{eqn-max-second-bid}
+P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)}  \nonumber
+\end{eqnarray}
+
+Combining the investment \textbf{profitability constraint} and mortgage constraints
+
+\begin{eqnarray}
+P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+\end{eqnarray}
+
+\subsubsection{Reservation prices for investment owners}
+ if anyone offers more than your maximum bid, you should sell the property. 
+\begin{eqnarray}
+P_{investor}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \nonumber\end{eqnarray}
+
+
+\subsection{For new buyers}
+
+There are two cases - moving as a buyer and moving as a renter.
+
+\subsubsection{Moving to the city and renting}
+The gain for a potential renter is 
+\begin{align}
+gain^{rent}
+=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
+  \nonumber
+\end{align}
+
+\subsubsection{Moving to the city and  buying}
+The gain for a buyer is 
+\begin{align}
+gain^{buy}=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P   \nonumber
+\end{align}
+\textbf{The rule to apply}
+\begin{enumerate}
+    \item \textbf{Move} only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
+    
+    \item \textbf{Buy} a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
+\end{enumerate}
+\textbf{Maximum bid for new  resident}
+\begin{align}
+P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+\end{align}
+
+
+\subsection{Behaviour of  retirees}
+Both owners and tenants retire. Homes only become available if they move to the country. 
+\subsubsection{A renter move to the country if} 
+\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
+\subsubsection{An owner sells and moves to the country if}
+\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\] \subsection{ Combined owner reservation price}: 
+\[P_{owner-sell}^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \]
+
+\subsubsection{An owner Rents and moves to the country if} 
+\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
+This value provides a \textbf{another reservation price}: 
+\[P_{owner-rent}^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \]
+
+\subsubsection{Retiring owner's reservation price}
+\[P_{owner-combined}^{reservation}= max\left\{ P_{owner-sell}^{reservation} ,\ P_{owner-rent}^{reservation}\right\}\]
+
+\hrule
+
+
+\section{FILE AGGLOMERATION MODEL}
+
+\renewcommand{\sfdefault}{phv}
+
+\subsection{Initial values for  the agglomeration parameter}
+A segment is now redundant and has been commented out
+
+% \vspace{5lines}
+
+% {\Large  $Prefactor = 1506.712$ based on width=height=10 and density=100} and agglomeration\_coefficient= 1.2,
+% We need to get the scales of the parameters and the population size roughly consistent.
+
+% I assume the 10X10 grid is full. 
+
+% \section{Computing the prefactor: details}
+% We have set the subsistence\_wage to \$40,000.
+
+% The urban wage premium is in the range of 13-20\%  Assume 20\% and we get \$8,000
+
+% Under the neoclassical assumption  \$40,000 is the  marginal productivity of rural worker
+
+% The urban production function is 
+% \[Y=AN^\beta\]
+% \[Y=prefactor*working\_population**scaling\_exponent\]
+
+% where $working\_population = width*height*density$ 
+
+% so 
+% \[Y=prefactorA*(width*height*density)^{\beta}\]
+
+% We have more conditions that this has to satisfy: The marginal product must be consistent with the urban wage and the distribution rule. The wage cannot add up to more than total output output. Workers cannot get 1.2Y/N, for example. With CRS they would get 0.8Y/N.    
+
+% \subsection{approach one: from agglomeration surplus}
+% \[urban\_wage= subsistence\_wage + wage\_share * agglomeration\_surlpus\]
+% The \textbf{agglomeration surplus} is the excess relative to the CRS case when $\beta=1$:
+% \[agglomeration\_surplus= A(N^{1.2} -N^1) \]
+% The urban wage premium is then the share for each worker:
+% \[\omega= wage\_share * \frac{agglomeration\_surlpus}{N}\]
+
+% and this becomes
+% \[\omega= wage\_share * A\left(\frac{N^{1.2}-N^1}{N}\right)=1 * A\left(N^{0.2}-1\right)\]
+
+% To see what this looks like, consider a population of 10,000 when  wage\_share=1
+% \[\omega= \$8,000 = A\left( 6.309-1 \right)\]
+
+% {\Large So $A = 1506.712$ based on width=height=10 and density=100}  
+
+% Smaller N makes A bigger
+
+% % Say width=height=15 and density= 200:
+% % \[\omega= \$8,000 = A\left(10000-1\right)\]
+
+% \subsection{Approach 2: from Marginal product and subsistance wage}
+% % We want the marginal product of labour in the rural economy at the firm level to be at least close to \$40,000.
+
+% % Firm employment $L$ is small relative to  urban employment {N}.  We can create a generic rural firm and then consider an urban firm with agglomeration effects to get the parameters we need. 
+
+% % Assume that the rural p[rooduction function is 
+% % \[Y^R=A^R K^\alpha L^\beta\]
+% % where $\alpha=0.2$  and $\beta=0.8$. The marginal products are 
+% % \[MPL=\beta Y/L=\$40,000\] and\[\ MPK=\alpha Y/K =0.05\]
+% % From the first, 
+
+% % \[Y=\frac{L*\$40,000}{0.8}=\$5\ million\]
+
+% % This is firm revenue. From the MPK, 
+
+% % \[ \frac{0.2 \$5\ million}{0.05}=K =\$20\ million \]
+
+% % We now have the capital, labour and output for a model firm with a marginal product of labour  equal to the subsistence wage we have chosen.
+
+% % We now consider that this firm operates in the city and enjoys  urban agglomeration benefits.  If the scale coefficient=1.12$,$ $\omega$ would be as a first appr Say that the marginal product rises to \$48,000. This supports an urban wage premium of $\omega\$8,000$.
+
+% % We need to have a population size or a number of firms with a firm size. Assume the population is 10,000 and firms have 100 workers. All firms will have the same marginal product of labour in a competitive labour market, so size should not matter. 
+
+% % \[Y^U=A^R N^\gamma K^\alpha L^\beta = N^\gamma Y^R\]
+% % with a marginal product of 
+% % \[MPL^u=\$48,000=N^\gamma \beta Y^R/L=N^\gamma *\$40,000\]
+% % so $N^\gamma=1.2$ and $\gamma = .019$. 
+
+
+% This value is consistent with an empirical  value for $\beta$   1.02. The value is lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one million the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
+
+% A second interesting possible implication of our calculation is that only part of the agglomeration effect appears in wages. Urban rents  are large, but agglomeration effects are much larger.
+
+
+ 
+
+% %\[subsistance_wage= MPL(\beta=.= \]
+
+
+\section{COMBINED PRICES - FILE}
+\subsection{Combined mortgage maximum permitted by the bank for new buyers and second home buyers}
+
+\begin{align} 
+M_i^{max} &= min \left\{ m_i^{max\_permitted}*P, \ M^{max\_permitted}_i \right\} 
+% &= min \left\{ \left(0.9- \left( \frac{W_i}{\bar W}\right)^{0.1}\right)P, \  \frac{0.28*(\omega+\psi)}{r_i} \right\}, 
+\nonumber
+\end{align}
+
+
+\subsection{Maximum bids and reservation price for investors}.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+institutional borrowers have no limit on their borrowing capacity ($m_i=1$). Existing owners face mortgage constraints .
+maximum bid price:
+
+\begin{eqnarray}\label{eqn-max-investment-bid}
+P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
+\end{eqnarray}
+
+
+\subsubsection{Maximum bid second house buyer}
+
+\begin{eqnarray}\label{eqn-max-second-bid}
+P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)}  \nonumber
+\end{eqnarray}
+
+Combining the investment \textbf{profitability constraint} and mortgage constraints
+
+\begin{eqnarray}
+P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+\end{eqnarray}
+
+\subsubsection{Reservation prices for investment owners}
+ if anyone offers more than your maximum bid, you should sell the property. 
+\begin{eqnarray}
+P_{investor}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \nonumber\end{eqnarray}
+
+
+\subsection{New buyer maximum bids and reservation prices }
+
+There are two cases - moving as a buyer and moving as a renter.
+
+\subsubsection{Moving as a renter}
+The gain for a potential renter is 
+\begin{align}
+gain^{rent}=&]
+=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
+  \nonumber
+\end{align}
+
+\subsection{Moving as a buyer}
+The gain for a buyer is 
+\begin{align}
+=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P   \nonumber
+\end{align}
+Combined
+\begin{enumerate}
+    \item Move only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
+    
+    \item Buy a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
+\end{enumerate}
+
+\begin{align}
+P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+\end{align}
+
+
+\subsection{Reservation price for retirees}
+Both owners and tenants retire. Homes only become available if they move to the country. 
+\subsubsection{A renter move to the country if} 
+\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
+\subsubsection{An owner sells and moves to the country if}
+\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\]
+This value provides a \textbf{reservation price}: 
+\[P_{owner-sell}^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \]
+
+\subsubsection{An owner Rents and moves to the country if} 
+\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
+This value provides a \textbf{another reservation price}: 
+\[P_{owner-rent}^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \]
+
+\subsubsection{Retiring owner's reservation price}
+\[P_{owner-combined}^{reservation}= max\left\{ P_{owner-sell}^{reservation} ,\ P_{owner-rent}^{reservation}\right\}\]
+
+}
+
+
+{\color{orange}
+
+
+\section{DONE - TO DELETE? Three Questions}
+
+% The three questions I promised to deal with were
+% \begin{enumerate}
+%     \item should we add interest to the net rent calculation? (yes)
+%     \item should I subtract the purchase price from the calculation of the value of a purchase?
+%     \item in the bid price, how is the present-value deflator computed?
+% \end{enumerate}
+
+
+\subsubsection{Defining Net Rent carefully}
+
+
+The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
+ \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
+ 
+
+Net annual rent for investors is then  defined this way 
+
+\begin{align}\mathcal{R}_N &= \mathcal{R}_M - \mathcal{O} - \mathcal{T} + F(v, rM)\nonumber\\
+&= (\omega - {dc} + a\psi )+ \mathbb{A} - a b \psi - \tau  \mathcal{P}_{M, t-1}  + F(v, rM)
+\end{align}
+
+This term enters into the computation of housing prices. We assume it is deposited each year by an investor and earns interest $r$
+
+% \subsection{Answer to question 1} about whether to add interest to the rent term: YES
+}
+
+
+
 
 
 % \section{REDUNDANT Financialized capital}

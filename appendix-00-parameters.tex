@@ -1,60 +1,61 @@
-\chapter[Model Implementation]{Model Implementation}
-\textbf{June 29 --}
-
-Teminology: Y=prefactor*N**scaling\_exponent
-
-beta\_firm.  can be called the firm labour exponent
-
-beta  (no subscript).  can be called the  (labour) scaling  exponent
-
-alpha\_firm.   can be called the firm capital exponent
+\chapter{Parameters and initial values}
 
 
-A\_firm = 53.34721 = scale factor for  firm. 
+% Teminology: Y=prefactor*N**scaling\_exponent
 
-A\_city =  ????? = prefactor for city
+% beta\_firm.  can be called the firm labour exponent
 
-\section{Setting up the model: parameters and initial values}
+% beta  (no subscript).  can be called the  (labour) scaling  exponent
+
+% alpha\_firm.   can be called the firm capital exponent
+
+% A\_firm = 53.34721 = scale factor for  firm. 
+
+% A\_city =  ????? = prefactor for city
+
+
+The following sections give parameter values and variable initial values, beginning with a discussion of constraints on related values. %, followed by a discussion of parameters and initial values for variables. % These are summarized in TABLE.
+% We choose starting values that seem reasonable, because that makes it possible to check that variables that follow from computation also seem reasonable. %, as a kind of informal sanity check.
 % It is convenient to set up the model using initial values that are close to equilibrium values 
-% For some variables, we choose arbitrarily starting values that seem resonable, because that makes it possible to check that variables that follow from computation also seem resonable, as a kind of informal sanity check.
-It is helpful if initial values are somewhat `realistic' to assess whether model behaviour is plausible. 
+% Initial values are somewhat realistic to help assessing whether model behaviour is plausible. 
 % We have to do some initial calculations because we want to start near the equilibrium value. 
-There are several parameter values set. There are also endogenous values computed to initialize the model. These values are listed in sections \ref{sec-param-values}, and \ref{sec-init-value-list} respectively. The following sections discuss where those numbers come from, beginning with a discussion of constraints on parameter values, followed by a discussion of parameters and initial values for variables. % These are summarized in TABLE.
+% There are several parameter values set. There are also endogenous values computed to initialize the model. These values are listed in sections \ref{sec-param-values}, and \ref{sec-init-value-list} respectively. 
+
 
 \section{Relationships that constrain parameters }
 
-Explaining relationships that constrain parameters if the model is near an equilibrium path: 
+Several relationships constrain parameters if the model is near an equilibrium path: 
 
-CONSTRAINTS DIRECTLY FROM RESEARCH ON THE URBAN WAGE PREMIUM
-\begin{enumerate}
-     \item  Empirically the urban wage premium  $\omega$ is some fraction $p$ of the non-urban wage $\psi$.   This implies that if we set the subsistence wage, The urban wage is $(1+p)\psi$ and $\omega= p*\Psi$.
-\end{enumerate}
+\subsection{The urban wage premium}
 
-CONSTRAINTS DIRECTLY FROM THE CORE URBAN MODEL
+Empirically the urban wage premium $\omega$ is some fraction $p$ of the non-urban wage $\psi$.   This implies that if we set the subsistence wage, The urban wage is $(1+p)\psi$ and $\omega= p*\Psi$.
+
+TODO: if we initialize at the average value we will always be above this. would we want to initialize bellow this?
+
+\subsection{The urban model}
 \begin{enumerate}
     \item From the urban model, the extent of the city is determined by transportation costs:   $\omega =c*width$.  Only two of these parameters can be set independently.
 
-    \item From the urban model population is determined by area and density   $N=density* f^2$. we assume the city is symmetric  and we assume plots  of land are identical, so  - $area=f^2$. If there is a core (or seed) population it must be added.  
+    \item From the urban model population is determined by area and density   $N=density* f^2$. If we assume the city is symmetric  and plots  of land are identical, $area=f^2$. If there is an initial urban seed population, it must be added.  
    
     \item From the urban model the urban wage is the subsistence wage plus the urban wage premium $\omega+\psi$ 
 \end{enumerate}
 
-CONSTRAINTS DIRECTLY FROM THE AGGLOMERATION/SCALE MODEL
+\subsection{Agglomeration effects}
 \begin{enumerate}
     \item From the scale literature the value of aggregate output is $Y=AN^\beta$ for the city. This establishes a relationship between urban GDP and population. We initially make population equal to the workforce. 
 
     \item Empirically, $\beta \approx 1.13$
 \end{enumerate}
 
-CONSTRAINTS DIRECTLY FROM THE NEOCLASSICAL THEORY OF THE FIRM
+\subsection{The neoclassical theory of the firm}
 \begin{enumerate}
     \item From neoclassical theory of the firm the competitive equilibrium wage is the  marginal product of labour in the firm.      This should hold both in the urban and rural economies. This implies       $ MPL^R=\psi$  and $ MPL^U=\omega+\psi $.
 
     Using a Cobb-Douglas production function, we can get explicit expressions for the marginal productivities of labour and capital. 
-\end{enumerate}
-
-CONSTRAINTS DIRECTLY FROM THE COBB-DOUGLAS PRODUCTION FUNCTION
-\begin{enumerate}
+% \end{enumerate}
+% CONSTRAINTS DIRECTLY FROM THE COBB-DOUGLAS PRODUCTION FUNCTION
+% \begin{enumerate}
 \item The firm production functions are 
 \begin{align}
 Y_R  &= \quad  A_FK^{\alpha_F}L^{\beta_F}\\
@@ -194,6 +195,8 @@ $ r^{target}= r^{prime} +r^{margin}$ ?
 \item [\gls{maximum mortgage share} of price] parameter in calculation of $m_i$. Specific to the functional form used. Set at 0.9. Based on stylized facts from the literature.  % No empirical estimates are available.
 \item[wealth sensitivity] of maximum mortgage share of price. This is a parameter in the calculation of $m_i$. It is specific to the functional form used. Set at 0.1. The choice of a function is based on stylized facts from the literature.  %No empirical estimates are available. 
 Used in Equation~\ref{eqn-wealth-based-mortgage}.
+
+\item [$K$ the wealth sensitivity of the borrowing rate for those purchasing homes]
 \end{description}
 
 \subsubsection{Realtor}
