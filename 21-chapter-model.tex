@@ -317,7 +317,6 @@ In the model, agents learn or set these values with the support of a real estate
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 
-
 \subsection{Warranted rent} \label{section-waranted-rent}
 We anchor our housing price expectations in \gls{warranted rent}. It is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
 \footnote{The warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve, abstracting %. Including it in the model introduces a long-run equilibrium value, rather than modeling 
@@ -333,9 +332,7 @@ the wage premium, $\omega$, minus the transportation costs, $c$, for a property 
 \[\omega - {dc}.\]
 
 \subsubsection{Locational amenity} \label{section-locational-rent}
-
 The warranted locational rent includes  the economic rent as well as a locational amenity, $\mathbb{A}$. Locational amenity includes very local site-specific amenities like access to schools or views, as well as a general urban amenity function that is the value of living in a particular location $\mathbb{A}$. For most of the discussion in this chapter we ignore locational amenities, although we make provision for them in our computational model.
-
 
 \subsubsection{Housing services} \label{section-housing-services}
 Housing services $\mathcal{H}_j$ are  tied to a particular property. They include the value of features like a building having a certain number of rooms, particular finishes, or landscaping, extensions or upgrades. To maintain our focus on locational rents, we simplify, fixing %the value of housing services, setting 
@@ -355,9 +352,6 @@ Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}
 \label{eqn-warranted-rent}
 \end{align}
 
-
-
-
 \subsection{Market rent} \label{section-market-rent}
 The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market differs from the economically warranted rent as investors make individual decisions about rents, setting rents based on market conditions and their own expectations. %, which take into account a range of factors. 
 
@@ -375,7 +369,7 @@ As the simulation continues the market price is the price realized through the a
 % In the computational agent-based  model, 
 % The assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The realized prices evolve from that starting point. 
 
-\subsection{Net rent} \label{section-net-rent}
+\subsection{Net warranted rent} \label{section-net-rent}
 %. net ECONOMIC rent?
 % The \gls{net rent} is the warranted rent net of costs. Homes must be maintained, financed, and taxes paid, so 
 Owners receives, not the total warranted rent, but the \gls{net rent} after expenses, including maintenance, taxes, and the cost of financing. The following sections detail the computation of each expense, and their combination into the net rent calculation.
@@ -400,6 +394,7 @@ Owners pay property taxes based on appraised price, $P_{\tau}$:
  
 Where $\tau$ is the municipal tax rate or \gls{mill rate}, and the \gls{appraised value} is based somewhat approximately, and with a lag, on the \gls{market price}, so $\mathcal{P}_{\tau}$ is some fraction of $\mathcal{P}_{M, t-n}$.
 
+% \footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.}
 
 
 \subsubsection{Annual maintenance}
@@ -409,188 +404,45 @@ Annual maintenance costs apply to buildings and lands but not to locational valu
 \mathcal{O} &= a b \psi.
 \end{align}
 
-\subsubsection{Financing costs}
-Agents who have purchased a house, may be able to pass financing costs through to tenants, %. Their ability to pass costs along 
-depending on market power, %We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. 
-$F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
-vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor.
-
-% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
-% Annual financing costs are $rM$. 
-
-TODO - HOW TO CALCULATE THIS.
-
 \subsubsection{Combined equation}
 
-Combining, the \gls{net rent} is:
-\begin{align}
-\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T} - F(v, rM).
- % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1} - F(v, rM),
-\end{align}
-
-{\color{red}
-\section{WHERE DO WE WANT THIS? The period and time value of money}\label{sec_model_time}
-In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
-%This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
-
-%In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates.
-Taking a simplified example, if the rate is $x$/year  and  the total mortgage amount borrowed, $M$, interest payments are $xM$  for each of $T$ years. 
-If the interest payments are all made at the end of the mortgage term, the lender will require interest on the deferred interest, so agent $i$'s payment at the end of the period $T$ will be:
-
-\begin{align*}
-\text{Payment} &= (1+r_i)M                                 \\ 
-    &= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
-    &= M\left(1+ x\sum_{z=T-1}^0(1+x)^{z}\right).          \\ 
-\end{align*}
-Therefore, the interest payment is:
-\begin{align*}
-r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}.
-\end{align*}
-
-For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. This means that, while banks may quote a per period interest rates, the equations use a compounded rate. In the computational model we employ the appropriately compounded values. All %the rates are compounded in this way to provide a per-period rates, including all 
- the interest rates, the $r$'s, are compounded in this way, because they require annual or monthly payments at their stated rates.
- It does not affect the discount rates, the $\delta$'s, or the borrowing ratio $m_i$, because they are initially calculated for the term and don't require the same period payments.
- The discount factor $\delta_T$ is always a compounded version of $x$:
- \[\delta_T=\left(\frac{1}{1+\delta}\right)^T\].
-%is a feature of the individual, so it is not affected in this way.
-%The appropriate compunding expressions for other rates are displayed below.
-
- The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
-
- 
-
-
+Combining, the \gls{net rent} is:\footnote{
+This is the net warranted rent. Market rent, $\mathcal{R}_M$, can be decoupled from this for many reasons. For instance, agents who have purchased a house, may be able to pass a share of financing costs through to tenants as part of the market rent, %. Their ability to pass costs along 
+depending on market power. Some  migrants may accept lower utilities or may have access to higher wages. The market rent could include an additional term,  %We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. 
+$F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
+vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor. The market rent is what an investor would use for price setting, however we are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted and we work with the net warranted rent in the price formation model. There would be a strong feedback from speculators taking on financing costs  to the level of rents for tenants, and this  then feedw back into prices.% These are distinct logics for the rent formation mechanism which can be explored through more explicit models of rental markets. Abstracting them gives a set of easily generalizable simplifications.% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
+% Annual financing costs are $rM$. 
 }
 
+\begin{align}
+  &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
+ % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1},
+\end{align}
 
-\chapter{Price}
 
 
-\subsection{Warranted price} \label{section-warranted-price}
+\section{Prices}
+Even when all  housing units are identical except for location, there are several prices  to consider, including bid prices, reservation prices and expected prices. We will begin by considering  housing as an providing a flow of services, discuss expected prices and then go on to develop the bid price and the reservation prices for investors. 
 
-Capturing future rents due to the urban wage premium and amenity justifies a purchase price for urban land with housing  that is higher than that of rural land with housing. 
+A bidding process determines an actual realized market price, with bidders taking into account potential capital gains. We describe the bid price formulation below. 
+
+\subsection{Net warranted price} \label{section-warranted-price}
 % We call the financially justified price. %, given the urban productivity premium, the \gls{warranted price}, $P_W$.
-The economically \gls{warranted price}, for a property, is the present discounted value of the flow of service net of costs. 
-
-The present discounted value of an infinite stream of net rents is
+The economically \gls{warranted price}, for an agent, borrowing money to purchase a property, is the present discounted value of the flow of service net of costs. The present discounted value of the infinite stream of net rents is:
 
 \begin{equation}
   P_W=\frac{\mathcal{R}_N}{r},  
 \label{eqn-price-warranted}
 \end{equation}
-where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  The warranted price approximates the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components. 
-We will assume that the market price can be approximated by the present discounted value of warranted  rents. 
+where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  
+%In a market in equilibrium, the warranted price should approximate the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components.  We use the  present discounted value of net warranted rents to 
+We use this price to approximate the initial value of the market price in our computational model. 
 
+\subsection{Price expectations}
 
+The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.\footnote{Case and Shiller point out ``\dots we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.}  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. Case and Schiller\cite{caseThereBubbleHousing2003} argue that  the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes. 
 
-
-The rate of price growth $\dot P$, is an approximation based on rents and past market behaviour.
-
-\footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.} The taxes paid over the period are then:
-
-
-COMBINE {Warranted market price}  
-This is  an initial value for market price 
- $P_W=\frac{\mathcal{R}_W }{r}$,  
-
-This is the present discounted value of the flow of housing services.  Use this as initial market price.  It can reasonably be seen as an equilibrium or attractor towards which prices should  evolve.  Notice that it includes $\mathbb{A}$
-
-
-\subsection{Market price and expected price} \label{section-market-price}
-
-A bidding process determines an actual realized market price that, taking into account potential capital gains. We describe the bid price formulation below. The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price. In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. The rate of price growth $\dot P$, is also an approximation based on rents and past market behaviour.\footnote{Since agents do not have perfect information, the expected value is calculated with their best approximation of values.} 
- \footnote{Case and Shiller point out ``..we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.} 
-
-%$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
-
-%In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
-
-% \subsection{Price forecast approximation} \label{section-price-forecast}
-% $L(p)$
-
-% $p$ is all the price data plus any exogenous information (e.g. policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
-
-% Some spatial regression references:
-% 'taxonomy of spatial econometric model specifications that incorporate spatial externalities in various ways'
-% \cite{anselinSpatialExternalitiesSpatial2003},  
-% overviews of econometric methods and computational tools \cite{anselinModernSpat
- 
-%and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier. Formalizing this relationship is part of the core conceptual contribution of this work. %\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. 
-%Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
-
-% In the discussion, refer to the value agents would be willing to pay as the $\mathcal{R}_W$, to make it clear what we are discussion, recognizing that we can vary this and explore the value of different values for rent, the role of expectations, information, amenity, etc.
-
-% This, along with the focus on rents, 
-
-% It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE \dots
- %METHODOLOGY CHAPTER? warranted rent is a frontier .  
-
-
-
-% *** LOTS OF NOTES MOSTLY ON AMENITY AND OTHER DIFFERENCES BETWEEN WARRANTED AND MARKET RENTS - NEED A CLEAN PARAGRAPH OR TWO EXPLAINING
-%\footnote{The assumption $\mathcal{R}_W = \mathcal{R}_M$ is easy to vary in future experiments, 
-% Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
-%including by adding a range of decision rules. 
-% Our model of income is incomplete, and people don't only care about the income they earn. Some are paying for the amenity of urban life. In real life, many other factors cans shape amenity value including features of the housing, desire to live near clubs, sports, cafe's libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. Appendix~\ref{appendix-amenity} includes a theoretical treatment of amenity in the context of the model. People also make choices with imperfect information, some are investing in living in a city
-% ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDICTION VALUES. THE PREDICTION VALUES ARE WHAT ARE USED. 
-% THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
-% WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
-% }.
-% ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
-% Note the warranted rent is what is econoimcally jsutified, it can vary from the market rent, which is what is actually paid.  
-% Talk about unobserved variables, and 
-% They really care about what they will get- use decision rules to forcast the actual returns realized. Might guess about the biases of others
-% The market rent is what the agent actually pays in rent the property. - they can own a shre and captre some
-
-
-% The following sections detail the model and explain how each of these terms is derived.
-% **TODO ADD NOTES ON TIME IN THE FOLLOWING SECTIONS E.G. ALL RENTS REPRESENTED ON AN ANNUAL BASIS, PRESENT DISCOUNTED VALUE, ETC
-
-% \subsection{Warranted rent} \label{section-warranted-rent}
-
-
-% \subsubsection{Locational services}
-% Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
-
-% It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
-% CUT? This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work.  %Workers could pay that much in rent and additional costs and it would still worthwhile to commute. 
-% \subsubsection{Land and building services}
-% Annual rent charged initially should be  equal to the annual value of services, $h$:
-% and the warranted price is 
-% \[P_W=\frac{\omega - {dc} + a\psi}{r}\]
-% We will use this value as the price for the first period 
-% $P_W=\frac{\omega- {dc} + a\psi}{r}$
-
-%$\mathcal{R}_N$ is the value that investors consider when assessing the \gls{financial return} on property, since it's the maximum that it's worth paying to capture the value renters are wiling to pay to live in a property, given the \gls{urban wage premium}. 
-% consider in investment decisions. % of services and costs
-% For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
-
-% All of these are in annual values. We will use the present values  for the appropriate period  T in computations. (See notes on the present value calculations to use)
-
-% \subsection{NEW WORK STARTS - How does this affect the bid price?}
-
-% I now return to Equations B6 to compute the value of a proposed purchase
-
-
-% \begin{align*}
-% V &= \delta \left(P_T - (1+r)M\right) +      \mathcal{R}^w_N  \tag{B6} \\
-%   &= \delta \left((1+\dot P)    - (1+r)m    \right) P_B + \mathcal{R}^w_N% \label{eqn-property-investment-value1}
-% \end{align*}
-% Similarly, Equation B7 becomes
-
-% \begin{align*}
-% r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}^w_N}{(1-m)^{bid}}\tag{B7}
-% \end{align*}
-% And following the same sequence of steps to derive the bid price 
-
-% \begin{align*}
-% P_i^{bid} \le &   \frac{\mathcal{R}^w_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)} \tag{B10}\\
-% 		 \le &   \frac{ \omega - dc + a\psi -   ba\psi - ca\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	\\	
-%    		 \le &   \frac{ \omega - dc + a(1-b-c)\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	
-% \end{align*}
-
-%Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
-%That may let us simplify the exposition in the financialization chapter.
+In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
 
 
 \subsection{Bid price}\label{sec_model_bid_price}
@@ -648,6 +500,7 @@ the expected price at the end of the period is:
 
 If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
+The rate of price growth, $\dot P$, is an approximation based on rents and past market behaviour.
 
  
 \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
@@ -821,8 +674,13 @@ We call this  $i's$ maximum bid and compute it for all potential buyers and sell
 %Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
 
+\section{Reservation prices} 
 
-\section{Seller's reservation price} \label{section-reservation-price}
+Bargaining models attempt to identify the way the surplus available from a completed transaction is divided between the parties involved. The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951} 
+identifies a `disagreement point,' which which is the  lowest value each player will accept. In bargaining over a price the lowest value for the seller is called the  `\gls{reservation price}.' The reservation  price for the seller is the highest amount the seller is willing to pay. We call this the maximum bid price. 
+
+ All owners and potential buyers have  reservation prices. They represents the owner's best alternative, and in bargaining models
+\subsection{Seller's reservation price} \label{section-reservation-price}
 
 We will assume,  that for owners, deciding to sell is a life-cycle decision. Home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.%\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
 
@@ -877,7 +735,7 @@ The value of the stream of rent is therefore the most reasonable reservation pri
 
 
 
-\chapter{The bargaining model} \label{sec_model_bargaining}
+\section{The bargaining model} \label{sec_model_bargaining}
 
 
 \subsection{Many-to-many matching problem}

@@ -1,25 +1,13 @@
-\section{BID PRICES BY AGENT TYPE?}
-% unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
+\chapter{Salvaging BID PRICES BY AGENT TYPE?}
+\section{Odd things to save}
+unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
 
-%Thus, the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes, Case and Schiller \cite{caseThereBubbleHousing2003} p282.
 
 %  GET?? Case, Karl E., and Robert J. Shiller. 1988. ``The Behavior of Home Buyers in Boom and Postboom Markets.'' New England Economic Review (November-- December), pp. 29--46.
 
-% So the condition is 
-% \begin{align*}
-% r^{target} \le \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}^w_N}{(1-m)P_0^{bid}}\tag{B7}
-% \end{align*}
 
- % THIS  MAY BE NEEDED
-% \begin{align*}
-% P_{max}^{bid} \le &   \frac{\mathcal{R}^w_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)} \tag{B10}\\
-% 		 \le &   \frac{ \omega - dc + a\psi -   ba\psi - ca\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	\\	
-%    		 \le &   \frac{ \omega - dc + a(1-b-c)\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	
-% \end{align*}
 
- % We assume that the use value is captured by the stream of rental values. %, whether a home is owner-occupied or held by an investor as a financial asset. 
- % For simplicity, we consider a one-period investment.  %To keep the analysis simple without loss of generality 
-
+ % 
 %  The agent purchases a house for a price, $P_0$ %a down payment, $D$, 
 %  and receives the increased price $P_T = (1 + \dot P)P_0$, back after a period $T$. 
 % % The value of the investment is the net present value of buying and then selling after one period:
@@ -48,41 +36,10 @@
 % \label{eqn-property-investment-value2}
 % \end{eqnarray}
 %  Where $\rho$, $\theta$, $\tau$, and $m$ are rent, operating costs, taxes, and mortgage shares, respectively. % Where $\phi$ is a fraction that takes into account taxes and operating costs. 
- % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the price taken out as a mortgage.
- %It has  seven  parameters, $\delta, \dot P, r, m, \rho, \kappa$ and $t$. The first four, $\delta, \dot P, r$ and $m$ are exogenous for the investor while $\rho$, $\kappa$ and $t$  are    %Operating revenue and costs $\rho, \kappa$ and $t$ are expressed as  present values. 
+ % of price for rents, operating costs, and taxes. %The discount factor is $delta$, $P_0$ is the property price at the time of sale. %$r$ is the interest rate paid, and $m$ is the share of the pr
+Agents borrow a share of the purchase price, $P$. The amount borrowed is the mortgage, $M$. This is a share of the total purchase price $mP = M$. The \gls{mortgage term}, $T$, is the period it takes to pay down the mortgage.
 
-%Agents borrow a share of the purchase price, $P$. The amount borrowed is the mortgage, $M$. This is a share of the total purchase price $mP = M$. The \gls{mortgage term}, $T$, is the period it takes to pay down the mortgage.
 
-%\section{Return on investment}
-
-% The rate of return on funds invested, $r_{return}$, is the value divided by the size of the down payment, $D$: 
-% %The rate of return is $v = \frac{V}{D}$. %For expat investors, we get a \textbf{decision rule}:
-% %\begin{enumerate}
-% %\item  if $v \geq a$ (with some private use?) with no rent,  don't bother renting. 
-% %\item If $v(no\ rent\ and\ tax) < a\geq v(with\ rent)$,  then  rent. 
-% %\item If $ v(with\ rent) \le a $,  then sell 
-% %\end{enumerate}\
-% \begin{eqnarray}
-% r^{return} 
-%   &=& \frac{V}{D}  \nonumber \\
-%   &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{D}        \nonumber \\
-%   &=& \left(\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau \right) \frac{P_0}{P_0-mP_0} \nonumber \\ 
-%   &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau }{1-m}.
-% \label{eqn-property-investment-return1}
-% \end{eqnarray}
-% Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
-% \begin{equation}
-% r^{return} \geq r^{target}. 
-% \label{eqn-property-investment-return2}
-% \end{equation}
-
-%This is the maximum price that satisfies the criterion $r^{return} \geq r^{target}$.  The bid price is used in the price determination process in our model. %Where the return is the value over the down payment:
-% Equation~\ref{eqn-property-investment-return1} expresses the expected return on investment in terms of the  market price, $P_0$: 
-% \begin{eqnarray*}
-%  r^{return} 
-%    &=& \frac{V}{D} \\
-%    &=& \frac{\delta \left(1+\dot P - (1+r)m\right) \ + \rho - \theta - \tau}{1-m}.
-% \end{eqnarray*}
 %which we define as the ``bid price,''% $P_B$ $P^{max}_{bid}$. 
 %We return to Equation~\ref{eqn-property-investment-value3} %
 %We start by writing the value of the investment, from Equation~\ref{eqn-property-investment-value1}, with the net rent. %, which can be written a share, $\phi$ of total rent $\mathcal{R}_N = \phi \mathcal{R}$, %The net rent can also be written as a share, $\phi$, of the rent 
@@ -650,11 +607,6 @@ This value provides a \textbf{another reservation price}:
 This term enters into the computation of housing prices. We assume it is deposited each year by an investor and earns interest $r$
 
 % \subsection{Answer to question 1} about whether to add interest to the rent term: YES
-}
-
-
-
-
 
 % \section{REDUNDANT Financialized capital}
 % %Individuals and institutions play a role in the housing market through credit markets and direct investment.Agent's access credit shapes worker's ability to purchase homes. Credit is offered by institutions.
@@ -735,3 +687,92 @@ This term enters into the computation of housing prices. We assume it is deposit
 % \end{eqnarray}
 
 
+\chapter{COMMENTED OUT STUFF - ANYTHING IMPORTANT TO ADD BACK HERE?}
+
+%$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
+
+%In the analysis that follows, we work with an \gls{expected market price} based on the theoretical model developed in this dissertation, $P_M^{e}$.
+
+% \subsection{Price forecast approximation} \label{section-price-forecast}
+% $L(p)$
+
+% $p$ is all the price data plus any exogenous information (e.g. policy knowledge?). $L(p)$ is an estimation function that produces a `common knowledge' value for the rate of price increase. Later you can add idiosyncratic extra knowledge or extra ignorance.
+
+% Some spatial regression references:
+% 'taxonomy of spatial econometric model specifications that incorporate spatial externalities in various ways'
+% \cite{anselinSpatialExternalitiesSpatial2003},  
+% overviews of econometric methods and computational tools \cite{anselinModernSpat
+ 
+%and the potential for financialized ownership to extract that value, pushing those who contribute to creating growing wealth, to a subsistence frontier. Formalizing this relationship is part of the core conceptual contribution of this work. %\footnote{***WHERE IS MAIN DISCUSSION OF THIS? ** RENT CHAPTER? .. %METHOD/model/intro section - ref section COULD ELABORATE ON BENEFITS. THIS IS A CORE CONTRIBUTION, WE ARGUE IT IS  WORTHWHILE TO EXPLORE THE LINKAGES BETWEEN PRODUCTION AND EXTRACTION. TO OUR KNOWLEDGE, IT HAS NOT BEEN DONE ELSEWHERE. 
+%Future work can explore the way in which this locks those who earn bellow average incomes to fall behind, no matter how much wealth they create, the smaller urban concentration of value may increase the total value produced, but also makes it easier to monopolize land and concentrate in a financialized ownership class, that amplifies whatever advantage it begins with, however small or path dependant, (shared ownership is in a sense an unstable equilibrium, under the conditions of combining urban scaling laws and a land tenure models that allows finacialization)  REFERENCE HERE AND  MOVE/EXPAND DISCUSSION IN FUTURE WORK}.
+ 
+
+% It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE \dots
+ %METHODOLOGY CHAPTER? warranted rent is a frontier .  
+
+
+
+% *** LOTS OF NOTES MOSTLY ON AMENITY AND OTHER DIFFERENCES BETWEEN WARRANTED AND MARKET RENTS - NEED A CLEAN PARAGRAPH OR TWO EXPLAINING
+%\footnote{The assumption $\mathcal{R}_W = \mathcal{R}_M$ is easy to vary in future experiments, 
+% Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
+%including by adding a range of decision rules. 
+% Our model of income is incomplete, and people don't only care about the income they earn. Some are paying for the amenity of urban life. In real life, many other factors cans shape amenity value including features of the housing, desire to live near clubs, sports, cafe's libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. Appendix~\ref{appendix-amenity} includes a theoretical treatment of amenity in the context of the model. People also make choices with imperfect information, some are investing in living in a city
+% ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDICTION VALUES. THE PREDICTION VALUES ARE WHAT ARE USED. 
+% THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
+% WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
+% }.
+% ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
+
+% Talk about unobserved variables, and 
+% They really care about what they will get- use decision rules to forcast the actual returns realized. Might guess about the biases of others
+% The market rent is what the agent actually pays in rent the property. - they can own a shre and captre some
+
+
+% The following sections detail the model and explain how each of these terms is derived.
+% **TODO ADD NOTES ON TIME IN THE FOLLOWING SECTIONS E.G. ALL RENTS REPRESENTED ON AN ANNUAL BASIS, PRESENT DISCOUNTED VALUE, ETC
+
+% \subsection{Warranted rent} \label{section-warranted-rent}
+
+
+% \subsubsection{Locational services}
+% Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
+
+% It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
+% CUT? This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work.  %Workers could pay that much in rent and additional costs and it would still worthwhile to commute. 
+% \subsubsection{Land and building services}
+% Annual rent charged initially should be  equal to the annual value of services, $h$:
+% and the warranted price is 
+% \[P_W=\frac{\omega - {dc} + a\psi}{r}\]
+% We will use this value as the price for the first period 
+% $P_W=\frac{\omega- {dc} + a\psi}{r}$
+
+%$\mathcal{R}_N$ is the value that investors consider when assessing the \gls{financial return} on property, since it's the maximum that it's worth paying to capture the value renters are wiling to pay to live in a property, given the \gls{urban wage premium}. 
+% consider in investment decisions. % of services and costs
+% For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
+
+% All of these are in annual values. We will use the present values  for the appropriate period  T in computations. (See notes on the present value calculations to use)
+
+% \subsection{NEW WORK STARTS - How does this affect the bid price?}
+
+% I now return to Equations B6 to compute the value of a proposed purchase
+
+
+% \begin{align*}
+% V &= \delta \left(P_T - (1+r)M\right) +      \mathcal{R}^w_N  \tag{B6} \\
+%   &= \delta \left((1+\dot P)    - (1+r)m    \right) P_B + \mathcal{R}^w_N% \label{eqn-property-investment-value1}
+% \end{align*}
+% Similarly, Equation B7 becomes
+
+% \begin{align*}
+% r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}^w_N}{(1-m)^{bid}}\tag{B7}
+% \end{align*}
+% And following the same sequence of steps to derive the bid price 
+
+% \begin{align*}
+% P_i^{bid} \le &   \frac{\mathcal{R}^w_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)} \tag{B10}\\
+% 		 \le &   \frac{ \omega - dc + a\psi -   ba\psi - ca\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	\\	
+%    		 \le &   \frac{ \omega - dc + a(1-b-c)\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	
+% \end{align*}
+
+%Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
+%That may let us simplify the exposition in the financialization chapter.

@@ -1,6 +1,40 @@
 
 \chapter[Mortgage Model]{Mortgage Model}
 
+{\color{red}
+\section{WHERE DO WE WANT THIS? The period and time value of money}\label{sec_model_time}
+In developing the model we introduced a number of rates, such as $r_i$, the rate that individual $i$ pays for a single borrowing period. The payment calculation is made for a period of length $T$, which we refer to as a mortgage term.
+%This means the actual interest paid is a compounded interest rates (VARIABLES LIST FOR THIS).
+
+%In developing the theoretical model we introduced a number of rates, such as $r_i$, the rate that  individual $i$ pays for a single period of borrowing. We assume the calculations are for a  period of length  $T$, which we refer to as a mortgage term. This means that the rates in equations such XXXXX are actually compounded rates.
+Taking a simplified example, if the rate is $x$/year  and  the total mortgage amount borrowed, $M$, interest payments are $xM$  for each of $T$ years. 
+If the interest payments are all made at the end of the mortgage term, the lender will require interest on the deferred interest, so agent $i$'s payment at the end of the period $T$ will be:
+
+\begin{align*}
+\text{Payment} &= (1+r_i)M                                 \\ 
+    &= M + xM(1+x)^{T-1}+ xM(1+x)^{T-2}\dots + xM(1+x)^{0} \\
+    &= M\left(1+ x\sum_{z=T-1}^0(1+x)^{z}\right).          \\ 
+\end{align*}
+Therefore, the interest payment is:
+\begin{align*}
+r_i.   &=x\sum_{z=T-1}^0(1+x)^{z}.
+\end{align*}
+
+For the sake of notational simplicity and clarity of exposition,  we omit the compounding formula throughout our discussion. This means that, while banks may quote a per period interest rates, the equations use a compounded rate. In the computational model we employ the appropriately compounded values. All %the rates are compounded in this way to provide a per-period rates, including all 
+ the interest rates, the $r$'s, are compounded in this way, because they require annual or monthly payments at their stated rates.
+ It does not affect the discount rates, the $\delta$'s, or the borrowing ratio $m_i$, because they are initially calculated for the term and don't require the same period payments.
+ The discount factor $\delta_T$ is always a compounded version of $x$:
+ \[\delta_T=\left(\frac{1}{1+\delta}\right)^T\].
+%is a feature of the individual, so it is not affected in this way.
+%The appropriate compunding expressions for other rates are displayed below.
+
+ The {mortgage term}, $T$, is the period after which the mortgage must be repaid with interest. We work with a mortgage terms for two reasons. First, in the theoretical analysis, by transforming the multi-period transaction to a single period, we simplify the comprehensibility of the analysis. Second, it reflects the fact that in practice agents  likely consider the profitability of a purchase for a finite term longer than one period. The term period lets them consider the time cost of money in their analysis in a natural way. Parameters for their discounting rates and the term considered can be used to explore the effect of borrowing costs and their personal discounting rates on their decisions. Future interest rates are also not fully known. In the future, we can also vary the compound interest rates to explore the impact of uncertainty, given agents' guesses about the future, and their level of risk aversion.
+
+ 
+
+
+}
+
 Individuals qualify for some size of mortgage at a particular borrowing rate. 
  
 \section{Mortgage availability} \label{section-mortgage-availability}
