@@ -1,5 +1,6 @@
 \chapter{Parameters and initial values}
 
+\subsection{TODO ORDER BY MODEL COMPONENT NOT BY AGENT TYPE - E.G. PRODUCTION MODEL, HOUSING MARKET MODEL, CITY MODEL}
 
 % Teminology: Y=prefactor*N**scaling\_exponent
 
@@ -71,6 +72,22 @@ We start with firm labour forces  being equal at $n$.
 
 \section{Parameter values}\label{sec-param-values}
 
+% OLD TO CUT - JUST CHECK IF WE NEED ANY DETAILS FROM THIS
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{rlrr}\
+Symbol         & Name                                 & Value      & Formula  \\ \hline
+$\omega$  & Maximum locational rent (wage premium) & 0.012        \\
+$a$       & Share of subsistence wage for land and building & 1.0 \\
+$\psi$    & Subsistence wage & 10000 \\
+$tau$     & Property tax rate &  e.g 1.6\% = 16 mills           & \\
+$c$       & Transportation cost & \\
+$T$       & Period & 5 years      \\
+$r$       & Individual interest rate & 0.05 \\\
+$\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
+% $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+
 \subsubsection{Time}
  The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily, value 5 years. 
 
@@ -103,6 +120,13 @@ Notice that in the ABM we can set density individually for each cell in the grid
 
 \item[a: housing services share] Share of subsistence wage going to housing 
 % services, a.
+
+% a  =  share of subsistence wage  used for land and building e.g. 0.3
+
+% b  = share of share of subsistence wage  used on maintenance e.g. 0.2
+
+% c  = annual tax rate on rent and home  e.g. 12 mills = 0.012
+% \end{quotation}
 
 \item[b: maintenance share  of housing services ] Share of housing services going to maintenance.
 
@@ -378,9 +402,16 @@ delta =
 
 
 
-
-
-
+\subsection{Housing Market}
+\subsubsection{Net warranted price} \label{section-warranted-price}
+We use the net warranted price to approximate the initial value of the market price in our computational model. 
+The economically \gls{warranted price}, for an agent, borrowing money to purchase a property, is the present discounted value of the flow of service net of costs. The present discounted value of the infinite stream of net rents is:
+\begin{equation}
+P_W=\frac{\mathcal{R}_N}{r},  
+\label{eqn-price-warranted}
+\end{equation}
+where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  
+%In a market in equilibrium, the warranted price should approximate the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components.  We use the  present discounted value of net warranted rents to 
 
 
 \section{Model execution}

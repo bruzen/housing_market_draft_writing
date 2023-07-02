@@ -208,9 +208,6 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 % \section{Agglomeration Appendix: Production Function}
 % SORT APPENDIX/OTHER STUFF
 
-% WHAT DO WE WANT TO ADD BACK IN/CLARIFY FROM WHAT'S BELLOW? 
-% WHAT DO WE WANT TO MOVE TO THE GROWTH CHAPTER OR AN APPENDIX?
-
 % The agglomeration factor increases with population. It multiplies labour because agglomeration scales the productivity of workers.  
 % It is a model of a productive urban economy since the centre is productive and demands labour.
 % The growth of population feeds back into productivity. % We allow rising population to directly increase the wage.  
@@ -292,6 +289,8 @@ The model must  allow for bidding and speculative investment but also must refle
 
 \section{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage} is what makes this a \gls{classical} model. 
+% Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
+%In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services. 
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
 \begin{table}[!ht]
@@ -305,17 +304,16 @@ Rent  & $\mathcal{R}_{W_j}$      & $\mathcal{R}_{M_j}$  & $\mathcal{R}_{M_j}^\ep
 \end{tabular}
  }   
 \caption{Price and rent notation}
-% \caption[In introducing the quantities here, we include indices for the agent, $i$, and the property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties]{Price and rent notation\protect\footnotemark} % https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption
+% \caption{Price and rent notation\protect\footnotemark} % https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption
 \label{table-price-notation}
 \end{table}
-% There are three pieces to this analysis - there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
+% There are three pieces to this analysis: there's the warranted price based on the underlying economic value of living in a property, the link here with urban productivity, there's the biding and negotiation process, and then there's the realized market price. 
 
 To develop the analysis, we track the quantities, outlined in Table~\ref{table-price-notation}.\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}
 
 In the model, agents learn or set these values with the support of a real estate agent, and based on information provided by their bank about lending rates, etc. After setting prices, agents engage in a negotiation process. 
 
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
-
 
 \subsection{Warranted rent} \label{section-waranted-rent}
 We anchor our housing price expectations in \gls{warranted rent}. It is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
@@ -338,14 +336,7 @@ The warranted locational rent includes  the economic rent as well as a locationa
 Housing services $\mathcal{H}_j$ are  tied to a particular property. They include the value of features like a building having a certain number of rooms, particular finishes, or landscaping, extensions or upgrades. To maintain our focus on locational rents, we simplify, fixing %the value of housing services, setting 
 the value of the stream of housing services to a fraction $a$ of the subsistence wage, $a\psi$.
 
-%Just as there is a warranted price, there  is 
-%  $\mathcal{R}_W$, also includes the value of the locational services and 
-% psi$ of the subsistence wage  that must be allocated to providing the housing independent of location. % and \gls{market rent}, $\mathcal{R}_M$. The {warranted rent}  
-  
-%In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services.  
-
 \subsubsection{Combined equation}
-% *amenity
 Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}_W$, is then: 
 \begin{align}
 \mathcal{R}_W=\omega - {dc} + \mathbb{A} + a\psi.
@@ -353,142 +344,62 @@ Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}
 \end{align}
 
 \subsection{Market rent} \label{section-market-rent}
-The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market differs from the economically warranted rent as investors make individual decisions about rents, setting rents based on market conditions and their own expectations. %, which take into account a range of factors. 
+The \gls{market rent}, $\mathcal{R}_M$, is what agents actually pay. The market differs from the economically warranted rent as investors make individual decisions about rents, setting rents based on market conditions and their own expectations. 
 
-% To simplify the model, instead of modeling the rental price formation process explicitly,  % we assume that the market rent equals the warranted rent. % We are in effect imposing a long-term equilibrium value rather than modeling the adjustment process.
-
-% We abstract from the complexities of market rent, 
 As an initial approximation, we simplify, using the warranted rent to approximate the market rent:
-
 \[\mathcal{R}_{M, 0}= \mathcal{R}_W.\] 
 As the simulation continues the market price is the price realized through the agent based housing market mechanism, so it diverges from net rents.
 
-
- 
-
-% In the computational agent-based  model, 
-% The assumption gives a natural way to initialize agent guesses about future rents, as part of the \gls{price formation} process. The realized prices evolve from that starting point. 
-
 \subsection{Net warranted rent} \label{section-net-rent}
-%. net ECONOMIC rent?
-% The \gls{net rent} is the warranted rent net of costs. Homes must be maintained, financed, and taxes paid, so 
 Owners receives, not the total warranted rent, but the \gls{net rent} after expenses, including maintenance, taxes, and the cost of financing. The following sections detail the computation of each expense, and their combination into the net rent calculation.
 
-
-% \begin{quotation}
-% a  =  share of subsistence wage  used for land and building e.g. 0.3
-
-% b  = share of share of subsistence wage  used on maintenance e.g. 0.2
-
-% c  = annual tax rate on rent and home  e.g. 12 mills = 0.012
-% \end{quotation}
-
 \subsubsection{Annual taxation}
-
 Owners pay property taxes based on appraised price, $P_{\tau}$:
 \begin{align*}
-% \mathcal{T} = \text{mill rate} \times \mathcal{P}_M 
 \mathcal{T} &= \tau  \mathcal{P}_{\tau}.
-% \mathcal{P}_{\tau, t} &= fraction \mathcal{P}_{M, t-1}.
 \end{align*}
  
 Where $\tau$ is the municipal tax rate or \gls{mill rate}, and the \gls{appraised value} is based somewhat approximately, and with a lag, on the \gls{market price}, so $\mathcal{P}_{\tau}$ is some fraction of $\mathcal{P}_{M, t-n}$.
 
-% \footnote{In our computations, the mill rate  has to be compounded for decisions made over a period of the mortgage term, so we compound the mill rate using the \gls{compound interest rate} for the period.}
-
-
 \subsubsection{Annual maintenance}
-Annual maintenance costs apply to buildings and lands but not to locational value, so it can be modelled as a share, $b$, of the housing services costs, $a \psi$: % we can write:
-
+Annual maintenance costs apply to buildings and lands but not to locational value, so it can be modelled as a share, $b$, of the housing services costs, $a \psi$: 
 \begin{align}
 \mathcal{O} &= a b \psi.
 \end{align}
 
 \subsubsection{Combined equation}
-
-Combining, the \gls{net rent} is:\footnote{
-This is the net warranted rent. Market rent, $\mathcal{R}_M$, can be decoupled from this for many reasons. For instance, agents who have purchased a house, may be able to pass a share of financing costs through to tenants as part of the market rent, %. Their ability to pass costs along 
-depending on market power. Some  migrants may accept lower utilities or may have access to higher wages. The market rent could include an additional term,  %We further simplify by introducing a market power coefficient that allows the owner to pass financing costs through to tenants. 
-$F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
-vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor. The market rent is what an investor would use for price setting, however we are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted and we work with the net warranted rent in the price formation model. There would be a strong feedback from speculators taking on financing costs  to the level of rents for tenants, and this  then feedw back into prices.% These are distinct logics for the rent formation mechanism which can be explored through more explicit models of rental markets. Abstracting them gives a set of easily generalizable simplifications.% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
-% Annual financing costs are $rM$. 
+Combining, the \gls{net rent} is:\footnote{This is the net warranted rent. Market rent, $\mathcal{R}_M$, can be decoupled from this for many reasons. For instance, agents who have purchased a house, may be able to pass a share of financing costs through to tenants as part of the market rent, depending on market power. Some  migrants may accept lower utilities or may have access to higher wages. The market rent could include an additional term, $F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
+vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor. The market rent is what an investor would use for price setting, however we are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted and we work with the net warranted rent in the price formation model. There would be a strong feedback from speculators taking on financing costs  to the level of rents for tenants, and this  then feedback into prices. % These are distinct logics for the rent formation mechanism which can be explored through more explicit models of rental markets. Abstracting them gives a set of easily generalizable simplifications.% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
+% 
+Annual financing costs are $rM$. 
 }
-
 \begin{align}
-  &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
- % &= (\omega - {dc} + \mathbb{A} + a\psi )- a b \psi - \tau  \mathcal{P}_{M, t-1},
+&= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
 \end{align}
-
-
 
 \section{Prices}
 Even when all  housing units are identical except for location, there are several prices  to consider, including bid prices, reservation prices and expected prices. We will begin by considering  housing as an providing a flow of services, discuss expected prices and then go on to develop the bid price and the reservation prices for investors. 
 
 A bidding process determines an actual realized market price, with bidders taking into account potential capital gains. We describe the bid price formulation below. 
 
-\subsection{Net warranted price} \label{section-warranted-price}
-% We call the financially justified price. %, given the urban productivity premium, the \gls{warranted price}, $P_W$.
-The economically \gls{warranted price}, for an agent, borrowing money to purchase a property, is the present discounted value of the flow of service net of costs. The present discounted value of the infinite stream of net rents is:
+To calculate agent bid prices, we first calculate the net present value of the purchase, then divide by the capital employed, which we assume is the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate.} 
+The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
+% We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to 
+We solve this for for the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
 
-\begin{equation}
-  P_W=\frac{\mathcal{R}_N}{r},  
-\label{eqn-price-warranted}
-\end{equation}
-where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  
-%In a market in equilibrium, the warranted price should approximate the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components.  We use the  present discounted value of net warranted rents to 
-We use this price to approximate the initial value of the market price in our computational model. 
+
 
 \subsection{Price expectations}
+The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.\footnote{Case and Shiller point out ``\dots we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}. Case and Schiller\cite{caseThereBubbleHousing2003} argue that  the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes.}  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.  
 
-The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.\footnote{Case and Shiller point out ``\dots we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}.}  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state. Case and Schiller\cite{caseThereBubbleHousing2003} argue that  the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes. 
 
-In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
-
+% The underlying value of a home is the capitalized value of the services it provides, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
 
 \subsection{Bid price}\label{sec_model_bid_price}
 To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. Specifically, we must find the maximum price that they are willing to pay. 
-%As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer  considering knows a vector of attributes of the house, the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. 
-%All of these factors are taken into account  to determine whether an investment is profitable. To make a comparison with alternative investments  it is necessary to compute a rate of return. 
+% As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer considering a vector of attributes of the property, including the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. All of these factors shape whether an investment is profitable. To make a comparison with alternative investments, it is necessary to compute a rate of return. 
 
 
-We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
-The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
-
-
-
-% MOVE THIS
-% The underlying value of a home is the capitalized value of the services it provides, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
-
-%We link the housing market model model of individual and institutional actors to the model of production and employment by..
-%Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
-
-
-% that process below.
-
-
-
-% \renewcommand{\arraystretch}{1.5}
-% \begin{tabular}{rlrr}\
-% Symbol         & Name                                 & Value      & Formula  \\ \hline
-% $\omega$  & Maximum locational rent (wage premium) & 0.012  \\
-% $a$       & Share of subsistence wage for land and building & 1.0 \\
-% $\psi$    & Subsistence wage & 10000 \\
-% $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
-% $c$       & Transportation cost & \\
-% $T$       & Period & 5 years      \\
-% $r$       & Individual interest rate & 0.05 \\\
-% $\tau$       & Tax share & \\
-
-%---       &  & \\
-% $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% % $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
-% $r_i^\delta$   & Individual discount rate             &            & To assign \\
-% $\bar r$       & Prime interest rate                  &            & \\
-% \end{tabular}
-% \renewcommand{\arraystretch}{1.0}
-
-
-% We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to solve for the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
     
  The agent who purchases makes a down payment, $D$ on a house for a price, $P_0$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period. For expositional convenience, we can treat the mortgage period $T$ as a single term and express all quantities  in present-value terms. The purchaser  receives the increased price $P_T = (1 + \dot P)^TP_0 = (1+\dot P^T)P_0$,  
  after a period $T$, Where $\dot P$ is the expected annual rate of price increase and we define $\dot P^T$ as the T-period  interest rate. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
@@ -500,10 +411,9 @@ the expected price at the end of the period is:
 
 If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
-The rate of price growth, $\dot P$, is an approximation based on rents and past market behaviour.
+The rate of price growth, $\dot P$, is an approximation based on rents and past market behaviour. In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
 
- 
-\cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
+SOME REFERENCES - MOVE? \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
 
 
@@ -529,85 +439,31 @@ Both these amounts are discounted by $\delta^T$ to the present in our calculatio
  We can write $V$ in terms of the purchase price, and several individual parameters: interest  rate, share of the price that can be mortgaged and  discount rate:%\footnote{The down payment could be deducted in advance, but if the discount rate is equal to the interest rate it drops out completely.}
  
  \begin{align}
-V &= \delta^T\left( P^T-P_0- \left(\frac{(1+r)^T-1}{r}rM\right)- M\right)+ \mathcal{\bar{R}}^T_N       \\
+V &= \delta^T\left( P^T-P_0- \left(\frac{(1+r)^T-1}{r}rM\right)- M+ \mathcal{\bar{R}}^T_N \right)      \\
 &= \delta^T \left(
 \dot P^T P_0 -\left((1+r)^T-1\right)mP_0-mP_0
-\right)  +   \delta^T\mathcal{\bar{R}}^T_N 
+ +  \mathcal{\bar{R}}^T_N \right) 
 \label{first_sub}\\
-  &= \delta^T \left(\dot P^T - (1+r)^T)m \right)P_0 +   \delta^T\mathcal{\bar{R}}^T_N
+  &= \delta^T \left(\dot P^T - (1+r)^T)m P_0 + \mathcal{\bar{R}}^T_N\right)
 \end{align}
-% \begin{align}
-% V &= \delta^T \left(P_T - P_0- (1+r)M\right) +   \mathcal{R}^w_N   \\
-% &= \delta^T \left((1+\dot P^T) P_0 - (1+r)mP_M\right)  +      \mathcal{R}^w_N \\
-% &= \delta^T \left((1+\dot P^T)    - (1+r)m    \right) P_M + \mathcal{R}^w_N 
-% \end{align}
-% \begin{align}
-% V &= \delta^T \left(P^T - P_0- (1 + sumT(1+r))M +  \right) +   \mathcal{\bar{R}}^T_N      \\
-% &= \delta^T \left(\dot P^T P_0 - (1 + sumT(1+r))mP_0\right)  +    \delta_r^T\mathcal{R}_N 
-% \label{first_sub}\\
-%   &= \delta^T \left(\dot P^T    - (1 + sumT(1+r))m    \right) P_0 +   \delta_r^T\mathcal{R}_N 
-% \end{align}
 where $\dot P^T$  is the expected rate of change in the market price over the term of the mortgage.
 $V$ is the net present value of buying and selling after one mortgage renewal period of $T$ years. %All rates are scaled to the length of the period to avoid the need for compounding calculations. 
 The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 
 
-%  Changes to $V = \delta(T) \left(P_T -P_0- (1+r)M + \right)  \delta-sum\mathcal{R}^w_N $
-%  \begin{enumerate}
-%      \item we replace $\delta$ with $\delta(T) = \delta^T$ in  to reflect that discounting compounds. 
-%      \item we replace $\dot P$ with $\dot P^T$ to reflect that price growth compounds. 
-%      \item we replace $(1+r)$ with $(1 + sumT(1+r))$ to reflect the fact that interest payments accumulate.  
-%      \item we replace $\mathcal{R}^w_N$ with $\delta sum\mathcal{R}^w_N$
-%      \item we replace $(P_T - P_0)$ with $\dot P^T P_0$ in Equation~\ref{first_sub} to correct an arithmetic error
-% \end{enumerate} 
-% (This is terrible notation)
-% \subsection{Answer to question 2} 
-% Do we subtract $P_0$: YES 
-% Four changes just reflect compounding details that were glossed over previously. The fourth corrects an arithmetic error.
-
 {\color{red}
 
 \subsubsection{Rate of return on investment}
-We divide V by the size of the down payment, $D$ to get the required rate of return  
+We divide V by the size of the down payment, $D$ to get the  rate of return  
 
 \begin{align}
-r^{return} 
+r^{return} =
   &= \frac{V}{D}  \nonumber \\
-  &=\delta^T \left(\dot P^T - (1+r)^Tm \right) \frac{P_0}{D} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{D}\nonumber \\
-&=\delta^T \left(\dot P^T - (1+r)^Tm \right) \frac{P_0}{P_0-mP_0} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{P_0-mP_0}\nonumber \\ 
-&=\delta^T \left(\dot P^T - (1+r)^Tm \right) \frac{P_0}{1-m}P_0 +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{(1-m)P_0}\nonumber \\
-&=\frac{\delta^T \left(\dot P^T - (1+r)^Tm \right) }{1-m} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{(1-m)P_0}\label{eq:rate-of-return-on-investment}
-%% &= \left(\delta^T \left(\dot P^T - (1 + sumT(1+r))m \right) \ \right)\frac{P_0}{P_0-mP_0} +  \frac{\delta sum\mathcal{R}^w_N }{P_0-mP_0}  \\ 
-%  &= \frac{\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right) }{1-m} +\frac{\delta \mathcal{R}^w_N }{(1-m)P_0}\label{revised}
+  &= \delta^T \left(\dot P^T - (1+r)^T)m \frac{P_0}{D} + \frac{\mathcal{\bar{R}}^T_N}{D}\right)\\
+  &= \delta^T \left(\dot P^T - (1+r)^T)m \frac{P_0}{P_0-mP_0} + \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{P_0-mP_0}\right)\\  
+  &= \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_0}\right)\\
 \end{align}
 Notice that the return depends on the price paid, $P_0$.
-
-
-% \section{in the bid price, how is the present-value deflator computed}
-
-% Using the simplified version of equation~\ref{revised} we calculated  as Equation~\ref{eqn-bid-price} that the maximum bid that achieves the target return on the down payment is
-% \begin{align*}
-% P_B^{max} & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \end{align*}
-
-% Using the extended and corrected version this becomes
-% \begin{align}
-% P_B^{max} & \le    \frac{\delta sum\mathcal{R}^w_N } {(1 + sumT(1+r))r^{target}-\delta^T \left(\dot P^T - (1 + sumT(1+r))m\ \right)} \label{eqn-bid-revised} \end{align}
-
-
-
-}
-
-% \subsection{Rate of return on investment}
-% Since an investor is interested in the rate of return on funds invested, we divide V by the size of the down payment, $D$ to get the required rate of return  
-
-% \begin{align}
-% r^{return} 
-%   &= \frac{V}{D}  \nonumber \\
-%   &= \left(\delta \left(1+\dot P - (1+r)m\right) \ \right) \frac{P_0}{D}  + \frac{\mathcal{\bar{R}}^T_N}{D}      \nonumber \\
-%   &= \left(\delta \left(1+\dot P - (1+r)m\right)  \right) \frac{P_0}{P_0-mP_0} +  \frac{\mathcal{\bar{R}}^T_N}{P_0-mP_0}  \\ 
-%   &= \frac{\delta \left(1+\dot P - (1+r)m\right) }{1-m} +\frac{\mathcal{\bar{R}}^T_N}{(1-m)P_0}.
-% \label{eqn-property-investment-return1}
-% \end{align}
 
 
 \subsubsection{Criterion for investment}
@@ -616,54 +472,20 @@ Equation~\ref{{eq:rate-of-return-on-investment}} provides a criterion for invest
 r^{target}\le r^{return} 
 \label{eqn-property-investment-return2}
 \end{equation}
-% \subsection{Rate of return on investment}% The rate of return on funds invested is V divided by the size of the down payment, $D$ to get the rate of return  
-%
-% \begin{align}
-% r^{return} 
-%   &= \frac{V}{D}  \nonumber \\
-%   &= \left(\delta \left(1+\dot P - (1+r)m\right) \ \right) \frac{P_0}{D}  + \frac{\mathcal{R}^w_N }{D}      \nonumber \\
-%   &= \left(\delta \left(1+\dot P - (1+r)m\right)  \right) \frac{P_0}{P_0-mP_0} +  \frac{\mathcal{R}^w_N }{P_0-mP_0}  \\ 
-%   &= \frac{\delta \left(1+\dot P - (1+r)m\right) }{1-m} +\frac{\mathcal{R}^w_N }{(1-m)P_0}.
-% \label{eqn-property-investment-return1}
-% \end{align}
-%
-% \subsection{Criterion for investment}
-% Equation~\ref{eqn-property-investment-return1} provides a criterion for investors. Agents invest if if their expected return is greater than the target return, they are seeking:
-% \begin{equation}\Large
-% r^{target}\le v 
-% \label{eqn-property-investment-return2}
-% \end{equation}
-% 
+
 % We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
-% 
-% \begin{eqnarray}
-% Rate\ of\ return\ on\ capital\ invested = \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B} \label{eqn-return-on-investment}
-% \end{eqnarray}
-% where 
-% 
-% \begin{tabular}{lll}
-%  $\delta$       &=& individual discount rate \\
-% $\dot P_M^e $   &=& expected rate of price increase \\
-% $ r$            &=& mortgage interest rate \\
-% $m$             &=&  fraction of the price that can be mortgaged \\
-% $\mathcal{R}_N$ &=&  net  market rent
-% \end{tabular}
+
 % Equation~\ref{eqn-return-on-investment} makes it clear that the estimated rate of return depends on subjective magnitudes,$\delta$ and $\dot P_M^e$, attributes of the property, $ \mathcal{R}_N$, and  individual financial position, $r$, $m$.
 % 
-% The individual's Rate of return on capital  invested  for each project  is compared to the investor's target rate, $r_{target}$, providing  an investment criterion:
-% \begin{eqnarray}
-% r_{target} \le \frac{\delta \left((1+ \dot P_M^e - (1+r)m\right)}{1-m} + \frac{\mathcal{R}_N}{(1-m)P_B}
-% \end{eqnarray}
-% In Appendix~\ref{appendix-bid-price} this expression is solved for $P_B$, the  maximum price that allows the investor can pay and still achieve at least her  target rate of return, $r_{target}$.  
 
 \subsubsection{Maximum bids}
 The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
 
 \begin{align}
-r^t&\le\frac{\delta^T \left(\dot P^T - (1+r)^Tm \right) }{1-m} +   \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{(1-m)P_B^{max}} \nonumber\\
-(1-m)r^t/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \nonumber\\
-(1-m)r^t/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
-P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^t/\delta^T - \dot P^T + (1+r)^Tm}
+r^{target}& \le \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\right)\\
+% (1-m)r^{target}/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \nonumber\\
+% (1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
+P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm}
 \end{align}
 
 % \begin{eqnarray}
@@ -676,10 +498,10 @@ We call this  $i's$ maximum bid and compute it for all potential buyers and sell
 
 \section{Reservation prices} 
 
-Bargaining models attempt to identify the way the surplus available from a completed transaction is divided between the parties involved. The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951} 
-identifies a `disagreement point,' which which is the  lowest value each player will accept. In bargaining over a price the lowest value for the seller is called the  `\gls{reservation price}.' The reservation  price for the seller is the highest amount the seller is willing to pay. We call this the maximum bid price. 
+Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved. The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951} 
+identifies a `disagreement point,' which which is the  lowest value each player will accept. In bargaining over a price the lowest value for the seller is called the  `\gls{reservation price}.' The reservation  price for the seller is the highest amount the seller is willing to pay, which is the maximum bid price that we  have just calculated.  
 
- All owners and potential buyers have  reservation prices. They represents the owner's best alternative, and in bargaining models
+ All owners and potential buyers have  reservation prices. They represents the owner's best alternative, and in bargaining models if the a maximum bid is higher than the reservation price the outcome is between the the two.  
 \subsection{Seller's reservation price} \label{section-reservation-price}
 
 We will assume,  that for owners, deciding to sell is a life-cycle decision. Home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.%\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
@@ -751,7 +573,6 @@ This will appear in your data as a set of bids and a reservation price for each 
 
 
 \subsection{Another version}
-
 In reality, sellers often post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we assume instead that if there is a deal, it will result in a price between the bid and the reservation price, treating the higher asking price and bids as `cheap talk'\footnote{In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world.} since a price outside of this range cannot be a rational choice for both sides, so it is ruled out in Nash bargaining theory.
 
 The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
@@ -762,9 +583,6 @@ The bidder who submits the highest bid is awarded the object, and pays the amoun
 If $P_B^{max}>P_R$,  the bargaining rule selects a value 
 \[P = xP_B^{max*}+(1-x)P_R\]
 where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
-
-
-
 
 \section{The process}
 \begin{enumerate}
