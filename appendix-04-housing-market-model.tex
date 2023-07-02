@@ -5,6 +5,10 @@
 unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
 
 
+ Some are paying for the amenity of urban life. In real life, many other factors cans shape amenity value including features of the housing, desire to live near clubs, sports, cafes libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. Appendix~\ref{appendix-amenity} includes a theoretical treatment of amenities in the context of the model. People also make choices with imperfect information, some are investing in living in a city
+
+
+
 %  GET?? Case, Karl E., and Robert J. Shiller. 1988. ``The Behavior of Home Buyers in Boom and Postboom Markets.'' New England Economic Review (November-- December), pp. 29--46.
 
 
@@ -308,11 +312,10 @@ You could add $+ \beta_3 (P_{d,t-1}-P_{d,t-2})$ to capture the changing  price c
 % \[m_i^*=\frac{M_i^{max}}{P}\]
 
 
-\section{FILE AGGLOMERATION MODEL}
 
-\renewcommand{\sfdefault}{phv}
 
-\subsection{Initial values for  the agglomeration parameter}
+
+\section{Initial values for  the agglomeration parameter}
 A segment is now redundant and has been commented out
 
 % \vspace{5lines}
@@ -397,116 +400,6 @@ A segment is now redundant and has been commented out
  
 
 % %\[subsistance_wage= MPL(\beta=.= \]
-
-
-\section{COMBINED PRICES - FILE}
-\subsection{Combined mortgage maximum permitted by the bank for new buyers and second home buyers}
-
-\begin{align} 
-M_i^{max} &= min \left\{ m_i^{max\_permitted}*P, \ M^{max\_permitted}_i \right\} 
-% &= min \left\{ \left(0.9- \left( \frac{W_i}{\bar W}\right)^{0.1}\right)P, \  \frac{0.28*(\omega+\psi)}{r_i} \right\}, 
-\nonumber
-\end{align}
-
-
-\subsection{Maximum bids and reservation price for investors}.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
-institutional borrowers have no limit on their borrowing capacity ($m_i=1$). Existing owners face mortgage constraints .
-maximum bid price:
-
-\begin{eqnarray}\label{eqn-max-investment-bid}
-P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
-\end{eqnarray}
-
-
-\subsubsection{Maximum bid second house buyer}
-
-\begin{eqnarray}\label{eqn-max-second-bid}
-P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)}  \nonumber
-\end{eqnarray}
-
-Combining the investment \textbf{profitability constraint} and mortgage constraints
-
-\begin{eqnarray}
-P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
-\end{eqnarray}
-
-\subsubsection{Reservation prices for investment owners}
- if anyone offers more than your maximum bid, you should sell the property. 
-\begin{eqnarray}
-P_{investor}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \nonumber\end{eqnarray}
-
-
-\subsection{New buyer maximum bids and reservation prices }
-
-There are two cases - moving as a buyer and moving as a renter.
-
-\subsubsection{Moving as a renter}
-The gain for a potential renter is 
-\begin{align}
-gain^{rent}=&]
-=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
-  \nonumber
-\end{align}
-
-\subsection{Moving as a buyer}
-The gain for a buyer is 
-\begin{align}
-=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P   \nonumber
-\end{align}
-Combined
-\begin{enumerate}
-    \item Move only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
-    
-    \item Buy a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
-\end{enumerate}
-
-\begin{align}
-P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
-\end{align}
-
-
-\subsection{Reservation price for retirees}
-Both owners and tenants retire. Homes only become available if they move to the country. 
-\subsubsection{A renter move to the country if} 
-\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
-\subsubsection{An owner sells and moves to the country if}
-\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\]
-This value provides a \textbf{reservation price}: 
-\[P_{owner-sell}^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \]
-
-\subsubsection{An owner Rents and moves to the country if} 
-\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
-This value provides a \textbf{another reservation price}: 
-\[P_{owner-rent}^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \]
-
-\subsubsection{Retiring owner's reservation price}
-\[P_{owner-combined}^{reservation}= max\left\{ P_{owner-sell}^{reservation} ,\ P_{owner-rent}^{reservation}\right\}\]
-
-}
-
-
-% The three questions I promised to deal with were
-% \begin{enumerate}
-%     \item should we add interest to the net rent calculation? (yes)
-%     \item should I subtract the purchase price from the calculation of the value of a purchase?
-%     \item in the bid price, how is the present-value deflator computed?
-% \end{enumerate}
-
-
-% \subsubsection{Defining Net Rent carefully}
-
-
-% The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
-%  \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
- 
-
-% Net annual rent for investors is then  defined this way 
-
-\begin{align}\mathcal{R}_N &= \mathcal{R}_M - \mathcal{O} - \mathcal{T} + F(v, rM)\nonumber\\
-&= (\omega - {dc} + a\psi )+ \mathbb{A} - a b \psi - \tau  \mathcal{P}_{M, t-1}  + F(v, rM)
-\end{align}
-
-This term enters into the computation of housing prices. We assume it is deposited each year by an investor and earns interest $r$
 
 % \subsection{Answer to question 1} about whether to add interest to the rent term: YES
 
@@ -612,72 +505,3 @@ This term enters into the computation of housing prices. We assume it is deposit
 % It is an important assumption in the analysis because it connects the work with the formal analytic tradition and is in an important sense what makes this a classical model MOVE DISCUSSION HERE \dots
  %METHODOLOGY CHAPTER? warranted rent is a frontier .  
 
-
-
-% *** LOTS OF NOTES MOSTLY ON AMENITY AND OTHER DIFFERENCES BETWEEN WARRANTED AND MARKET RENTS - NEED A CLEAN PARAGRAPH OR TWO EXPLAINING
-%\footnote{The assumption $\mathcal{R}_W = \mathcal{R}_M$ is easy to vary in future experiments, 
-% Rents can diverge from warranted rents. In practice, some people may pay more or less than the warranted rent. They may draw on family assets, assume debt, spend more on amenity, etc. Rents are, however, limited by what tenants can pay, and that, in turn, is limited by urban wages. WHERE DO WE MAKE THAT ASSUMPTION.
-%including by adding a range of decision rules. 
-% Our model of income is incomplete, and people don't only care about the income they earn. Some are paying for the amenity of urban life. In real life, many other factors cans shape amenity value including features of the housing, desire to live near clubs, sports, cafe's libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. Appendix~\ref{appendix-amenity} includes a theoretical treatment of amenity in the context of the model. People also make choices with imperfect information, some are investing in living in a city
-% ADD DISTINCTION BETWEEN REALIZED MARKET RENT AND DIFFERENT KINDS OF EXPECTATIONS --- THEY WONT ACTUALLY BE THE PREDICTION VALUES. THE PREDICTION VALUES ARE WHAT ARE USED. 
-% THEY PREDICTION VALUES CAN INCLUDE ERRORS, BIASES, ETC.
-% WE USE THE EQUILIBRIUM TO EXPLORE A SET OF FRONTIERS RIGOROUSLY.
-% }.
-% ADD A FOOTNOTE ABOUT THE DISTINCTION BETWEEN THE VALUE WHICH INCLUDES AMENITY AND THE PRICE PAID?  e.g. if you own the services you capture it - the value experienced can differ from the value paid. - can be subjective, variable, etc, 
-
-% Talk about unobserved variables, and 
-% They really care about what they will get- use decision rules to forcast the actual returns realized. Might guess about the biases of others
-% The market rent is what the agent actually pays in rent the property. - they can own a shre and captre some
-
-
-% The following sections detail the model and explain how each of these terms is derived.
-% **TODO ADD NOTES ON TIME IN THE FOLLOWING SECTIONS E.G. ALL RENTS REPRESENTED ON AN ANNUAL BASIS, PRESENT DISCOUNTED VALUE, ETC
-
-% \subsection{Warranted rent} \label{section-warranted-rent}
-
-
-% \subsubsection{Locational services}
-% Since people live in homes inside or outside the city, it's a share of the subsistence wage,  OWNERS CAN ALSO CAPTURE? Maybe move some of the discussion here.
-
-% It is the combined annual services a property, at a distance $d$, offers to a worker in the city. It is thus the maximum that they may be charged.
-% CUT? This quantity is a locational rent. The capitalized value of the locational rent is:  $w-{dc}$. This is because a worker, located at a distance $d$ from work, paying as much as $w-{dc}$ in rent would still choose to work.  %Workers could pay that much in rent and additional costs and it would still worthwhile to commute. 
-% \subsubsection{Land and building services}
-% Annual rent charged initially should be  equal to the annual value of services, $h$:
-% and the warranted price is 
-% \[P_W=\frac{\omega - {dc} + a\psi}{r}\]
-% We will use this value as the price for the first period 
-% $P_W=\frac{\omega- {dc} + a\psi}{r}$
-
-%$\mathcal{R}_N$ is the value that investors consider when assessing the \gls{financial return} on property, since it's the maximum that it's worth paying to capture the value renters are wiling to pay to live in a property, given the \gls{urban wage premium}. 
-% consider in investment decisions. % of services and costs
-% For an investor, it is $\mathcal{R}_N$  that is relevant in investment decisions. % ( - fees, cost of money etc.) decision making. 
-
-% All of these are in annual values. We will use the present values  for the appropriate period  T in computations. (See notes on the present value calculations to use)
-
-% \subsection{NEW WORK STARTS - How does this affect the bid price?}
-
-% I now return to Equations B6 to compute the value of a proposed purchase
-
-
-% \begin{align*}
-% V &= \delta \left(P_T - (1+r)M\right) +      \mathcal{R}^w_N  \tag{B6} \\
-%   &= \delta \left((1+\dot P)    - (1+r)m    \right) P_B + \mathcal{R}^w_N% \label{eqn-property-investment-value1}
-% \end{align*}
-% Similarly, Equation B7 becomes
-
-% \begin{align*}
-% r_{return} = \frac{\delta \left(1 + \dot P - (1+r)m\right)}{1-m} + \frac{\mathcal{R}^w_N}{(1-m)^{bid}}\tag{B7}
-% \end{align*}
-% And following the same sequence of steps to derive the bid price 
-
-% \begin{align*}
-% P_i^{bid} \le &   \frac{\mathcal{R}^w_N}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)} \tag{B10}\\
-% 		 \le &   \frac{ \omega - dc + a\psi -   ba\psi - ca\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	\\	
-%    		 \le &   \frac{ \omega - dc + a(1-b-c)\psi}{(1-m_i)r_i^{target} - \delta_i \left(1 + L(P) - (1+r_i)m_i \right)}	
-% \end{align*}
-
-%Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
-%That may let us simplify the exposition in the financialization chapter.
-
-
-}
