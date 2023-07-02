@@ -1,4 +1,6 @@
 \chapter{Salvaging BID PRICES BY AGENT TYPE?}
+
+{\color{blue}
 \section{Odd things to save}
 unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
 
@@ -149,48 +151,28 @@ Agents borrow a share of the purchase price, $P$. The amount borrowed is the mor
 
 
 
+\section{WHERE DOES THIS GO?}
 
 
+\subsubsection{CUT Maximum bid second house buyer}
 
+CUT People are limited by the limits  that the bank imposes borrowing capacity. Purchasing a revenue house is only attractive if the rate return on a rental house exceeds the cost of capital $r_i$. Call this the \textbf{profitability constraint} The maximum bid for this investor is given by Equation~\ref{eqn-max-investment-bid} using one period values for $r_i^{target},\ m_i,\ \delta_i$, and $r_i$.
 
-
-
-{\color{red}
-WHERE DOES THIS GO?
-
-\section{Market and bargaining model}
-\subsection{Maximum bids and reservation price for investors }.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
-There are two types of investment buyers: institutional buyers and homeowners buying an investment home. They use the same investment formula
-
-We assume that institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints form Equation ~\ref{eqn-max-mortgage2} and have different rates $r_i^{target},\ \delta_i$, and $r_i$.
-
-Equation~\ref{eqn-property-investment-return1} gave us the rate of return for a property, rented out. An investor will invest if the expected return on their investment is greater than their target rate of return, % that the investor can price offer for the property and still satisfy
-defined by the inequality~\ref{eqn-property-investment-return2}, and equation~\ref{eqn-bid-price}, repeated below, gives the maximum bid price:
-
-\begin{eqnarray}\label{eqn-max-investment-bid}
-P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
-\end{eqnarray}
-This implies for the bargaining process that if any other potential  has  higher maximum bid, an investor can be eliminated. Combine this observation that each potential bidder will bid up to their maximum bid price, and we know that only the two highest bids matter need be considered.  
-
-
-
-\subsubsection{Maximum bid second house buyer}
-
-We assume that existing owners with sufficient savings can bid. They are limited by the limits  that the bank imposes  borrowing capacity.   Purchasing a revenue house is only attractive if the rate return on a rental house exceeds the cost of capital $r_i$. Call this the \textbf{profitability constraint} The maximum bid for this investor is given by Equation~\ref{eqn-max-investment-bid} using one period values for $r_i^{target},\ m_i,\ \delta_i$, and $r_i$.
-
- \begin{eqnarray}\label{eqn-max-second-bid}
+CUT \begin{eqnarray}\label{eqn-max-second-bid}
 P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)} 
 \end{eqnarray}
 Notice that this simplifies if any of $r_i^{target},\ \delta_i$, and $r_i$ are set equal. It is possible the cost of capital and the target rate will be the same.
 
-Combining the investment \textbf{profitability constraint} and mortgage constraints
+CUT Combining the investment \textbf{profitability constraint} and mortgage constraints
 
+
+MAKE A FOOTNOTE. Note if it was a second buyer, they would have a couple of constraints. The price can't exceed these values.
 \begin{eqnarray}
 P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
 \end{eqnarray}
 
-\subsubsection{Reservation prices for investment owners}
-If the current owner of an investment  property gets an high offer higher than their own maximum bid, they will always sell.  
+\subsubsection{CUT Reservation prices for investment owners}
+If the current owner of an investment  property gets a high offer higher than their own maximum bid, they will always sell.  
 
 
 \subsection{New buyer maximum bids and reservation prices }
@@ -198,7 +180,7 @@ A new buyer chooses to move if the income in the city, including the wage amenit
 
 There are two cases - moving as a buyer and moving as a renter.
 
-\subsection{Moving as a renter}
+\subsubsection{KEEP Moving as a renter}
 The gain for a potential renter is 
 \begin{align}
 gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
@@ -208,7 +190,7 @@ gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
 \end{align}
 If rent $\mathcal{R}$ exactly capture housing cost and locational rent, the gain reduces to $\mathbb{A}^{city}-\mathbb{A}^{Rural}$. Normally we would expect property rents to capture this component  as well. 
 
-\subsection{Moving as a buyer}
+\subsubsection{KEEP Moving as a buyer}
 The gain for a buyer is 
 \begin{align}
 gain^{buy}=&\ net^{city}-net^{Rural}\nonumber\\
@@ -236,20 +218,22 @@ P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  
 \end{align}
 
 
-\subsection{reservation price for retirees}
+\section{Reservation Price}
+
+
+
+\subsection{Reservation price for retirees}
 Both owners and tenants retire. Homes only become available if they move to the country. 
 
 
 
 \subsubsection{Why would a renter move to the country?} 
-f the rent is greater than the cost of housing in the country and the lost amenity
+If the rent is greater than the cost of housing in the country and the lost amenity
 \[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
-
 
 \subsubsection{Why would an owner move to the country?}
 Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
 \[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\label{eq:movers-gainA}\]
-
 
 This value provides a \textbf{reservation price}: 
 \[P^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \label{eq:movers-gainB}\]
@@ -322,88 +306,6 @@ You could add $+ \beta_3 (P_{d,t-1}-P_{d,t-2})$ to capture the changing  price c
 % and $m_i^*$ if 
 % $P\ge \frac{M_i^{max}}{m_i}$, where 
 % \[m_i^*=\frac{M_i^{max}}{P}\]
-
-
-\newpage\hrule
-\subsection{LIST OF BID AND RESERVATION PRICES}
-\hrule
-
-
-
-
-\subsection{For investors}
- Institutional borrowers have no limit on their borrowing capacity ($m_i=1$). home. Existing owners face mortgage constraints .
-maximum bid price:\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
-
-\begin{eqnarray}\label{eqn-max-investment-bid}
-P_{bank}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} 
-\end{eqnarray}
-
-
-\subsubsection{Maximum bid second house buyer}
-
- \begin{eqnarray}\label{eqn-max-second-bid}
-P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)}  \nonumber
-\end{eqnarray}
-
-Combining the investment \textbf{profitability constraint} and mortgage constraints
-
-\begin{eqnarray}
-P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
-\end{eqnarray}
-
-\subsubsection{Reservation prices for investment owners}
- if anyone offers more than your maximum bid, you should sell the property. 
-\begin{eqnarray}
-P_{investor}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)}  \nonumber\end{eqnarray}
-
-
-\subsection{For new buyers}
-
-There are two cases - moving as a buyer and moving as a renter.
-
-\subsubsection{Moving to the city and renting}
-The gain for a potential renter is 
-\begin{align}
-gain^{rent}
-=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
-  \nonumber
-\end{align}
-
-\subsubsection{Moving to the city and  buying}
-The gain for a buyer is 
-\begin{align}
-gain^{buy}=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P   \nonumber
-\end{align}
-\textbf{The rule to apply}
-\begin{enumerate}
-    \item \textbf{Move} only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
-    
-    \item \textbf{Buy} a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
-\end{enumerate}
-\textbf{Maximum bid for new  resident}
-\begin{align}
-P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
-\end{align}
-
-
-\subsection{Behaviour of  retirees}
-Both owners and tenants retire. Homes only become available if they move to the country. 
-\subsubsection{A renter move to the country if} 
-\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
-\subsubsection{An owner sells and moves to the country if}
-\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\] \subsection{ Combined owner reservation price}: 
-\[P_{owner-sell}^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \]
-
-\subsubsection{An owner Rents and moves to the country if} 
-\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
-This value provides a \textbf{another reservation price}: 
-\[P_{owner-rent}^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \]
-
-\subsubsection{Retiring owner's reservation price}
-\[P_{owner-combined}^{reservation}= max\left\{ P_{owner-sell}^{reservation} ,\ P_{owner-rent}^{reservation}\right\}\]
-
-\hrule
 
 
 \section{FILE AGGLOMERATION MODEL}
@@ -687,7 +589,7 @@ This term enters into the computation of housing prices. We assume it is deposit
 % \end{eqnarray}
 
 
-\chapter{COMMENTED OUT STUFF - ANYTHING IMPORTANT TO ADD BACK HERE?}
+\section{COMMENTED OUT STUFF - ANYTHING IMPORTANT TO ADD BACK HERE?}
 
 %$P_M^{e}$ expectation based on  either rational expectations or another set of explicitly stated rules,  $P_M^{\epsilon}$ is an agent's expectation. The agent's expectation can  etc.
 
@@ -776,3 +678,6 @@ This term enters into the computation of housing prices. We assume it is deposit
 
 %Our conclusion about the advantage that the bank and the wealthy have can be read out of this equation. 
 %That may let us simplify the exposition in the financialization chapter.
+
+
+}

@@ -130,14 +130,14 @@ since agents work if the wage premium is greater than the cost of travel. % Livi
 The higher the wage, the  farther workers will commute. %This is the core of the Alozo circular city model.
 The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the city and the commuter shed.
 
-The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute. Considering a \gls{circular city} with a uniform lot size, $s$, with one worker per unit land, for illustrative purposes, the labour available is simply the area of the circle divided by the lot size: 
+The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute. Considering a standard, Alonzo-style \gls{circular city} with a uniform lot size, $s$ and  one worker per unit land, for illustrative purposes, the labour available is simply the area of the circle divided by the lot size: 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
- L = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
+ N = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
    =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-In an equilibrium analysis, this would be the equilibrium \gls{urban labour supply} curve, our version of the standard urban \gls{migration equilibrium} condition for models of this class. %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
+This would be the equilibrium \gls{urban labour supply}  for the circular city. For a city with a rectangular grid of streets, the city shape is rectangular rather than circular and the labour supply function is $N= 2\left(\frac{\omega}{c}\right)^2$. %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
 %\footnote{See the discussion of model extensions in Appendix~\ref{appendix-future-work}.}.
 % To get the \gls{urban wage premium}, we can write the inverse of the labour supply function:
@@ -162,7 +162,13 @@ so urban firms can pay a premium to attract workers, that depends, among other t
  %, which are both exported and locally consumed 
 % to sell into a large market, at a fixed price. 
 
-To focus the model on urban productivity and the growing urban wage premium, we model workers as receiving a \gls{subsistence wage} $\psi$ in the countryside. Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way \cite{GET_classical-subsistence-wage}. This subsistence wage could come from work in the local community, living off the land, family support, social support, or something else. 
+To focus the model on urban productivity and the growing urban wage premium, we model workers as receiving a \gls{subsistence wage} $\psi$ in the countryside. Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way \cite{GET_classical-subsistence-wage}.
+%
+% CLASSICAL POLITICAL ECONOMY, THE SUBSISTENCE ...
+% American Economic Association
+% https://www.aeaweb.org › conference › retrieve
+% PDF he Classical Understanding of the Subsistence Wage. While the historical run of classical political economy runs from William Petty through David.
+This subsistence wage could come from work in the local community, living off the land, family support, social support, or something else. 
  % The model is set up so that all of an urban  tenant's  income is spent on  basic living costs, $\omega$, transportation $td$ or rent. Disposable income for owner occupier $i$ is therefore just the return  $\omega -dc$ which may accumulate as a financial asset.
 % To attract workers to live in the city and commute to the central business district, firms pay the  \gls{urban wage premium}, $\omega$, in addition to  the subsistence wage $\psi$. 
 %\footnote{See parameter appendix Section~\ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
@@ -239,53 +245,6 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 
 % We have a two factor model of production with labour and capital.  
 
-\subsection{Financialization} 
-%Our goal is to look at the relationship between urban production/labour markets, agglomeration, and land/housing markets. To explore this relationship we build a simplified model of a \gls{housing market}.% CALL IT LAND, PROPERTY, OR HOUSING MARKET? % - it is the housing use, combined with location we're interested in. % we introduce a \gls{land market}.% Agents purchase homes though a housing market. 
-
-% In cities, housing is exchanged on a market. The product is properties, whether they're apartments, or land with the buildings on it. Properties have features including building size, style, quality, and location  that affect their desirability. %the buildings have a particular size and characteristics. %with various buildings and features. %properties on them. 
-%Location also matters, %Land value  is affected by various elements
-%including proximity to natural features like lakes and mountains, and human-built features like communities, and businesses, as well a developments and additions on the property itself. 
-%Thereal market invovles  a set of agents who engage directly like buyers, sellers, renters, investors, and developers; as well as others who shape the market indirectly, including policymakers, activists, and neighbourhood and industry groups.
-%The actors work within the context of a layer of policy, institutions, and rules. For example financial institutions offer debt, zoning allows certain uses and disallows others, and tax rules shape financial returns.
-
-% and charges taxes and fees which are factored into the cost structure.
-% shapes the land value.
-% Our simulation model extracts % #E IS THIS A TECHNICAL TERM? i DON'T KNOW WHAT IT MEANS? yOU USE THESE TOGETHER. IF ITS STANDARD USAGE IGNORE THIS COMMENT
-% these features to explore a core set of questions about financialization in land markets, in a way that's extensible to study a broad range of questions about real/particular markets in particular places.
-% We study \gls{financialization} in a simplified market model, integrating
-% In the simplified market model, %  owners sell when the retire.
-% we integrate the % spatially explicit property market
-% our urban production model  into a spatially explicit {housing market} with financial investment. %\gls{financialized} investment.
-
-%Urban productivity drives land values through the housing market. Where there is a strong labour market, residents have a greater willingness to pay for housing \cite{GET_productivity_price_link} %ELABORATE. 
-% Other factors also shape prices, including \gls{amenity}.
-
-% *** In the model, rising \gls{population} and \gls{productivity} generate an economic value for land, that's derived from its proximity to the \gls{urban center}. 
-
-% Use of a unit of land in each cycle is valued at the wage premium net of transportation costs. 
- % A worker, located at a distance $d$ from work, paying as much as $w- {dc}$ in rent, would still choose to work.
-
-%\subsection{The microeconomics of  financialization} \label{section-micro}
-
-Financialization happens at this microeconomic level, where individual decisions are made and real assets are bought by individuals and institutions. 
-Properties have features including building size, style, quality, and location that affect their desirability. 
-Agents exchange properties on a market,  
-% Individual home-buyers are buying a stream of housing services and possible capital gains. Institutional buyers are buying 
-and the return on housing as an investment is part of all agent's decision process. 
-Private homeowners live in the properties they purchase, so when they purchase a property, they are buying both a stream of housing services and potential capital gains. %When a home is bought to live in, the potential buyer %makes a similar calculation, perhaps with a 
-They may place particular emphasis on the value of the stream of housing services that matter to them individually. When home prices rise rapidly, speculative gains may become the dominant concern of home buyers. 
-Investors, on the other hand, buy a stream of net rents plus speculative gains.
-Each agent has their own interest rates, discount rates, mortgage share, information, and expectations, so individual bids can differ. 
-%In the process, the real asset takes on an additional and separate aspect as financial object that can be bought and sold.  % The feature that matters most to investors is the  \gls{rate of return} that  an asset offers. 
-
-Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. The first two can be treated as a constant.\footnote{Section~\ref{sec-extensions-conversion}, in Appendix~\ref{appendix-future-work}, discusses the potential for more detailed modelling of the land assembly and development process.} The third and fourth are the focus of this work. The value of accessibility in our model is determined by the urban wage premium, which rests on the productivity of the city. Expected future rent increases are driven by increases in the value of accessibility, which is to say, the rising productivity of the city. Productivity rises in our model due to pure agglomeration effects. Our concern is with what happens to the city and its people when financial capital captures the growing value generated by the agglomeration process.  
-
-% For any level of risk and liquidity, an investor will choose to purchase the asset with the highest expected rate of return. 
-To model the investment decision  we calculate the \gls{rate of return} on each property taking into account the rental revenue, the potential capital gain, the investors' costs of capital, incomes, and assets. The analysis will show the incentive structure driving the  financialization of the housing market. We do this in detail in Appendix~\ref{appendix-bid-price} 
-The model must  allow for bidding and speculative investment but also must reflect the underlying economic value driven by urban productivity. To calculate the \gls{rate of return} we, therefore, need to define the relevant variables, and make some distinctions among different notions of rent and price %, including a variety of prices perceived prices  bid price3s
-
-% \section {Variables}\label{sec_model_variables}
-
 
 \section{Rent} \label{section-rent}
 The explicit treatment of rents and the relationship between the productivity \gls{premium} and the \gls{subsistence wage} is what makes this a \gls{classical} model. 
@@ -316,12 +275,16 @@ In the model, agents learn or set these values with the support of a real estate
 The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
 
 \subsection{Warranted rent} \label{section-waranted-rent}
-We anchor our housing price expectations in \gls{warranted rent}. It is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
+\Gls{warranted rent} is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
 \footnote{The warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve, abstracting %. Including it in the model introduces a long-run equilibrium value, rather than modeling 
 the adjustment process. % independent of the tendencies of the market.  
 Combining a model of long-run attractor dynamics with distributed agent interactions, combines the advantages of agent-based modeling and standard \gls{classical} and \gls{neoclassical} economic analysis to give insight into the dynamics of financialization. Chapter~\ref{chapter-methodology} on methodology discusses the approach.} 
 
-Warranted rent includes three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
+Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. We treat the first two as constants.  
+
+The value of accessibility  can be expanded to include amenities. In our base model it is determined by the urban wage premium, which rests on the productivity of the city. %We include three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
+Expected future price increases are driven by increases in the value of accessibility, which is to say, the rising productivity of the city. Productivity rises in our model due to pure agglomeration effects. Our concern is with what happens to the city and its people when financial capital captures the growing value generated by the agglomeration process.  
+
 
 \subsubsection{Locational economic rent} \label{section-economic-rent}
 The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
@@ -374,20 +337,22 @@ vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed,
 Annual financing costs are $rM$. 
 }
 \begin{align}
-&= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
+\mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
 \end{align}
 
-\section{Prices}
-Even when all  housing units are identical except for location, there are several prices  to consider, including bid prices, reservation prices and expected prices. We will begin by considering  housing as an providing a flow of services, discuss expected prices and then go on to develop the bid price and the reservation prices for investors. 
+\section{Bid Prices}
 
+There are two types of investment buyers: institutional buyers and homeowners buying an investment home. They use the same investment formula.
+
+
+%Even when all  housing units are identical except for location, 
+There are several prices to consider, including bid prices, reservation prices and expected prices. % We will begin by considering  housing as  providing a flow of services, discuss expected prices and then go on to develop the bid price and the reservation prices for investors. 
 A bidding process determines an actual realized market price, with bidders taking into account potential capital gains. We describe the bid price formulation below. 
 
-To calculate agent bid prices, we first calculate the net present value of the purchase, then divide by the capital employed, which we assume is the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate.} 
-The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
-% We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to 
-We solve this for for the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
 
+% We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
 
+%We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$ is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
 
 \subsection{Price expectations}
 The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.\footnote{Case and Shiller point out ``\dots we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}. Case and Schiller\cite{caseThereBubbleHousing2003} argue that  the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes.}  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.  
@@ -399,29 +364,27 @@ The \gls{market price} or the price at which a property is exchanged on the mark
 To model the market transactions when speculative motives are in play we need an expression for how much financial investors will bid. Specifically, we must find the maximum price that they are willing to pay. 
 % As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer considering a vector of attributes of the property, including the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. All of these factors shape whether an investment is profitable. To make a comparison with alternative investments, it is necessary to compute a rate of return. 
 
+To calculate agent bid prices, we first calculate the net present value of the purchase, then divide by the capital employed, which we assume is the size of the down payment made at the beginning of the period.\footnote{For expositional convenience, we can treat the mortgage period $T$ as a single term and all payments are accumulated to the end of the tern and then discounted to the present.} 
+ This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate.} 
+The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
+% We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to 
+We solve this for for the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
 
-    
- The agent who purchases makes a down payment, $D$ on a house for a price, $P_0$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period. For expositional convenience, we can treat the mortgage period $T$ as a single term and express all quantities  in present-value terms. The purchaser  receives the increased price $P_T = (1 + \dot P)^TP_0 = (1+\dot P^T)P_0$,  
- after a period $T$, Where $\dot P$ is the expected annual rate of price increase and we define $\dot P^T$ as the T-period  interest rate. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents.
+The agent who purchases makes a down payment, $D$ on a house for a price, $P_0$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period.  The purchaser  receives the increased price $P_T = (1 + \dot P)^TP_0 = (1+\dot P^T)P_0$, after a period $T$, Where $\dot P$ is the expected annual rate of price increase and we define $\dot P^T$ as the T-period  price-growth rate. The agent also receives either the net market rental value of the property throughout the period, $\mathcal{R}_N$, or if the owner is also the resident, the locational rents. 
+ 
+% With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
+% the expected price at the end of the period is:
 
-With a price-growth rate of $\dot P$ per year, the growth over $T$ years is $(1+\dot P)^T$, and  %and a 5 year mortgage period, 
-the expected price at the end of the period is:
+% \[P_M^{Te}=P_0(1+\dot P)^T\]
 
-\[P_M^{Te}=P_0(1+\dot P)^T\]
-
-If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
+% If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
 The rate of price growth, $\dot P$, is an approximation based on rents and past market behaviour. In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
 
 SOME REFERENCES - MOVE? \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
-
-
-
-
-
 {\color{blue}
- \subsubsection{The value of an investment}
+ \subsubsection{The value of an investment with price growth}
 % \subsection{The value of an investment}
 The value $V$ of a property investment over a period of T years is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus net rent revenues. Both mortgage payments and net rent revenues can  be calculated as sum  of regular payments, each of  which accumulates interest to the end of the mortgage period. This is called a ``uniform series compound amount'' and is calculated for net rent as\footnote{Any annual payment for a period multiplied by the factor $\frac{(1+r)^n-1}{r}$ is called a  ``uniform series compound amount''.%source https://www.e-education.psu.edu/eme460/node/659
 } 
@@ -465,15 +428,14 @@ r^{return} =
 \end{align}
 Notice that the return depends on the price paid, $P_0$.
 
-
 \subsubsection{Criterion for investment}
-Equation~\ref{{eq:rate-of-return-on-investment}} provides a criterion for investors. Agents invest if  their expected return is greater than the target return, they are seeking:
+Equation~\ref{{eq:rate-of-return-on-investment}} provides a criterion for investors
+.%\footnote{Section~\ref{sec-extensions-conversion}, in Appendix~\ref{appendix-future-work}, discusses the potential for more detailed modelling of the land assembly and development process.} 
+ Agents invest if  their expected return is greater than the target return they are seeking:
 \begin{equation}
 r^{target}\le r^{return} 
 \label{eqn-property-investment-return2}
 \end{equation}
-
-% We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate,} 
 
 % Equation~\ref{eqn-return-on-investment} makes it clear that the estimated rate of return depends on subjective magnitudes,$\delta$ and $\dot P_M^e$, attributes of the property, $ \mathcal{R}_N$, and  individual financial position, $r$, $m$.
 % 
@@ -495,13 +457,20 @@ We call this  $i's$ maximum bid and compute it for all potential buyers and sell
 }
 %Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
-
+{\color{black}
 \section{Reservation prices} 
+Agents receive bids. They will only sell if it is worthwhile to sell. The calculate a reservation price, and will accept bids above that price. 
+INTRODUCTION TO WHAT THIS IS AND WHERE IT GOES.
+
+SOME THE SAME FOR ALL BUYERS, SOME OUR MAIN ARGUMENT, AND SOME IS FOOTNOTES.
+
+
 
 Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved. The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951} 
 identifies a `disagreement point,' which which is the  lowest value each player will accept. In bargaining over a price the lowest value for the seller is called the  `\gls{reservation price}.' The reservation  price for the seller is the highest amount the seller is willing to pay, which is the maximum bid price that we  have just calculated.  
 
- All owners and potential buyers have  reservation prices. They represents the owner's best alternative, and in bargaining models if the a maximum bid is higher than the reservation price the outcome is between the the two.  
+ All owners and potential buyers have  reservation prices. They represents the owner's best alternative. If the a maximum bid is higher than the reservation price the outcome a bargaining model selects a value between to two between the two. Differences in relative power tip the outcome in favour of the stronger. Low vacancy rates favour owners over tenants.  Excess demand favour buyers.
+ 
 \subsection{Seller's reservation price} \label{section-reservation-price}
 
 We will assume,  that for owners, deciding to sell is a life-cycle decision. Home owners-workers  reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.%\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
@@ -510,8 +479,6 @@ We will assume,  that for owners, deciding to sell is a life-cycle decision. Hom
 If no sale is made the owner would consider becoming a landlord.\footnote{Worker-owners could remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.}  This would be a rational choice if the present value of net rent is above the the best selling price price. 
 The value of the stream of rent is therefore the most reasonable reservation price. This stream must be discounted at the personal discount rate or at the personal borrowing rate.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
 
-
-%
 % \[P^{ask}>P_M^e> 0.95 P^r\]
 % Otherwise
 % \[P^{ask}> 1.10P^r>P_M^e\]
@@ -519,6 +486,11 @@ The value of the stream of rent is therefore the most reasonable reservation pri
 
 % Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
 % If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
+
+
+
+
+\section{The bargaining model} \label{sec_model_bargaining}
 
 \begin{figure}[!hb]
 \centering
@@ -553,11 +525,9 @@ The value of the stream of rent is therefore the most reasonable reservation pri
 \caption{The Bargaining model and price determination}
 \label{fig:Bargaining}
 \end{figure}
-%We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$ is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
 
 
 
-\section{The bargaining model} \label{sec_model_bargaining}
 
 
 \subsection{Many-to-many matching problem}
@@ -584,7 +554,7 @@ If $P_B^{max}>P_R$,  the bargaining rule selects a value
 \[P = xP_B^{max*}+(1-x)P_R\]
 where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
 
-\section{The process}
+\subsection{The process}
 \begin{enumerate}
 \item \textbf{identify the pool of sellers} for each cycle.
     \begin{enumerate}
@@ -704,3 +674,4 @@ P_{bank}^{reservation} & \le  P_{person}^{max\_bid} \end{eqnarray}
 
 
 
+}
