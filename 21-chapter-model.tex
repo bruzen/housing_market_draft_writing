@@ -463,7 +463,7 @@ For the sake of notational simplicity and clarity of exposition,  we omit the co
 }
 
 
-\section{Price}
+\chapter{Price}
 
 
 \subsection{Warranted price} \label{section-warranted-price}
@@ -876,20 +876,8 @@ The value of the stream of rent is therefore the most reasonable reservation pri
 %We then check the initial bids and the asking price and apply a bargaining rule to determine how any surplus $P_B^{max}-P_R$ is allocated. The details of the bargaining rule will have little or no effect on the  behaviour of the system. 
 
 
-\section{The bargaining model} \label{sec_model_bargaining}
 
-In reality, sellers often post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we assume instead that if there is a deal, it will result in a price between the bid and the reservation price, treating the higher asking price and bids as `cheap talk'\footnote{In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world.} since a price outside of this range cannot be a rational choice for both sides, so it is ruled out in Nash bargaining theory.
-
-The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
-
-If there are competing buyers with maximum bids higher than the reservation price, only the highest two need be considered. The second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left. That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey \gls{second-price auction} theory. Bidders are asked to submit sealed bids. %b1, \dots 
-The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
-
-If $P_B^{max}>P_R$,  the bargaining rule selects a value 
-\[P = xP_B^{max*}+(1-x)P_R\]
-where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
-
-
+\section{BID PRICES BY AGENT TYPE?}
 % unless there are limits on the size of capital flows. For our simulation, we implement such limits. 
 
 %Thus, the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes, Case and Schiller \cite{caseThereBubbleHousing2003} p282.
@@ -1257,140 +1245,9 @@ You could add $+ \beta_3 (P_{d,t-1}-P_{d,t-2})$ to capture the changing  price c
 % $P\ge \frac{M_i^{max}}{m_i}$, where 
 % \[m_i^*=\frac{M_i^{max}}{P}\]
 
-\subsection{Price setting}
-\textbf{We have a many-to-many matching problem}. Many buyers and sellers single sellers for each unit. Therefore, for each property that comes on the market each potential seller has a reservation price $P_{ij}^{reservation}$ and there will be a set\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  of potential buyers with maximum bids $P_{ij}^{maxbid}$.
-
-
-This will appear in your data as a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. The rule is simple: 
-\begin{enumerate}
-    \item if there is only one maximum bid above the reservation price, split the difference.
-
-    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest
-\end{enumerate}
-
-\subsubsection{The process}
-\begin{enumerate}
-\item \textbf{identify the pool of sellers} for each cycle.
-    \begin{enumerate}
-        \item Agents who a) own and b) age out
-        \item Agent  who failed to sell in the previous period.
-        \item the bank
-    \end{enumerate}
-\item \textbf{identify the pool of buyers} 
-    \begin{enumerate}
-         \item newcomers, 
-         \item individuals as investors.
-         \item the bank may buy many, (There must be a capital (C) constraint something like $C/\bar P$ to select a number of bank bids in any period.)
-    \end{enumerate}
-
-\item \textbf{count buyers and sellers} and use the counts to identify sellers or buyers' market. \# Sellers > \# buyers is a buyers/ market. For a buyer's market  choose the lower price. \footnote{.The is often done with buyers/vacancies. Changes in this ratio are observed to trigger significant movement in rent r market prices.\cite{wheatonVacancySearchPrices1990}. Lisi and Iacobini \cite{lisiEstimatingHousingPrice2015} found  that in the Italian market, ``the difference between the actual selling price and the price obtained in an ideal situation of frictionless housing market – is remarkable. ... the higher the trading frictions on the demand side (more buyers and less sellers), the higher the actual selling price (the price adjustment is positive), whereas the higher the trading frictions on the supply side (less buyers and more sellers), the lower the actual selling price (the price adjustment is negative). '' (they point out that ``Trading frictions are obvious in the housing market, as it takes weeks or months to buy or sell a house (Caplin and Leahy, 2011; Rocheteau and Weill, 2011).'')}  
-
-%a key role is played by the so-called “time-on-the-market (TOM)”. The time it takes to sell a property or “the expected time until the asset is sold when following the optimal policy” (Lippman and McCall, 1986) – commonly known as the TOM – measures the degree of illiquidity of the real estate asset and is a fundamental characteristic differentiating real estate from financial assets. \cite{lisiSearchMatchingProcess2019}
-\item \textbf{The pooling problem}  Houses should go at different prices if they have different net rents.  Assume buyers and sellers are indifferent about location (no  local amenities) so only the net rent matters for the ban and only the full rent for individuals.
-
-\item \textbf{Create lists} for the buyer pool and the seller pool. (The bank can appear on the list many times.) 
-
-If the market is efficient, the allocation will maximize the sum or seller and buyer surplus.
-
-\item To select the set of transactors, \textbf{order the lists}. Buyers from highest to lowest, sellers from lowest to highest.
-
-\end{enumerate}
-
-
-% Ensure that they are of the same length by dropping the lowest bids or the highest reservation prices. 
-
-\newpage
-\textbf{Possibly relevant Example of a matching problem drawn from game theory text}
-
-There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
-
-\begin{center}
-Value and number of houses
-
-\begin{tabular}{|c|c|}
- 
-\begin{tabular}{lcc}
-max bid&start&end  \\ \hline
-985  & 0 & 2 \\
-829  & 0 & 1 \\
-740  & 0 & 1 \\
-650  & 0 & 1 \\
-643  & 0 & 1 \\
-611  & 0 & 1 \\\hline
-532  & 0 & \color{red}1  \\
-356  & 0 & \color{red} 1   \\
-270  & 0 & \color{red} 1  \\
-135  & 0 & 0    \\%69 & 1  & 0
-   
-\end{tabular}
-
-&
-\begin{tabular}{lcc}
-reservation&start&end \\ \hline
- 50 & 1  & 0 \\
-127 & 1  & 0 \\
-190 & 1  & 0  \\
-245 & 1  & 0 \\
- 324 & 1  & 0 \\
- 522 & 1 & \color{red} 1\\\hline
- 738 & 1  &  \color{blue}0 \\
- 829 &1  &  \color{blue}0 \\
-832 & 1 & \color{blue}0\\
-   &  &              \\%69 & 1  & 0 
-\end{tabular}
-
-\end{tabular}
-\end{center}
-
-
- 
-  \begin{tikzpicture}[scale=.8]
-%  \draw [gray, opacity=.7]
- (0,0) grid (7,7);
-\draw [<->] (0,10.5) node[above]{value}-- (0,0) -- (10,0) node[below]{Houses};
-
-\draw [red, thick] (0,9.85)node[above right]{985}--(1,9.85)--(1,8.29 )node[above right]{829}--(2,8.29 )--(2,7.40 )node[above right]{740}--(3,7.40 )--(3,6.50 )node[above right]{350}--(4,6.50 )--(4,6.43)node[above right]{643}--(5,6.43)--(5,6.11)node[above right]{611}--(6,6.11)--(6,5.32)node[above right]{532}--(7,5.32)--(7,3.56)node[above right]{356}--(8,3.56)--(8,2.70)node[above right]{270}--(9,2.70)--(9,1.35)node[left]{DEMAND}node[above right]{135}--(10,1.35); 
-
-\draw [blue, thick] (0,.50)node[above right]{50}--(1,.5)--(1,1.27 )node[above right]{127}--(2,1.27 )--(2,1.90 )node[above right]{190}--(3,1.90 )--(3,2.45 )node[above right]{245}--(4,2.45 )--(4,3.24)node[above right]{324}--(5,3.24)--(5,5.22)node[above right]{522}--(6,5.22)--(6,7.38)node[above right]{738}--(7,7.38)--(7,8.29)node[above right]{829}--(8,8.29)--(8,8.32)node[above right]{832}--(9,8.32)node[right]{SUPPLY}; 
-%,2.5) ;
-%\draw [blue, dashed] (0,4.5) node[left]{large bill}--(8.33, 4.5)-- (8.33,0)node[below] {large user Q};
-%\draw [green, dashed] (0,0) --(8.33, 4.5);
-%\draw [green, dashed] (0,0) --(1.66, 2.5);
-
-%\draw [<->, shift={(7 cm,0)}] (0,6) -- (0,0) -- (5,0);
-\end {tikzpicture}
-
-The gain for any person is the difference between the transaction price  for a house and the amount they value a house
-
-
-
-
-At the same time, for each p. NOT. DONE
-\begin{eqnarray}
-P_{bank}^{reservation} & \le  P_{person}^{max\_bid} \end{eqnarray}
-
-
-% \begin{lstlisting}
-% # parameters - max interest payment 
-% max_mortgage_share = 0.28 # ability to cover a mortgage
-
-% # Max mortgage
-
-% wealth = property_value - mortgage + savings
-% mean_weath = sum(wealth)/number_of_people
-
-% def get_max_mortgage(self, applicant):
-%     max_mortgage =  ...
-    
-%     return max_mortgage
-% \end{lstlisting}
-
-
-
-
 
 \newpage\hrule
-\subsection{TABLE OF BID AND RESERVATION PRICES}
+\subsection{LIST OF BID AND RESERVATION PRICES}
 \hrule
 
 
@@ -1648,11 +1505,6 @@ This value provides a \textbf{another reservation price}:
 }
 
 
-{\color{orange}
-
-
-\section{DONE - TO DELETE? Three Questions}
-
 % The three questions I promised to deal with were
 % \begin{enumerate}
 %     \item should we add interest to the net rent calculation? (yes)
@@ -1661,14 +1513,14 @@ This value provides a \textbf{another reservation price}:
 % \end{enumerate}
 
 
-\subsubsection{Defining Net Rent carefully}
+% \subsubsection{Defining Net Rent carefully}
 
 
-The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
- \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
+% The market rent may include  a fraction of financing costs $F(v, rM)$  that depends on how tight the market would support additional useful analyses:
+%  \[\mathcal{R}_M=\mathcal{R}_W + F(vacancy\ rate) rM\]
  
 
-Net annual rent for investors is then  defined this way 
+% Net annual rent for investors is then  defined this way 
 
 \begin{align}\mathcal{R}_N &= \mathcal{R}_M - \mathcal{O} - \mathcal{T} + F(v, rM)\nonumber\\
 &= (\omega - {dc} + a\psi )+ \mathbb{A} - a b \psi - \tau  \mathcal{P}_{M, t-1}  + F(v, rM)
@@ -1760,3 +1612,156 @@ This term enters into the computation of housing prices. We assume it is deposit
 % 		&=&( \delta((1+\dot p)  - (1+r)m) \ + \rho   	-\kappa - t ) \frac{P_0}{P_0-mP_0}   \nonumber\\
 % 		&=&\frac{ \delta(1+\dot p  - (1+r)m) \ + \rho   	-\kappa - t } {1-m} \label{eqn-decision-rule}
 % \end{eqnarray}
+
+
+\chapter{The bargaining model} \label{sec_model_bargaining}
+
+
+\subsection{Many-to-many matching problem}
+\textbf{We have a many-to-many matching problem}. Many buyers and sellers single sellers for each unit. Therefore, for each property that comes on the market each potential seller has a reservation price $P_{ij}^{reservation}$ and there will be a set\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  of potential buyers with maximum bids $P_{ij}^{maxbid}$.
+
+
+This will appear in your data as a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. The rule is simple: 
+\begin{enumerate}
+    \item if there is only one maximum bid above the reservation price, split the difference.
+
+    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest
+\end{enumerate}
+
+
+\subsection{Another version}
+
+In reality, sellers often post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we assume instead that if there is a deal, it will result in a price between the bid and the reservation price, treating the higher asking price and bids as `cheap talk'\footnote{In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world.} since a price outside of this range cannot be a rational choice for both sides, so it is ruled out in Nash bargaining theory.
+
+The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+
+If there are competing buyers with maximum bids higher than the reservation price, only the highest two need be considered. The second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left. That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey \gls{second-price auction} theory. Bidders are asked to submit sealed bids. %b1, \dots 
+The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
+
+If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+\[P = xP_B^{max*}+(1-x)P_R\]
+where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
+
+
+
+
+\section{The process}
+\begin{enumerate}
+\item \textbf{identify the pool of sellers} for each cycle.
+    \begin{enumerate}
+        \item Agents who a) own and b) age out
+        \item Agent  who failed to sell in the previous period.
+        \item the bank
+    \end{enumerate}
+\item \textbf{identify the pool of buyers} 
+    \begin{enumerate}
+         \item newcomers, 
+         \item individuals as investors.
+         \item the bank may buy many, (There must be a capital (C) constraint something like $C/\bar P$ to select a number of bank bids in any period.)
+    \end{enumerate}
+
+\item \textbf{count buyers and sellers} and use the counts to identify sellers or buyers' market. \# Sellers > \# buyers is a buyers/ market. For a buyer's market  choose the lower price. \footnote{.The is often done with buyers/vacancies. Changes in this ratio are observed to trigger significant movement in rent r market prices.\cite{wheatonVacancySearchPrices1990}. Lisi and Iacobini \cite{lisiEstimatingHousingPrice2015} found  that in the Italian market, ``the difference between the actual selling price and the price obtained in an ideal situation of frictionless housing market – is remarkable. ... the higher the trading frictions on the demand side (more buyers and less sellers), the higher the actual selling price (the price adjustment is positive), whereas the higher the trading frictions on the supply side (less buyers and more sellers), the lower the actual selling price (the price adjustment is negative). '' (they point out that ``Trading frictions are obvious in the housing market, as it takes weeks or months to buy or sell a house (Caplin and Leahy, 2011; Rocheteau and Weill, 2011).'')}  
+
+%a key role is played by the so-called “time-on-the-market (TOM)”. The time it takes to sell a property or “the expected time until the asset is sold when following the optimal policy” (Lippman and McCall, 1986) – commonly known as the TOM – measures the degree of illiquidity of the real estate asset and is a fundamental characteristic differentiating real estate from financial assets. \cite{lisiSearchMatchingProcess2019}
+\item \textbf{The pooling problem}  Houses should go at different prices if they have different net rents.  Assume buyers and sellers are indifferent about location (no  local amenities) so only the net rent matters for the ban and only the full rent for individuals.
+
+\item \textbf{Create lists} for the buyer pool and the seller pool. (The bank can appear on the list many times.) 
+
+If the market is efficient, the allocation will maximize the sum or seller and buyer surplus.
+
+\item To select the set of transactors, \textbf{order the lists}. Buyers from highest to lowest, sellers from lowest to highest.
+
+\end{enumerate}
+
+
+% Ensure that they are of the same length by dropping the lowest bids or the highest reservation prices. 
+
+\newpage
+\textbf{Possibly relevant Example of a matching problem drawn from game theory text}
+
+There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
+
+\begin{center}
+Value and number of houses
+
+\begin{tabular}{|c|c|}
+ 
+\begin{tabular}{lcc}
+max bid&start&end  \\ \hline
+985  & 0 & 2 \\
+829  & 0 & 1 \\
+740  & 0 & 1 \\
+650  & 0 & 1 \\
+643  & 0 & 1 \\
+611  & 0 & 1 \\\hline
+532  & 0 & \color{red}1  \\
+356  & 0 & \color{red} 1   \\
+270  & 0 & \color{red} 1  \\
+135  & 0 & 0    \\%69 & 1  & 0
+   
+\end{tabular}
+
+&
+\begin{tabular}{lcc}
+reservation&start&end \\ \hline
+ 50 & 1  & 0 \\
+127 & 1  & 0 \\
+190 & 1  & 0  \\
+245 & 1  & 0 \\
+ 324 & 1  & 0 \\
+ 522 & 1 & \color{red} 1\\\hline
+ 738 & 1  &  \color{blue}0 \\
+ 829 &1  &  \color{blue}0 \\
+832 & 1 & \color{blue}0\\
+   &  &              \\%69 & 1  & 0 
+\end{tabular}
+
+\end{tabular}
+\end{center}
+
+
+ 
+  \begin{tikzpicture}[scale=.8]
+%  \draw [gray, opacity=.7]
+ (0,0) grid (7,7);
+\draw [<->] (0,10.5) node[above]{value}-- (0,0) -- (10,0) node[below]{Houses};
+
+\draw [red, thick] (0,9.85)node[above right]{985}--(1,9.85)--(1,8.29 )node[above right]{829}--(2,8.29 )--(2,7.40 )node[above right]{740}--(3,7.40 )--(3,6.50 )node[above right]{350}--(4,6.50 )--(4,6.43)node[above right]{643}--(5,6.43)--(5,6.11)node[above right]{611}--(6,6.11)--(6,5.32)node[above right]{532}--(7,5.32)--(7,3.56)node[above right]{356}--(8,3.56)--(8,2.70)node[above right]{270}--(9,2.70)--(9,1.35)node[left]{DEMAND}node[above right]{135}--(10,1.35); 
+
+\draw [blue, thick] (0,.50)node[above right]{50}--(1,.5)--(1,1.27 )node[above right]{127}--(2,1.27 )--(2,1.90 )node[above right]{190}--(3,1.90 )--(3,2.45 )node[above right]{245}--(4,2.45 )--(4,3.24)node[above right]{324}--(5,3.24)--(5,5.22)node[above right]{522}--(6,5.22)--(6,7.38)node[above right]{738}--(7,7.38)--(7,8.29)node[above right]{829}--(8,8.29)--(8,8.32)node[above right]{832}--(9,8.32)node[right]{SUPPLY}; 
+%,2.5) ;
+%\draw [blue, dashed] (0,4.5) node[left]{large bill}--(8.33, 4.5)-- (8.33,0)node[below] {large user Q};
+%\draw [green, dashed] (0,0) --(8.33, 4.5);
+%\draw [green, dashed] (0,0) --(1.66, 2.5);
+
+%\draw [<->, shift={(7 cm,0)}] (0,6) -- (0,0) -- (5,0);
+\end {tikzpicture}
+
+The gain for any person is the difference between the transaction price  for a house and the amount they value a house
+
+
+
+
+At the same time, for each p. NOT. DONE
+\begin{eqnarray}
+P_{bank}^{reservation} & \le  P_{person}^{max\_bid} \end{eqnarray}
+
+
+% \begin{lstlisting}
+% # parameters - max interest payment 
+% max_mortgage_share = 0.28 # ability to cover a mortgage
+
+% # Max mortgage
+
+% wealth = property_value - mortgage + savings
+% mean_weath = sum(wealth)/number_of_people
+
+% def get_max_mortgage(self, applicant):
+%     max_mortgage =  ...
+    
+%     return max_mortgage
+% \end{lstlisting}
+
+
+
+
