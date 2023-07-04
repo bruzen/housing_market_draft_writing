@@ -569,53 +569,71 @@ r^{target}\le r^{return}
 The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
 
 \begin{align}
-r^{target}& \le \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\right)\nonumber\\
+%r^{target}& \le \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\right)\nonumber\\
 % (1-m)r^{target}/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \\
 % (1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
 P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm} \label{eqn:maximum-bid}
 \end{align}
 
-% \begin{eqnarray}
-% P_B^{max} & \le    \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-bid-price} \end{eqnarray}
-% % P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
-We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. It represents he value of the stream of rent plus any capital gains and is therefore the most reasonable reservation price as well.
-The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula
-.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
-}
+We call this  $i's$ maximum bid.
+.\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.} 
+It represents the value of the stream of rent plus any capital gains, and is therefore the most reasonable reservation price for sellers as well the most reasonable maximum offer for potential buyers. In principle it exists for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time. 
+
+
+    \begin{figure}
+        \centering
+        \input{fig/bargaining-game}
+        \caption{The Nash bargaining game}
+        \label{fig:Nash-bargaining-game}
+    \end{figure}
+
 %Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
-{\color{blue}
-\section{Reservation prices} 
-Agents receive bids. They will only sell if it is worthwhile to sell. The calculate a reservation price, and will accept bids above that price. 
-INTRODUCTION TO WHAT THIS IS AND WHERE IT GOES.
-
-SOME THE SAME FOR ALL BUYERS, SOME OUR MAIN ARGUMENT, AND SOME IS FOOTNOTES.
 
 
 
-Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved. The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951} 
-identifies a `disagreement point,' which which is the  lowest value each player will accept. In bargaining over a price the lowest value for the seller is called the  `\gls{reservation price}.' The reservation  price for the seller is the highest amount the seller is willing to pay, which is the maximum bid price that we  have just calculated.  
+\section{The bargaining model} \label{sec_model_bargaining}
 
- All owners and potential buyers have  reservation prices. They represents the owner's best alternative. If the a maximum bid is higher than the reservation price the outcome a bargaining model selects a value between to two between the two. Differences in relative power tip the outcome in favour of the stronger. Low vacancy rates, for example, favour owners over tenants.  Excess demand favours buyers.
+Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved
+.\footnote{The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951, The Nash equilibrium: A perspective. Charles A. Holt and Alvin E. RothAuthors Info & Affiliations March 15, 2004 101 (12) 3999-4002 https://doi.org/10.1073/pnas.0308738101} 
+identifies  `\gls{disagreement point},' which which is the  lowest value each player will accept. The combination of reservation price and maximum bid together are the disagreement point for a two-person price bargaining game.} 
+There is a surplus to be divided whenever the buyer's maximum bid exceeds owner's \gls{reservation price}, which is simply the maximum the owner would pay to retain their own property. 
+
+The bargaining problem is illustrated in Figure~\ref{fig:Nash-bargaining-game}. We imagine the seller values the property at \$30,000 and the buyer values it at \$50,000.  At any price above \$30,000 the seller is better off. At any price below \$50,000 the buyer is better off. The set of acceptable bargains is bounded by these values. In the figure, the thick red line segment, called the bargaining set, represents all the efficient, rational and feasible outcomes.\footnote{Efficient, because the entire \$20,000 surplus is allocated to the players. Rational because neither player has to accept an outcome that makes them worse off. Feasible, because the players in get no more in total than the maximum available. In practice some of the surplus is dissipated in the sale process, and some is absorbed by intermediaries.} Bargaining processes will ideally lead to  a point on that line segment.\footnote{ \label{fn:relative-power}Differences in relative power will tip the outcome in favour of the stronger player.   Players who can afford to wait will get a larger share of the gain. Excess demand favours sellers. Low vacancy rates favour owners over tenants.   If there is a deal,  it will still be at a price between the maximum bid and the reservation price, and in most cases probably somewhere near the midpoint. }
+\footnote{The other's disagreement point may not be known to parties. Misleading the other party about one's disagreement point can provide some advantage in a bargaining game. Sellers often post an asking price greater than the reservation price and buyers often make initial offers much lower than their maximum bid price. 
+
+Negotiations often proceed though a series of offers and counteroffers. Ariel Rubinstein \cite{rubinsteinPerfectEquilibriumBargaining1982} presented a convincing solution to the alternating offers model in a 1982 paper. His process converges to the Nash solution. 
+}
+%  The higher asking price and lower bids are `cheap talk' (In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. % This is in contrast to signaling in which sending certain messages may be =
+
+
  
-\subsection{Seller's reservation price} \label{section-reservation-price}
-The general rule is that any owner will sell if they receive an offer greater than the maximum they would bid for their property according to Equation~\ref{eqn:maximum-bid}.  This includes institutional owners and individual owners fo revenue properties ,l as well as individuals who
-%We will assume,  that for owners, deciding to sell is a life-cycle decision. Home owners-workers  
-reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.%\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
+
+    \begin{figure}[!hb]
+    \centering
+    \input{fig/bargaining.tex}
+    \caption{The Bargaining model and price determination}
+    \label{fig:Bargaining}
+    \end{figure}
 
 
-If no sale is made, Equation~\ref{eqn:maximum-bid} provides the owner with an estimate of the rents that would be earned by keeping the property as an incom property for another period.\footnote{Worker-owners could remain in their homes after retirement. In that case,  there would be fewer homes available for new workers, which must produce a labour shortage in this model, driving up wages, and leading to higher bids and rising home prices, which in turn attracts  speculative bidding. This will only accelerate any shift in the ownership pattern. Our core model suppresses labour market dynamics and the effect of housing shortages to focus on the warranted prices, which are driven by aggregation economies.}  
+\subsubsection{Seller's reservation price} \label{section-reservation-price}
+The general rule is that any owner will sell if they receive an offer greater than the maximum they themselves would bid for their property according to Equation~\ref{eqn:maximum-bid}.  This is true for institutional owners and individual owners for revenue properties, as well as individuals who reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.  %\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
+The reservation price is based on the value of the property as an investment, given by Equation ~\ref{eqn:maximum-bid}
+.\footnote{For owner-occupiers, the stream must be discounted at the personal discount rate or at the personal borrowing rate.}
+For retirees, however, the reservation  price may take into account amenities associated with the particular property or with living in the city. These advantages may result in retirees continuing to occupy homes  and thereby increasing the cost of housing for new workers
+.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price is significantly greater their reservation price. This is a `hopeful' listing, `fishing' for an offer that supports an early retirement.}
 
- This stream must be discounted at the personal discount rate or at the personal borrowing rate.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price posted by the real estate agent, $P_M^e$,  exceeds (say) 95\% of their reservation price. This is a `hopeful' listing, `fishing' for an offer that exceeds the actual reservation price.}
 
 
-% \subsubsection{for the Investor-owner}
-% \textbf{For financial sector in general including those holding investment properties} the problem is easier if anyone offers more than your maximum bid, you should sell the property. 
-% \begin{eqnarray}
-% P_{bank}^{reservation} & =    \frac{\mathcal{R}_N}{(1-m)r^{target}-\delta \left(1 + \dot P_M^e - (1+r)m\right)} \label{eqn-res-price-B} \end{eqnarray}
 
-% P_B & \le    \frac{\mathcal{R}_N}{(1-m)r^{target}-\left[ \delta(1+L(P)- (1+r)m\right]}
-We call this  $i's$ maximum bid and compute it for all potential buyers and sellers. In each sale the highest $P_B$ will make the purchase. The denominator can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula. 
+\subsection{The many-to-one matching problem}
+\textbf{The housing market is usually a many-to-many matching problem}: which property  goes to which buyer? For each property that comes on the market  there will be a set of potential buyers with the their differing  maximum bids. Some simplifications are available. In each sale the bidder with the highest bid price among those currently bidding on that property will make the purchase.\footnote{For many reasons the process is likely to exhibit a good deal of randomness and inefficiency. For our purpose the general messiness of the market is unlikely to do more that slow and blur results somewhat.} Since the highest bidder is competing with the second highest bidder, we expect the final price to be equal to the second highest maximum bid.
+%.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
+When there is one bidder, we will employ a simple rule for splitting the gain from trade. Both simplifications are grounded in standard bargaining theory.
+
+  
+
 % \[P^{ask}>P_M^e> 0.95 P^r\]
 % Otherwise
 % \[P^{ask}> 1.10P^r>P_M^e\]
@@ -623,49 +641,43 @@ We call this  $i's$ maximum bid and compute it for all potential buyers and sell
 
 % Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
 % If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
-{\color{red}
 
-\subsubsection{CUT Maximum bid second house buyer}
+\section{Bids and reservation prices}
+We consider have six cases. For each \begin{enumerate}
+    \item institutional buyers of revenue properties 
+    \item individual buyers of revenue properties 
+    \item retiring owner-occupiers who sell 
+    \item retiring owner-occupiers who hold their home as a revenue property
+    \item new entrants who buy
+    \item new entrants who become tenants
+\end{enumerate}
 
-CUT People are limited by the limits  that the bank imposes borrowing capacity. Purchasing a revenue house is only attractive if the rate return on a rental house exceeds the cost of capital $r_i$. Call this the \textbf{profitability constraint} The maximum bid for this investor is given by Equation~\ref{eqn-max-investment-bid} using one period values for $r_i^{target},\ m_i,\ \delta_i$, and $r_i$.
+\subsection{Institutional buyers of revenue properties }
+These simply use Equation~\ref{eqn:maximum-bid}. For properties they hod the same calculation serves as a reservation price. 
 
-CUT \begin{eqnarray}\label{eqn-max-second-bid}
-P_{second}^{max\_bid} & = \frac{\mathcal{R}_N}{(1-m_i^{max\_permitted})r_i^{target}-\delta_i \left(1 + \dot P_M^e - (1+r_i)m_i^{max\_permitted}\right)} 
-\end{eqnarray}
-Notice that this simplifies if any of $r_i^{target},\ \delta_i$, and $r_i$ are set equal. It is possible the cost of capital and the target rate will be the same.
+\subsection{individual buyers of revenue properties }
+These also use Equation~\ref{eqn:maximum-bid}, but differ from institutional buyers in the individual parameter $r$, $\delta$, $m$, and $M$. 
 
-CUT Combining the investment \textbf{profitability constraint} and mortgage constraints
+\subsection{Retiring owner-occupiers who sell }
 
+\subsection{retiring owner-occupiers who hold their home as a revenue property}
 
-MAKE A FOOTNOTE. Note if it was a second buyer, they would have a couple of constraints. The price can't exceed these values.
-\begin{eqnarray}
-P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
-\end{eqnarray}
+\subsection{New entrants who buy}
+A new buyer chooses to move if the income in the city, including the wage amenities exceed the rural income after housing costs, $\psi+A^{Rural}$. There are two cases - moving to buyer and moving to rent.
 
-\subsubsection{CUT Reservation prices for investment owners}
-If the current owner of an investment  property gets a high offer higher than their own maximum bid, they will always sell.  
-
-
-\subsection{New buyer maximum bids and reservation prices }
-A new buyer chooses to move if the income in the city, including the wage amenities exceed the rural income after housing costs, $\psi+A^{Rural}$. 
-
-There are two cases - moving as a buyer and moving as a renter.
-
-\subsubsection{KEEP Moving as a renter}
 The gain for a potential renter is 
 \begin{align}
 gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
-=&\left[\psi+\omega-cd+\mathbb{A}^{city}-\mathcal{R}\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
-=&\ \omega-cd+\mathbb{A}^{net}-\mathcal{R}
+=&\left[\psi+\omega-cd-\mathcal{R}+\mathbb{A}^{city}\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ \omega-cd +_a\psi -\mathcal{R}+\mathbb{A}^{net}
 \label{eq-move-to-rent}
 \end{align}
 If rent $\mathcal{R}$ exactly capture housing cost and locational rent, the gain reduces to $\mathbb{A}^{city}-\mathbb{A}^{Rural}$. Normally we would expect property rents to capture this component  as well. 
 
-\subsubsection{KEEP Moving as a buyer}
+
 The gain for a buyer is 
 \begin{align}
-gain^{buy}=&\ net^{city}-net^{Rural}\nonumber\\
-=&\left[\psi+\omega-cd+\mathbb{A}^{city}+(\dot p-r_im_i)P-a\psi\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+gain^{buy}=&\left[\psi+\omega-cd+\mathbb{A}^{city}+(\dot p-r_im_i)P-a\psi\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
 =&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P  \label{eq-move-to-buy}
 \end{align}
 This requires that the sum of  locational rent, net amenity and net capital gain be greater than or equal to zero for the in-migrant to buy.
@@ -677,11 +689,14 @@ The two decisions  are
     \item Buy a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
 \end{enumerate}
 
-The buyer is subject to the mortgage constraints in Equation~\ref{eqn-max-mortgage-combined}.
+\begin{eqnarray}
+P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+\end{eqnarray}
+% The buyer is subject to the mortgage constraints in Equation~\ref{eqn-max-mortgage-combined}.
 
-We will assume that a first-home buyer always takes the maximum mortgage available to maximize the financial return on the transaction. 
+% We will assume that a first-home buyer always takes the maximum mortgage available to maximize the financial return on the transaction. 
 
-The maximum price a new buyer can bid is also given the bank imposed liquidity constraint is given by Equation~\ref{eqn-max-mortgage-combined}, which we repeat here
+% The maximum price a new buyer can bid is also given the bank imposed liquidity constraint is given by Equation~\ref{eqn-max-mortgage-combined}, which we repeat here
 
 
 \begin{align}
@@ -689,14 +704,11 @@ P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  
 \end{align}
 
 
-\section{Reservation Price}
 
 
 
 \subsection{Reservation price for retirees}
 Both owners and tenants retire. Homes only become available if they move to the country. 
-
-
 
 \subsubsection{Why would a renter move to the country?} 
 If the rent is greater than the cost of housing in the country and the lost amenity
@@ -716,7 +728,27 @@ This value provides a \textbf{another reservation price}:
 \[P^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \label{eq:movers-gainC}\]
 
 
-Sellers should use the investment rule calculated before  do determine a  reservation price in the bargaining process. If they can't get a higher price they  can keep the home as a rental  investment and use the home as collateral for a mortgage on a house in the country.
+
+{\color{yellow}}
+\subsubsection{Why would a renter move to the country?} 
+If the rent is greater than the cost of housing in the country and the lost amenity
+\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
+
+% \subsubsection{Why would an owner move to the country?}
+% Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
+% \[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\label{eq:movers-gainA}\]
+
+% This value provides a \textbf{reservation price}: 
+% \[P^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \label{eq:movers-gainB}\]
+% This just says that the lowest prices one would sensibly accept is the cost of a house in the country plus enough to cover the mortgage, plus capitalized net amenity.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+
+% Should a retiree rent the house out? only if the rent exceeds the  interest on income from the sale:
+% \[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
+% This value provides a \textbf{another reservation price}: 
+% \[P^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \label{eq:movers-gainC}\]
+% }
+
+% Sellers should use the investment rule calculated before  do determine a  reservation price in the bargaining process. If they can't get a higher price they  can keep the home as a rental  investment and use the home as collateral for a mortgage on a house in the country.
 % For a homeowner, the reservation price is tricky. 
 % At this point we only have retirement as a hard boundary to consider. That means that the householder wants to sell in the current period. The gain from moving to the country is 
 % \begin{equation}
@@ -727,79 +759,32 @@ Sellers should use the investment rule calculated before  do determine a  reserv
 The reservation price in in Equation~\ref {eq:movers-gain} is the minimum provides an incentive to sell a home immediately on retiring from the workforce. 
 
 
-
-If the sale is delayed by one period, however, the gain is deferred, so the present discounted cost of waiting is, $Gain*\frac{\delta}{1+\delta}$.\footnote{This is simply (1 minus the discount factor) times the deferred amount.} A seller would accept a lower price to avoid this cost of waiting. 
+\subsubsection{The cost of delayed sale}
+If the conditions above are met as equalities, there is no cost to delayed sale or moving. If not, and the sale is delayed by one period, however, the gain is deferred, so the present discounted cost of waiting until is  $\delta max(Gain)$. %$Gain*\frac{\delta}{1+\delta}$.????%\footnote{This is simply (1 minus the discount factor) times the deferred amount.} 
+A seller would accept a price lower by this amount to avoid this cost of waiting. 
 
 My suggestion is that $\frac{\delta}{1+\delta}P_{ij}^{expected}$ is the \textbf{initial reservation price} for a homeowner on retirement. If the seller does not get this she reduces the reservation price for the next period by (say) 5\% .
 
 
-}
-}
 
-
-
-\section{The bargaining model} \label{sec_model_bargaining}
-
-\begin{figure}[!hb]
-\centering
-\begin{tikzpicture}
-%\draw[step=0.5cm,color=gray] (0,-3) grid (8,7);
-\node [above](Bank)at (1,7) {Bank};
-\node [above](Buyers)at (5,7) {Buyers $i$};
-\node [above](Seller)at (7,7) {Seller};
-
-\draw[ultra thick, -latex](Bank)--++(0,-1.5)node[below]{$P_B^{max}$};
-\draw[ultra thick, -latex](Buyers)--++(0,-1.5)node[below]{$P_i^{max}$};
-\draw[ultra thick, blue!60,-latex](Seller)--++(0,-1.5)node[below]{$P_R$};
-
-\node[above, red, text width=1.55cm, align=center]at (3,5){Select two highest bids};
-
-\begin{scope}[shift={(0,-1)}]
-\draw[ultra thick](1,6.)--(5,6.0); % Bar
-\draw[ultra thick, blue!60,-latex](7,6.2)--++(0,-1)--++(-4,0)node[left, red]{Compare};  %Pass P_R to if-then
-\draw[ultra thick, -latex](3,6)--++(0,-1.5)--++(-2.,-.5);% down and left
-\draw[ultra thick, -latex](3,5)--++(0,-1)node[below, text width=1.5cm, align=center]{none above {$P_R$} };%
-\draw[ultra thick, -latex](3,5)--++(0,-.5)--++(2.2,-.5)node[below, text width=1.cm, align=center]{One above {$P_R$} };
-% down and Right
-
-\draw[ultra thick, -latex](.1,2.5)node[above, text width=2.cm, align=center]{two or more above {$P_R$} }--++(0,-.75)node[below, text width=3cm, align=center]{Auction: price is second highest $P_i^{max}$, house goes to highest bidder};
-
-\draw[ultra thick, -latex](3,2.5)--++(0,-.75)node[below, text width=2cm, align=center]{No sale};
-
-\draw[ultra thick, -latex](5.5,2.5)--++(0,-.75)node[below, text width=2cm, align=center]{Bargain: price is power-modified mean};
-\end{scope}
-
-\end{tikzpicture}
-\caption{The Bargaining model and price determination}
-\label{fig:Bargaining}
-\end{figure}
-
-
-
-
-
-\subsection{Many-to-many matching problem}
-\textbf{We have a many-to-many matching problem}. Many buyers and sellers single sellers for each unit. Therefore, for each property that comes on the market each potential seller has a reservation price $P_{ij}^{reservation}$ and there will be a set\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  of potential buyers with maximum bids $P_{ij}^{maxbid}$.
-
-
-This will appear in your data as a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. The rule is simple: 
+\subsection{The bargaining process}
+We have now identified  a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. 
+The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+If a bargain is possible, the rule is simple: 
 \begin{enumerate}
-    \item if there is only one maximum bid above the reservation price, split the difference.
+    \item if there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is relatively simple but not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+    \[P = xP_B^{max*}+(1-x)P_R, \ \ \ x\in 90\dots 1)\]
 
-    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest
+    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid
+    .\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
+
 \end{enumerate}
 
 
-\subsection{Another version}
-In reality, sellers often post an asking price greater than the reservation price. All agents will expect to negotiate, however, so we assume instead that if there is a deal, it will result in a price between the bid and the reservation price, treating the higher asking price and bids as `cheap talk'\footnote{In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. Providing and receiving information is free. This is in contrast to signaling in which sending certain messages may be costly for the sender depending on the state of the world.} since a price outside of this range cannot be a rational choice for both sides, so it is ruled out in Nash bargaining theory.
+%This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left. 
 
-The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+That is the highest price that a seller can normally get.
 
-If there are competing buyers with maximum bids higher than the reservation price, only the highest two need be considered. The second highest max bid should be the sale price, but the bidder with the highest max bid wins the property. This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left. That is the highest price that a seller can normally get.\footnote{This is an application of Vickrey \gls{second-price auction} theory. Bidders are asked to submit sealed bids. %b1, \dots 
-The bidder who submits the highest bid is awarded the object, and pays the amount of the second highest bid \cite{levinAuctionTheory2004}.}
-
-If $P_B^{max}>P_R$,  the bargaining rule selects a value 
-\[P = xP_B^{max*}+(1-x)P_R\]
 where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
 
 \subsection{The process}
@@ -833,93 +818,92 @@ If the market is efficient, the allocation will maximize the sum or seller and b
 
 % Ensure that they are of the same length by dropping the lowest bids or the highest reservation prices. 
 
-\newpage
-\textbf{Possibly relevant Example of a matching problem drawn from game theory text}
+% \newpage
+% \textbf{Possibly relevant Example of a matching problem drawn from game theory text}
 
-There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
+% There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
 
-\begin{center}
-Value and number of houses
+% \begin{center}
+% Value and number of houses
 
-\begin{tabular}{|c|c|}
+% \begin{tabular}{|c|c|}
  
-\begin{tabular}{lcc}
-max bid&start&end  \\ \hline
-985  & 0 & 2 \\
-829  & 0 & 1 \\
-740  & 0 & 1 \\
-650  & 0 & 1 \\
-643  & 0 & 1 \\
-611  & 0 & 1 \\\hline
-532  & 0 & \color{red}1  \\
-356  & 0 & \color{red} 1   \\
-270  & 0 & \color{red} 1  \\
-135  & 0 & 0    \\%69 & 1  & 0
+% \begin{tabular}{lcc}
+% max bid&start&end  \\ \hline
+% 985  & 0 & 2 \\
+% 829  & 0 & 1 \\
+% 740  & 0 & 1 \\
+% 650  & 0 & 1 \\
+% 643  & 0 & 1 \\
+% 611  & 0 & 1 \\\hline
+% 532  & 0 & \color{red}1  \\
+% 356  & 0 & \color{red} 1   \\
+% 270  & 0 & \color{red} 1  \\
+% 135  & 0 & 0    \\%69 & 1  & 0
    
-\end{tabular}
+% \end{tabular}
 
-&
-\begin{tabular}{lcc}
-reservation&start&end \\ \hline
- 50 & 1  & 0 \\
-127 & 1  & 0 \\
-190 & 1  & 0  \\
-245 & 1  & 0 \\
- 324 & 1  & 0 \\
- 522 & 1 & \color{red} 1\\\hline
- 738 & 1  &  \color{blue}0 \\
- 829 &1  &  \color{blue}0 \\
-832 & 1 & \color{blue}0\\
-   &  &              \\%69 & 1  & 0 
-\end{tabular}
+% &
+% \begin{tabular}{lcc}
+% reservation&start&end \\ \hline
+%  50 & 1  & 0 \\
+% 127 & 1  & 0 \\
+% 190 & 1  & 0  \\
+% 245 & 1  & 0 \\
+%  324 & 1  & 0 \\
+%  522 & 1 & \color{red} 1\\\hline
+%  738 & 1  &  \color{blue}0 \\
+%  829 &1  &  \color{blue}0 \\
+% 832 & 1 & \color{blue}0\\
+%    &  &              \\%69 & 1  & 0 
+% \end{tabular}
 
-\end{tabular}
-\end{center}
+% \end{tabular}
+% \end{center}
 
 
  
-  \begin{tikzpicture}[scale=.8]
-%  \draw [gray, opacity=.7]
- (0,0) grid (7,7);
-\draw [<->] (0,10.5) node[above]{value}-- (0,0) -- (10,0) node[below]{Houses};
+%   \begin{tikzpicture}[scale=.8]
+% %  \draw [gray, opacity=.7]
+%  (0,0) grid (7,7);
+% \draw [<->] (0,10.5) node[above]{value}-- (0,0) -- (10,0) node[below]{Houses};
 
-\draw [red, thick] (0,9.85)node[above right]{985}--(1,9.85)--(1,8.29 )node[above right]{829}--(2,8.29 )--(2,7.40 )node[above right]{740}--(3,7.40 )--(3,6.50 )node[above right]{350}--(4,6.50 )--(4,6.43)node[above right]{643}--(5,6.43)--(5,6.11)node[above right]{611}--(6,6.11)--(6,5.32)node[above right]{532}--(7,5.32)--(7,3.56)node[above right]{356}--(8,3.56)--(8,2.70)node[above right]{270}--(9,2.70)--(9,1.35)node[left]{DEMAND}node[above right]{135}--(10,1.35); 
+% \draw [red, thick] (0,9.85)node[above right]{985}--(1,9.85)--(1,8.29 )node[above right]{829}--(2,8.29 )--(2,7.40 )node[above right]{740}--(3,7.40 )--(3,6.50 )node[above right]{350}--(4,6.50 )--(4,6.43)node[above right]{643}--(5,6.43)--(5,6.11)node[above right]{611}--(6,6.11)--(6,5.32)node[above right]{532}--(7,5.32)--(7,3.56)node[above right]{356}--(8,3.56)--(8,2.70)node[above right]{270}--(9,2.70)--(9,1.35)node[left]{DEMAND}node[above right]{135}--(10,1.35); 
 
-\draw [blue, thick] (0,.50)node[above right]{50}--(1,.5)--(1,1.27 )node[above right]{127}--(2,1.27 )--(2,1.90 )node[above right]{190}--(3,1.90 )--(3,2.45 )node[above right]{245}--(4,2.45 )--(4,3.24)node[above right]{324}--(5,3.24)--(5,5.22)node[above right]{522}--(6,5.22)--(6,7.38)node[above right]{738}--(7,7.38)--(7,8.29)node[above right]{829}--(8,8.29)--(8,8.32)node[above right]{832}--(9,8.32)node[right]{SUPPLY}; 
-%,2.5) ;
-%\draw [blue, dashed] (0,4.5) node[left]{large bill}--(8.33, 4.5)-- (8.33,0)node[below] {large user Q};
-%\draw [green, dashed] (0,0) --(8.33, 4.5);
-%\draw [green, dashed] (0,0) --(1.66, 2.5);
+% \draw [blue, thick] (0,.50)node[above right]{50}--(1,.5)--(1,1.27 )node[above right]{127}--(2,1.27 )--(2,1.90 )node[above right]{190}--(3,1.90 )--(3,2.45 )node[above right]{245}--(4,2.45 )--(4,3.24)node[above right]{324}--(5,3.24)--(5,5.22)node[above right]{522}--(6,5.22)--(6,7.38)node[above right]{738}--(7,7.38)--(7,8.29)node[above right]{829}--(8,8.29)--(8,8.32)node[above right]{832}--(9,8.32)node[right]{SUPPLY}; 
+% %,2.5) ;
+% %\draw [blue, dashed] (0,4.5) node[left]{large bill}--(8.33, 4.5)-- (8.33,0)node[below] {large user Q};
+% %\draw [green, dashed] (0,0) --(8.33, 4.5);
+% %\draw [green, dashed] (0,0) --(1.66, 2.5);
 
-%\draw [<->, shift={(7 cm,0)}] (0,6) -- (0,0) -- (5,0);
-\end {tikzpicture}
+% %\draw [<->, shift={(7 cm,0)}] (0,6) -- (0,0) -- (5,0);
+% \end {tikzpicture}
 
-The gain for any person is the difference between the transaction price  for a house and the amount they value a house
-
-
+% The gain for any person is the difference between the transaction price  for a house and the amount they value a house
 
 
-At the same time, for each p. NOT. DONE
-\begin{eqnarray}
-P_{bank}^{reservation} & \le  P_{person}^{max\_bid} \end{eqnarray}
 
 
-% \begin{lstlisting}
-% # parameters - max interest payment 
-% max_mortgage_share = 0.28 # ability to cover a mortgage
+% At the same time, for each p. NOT. DONE
+% %\begin{eqnarray}
+% \[P_{bank}^{reservation}  \le  P_{person}^{max\_bid} \]
 
-% # Max mortgage
 
-% wealth = property_value - mortgage + savings
-% mean_weath = sum(wealth)/number_of_people
+% % \begin{lstlisting}
+% % # parameters - max interest payment 
+% % max_mortgage_share = 0.28 # ability to cover a mortgage
 
-% def get_max_mortgage(self, applicant):
-%     max_mortgage =  ...
+% % # Max mortgage
+
+% % wealth = property_value - mortgage + savings
+% % mean_weath = sum(wealth)/number_of_people
+
+% % def get_max_mortgage(self, applicant):
+% %     max_mortgage =  ...
     
-%     return max_mortgage
-% \end{lstlisting}
+% %     return max_mortgage
+% % \end{lstlisting}
 
 
 
 
-}

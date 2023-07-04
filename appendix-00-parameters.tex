@@ -15,6 +15,15 @@
 % A\_city =  ????? = prefactor for city
 
 
+OLD removed from code:
+                % #  wage_adjust_coeff_new_workers   = 0.5,
+                % #  wage_adjust_coeff_exist_workers = 0.5,
+                % #  prefactor              = 250,  # CUT, this is A_city? maybe 251, larger than .2
+                % #  agglomeration_ratio      = 0.12, # was agglomeration_ratio 1.2,  # CUT? was scaling_factor
+                % #  A_F                      = 53,   # 53.34721 # scale factor for the firm
+                % #  A_city                   = 50,   # prefactor for city
+
+
 The following sections give parameter values and variable initial values, beginning with a discussion of constraints on related values. %, followed by a discussion of parameters and initial values for variables. % These are summarized in TABLE.
 % We choose starting values that seem reasonable, because that makes it possible to check that variables that follow from computation also seem reasonable. %, as a kind of informal sanity check.
 % It is convenient to set up the model using initial values that are close to equilibrium values 
@@ -162,8 +171,8 @@ The local site-specific and urban amenity \textbf{function}. %Also considered sy
 \item[subjective discount rate] set $\mathrm{delta} = 0.10$.  For a formula based on Kureishi et al, consider $\delta- 20-0.22*age$.}
 \footnote{Note that this value is a subject of serious debate on several accounts. It is generally thought to be higher than the bank rate. In addition, it has been shown to be age-dependent. Using Japanese data Kureishi et al \cite{kureishiTimePreferencesLife2021} found the discount rate to be linearly and negatively dependent on age, as well as health, wealth, and schooling with a mean of 14.14\%  declining %(at about 22.% per year) 
 to about 10\% (see Fig. 4) neat 65 years of age and more rapidly if risk aversion is accounted accounted for. 
-
- \underline{Kureishi et al Figure 3} \includegraphics[scale=.35, angle=-90, trim= 5cm  0cm 5cm 0cm,clip]{fig/age_dependent_discount_rates.pdf}
+ % \underline{Kureishi et al Figure 3} 
+ % \includegraphics[scale=.35, angle=-90, trim= 5cm  0cm 5cm 0cm,clip]{fig/age_dependent_discount_rates.pdf}
 }
 
 
