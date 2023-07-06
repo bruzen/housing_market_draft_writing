@@ -246,14 +246,24 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 % We have a two factor model of production with labour and capital.  
 
 
-\section{The economic value of a property} \label{section-rent}
-Property markets are the largest and most complex part of our model. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide. We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices  
+
+
+\section{Housing markets} \label{section-rent}
+Property markets are the largest and most complex part of our model. In this section we describe the housing market sub-model model. There is a great deal of detail simply because the market has different types of participant who consider a large number of variable and interact 
+
+We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In Subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
+
+Because participation in the market depends on financing, in Subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in Subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
+
+In Subsection~\ref{sec:bargaining-model} we describe our price-determination mechanism, which is based on standard bargaining theory.  The rest of the chapter, Subsection~\ref{sec:bids-and-reservation} derives specific bid and reservation prices for differnt agents.
 
  The explicit treatment of rents, prices, and  productivity \gls{premium} and use of the \gls{subsistence wage} as an analytical device  make this a \gls{classical} model despite its reliance on supply and demand modelling of the housing market. 
 
  To develop the analysis, we track the quantities, outlined in Table~\ref{table-price-notation}.\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}
+
 % Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
 %In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services. 
+
 
 % *** TABLE ALSO NEEDS NET RENT $\mathcal{R}_N$ - WE SHOULD THINK ABOUT BEST WAY TO COMMUNICATE RELATIONSHIPS BETWEEN RENT TERMS.
 \begin{table}[!ht]
@@ -275,11 +285,8 @@ Rent  & $\mathcal{R}_{W_j}$      & $\mathcal{R}_{M_j}$  & $\mathcal{R}_{M_j}^\ep
 
 
 
-In the model, agents learn or set these values with the support of a real estate agent, and based on information provided by their bank about lending rates, etc. After setting prices, agents engage in a negotiation process. 
 
-The link with urban productivity is made through the land rents distributed through wages and available for distribution. If agents own their own property, they capture the rents. If others own it, they capture the rents.
-
-\subsection{Warranted rent} \label{section-waranted-rent}
+\subsection{Warranted rent}\label{sec:warranted-rent}
 \Gls{warranted rent} is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent would convince tenants they are better off leaving the city.
 \footnote{The warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve, abstracting %. Including it in the model introduces a long-run equilibrium value, rather than modeling 
 the adjustment process. % independent of the tendencies of the market.  
@@ -311,13 +318,13 @@ Combining the three streams, the economically \gls{warranted rent}, $\mathcal{R}
 \label{eqn-warranted-rent}
 \end{align}
 
-\subsection{Market rent} \label{section-market-rent}
+\subsection{Market rent} \label{sec:market-rent}
 The \gls{market rent}, $\mathcal{R}_M$, is what tenants actually pay. The market differs from the economically warranted rent as investors make individual decisions about rents, setting rents based on market conditions and their own expectations. 
 % As an initial approximation, we simplify, using the warranted rent to approximate the market rent:
 % \[\mathcal{R}_{M, 0}= \mathcal{R}_W.\] 
 As the simulation proceeds, the market price and market rental price generated by the agent-based housing market mechanism diverges from the economically warranted  rents and prices.
 
-\subsection{Net warranted rent} \label{section-net-rent}
+\subsubsection{Net warranted rent} \label{section-net-rent}
 Owners receive, not the total warranted rent, but the \gls{net rent} after expenses, including maintenance, taxes, and the cost of financing. The following sections detail the computation of each expense, and their combination into the net rent calculation.
 
 \subsubsection{Annual taxation}
@@ -346,7 +353,7 @@ Annual financing costs are $rM$.
 
  {\color{black}
 
-\section{Mortgage availability} \label{section-mortgage-availability}
+\subsection{Mortgage availability} \label{sec:mortgage-availability}
 According to the Canada Housing Statistics Program (CHSP), first-time home buyers require a combination of sufficient income and savings in order to enter the housing market. (insert tables? from the CHSP?) In practice, mortgage lenders put two  limits on the size of the mortgage, one based on wealth (a \textbf{wealth constraint}) and one based on income (a \textbf{carrying constraint}). We have implemented these facts by making both mortgage size and the interest rate on borrowing  depend on income and wealth. A result is that high-income and  wealthy agents will be able borrow larger amounts and at lower interest rates than the less wealthy.
 
 
@@ -435,7 +442,7 @@ The difference between the two diagonal lines is what the purchaser pays from sa
 % \end{center}
 % \end{figure}
 
-\subsection{Individualized borrowing rates} \label{section-borowing-rate}
+\subsubsection{Individualized borrowing rates} \label{sec:borowing-rate}
 
     \begin{figure}
     \centering
@@ -467,11 +474,40 @@ where  $r^{target}$ is the bank's target rate of return,  $\bar{W}$ is mean weal
 % \end{align}
 % Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eqn-incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
 
+
+\subsubsection{New: Declining principle}\label{sec:declining-principle}
+
+Mortgages are renewed after T years. During that period some of the principle has been paid off. This is most important when a property is sold. The seller gets $P-M_{i,term}$, where  $M_{i,term}$ is it's remaining mortgage.\footnote{We would need to calculate the decline balance when  renewal came up to know what assets a person has. We need a function that give us the size of the mortgage remaining at each renewal or at the time of sale, $M_{i,term}$, for each subsequent renewal. The  function depends on the mortgage renewal term, $T$, the number of terms $term$  that have passed since the purchase, the interest rate $r_i$ and the payment. Mortgages are usually intended to be paid off over, say,  $L=25$ years If we use $T=5$, there swill be 4 renewals and the house will b e paid off at the end of the fifth. Payments are larger than the interest, so the amount owed at the end of each month declines. At the end of month N it is
+
+There is a standard formula for choosing the payment so that the mortgage it is paid off at the end of the mortgage life, $L$. Say $n$ is the number of monthly payments (for example 25*12=300) %https://en.wikipedia.org/wiki/Mortgage_calculator
+
+\[payment= r_i^TM \left[\frac{(1+r_i^T)^n}{(1+r_i^T)^n-1} \right]\]
+Where $r_i^T$ is the interest rate compounded for T periods.
+% \begin{align}
+% M_{N*T}&=(1+r)^{N}M_0-p_{N}c\nonumber \\
+% &{}=(1+r)^{N}P-{\frac {(1+r)^{N}-1}{(1+r)-1}}c \nonumber\\
+% &{}=(1+r)^{N}P-{\frac {(1+r)^{N}-1}{r}}c
+% \end{align}
+% Amount owed at end of month N}
 }
 
+\textbf{We can assume is paid off the mortgage when we discuss retirement decisions. If as person works 40 years and buys a house by the 15th year they will have paid off their  mortgage and collect the entire price if they sell. }  
+
+When else will we need to consider this problem? If we let people buy a revenue property - then wealth includes $P-M$. Also if we let people die early, or allow them to change homes part way through a career- for family reasons.
 
 
-\section{Bid price}\label{sec_model_bid_price}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Bid price}\label{sec:bid-price}
 A bidding process determines the realized market price, with bidders taking into account potential capital gains. In this section, we describe the formation of the maximum bid price, $P_{B,ij}^{max}$, where i and j refer to the individual and the property involved.\footnote{We suppress the $ij$ identifiers for the rest of this chapter. } The maximum bid price is the value of a property to the owner or to a potential buyer. It will differ across individuals depending on their cost of capital, discount rates,  savings, and access to mortgage funding. It also serves as the minimum price that an owner will sell a property for,  i.e., as a reservation price. It is used in the bargaining model.
 
 There are two types of investment buyers: institutional buyers and homeowners buying an investment home. They use the same investment formula, but may have different values of the parameters that determine their bid prices.
@@ -481,7 +517,7 @@ We first calculate the net present value of the purchase, then divide by the amo
 Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach. \cite{magniAverageInternalRate2010}} 
 
 
-\subsection{Price expectations}
+\subsubsection{Price expectations}
 The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.\footnote{Case and Shiller point out ``\dots we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}. Case and Schiller\cite{caseThereBubbleHousing2003} argue that  the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes.}  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, and any assumptions the agent has about the behaviour of others, the system state.  
 
 
@@ -508,8 +544,8 @@ The rate of price growth, $\dot P$, is an estimate approximation based on rents 
 
 SOME REFERENCES - MOVE? \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
-{\color{black}
- \subsection{The value of an investment with price growth}
+
+ \subsubsection{The value of an investment with price growth}
 % \subsection{The value of an investment}
 The value $V$ of a property investment over a period of T years is  the capital gain, $P_{T}-P_{0}$, minus financing costs, plus net rent revenues. Both mortgage payments and net rent revenues can  be calculated as sum  of regular payments, each of  which accumulates interest to the end of the mortgage period. This is called a ``uniform series compound amount'' and is calculated for net rent as\footnote{Any annual payment for a period multiplied by the factor $\frac{(1+r)^n-1}{r}$ is called a  ``uniform series compound amount''.%source https://www.e-education.psu.edu/eme460/node/659
 } 
@@ -538,10 +574,8 @@ where $\dot P^T$  is the expected rate of change in the market price over the te
 $V$ is the net present value of buying and selling after one mortgage renewal period of $T$ years. %All rates are scaled to the length of the period to avoid the need for compounding calculations. 
 The function has 4 individualized  parameters, $\delta$, $\dot p$, $r$, $m$, as well as any factors that affect the rent term.
 
-}
-{\color{black}
 
-\subsection{Rate of return on investment}
+\subsubsection{Rate of return on investment}
 We divide V by the size of the down payment, $D$ to get the  rate of return  
 
 \begin{align}
@@ -549,37 +583,31 @@ r^{return} =
   &= \frac{V}{D}  \nonumber \\
   &= \delta^T \left(\dot P^T - (1+r)^T)m \frac{P_0}{D} + \frac{\mathcal{\bar{R}}^T_N}{D}\right)\\
   &= \delta^T \left(\dot P^T - (1+r)^T)m \frac{P_0}{P_0-mP_0} + \frac{\delta_r^T\mathcal{\bar{R}}^T_N}{P_0-mP_0}\right)\\  
-  &= \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_0}\right)\\
+  &= \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_0}\right)\label{eqn-property-investment-return1} 
 \end{align}
 Notice that the return depends on the price paid, $P_0$.
 
-\subsection{Criterion for investment}
-Equation~\ref{{eq:rate-of-return-on-investment}} provides a criterion for investors
-.%\footnote{Section~\ref{sec-extensions-conversion}, in Appendix~\ref{appendix-future-work}, discusses the potential for more detailed modelling of the land assembly and development process.} 
+\subsubsection{Criterion for investment}
+Equation~\ref{{eq:rate-of-return-on-investment}} provides a criterion for investors.%\footnote{Section~\ref{sec-extensions-conversion}, in Appendix~\ref{appendix-future-work}, discusses the potential for more detailed modelling of the land assembly and development process.} 
  Agents invest if  their expected return is greater than the target return they are seeking:
 \begin{equation}
 r^{target}\le r^{return} 
 \label{eqn-property-investment-return2}
 \end{equation}
-
+Equation~\ref{eqn-property-investment-return2} combined with the rate of return calculation in Equation~\ref{eqn-property-investment-return1} are used to calculate a maximum bid price for investors for use in the bargaining model.
 % Equation~\ref{eqn-return-on-investment} makes it clear that the estimated rate of return depends on subjective magnitudes,$\delta$ and $\dot P_M^e$, attributes of the property, $ \mathcal{R}_N$, and  individual financial position, $r$, $m$.
 % 
 
-\subsection{Maximum bids}
-The maximum price in Equation~\ref{eqn-property-investment-return1} that the investor can price offer for the property  and still satisfy the inequality~\ref{eqn-property-investment-return2} $P_B^{max}$ is
-
-\begin{align}
-%r^{target}& \le \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\right)\nonumber\\
-% (1-m)r^{target}/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \\
-% (1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
-P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm} \label{eqn:maximum-bid}
-\end{align}
-
-We call this  $i's$ maximum bid.
-.\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.} 
-It represents the value of the stream of rent plus any capital gains, and is therefore the most reasonable reservation price for sellers as well the most reasonable maximum offer for potential buyers. In principle it exists for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time. 
+%Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
 
 
+
+
+\section{The bargaining model} \label{sec:bargaining-model}
+
+Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved.\footnote{The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951, The Nash equilibrium: A perspective. Charles A. Holt and Alvin E. RothAuthors Info & Affiliations March 15, 2004 101 (12) 3999-4002 https://doi.org/10.1073/pnas.0308738101} 
+identifies  `\gls{disagreement point},' which which is the  lowest value each player will accept. The combination of reservation price and maximum bid together are the disagreement point for a two-person price bargaining game. Since paying for the house is a negative for the buyer, a graphical inversion is used  in Figure~\ref{fig:Nash-bargaining-game} to generate a version of the most common Nash bargaining figure.} 
+There is a surplus to be divided whenever the buyer's maximum bid exceeds owner's \gls{reservation price}, which is simply the maximum the owner would pay to retain their own property. 
     \begin{figure}
         \centering
         \input{fig/bargaining-game}
@@ -587,17 +615,6 @@ It represents the value of the stream of rent plus any capital gains, and is the
         \label{fig:Nash-bargaining-game}
     \end{figure}
 
-%Buyers will not initially bid the maximum and sellers will generally set an asking price $P^{ask}$ higher than their reservation price $P_R$, so we build a simple bargaining process.
-
-
-
-
-\section{The bargaining model} \label{sec_model_bargaining}
-
-Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved
-.\footnote{The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951, The Nash equilibrium: A perspective. Charles A. Holt and Alvin E. RothAuthors Info & Affiliations March 15, 2004 101 (12) 3999-4002 https://doi.org/10.1073/pnas.0308738101} 
-identifies  `\gls{disagreement point},' which which is the  lowest value each player will accept. The combination of reservation price and maximum bid together are the disagreement point for a two-person price bargaining game.} 
-There is a surplus to be divided whenever the buyer's maximum bid exceeds owner's \gls{reservation price}, which is simply the maximum the owner would pay to retain their own property. 
 
 The bargaining problem is illustrated in Figure~\ref{fig:Nash-bargaining-game}. We imagine the seller values the property at \$30,000 and the buyer values it at \$50,000.  At any price above \$30,000 the seller is better off. At any price below \$50,000 the buyer is better off. The set of acceptable bargains is bounded by these values. In the figure, the thick red line segment, called the bargaining set, represents all the efficient, rational and feasible outcomes.\footnote{Efficient, because the entire \$20,000 surplus is allocated to the players. Rational because neither player has to accept an outcome that makes them worse off. Feasible, because the players in get no more in total than the maximum available. In practice some of the surplus is dissipated in the sale process, and some is absorbed by intermediaries.} Bargaining processes will ideally lead to  a point on that line segment.\footnote{ \label{fn:relative-power}Differences in relative power will tip the outcome in favour of the stronger player.   Players who can afford to wait will get a larger share of the gain. Excess demand favours sellers. Low vacancy rates favour owners over tenants.   If there is a deal,  it will still be at a price between the maximum bid and the reservation price, and in most cases probably somewhere near the midpoint. }
 \footnote{The other's disagreement point may not be known to parties. Misleading the other party about one's disagreement point can provide some advantage in a bargaining game. Sellers often post an asking price greater than the reservation price and buyers often make initial offers much lower than their maximum bid price. 
@@ -617,12 +634,19 @@ Negotiations often proceed though a series of offers and counteroffers. Ariel Ru
     \end{figure}
 
 
-\subsubsection{Seller's reservation price} \label{section-reservation-price}
-The general rule is that any owner will sell if they receive an offer greater than the maximum they themselves would bid for their property according to Equation~\ref{eqn:maximum-bid}.  This is true for institutional owners and individual owners for revenue properties, as well as individuals who reach the end of their working lives, no longer need access to the central city, and put their homes on the market, making room for new workers to enter the urban market.  %\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.} 
-The reservation price is based on the value of the property as an investment, given by Equation ~\ref{eqn:maximum-bid}
-.\footnote{For owner-occupiers, the stream must be discounted at the personal discount rate or at the personal borrowing rate.}
-For retirees, however, the reservation  price may take into account amenities associated with the particular property or with living in the city. These advantages may result in retirees continuing to occupy homes  and thereby increasing the cost of housing for new workers
-.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price is significantly greater their reservation price. This is a `hopeful' listing, `fishing' for an offer that supports an early retirement.}
+% \subsubsection{Maximum bids}
+% The rate of return calculation in  Equation~\ref{eqn-property-investment-return1} combined with the investment criterion in Equation~\ref{eqn-property-investment-return2} identifies the maximum  that price that an investor can price offer for a property  and still maker sa profit.
+
+% \begin{align}
+% %r^{target}& \le \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\right)\nonumber\\
+% % (1-m)r^{target}/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \\
+% % (1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
+% P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm} \label{eqn:maximum-bid}
+% \end{align}
+
+% We call this  $i's$ maximum bid.
+% .\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.} 
+% It represents the value of the stream of rent plus any capital gains, and is therefore the most reasonable reservation price for sellers as well the most reasonable maximum offer for potential buyers. In principle it exists for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time. 
 
 
 
@@ -632,6 +656,19 @@ For retirees, however, the reservation  price may take into account amenities as
 %.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
 When there is one bidder, we will employ a simple rule for splitting the gain from trade. Both simplifications are grounded in standard bargaining theory.
 
+
+
+\subsection{The bargaining process}
+We have now identified  a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. 
+The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+If a bargain is possible, the rule is simple: 
+\begin{enumerate}
+    \item if there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is relatively simple but not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+    \[P = xP_B^{max*}+(1-x)P_R, \ \ \ x\in 90\dots 1)\]
+
+    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
+
+\end{enumerate}
   
 
 % \[P^{ask}>P_M^e> 0.95 P^r\]
@@ -642,97 +679,112 @@ When there is one bidder, we will employ a simple rule for splitting the gain fr
 % Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
 % If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
-\section{Bids and reservation prices}
-We consider have six cases. For each \begin{enumerate}
+
+\subsection{Bids and reservation prices}\label{sec:bids-and-reservation}
+
+We consider have six cases. For cases 3-7 there are filters.
+\begin{enumerate}
     \item institutional buyers of revenue properties 
     \item individual buyers of revenue properties 
-    \item retiring owner-occupiers who sell 
+    \item retiring owner-occupiers who sell and move to the country
     \item retiring owner-occupiers who hold their home as a revenue property
-    \item new entrants who buy
+    \item retiring tenants who  move to the country
     \item new entrants who become tenants
+    \item new entrants who buy
 \end{enumerate}
 
-\subsection{Institutional buyers of revenue properties }
-These simply use Equation~\ref{eqn:maximum-bid}. For properties they hod the same calculation serves as a reservation price. 
+Buyers and sellers calculate the maximum amount they are willing to pay for a property. The rate of return calculation in  Equation~\ref{eqn-property-investment-return1} combined with the investment criterion in Equation~\ref{eqn-property-investment-return2} identifies the maximum bid. Investors are not concerned with amenities, while residents are. Buyers differ in having individualized values for $r$, $\delta$, $m$, and $M$.\footnote{Transaction costs on the sale are omitted. They are actually large. We can easily add a term to  Equation~\ref{eqn:maximum-bid} to examine the effect of transaction costs on the distribution of wealth.}
 
-\subsection{individual buyers of revenue properties }
-These also use Equation~\ref{eqn:maximum-bid}, but differ from institutional buyers in the individual parameter $r$, $\delta$, $m$, and $M$. 
 
-\subsection{Retiring owner-occupiers who sell }
+\begin{align}
+%r^{target}& \le \frac{\delta^T}{1-m} \left(\dot P^T - (1+r)^T)m  + \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\right)\nonumber\\
+% (1-m)r^{target}/\delta^T &\le \dot P^T - (1+r)^Tm  +   \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}} \\
+% (1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm &\le  \frac{\mathcal{\bar{R}}^T_N}{P_B^{max}}\nonumber\\
+P_B^{max} &\le  \frac{\mathcal{\bar{R}}^T_N}{(1-m)r^{target}/\delta^T - \dot P^T + (1+r)^Tm} \label{eqn:maximum-bid}
+\end{align}
+We call this  $i's$ maximum bid.\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.} 
+It represents the value of the stream of rent plus any capital gains, and is therefore the most reasonable reservation price and  maximum offer for investors.\footnote{In principle Equation~\ref{eqn:maximum-bid} could be calculated for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time.} 
 
-\subsection{retiring owner-occupiers who hold their home as a revenue property}
+The general rule is that any owner will sell if they receive an offer greater than the maximum they themselves would bid for their property. That price is the investment value,  plus for residents, the subjective value of amenities associates with urban life or the specific property. 
 
-\subsection{New entrants who buy}
-A new buyer chooses to move if the income in the city, including the wage amenities exceed the rural income after housing costs, $\psi+A^{Rural}$. There are two cases - moving to buyer and moving to rent.
+Retirees, i.e., individuals who reach the end of their working lives and no longer need access to the central city, may put their homes on the market, making room for new workers to enter the urban market.\footnote{For owner-occupiers, the stream must be discounted at the personal discount rate or at the personal borrowing rate.}  %\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.}
+Retirees  may also take into account amenities. These amenities may result in retirees continuing to occupy homes  and thereby increasing the cost of housing for new workers.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price is significantly greater their reservation price. This is a `hopeful' listing, `fishing' for an offer that supports an early retirement.}
 
-The gain for a potential renter is 
+
+
+
+\subsubsection{1. Institutional buyers of revenue properties }
+Institutional buyers  use Equation~\ref{eqn:maximum-bid} for bid price and reservation price
+
+\subsubsection{2. Individual buyers of revenue properties }
+These also use Equation~\ref{eqn:maximum-bid}, but differ from institutional buyers in the individual parameter $r$, $\delta$, $m$, and $M_{i,t}$. 
+
+The only tricky point: $M_{i,t}$ should be the is the remaining mortgage after some has been paid down when calculation wealth. \footnote{i.e., if age is greater than 25 ($M_{i,25}=0$  }  
+
+
+\textbf{For all the following classes we need to define the amenity gain from moving to the city, $\mathbb{A}^{net}=\mathbb{A}^{urban}-\mathbb{A}^{rural}$. This quantity enters the choice of where to live.}\footnote{ Many factors can shape amenity value, including features of the housing, desire to live near clubs, sports, cafes libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. $mathbb{A}^{net}$ could be negative if country life is appealing. Appendix~\ref{appendix-amenity} includes a theoretical treatment of amenities in the context of the model. We introduce amenities in a simple way by adding and amenity term, $\mathbb{AS}$ to reservation prices or Maximum bids.}, 
+
+
+\subsubsection{3. Retiring owner-occupiers who sell and move to the country}
+Both owners and tenants retire. Their homes only become available if they move to the country. 
+
+It is  economically advantageous for a retiree  to sell and move if the  interest on the  sale receipts after paying off the remaining mortgage is greater than lost amenity and annual capital gain, $\dot P P$:  
+\[r_i(P-M_{i,t}) \ge  \mathbb{A}^{net} +\dot P P\]Otherwise, the best choice is to stay in the home. $M_{i,t}$ will generally be zero.  We can calculate a  \textbf{reservation price}. The owners should sell and move if 
+\begin{equation}P \ge\ \frac{ \mathbb{A}^{net}+\dot P P}{r_i} +M_{i,t}\label{eq:movers-gainB}\end{equation}
+$M_{i,t}$ will generally be zero. 
+
+
+\subsubsection{4. Retiring owner-occupiers who hold their home as a revenue property}
+It is  economically advantageous for a retiree to rent the property at the market rate $\mathbb{R_M}$ and move to the country if the  net rent $\mathbb{R_N}$ plus  capital gain is greater than the income from investing the sale receipts:
+\[r_i(P-M_{i,t}) <  \mathbb{R}^{net} +\dot P^T P\]
+This value provides a \textbf{another reservation price}: 
+\[P < \frac{\mathcal{R}^{net}+ P^T P }{r_i} +M_{i,t} \label{eq:movers-gainC}\]
+
+\subsubsection{5. Retiring tenants who  move to the country} 
+Why would  If the urban rent $\mathbb{R}_M$ is greater than the cost of housing in the country and the lost amenity, 
+\[\mathcal{R_M} > \ a\psi+ \mathbb{A}^{net}\]
+a renter would have an incentive move to the country.
+
+
+
+\subsubsection{6. New entrants who become tenants}
+Potential entrants move to work in the city if they are better off. The calculation is  the reverse of that for those who are leaving the city
+The rule is ``move if either of the following two conditions hold.''
+\[\mathcal{R}-a\psi \le\ (\omega-cd) i+ \mathbb{A}^{net}\]
+
 \begin{align}
 gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
-=&\left[\psi+\omega-cd-\mathcal{R}+\mathbb{A}^{city}\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
-=&\ \omega-cd +_a\psi -\mathcal{R}+\mathbb{A}^{net}
+=&\left[\psi+\omega-cd+\mathbb{A}^{city}-\mathcal{R}_M\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ (\omega-cd) +\mathbb{A}^{net} -(\mathcal{R}_M-a\psi)
 \label{eq-move-to-rent}
 \end{align}
 If rent $\mathcal{R}$ exactly capture housing cost and locational rent, the gain reduces to $\mathbb{A}^{city}-\mathbb{A}^{Rural}$. Normally we would expect property rents to capture this component  as well. 
 
+% {\color{red}
+% \begin{eqnarray}
+% P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+% \end{eqnarray}
+% }
+\subsubsection{7. New entrants who buy}
+New entrants choose to buy property rather than rent  if they are financially qualified using the calculations in Subsection~\ref{sec:mortgage-availability} and if the gain is both positive and greater than the gain to renting shown in 
+Equation~\ref{eq-move-to-rent}.
 
-The gain for a buyer is 
 \begin{align}
 gain^{buy}=&\left[\psi+\omega-cd+\mathbb{A}^{city}+(\dot p-r_im_i)P-a\psi\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
-=&\ \omega-cd+\mathbb{A}^{net}+(\dot p-r_im_i)P  \label{eq-move-to-buy}
+=&\ (\omega-cd)+\mathbb{A}^{net}+(\dot p-r_im_i)P  \label{eq-move-to-buy}
 \end{align}
-This requires that the sum of  locational rent, net amenity and net capital gain be greater than or equal to zero for the in-migrant to buy.
+This requires that the sum of  locational rent, net amenity and net capital gain be greater than or equal to zero and greater than $\mathcal{R_M}$ for the in-migrant to buy.
 
-The two decisions  are 
-\begin{enumerate}
-    \item Move only if $max\{gain^{buy},\ gain^{rent}\} \ge 0$, otherwise do not move to the city.
-    
-    \item Buy a house if $(\dot p-r_im_i)P\ge  \mathcal{R}$, otherwise rent.
-\end{enumerate}
-
-\begin{eqnarray}
-P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
-\end{eqnarray}
-% The buyer is subject to the mortgage constraints in Equation~\ref{eqn-max-mortgage-combined}.
-
-% We will assume that a first-home buyer always takes the maximum mortgage available to maximize the financial return on the transaction. 
-
-% The maximum price a new buyer can bid is also given the bank imposed liquidity constraint is given by Equation~\ref{eqn-max-mortgage-combined}, which we repeat here
+ %People also make choices with imperfect information, some are investing in living in a city
 
 
-\begin{align}
-P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
-\end{align}
+% \begin{align}%  MORTGAGE CONSTRAINT ON MAXIMUM BID
+% P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+% \end{align}
 
 
 
 
-
-\subsection{Reservation price for retirees}
-Both owners and tenants retire. Homes only become available if they move to the country. 
-
-\subsubsection{Why would a renter move to the country?} 
-If the rent is greater than the cost of housing in the country and the lost amenity
-\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
-
-\subsubsection{Why would an owner move to the country?}
-Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
-\[r_i(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\label{eq:movers-gainA}\]
-
-This value provides a \textbf{reservation price}: 
-\[P^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r_i}+M \label{eq:movers-gainB}\]
-This just says that the lowest prices one would sensibly accept is the cost of a house in the country plus enough to cover the mortgage, plus capitalized net amenity.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
-
-Should a retiree rent the house out? only if the rent exceeds the  interest on income from the sale:
-\[\mathcal{R}^{net}>r_i(P^{realized}-M)\]
-This value provides a \textbf{another reservation price}: 
-\[P^{reservation} =\ \frac{\mathcal{R}^{net}}{r_i}+M \label{eq:movers-gainC}\]
-
-
-
-{\color{yellow}}
-\subsubsection{Why would a renter move to the country?} 
-If the rent is greater than the cost of housing in the country and the lost amenity
-\[\mathcal{R} > \ a\psi+ \mathbb{A}^{net}0\]
 
 % \subsubsection{Why would an owner move to the country?}
 % Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
@@ -767,53 +819,11 @@ My suggestion is that $\frac{\delta}{1+\delta}P_{ij}^{expected}$ is the \textbf{
 
 
 
-\subsection{The bargaining process}
-We have now identified  a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. 
-The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
-If a bargain is possible, the rule is simple: 
-\begin{enumerate}
-    \item if there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is relatively simple but not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
-    \[P = xP_B^{max*}+(1-x)P_R, \ \ \ x\in 90\dots 1)\]
-
-    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid
-    .\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
-
-\end{enumerate}
-
-
 %This is realistic because in a bidding war the final bid only has to be a small amount higher than that of the last competitor left. 
 
 That is the highest price that a seller can normally get.
 
-where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price wont exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
-
-\subsection{The process}
-\begin{enumerate}
-\item \textbf{identify the pool of sellers} for each cycle.
-    \begin{enumerate}
-        \item Agents who a) own and b) age out
-        \item Agent  who failed to sell in the previous period.
-        \item the bank
-    \end{enumerate}
-\item \textbf{identify the pool of buyers} 
-    \begin{enumerate}
-         \item newcomers, 
-         \item individuals as investors.
-         \item the bank may buy many, (There must be a capital (C) constraint something like $C/\bar P$ to select a number of bank bids in any period.)
-    \end{enumerate}
-
-\item \textbf{count buyers and sellers} and use the counts to identify sellers or buyers' market. \# Sellers > \# buyers is a buyers/ market. For a buyer's market  choose the lower price. \footnote{.The is often done with buyers/vacancies. Changes in this ratio are observed to trigger significant movement in rent r market prices.\cite{wheatonVacancySearchPrices1990}. Lisi and Iacobini \cite{lisiEstimatingHousingPrice2015} found  that in the Italian market, ``the difference between the actual selling price and the price obtained in an ideal situation of frictionless housing market – is remarkable. ... the higher the trading frictions on the demand side (more buyers and less sellers), the higher the actual selling price (the price adjustment is positive), whereas the higher the trading frictions on the supply side (less buyers and more sellers), the lower the actual selling price (the price adjustment is negative). '' (they point out that ``Trading frictions are obvious in the housing market, as it takes weeks or months to buy or sell a house (Caplin and Leahy, 2011; Rocheteau and Weill, 2011).'')}  
-
-%a key role is played by the so-called “time-on-the-market (TOM)”. The time it takes to sell a property or “the expected time until the asset is sold when following the optimal policy” (Lippman and McCall, 1986) – commonly known as the TOM – measures the degree of illiquidity of the real estate asset and is a fundamental characteristic differentiating real estate from financial assets. \cite{lisiSearchMatchingProcess2019}
-\item \textbf{The pooling problem}  Houses should go at different prices if they have different net rents.  Assume buyers and sellers are indifferent about location (no  local amenities) so only the net rent matters for the ban and only the full rent for individuals.
-
-\item \textbf{Create lists} for the buyer pool and the seller pool. (The bank can appear on the list many times.) 
-
-If the market is efficient, the allocation will maximize the sum or seller and buyer surplus.
-
-\item To select the set of transactors, \textbf{order the lists}. Buyers from highest to lowest, sellers from lowest to highest.
-
-\end{enumerate}
+where $0\ge x\ge 1$ is approximately 0.5 but shifts upward when it is a sellers market and downward in a buyer's market.\footnote{In an overheated housing market bid prices might exceed asking prices, but the price won't exceed the maximum expected profitable bid price, $P_B^{max*}$.} We will call this term am measure of \gls{sellers' bargaining power}.  The sellers' bargaining power can be shifted downward if the home fails to sell in the first period it is on the market. 
 
 
 % Ensure that they are of the same length by dropping the lowest bids or the highest reservation prices. 
