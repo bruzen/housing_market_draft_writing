@@ -22,5 +22,7 @@
 % \foreach \yi in {0,2,4,6,8,10} \draw (0,\yi)--(-.1,\yi));
 % node[left]{\small$\yi$};
 % \foreach \yi in {0,2,4,6,8,10}node at (-.1,yi) {{10*yi}} ;
-\draw[func,domain=0:\W] plot [samples=200] (\x,(9-\x^.5/2);
+%\draw[func,red, domain=.5:\W] plot [samples=200](\x,{4.5/\x+.5)}) ; 
+\draw[func,domain=.65:\W] plot [samples=200](\x,{8.55-4.5/\x+.5)}) ; %(\x,{8.5-8/\x+1)}) ; %(\x,9-1/(0.2*\x-1/9));
+%(\x,(9-\x^.5/2);
 \end{tikzpicture}

@@ -6,9 +6,10 @@
 \draw[dashed] (0,0)--(4,4)node[right]{\small $P$};
 \draw[] (0,2)node[left]{\small $M_i^{max}$}--(4.5,2);%node[right, red]{\small $M = M_i^{max}$};
 % M =mi MAX
-\draw[] (0,0)--(4,3.2)node[above right]{\small $M = m_iP$};
+\draw[dotted,red, opacity=.5] (0,0)--(4,3.6)node[right]{\small $M = 0.9P$};
+\draw[] (0,0)--(4,3.2)node[below right]{\small $M = m_iP$};
 % COMBINED MAX RED
-\draw[ultra thick, red, opacity=.5] (0,0)--(2.5,2)node[below right,  text width=4cm, align = center]{\small \\ Maximum mortgage \\ $M=min\{M_i^{max}, m_iP\}$}--(4.0,2);
+\draw[ultra thick, red, opacity=.5] (0,0)--(2.5,2)node[below right,  text width=4cm, align = center]{\small \\ Maximum mortgage \\ $M_i=min\{M_i^{max}, m_iP\}$}--(4.0,2);
 % SAVINGS
 \draw[latex-latex] (3,2)node[above right] {\small $Savings_i$}--(3,3);
 % PMAX
