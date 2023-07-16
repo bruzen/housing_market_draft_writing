@@ -21,30 +21,54 @@
 % name=,
 % description={}
 % }
+
 % \newglossaryentry{prefactor}
 % {
 % name=,
 % description={}
 % }
+
 % \newglossaryentry{}
 % {
 % name=,
 % description={}
 % }
+
 % \newglossaryentry{}
 % {
 % name=,
 % description={}
 % }
-% \newglossaryentry{}
-% {
-% name=,
-% description={}
-% }
+
+
+
+\newglossaryentry{discount rate}
+{
+name=discount rate,
+description={A rate used in estimating the current value of future returns. Discount rates vary across time and individuals. It is used in calculating  the \gls{discount factor} for any given future period
+} 
+}
+
+%A rate is a number like an interest rate.. a factor is what that adds up to over some period.. Every project can be described as a sequence of payments or costs in periods. Simplest is eveyr period- certain period away so you discount ot that time. Have a series of payments. Pay student fees, pay residents, income comes in positive. For each year, you need a separate discount factor, but they can all be based on the same discount rate. So you have a 3 year discount factor.. 1/(1+rate) to the power of 4. - factor what you get to tell you what it's worth today. considering a project, bring everything to present value. add up value to discounted at different factors.
+% https://gocardless.com/guides/posts/how-to-calculate-discount-factor/#:~:text=The%20discount%20factor%20and%20discount,or%20its%20net%20future%20value.
+ % ** TODO factor not a rate. distingiush value vs rate.
+
+
+
+\newglossaryentry{discount factor}
+{
+name=discount factor,
+description={The present value of one dollar received at particular point in the future, given the date of receipt and the \gls{discount rate}. It is the  factor by which a benefit at a particular point in the future is converted to present values. It is smaller when the wait for the future benefit is longer.  The most commonly used discount function is the exponential discount function, although that function fails to match several empirical regularities. The inverse of the continuously compounded \gls{discount rate}. }
+}
+% The theory of discounted utility is the most widely used framework for analysing intertemporal choices. The most commonly used discount function is the exponential discount function. The discount factor is the inverse of the continuously compounded discount rate r(t). $D(\tau)=\delta^\tau$.
+% Despite its many appealing properties, the exponential discount function fails to match several empirical regularities. Most importantly, a large body of research has found that measured discount functions decline at a higher rate in the short run than in the long run. 
+
+% Patience appears to increase across the lifespan, with the young showing markedly less patience than middle-aged and older adults (Green, Fry and Myerson, 1994; Green et al. 1996; Green, Myerson and Ostazewski, 1999). Read and Read (2004) report that older adults (mean age=75) are the most patient age group when delay horizons are only one year. However, this study also finds that older adults are the least patient group when delay description={horizons are from three to ten years. This reversal probably reflects the fact that 75-year-olds face significant mortality/disability risk at horizons of three to ten years.(intertemporal_choice.pdf
+
 \newglossaryentry{disagreement point}
 {
 name=disagreement point,
-description={In a bargaining game the disagreement point is a pair of values which that present lowest value each player will accept. Niether player will accept an ouytcome which gives them less than their disagreement value. We ussually assume that they have an alternative activity or pruchase available that is as attractive as their disagreement value for the bargain under consideration.  }
+description={In a bargaining game the disagreement point is a pair of values which that present lowest value each player will accept. Niether player will accept an outcome which gives them less than their disagreement value. We ussually assume that they have an alternative activity or pruchase available that is as attractive as their disagreement value for the bargain under consideration.  }
 }
 
 % \newglossaryentry{prefactor}
@@ -57,27 +81,6 @@ description={In a bargaining game the disagreement point is a pair of values whi
 {
 name=maximum mortgage share,
 description={a parameter used in calculating the share of a home price $m_i$ that the bank will finance for individual $i$ given $i$'s level of wealth. It is specific to the functional form used. The use of this parameter is based on stylized facts from the literature.  No empirical estimates are available.}
-}
-
-\newglossaryentry{discount factor}
-{
-name=discount factor,
-description={The present value of one dollar received at particular point in the future, given the date of receipt and the \gls{discount rate}. See \gls{discount rate}. %The present value of a dollar at a specified time in the future. It is a \gls{compound interest rate} value calculated using the \gls{discount rate}.
-%A rate is a number like an interest rate.. a factor is what that adds up to over some period.. Every project can be described as a sequence of payments or costs in periods. Simplest is eveyr period- certain period away so you discount ot that time. Have a series of payments. Pay student fees, pay residents, income comes in positive. For each year, you need a separate discount factor, but they can all be based on the same discount rate. So you have a 3 year discount factor.. 1/(1+rate) to the power of 4. - factor what you get to tell you what it's worth today. considering a project, bring everything to present value. add up value to discounted at different factors.
-% https://gocardless.com/guides/posts/how-to-calculate-discount-factor/#:~:text=The%20discount%20factor%20and%20discount,or%20its%20net%20future%20value.
-} % ** TODO factor not a rate. distingiush value vs rate.
-}
-
-% \newglossaryentry{individual discount rate}
-% {
-% name=individual discount rate,
-% description={CUT - just use discount rate?}
-% }
-
-\newglossaryentry{discount rate}
-{
-name=discount rate,
-description={} 
 }
 
 

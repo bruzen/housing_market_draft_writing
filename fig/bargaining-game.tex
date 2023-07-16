@@ -1,25 +1,40 @@
 
-  \begin{tikzpicture}[scale=1]
+\begin{tikzpicture}[scale=1]
 %  \draw [gray, opacity=.7] (0,0) grid (7,7);
-\draw [<->] (0,6) node[above]{$buyer$}-- (0,0)node[left]{0}node[below]{0} -- (6,0) node[below]{$Seller$};
-\draw [red, thick ] (1,7)--(7,1);
+\draw [<->] (0,6) node[left, text width=1cm]{buyer pays}-- (0,0)node[left]{0}node[below]{0} -- (6,0) node[below right, text width=1cm]{Seller gets};
+\draw [red, thick, latex-latex ](1.5,5.5)node[below, black]{Feasible set}-- (2,6)--(5.5,2.5)--(5,2);
 \draw [red, line width=1mm] (3,5)--(5,3);
 \draw [red, thick, fill= yellow, opacity=.5] (3,3)--(3,5) -- (5,3)--cycle;
 
-% vertical
-\draw [blue, dashed] (0,5)node[left]{50,000}--(5,5)node[below right]{will not pay more}--(5,0)node[below]{50,000};
-\draw [blue, ] (0,3)node[left]{30,000}--(6,3)node[above right]{can not get more};
-% Horizontal
-%\draw [blue, dashed] (4,0)--(4,6)node[above right]{will not accept less};
-\draw [blue, ] (3,0)node[below]{30,000}--(3,6)node[above right]{can not offer less};
-%\draw [ ultra thick] (0,0)--(1.5,1.5)node[ right]{equal set};
+% % vertical axis
+\draw [dashed] (0,5) node[left] {-\$30,000} -- (3,5) ;
+\draw [dashed] (0,3) node[left] {-\$50,000} -- (5.5,3) ;
+\draw [dashed] (3,0) node[below]{ \$30,000} -- (3,5.5) ;
+\draw [dashed] (5,0) node[below]{ \$50,000} -- (5,3) ;
+
+
+
+ \draw[pattern=north west lines, distance=2mm,pattern color=red!30, draw=none] (0,0) rectangle (3,8);
+ \node[text width=2.5cm] at (1.5,7) {\small seller will not accept less than \$30,000};
+
+\draw[pattern=north east lines, pattern color=green!60, draw=none] (0,0) rectangle (9,3);
+\node[text width=2.5cm]at (7,1.5)  {\small buyer will not pay more than \$50,000};
+
+\draw [ latex-latex, ultra thick](3.7,7)-- (3,7)--(3,3)--(8,3)--(8,3.7)node[above left]{Rational Set} ;
+\draw [ latex-, thick, red](3.5,4.5)-- (4,5)--(5.5,5)node[right]{Bargaining Set} ;
+
+\draw [ latex-, thick, red](2.5,5.5)-- (3.6,6.5)--(5.5,6.5)node[right]{Efficient Set} ;
+
+%\draw [ latex-, thick, red](3.5,4.5)-- (4,5)--(5.5,5)node[right]{Bargaining Set} ;
+
 %\draw [dashed] (1,1) --(2,1)-- (2,0);
-%\draw [red, ultra thick, dashed] (0,0) --(2.4,1.2)node[above]{relative equal set};
+%\draw [red, ultra thick,3 dashed] (0,0) --(2.4,1.2)node[above]{relative equal set};
 %\node at (2,1)[below right, ]{$(max\ u_1,\ max\ u_2)$};
 %\node at (3.5,3){Agreement set};\node at (3,3.5){\Large A};
 
-\node at (3,3)[below left, text width=2.8cm, align=right]{\textbf{disagreement\newline point}};
+\node at (3,3)[left, text width=1.8cm, align=right]{\textbf{\tiny disagreement\newline point}};
 \node[mark size=4pt,color=red] at (3,3) {\pgfuseplotmark{square*}};
 
-\end {tikzpicture}
 
+\draw;
+\end {tikzpicture}
