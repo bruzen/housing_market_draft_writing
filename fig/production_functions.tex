@@ -16,9 +16,10 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \coordinate (Uy) at (\y,{2*ln(\y)+.05});
 
 % THREE SCALE POSSIBILITIES
-\draw [thick, ](0,0)--(14, 10.22583);   %diagonal line CRS
+\draw [thick, ](0,0)--(14, 10.22583)node[below right]{$\frac{N}{n_R}y_R$};   %diagonal line CRS
 \draw[plot2, dashed] (0,0) plot ({\x-.08},{(\x)^0.9/1.5 }); %DRS
 \draw[plot2, ultra thick, green] (0,0) plot ({\x-.08},{(\x/1.5)^1.15});%
+\node at (15.4, 13.5){$AN^\beta$};
 
 %  TEXT
 \node at (13.8,12.5) [left, text width=4.5cm]{ cities actually exhibit increasing returns\\ to population\\ $\beta>1$};%IRS
@@ -31,8 +32,8 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 
 \begin{scope}[ yscale=.75,xscale=1.5]% shift={(1.9,0)} ,
 	\coordinate (Uy) at (\y, {2.3+ln(\y)});
-  \draw[my plot] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right, text width=5.5cm]{firms exhibit decreasing \\returns to labour}; % production function for generic ferm
-	\draw[dashed](.75, 0)node[below]{$n_i$} --(.75, 3.4);
+  \draw[my plot,ultra thick] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right=.25cm, text width=3.9cm]{individual firms\\ exhibit decreasing\\ returns to labour}; % production function for generic ferm
+	\draw[dashed](.75, 0)node[below]{$n_R$} --(.75, 3.4);
 \end{scope}
 %
 %

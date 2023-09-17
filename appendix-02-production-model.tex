@@ -1,6 +1,6 @@
 
 \chapter{Firm model}
-Our treatment of the urban surplus which is central to this thesis, is illustrated in Figure~\ref{fig:Agglomeration-surplus}. In the lower left, we illustrate a single firm with decreasing returns to scale operating at its optimal scale, $n$. The thick diagonal line represents the effect of increasing the number of firms operating at the optimal scale. It is the constant returns (CRS) line. If congestion effects from bringing a large number of firms together were dominant, a city would exhibit decreasing returns to  scale,  $N$, and agglomeration would not occur. Research indicates that cities exhibit increasing returns to scale, illustrated by the upper line, which shows the city generating an increasing surplus as it grows, which is the increasing returns to scale case. The curvature of the line is determined by a function of the form $N^\gamma$, which we include in the production function for urban firms. 
+Our treatment of the urban surplus, which is central to this thesis, is illustrated in Figure~\ref{fig:Agglomeration-surplus}. In the lower left, we illustrate a single firm with decreasing returns to scale operating at its optimal scale, $n$. The thick diagonal line represents the effect of increasing the number of firms operating at the optimal scale. It is the constant returns (CRS) line. If congestion effects from bringing a large number of firms together were dominant, a city would exhibit decreasing returns to  scale,  $N$, and agglomeration would not occur. Research indicates that cities exhibit increasing returns to scale, illustrated by the upper line, which shows the city generating an increasing surplus as it grows, which is the increasing returns to scale case. The curvature of the line is determined by a function of the form $N^\gamma$, which we include in the production function for urban firms. 
 
 In this section we are describing how we embed a model of diminishing returns to scale firms within an increasing returns to scale economy. 
 
@@ -11,45 +11,48 @@ NOTE ON EXPONENTS
 \begin{figure}[htb]
     \centering
 \input{fig/production_functions}
-    \caption{While each individual firm exhibits decreasing returns to scale, the city as a whole exhibits increasing returns to scale, and thus produces an agglomeration surplus, $A(N^\beta)-\frac{N}{n}Y_F$.}
+    \caption{While each individual firm exhibits decreasing returns to scale, the city as a whole exhibits increasing returns to scale, and thus produces an agglomeration surplus, $AN^\beta-\frac{N}{n_R}y_R$.}
     \label{fig:Agglomeration-surplus}
 \end{figure}
 
-We need to distinguish the parameters of production functions for rural and urban firms and for the city as a whole. We assume that  rural and  urban firms use the same Cobb-Douglas technology ${y}=A_Fk^{\alpha_F}n^{\beta_F}$. The difference is that the urban firm enjoy a  multiplicative agglomeration externality $N^\gamma$, so ${y}=A_FN^\gamma  k^{\alpha_F}n^{\beta_F}$. We  $\gamma$ is zero for the rural firm.
+We need to distinguish the parameters of production functions for rural and urban firms and for the city as a whole. We assume that  rural and  urban firms use the same Cobb-Douglas technology ${y_R}=A_Fk^{\alpha_F}n^{\beta_F}$. The difference is that the urban firm enjoy a  multiplicative agglomeration externality $N^\gamma$, so ${y_U}=A_FN^\gamma  k^{\alpha_F}n^{\beta_F}$. We assume $\gamma$ is zero for the rural firm. 
 
-We set $\alpha_F$ and $\beta_F$ as a parameters, but will have to calculate a value for $\gamma$ consistent with the strength of the agglomeration effects. 
+We set $\alpha_F$ and $\beta_F$ as a parameters for firms. We assume that $\alpha_F+\beta_F<1$, so that firms exhibit decreasing returns to scale.  We then calculate a value for $\gamma$ consistent with the strength of the observed agglomeration effects. 
 
 
-In addition, there is an aggregate production function for the city from the scaling literature which we write $Y=AN^\beta$. Where $\beta$ for the city as a whole, differs from $\beta_F$ for the individual firm, because of agglomeration effects. % $\beta$ is not the same as the value of $\beta_F$ in the firm's production function. We omit the subscript $C$ for city from  the aggregate production function.    
+With these assumptions we have an aggregate production function for the city that exhibits increasing returns to aggregate labour, $N$,  which we write $Y=AN^\beta$. Where $\beta$ for the city as a whole, differs from $\beta_F$ for the individual firm, because of agglomeration effects. 
 
 
 \section{Where do we start?}
-In each period we have the size of the existing workforce $N$ and the number of firms $F$ and $k_t$. \footnote{We also inherit the size of the existing firms. We can simplify by firms do not change their capital stocks as wages change. This would be incorrect but would do as a first approximation.}
+In the model, firms adjust labour and capital to the profit maximizing levels given the wage and size of the aggregate workforce. We now describe the behaviour of the firm sector. 
+In each period we have the size of the existing workforce $N$ and the number of firms $F$ and $k_t$.  %\footnote{We also inherit the size of the existing firms. We can simplify by assuming firms do not change their capital stocks as wages change. This would be incorrect but would do as a first approximation. }
 
 \subsubsection{Urban firms' employment} 
 Aggregate labour supply is established by the process  above.  Available workers are divided among existing firms.   \begin{equation}
     n_t= \frac{N_t}{F_t} 
 \end{equation}
 
-From this, using the production function we can calculate the both output and  $MPL_t$.
+We can initialize the model with an arbitrary  $N$ and the workforce size of the rural firm, $n_R$. From this, using the production function we  calculate the both output and the marginal product of labour,  $MPL_t$.
 
 \subsubsection{Urban firms' output}
 \begin{equation}
-    {y}_t=A_FN_t^\gamma k_t^{\alpha_F}n_t^{\beta_F} \label{eqn-urban-firm-output}
+    {y}_t= A_FN_t^\gamma k_t^{\alpha_F}n_t^{\beta_F} \label{eqn-urban-firm-output}
+%    Y_t=& N_ty^\gamma y^\]  
 \end{equation}
+$\gamma$ is drawn form the agglomeration literature.% but $A$ must be calculated to.
+
 
 \subsubsection{Urban firms'  marginal product of labour}
 
 The output equation, above, differentiated with respect to  $n$, and simplifying by substituting back in $y_t/n_t$. %n^epxonent -1 pull out and put n underneath
 \begin{equation}MPL_{t} = \frac{\beta_{F}{y}_{t}} {n_t} \label{eqn-urban-firm-mpl}
-\end{equation} 
+\end{equation} . 
+Firms are assumed to set the mPL equalt ot the wage, $\omega+\psi$. This is used to calculate target employment. As $N$ rises the marginal product of labour rises, so the firm will want to hire more workers and is willing to pay a higher wage.
 
-This is used to calculate target employment.
-
-Firms observe their output, ${y}_t$ and find their $MPL_t$. They want to adjust labour so that the $MPL_t$ is equal to the wage. 
+Firms observe their output, ${y}_t$ and find their $MPL_t$. They  adjust labour purchase so that the $MPL_t$ is equal to the wage.\footnote{This is a prescription from the basic theory of the firm for maximizing profits.} 
 
 \subsubsection{Urban firms' marginal product of capital} 
-Compute the marginal product of capital, similarly, differentiating the output equation:
+Firms also adjust their capital stock as the relative price of labour rises. We can compute the marginal product of capital in the same eway we calculated the marginal product of labour, by differentiating the output equation with respect to capital]:
 \begin{equation} MPK_t = \frac{\alpha_{F}{y}_{t}}{k_{t}} \label{eqn-urban-firm-mpk}
 \end{equation} 
 This is used to calculate target capital stock and the number of new firms.
@@ -114,7 +117,7 @@ The firms are identical, so the aggregate urban labour demand for existing firms
 % Y is produced with the year's realized workforce.
 
 \subsubsection{Additional urban labour demand for new firms}
-If  $MPK_t > r_F$  firms are making a profit and standard micro theory tells us new firms will enter the market $dF/dt >0$. The converse is true as well: $MPK_t > r_F \rightarrow dF/dt <0$. Theory tells us nothing about how many except that this adjustment will almost certainly be much slower than the adjustment of the labour market adjustment rate, $\frac{n^{target}_{t+1}}{n_{t}}$. If we (arbitrarily) assume the rate is 0.25  of the target growth rate of the labour force,
+If  $MPK_t > r_F$  firms are making a profit and standard micro theory tells us new firms will enter the market $dF/dt >0$. The converse is true as well: $MPK_t > r_F \rightarrow dF/dt <0$. Theory tells us nothing about how many, but suggests that this adjustment will be slower than the adjustment of the labour market target adjustment rate, $\frac{n^{target}_{t+1}}{n_{t}}$. If we (arbitrarily) assume the rate is 0.25  of the target growth rate of the labour force,
 % \begin{equation}
 % F_{exist,t+1}= 0.25\frac{n^{target}_{t+1}}{n_{t}}F_t
 % \end{equation} 
@@ -204,8 +207,8 @@ For a given $N^{target}$ we can calculate the required wage premium
 
 
 
-Adjustment of the labour market can be modelled as a cobweb process, as illustrated in the simplified cobweb Figure~\ref{fig:cobweb} converging to an equilibrium value. It is clear from the figure that the result of the market adjustment is that firms will be able to hire fewer than they targeted and at a higher wage than they had enjoyed. To simplify the model we use a simple partial-adjustment-to-equilibrium  rather than fully specifying  firms as agents.\footnote{The  slopes of the demand and supply curve can be calculated by differentiating labour supply(Equation~\ref{eqn:Labour-supply}) and MPL (Equation~\ref{eqn-urban-firm-mpl}) functions with respect to $N$. For example, using  $\die{\omega^s}{N}=\die{c\sqrt{\frac{N^{target}_{t+1}}{2 * density}}} {N}$ we can approximate a discrete change along the supply curve  by multiplying the partial derivative by the discrete change in change labour demanded: 
-\[ \Delta \omega_{t+1}^{target}= \frac{ c} {2\sqrt{2 N* density}}(N_{Total,t+1}^{target}-N_t)\]
+Adjustment of the labour market would give rise to  a cobweb process, as illustrated in the simplified cobweb Figure~\ref{fig:cobweb} converging to an equilibrium value. It is clear from the figure that the result of the market adjustment is that firms will be able to hire fewer than they targeted and at a higher wage than they had enjoyed. We implement a  simple partial-adjustment-to-equilibrium, which  will usually eliminate  overshooting and simplify the adjustment process, allowing us to focus on the effects of the financial sector.\footnote{%The  slopes of the demand and supply curve can be calculated by differentiating labour supply(Equation~\ref{eqn:Labour-supply}) and MPL (Equation~\ref{eqn-urban-firm-mpl}) functions with respect to $N$. For example, using  $\die{\omega^s}{N}=\die{c\sqrt{\frac{N^{target}_{t+1}}{2 * density}}} {N}$ we can approximate a discrete change along the supply curve  by multiplying the partial derivative by the discrete change in change labour demanded: 
+%\[ \Delta \omega_{t+1}^{target}= \frac{ c} {2\sqrt{2 N* density}}(N_{Total,t+1}^{target}-N_t)\]
 Additional computations would allow us to find an exact adjustment-to-equilibrium value, but in ABMs we  do not impose equilibrium conditions or expect equilibrium to be achieved in any period. Furthermore, retaining the partial adjustment parameter gives us additional control of the adjustment dynamics.} 
 
 \begin{equation}
@@ -214,7 +217,7 @@ Additional computations would allow us to find an exact adjustment-to-equilibriu
 where $0\le adj \le 1$ is the partial adjustment factor coefficient
 .\footnote{We could implement the wage adjustment in a more sophisticated way. For instance, the wage the firm would offer new workers may adjust toward the marginal product of labour for the firm: % while exiting workers' wages are unchanged:
 \begin{equation}wage_{new,t+1}= (1-adj_{new})\omega_{new,t} + adj_{new} MPL_{t}  +\psi, \end{equation}
-where $adj_{new}$ is parameter controlling the speed at which the wage for new hires adjusts. 
+where $adj_{new}$ is aparameter controlling the speed at which the wage for new hires adjusts. 
 Existing workers are likely to demand catch-up increases if new workers receive higher wages:
 \begin{equation} wage_{exist,t+1}= (1-adj_{exist}) \omega_{exist, t-1} + adj_{exist} wage_{exist,t}  +\psi, \end{equation}
 where $adj_{exist}$ is a parameter controlling the speed at which the wage for existing workers adjusts toward the wage of new workers.
@@ -295,7 +298,7 @@ Slow wage adjustment for existing workers would increase firm profitability and 
 % \begin{description} \item[initial urban wage premium]
 
 \subsubsection{Initial wage premium for urban firms}
-An wage premium ratio defines the initial relationship between the urban wage premium and the subsistence wage, $\omega_0 = \mathrm{wage\_premium\_ratio} * \psi$. % = p*\psi $, where $p$ is selected
+We know from an extensive  literature that there is an urban wage premium: urban wages are a fraction larger than  rural wages A wage premium ratio defines the initial relationship between the urban wage premium and the subsistence wage, $\omega_0 = \mathrm{wage\_premium\_ratio} * \psi$. % = p*\psi $, where $p$ is selected
  %. $p$ will vary as $\omega$ evolves. 
 % \item[Initial wage premium] $\omega_0=p_0*\psi$
 
@@ -316,15 +319,15 @@ To set the initial urban labour force, treat it as initially approximately the s
 
 \subsubsection{Initial urban scale factor}
 
-We can also calculate the urban scale factor in several steps.
+We calculate the urban scale factor in several steps.
 
 \begin{description}
-\item[NEED THIS? labour cost for typical rural firm] $L_R = n_R*\psi$. % This is expressed as a money quantity: e.g., 100 workers * \$40,000/worker. We do not include other labour costs or taxes.  NEED THIS?
+%\item[NEED THIS? labour cost for typical rural firm] $L_R = n_R*\psi$. % This is expressed as a money quantity: e.g., 100 workers * \$40,000/worker. We do not include other labour costs or taxes.  NEED THIS?
 
 % \item[Initial labour cost for typical urban firm] ]  $L_U = n_R(\psi+\omega_0)$.
 
 \item[output for typical rural firm]  
-\[Y_R=\frac{n_R*\psi}{\beta_F}\]
+\begin{equation}Y_R=\frac{n_R*\psi}{\beta_F}\label{eqn_Rural_output}\end{equation}
 Derived from the marginal productivity condition.
 % In our model, this is a constant for any initial values on the RHS. Derived from the marginal productivity condition. See item~\ref{item-paramlist-firm-level} in the orange  block. The numerical calculation is done for a firm with 100 workers and a marginal product of labour of $\psi$. %I get \$20 million for those values. 
 
@@ -333,7 +336,18 @@ Derived from the marginal productivity condition.
 \[Y_{U, 0} = N_0^\gamma Y^R\]  
 Taking the marginal product with respect to $n$, we get a useful fact that will allow us to tie down $\gamma$
 \[Y_{U,0} = \frac{n_{U,0}*(\psi+\omega_0)}{\beta_F}\]
-
+% picturing the exponential for N
+% \begin{tikzpicture}
+% \begin{axis}[axis lines = left, 
+% %yticklabel style={/pgf/number format/.cd,fixed,precision=3}), 
+% xlabel = $N$, 
+% ylabel = $N^\gamma$]
+% \addplot [domain=0:2000, samples=100, color=blue]
+% {x^1.13};%
+% %\node at(100000, 1.013){gamma=.001};
+% %\addplot [domain=1000:200000, samples=100, color=red] {x^0.00001};
+% \end{axis}
+% \end{tikzpicture}
 
 \item[capital for typical rural firm] (Derived from the marginal productivity condition.)
 \[k_R=  \frac{\alpha_F Y_R }{r}\]

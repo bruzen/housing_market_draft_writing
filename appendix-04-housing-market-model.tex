@@ -1,3 +1,226 @@
+\chapter{Bids and reservation prices}\label{sec:bids-and-reservation}
+
+We consider have six cases. For cases 3-7 the agent has alternative to consider and calculations to determine which is preferred. The calculation involve simple comparisons among net rents, housing costs and amenity differences. 
+\begin{enumerate}
+    \item institutional buyers of revenue properties 
+    \item individual buyers of revenue properties 
+    \item retiring owner-occupiers who sell and move to the country
+    \item retiring owner-occupiers who hold their home as a revenue property
+    \item retiring tenants who  move to the country
+    \item new entrants who become tenants
+    \item new entrants who buy
+\end{enumerate}
+
+
+The general rule is that any owner will sell if they receive an offer greater than the maximum they themselves would bid for their property. That price is the investment value,  plus for residents, the subjective value of amenities associated with urban life or the specific property. 
+
+Retirees, i.e., individuals who reach the end of their working lives and no longer need access to the central city, may put their homes on the market, making room for new workers to enter the urban market.\footnote{For owner-occupiers, the stream must be discounted at the personal discount rate or at the personal borrowing rate.}  %\footnote{The timing decision can be randomized, but that is highly unlikely to affect results.}
+Retirees  may also take into account amenities. These amenities may result in retirees continuing to occupy homes  and thereby increasing the cost of housing for new workers.\footnote{As a further extension, worker-owners in the final few years of their working life might decide to list if they notice that the expected price is significantly greater their reservation price. This is a `hopeful' listing, `fishing' for an offer that supports an early retirement.}
+
+
+We define the amenity gain from moving to the city, $\mathbb{A}^{net}=\mathbb{A}^{urban}-\mathbb{A}^{rural}$. This quantity enters the choice of where to live.\footnote{ Many factors can shape amenity value, including features of the housing, desire to live near clubs, sports, cafes libraries, hospitals, neighbours, and family members, the quality of nearby walk, of transit to places they may wish to travel to etc. $mathbb{A}^{net}$ could be negative if country life is appealing. Appendix~\ref{appendix-amenity} includes a theoretical treatment of amenities in the context of the model. We introduce amenities in a simple way by adding and amenity term, $\mathbb{AS}$ to reservation prices or Maximum bids.}, 
+
+
+
+\subsubsection{1. Institutional buyers of revenue properties }
+Institutional buyers  use Equation~\ref{eqn:maximum-bid} for bid price and reservation price
+
+\subsubsection{2. Individual buyers of revenue properties }
+These also use Equation~\ref{eqn:maximum-bid}, but differ from institutional buyers in the individual parameter $r$, $\delta$, $m$, and $M_{i,t}$. 
+
+The only tricky point: $M_{i,t}$ should be the is the remaining mortgage after some has been paid down when calculation wealth. \footnote{i.e., if age is greater than 25 ($M_{i,25}=0$  }  
+
+
+
+\subsubsection{3. Retiring owner-occupiers who sell and move to the country}
+Both owners and tenants retire. Their homes only become available if they move to the country. 
+
+It is  economically advantageous for a retiree  to sell and move if the  interest on the  sale receipts after paying off the remaining mortgage is greater than lost amenity and annual capital gain, $\dot P P$:  
+\[{r}(P-M_{i,t}) \ge  \mathbb{A}^{net} +\dot P P\]Otherwise, the best choice is to stay in the home. $M_{i,t}$ will generally be zero.  We can calculate a  \textbf{reservation price}. The owners should sell and move if 
+\begin{equation}P \ge\ \frac{ \mathbb{A}^{net}+\dot P P}{{r}} +M_{i,t}\label{eq:movers-gainB}\end{equation}
+$M_{i,t}$ will generally be zero. 
+
+
+\subsubsection{4. Retiring owner-occupiers who hold their home as a revenue property}
+It is  economically advantageous for a retiree to rent the property at the market rate $\mathbb{R_M}$ and move to the country if the  net rent $\mathbb{R_N}$ plus  capital gain is greater than the income from investing the sale receipts:
+\[{r}(P-M_{i,t}) <  \mathbb{R}^{net} +\dot P_\mathbb{T} P\]
+This value provides a \textbf{another reservation price}: 
+\[P < \frac{\mathcal{R}^{net}+ P_\mathbb{T} P }{r} +M_{i,t} \label{eq:movers-gainC}\]
+
+\subsubsection{5. Retiring tenants who  move to the country} 
+Why would  If the urban rent $\mathbb{R}_M$ is greater than the cost of housing in the country and the lost amenity, 
+\[\mathcal{R_M} > \ a\psi+ \mathbb{A}^{net}\]
+a renter would have an incentive move to the country.
+
+
+
+\subsubsection{6. New entrants who become tenants}
+Potential entrants move to work in the city if they are better off. The calculation is  the reverse of that for those who are leaving the city
+The rule is ``move if either of the following two conditions hold.''
+\[\mathcal{R}-a\psi \le\ (\omega-cd) i+ \mathbb{A}^{net}\]
+
+\begin{align}
+gain^{rent}=&net^{city}-net^{Rural}\nonumber\\
+=&\left[\psi+\omega-cd+\mathbb{A}^{city}-\mathcal{R}_M\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ (\omega-cd) +\mathbb{A}^{net} -(\mathcal{R}_M-a\psi)
+\label{eq-move-to-rent}
+\end{align}
+If rent $\mathcal{R}$ exactly capture housing cost and locational rent, the gain reduces to $\mathbb{A}^{city}-\mathbb{A}^{Rural}$. Normally we would expect property rents to capture this component  as well. 
+
+% {\color{red}
+% \begin{eqnarray}
+% P_{second}^{max\_bid} & = min \left\{P_{second}^{max\_bid},\ \frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\ \mathrm{saving}s_i + M_i^{max\_permitted}  \right\}  \nonumber
+% \end{eqnarray}
+% }
+\subsubsection{7. New entrants who buy}
+New entrants choose to buy property rather than rent  if they are financially qualified using the calculations in Subsection~\ref{sec:mortgage-availability} and if the gain is both positive and greater than the gain to renting shown in 
+Equation~\ref{eq-move-to-rent}.
+
+\begin{align}
+gain^{buy}=&\left[\psi+\omega-cd+\mathbb{A}^{city}+(\dot p-{r}m_i)P-a\psi\right]-\left[\psi+\mathbb{A}^{Rural}-a\psi\right] \nonumber\\
+=&\ (\omega-cd)+\mathbb{A}^{net}+(\dot p-{r}m_i)P  \label{eq-move-to-buy}
+\end{align}
+This requires that the sum of  locational rent, net amenity and net capital gain be greater than or equal to zero and greater than $\mathcal{R_M}$ for the in-migrant to buy.
+
+ %People also make choices with imperfect information, some are investing in living in a city
+
+
+% \begin{align}%  MORTGAGE CONSTRAINT ON MAXIMUM BID
+% P_i^{max\ bid}= min \left\{\frac{\mathrm{savings}_i}{1-m_i^{max\_permitted}},\  M_i^{max\_permitted} + \mathrm{saving}s_i  \right\}   \nonumber  
+% \end{align}
+
+
+
+
+
+% \subsubsection{Why would an owner move to the country?}
+% Why would an owner sell a home and move to the country? It would be economically advantageous if the interest on income from the sale exceeds the cost of housing in the country and the lost amenity.
+% \[{r}(P^{realized}-M) >\ a\psi+ \mathbb{A}^{net}\label{eq:movers-gainA}\]
+
+% This value provides a \textbf{reservation price}: 
+% \[P^{reservation} =\ \frac{a\psi+ \mathbb{A}^{net}}{r}+M \label{eq:movers-gainB}\]
+% This just says that the lowest prices one would sensibly accept is the cost of a house in the country plus enough to cover the mortgage, plus capitalized net amenity.\footnote{transaction costs on the sale are omitted. Add a parameter or variable.}
+
+% Should a retiree rent the house out? only if the rent exceeds the  interest on income from the sale:
+% \[\mathcal{R}^{net}>{r}(P^{realized}-M)\]
+% This value provides a \textbf{another reservation price}: 
+% \[P^{reservation} =\ \frac{\mathcal{R}^{net}}{r}+M \label{eq:movers-gainC}\]
+% }
+
+% Sellers should use the investment rule calculated before  do determine a  reservation price in the bargaining process. If they can't get a higher price they  can keep the home as a rental  investment and use the home as collateral for a mortgage on a house in the country.
+% For a homeowner, the reservation price is tricky. 
+% At this point we only have retirement as a hard boundary to consider. That means that the householder wants to sell in the current period. The gain from moving to the country is 
+% \begin{equation}
+% Gain=P_{ij}^{expected}-M-\frac{a\psi}{r\_prime} - transaction\ costs - Urban Amenity\  
+% \end{equation}\label{eq:movers-gain}
+% In the initial model  there are no urban amenities and no transaction costs. We could subtract an urban amenity term, $U_{ij}$ and an transaction cost from equation~\ref{eq:movers-gain}. The amenity term is likely to have little effect, since a buyer will pay extra for the amenity. the transaction cost is actually large and is likely to significantly affect land allocation efficiency.  
+
+The reservation price in in Equation~\ref {eq:movers-gain} is the minimum provides an incentive to sell a home immediately on retiring from the workforce. 
+
+
+\subsubsection{The cost of delayed sale}
+ If a sale is delayed by one period, however, the differential gain is deferred, so the present discounted cost of waiting must be weighed against the chance of a higher price in the next round. %$Gain*\frac{\delta}{1+\delta}$.????%\footnote{This is simply (1 minus the discount factor) times the deferred amount.} 
+A real estate ages will advise a client to lower the asking price in order to sell more quickly, especially in a market with slow sales. This kind of manoeuvring can affect the selling price, but only within the bargaining set described above. We set aside modelling this feature since it is unlikely to have a noticeable  effect on the matters we  focus.  on. 
+
+%My suggestion is that as an intitial step, if the property seller does not sell the owner reduces the reservation price for the next period by (say) 5\% . The owner could use the expoected price as the initial list price. 
+
+
+
+
+
+% Ensure that they are of the same length by dropping the lowest bids or the highest reservation prices. 
+
+% \newpage
+% \textbf{Possibly relevant Example of a matching problem drawn from game theory text}
+
+% There are 26  people, some with houses, Each values the house an amount equal to the last three digits of their student numbers. Those on the left of the table don't have a house when the game starts, indicated by a ``0'' in the second column. Those on the right  start with a horse, indicated by a  (1) in the fifth column and half don't. 
+
+% \begin{center}
+% Value and number of houses
+
+% \begin{tabular}{|c|c|}
+ 
+% \begin{tabular}{lcc}
+% max bid&start&end  \\ \hline
+% 985  & 0 & 2 \\
+% 829  & 0 & 1 \\
+% 740  & 0 & 1 \\
+% 650  & 0 & 1 \\
+% 643  & 0 & 1 \\
+% 611  & 0 & 1 \\\hline
+% 532  & 0 & \color{red}1  \\
+% 356  & 0 & \color{red} 1   \\
+% 270  & 0 & \color{red} 1  \\
+% 135  & 0 & 0    \\%69 & 1  & 0
+   
+% \end{tabular}
+
+% &
+% \begin{tabular}{lcc}
+% reservation&start&end \\ \hline
+%  50 & 1  & 0 \\
+% 127 & 1  & 0 \\
+% 190 & 1  & 0  \\
+% 245 & 1  & 0 \\
+%  324 & 1  & 0 \\
+%  522 & 1 & \color{red} 1\\\hline
+%  738 & 1  &  \color{blue}0 \\
+%  829 &1  &  \color{blue}0 \\
+% 832 & 1 & \color{blue}0\\
+%    &  &              \\%69 & 1  & 0 
+% \end{tabular}
+
+% \end{tabular}
+% \end{center}
+
+
+ 
+%   \begin{tikzpicture}[scale=.8]
+% %  \draw [gray, opacity=.7]
+%  (0,0) grid (7,7);
+% \draw [<->] (0,10.5) node[above]{value}-- (0,0) -- (10,0) node[below]{Houses};
+
+% \draw [red, thick] (0,9.85)node[above right]{985}--(1,9.85)--(1,8.29 )node[above right]{829}--(2,8.29 )--(2,7.40 )node[above right]{740}--(3,7.40 )--(3,6.50 )node[above right]{350}--(4,6.50 )--(4,6.43)node[above right]{643}--(5,6.43)--(5,6.11)node[above right]{611}--(6,6.11)--(6,5.32)node[above right]{532}--(7,5.32)--(7,3.56)node[above right]{356}--(8,3.56)--(8,2.70)node[above right]{270}--(9,2.70)--(9,1.35)node[left]{DEMAND}node[above right]{135}--(10,1.35); 
+
+% \draw [blue, thick] (0,.50)node[above right]{50}--(1,.5)--(1,1.27 )node[above right]{127}--(2,1.27 )--(2,1.90 )node[above right]{190}--(3,1.90 )--(3,2.45 )node[above right]{245}--(4,2.45 )--(4,3.24)node[above right]{324}--(5,3.24)--(5,5.22)node[above right]{522}--(6,5.22)--(6,7.38)node[above right]{738}--(7,7.38)--(7,8.29)node[above right]{829}--(8,8.29)--(8,8.32)node[above right]{832}--(9,8.32)node[right]{SUPPLY}; 
+% %,2.5) ;
+% %\draw [blue, dashed] (0,4.5) node[left]{large bill}--(8.33, 4.5)-- (8.33,0)node[below] {large user Q};
+% %\draw [green, dashed] (0,0) --(8.33, 4.5);
+% %\draw [green, dashed] (0,0) --(1.66, 2.5);
+
+% %\draw [<->, shift={(7 cm,0)}] (0,6) -- (0,0) -- (5,0);
+% \end {tikzpicture}
+
+% The gain for any person is the difference between the transaction price  for a house and the amount they value a house
+
+
+
+
+% At the same time, for each p. NOT. DONE
+% %\begin{eqnarray}
+% \[P_{bank}^{reservation}  \le  P_{person}^{max\_bid} \]
+
+
+% % \begin{lstlisting}
+% % # parameters - max interest payment 
+% % max_mortgage_share = 0.28 # ability to cover a mortgage
+
+% % # Max mortgage
+
+% % wealth = property_value - mortgage + savings
+% % mean_weath = sum(wealth)/number_of_people
+
+% % def get_max_mortgage(self, applicant):
+% %     max_mortgage =  ...
+    
+% %     return max_mortgage
+% % \end{lstlisting}
+
+
+
+
+
+
 \chapter{Salvaging BID PRICES BY AGENT TYPE?}
 
 {\color{blue}

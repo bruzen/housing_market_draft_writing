@@ -1,7 +1,7 @@
 
 \begin{tikzpicture}[scale=1]
 %  \draw [gray, opacity=.7] (0,0) grid (7,7);
-\draw [<->] (0,6) node[left, text width=1cm]{buyer pays}-- (0,0)node[left]{0}node[below]{0} -- (6,0) node[below right, text width=1cm]{Seller gets};
+\draw [<->] (0,6) node[left, text width=1cm]{Buyer pays}-- (0,0)node[left]{0}node[below]{0} -- (6,0) node[below right, text width=1cm]{Seller gets};
 \draw [red, thick, latex-latex ](1.5,5.5)node[below, black]{Feasible set}-- (2,6)--(5.5,2.5)--(5,2);
 \draw [red, line width=1mm] (3,5)--(5,3);
 \draw [red, thick, fill= yellow, opacity=.5] (3,3)--(3,5) -- (5,3)--cycle;
@@ -15,10 +15,10 @@
 
 
  \draw[pattern=north west lines, distance=2mm,pattern color=red!30, draw=none] (0,0) rectangle (3,8);
- \node[text width=2.5cm] at (1.5,7) {\small seller will not accept less than \$30,000};
+ \node[text width=2.5cm] at (1.5,7) {\small Seller will not accept less than \$30,000};
 
 \draw[pattern=north east lines, pattern color=green!60, draw=none] (0,0) rectangle (9,3);
-\node[text width=2.5cm]at (7,1.5)  {\small buyer will not pay more than \$50,000};
+\node[text width=2.5cm]at (7,1.5)  {\small Buyer will not pay more than \$50,000};
 
 \draw [ latex-latex, ultra thick](3.7,7)-- (3,7)--(3,3)--(8,3)--(8,3.7)node[above left]{Rational Set} ;
 \draw [ latex-, thick, red](3.5,4.5)-- (4,5)--(5.5,5)node[right]{Bargaining Set} ;
@@ -32,7 +32,7 @@
 %\node at (2,1)[below right, ]{$(max\ u_1,\ max\ u_2)$};
 %\node at (3.5,3){Agreement set};\node at (3,3.5){\Large A};
 
-\node at (3,3)[left, text width=1.8cm, align=right]{\textbf{\tiny disagreement\newline point}};
+\node at (3,3)[left, text width=1.8cm, align=right]{\textbf{\tiny Disagreement\newline point}};
 \node[mark size=4pt,color=red] at (3,3) {\pgfuseplotmark{square*}};
 
 

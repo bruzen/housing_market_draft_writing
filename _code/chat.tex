@@ -1,0 +1,154 @@
+THIS IS THE CODE THAT I HAVE WORKING
+The figure simply shows that both variables behave as expected.
+because there is no lag and no partial adjustments it all happens in the first 5 cycles.
+
+
+Changes are indicated with a training ######
+
+import matplotlib.pyplot as plt
+
+# Initialize variables
+A     = 10
+gamma =1.2
+transport_cost_per_dist = 1
+population = 1000
+transport_cost_per_dist = 4
+density = 10
+seed_population = 0
+#P=10000
+t = []
+wage_premium_list = []
+population_list   = []
+P_list            = []   ######
+
+for time_step in range (10):
+    # Calculate wage premium and population #REVERSE ORDER
+    wage_premium = gamma*A * population**(gamma-1) #actually this was wage
+    population =  2*(wage_premium / transport_cost_per_dist)**2 * density + seed_population
+    P = population/100  ######
+    
+    # wage_premium = gamma*A * population**(gamma-1)#actually this is wage
+    # population = 2*(wage_premium / transport_cost_per_dist)**2 * density + seed_population
+
+    # Record output
+    t.append(time_step)
+    wage_premium_list.append(wage_premium)
+    population_list.append(population)
+    P_list.append(P)    ############
+
+# Plot wage premium and population against time
+import matplotlib.pyplot as plt
+
+# IS THIS THE SINGLE FIGURE   Sept 9 YES
+plt.figure(figsize=(10, 6))
+plt.plot(t, wage_premium_list, label='Wage Premium')
+#plt.plot(t, population_list, label='Population')######
+plt.plot(t, P_list, label='Population/100')      ######
+plt.ylabel('Value')
+plt.xlabel('Time')
+plt.title('Population and Wage Premium Over Time')
+plt.legend()
+plt.show()
+
+
+
+ 
+
+ ax.set_ylabel(model_out_key, fontsize=20)
+
+ figure 6.1 model logic says we are up in the uppeer block. This is what we need to unpack more. There is a cycle that has to work:
+
+(productivity + wage) -> adjust(wage, n) -> population -> productivity 
+ 
+How can people go up when workers goes down?
+
+why does it start removing agents at step 35
+
+
+Pushed another change
+
+#add horizontal and vertical reference lines
+plt.axhline(y = 0, xmin = 0., color ='black')# zero 
+plt.axvline(x = 10, ymin = 0., color ='red')
+plt.text(10.5, 400000, r'intitial city boundary', fontsize=15)
+plt.text(1, 7000, r'zero rent', fontsize=15)
+
+type
+git stash
+then 
+git pull origin master
+
+
+
+
+
+"distance_from_center": lambda a: getattr(a, "distance_from_center", None) if isinstance(a, Land) else None,
+
+
+---
+
+        }
+        agent_reporters      = {
+            "time_step":         lambda a: a.model.time_step,
+            "agent_class":       lambda a: type(a),
+            "agent_type":        lambda a: type(a).__name__,
+            "id":                lambda a: a.unique_id,
+            "x":                 lambda a: a.pos[0],
+            "y":                 lambda a: a.pos[1],
+            "distance_from_center": lambda a: getattr(a, "distance_from_center", None) if isinstance(a, Land) else None,
+            "wage":                 lambda a: getattr(a, "wage", None) if isinstance(a, Land) else None,
+            "is_working":           lambda a: None if not isinstance(a, Person) else 1 if a.unique_id in a.workforce.workers else 0,
+            # "is_working":        lambda a: getattr(a, "is_working", None),
+            "working_period":    lambda a: getattr(a, "working_period", None),
+            "property_tax_rate": lambda a: getattr(a, "property_tax_rate", None),
+            "net_rent":          lambda a: getattr(a, "net_rent", None) if isinstance(a, Land) else None,
+            "warranted_price":   lambda a: getattr(a, "warranted_price", None) if isinstance(a, Land) else None,
+        }
+
+
+
+
+KeyError                                  Traceback (most recent call last)
+File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/core/indexes/base.py:3629, in Index.get_loc(self, key, method, tolerance)
+   3628 try:
+-> 3629     return self._engine.get_loc(casted_key)
+   3630 except KeyError as err:
+
+File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/_libs/index.pyx:136, in pandas._libs.index.IndexEngine.get_loc()
+
+File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/_libs/index.pyx:163, in pandas._libs.index.IndexEngine.get_loc()
+
+File pandas/_libs/hashtable_class_helper.pxi:5198, in pandas._libs.hashtable.PyObjectHashTable.get_item()
+
+File pandas/_libs/hashtable_class_helper.pxi:5206, in pandas._libs.hashtable.PyObjectHashTable.get_item()
+
+KeyError: 'distance_from_center'
+
+The above exception was the direct cause of the following exception:
+
+KeyError                                  Traceback (most recent call last)
+Cell In[120], line 49
+     46 axs[0, i].grid(False)
+     48 # Create scatter plot for distance from center vs warranted price
+---> 49 scatter = axs[1, i].scatter(land_agents['distance_from_center'], land_agents['warranted_price'], c='blue', alpha=0.5)
+     50 axs[1, i].set_title(f'Distance vs Warranted Price at Time Step {time_step}')
+     51 axs[1, i].set_xlabel('Distance from Center')
+
+File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/core/frame.py:3505, in DataFrame.__getitem__(self, key)
+   3503 if self.columns.nlevels > 1:
+   3504     return self._getitem_multilevel(key)
+-> 3505 indexer = self.columns.get_loc(key)
+   3506 if is_integer(indexer):
+   3507     indexer = [indexer]
+
+File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/core/indexes/base.py:3631, in Index.get_loc(self, key, method, tolerance)
+   3629     return self._engine.get_loc(casted_key)
+   3630 except KeyError as err:
+-> 3631     raise KeyError(key) from err
+   3632 except TypeError:
+   3633     # If we have a listlike key, _check_indexing_error will raise
+   3634     #  InvalidIndexError. Otherwise we fall through and re-raise
+   3635     #  the TypeError.
+   3636     self._check_indexing_error(key)
+
+KeyError: 'distance_from_center'

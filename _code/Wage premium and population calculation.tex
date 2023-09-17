@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+
+# Initialize varibles
+A     = 7
+gamma = 1.2
+population = 1000
+transport_cost_per_dist = 4
+density = 1
+seed_population = 0
+t = []
+wage_premium_list = []
+population_list   = []
+
+for time_step in range (5):
+    # Calculate wage premium and population
+    wage_premium = A * population**gamma
+    population = 2*(wage_premium / transport_cost_per_dist)**2 * density + seed_population
+
+    # Record output
+    t.append(time_step)
+    wage_premium_list.append(wage_premium)
+    population_list.append(population)
+
+# Plot wage premium and population against time
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 6))
+plt.plot(t, population_list, label='Population')
+plt.plot(t, wage_premium_list, label='Wage Premium')
+plt.xlabel('Time')
+plt.ylabel('Value')
+plt.title('Population and Wage Premium Over Time')
+plt.legend()
+plt.show()
