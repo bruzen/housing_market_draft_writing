@@ -1,0 +1,79 @@
+% Auriga theme
+% find the most up-to-date version here: https://github.com/anishathalye/auriga
+
+\documentclass[14pt,aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{lipsum}
+% \usepackage{tikz}
+\usetikzlibrary{tikzmark, positioning, arrows.meta}
+\usetikzlibrary{calc}
+
+% \ifnotes
+% \setbeamertemplate{note page}[plain]
+% \setbeameroption{show notes on second screen=right}
+% \fi
+
+\usetheme{auriga}
+\usecolortheme{auriga}
+
+% define some colors for a consistent theme across slides
+\definecolor{red}{RGB}{181, 23, 0}
+\definecolor{blue}{RGB}{0, 118, 186}
+\definecolor{gray}{RGB}{146, 146, 146}
+
+\setbeamerfont{title}{size*={2pt}}
+\title{\small Financialization of the Housing Market: A Contribution to Modern Urban Rent Theory}
+    
+% \author{Kirsten Wright} %\underline{Alyssa P. Hacker} \inst{1} \and Ben Bitdiddle \inst{2} \and Lem E. Tweakit \inst{2}}
+\author{
+  Author: Kirsten Wright \\
+  Supervisors: Jangho Yang, Sean Geobey
+}
+% \institute{PhD Thesis Defensae}
+\institute{PhD Thesis Defense\\[1ex] University of Waterloo}
+\date{October 10, 2023}
+% \institute[shortinst]{University of Waterloo} %{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
+
+
+% \title{Financialization of the Housing Market: A Contribution to Modern Urban Rent Theory}
+
+% \author{Kirsten Wright}
+% \subtitle{PhD Thesis Defense}
+% \institute{University of Waterloo}
+% \date{October 10, 2023}
+
+\begin{document}
+
+{
+  % rather than use the frame options [noframenumbering,plain], we make the
+  % color match, so that the indicated page numbers match PDF page numbers
+  \setbeamercolor{page number in head/foot}{fg=background canvas.bg}
+  \begin{frame}
+    \titlepage
+   % \vspace{1cm}
+    \begin{center}
+    \includegraphics[width=0.3\textwidth]{fig/uw.png}
+    \end{center}
+  \end{frame}
+}
+
+
+\input{slide_deck/slides/fig}
+\input{slide_deck/slides/fig2}
+% \input{slides/examples/bullets}
+% \input{slides/examples/splitfigs}
+% \input{slides/examples/equations_annotated}
+% \input{slides/examples/split}
+% \input{slides/examples/figure}
+% \input{slides/examples/centered}
+% \input{slides/examples/monospace}
+% \input{slides/examples/brackets}
+% \input{slides/examples/link}
+
+\end{document}

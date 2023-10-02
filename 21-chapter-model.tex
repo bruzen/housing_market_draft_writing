@@ -108,8 +108,8 @@ We begin with a model of a circular city. \footnote{In our computational model w
 In the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
-Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of  goods, 
-which they sell into a commodity market. Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant. 
+Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of
+goods which they sell into a commodity market. Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant. 
 
 Firms purchase the time of workers. %to capture the product of their effective labour
 %and enjoy the product of \gls{effective labour} . They can produce more goods by hiring additional workers. 
@@ -249,8 +249,8 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 
 
 \section{Housing markets} \label{section-rent}
-Property markets are the largest and most complex part of our model. In this section we describe the housing market sub-model model. There is a great deal of detail simply because the market has different types of participant who consider a large number of variable and interact 
-
+%Property markets are the largest and most complex part of our model. 
+In this section we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
 We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In Subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
 
 Because participation in the market depends on financing, in Subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in Subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
@@ -342,11 +342,14 @@ Annual maintenance costs apply to buildings and lands but not to locational valu
 \end{align}
 
 \subsubsection{Combined equation}
-Combining, the \gls{net rent} is:\footnote{This is the net warranted rent. Market rent, $\mathcal{R}_M$, can be decoupled from this for many reasons. For instance, agents who have purchased a house, may be able to pass a share of financing costs through to tenants as part of the market rent, depending on market power. Some  migrants may accept lower utilities or may have access to higher wages. The market rent could include an additional term, $F(v, rM)$, where $F$ is a function of financing costs that depends on %how tight the market is, 
-vacancy, $v$, financing costs, $r$, and the size of the mortgage to be financed, $M$. When all financing costs are passed on the tenant effectively buys the property for the investor. The market rent is what an investor would use for price setting, however we are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted and we work with the net warranted rent in the price formation model. There would be strong feedback from speculators taking on financing costs  to the level of rents for tenants, and this  then feedback into prices. % These are distinct logics for the rent formation mechanism which can be explored through more explicit models of rental markets. Abstracting them gives a set of easily generalizable simplifications.% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
+Combining, the \gls{net rent}\footnote{Net warranted rent, $\mathcal{R}_N$, can diverge from market rent, $\mathcal{R}_M$, for many reasons. For instance, agents who have purchased a house may be able to pass a share of financing costs through to tenants as part of the market rent depending on their market power. Some workers may accept lower utilities or may have access to higher wages. %The market rent could include an additional term, $F(v, rM)$, where $F$ is a function of 
+% Financing costs may be passed to renters, $F(v, rM)$, and depend on vacancy, $v$, interest rates, $r$, and the size of the mortgage, $M$.%how tight the market is, 
+ %When all financing costs are passed on the tenant effectively buys the property for the investor. % The market rent is what an investor would use for price setting, 
+We are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted. % and we work with the net warranted rent in the price formation model. % There would be strong feedback from speculators taking on financing costs  to the level of rents for tenants, and this then feedback into prices. % These are distinct logics for the rent formation mechanism which can be explored through more explicit models of rental markets. Abstracting them gives a set of easily generalizable simplifications.% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
 % 
-Annual financing costs are $rM$. 
-}
+% Annual financing costs are $rM$. 
+}is:
+
 \begin{align}
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
 \end{align}
@@ -360,13 +363,12 @@ According to the Canada Housing Statistics Program (CHSP), first-time home buyer
 
 \subsubsection{Wealth-based mortgage maximum} 
 The availability of capital differs for rich and poor. 
-We can define individual wealth as:
+We can define individual wealth, for the purpose of credit assesment, as:
 
 \begin{equation} 
 W_i= P^{expected}_i - M_i  +S_i 
 \end{equation}
-where $P^{expected}_i$ is the expected value of owned home, $M_i$ is the  Mortgage on the home, and $S_i$ is personal savings = $age*savings\ rate* income$. ($M_i$ is relevant and requires calculation for cases where an existing  mortgage has not been fully paid off. and  someone wants a second mortgage for a revenue property.
-
+where $P^{expected}_i$ is the expected value of an existing owned home, $M_i$ is the mortgage on the home, and $S_i$ is personal savings, including the net value of assets other than the home. % = $age*savings\ rate* income$. ($M_i$ is relevant and requires calculation for cases where an existing  mortgage has not been fully paid off. and  someone wants a second mortgage for a revenue property.
 For a newcomer who owns a rural home and owes no mortgage, the value of the rural home is simply the capitalized value of rural housing services:
 \begin{equation} 
 P^{expected}_i = \frac{a\psi}{r}.

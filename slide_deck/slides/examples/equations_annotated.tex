@@ -1,0 +1,186 @@
+\begin{frame}
+\[
+\tikzmarknode{A}{f}(\tikzmarknode{B}{5}) = \tikzmarknode{C}{25}
+\begin{tikzpicture}[overlay, remember picture,shorten <=1mm,
+                    nodes={inner sep=1pt, align=center, font=\footnotesize}]
+\draw (A.south) -- ++ (-1,-1) node[below] {The\\ machine};
+\draw (B.south) -- ++ (.2,-1) node[below] {When\\ given 5};
+\draw (C.south) -- ++ (.8,-1) node[below] {Gives\\ us 25};
+\end{tikzpicture}
+\vspace{3ex}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\tikzmarknode{A}{f}(\tikzmarknode{B}{5}) = \tikzmarknode{C}{25}
+\begin{tikzpicture}[overlay, remember picture,shorten <=1mm,
+                    nodes={inner sep=1pt, align=center, font=\footnotesize},
+                    every path/.style = {draw=red, Stealth-}] % <---
+\draw (A.south) -- ++ (-1,-1) node[below] {The\\ machine};
+\draw (B.south) -- ++ (.2,-1) node[below] {When\\ given 5};
+\draw (C.south) -- ++ (.8,-1) node[below] {Gives\\ us 25};
+\end{tikzpicture}
+\vspace{3ex}
+\]
+\end{frame}
+
+
+\begin{frame}{A slide with centered equation and explanation}
+  \begin{center}
+    \begingroup\larger[4]
+    \[
+    \tikzmarknode{n1}{\rho\frac{D\vec V}{Dt}}~=~\tikzmarknode{n2}{-\nabla p}
+    + \tikzmarknode{n3}{\rho\vec g}+\tikzmarknode{n4}{\mu\nabla^2\vec V}
+    \]
+    \endgroup
+  \end{center}
+  
+  \vspace{1ex}
+  
+  \begin{center}
+    \begin{tikzpicture}[remember picture,shorten <=1mm,font=\footnotesize\sffamily]
+      % Your TikZ code for the explanation here
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+\[\int\limits
+  _{\tikzmarknode{a}{a}}
+  ^{\tikzmarknode{b}{b}}\tikzmarknode{f}{f}(\tikzmarknode{x1}{x})
+  \,\tikzmarknode{d}{\mathrm{d}}\tikzmarknode{x2}{x}
+\begin{tikzpicture}[overlay,remember picture,cyan,>=stealth,shorten
+ <=0.2ex,nodes={font=\tiny,align=left,inner ysep=1pt},<-]
+  \draw ([xshift=-0.3ex]b.west|-x2) -- ++ (-1.5em,0) node[left] (l) {\textbf{Integral}};
+  \draw (a.south) -- ++ (0,-1.5em) node[anchor=north west,align=left,xshift=-1.2ex]
+    (u) {\textbf{Untergrenze}\\ Untere integrationsgrenze};
+  \draw (b.north) -- ++ (0,1.5em) node[anchor=south west,align=left,xshift=-1.2ex]
+    (o) {\textbf{Obergrenze}\\ Obere integrationsgrenze};
+  \path (x1.north) ++ (0,1.5em) node[anchor=south west,xshift=-1.2ex] (il)
+    {\textbf{Integrand}\\ Funktion \"uber die integriert werden soll};
+  \draw (x1.north) |- ([xshift=0.3ex]il.south east);
+  \path (d.south) ++ (0,-1.5em) node[anchor=north west] (diff)
+    {\textbf{Differtential}};
+  \draw (d.south) |- ([xshift=0.3ex]diff.south east);
+  \draw ([xshift=0.3ex]x2.east) -- ++ (1.5em,0) node[right]  (r)
+   {\textbf{Integrationsvariable}\\ Der Integrand wird \"uber $x$ integriert};
+  \path let \p1=($(o.north)-(u.south)$),\p2=($(r.east)-(x2.east)$),
+   \p3=($(a.west)-(l.west)$),\n1={\x2-\x3} in 
+  \pgfextra{\xdef\tmpvspace{\y1}\xdef\tmphspace{\n1}};
+\end{tikzpicture}\vcenter{\vspace{\tmpvspace}}
+\hspace{\tmphspace} 
+\]
+\end{frame}
+
+
+
+\begin{frame}{A slide with centered equation and annotations}
+  \begin{center}
+    \begin{relsize}{4}
+    \begin{align*}
+    \tikzmarknode{n1}{\rho\frac{D\vec V}{Dt}} &= \tikzmarknode{n2}{-\nabla p}
+    + \tikzmarknode{n3}{\rho\vec g}+\tikzmarknode{n4}{\mu\nabla^2\vec V} \\
+    \text{Total derivative} &= \text{Pressure gradient} + \text{Body force term} + \text{Diffusion term}
+    \end{align*}
+    \end{relsize}
+  \end{center}
+  
+  \vspace{1ex}
+  
+  \begin{center}
+    \begin{tikzpicture}[remember picture,shorten <=1mm,font=\footnotesize\sffamily]
+      % Your TikZ code for the explanation here
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Equation and Annotations}
+  \begin{center}
+    \begin{relsize}{4}
+    \begin{align*}
+    \tikzmarknode{n1}{\rho\frac{D\vec V}{Dt}} &= \tikzmarknode{n2}{-\nabla p}
+    + \tikzmarknode{n3}{\rho\vec g}+\tikzmarknode{n4}{\mu\nabla^2\vec V} \\
+    \text{Total derivative} &= \text{Pressure gradient} + \text{Body force term} + \text{Diffusion term}
+    \end{align*}
+    \end{relsize}
+  \end{center}
+  
+  \vspace{1ex}
+  
+  \begin{center}
+    \begin{tikzpicture}[remember picture,shorten <=1mm,font=\footnotesize\sffamily]
+      % Your TikZ code for the explanation here
+      \begin{scope}[nodes={text width=6.5em,align=left},node distance=1ex]
+        \node (e1) {\underline{Total derivative}};
+        \node[right=of e1.north east,anchor=north west] (e2) {\underline{Pressure gradient}\\[1em]
+          Fluid flows in the direction\dots};
+        \node[right=of e2.north east,anchor=north west] (e3) {\underline{Body force term}\\[1em]
+          External forces\dots};
+        \node[right=of e3.north east,anchor=north west] (e4) {\underline{Diffusion term}\\[1em]
+          For a Newtonian fluid\dots};
+      \end{scope}     
+      \node[below=0.5ex of e1.south] (eq){$=$};
+      \node[below=0.5ex of eq] (tot) {$\rho\left[\frac{\partial \vec V}{\partial t}
+      +\left(\vec V\cdot\vec\nabla\right)\vec V\right]$};
+      \path (tot.south west) -- (tot.south east) coordinate[pos=0.25] (tot1)
+        coordinate[pos=0.75] (tot2);
+      \node[below left=2ex and 0ex of tot.south,text width=4em,align=left] (c1) 
+          {Change of velocity};
+      \node[below right=2ex and 0ex of tot.south,text width=4em,align=left] (c2) {Convective term};
+      \draw[cyan,-stealth] (c1) -- (tot1);
+      \draw[cyan,-stealth] (c2) -- (tot2);
+      \begin{scope}[overlay]
+      \foreach \X in {1,...,4}
+      {\draw[cyan,-stealth] (e\X) -- (n\X);} 
+      \end{scope}
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+
+
+\begin{frame}{Equation and Annotations}
+  \begin{center}
+    \begin{relsize}{2} % Adjust the scaling factor as needed
+    \begin{align*}
+    \tikzmarknode{n1}{\rho\frac{D\vec V}{Dt}} &= \tikzmarknode{n2}{-\nabla p}
+    + \tikzmarknode{n3}{\rho\vec g}+\tikzmarknode{n4}{\mu\nabla^2\vec V} \\
+    \text{Total derivative} &= \text{Pressure gradient} + \text{Body force term} + \text{Diffusion term}
+    \end{align*}
+    \end{relsize}
+  \end{center}
+  
+  \vspace{1ex}
+  
+  \begin{center}
+    \begin{tikzpicture}[remember picture, shorten <=1mm, font=\small\sffamily] % Adjust font size here
+      % Your TikZ code for the explanation here
+      \begin{scope}[nodes={text width=6.5em,align=left},node distance=1ex]
+        \node (e1) {\underline{Total derivative}};
+        \node[right=of e1.north east,anchor=north west] (e2) {\underline{Pressure gradient}\\[1em]
+          Fluid flows in the direction\dots};
+        \node[right=of e2.north east,anchor=north west] (e3) {\underline{Body force term}\\[1em]
+          External forces\dots};
+        \node[right=of e3.north east,anchor=north west] (e4) {\underline{Diffusion term}\\[1em]
+          For a Newtonian fluid\dots};
+      \end{scope}     
+      \node[below=0.5ex of e1.south] (eq){$=$};
+      \node[below=0.5ex of eq] (tot) {$\rho\left[\frac{\partial \vec V}{\partial t}
+      +\left(\vec V\cdot\vec\nabla\right)\vec V\right]$};
+      \path (tot.south west) -- (tot.south east) coordinate[pos=0.25] (tot1)
+        coordinate[pos=0.75] (tot2);
+      \node[below left=2ex and 0ex of tot.south,text width=4em,align=left] (c1) 
+          {Change of velocity};
+      \node[below right=2ex and 0ex of tot.south,text width=4em,align=left] (c2) {Convective term};
+      \draw[cyan,-stealth] (c1) -- (tot1);
+      \draw[cyan,-stealth] (c2) -- (tot2);
+      \begin{scope}[overlay]
+      \foreach \X in {1,...,4}
+      {\draw[cyan,-stealth] (e\X) -- (n\X);} 
+      \end{scope}
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
