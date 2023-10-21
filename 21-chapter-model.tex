@@ -37,7 +37,7 @@
 % - need to  model production, specifically the rising production with density. 
 %There is an extensive formal apparatus in economics for considering the relation of production and output. 
 % \section{The general structure of the model}
-In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
+In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters ***E EDIT: DISCUSSED IN GENERAL THE PRINCIPLES OR DISCUSSED THE ENERAL PRONICPLES discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
 
 % The model is introduced in the following sections:
 % \begin{enumerate}
@@ -66,7 +66,7 @@ In this thesis  we describe an agent-based spatial model of an urban housing mar
 
 % \section{The three major blocks of the model}\label{sec_model_blocks}
 
-Our goal has been to make a model as accessible as the Alonzo model that can still provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:
+Our goal has been to make a model as accessible as the Alonzo model that can still ***E WHY STILL??? provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:
 
 {\newpage\thispagestyle{empty}
 \vspace{-1.5cm}
@@ -87,9 +87,9 @@ Our goal has been to make a model as accessible as the Alonzo model that can sti
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonso-style models. This equation is embedded in the decision of every agent because it determines the economic rent for each piece of property.
 
-\item We incorporate the fundamental wealth production process of the city using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We call the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Together these two difference equations, operating on two aggregate variables, incorporate the major insight of a half-century of \gls{neoclassical growth theory}.
+\item We incorporate the fundamental wealth production process of the city using an \gls{urban scaling} law that captures Jacobs-style agglomeration effects. This allows us to bypass the complexities of labour and goods market adjustments and instead to deal with the underlying long-term relationship between city population and production. We call the combination of this Jacob agglomeration effect with the Alonso model an \gls{Alonso-Jacobs model}. Our \gls{agent-based model}, in effect, mimics two difference equations, operating on two aggregate variables, and incorporating the major insight of a half-century of \gls{neoclassical growth theory}.
 
-\item To link the Alonso-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing an \gls{agent-based model} we are forced to carefully specify the microeconomics of individual decisions. % In Section~\ref{section-micro},
+\item To link the Alonso-Jacobs model to the financial system, we develop an \gls{overlapping generations} model of the housing market with borrowers and lenders that tracks ownership and wealth. This turns out to be the most detailed and computationally-intensive part of the model. To model the effects financializing housing in our \gls{agent-based model} we are forced to carefully specify the microeconomics of individual decisions. % In Section~\ref{section-micro},
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
@@ -108,6 +108,8 @@ We begin with a model of a circular city. \footnote{In our computational model w
 In the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
+
+
 Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of
 goods which they sell into a commodity market. Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant. 
 
@@ -117,27 +119,29 @@ With the neoclassical model of distribution,\footnote{Clark's neoclassical assum
 % We assume that the neoclassical model of distribution holds in the long run and 
 workers receive the value of their marginal product. 
 
+Because of agglomeration effects, workers in the city are more productive than workers in the countryside. They therefore receive an  \gls{urban wage premium}.
+
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
  
 %NEED TO INTRODUCE SUBSISTENCE WAGE BEFORE MENTIONING IT ABOVE %[MAYBE This follows xyz's approach, and makes it possible to explore resident's choice to work]. 
 
 
-As in the Alonso model, described in Chapter~\ref{chapter-space}. The {urban wage premium} and transportation costs together determine both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
+As in the Alonso model, described in Chapter~\ref{chapter-space}. The \gls{urban wage premium} and transportation costs together determine both the radius of the circular city and the size of the labour force, %?There is no fixed boundary and the size of the city is determined by the utility that can be achieved in competing regions of competing for labour.
 % and as in the standard circular city model the constraint on growth is provided by transportation costs, which limit the size of the commuter-shed and therefore the labour force at any wage. 
  %The raidus of the commuter shed is thus,  %The farthest workers will travel to work is thus 
 % The  productivity of the city attracts people. 
 since agents work if the wage premium is greater than the cost of travel. % Living close to work has value to workers because it saves the cost of transportation. 
 The higher the wage, the  farther workers will commute. %This is the core of the Alozo circular city model.
-The farthest workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the city and the commuter shed.
+The farthest that workers will travel  is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the city and the commuter shed.
 
 The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute. Considering a standard, Alonzo-style \gls{circular city} with a uniform lot size, $s$ and  one worker per unit land, for illustrative purposes, the labour available is simply the area of the circle divided by the lot size: 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
  N = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
-   =\frac{\pi}{{c}^2 s} w^2,
+%   =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-This would be the equilibrium \gls{urban labour supply}  for the circular city. For a city with an idealized rectangular grid of streets, the city shape is rectangular rather than circular and the labour supply function is $N= 2\left(\frac{\omega}{c}\right)^2$. %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
+where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ is lot size (land per person). This is the equilibrium \gls{urban labour supply} function for the circular city. For a city with an idealized rectangular grid of streets, the city shape is rectangular rather than circular and the labour supply function is \[N= \frac{2}{s}\left(\frac{w}{{c}}\right)^2.\] %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
 %\footnote{See the discussion of model extensions in Appendix~\ref{appendix-future-work}.}.
 % To get the \gls{urban wage premium}, we can write the inverse of the labour supply function:
@@ -152,8 +156,8 @@ This would be the equilibrium \gls{urban labour supply}  for the circular city. 
 %, using a simple Cobb-Douglas production function. 
 % We incorporate the estimated scaling relationship in 
 %The scaling result at the level of the city allows us to incorporate the agglomeration effect in a \gls{circular city} model, 
-There is an agglomeration effect that augments the productivity of workers. This means firms produce more goods with a given stock of labour if the city is larger and urban workers are more productive, % than rural workers due to the positive agglomeration externalities. 
-so urban firms can pay a premium to attract workers, that depends, among other things on the size of the city. % , above the subsistence wage.
+The agglomeration effect that augments the productivity of workers means firms produce more goods with a given stock of labour if the city is larger and urban workers are more productive. % than rural workers due to the positive agglomeration externalities. 
+Urban firms can therefore pay a premium that depends on, among other things,  the size of the city. Because workers face transportation costs, firms have to pay this premium to attract workers. % , above the subsistence wage.
 %in a city with more people, as introduced in Chapter~\ref{chapter-growth} on growth.(**E SEE NOTE HERE) % #E i THINK YOU NEED TO FLESH THIS OUT, i'M NOT SURE EXACTLY WHAT YOU ARE SAYING. JUST BE A BIT MORE SPECIFIC AND FLESH OUT. 
 % \subsection{Labour force}
 %There are also firms that produce goods to sell. (???) % #E HOW IS THIS DIFFERENT THAN THE FIRMS PRODUCING GOODS IN THE PREVIOUS PARAGRAPH???
@@ -162,7 +166,8 @@ so urban firms can pay a premium to attract workers, that depends, among other t
  %, which are both exported and locally consumed 
 % to sell into a large market, at a fixed price. 
 
-To focus the model on urban productivity and the growing urban wage premium, we model workers as receiving a \gls{subsistence wage} $\psi$ in the countryside. Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way \cite{GET_classical-subsistence-wage}.
+To focus the model on urban productivity and the growing urban wage premium, we model workers as receiving a \gls{subsistence wage} $\psi$ in the countryside.\footnote{Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way.} % 
+%\cite{GET_classical-subsistence-wage}.
 %
 % CLASSICAL POLITICAL ECONOMY, THE SUBSISTENCE ...
 % American Economic Association
@@ -173,16 +178,26 @@ This subsistence wage could come from work in the local community, living off th
 % To attract workers to live in the city and commute to the central business district, firms pay the  \gls{urban wage premium}, $\omega$, in addition to  the subsistence wage $\psi$. 
 %\footnote{See parameter appendix Section~\ref{section-wage-premium} for a discussion of the empirical literature on the \gls{urban wage premium}.}. 
 % When workers take a job, they give up the subsistence income and, % instead receive a wage from their employer. % When workers take a job, they  receive, in addition to the subsistence wage,  the wage premium  from their employer. 
-
 Urban workers give up the subsistence income and receive the \gls{urban wage}, $\psi +  \omega$, the subsistence wage plus the \gls{urban wage premium} that firms pay to attract workers. 
 % When we assume an subsistence wage with a specific share  applied to housing we are implicitly assuming that landlords are seeking to claim the value of the rents. It makes it possible to explore whether and how tenants and even owners may be squeezed towards a \gls{subsistence frontier}. %whatever value the can. % tenants are squeezed by landlords. % DOES THE 'THIS' REFER TO THE FORMALIZATION OF WARRANTED RENTS?
 
+\subsection{Wage determination}
 
-According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. This means the wage increases in the same relation to population as \gls{productivity} does:
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. If we calculate the marginal product of labour for the Cobb-Douglas with the Jacobs externality from Equation~\ref{eqn-production-jacobs}, we get 
+\begin{align}\label{eqn-model-MPL}
+Y              =&  \die{A(L^T) K(t)^\alpha L^\beta}{L} \nonumber\\ 
+\die{Y}{L}     =&\beta A(L^T) K(t)^\alpha L^{\beta-1} \nonumber\\
+                =&\frac{\beta A(L^T) K(t)^\alpha L^\beta}{L} \nonumber\\
+                =& \frac{\beta Y}{L}
+\end{align}
+This is clearly positive and increasing in $L^T$. It follows that population growth increases marginal product in this model.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible, since it removes a term, $\frac{\gamma Y}{N}$, that is quantitatively insignificant from the expression for the marginal product that guides firm behaviour. If all firms are identical, the term becomes $F\frac{\gamma Y}{N} =\frac{\gamma Y}{L}$, } 
+As a result, the wage increases, perhaps with a lag, when urban population  rises
 \begin{equation}
-\omega + \psi\propto N^{\beta-1}.
+ \die{(\omega + \psi)}{L^T} >0
 \label{eqn-wage-population}
 \end{equation}
+
+Equation~\ref{eqn-wage-population} says that the marginal productivity of the workers in each firm rises as the city population rises. In our model the subsistence wage is fixed , so the wage premium rises.  We have shown that a rising wage increases the distance that workers will travel to work, so the city grows, as the upper loop in Figure~\ref{fig-flow-full-model} illustrates.
 
 % The city has single firm facing a fixed price for output. 
 
@@ -196,20 +211,23 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 % In the Solow-Swan model all factors of production are fully employed, and initial values $A(0)$, $K(0)$, and $n( 0 )$ are given. The number of workers, i.e. labour, as well as the level of technology grows exogenously at rate %s are $n$ and it   $g$,% respectively:  $L(t)=L(0)e^{nt}$     $A(t)=A(0)e^{gn}$ 
 % This model uses a similar functional form to look at the effect of population density increasing % productivity. %how density increases in in  % It models how population increases productivity. 
 
-The urban wage premium scales with the agglomeration effect. The \glspl{agglomeration effect} ensure urban \gls{output} is more than proportional to urban population: 
- \begin{equation}
- Y\propto N^{\beta},
- \label{eqn-production-population}
- \end{equation}
-where $\beta$ is the elasticity of output with respect to capital, $\beta > 1$ where the agglomeration effect is positive. % Setting $\beta = 1$ would be the \gls{constant returns to scale}. $\beta - 1$ is the extra return that comes from adding to people the city. That return is the agglomeration effect that belongs to the city, it could go to the people.
 
-We can put this together using a model of the production function. We implicitly use a three-factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change, with an \gls{agglomeration} effect, $A(N)$, in place of technology, $A(t)$. Output is:
+%%%%%.   MAYBE REINTRODUCE THIS
+% The urban wage premium scales with the agglomeration effect. The \glspl{agglomeration effect} ensure urban \gls{output} is more than proportional to urban population: 
+%  \begin{equation}
+%  Y\propto N^{\beta},
+%  \label{eqn-production-population}
+%  \end{equation}
+% where $\beta$ is the elasticity of output with respect to capital, $\beta > 1$ where the agglomeration effect is positive. % Setting $\beta = 1$ would be the \gls{constant returns to scale}. $\beta - 1$ is the extra return that comes from adding to people the city. That return is the agglomeration effect that belongs to the city, it could go to the people.
 
-\begin{equation}
-Y=A(N)K^{\alpha }(A(N)N)^\beta.
-\label{eqn-prod1}
-\end{equation}
-where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. $A(N)$ incorporates Jacob-style agglomeration externalities. $A(N)N$ is \gls{effective labour}.\footnote{The function  was discussed in Chapter~\ref{chapter-growth}.}
+% We can put this together using a model of the production function. We implicitly use a three-factor model of \gls{production}, where production, is a function of capital and labour as well as a third factor, a Solow-Swan style term for labour augmenting technical change, with an \gls{agglomeration} effect, $A(N)$, in place of technology, $A(t)$. Output is:
+
+%\subsection{aggregate urban output}
+% \begin{equation}
+% Y=A()K^{\alpha }(L^\beta}.
+% \label{eqn-prod1}
+% \end{equation}
+% where $K$ is capital, $\alpha$ is the elasticity of output with respect to capital, $\alpha = \beta - 1$, and  $n$ is the \gls{urban labour supply}. $A(N)$ incorporates Jacob-style agglomeration externalities. $A(N)N$ is \gls{effective labour}.\footnote{The function  was discussed in Chapter~\ref{chapter-growth}.}
 
 % \section{Agglomeration Appendix: Production Function}
 % SORT APPENDIX/OTHER STUFF
@@ -233,17 +251,16 @@ where $K$ is capital, $\alpha$ is the elasticity of output with respect to capit
 % The firm adjusts its labour force upward when the \gls{marginal product of labour} is greater than the wage by selecting from its list of job applicants.
 % The firm adjusts its wage offer upward when the marginal product of labour is greater than the wage and it faces a labour shortage.  Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
 
-% The marginal product of labour is monotonically declining, ensuring a labour market equilibrium, to connect with the analytic tradition of economic modelling by ensuring there is an equilibrium level of production.  While adding more labour may always adds some value, the rate at which it adds value drops off. 
-% If the marginal product increased, then a firm that got large enough would out compete smaller firms, hire all labour, always be able to produce more wealth by hiring more people, and would always produce more wealth by hiring people than by firing people. This doesn't happen. 
+ The marginal product of labour at the firm level is declining in $L^T$, ensuring a labour market equilibrium. %, to connect with the analytic tradition of economic modelling by ensuring there is an equilibrium level of production.  
+ While adding more labour may always adds some value, the rate at which it adds value drops off. 
+% If the marginal product increased, then a firm that got large enough would out-compete smaller firms, hire all labour, always be able to produce more wealth by hiring more people, and would always produce more wealth by hiring people than by firing people. This doesn't happen. 
 % Perhaps, the firm hires employees who best fit its needs first, but to grow, eventually it must hire less selectively. Finding markets may get harder with growth. Perhaps expansion adds additional costs, building a parking lot, administration, acquiring a larger building. Whatever the explanation, the marginal product of labour declines. 
 
-% Frictional unemployment usually just refers to people moving between jobs. When people look for jobs, it may take time to get them. The analytic model offers an equilibrium solution with full employment. In the agent-based model this assumption does not hold, workers are laid off, and take time to find new employment.
+The analytic model offers an equilibrium solution with full employment. In the agent-based model this assumption does not hold, workers are laid off, and take time to find new employment. The time people spend  moving between jobs is the cause of frictional unemployment, It  varies with economic conditions. Introducing a constant or ``natural'' rate of unemployment would have little effect on the overall behaviour of the model. Variable  frictional unemployment would introduce additional dynamics but would be unlikely to affect the results that interest us.
+
 % labour adjustment costs include moving costs for the employee or hiring, firing, or training cost for the firm. (there might be a hiring, firing, or training cost on the firm side, or on the employee side: expected time to employment costs, moving costs, etc.)
-% The assumption of monotonically embedded marginal product of labour is embedded in the production function, so it applies in the analytic and agent models. This appears in the requirement that the sum of the exponents in the \gls{Cobb-Douglas} are less than one without agglomeration effects. Agglomeration effects can push the sum above one. When the exponents add up to less than one, there are diminishing returns to scale.  Exploring alternatives would involved exploring other formulations of the production function.
+%The assumption of monotonically declining  marginal product of labour is embedded in the production function, so it applies in the analytic and agent models.  Agglomeration effects can push the sum above one. When the exponents add up to less than one, there are diminishing returns to scale.  Exploring alternatives would involved exploring other formulations of the production function.
 
-% $mvp(x) = p(x)$ where x can be labour, capital or any other factor, falls out of the function when you introduce profit maximization. Continuity and differentiability assumed but it is a convenient approximation-- take away assumptions you typically get a close approximation.
-
-% We have a two factor model of production with labour and capital.  
 
 
 
@@ -732,7 +749,7 @@ There is a surplus to be divided whenever the buyer's maximum bid exceeds owner'
 The bargaining problem is illustrated in Figure~\ref{fig:Nash-bargaining-game}. We imagine the seller values the property at \$30,000 and the buyer values it at \$50,000.  At any price above \$30,000 the seller is better off. At any price below \$50,000 the buyer is better off. The scale for the buyer is reversed so that it shows  paying less as moving in the positive upward direction. 
 
 The set of acceptable bargains acceptable to both is above and to the right of the point labeled `disagreement point. 
-The thin red line shows all the ways that the \$50,000 value of the house can be divided efficiently. In principle the buyer could pay more than \$50,000 or the seller could accept a price below \$30,000, but either would if they are rationale. 
+The thin red line shows all the ways that the \$50,000 value of the house can be divided efficiently. In principle the buyer could pay more than \$50,000 or the seller could accept a price below \$30,000, but ***E NEITHER WOULD??? either would if they are rational. 
 The thick red line segment, called the bargaining set, represents all the outcomes that are\begin{enumerate}
     \item Efficient, because the entire \$20,000 surplus is allocated to the players. 
     \item Feasible, because the players invovled gain no more in total than the potential increase in value generated by the transaction.

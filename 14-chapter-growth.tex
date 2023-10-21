@@ -30,21 +30,21 @@
 
 
 % EXTEND/CUT AND PUT HERE JACOB'S VISION OF THE DYNAMISM OF THE CITY AND HOW IT ACTUALLY CREATES VALUE.
-In The Economy of Cities (1969), Jane Jacobs \cite{jacobsEconomyCities1969} put forward a compelling suggestion in response to an important question in economics: What is the source of economic growth and innovation? Her insight was that cities are the primary drivers of economic development, and that the mechanism was  the growing opportunities for sharing and creating ideas as population and population density increase. the `jacobs model'  both describes the effect of urban agglomeration and explains it.
+What is the source of economic growth and innovation that has characterized human civilizations? In The Economy of Cities (1969), Jane Jacobs \cite{jacobsEconomyCities1969} put forward a compelling suggestion: %in response to an important question in economics:  
+cities are the primary drivers of economic development, and  the mechanism that explains growth is  the growing opportunities for sharing and creating ideas as population and population density increase. The `Jacobs model'  both describes the effect of urban agglomeration and explains it.
 
-One of the leading pioneers of neoclassical growth theory, Robert E. Lucas \cite{lucasMechanicsEconomicDevelopment1988} found Jabob's insight highly suggestive:
+One of the leading pioneers of the neoclassical growth theory, Robert E. Lucas \cite{lucasMechanicsEconomicDevelopment1988} found Jacob's insight highly suggestive:
 
 \begin{quotation}
     Her emphasis on the role of cities in economic growth stems from the observation that a city, economically, is like the nucleus of an atom: If we postulate only the usual list of economic forces, cities should fly apart. \textbf{The theory of production contains nothing to hold a city together.} A city is simply a collection of factors of production---capital, people, and land---and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits? Of course, people like to live near shopping, and shops need to be located near their customers, but circular considerations of this kind explain only shopping centers, not cities. Cities are centered on wholesale trade and primary producers, and a theory that accounts for their existence has to explain why these producers are apparently choosing high rather than low-cost modes of operation. (emphasis ours)
 \end{quotation}
 
 % As a result, ``following very closely the lead of Jane Jacobs, whose remarkable book The Economy of Cities (1969),'' 
-Lucas goes on to suggest that ``the 'force' we need to postulate account for the central role of cities in economic life is of exactly the same character as the 'external human capital' I have postulated as a force to account for certain features of aggregative development.''  He concludes that if this is so, ``\textbf{\dots land rents should provide an indirect measure of this force (emphasis  ours)}, in much the same way that schooling-induced earnings differentials provide a measure of the productive effects of internal human capital.''
+Lucas goes on to suggest that \begin{quotation}``the 'force' we need to postulate account for the central role of cities in economic life is of exactly the same character as the 'external human capital' I have postulated as a force to account for certain features of aggregative development.''\end{quotation}  He concludes that if this is so, ``\textbf{\dots land rents should provide an indirect measure of this force (emphasis  ours)}, in much the same way that schooling-induced earnings differentials provide a measure of the productive effects of internal human capital.''
 
 % This insight, which parallels ours, has not been adequately explored, in our view.  Allowing Lucas to expand on his observation about Jacobs, 
 
-This observation provides a natural link to the scaling literature on cities and to our work. 
-The value produced per capita in cities is not static, it actually grows over time. In this chapter, we'll link the basic spatial model to the scaling of urban productivity,  as Lucas seems to be suggesting, and in the process,  we will provide the foundation for our model of urban agglomeration effects.
+This observation provides a natural link between the Jacobs mode, which is based on urban agglomeration, the neoclassical growth model operating at the level of nations, and the scaling literature on cities. In this chapter, we link our basic spatial model to the scaling of urban productivity,  as Lucas seems to be suggesting, and in the process,  we will provide the foundation for our model of urban agglomeration effects.
 
 \section{Cities and the scaling literature}
 
@@ -52,13 +52,22 @@ Complex systems theory is concerned with identifying and characterizing common d
 
 Scaling analysis is a tool developed in complex systems science to investigate how \glsdisp{extensive property}{extensive properties} of the system vary with a system's size,  or `scale'.  In urban science, there are now many studies of  the relationships between urban population size and  features like urban economic output,  area, growth, traffic congestion costs, and even social  indicators like crime and homicide rates. Our particular interest is in studies linking city population  and  economic output. 
 
-The scaling literature has confirmed several basic results of the form $Y=AN^\beta$. These are known as \glspl{scaling law}. In this example, $Y$ is total value produced in a city, $N$ is city population, $A$ is a baseline value and $\beta$ relates the \gls{extensive property} $N$ to the measure $Y$. Researchers have concluded that 
+The scaling literature has confirmed several basic results of the form 
+
+\begin{equation}
+Y=AN^\beta.
+\end{equation} 
+These are known as \glspl{scaling law}. In this example, $Y$ is total value produced in a city, $N$ is city population,\footnote{We follow the common convention in the scaling literature  in using $N$ for the population of the city. In the neoclassical growth literature we discuss below, $L$ stands for the population of a nation.} $A$ is a baseline value and $\beta$ relates the \gls{extensive property} $N$ to the measure $Y$. Researchers have concluded that 
 
 % MAYBE ADD SOME DETAILS ON SCALING. e.g. One persistent drivign result that wealth scales with density- this is jane Jacob's result. 
 % There used to be health effects and really substantial tradeoffs- short lives and disease in exchange for the density and productivity of connection. This has changed. People live longer, earn more, and have by many measures higher quality of life in urban areas. 
 \begin{enumerate}
  \item socioeconomic outputs like wealth, innovation, congestion, and number of homicides per year all scale superlinearly with the size of cities ($\beta > 1$); \cite{gomez-lievanoStatisticsUrbanScaling2012}
+\vspace{.25cm}
+ 
  % in the appendix we show their model ends up with the same structure as ours.
+
+ \hspace{-1cm}In addition, 
 \item the relationship appears to have applied well back into pre-history, from the smallest human communities to modern megacities; % It is not a function of any government, economic, or cultural form. It's not simply modern cities or capitalist cities. 
 \item scale effects derive from the capacity of people to interact (as Jacobs suggested).
 % \item This is what we see in the data. Social wealth is increasingly driven by the great cities. - The future of civilization and wealth is urban.
@@ -72,27 +81,30 @@ These scale effects are the same as the agglomeration effects long discussed in 
 % BEGIN LEWIS STUFF, THEN MOVE INTO ECONOMIC SUPPORT
 There is in fact a considerable history of economic thinking about agglomeration effects going back at least to  Alfred Marshall in 1890.\cite{giddingsPRINCIPLESECONOMICSAlfred1890} % {\color{red}
 %The literature offers support for all the main building blocks of the frame- work proposed here: an upward-sloping wage curve, a cost of living that rises with city size, a bell-shaped net wage curve, and some labor mobility driven by net wage differentials. 
-More recently, a large body of literature has demonstrated the existence of agglomeration economies in developed economies (see Rosenthal and Strange \cite{rosenthalEvidenceNatureSources2004} for a review). Empirical support for the framework includes \cite{spenceUrbanizationGrowth2009, durantonAreCitiesEngines2009, durantonHumanCapitalExternalities2007}. The main conclusion of this literature is the finding of scale economies in the rage of 3--8 percent (a 10 percent increase in the size of an activity in a city raises productivity in this activity by 0.3--0.8 percent). These agglomeration effects take place both within sectors (localization economies) and between sectors (urbanization economies). The results for developing countries are usually similar, although far less research about agglomeration economies has been conducted in such settings. 
+More recently, a large body of literature has demonstrated the existence of agglomeration economies in developed economies (see Rosenthal and Strange \cite{rosenthalEvidenceNatureSources2004} for a review). Empirical support for the framework includes \cite{spenceUrbanizationGrowth2009, durantonAreCitiesEngines2009, durantonHumanCapitalExternalities2007}. 
+
+The main conclusion of this literature is the finding of scale economies in the rage of 3--8 percent (a 10 percent increase in the size of an activity in a city raises productivity in this activity by 0.3--0.8 percent). These agglomeration effects take place both within sectors (localization economies) and between sectors (urbanization economies). The results for developing countries are usually similar, although far less research about agglomeration economies has been conducted in such settings. 
 % }
 % \vspace{2cm}
-The empirical \glspl{scaling law} are a feature of urban systems on average. We will show that they provide a model that can explain economic growth.% If the population rises, the output must rise more than proportionately. %, but if the population responds to the wage premium, the population should then rise. 
+The empirical \glspl{scaling law} are a feature of urban systems on average. %We will show that they provide a model that can explain economic growth.% If the population rises, the output must rise more than proportionately. %, but if the population responds to the wage premium, the population should then rise. 
 
+
+
+Given that there is such a strong theoretical and empirical grounding for urban agglomeration effects in the city, we build our model of the housing market on top of a model of the urban system that exhibits positive agglomeration effects. %***E EDIT THIS. TO CLARIFY RELATIONSHIP BETWEEN SENTENCES. BUILD AGGLOM EFECT INTO MODEL BY EMBEDING SCALING LAW? OR SPECIFICALLY WE EMBED??? 
+We do this by embedding an  urban \glspl{scaling law} in our model. To develop the theoretical grounds of our model, however, we draw on neoclassical growth theories developed to explain the growth of national output.
 
 \section{Neoclassical growth theories}  \label{section-growth}
-Much of growth theory was concerned with identifying the dynamics of macroeconomic systems,  and in particular with the implications for the growth of incomes. Early models \cite{keynesGeneralTheoryEmployment1937} employ a macroeconomic savings function which usually has a fixed savings rate, with savings being reinvested in productive capital. Later models endogenize the savings-investment process. The growth models, however, were not spatial models and necessarily abstracted from land rents and distribution. They have nothing to say about the distribution of city products and the effect that distribution might have on growth. When we focus on cities, however, it becomes necessary to develop an analysis of city-level saving and investment. 
+Much of growth theory was concerned with identifying the dynamics of macroeconomic systems,  and in particular with the implications for the growth of national income. Early models \cite{keynesGeneralTheoryEmployment1937, harrodEssayDynamicTheory1939, domarCapitalExpansionRate1946}  employ a macroeconomic savings function which usually has a fixed savings rate, with savings being reinvested in productive capital. Later models endogenize the savings-investment process. The growth models, however, were not spatial models and necessarily abstracted from land rents and distribution. They have nothing to say about the distribution of city products and the effect that distribution might have on growth. When we focus on cities, however, it will become necessary to develop an analysis of city-level saving and investment. 
 
 
 
-
-
-Given there is such a strong theoretical and empirical grounding for urban agglomeration effects in the city, we build agglomeration effects into our model. We directly  embed an  urban \glspl{scaling law} in our model. To develop the theoretical grounds of our model, we draw on neoclassical growth theories.
 
 
 
 \subsection{The Solow-Swan growth model}
 In 1956 Robert Solow \cite{solowContributionTheoryEconomic1956} and Trevor Swan \cite{swanEconomicGrowthCapital1956}
-addressed a gap/failure in  neoclassical production theory. launched. Solow's paper in particular  stimulated a vast literature in the 1960s and launched an entire subfield known as  neoclassical growth theory.\footnote{Solow and his contemporaries, including Edward F. Denison \cite{denisonSourcesEconomicGrowth1962}, were attempting to account for the main features
-of U.S. economic growth, not to provide a theory of economic development as later theorists were.} %, exploring many variations on the original one-sector structure.  
+addressed a gap in  neoclassical production theory.  Solow's paper in particular stimulated a vast literature in the 1960s and launched an entire subfield known as  neoclassical growth theory.\footnote{Solow and his contemporaries, including Edward F. Denison \cite{denisonSourcesEconomicGrowth1962}, were attempting to account for the trajectory
+of U.S. GDP growth, not to provide a theory of economic development as later theorists were. The distinction, although it does not seem to be commonly drawn, is between quantitative change in the level of GDP and qualitative change resulting from innovation and structural transformations.} %, exploring many variations on the original one-sector structure.  
 
 
 Existing models of production had described national output as a function of two  factors, the national capital and labour stocks. Output should therefore have been completely determined by the growth of those stocks and nothing else. Productivity actually grew more over time than the increases in labour and capital stocks could explain if the production function was correct.
@@ -102,45 +114,45 @@ The \gls{Cobb-Douglas} production function that was used had been estimated by C
 Y=AK^\alpha L^\beta 
  \label{eqn-Cobb-Douglas}    
 \end{equation*}
-where $L$ represented the national labour stock, $K$ the national capital stock and  $A$ a convenient scale factor. This \gls{Cobb-Douglas} form captured  important regularities in the cross-sectional national data,\footnote{ A 2021 meta-analysis of 3186 estimates concluded that ``the weight of evidence accumulated in the empirical literature emphatically rejects the Cobb-Douglas specification.''Gechert, Havranek, Irsova, Kolcunova (2021), ``Measuring capital-labour substitution: The importance of method choices and publication bias,'' Review of Economic Dynamics, doi:10.1016/j.red.2021.05.003, S2CID 236400765. More sophisticated models  such as the CES and translog functions have been developed since.}  % FI
+where $L$ represented the national labour stock, $K$ the national capital stock and  $A$ a convenient scale factor. This \gls{Cobb-Douglas} form captured  important regularities in the cross-sectional national data,\footnote{The function remains the workhorse of growth theory, although later work has found models that preform better e empirically.  A 2021 meta-analysis of 3186 estimates concluded that ``the weight of evidence accumulated in the empirical literature emphatically rejects the Cobb-Douglas specification.''Gechert, Havranek, Irsova, Kolcunova (2021), ``Measuring capital-labour substitution: The importance of method choices and publication bias,'' Review of Economic Dynamics, doi:10.1016/j.red.2021.05.003, S2CID 236400765. More sophisticated models  such as the CES and translog functions are now preferred for estimating production functions.}  % FI
 but the estimates soon showed a systematic bias with time series. 
 
 
-By the early 1950s it was clear that estimated model parameters were underpredicting  output when  current levels of  national capital and labour stocks were used.   Something that was not captured in the initial model was changing over time. The value of the the scale constant $A$  was not constant, it was time-dependent. 
+By the early 1950s it was clear that estimated model parameters were underpredicting  output when  current levels of  national capital and labour stocks were used.   Something that was not captured in the initial model was changing over time. The obvious conclusion was that value of the the scale constant $A$  was not constant, it was time-dependent. 
  \[Y=A(t)K^\alpha L^\beta\]
-Solow and Swan proposed a way to extend the standard \gls{Cobb-Douglas} production that captured rising productivity over time. 
+Solow and Swan proposed a way to extend the standard \gls{Cobb-Douglas} production to explain rising productivity over time. 
  %offered a possible explanation for why it would be changing, opening the field for a further series of refinements in an enterprise that became known as `growth theory.' %   R.E. Lucas, Jr., On the mechanics of economic development.}
-Solow  argued that ``As a result of exogenous population growth the labour force increases at a constant relative rate n'':
-  \[L(t)= L_0e^{nt}\] 
+Solow  argued that ``As a result of exogenous population growth the labour force increases at a constant relative rate'' that we will represent by  $g$:
+  \[L(t)= L_0e^{gt}\] 
 If we insert this term into the production function we get a scale term that depends on the changing population: 
 \begin{eqnarray}
-Y &= AK^\alpha (L_0e^{nt})^\beta\nonumber\\
-  &= A(e^{nt})^{\beta}K^\alpha L^\beta
+Y &= AK^\alpha (L_0e^{gt})^\beta\nonumber\\
+  &= A(e^{gt})^{\beta}K^\alpha L^\beta
 \label{eqn-solow-swan3}
 \end{eqnarray}
 we see that $A(t)$ can be written
- \[A(t)=Ce^{nt\beta}\]
+ \[A(t)=Ce^{gt\beta}\]
 and we have the time-dependent term needed to  allow the model to track the data better. This model is now known as the \gls{Solow-Swan model}. 
 The \gls{Solow-Swan model} correctly predicts the directions of saving and population growth, but not the magnitudes \cite{mankiwContributionEmpiricsEconomic1992}. It successfully explained a good deal of the until-then unexplained variation over time and between nations. More than half  of the cross-country variation in income, for example,  can be explained by differences in per capita saving (capital) and population growth alone. The estimated influences of saving and population growth with the Solow model appear too large, however. To understand the relationship between saving, population growth, and income, it was necessary to go beyond the  Solow-Swan model.
 
 Notice, that in the Solow-Swan model growth in productivity is exogenous.
-By treating technological change as exogenous, neoclassical growth theory could not focus on the fundamental forces which determine long-run growth of nations.   Robert E. Lucas \cite{lucasMechanicsEconomicDevelopment1988} would observe that ``It seems to be universally agreed that the model \dots is not a theory of economic development.   \dots while it is not exactly wrong to describe these differences (in GDP  growth rates) by an exogenous, exponential term like A(t), neither is it useful to do so. We want a formalism that leads us to think about individual decisions to acquire knowledge and about the consequences of these decisions for productivity.'' 
+By treating economic expansion  as exogenously driven, neoclassical growth theory could not focus on the fundamental forces which determine long-run development of nations.   Robert E. Lucas \cite{lucasMechanicsEconomicDevelopment1988} would observe that ``It seems to be universally agreed that the model \dots is not a theory of economic development.   \dots while it is not exactly wrong to describe these differences (in GDP  growth rates) by an exogenous, exponential term like A(t), neither is it useful to do so. We want a formalism that leads us to think about individual decisions to acquire knowledge and about the consequences of these decisions for productivity.'' 
 
 
-The models that followed Solow-Swan, starting with Arrow's 1962 model of `learning by doing,' \cite{arrowEconomicImplicationsLearning1962a}, introduce \gls{human capital} and learning in a variety of ways. This is a central insight. Human capital may enter  as a stock of experience that accumulates in the firm or the sector, proxied by aggregate prior capital investment, as  in Arrow. The scale term $A$ then becomes $A(K)$. Arrow's  dynamic interpretation of increasing returns was one early attempt to render technological progress endogenous in a growth model.\footnote{The version of how the field has developed that we present leaves out many who were engaged in and contributing to the evolution of growth theory. The introduction to  Arrow's paper cites several. Spear and Young\cite{spearMACROECONOMICDYNAMICSSURVEY2018} provide a more inclusive overview. It seems clear that neoclassical growth theory was the result of a general ferment in the economic profession, not simply the product of a few pioneering individuals.} 
+The models that followed Solow-Swan, starting with Arrow's 1962 model of `learning by doing,' \cite{arrowEconomicImplicationsLearning1962a}, introduce \gls{human capital} and learning in a variety of ways. This is a central insight. Human capital may enter  as a stock of experience that accumulates in the firm or the sector, proxied by aggregate prior capital investment, as  in Arrow. The scale term $A$ then becomes $A(K)$.\footnote{The use of capital as the limiting factor formally resembles the Harrod-Domar model \cite{harrodEssayDynamicTheory1939, domarCapitalExpansionRate1946}, although the interpretation is different. Arrow uses capital a a proxy for knowledge, not machinery.} Arrow's  dynamic interpretation of increasing returns  approach was perhaps the first to  render technological progress endogenous in a growth model.\footnote{The version of how the field has developed that we present leaves out many who were engaged in and contributing to the evolution of growth theory. The introduction to  Arrow's paper cites several. Spear and Young\cite{spearMACROECONOMICDYNAMICSSURVEY2018} provide a more inclusive overview. It seems clear that neoclassical growth theory was the result of a general ferment in the economic profession, not simply the product of a few pioneering individuals.} 
 % {\color{red} 
 % and  Levhari  \cite{levhariExtensionsArrowLearning1966} by  the experience of workers,  as in Sheshinski \cite{sheshinskiOptimalAccumulationLearning1967}.
 % } 
 Other proxies for learning were considered by various authors \cite{levhariExtensionsArrowLearning1966, sheshinskiOptimalAccumulationLearning1967}, incuding the the amount of innovation by other firms and sectors  \cite{kingEndogenousGrowthRole1989}. Sheshinski and Levhari showed that Arrow's formulations was quite general and could incorporate a range of effects as well as different forms for the production function.
 
 
-To understand  growth theories based on \gls{human capital},  sometimes called `\gls{effective labour},' it is helpful to notice that Solo's formulation is unchanged if we substitute `labour $\times$ skill' for $L$ in his model. Both components of `labour $\times$  skill,' or effective labour grow over time. Output then grows at the same rate as the effective labour supply. Mankiw, Romer and Weil \cite{mankiwContributionEmpiricsEconomic1992} showed that  
+To understand  growth theories based on \gls{human capital},  sometimes called `\gls{effective labour},' it is helpful to notice that Solow's formulation is unchanged if we substitute `labour $\times$ skill' for $L$ in his model. Both components of `labour $\times$  skill,' or effective labour grow over time. Output then grows at the same rate as the effective labour supply. Mankiw, Romer and Weil \cite{mankiwContributionEmpiricsEconomic1992} showed that  
 Solow's model  augmented by including human capital $H$ it fit the data better the unamended Solow-Swan model. Their equation was, in our notation,   
 \begin{equation*}
 Y=A(t)K^\alpha H^\gamma L^\beta 
 % \label{eqn-mankiw}    
 \end{equation*}
-(They assume $\alpha+\gamma<1$, which implies decreasing returns to all capital.) The apparent effect of increasing labour supply and technological change could be, in fact, the combined effect of rising labour supply, technological change, and increasing labour skill and even agglomeration. Later studies would attempt to disentangle the four components .
+where $H^\gamma$ is a form of human capital. (They assume $\alpha+\gamma<1$, which implies decreasing returns to all forms of capital take together.) The apparent effect of increasing labour supply and technological change could be, therefore, the combined effect of rising labour supply, technological change, and increasing labour skill and even agglomeration. Later studies would attempt to disentangle the four components .
 
 
 %???       It is no surprise that adding a variable allowed the model to track the data better. More  interesting is that the appearance of term $1-\alpha}$ in the scale factor $A$ suggests a spillover effect of human capital on the productivity of other factors.\footnote{Breton, T. R. (2013). ``Were Mankiw, Romer, and Weil Right? A Reconciliation of the Micro and Macro Effects of Schooling on Income'' (PDF). Macroeconomic Dynamics. 17 (5): 1023--1054. doi:10.1017/S1365100511000824. hdl:10784/578. S2CID 154355849.}  
@@ -168,109 +180,73 @@ Y=A(t)K^\alpha H^\gamma L^\beta
 Identifying  plausible ways that human capital might affect development was relatively easy. Measurement of human capital presents great practical difficulties. To extract the implications of a particular path, it was also necessary to construct a tractable model, analyze its dynamic properties, and find proxy data to test the initial hypothesis.   A series of papers did exactly that. It is important to note that these models all open the possibility that governments can  promote growth through investment in education, research, technology transfer, and incentives for firms.
 
 \subsection{Endogenous (neoclassical) growth models}
-A new wave of research on economic growth was stimulated by Romer (1986) and Lucas (1988). In their models, returns to scale are external to single economic agents and internal to a sector or larger parts of the economy. We will apply the same insight to urban models to incorporate the growth-enhancing effect of agglomeration. 
+A new wave of research on economic growth was stimulated by Romer (1986) and Lucas (1988). In their models, returns to scale are external to single economic agents and internal to a sector or larger parts of the economy. In other words, private decisions by firms or individuals may enhance the productivity of other firms or individuals. This  insight is built into our urban models as a growth-enhancing effect of agglomeration. 
 
 %Basically, two branches have developed, pioneered by Romer (1990) and Lucas (1988). CHECK THESE SOURCES
 
 Paul Romer's 1986  model\footnote{ based on his 1983 thesis} describes `learning by investment.' In this model, the increase in {total factor productivity} depends on firms' learning, or investment specifically in knowledge accumulation through research, rather than output. He goes on to  explicitly model the decision to invest in the production of knowledge. The production function  can be written
 \[Y = A(R^T)R^\gamma  K^\alpha L^\beta) \]
-Where $R(\equiv R_i)$ is the research effort of the specific firm, and $R^T=\sum_iR_i$ is the total research in the industry,  $R$ is a choice variable for the firm, which is to say, it decides how much to invest in research. 
-
-A notable feature of this model is the spillover effect on all other firms of the firm's investment through the \gls{total factor productivity} term,  $A(R^T)$. %\textbf{This is the logic of our own model of agglomeration effects in the city.}
+Where $R$ is the research effort of the specific firm, and $R^T=\sum_iR_i$ is the total research in the industry,  $R$ is a choice variable for the firm, which is to say, it decides how much to invest in research. The distinctive  feature of this model is the spillover effect on all other firms of the firm's R\&D investment. Economy-wide or  \gls{total factor productivity} is enhanced by individual firms investing in their own productivity. $A(R^T)$. %\textbf{This is the logic of our own model of agglomeration effects in the city.}
 
 In 1988 Lucas also argued that technical progress is endogenous. He proposed a model that is  close technically to the models of Arrow (1962), Uzawa (1965)and Romer (1986). Following our notation, 
 \[ Y = A(H^e) K^\alpha (HeL)^\beta \] 
-where $H^e$ is the economy's average level of skill (human capital).  Improvements in skill in any firm  increase overall productivity.  $HeL$  can be understood as the `effective' labour force of the firm. It is a product of $L$, size of the workforce. $H$, is the skill level of the firm's workers, and $e$, is the fraction of work time spent working. $1-e$ is the fraction of worker time  spent in training. The  special feature is that $e$ is a choice variable for the firm.\footnote{It could as easily be a choice variable for workers in the aggregate model.} More time training increase $H$ but reduces $e$, so the firm faces a tradeoff.
+where $H^e$ is the economy's average level of skill (human capital).  Improvements in skill in any firm  increase overall productivity.  the compound term, $HeL$,  can be understood as the `effective' labour force of the firm. It is a product of $L$, size of the workforce, $H$, is the skill level of the  workers that the firm hires, and $e$, is the fraction of work time spent working. $1-e$ is the fraction of worker time  spent in training. The  special feature is that $e$ is a choice variable for the firm.\footnote{It could as easily be a choice variable for workers in the aggregate model.} More time training increase $H$ but reduces $e$, so the firm faces a tradeoff.
 % CHECK NOTATION ***
 
-The difference between Romer and Lucas style theories is that endogenous growth in the theory of Romer is caused by accumulating technology (or knowledge), while in Lucas it is through training (accumulating human capital). %\footnote{Although it is not of direct concern for our work, it is useful to recognize that much of the emphasis in these models is on finding the conditions that can explain the observed long-term  and growth over and above that driven by exogenous population or technology growth. } 
-Romer  emphasized the decisions made by firm while Lucas  based his theory mainly on the decisions made by households. In both we see the  internal effects of human capital, where the individual worker undergoing training becomes more productive for the firm, and an external or `spillover' effect which increases the productivity of the economy. 
+The difference between Romer and Lucas style theories is that endogenous growth in the theory of Romer is caused by accumulating technology (or knowledge), which can be called social capital, while in Lucas it is through training, which increases human capital. %\footnote{Although it is not of direct concern for our work, it is useful to recognize that much of the emphasis in these models is on finding the conditions that can explain the observed long-term  and growth over and above that driven by exogenous population or technology growth. } 
+Romer emphasized the decisions made by firm while Lucas  based his theory mainly on the decisions about $e$ made by households. In both we see the  internal effects of human capital, where the individual worker undergoing training becomes more productive for the firm, and an external or `spillover' effect which increases the productivity of the economy. 
 
-The evidence supports the existence of significant learning spillovers in a variety of industries. Using survey data, Mansfield (1985) found that information about new processes and products in ten industries surveyed had widely diffused within a year. Spillovers have also been found in econometric studies: Irwin and Klenow (1994) find them in semiconductors; Thornton and Thompson (2001) in wartime shipbuilding; Lieberman (1989) in chemicals; Foster and Rosenzweig (1995) in the adoption of high-yielding seed varieties; and Conley and Udry (2007) in the adoption of best practices by Ghanaian pineapple farmers. 
+The evidence supports the existence of significant learning spillovers in a variety of industries. Using survey data, Mansfield (1985) found that information about new processes and products in ten industries surveyed had widely diffused within a year. Spillovers have also been found in econometric studies: Irwin and Klenow (1994) find them in semiconductors; Thornton and Thompson (2001) in wartime shipbuilding; Lieberman (1989) in chemicals; Foster and Rosenzweig (1995) in the adoption of high-yielding seed varieties; and Conley and Udry (2007) in the adoption of best practices by Ghanaian pineapple farmers.\footnote{A model of a national economy that uses the number of urban dwellers would probably track output just as well as one using the number employed as the mainline growth models do. As countries develop, cities account for an ever-increasing share of  national populations and an ever-increasing share of national income.  This is  even more likely when we recall that the principle insights coming out of neoclassical growth theory point to human capital and education as the mystery factor in growth and cities are where the most skilled workers concentrate and where the strongest educational institutions tend to be. } 
 
 
 
-\subsection{Adding Jacobs-style agglomeration effects}
+\section{Jacobs-style agglomeration effects and the scaling law}
 
-Jane Jacobs introduced an alternative but compatible explanation for the increasing productivity that growth theorists tried to explain. She argued that when people come together in cities they make each other more productive \cite{jacobsEconomyCities1969}. In her view the increase in productivity is a result of increasing communication - essentially network effects.  This is  a theory of urban agglomeration that can be written
+Jane Jacobs introduced an alternative but compatible explanation for the increasing productivity that growth theorists tried to explain. She argued that when people come together in cities they make each other more productive \cite{jacobsEconomyCities1969}. In her view the increase in productivity is a result of increasing communication -- essentially network effects -- between people.  This is  a theory of urban agglomeration that can be written for the firm level as%, Remaining with the notation of the growth theorists, it can  be written, 
 
 \begin{equation}
-Y = A(L) K(t)^\alpha L^\beta 
+y(t) = A_f(L^T,t) K^\alpha L^\beta 
+%y(t) = A_f(L^T(t)) K(t)^\alpha L(t)^\beta 
 \label{eqn-production-jacobs}
 \end{equation}
-where $L$ stands for the size of the urban labour force. Since urban labour force and capital are nearly proportional, the  model is observationally nearly equivalent to the Arrow model.\footnote{ To see why, consider a fixed capital-labour ratio $d$. Let  $L$ be total labour employed by urban firms so that $K=L=K/d$. Then Equation~\ref{eqn-production-jacobs} becomes
-\[Y = A(K/d)K^\alpha L^\beta) \]
-% But  $d^\alpha$ is simply multiplicative constants that can be incorporated into the scale factor $c$, so the function becomes 
-% \begin{equation}Y = c(d^\alpha)N^{\gamma+\alpha+\beta}\end{equation}
-% \begin{equation}
-% Y = A(t)N^{\alpha+\beta}
-% \label{eqn-production-jacobs-2}
-% \end{equation}
-%If there are capital efficiencies in larger markets the exponent will be $\gamma >\alpha +\beta$.
-}
+where the  lowercase $y$  indicates that Equation~\ref{eqn-production-jacobs} is a \textbf{firm-level}, or micro-economic, formulation. The $L^T$  in the function $A(.)$ stands for the size of the total urban labour force or urban population.
 
-% \begin{figure}[!tb]
-% \begin{center}
-% \input{fig/rising-wages}
-% \end{center}
-% \caption[Rising wage and increasing city size]{Rising wage and increasing city size. Agglomeration effects increases the wage premium from $\omega_0$ to $\omega_1$, a higher wage attracts more people to the city, leading to city growth from $d_0^*$ to $d_1^*$, which then begins another cycle of agglomeration and growth }
-% \label{fig-rising-wages}
-% \end{figure}
-% 
+We impose the standard neoclassical diminishing returns to scale\footnote{$Y(\delta K,\delta L< \delta Y(K,L)$.} assumption on the \gls{Cobb-Douglas} production function, i.e. that 
+$\alpha +\beta <1 $.  
+ %The Cobb-Douglas function used to illustrate these models has the required property.\footnote{To see why, notice that $A(\delta K)^\alpha (\delta L)^\beta = A\delta^(\alpha+\beta) K^\alpha L^\beta$, and $\delta^(\alpha+\beta) <\delta$ for $\delta>1$. } 
+ 
 
-The  increase in productivity due to agglomeration is the force that drives the formation of cities.\footnote{A model of a national economy that uses the number of urban dwellers would probably track output just as well as one using the number employed as the mainline growth models do. As countries develop, cities account for an ever-increasing share of  national populations and an ever-increasing share of national income.  This is  even more likely when we recall that the principle insights coming out of neoclassical growth theory point to human capital and education as the mystery factor in growth and cities are where the most skilled workers concentrate and where the strongest educational institutions tend to be.} 
-In our model, the agglomeration-driven increases in productivity results in an \gls{urban wage premium}. The urban wage premium attracts workers to the city and pays their  transportation costs. The size of  the wage premium determines the size of the city. 
-
-The urban economy modeled this way provides the base for our analysis of the urban housing market. We are not attempting to explain how the wage premium arises: there is strong empirical evidence that it exists, and it is  
-theoretically consistent with the explanations of the growth theories described above. We do need to point to how these agglomeration effects feed into the dynamics of the housing market. 
-
-
-%We do not specify that make urban labour more productive than non-urban labour. % The process has deep historical roots and we do not need to provide an origin story for our project. 
-%{\color{red}We can use Figure~\ref{fig-rising-wages} to emphasize the self-reinforcing nature of the mechanism. The blue line  shows population rising as the city boundary moves outward and the orange line shows productivity rising even more quickly due to agglomeration effects. Starting with a city that has grown to size $d_0^*$ based on a wage premium $\omega_0$ in Figure~\ref{fig-rising-wages}, an increase in the productivity due to the various spillover effects discussed in the literature eventually is passed through, at least in part, to the wage raising it to $\omega_1$. }
-
-Conventional microeconomic theory  provides us with a rough sketch of the  complex process that must occur as agglomeration effects grow. The process will generally be slow, variable, and may involve many unsynchronized lags.  The basic process is that a firm, discovering its workers are  more productive than expected, enjoys unexpected output and profits. Unexpected profits in exiting firms will lead to new firms entering the industry. Since the marginal product of each worker is higher than expected, the firm  wants to hire more workers. To do so in a city with full employment, it must raise its wage offer. The increased wage attracts workers from other firms, putting pressure on them to also increase their wage. Wages rise across the city. The general increase in the wage attracts more workers to the city.  
-
-The increase in population will eventually generate additional agglomeration benefits, further increasing wages. At the aggregate level, this positive feedback appears to be solidly supported, but locally, within firms and between firms there will be long and variable lags. Analytical equilibrium models seek to bypass these messy processes, while agent-based models attempt to incorporate them.
-
-The increase in wages appears as a benefit to workers as workers already in the city. %In Figure~\ref{fig-rising-wages} the area in blue-green represents the worker's share of the increased productivity of the city. 
-Assuming that marginal land use per new resident is constant, the city  will eventually expand in proportion to the increase in the wage.%, shown as the distance $d^*_0--d^*_1$. Aggregate rent  further expands by the area shown in orange. 
-Population increases in proportion to the square of the increase in the wage.%, as  the blue line shows, bu output increases proportionally, as indicated by  the orange line. 
-
-The increased wage is also translated, with further lags, into rising home prices across the city and rising rental prices for tenants. This means that landowners capture some of the gains due to agglomeration. Owner-occupiers retain the gain and eventually realize it as increased  property values. Tenants eventually see the wage gain converted into higher rents. Higher rents and home values would be expected to lead to expansion of the housing stock. Adding to the housing stock is a slow process, however, introducing potentially complex stock/stock-price dynamics which we ignore.
-
-\section{Linking Jacob-style agglomeration to  the \newline literature on urban scaling}
-Jacobs view of urban agglomeration is consistent with the research on urban scaling.  
- If we impose the standard neoclassical assumption on the \gls{Cobb-Douglas} production function, i.e., that 
-$\alpha +\beta <1 $, we have conventional diminishing returns to scale.\footnote{
-The required condition is that 
-$Y(\delta K,\delta L< \delta Y(K,L)$. 
-In the function that we use to illustrate the models, 
-$Y(\delta K,\delta L)= \delta^{\alpha +\beta}Y < Y(K,L)$.} 
-That leaves us with a question: what do we need for Equation~\ref{eqn-production-jacobs} to represent Jacobs' observation?  
-
-The answer lies in making the synergies that Jacobs point to explicit: we require $N$ to generate a spillover effect similar to those  identified in neoclassical growth theory. There are three obvious generic ways to introduce such a term: $N$ can augment $A$, $K$, or $L$, 
-
+If we sum across all $F$ firms and assume that all firms are identical we get the \textbf{aggregate} urban production function
 \begin{equation}
-  y=\left\{
-  \begin{array}{l}
-     \mathbf{\color{red}(A*N^\gamma)}\, K^\alpha N^\beta\\
-     A \>\mathbf{\color{red}(N^\gamma*K)^\alpha} \, N^\beta\\
-    A K^\alpha \, \mathbf{\color{red}(N^\gamma* N)^\beta}
-    
-      \end{array}
-  \right\} =  AK^\alpha N^\phi
-\end{equation}    
-% \[Y = A*N^\gamma K^\alpha N^\beta= AK^\alpha N^{\beta+\gamma}\]
-% \[Y = A (N^\gamma* K)^\alpha  N^\beta= AK^\alpha N^{\beta+\gamma^\alpha}\]
-% \[Y = A K^\alpha (N^\gamma* N)^\beta= AK^\alpha N^{\beta+\gamma}\]
-Where $\phi=\beta +\gamma$ or $\beta +\gamma^\alpha$. Each of these yields an exponent on $N$ that may be greater than one, consistent with both Jacobs and neoclassical growth theory. 
+Y(t) = A(L^T, t)* F *K^\alpha L^\beta 
+\label{eqn-production-jacobs-agg}
+\end{equation}
+% At the level of the city the aggregate output for this model can be written
+% \begin{equation}
+% Y(t) = Y_c(L^T(t), t) 
+% \label{eqn-production-jacobs-city}
+% \end{equation}
+If we use consider a fixed capital-labour ratio $d$ as Arrow does,  capital used by the firm is  $K=d*L$ and Equation~\ref{eqn-production-jacobs-agg} becomes
+\begin{align}
+Y &= A(L^T, t) F d^\alpha L^\alpha L^\beta) \nonumber\\
+&=A(L^T, t)F d^\alpha L^{\alpha +\beta} \nonumber\\
+&= A(L^T, t) F^{1-\alpha -\beta}d^\alpha * (F L)^{\alpha +\beta} \nonumber \\
+&=\bar A(L^T, t) (L^T)^{\alpha +\beta}  
+ \label{eqn-production-jacobs-city-2}
+\end{align} 
+where the  multiplicative constants  $F^{1-\alpha -\beta}d^\alpha $ are incorporated into the scale factor $\bar A$. 
 
-The question now is whether we can find estimates of $t$. This is what the empirical work on scaling laws provides.
+If we now specify $\bar A$ in Equation~\ref{eqn-production-jacobs-city-2} by assuming \begin{enumerate}
+    \item  assuming that the term $L^T$ enters $\bar A(L^T, t)$ exponentially as in the scaling literature, say as $LT^\delta$,    and 
+    \item defining $Y_0=F K(0)^\alpha L(0)^\beta$, and 
+    \item allowing  for additional time dependent growth, $e^{g*t}$,
+\end{enumerate}
+we can write Equation~\ref{eqn-production-jacobs-city-2} 
+\begin{equation}Y_c = Y_0e^{g*t}(L^T)^\gamma\label{eqn-production-jacobs-scale}
+\end{equation}
+This is the model commonly used in the scaling literature. We use it as the base for our market model. 
 
-The model used is familiar. Omitting subscripts for time, $t$ and city, $i$, \footnote{Bettancourt (2021) writes the model \[Y_i = Y_0(t)N_i(t)^\beta e^{\xi(t)}\].}
-\[Y = Y_0e^{n(t)}N^\beta\]
-where $Y_0$ is an initial value (a constant). Notice that this looks exactly like the form that we saw in the 
-\gls{Solow-Swan model} with the transform from $K^\alpha L^\beta$ to $N$.  The interpretation is different because the model is used to estimate the parameter $\beta$ and $e^{n(t)}$ is described  as an error term of the form commonly used in estimating multiplicative time-series models. As a result estimates of $\beta$  can be used as estimates  of $\psi$.
+
 
 \begin{table}[htb]\small
 \centering
@@ -287,6 +263,83 @@ Personal income & 1.35 & [1.19, 1.53]  & South Africa & 8   & 2001        & MMs 
 \label{table-scaling-exponents}
 \small Source: Bettencourt, table 3.1
 \end{table}
+
+
+To achieve increasing returns at the urban level, it is necessary that the exponent, $\gamma=\alpha+ \beta + \delta > 1$.  Empirical  estimates summarized in Table~\ref{table-scaling-exponents} show that this condition is satisfied. These estimates provide a plausible parameter range for our model. 
+
+%The  model is observationally nearly equivalent to the Arrow model.
+
+% \begin{figure}[!tb]
+% \begin{center}
+% \input{fig/rising-wages}
+% \end{center}
+% \caption[Rising wage and increasing city size]{Rising wage and increasing city size. Agglomeration effects increases the wage premium from $\omega_0$ to $\omega_1$, a higher wage attracts more people to the city, leading to city growth from $d_0^*$ to $d_1^*$, which then begins another cycle of agglomeration and growth }
+% \label{fig-rising-wages}
+% \end{figure}
+% 
+\subsection{Dynamics of the Alonzo model with Jacobs agglomeration}
+The increase in productivity at the firm level due to agglomeration is the force that drives the formation and growth of cities. In our model, the agglomeration-driven increases in productivity results in an \gls{urban wage premium}. The urban wage premium attracts workers to the city and pays their  transportation costs. The size of the wage premium determines the size of the city.
+
+The urban economy modeled this way provides the foundation for our analysis of the urban housing market. We are not attempting to explain the specific process that gives rise to the wage premium: there is strong empirical evidence that it exists, and it is theoretically consistent with the explanations of the growth theories described above. We do need to point to how these agglomeration effects feed into the dynamics of the housing market.
+
+% We do not specify that make urban labour more productive than non-urban labour. % The process has deep historical roots and we do not need to provide an origin story for our project. 
+%{\color{red}We can use Figure~\ref{fig-rising-wages} to emphasize the self-reinforcing nature of the mechanism. The blue line  shows population rising as the city boundary moves outward and the orange line shows productivity rising even more quickly due to agglomeration effects. Starting with a city that has grown to size $d_0^*$ based on a wage premium $\omega_0$ in Figure~\ref{fig-rising-wages}, an increase in the productivity due to the various spillover effects discussed in the literature eventually is passed through, at least in part, to the wage raising it to $\omega_1$. }
+
+Conventional microeconomic theory  provides us with a rough sketch of the complex process that must occur as agglomeration effects grow. The process will generally be slow, variable, and may involve many unsynchronized lags. The basic process, however, is that a firm, discovering its workers are  more productive than expected, enjoys unexpected output and profits. Unexpected profits in existing firms will lead to new firms entering the industry. Since the marginal product of each worker is higher than expected, existing firms will  want to hire more workers. To do so in a city with full employment, they must raise their  wage offers.   The increased wage attracts workers from other firms, putting pressure on them to also increase their wage, so wages rise across the city. The general increase in the wage attracts more workers to the city.
+
+The increase in population will eventually generate additional agglomeration benefits, further increasing wages. At the aggregate level, this positive feedback appears to be solidly supported, but locally, within firms and between firms there will be long and variable lags. Analytical equilibrium models seek to bypass these messy processes, while agent-based models attempt to incorporate them.
+
+%The increase in wages appears as a benefit to workers as workers already in the city. %In Figure~\ref{fig-rising-wages} the area in blue-green represents the worker's share of the increased productivity of the city. 
+Assuming that marginal land use per new resident is constant, the city diameter will eventually expand in proportion to the increase in the wage.%, shown as the distance $d^*_0--d^*_1$. Aggregate rent  further expands by the area shown in orange. 
+Population increases in proportion to the square of the increase in diameter. %, as  the blue line shows, bu output increases proportionally, as indicated by  the orange line. 
+
+The increased wage is also translated, with further lags, into rising home prices across the city and rising rental prices for tenants. This means that landowners capture some of the gains due to agglomeration. Owner-occupiers retain the gain and eventually realize it as increased  property values. Tenants eventually see the wage gain converted into higher rents. Higher rents and home values would be expected to lead to expansion of the housing stock. Adding to the housing stock is a slow process, however, introducing potentially complex stock/stock-price dynamics which we ignore.
+
+
+% Jacob's view  that rising productivity as a result of urban agglomeration is consistent with the relatively recent research on urban scaling \cite{bettencourtGrowthInnovationScaling2007, loboUrbanScalingProduction2013, bettencourtIntroductionUrbanScience2021, bettencourtOriginsScalingCities2013, kaufmannScalingUrbanAmenities2022, gomez-lievanoStatisticsUrbanScaling2012}.  In section, we show that the firm-level version of Jacobs-style agglomeration in Equation~\ref{eqn-production-jacobs}  
+% is equivalent to a \gls{scaling law}. This observation  links the micro-foundation of our model to the macro-economic estimates in the scaling literature. 
+
+% The Jacobs model as we describe it at the level of the firm is 
+
+% The Scaling literature uses  
+% \begin{equation}
+%     Y=A N^\gamma
+% \end{equation}
+%This is the function that has been estimated in the scaling literature. 
+% The model commonly used in the scaling literature is 
+% \[Y = Y_0e^{g*t}N^\gamma\]
+% where $Y_0$ is an initial value and $g$ is an exogenous growth rate and $N$ is urban population, which is $L^T$ in our model. The key difference we need to account for is the absence of the firm level of capital and labour in the aggregate function.  %\footnote{Bettancourt (2021) writes the model \[Y_i = Y_0(t)N_i(t)^\beta e^{\xi(t)}\]. Notice that this is similar to the  form that we saw in the \gls{Solow-Swan model} if we substitute $N^\beta$ for Solow's $K^\alpha L^\beta$.  The interpretation is different because the model is used to estimate the parameter $\beta$ and $e^{n(t)}$ is described  as an error term of the form commonly used in estimating multiplicative time-series models.} 
+
+
+%To show that  Equation~\ref{eqn-production-jacobs} is equivalent to a scaling law we need to  make the synergies that Jacobs points to explicit: we require $L^T$ to generate a spillover effect similar to those  identified in neoclassical growth theory. 
+% There are three obvious generic ways to introduce such a term: $L^T$ can augment $A$, $K$, or $L$,
+
+% \begin{align}
+%   Y &=\left\{
+%     \begin{array}{l}
+%      \mathbf{\color{red}(A*L^T)}\quad K^\alpha L^\beta\\
+%      A \quad\mathbf{\color{red}(L^T*K)^\alpha} \quad L^\beta\\
+%     A K^\alpha \quad \mathbf{\color{red}(L^T* L)^\beta}
+%     \end{array}  
+%    \right\} \nonumber\\
+% \end{align} 
+% Each of these produces a firm-level function 
+% \begin{equation}%\label{eq-JacobsCobbDouglas}
+%  Y=  A(L^T)K^\alpha L^\beta 
+% \end{equation}
+% \[Y = A*N^\gamma K^\alpha N^\beta= AK^\alpha N^{\beta+\gamma}\]
+% \[Y = A (N^\gamma* K)^\alpha  N^\beta= AK^\alpha N^{\beta+\gamma^\alpha}\]
+% \[Y = A K^\alpha (N^\gamma* N)^\beta= AK^\alpha N^{\beta+\gamma}\]
+% Where $\phi=\beta +\gamma$ or $\beta +\gamma^\alpha$, depending on how the spillover enters. Each of these yields an exponent on $L^T$ that may be greater than one, consistent with both Jacobs and neoclassical growth theory.
+
+% \footnote{It differs from the Solow model in Equation~\ref{eqn-solow-swan3} Where
+
+% \[Y = AK^\alpha \mathbf{\color{red}(L_0e^{g*t})^\beta}L^\beta\nonumber\]
+% in that Jacobs, consistent with later literature, assumes that $N$ is endogenous, while Solow assumed an explicit and autonomous time-dependency of $L$.} 
+
+%One more step is needed to produce the standard scaling law: K must be rewritten as a function of employment $N$. The easiest way is to assume as Arrow did that the production process is characterized by fixed coefficients.\footnote{With a Cobb-Douglas function  $K$ will be chosen in a fixed proportion to $L$ at any given wage-capital cost ratio.} $K^\alpha$ is then $cN^\alpha$ for some $c$. Equation~\ref {eq-JacobsCobbDouglas} becomes 
+
+
 
 % WHERE TO PUT THIS? \cite{arvidssonUrbanScalingLaws2023} find that cities' tails are responsible for 36--80\% of the observed superlinearities across indicators. 
 
