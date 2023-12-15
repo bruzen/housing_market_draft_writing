@@ -66,7 +66,7 @@ In this thesis  we describe an agent-based spatial model of an urban housing mar
 
 % \section{The three major blocks of the model}\label{sec_model_blocks}
 
-Our goal has been to make a model as accessible as the Alonzo model that can still ***E WHY STILL??? provide insights about  the impact of financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:
+Our goal has been to make a model as accessible as the \Gls{Alonzo model} that can provide insights about the impact of the financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:
 
 {\newpage\thispagestyle{empty}
 \vspace{-1.5cm}
@@ -183,21 +183,36 @@ Urban workers give up the subsistence income and receive the \gls{urban wage}, $
 
 \subsection{Wage determination}
 
-According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. If we calculate the marginal product of labour for the Cobb-Douglas with the Jacobs externality from Equation~\ref{eqn-production-jacobs}, we get 
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. If we calculate the marginal product of labour for the Cobb-Douglas with the Jacobs externality $A(L^T)$ from Equation~\ref{eqn-production-jacobs}, we get 
 \begin{align}\label{eqn-model-MPL}
-Y              =&  \die{A(L^T) K(t)^\alpha L^\beta}{L} \nonumber\\ 
-\die{Y}{L}     =&\beta A(L^T) K(t)^\alpha L^{\beta-1} \nonumber\\
-                =&\frac{\beta A(L^T) K(t)^\alpha L^\beta}{L} \nonumber\\
-                =& \frac{\beta Y}{L}
+y              =&  A(L^T) k^\alpha n^\beta \nonumber\\ 
+\die{y}{L}     =&\beta A(L^T) k(t)^\alpha n^{\beta-1} \nonumber\\
+                =&\frac{\beta A(L^T) k(t)^\alpha n^\beta}{n} \nonumber\\
+                =& \frac{\beta y}{n}
 \end{align}
-This is clearly positive and increasing in $L^T$. It follows that population growth increases marginal product in this model.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible, since it removes a term, $\frac{\gamma Y}{N}$, that is quantitatively insignificant from the expression for the marginal product that guides firm behaviour. If all firms are identical, the term becomes $F\frac{\gamma Y}{N} =\frac{\gamma Y}{L}$, } 
-As a result, the wage increases, perhaps with a lag, when urban population  rises
+This is clearly positive and increasing in $L^T$, the aggregate labour force for the city.  It follows that population growth increases marginal product in this model. 
+
+
+Since optimizing firms are assumed to adjust their wage offer and hiring to achieve a wage that is equal to the marginal product of labour. 
+\begin{align}\label{eqn-model-MPL-w}
+             \omega + \psi   =& \frac{\beta y}{n}
+\end{align}
+As a result, the wage increases, perhaps with a lag, when urban population  rises 
 \begin{equation}
  \die{(\omega + \psi)}{L^T} >0
 \label{eqn-wage-population}
 \end{equation}
+In our model the subsistence wage $\psi$ is fixed, so the wage premium must rise if the marginal product of labour rises.  We have shown that a rising wage premium increases the distance that workers will travel to work, so the city grows and population rises, as the upper loop in Figure~\ref{fig-flow-full-model} illustrates. 
 
-Equation~\ref{eqn-wage-population} says that the marginal productivity of the workers in each firm rises as the city population rises. In our model the subsistence wage is fixed , so the wage premium rises.  We have shown that a rising wage increases the distance that workers will travel to work, so the city grows, as the upper loop in Figure~\ref{fig-flow-full-model} illustrates.
+ 
+
+Equation~\ref{eqn-model-MPL-w} is an equilibrium condition. Firms, however,  are agents setting wages and hiring while labour supply and demand are shifting.    We assume that they do know the marginal product of their current workforce and can observe the wage level from period to period. It is reasonable to assume that when their marginal product of labour rises they adjust both their labour demand and their wage offers. The marginal product of labour can be seen as a target wage. Equation~\ref{eqn-model-MPL-w} implies that the firm's target labour demand is 
+\begin{equation}
+           n  = \frac{\beta y}{\omega + \psi}
+\label{eqn-labour-demand}
+\end{equation}
+We think in addition it is reasonable to assume $\omega$, and the wage, $n$, the size of the firm's workforce,  both adjust slowly toward target values in each period. We also allow the number of firms to adjust gradually.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible since it removes a term, $\frac{\gamma Y}{N}$, that is quantitatively insignificant from the expression for the marginal product that guides firm behavior. If all firms are identical, the term becomes $F\frac{\gamma Y}{N} =\frac{\gamma Y}{L}$, }
+
 
 % The city has single firm facing a fixed price for output. 
 
@@ -251,12 +266,14 @@ Equation~\ref{eqn-wage-population} says that the marginal productivity of the wo
 % The firm adjusts its labour force upward when the \gls{marginal product of labour} is greater than the wage by selecting from its list of job applicants.
 % The firm adjusts its wage offer upward when the marginal product of labour is greater than the wage and it faces a labour shortage.  Labour shortage is a situation where the firm wants to hire but its list of job applicants is empty.
 
- The marginal product of labour at the firm level is declining in $L^T$, ensuring a labour market equilibrium. %, to connect with the analytic tradition of economic modelling by ensuring there is an equilibrium level of production.  
- While adding more labour may always adds some value, the rate at which it adds value drops off. 
+ %The marginal product of labour at the firm level is increasing in $L^T$, at a decreasing rate to ensure a labour market equilibrium exists for the model %, to connect with the analytic tradition of economic modelling by ensuring there is an equilibrium level of production.  
+ 
 % If the marginal product increased, then a firm that got large enough would out-compete smaller firms, hire all labour, always be able to produce more wealth by hiring more people, and would always produce more wealth by hiring people than by firing people. This doesn't happen. 
 % Perhaps, the firm hires employees who best fit its needs first, but to grow, eventually it must hire less selectively. Finding markets may get harder with growth. Perhaps expansion adds additional costs, building a parking lot, administration, acquiring a larger building. Whatever the explanation, the marginal product of labour declines. 
 
-The analytic model offers an equilibrium solution with full employment. In the agent-based model this assumption does not hold, workers are laid off, and take time to find new employment. The time people spend  moving between jobs is the cause of frictional unemployment, It  varies with economic conditions. Introducing a constant or ``natural'' rate of unemployment would have little effect on the overall behaviour of the model. Variable  frictional unemployment would introduce additional dynamics but would be unlikely to affect the results that interest us.
+The analytic model offers an equilibrium solution with full employment. In the agent-based model this assumption does not hold, workers are laid off, and take time to find new employment. The time people spend moving between jobs is the cause of frictional unemployment, It varies with economic conditions. Introducing a constant or ``natural'' rate of unemployment would have little effect on the overall behaviour of the model. Variable  frictional unemployment would introduce additional dynamics but would be unlikely to affect the results that interest us.
+
+
 
 % labour adjustment costs include moving costs for the employee or hiring, firing, or training cost for the firm. (there might be a hiring, firing, or training cost on the firm side, or on the employee side: expected time to employment costs, moving costs, etc.)
 %The assumption of monotonically declining  marginal product of labour is embedded in the production function, so it applies in the analytic and agent models.  Agglomeration effects can push the sum above one. When the exponents add up to less than one, there are diminishing returns to scale.  Exploring alternatives would involved exploring other formulations of the production function.
@@ -645,7 +662,10 @@ r^{return} =
    &= \delta^\mathbb{T} \left((\dot P_\mathbb{T} - (1+r)^\mathbb{T})m \frac{P_0}{P_0-mP_0} + \frac{\mathcal{R}_{N, \mathbb{T}}}{P_0-mP_0}\right)\\
   &= \frac{\delta^\mathbb{T}}{1-m} \left((\dot P_\mathbb{T} - (1+r)^\mathbb{T})m  + \frac{\mathcal{R}_{N, \mathbb{T}}}{P_0}\right)\label{eqn-property-investment-return1} 
 \end{align}
-Notice that the return depends on the price paid, $P_0$.
+Notice that the return depends on the price paid, $P_0$. 
+
+\subsubsection{Capital gains tax}
+The \gls{capital gains tax} is one of the most interesting policy parameters to consider. It is a tax on the increase in value of a property that results form an increase in the price. The capital gains tax is a tax on speculative return on housing as an investment. In our model captures some or all of the expected gain from rising locational rents. We can introduce it in Equation~\ref{eqn-property-investment-return1} by multiplying $\dot P_\mathbb{T}$ by 1 minus the capital gains tax rate, representing the share of the capital gains that a buyer is permitted to keep. We allow the rate for occupant owners to differ from the rate for non-occupant owners.
 
 
 \subsubsection{Criterion for investment}
@@ -684,7 +704,7 @@ If the buyer intends to become a resident, the net rent term Equation~\ref{eqn:m
 
 Our $\dot P_\mathbb{T}$ is a forecast by agents in the model of the change in price over a period T. In principle, agents might form an expectation by observing past prices for each class of home. To mimic this process we could compute average price changes per period at each distance from the centre and use them to form a forecast for the mortgage period $\mathbb{T}$. 
 
-We will instead use a computationally simpler proxy. Since our version of the Alonzo model implies that house prices will rise by the capitalized value of an increase in the wage premium, a rational investor might use a forecast of the wage premium to develop a long-term forecast of house prices, and from that of $\dot P_\mathbb{T}$. Wages are generated in the model and can be retrieved without additional computation. 
+We will instead use a computationally simpler proxy. Since our version of the Gls{Alonzo model} implies that house prices will rise by the capitalized value of an increase in the wage premium, a rational investor might use a forecast of the wage premium to develop a long-term forecast of house prices, and from that of $\dot P_\mathbb{T}$. Wages are generated in the model and can be retrieved without additional computation. 
 
 Warranted price the capitalized value of the the wage premium, transportation costs, and housing services:
 \begin{align}

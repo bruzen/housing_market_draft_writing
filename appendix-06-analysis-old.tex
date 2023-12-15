@@ -1,85 +1,255 @@
-% \chapter{Analysis of Results from the Core Model} \label{chapter-analysis}
-
-\section{Conversation Notes 2023-07-10}
-\subsection{for the price model}
-make sure the regression model makes sense. price should fall with distance by the present value of the cost of transportation: $cd/r$. Only $d$ varies across properties. In a regression for price the beta for distance should be $c/r$.. This can serve as a check  
-
-We can think of properties at the same distance as a "transportation-equivalent neighbourhood'' such that 
-\[d_j=d_k,\]
-where $d$ is distance.  (or $\omega-cd_j=\omega-cd_k$.  We expect prices to behave the same in these neighbourhoods. You can add dummies for other neighbourhoods to the model later if you add neighbourhood features or specific amenities. 
-
-In the regression you just add $d_j$
-
-\subsection{Estimation P-dot from the model }
-The higher the rate of price increase the more people will want to buy or hold the property. 
-
-In the regression you just  $\dot P_{t,j}$
-
-By definition, $\dot P_{t,j}$ is \[\dot P_{t,j} =\frac{P_{t,j}-P_{t-1,j}}{P_{t-1,j}}\] for each property. This can be calculated property by property. What if there are very few properties that have changed hands  in the last two periods? 
+\chapter{Old Analysis - Experiments and notes}
+The two main hypotheses of this thesis are, 
+\begin{enumerate}
+ \item that the financial sector affects the ownership of housing and the class structure of society, 
+    \item that this may have implications for urban productivity. 
+\end{enumerate} 
+Many parameters in the model will have some effect, but we have to focus on policy-relevant parameters. These a) can be manipulated, and b) can have measurable effects.
 
 
-Will it serve as as plausible value for $\dot P_{t,j}$? Yes.
+\section{Effect of the financial sector on ownership} 
+We need to have 
+\begin{enumerate}
+    \item a set of measurements if ownership
 
-The average of this value across the neighbourhood is the average neighbourhood price growth. It WILL vary by distance. To see this consider a rise in $\omega$ and two properties, one at the centre and at the edge of the city. The one at the centre has a price $(\omega + a\psi)/r$ and the edge property  has a price $(a\psi)/r$ Both increase in value by $\Delta\omega/r$, so the rate of price growth must differ.
+        \begin{enumerate}
+        \item number of homes, share of homes by category(owner occ, owner rented), 
+        investor rented
+        
+\begin{tabular}{|r|c|c|c|}\hline
+            & owner occ& owner-retired & bank-rented\\ \hline
+number      & && \\ \hline
+share       & && \\\hline
+\end{tabular}
 
+        \item Aggregate Mortgaged share of owner-occupied homes over time 
+\[M_t=((1+r)**2-(1+r)**t) / ((1+r)**20-1)\]
+\[Share\_mortgaged =\frac{\sum_i M_{,i}}{\sum_iP_{,i}}\]
+        \item
+        \item
+        \end{enumerate} 
+
+
+I imagine an output like this:
+
+\begin{tikzpicture}
+  \draw [ultra thick](0,5)node[left]{P} --(0,0)--(9,0)node[below]{d}; 
+  \draw[fill=red, opacity=.25](0,0)--(0,4)--(8,0);  
+   \draw[fill=red, opacity=.2](0,0)--(0,2) to [bend left=10](8,0);  
+   \draw[fill=red, opacity=.25](0,0)--(0,0.9) to [bend left=10](8,0);
+   \node at (2.3,.5)[]{resident wholly owned};
+   \node at (2,1.2)[]{resident mortgaged};
+   \node at (1.7,2.25)[]{investor owned};
+   
+\end{tikzpicture}
+
+A similar picture with time on the horizontal axis
+
+    \item parameters of the financial sector  that might affect that structure
+    \begin{enumerate}
+        \item capital gains tax
+        \item interest and mortgage differentials
+        \item tightening mortgage limits for owners
+        \item transaction cost
+        \item density
+        
+    \end{enumerate}
+
+We can stabilize a city and then make a change to see the effect.
+
+    
+\end{enumerate}
+\subsection{Results}
+These are impressionistic notes from early batch runs.
+\begin{itemize}
+ \item increasing density range [100, 300, 400, 600]
+    \begin{enumerate}
+        \item ownership share peaks between 400 and 600. ***
+        \item increases mpl
+        \item increases firm size
+        \item increases fir numbers
+        \item decreases peak k
+        \item increases city extent
+    \end{enumerate}
+    
+    \item increasing subsistence wage range [30000, 50000, 70000, 90000]
+    \begin{enumerate}
+        \item decreases ownership share !??. 10 T->100\%  40-> 30\%
+        \item seems to reduce mpl
+        \item increases firmsize 
+        \item Workforce diverges between 50 + and 70 dwn. ***
+        \item decreases city extent
+        \item increases then decreases firm capital ***
+        \item slows growth of workforce
+
+     \item increasing gamma range [0.1, 0.09, 0.08 ]
+    \begin{enumerate}
+        \item ownership share       
+        \item mpl   up              
+        \item firm size at up .09 dips and rises   
+        \item total workforce up at .09 dips and rises
+        \item number of firm number up at .09 dips and rises
+        \item k    up peaks at .08                 
+        \item city extent    up at .09 dips and rises          
+    \end{enumerate}
+
+     \item increasing discount rate.  range [0.1, 0.09, 0.08 ]
+    \begin{enumerate}
+        \item ownership share  strange sawtooth, generally rising
+        \item mpl     no effect              
+        \item firm size       no effect         
+        \item number of firm number no effect 
+        \item k           no effect           
+        \item city extent    no effect           
+    \end{enumerate}
+
+    
+    \item max\_mortgage\_share': [1.0, 0.9, 0.8, 0.7, 0.6]
+    \begin{enumerate}
+         \item ownership share  strange sawtooth, generally rising
+        \item mpl     no effect              
+        \item firm size       no effect         
+        \item number of firm number no effect 
+        \item k           no effect           
+        \item city extent    no effect               
+    \end{enumerate}
+
+
+ \item increasing'ability\_to\_carry\_mortgage': [0.35, 0.28, 0.2]
+   \begin{enumerate}
+         \item ownership share  strange sawtooth, generally rising
+        \item mpl     no effect              
+        \item firm size       no effect         
+        \item number of firm number no effect 
+        \item k           no effect           
+        \item city extent    no effect  
+     \end{enumerate}
+
+
+      \item increasing 'savings\_rate': [0.5, 0.3, 0.2]
+   \begin{enumerate}
+         \item ownership share  raises saw tooth
+        \item mpl                   no effect
+        \item firm size             no effect         
+        \item number of firm number no effect 
+        \item k                     no effect           
+        \item city extent           no effect  
+     \end{enumerate}
+
+  
+   \begin{enumerate}
+         \item ownership share  
+        \item mpl            
+        \item firm size            
+        \item number 
+        \item k         
+        \item city extent   
+     \end{enumerate}
+    \end{enumerate}
+    
+
+
+\section{Effect of the financial sector on productivity}
+We need to have  
+\begin{enumerate}
+    \item a set of measurements if ownership
+    \item parameters of the financial sector  that might affect that structure
+
+\end{enumerate}
+
+  
+\section{Experiments}
+  \begin{enumerate}
+    \item effect of reducing transport cost $c$
+    \item effect of adding a service sector $N_{total} = N(1+z)$ then $N^\gamma \rightarrow  N_{total}^\gamma$
+    \item \textbf{effect of adding a service sector whose size depends on the retained income of residents.}
+    \item changing density
+    \item low-wage immigrants
+    \item effect of interest rate spread on housing ownership
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+   
+    
+\end{enumerate} 
+    
+\end{itemize}
 \subsection{What else will affect price and should be included in the regression?}
 
 \newcounter{foo}
 \newcommand{\num}{\addtocounter{foo}{1}\thefoo. &}
+\newcommand{\Rnum}{\addtocounter{foo}{1}\thefoo. &\vspace{-.3cm}\color{red} }
 \section{Variables to track}
 
-
-\begin{tabular}{lp{5cm}l}
+\begin{tabular}{lp{8cm}l}
 \hline
 \num Wage premium  &$\omega$\\
-\num  population of workers &$n$\\
+\num workers in a firm &$n$\\
+\num workers in a firm &$n$\\
+\num output of firm &$y_F=y$\\
+\num Firm MPL& $\beta y_F/n$ \\ 
+\num  population of workers &$N=F*n$\\
 \num total population & $factor * N$\\
+
+\hline
 \num number of homeowners &\\
 \num number of tenants &\\
 \num number of institutional owners &\\
 \num number of homeowners who rent&\\
 \num number of homeowners with second home&\\
 
+
 \hline
 \num total taxes & $\sum_j t*P_j$ ?\\
 \num taxes invested in productivity& $tProdShare * total_taxes$\\
 \num taxes invested in Amenities& $tAmenShare * total_taxes$\\
+
+\hline
+\Rnum  urban firm-generated surplus &  $(A * N**beta) - (N/n_R * Y_F)$ \\
+\num \\
+
 \num total homeowner wealth& $\sum_i(P_I - M_i) + \sum_i S_i$\\
-\num homeowner savings invested in productivity & $SProdShare * \sum_i S_i$\\ \hline
+\num homeowner savings invested in productivity & $SProdShare * \sum_i S_i$\\
+\num total city output& $Y=F*y$\\
+\num  Total Factor Productivity (TFP)& $\frac{Y}{rk+(\omega+psi)N}$\\
 \num external investment & $\sum_f K_F$\\
 \hline
+\end{tabular}
+
+\begin{tabular}{lp{8cm}l}
+     &  \\
+     &   \\
 \num expected rate of price increase over T& $\dot P^e_\mathbb{T} = \left(\frac{\frac{1}{r}\die{\omega}{t} }{P_T}\right)^T $ \\
 \num total rent on property& $N(\omega +\mathbb{A}^{net})$ \\
 \num total urban locational rent& $\pi(\omega +\mathbb{A}^{net})^2/3c$ \\
-   %two parts  separately -- (pop with density and seed) * omega
 \num dissipated rent &$\sum_i^N c_id_i$ \\ 
 \num available rent. & $\sum_i^N(\omega -cd +\mathbb{A}^{net})$\\
 \num Mortgage interest captured by the finance sector& $MortI=\sum_i r_iM_i^{balance}$ \\
 \num Total rent captured by the finance sector& $FinRent = MortI + \sum_j R_{N, j}$)\\
+\num share of city-owned by finance& $\sum_i^N M_{i,t} +$ value of property ???\\
+
 \num locational surplus   &  $Surp = \sum_j (/omega- c*d) $\\
 \num financial share of surplus & $FinSurpShare = FinRent / Surp$\\
 %\num  Amenity & $\mathbb{A}^{net}$\\ 
     %fixed. We want total amenity including utility
 \num financial share of city & $FinCityShare = \sum_i^N M_{i,t}$ \\
-\num  Total Factor Productivity (TFP)& $\frac{Y}{rk+(\omega+psi)N}$\\
-\num Firm MPL& $\beta Y_F/n$ \\ 
+   %two parts  separately -- (pop with density and seed) * omega
+\num GDP Growth &$N(\omega +\mathbb{A}^{net}) + r F(k^U-k^R)$.\\
+            &(not a rate) ($(k^U-K^R)=\Delta k$)\\
   \end{tabular} 
 
  Additional items 
 \begin{enumerate}  
-    \item Total Factor Productivity (TFP). (needs some thought) $\frac{Y}{rk+(\omega+psi)N}$
-    
-    \item GDP Growth $N(\omega +\mathbb{A}^{net}) + r F(k^U-k^R)$. (not a rate) ($(k^U-K^R)=\Delta k$)
-
 \item Total Rent captured by the finance sector is the sum of the interest collected on all mortgages ($\sum_i r_iM_i^{balance}$), where $j$ indexes households,) plus the \textbf{net} rent on rented housing ($+ \sum_j R_{N, j}$), where $j$ indexes properties (Just those owned by the bank Those not owned by the bank represent extractions by small landlords. The Financialization study had a name for this class.).
 
 \item Rent captured by the finance sector divided by urban surplus is the share of surplus captured by the financial sector
 
 
- \item  Sum of current mortgages outstanding $\sum_i^N M_{i,t}$ plus value of property owned is share of city-owned by financial interests.
 
-\item urban firm-generated surplus Figure~\ref{fig:Agglomeration-surplus}- $(A * N**beta) - (N/n_R * Y_F)$ % Figure E1 fig. diagram in appendix II. A is urban scale factor, surplus is =   E1 fig
-Urban output minus output of the same number of workers in the rural sector at time t.
+
+
 
 \item Output of a  typical rural firm, Equation~\ref{eqn_Rural_output} 
 \[Y_R=\frac{n_R*\psi}{\beta_F}\]
@@ -105,6 +275,29 @@ Where:
 
 
 
+ \subsection{for the price model}
+% make sure the regression model makes sense. price should fall with distance by the present value of the cost of transportation: $cd/r$. Only $d$ varies across properties. In a regression for price the beta for distance should be $c/r$. This can serve as a check  
+
+% We can think of properties at the same distance as a "transportation-equivalent neighbourhood'' such that 
+% \[d_j=d_k,\]
+% where $d$ is distance.  (or $\omega-cd_j=\omega-cd_k$.  We expect prices to behave the same in these neighbourhoods. You can add dummies for other neighbourhoods to the model later if you add neighbourhood features or specific amenities. 
+
+% In the regression you just add $d_j$
+
+\subsection{Estimation P-dot from the model }
+% The higher the rate of price increase the more people will want to buy or hold the property. 
+
+% In the regression you just  $\dot P_{t,j}$
+
+% By definition, $\dot P_{t,j}$ is \[\dot P_{t,j} =\frac{P_{t,j}-P_{t-1,j}}{P_{t-1,j}}\] for each property. This can be calculated property by property. What if there are very few properties that have changed hands  in the last two periods? 
+
+
+% Will it serve as as plausible value for $\dot P_{t,j}$? Yes.
+
+% The average of this value across the neighbourhood is the average neighbourhood price growth. It WILL vary by distance. To see this consider a rise in $\omega$ and two properties, one at the centre and at the edge of the city. The one at the centre has a price $(\omega + a\psi)/r$ and the edge property  has a price $(a\psi)/r$ Both increase in value by $\Delta\omega/r$, so the rate of price growth must differ.
+
+
+
 \subsection{r-code to graph remaining}
 The figure below illustrates the path of Mortgage remaining, which we need for certain wealth calculations (if an owner wants to get a second mortgage.
 )
@@ -120,23 +313,6 @@ In Python
 \includegraphics[scale=.25]{fig/declining-balance.png}
   
     
-\section{Experiments}
-  \begin{enumerate}
-    \item effect of reducing transport cost $c$
-    \item effect of adding a service sector $N_{total} = N(1+z)$ then $N^\gamma \rightarrow  N_{total}^\gamma$
-    \item \textbf{effect of adding a service sector whose size depends on the retained income of residents.}
-    \item changing density
-    \item low-wage immigrants
-    \item effect of interest rate spread on housing ownership
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    
-\end{enumerate} 
-
 
 
 \section{Main}

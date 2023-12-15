@@ -1,3 +1,118 @@
+DR Dec 5
+https://www.generationatomic.org/
+https://www.facebook.com/generationatomic/
+\section{needed experiments Dec 14 DR}
+\begin{enumerate}
+    \item capital gains tax matters - find if there is a phase boundary - i.i. where in 
+
+            'capital_gains_tax_person': [0.5, 0.01], # share 0-1
+
+            'capital_gains_tax_investor': [0.5, 0.1], # share 0-1
+
+            does investor share begin to rise (defined as ``for a given number of steps - say 70 - where is $Z=share_t - share_{t-1} \ge 0$? ) and where does it fall.
+
+Maybe just store Z and and draw contour lines - there has to be as program for that.
+\end{enumerate}
+\section{parameter values form DR}
+batch_parameters = {
+            'data_collection_period': 1,
+            'iterations': 1,
+            'max_steps': 200
+}
+
+# List variable_parameters for experiments
+    experiment_parameters_list = [
+         {
+            #'density': [800, 600],# 400, 200],
+            'subsistence_wage':[40000],#[90000],[ 50000, 40000, 30000]
+            #'gamma': [0.1, 0.09, 0.08 ]
+            #'discount_rate': [.1, .8, .7, .6, .5]
+            #'max_mortgage_share': [1.0, 0.9, 0.8, 0.7, 0.6]
+            #'wealth_sensitivity': [0.1, .03, .05]
+            #'ability_to_carry_mortgage': [0.35, 0.28, 0.2]
+            #'savings_rate': [0.5, 0.3, 0.1]
+        },
+        # {
+        #     'density': [1, 100],
+        #     'subsistence_wage': [10000, 30000]
+        # },
+        # {
+        #     'density': [1, 100],
+        #     'gamma': [0.001, 0.02, 0.7]
+        # }
+    ]
+    
+    # Define fixed parameters, replaced by variable_parameters if there is a conflict
+    fixed_parameters = {
+                'run_notes': 'Debugging model.',
+                'subfolder': None,
+                'width':     50, #30,
+                'height':    50, #30,
+    
+                # FLAGS
+                'demographics_on': True,  # Set flag to False for debugging to check firm behaviour without demographics or housing market
+                'center_city':     False, # Flag for city center in center if True, or bottom corner if False
+                # 'random_init_age': False,  # Flag for randomizing initial age. If False, all workers begin at age 0
+                'random_init_age': True,  # Flag for randomizing initial age. If False, all workers begin at age 0
+    
+                # LABOUR MARKET AND FIRM PARAMETERS
+                'subsistence_wage': 40000., # psi
+                'init_city_extent': 10.,    # CUT OR CHANGE?
+                'seed_population': 400,
+                'init_wage_premium_ratio': 0.2, # 1.2, ###
+    
+                # PARAMETERS MOST LIKELY TO AFFECT SCALE
+                'c': 300.0,                            ###
+                'price_of_output': 10,                 ######
+                'density':600,                         #####
+                'A': 3000,                             ### 
+                'alpha': 0.18,
+                'beta':  0.75,
+                'gamma': 0.12, ### reduced from .14
+                'overhead': 1.5,
+                'mult': 1.2,
+                'adjN': 0.15,
+                'adjk': 0.10,
+                'adjn': 0.15,
+                'adjF': 0.02,
+                'adjw': 0.02, 
+                'dist': 1, 
+                'init_F': 100.0,
+                'init_k': 500.0,
+                'init_n': 100.0,
+    
+                # HOUSING AND MORTGAGE MARKET PARAMETERS
+                'mortgage_period': 5.0,       # T, in years
+                'working_periods': 40,        # in years
+                'savings_rate': 0.3,
+                'discount_rate': 0.07,        # 1/delta
+                'r_prime': 0.05,
+                'r_margin': 0.01,
+                'property_tax_rate': 0.04,     # tau, annual rate, was c
+                'housing_services_share': 0.3, # a
+                'maintenance_share': 0.2,      # b
+                'max_mortgage_share': 0.9,
+                'ability_to_carry_mortgage': 0.28,
+                'wealth_sensitivity': 0.1,
+            }
+
+
+ownership
+
+MPL     n
+N       F
+extent  k   % I just removed N/f because by def'n N=Fn, I think 
+ownership       
+
+Experiments. thinking about this. I am interested in tests to fine-tune the model but let's instead go on to work with the determinants of ownership. 
+
+
+
+navigate to the housing_app folder in Terminal. cd Devel/housing_app
+source activate housing
+python batch_run.py
+
+
 July 8 DRR
 
 The price a property might sell at would be $\omega - {dc} + \mathbb{A} + rural-op-cost + conversion cost$. For simplicity, we drop the last two terms. Conversion cost would be amortized over a very long period and would be small in any case. We have hidden the rural-op-cost in $a\psi$.
