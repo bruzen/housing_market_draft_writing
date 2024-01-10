@@ -18,9 +18,22 @@
 % \usetikzlibrary{positioning, shadows, arrows, automata, shapes, calc, decorations.pathreplacing,calligraphy}
 
 \title{Notes on Experiments}
+\author{KLMW}
 \begin{document}
 \maketitle
 \tableofcontents \newpage
+\section{Notes on Experiments}
+This is a record of experiments testing the effect of  varying parameters. The tests are grouped in two parts: tests of the base model of city and the production sector, and tests of the housing market parameters. 
+
+In the first part the goal is to ensure that the platform underlying the housing market behaves as expected. One important policy result was found: Transportation costs, which are under the control of local governments, have a very large effect.
+
+In the second part we find that the proportion of owner occupiers is sensitive to  several policy instruments. 
+
+Complex combinations of policies are computationally  intensive and are not explored in this section.
+
+\vspace{.5cm}
+
+{\tiny
 BASELINE PARAMETERS
 \begin{verbatim}
 
@@ -67,130 +80,55 @@ BASELINE PARAMETERS
             'capital_gains_tax_investor': 1, # share 0-1
     
 \end{verbatim}
+}
 \newpage
 
-% \section{parameters}
+% \subsection{parameters}
 % \begin{verbatim}
 
 % \end{verbatim}
- \section{Change Density}
- This experiment verifies that the labour-market/urban model that is the platform for the housing market analysis behaves exactly as expected when density changes. mpl, n,N,F,E and k all rise.
- 
-\begin{tabular}{|c|c||c|c||c|c|}
-mpl  & up & n   &  up & N   &  up \\
-F    & up   & E   &  up  &  k & up
-\end{tabular} 
+\section{Base model of city and the production sector}
+ \subsection{Change Density}
+ This experiment verifies that the labour-market/urban model that is the platform for the housing market analysis behaves exactly as expected when density changes. mpl, n, N, F, E, and k all rise. %Population rises with 
 
- \hspace*{-2cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.3]{Density-3-20.pdf}
+ The fraction owner-occupiers falls earlier with increasing density due to more rapid financialization and the potential rent capture increases, and  not to changing housing form. It seems later entrants do not purchase. The transition is achieved in about two full generations  in our model. The timing will be sensitive to the specific parameterization.
+ 
+
+ \hspace*{-2cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.3]{Density-3-150.pdf}
 
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{High Gamma}
+\subsection{High Gamma}
 Very high levels of the agglomeration parameter Gamma are implausible. They drive up marginal productivity, causing very rapid growth, drive down firm size because the first worker is extremely productive but the MPL falls rapidly. Very small firms with high levels of capital multiply. Rapidly rising prices encourage investors while savings-limited owner-occupiers are squeezed out.
+
+Higher agglomeration effects  make land rents higher and increase the gains to investors, resulting in more rapid financialization of the housing stock.
+
+%   we can check
  
-\begin{tabular}{|c|c||c|c||c|c|}
-mpl  & up   & n   & up & N   &  up \\
-F    & up   & E   &  up  &  k & up
-\end{tabular} 
+% \begin{tabular}{|c|c||c|c||c|c|}
+% mpl  & up   & n   & up & N   &  up \\
+% F    & up   & E   &  up  &  k & up
+% \end{tabular} 
 
  \hspace*{-2.5cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Gamma-5-30.pdf}
 
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Low Gamma}
+
+\subsection{Low Gamma}
 Low levels of the agglomeration parameter Gamma are plausible but city growth requires a level high enough to overcome decreasing returns in production.
+
+At near-zero levels population is hiring at the firm level sharply affects  the marginal product and randomization in saving the share of housing that is owner occupied.
  
-\begin{tabular}{|c|c||c|c||c|c|}
-mpl  & up   & n   & up & N   &  up \\
-F    & up   & E   &  up  &  k & up
-\end{tabular} 
+% \begin{tabular}{|c|c||c|c||c|c|}
+% mpl  & up   & n   & up & N   &  up \\
+% F    & up   & E   &  up  &  k & up
+% \end{tabular} 
 
  \hspace*{-2.5cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.3]{fig/Analysis/Gamma-low-5-30.pdf}
 
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Alpha}
-Low levels of capital productivity lead to urban decline. City growth requires a level high enough to overcome decreasing returns in production. Capital augmenting public expenditures would support growth.
- 
-\begin{tabular}{|c|c||c|c||c|c|}
-mpl  & up   & n   & \textbf{down} & N   &  up \\
-F    & up   & E   &  up  &  k & up
-\end{tabular} 
-
- \hspace*{-2.5cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.3]{fig/Analysis/Alpha-4-30.pdf}
-
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Transportation cost c}
-Transport cost affects the city extent, in turn affecting workforce size and the wealth generated on the city's land. All variables respond as expected. 
- 
-\begin{tabular}{|c|c||c|c||c|c|}
-mpl  & null   & n   & null & N   &  null \\
-F    & null   & E   &  null  &  k & null
-\end{tabular} 
-
- \hspace{-2.5cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Changing_Transport-cost2.pdf}
-
-Transport cost affects both the total workforce and the total locational rents generated by a city. The response of the workforce is inversely proportional to the square of the transport cost.  
-
-The figure above illustrates 10\% above and below our baseline value.  Reducing transport cost by 10\% increases population and total locational rents 10 \[\frac{1}{0.9 \times 0.9}=1.234568\]
-the base value. This calculation assumes that wage and density do not respond as well but that the city extent does adjust.
-
-\[Workforce\propto density * \pi \frac{\omega^2}{c^2}\]
-\[Locational\ rents\propto density * \pi \frac{\omega^3}{c^2}\]\
-
-\textbf{These relationships make transport costs the most influential single variable controlled by local authorities.} Transport systems, however, are costly in terms of land use and externalities generated or forgone.
-
-The impact on housing ownership is curious. Home-ownership declines to about 
-
-
-
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Capital gains tax for homeowners}
-No noticeable sensitivity in any base outputs for this parameter. Ownership share exhibits at a tipping point at a personal capital gains tax rate of 0.25 when the capital gains rate for investors is 0.15. \textbf{(A gap is 0.1 in favour of households seems to be  needed to support homeownership.)}
-
-\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Capital-gains-person-point27-6-5-4-3.pdf}
-
-
-
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Capital gains tax for investors}
-No noticeable sensitivity in any base outputs for this parameter.. Ownership share  exhibits at a tipping point at a personal capital gains tax rate of 0.25
-
-\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Capital-gains-investor-point-4-3-2-1-0.pdf}
-
-
-
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\section{12-15 -010050 Change wealth sensitivity two cases 0.1 and 0.05 }
-no sensitivity in any output for this parameter base. Ownership share may show  a small effect if we are near a tipping point driven by p-dot
-
-\includegraphics[scale=.45]{fig/Analysis/exp0_warranted_price_vs_time_step.png}
-
-
-\begin{multicols}{2}
-[\textbf{parameters}]
-\begin{verbatim}
-'adjn': 0.15,
-'adjF': 0.02,
-'adjw': 0.05, 
-'capital_gains_tax_person':   0.0,
-'capital_gains_tax_investor': 1,
-\end{verbatim}
-
-\end{multicols}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Change adjF - the growth rate of number of firms }
+\subsection{Change adjF - the growth rate of number of firms }
 
 \begin{multicols}{2}
 \begin{tabular}{c|c}
@@ -212,6 +150,10 @@ Notice too how MPL  is higher with a more rapid firm size adjustment. It keeps  
 
   Interestingly, city size is larger with faster growth of firm numbers. this is likely because with more firms hiring the population of the city grows faster.
 
+  Ownership bounces around due to randomization of savings.
+
+
+TO DO RE RUN WITH CURRENT PARAMETSRS AND GRAPHING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 % \subsection{parameters}
@@ -219,7 +161,9 @@ Notice too how MPL  is higher with a more rapid firm size adjustment. It keeps  
 
 % \end{verbatim}
 
- \section{x12-15 010050, Change  Both adjF and adjn}
+ \subsection{x12-15 010050, Change  Both adjF and adjn}
+
+ REDO AS 2x2
 \begin{multicols}{2}
 \begin{tabular}{c|c}
   mpl  &  \\
@@ -229,7 +173,7 @@ Notice too how MPL  is higher with a more rapid firm size adjustment. It keeps  
   E   &  \\
   k   & 
 \end{tabular} 
-Only three cases show (gold, turquoise, and purple). firm size and number show the same patternes as when just adF is changed 
+Only three cases show (gold, turquoise, and purple). firm size and number show the same patterns as when just adF is changed 
 \end{multicols}
 % \begin{tabular}{l|c||c|c}
 % parameters&&impact&\\ \hline
@@ -258,18 +202,167 @@ We will want something like this perhaps in an early chapter. this case may not 
 
 % \end{verbatim}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \section{12-17 010050, Varying Capital gains  }
-\begin{tabular}{c|c}
-  mpl  &  \\
-  n   &  \\
-  N   &  \\
-  F   &  \\
-  E   &  \\
-  k   & 
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Alpha}
+Low levels of capital productivity lead to urban decline. City growth requires a level high enough to overcome decreasing returns in production. 
+
+We do not know why ownership drops suddenly for the very low value of alpha. It happens around the time firm capital peaks
+
+Capital augmenting public expenditures would support growth.
+ 
+% \begin{tabular}{|c|c||c|c||c|c|}
+% mpl  & up   & n   & \textbf{down} & N   &  up \\
+% F    & up   & E   &  up  &  k & up
+% \end{tabular} 
+
+ \hspace*{-2.5cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.3]{fig/Analysis/Alpha-4-30.pdf}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Transportation cost c}
+Transport cost affects the city extent, in turn affecting workforce size and the wealth generated on the city's land. All variables respond as expected. 
+ 
+\begin{tabular}{|c|c||c|c||c|c|}
+mpl  & null   & n   & null & N   &  null \\
+F    & null   & E   &  null  &  k & null
 \end{tabular} 
 
-\includegraphics[trim= 1.5cm 5cm 2cm 6.5cm, clip, scale=.40]{fig/Analysis/215330-exp0-timeseries-plots.pdf}
+ \hspace{-2.5cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Changing_Transport-cost2.pdf}
+
+Transport cost affects both the total workforce and the total locational rents generated by a city. The response of the workforce is inversely proportional to the square of the transport cost.  
+
+The figure above illustrates 10\% above and below our baseline value.  Reducing transport cost by 10\% increases population and total locational rents 10 \[\frac{1}{0.9 \times 0.9}=1.234568\]
+the base value. This calculation assumes that wage and density do not respond as well but that the city extent does adjust.
+
+\[Workforce\propto density * \pi \frac{\omega^2}{c^2}\]
+\[Locational\ rents\propto density * \pi \frac{\omega^3}{c^2}\]\
+
+\textbf{These relationships make transport costs the most influential single variable controlled by local authorities.} Transport systems, however, are costly in terms of land use and externalities generated or forgone.
+
+The impact on housing ownership is curious. Home-ownership declines to about 
+
+
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Housing sector parameters}
+
+\subsection{Capital Gains Taxation}
+
+
+
+Capital Gains taxes regulate the amount of future rents that owners capture.  In our model, with two classes of owners, the relative levels of capital gains taxes shift the advantage between owner-occupiers and investors, so we expect variations to affect the ownership share.
+
+
+Absolute levels of capital gains taxes shift the productivity of the city from the private to the public sector. \textbf{In the current version the tax  revenues are not allocated.  In practice capital gains are a form of income and the revenues from income taxes all  go the the Federal and Provincial governments. They are not fed back into the urban economy. Since they arise form the urban process, policy makers should consider returning them to the Urban system.} 
+
+ The following figure illustrates such a transition over a very small shift in capital gains tax for owners while holding the tax for investors constant at 15\%.
+
+There is no noticeable sensitivity in any base outputs for this parameter. 
+
+Ownership share exhibits a tipping point at a personal capital gains tax rate  near 25\% when the capital gains rate for investors is 15\%  
+
+\vspace{1cm}
+
+% \includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Capital-gains-person-point27-6-5-4-3.pdf}
+
+
+More precisely, we find that ownership stabilizes at 80\%  capital gains tax rates below 0.245. \textbf{(A gap is 0.1 in favour of households seems to be needed to support home-ownership.)}
+
+\includegraphics[ scale=.5]{fig/Analysis/Capital-gains-person-point246-254.png}
+
+
+It should be possible to identify a boundary in the entire capital gains tax space between values of capital gains for investors and occupiers -owners where ownership begins to shift from occupiers to investors.
+
+\vspace{1cm}
+WORK IN PROGRESS
+
+When the capital gains rate for \textbf{investors} is varied 
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.28]{fig/Analysis/Capital-gains-investor-point-4-3-2-1-0.pdf}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Working period}
+\includegraphics[ scale=.5]{fig/Analysis/Working-period 20-30-40.png}
+
+The longer workers stay in the labour force the higher the fraction of the housing stock that is owner-occupied. this was an unexpected result. 
+
+It is probably because when turnover is increased  institutional investors have m0re chances to get into the market. 
+
+Savings for potential buyers are not obviously affected.
+
+Shorter periods for owners to make capital gains may have an effect.
+
+If the result reflects real processes, it is likely that increased workforce churn reduces owner-occupancy.
+
+
+
+
+
+\subsection{Maximum Mortgage share}
+Contrary to our expectations, the maximum fraction of a come that can be mortgaged appears not to affect  the base economic model and no effect on the pattern of ownership
+
+\subsection{Income share used for mortgage}
+This variable also has no effect. Combinations with Maximum Mortgage share have no effect.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Property taxes}
+
+\includegraphics[ scale=.25]{fig/Analysis/Property-tax-point4-2.png}
+At a property tax rate of 4.5\% we see a sharp change in the ownership pattern. Above this point owner-occupiers disappear. This seems reasonable, but the time pattern is strange. Why a sharp change at 100 time steps?
+
+4\% approximates the level of actual mill-rates in Ontario.
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{Working period}
+
+% \includegraphics[ scale=.5]{fig/Analysis/Working-period 20-30-40.png}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{12-15 -010050 Change wealth sensitivity two cases 0.1 and 0.05 }
+no sensitivity in any output for this parameter base. Ownership share may show  a small effect if we are near a tipping point driven by p-dot
+
+\includegraphics[scale=.45]{fig/Analysis/exp0_warranted_price_vs_time_step.png}
+
+
+\begin{multicols}{2}
+[\textbf{parameters}]
+\begin{verbatim}
+'adjn': 0.15,
+'adjF': 0.02,
+'adjw': 0.05, 
+'capital_gains_tax_person':   0.0,
+'capital_gains_tax_investor': 1,
+\end{verbatim}
+
+\end{multicols}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \subsection{12-17 010050, Varying Capital gains  }
+% \begin{tabular}{c|c}
+%   mpl  &  \\
+%   n   &  \\
+%   N   &  \\
+%   F   &  \\
+%   E   &  \\
+%   k   & 
+% \end{tabular} 
+
+% \includegraphics[trim= 1.5cm 5cm 2cm 6.5cm, clip, scale=.40]{fig/Analysis/215330-exp0-timeseries-plots.pdf}
 
 % adjF: 0.02, adjw: 0.15, discount_rate: 0.07, r_margin: 0.01, max_mortgage_share: 0.9,  capital_gains_tax_person: [0.5, 0.01], capital_gains_tax_investor: [0.75, 0.5, 0.25
 
@@ -278,12 +371,12 @@ We will want something like this perhaps in an early chapter. this case may not 
  \end{document}
 
  \newpage
-% \section{parameters}
+% \subsection{parameters}
 % \begin{verbatim}
 
 % \end{verbatim}
 
-% \section{Change  12-15 010050}
+% \subsection{Change  12-15 010050}
 \begin{tabular}{c|c}
   mpl  &  \\
   n   &  \\

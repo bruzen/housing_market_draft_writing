@@ -1,5 +1,59 @@
+- Fast version of the code where we track alternative bids/bid rent curves - actual bids/prices
+    - Run on sharcnet
+    - Show end grid
+- Perturb mid way
+- Fix error with crashing values
+- Investors can sell
+
+## Hypotheses
+The financial sector affects the ownership of housing and the class structure of society, 
+There may be dynamic/resilience features of this model that make the effects worse than you might expect
+- Boom bust - pump wealth on/out of city on the boom and on the bust. 'There are sharks in the water' 1. Higher bid can amplify up swings - have to compete with speculators 2. can't get it back on down swing since outside finance offers a stable floor- buys up on way down (we expect larger effects as people are 1. displaced on the way up and then 2. evicted on the way down - can't use their spaces)
+  - reduce demand for labour temporarily - reduce wages for labour - demand -- cyclic structure - local employment structure - and financial booms that are external.. - cases where they align and wehre they disalign
+  - link finance and employment -vary price of output- vary the employment *** 
+- Hysteresis - perturb, doesn't come back - e.g. interest rates go up.
+- The way it aligns with long run changes in the landscape e.g. tech changing local info changes vulnerability to these shocks -- Depth of the basin changes - er   odes systemic resilience - together these changes bo the capacity to hold value in landscape. (links to the productivity feedback - much will/can they invest in increasing their productivity/supporting kids/good food to grow brains. Education to increase productivity is the feature that makes productivity increases resilient to de-industrialization)
+This has implications for landscape- system- class structure- 
+
+This may have implications for urban productivity. (can actually displace productive uses - empty store fronts) - who can/will enter, how , who can rent spaces, speculative value may keep it empty (work spaces or living space - lowering pop), reduces consumption
+
+
+Amplified effects by extensions
+Two city experiments
+Different incomes  - inequality
+Urban density
+
+
+
+## High Priority
+imediately do experiments with the price of output - should give a decline in price of labour, may or may not result in changes in the housing market (record housing prices]
+Which interest rate is charged to investors
+speed/memory, plot and workflow to find parameters, run online - try storing the bid rent curve -- - what is the gap.. 
+
+just keep housing - turn off storage..  cyclic pieces turn off the market. - turn off the production
+
+
+
+
+
+
 # List variable_parameters for experiments
-experiment_parameters_list = [
+experiment_parameters_list = [Jan 5
+ {
+    #   'density': [1, 10],
+        # 'c': [3000, 300.0], 
+    #   `'wealth_sensitivity': 0.1,
+      'capital_gains_tax_person':   [0.5, 0.6],# 3, 4, 5], # share 0-1
+    #   'capital_gains_tax_investor': [0.2, 0.3], # share 0-1
+    #   'subsistence_wage': [40000], # [10000, 30000],
+    #   'gamma': [0.001, 0.02, 0.7]
+        'property_tax_rate': [.04, .08]
+    },
+    # {
+    #     'density': [1, 100],
+    #     'gamma': [0.001, 0.02, 0.7]
+    # }
+
     {
     #   'density': [1, 10],
         'c': [3000, 300.0], 
@@ -11,6 +65,8 @@ experiment_parameters_list = [
     
     }
 ]
+
+python(62894) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
 
 Zeihan on Geopolitics YouTube Channel. Geopolitical Strategist Peter Zeihan is a global energy, demographic and security expert.
 
