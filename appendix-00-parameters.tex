@@ -1,5 +1,18 @@
 \chapter{Parameters and initial values}
 
+TODO MOVE TO WHEREVER WE PUT EMPIRICAL VALUES INFORMING PARAMETER SETTING - APPENDIX? According to Statistics Canada's Survey of Household Spending for 2019, \cite{statisticscanadaSurveyHouseholdSpending2021} homeowners with mortgages allocated about 29\% of their total  spending to shelter costs (\$30,734), with mortgage payments (\$16,959) accounting for more than half of this total.
+
+(TODO MOVE TO APPENDIX WHERE WE INTRODUCE VALUES OT SET PARAMETERS Wealth, $\bar W$, limits borrowing amounts and interest rates in Equation \ref{eqn-wealth-based-mortgage}. The median net worth of Canadian households is \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.)
+
+The nature of the constraint is
+Figure~\ref{fig-borrowing-ratio} illustrates the model rising asymptotically to a maximum mortgage share of 0.9. % The function here rises asymptotically to 0.9. 
+The borrowing ratio for the median wealth holder is perhaps 0.8. The institutional investor in our model has a borrowing ratio close to or at the maximum since it is not asset constrained. While and the general relationship we describe here is clearly established empirically \cite{GET_SOURCE}, the functional form and parameter values are somewhat arbitrary. %we have not found precise estimates or parameters. 
+
+
+(TODO MOVE TO PARAMETER SETTING SECTION Many personal finance experts recommend total housing costs account for less than  28\% of \textbf{gross} household income, so we use value 0.28 as an estimate of $i$'s annual carrying capacity  $\mathbb{C}$ in Equation \ref{eqn-income-based-mortgage}.)
+
+
+
 \subsection{TODO ORDER BY MODEL COMPONENT NOT BY AGENT TYPE - E.G. PRODUCTION MODEL, HOUSING MARKET MODEL, CITY MODEL}
 
 % Teminology: Y=prefactor*N**scaling\_exponent
