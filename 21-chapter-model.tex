@@ -93,7 +93,7 @@ Our goal has been to make a model as accessible as the \Gls{Alonzo model} that c
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
-Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modeling the market for housing in more detail. 
+Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modeling the market for housing in more detail. 
 
 % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
@@ -104,7 +104,7 @@ Figure~\ref{fig-flow-full-model} shows the model flow/logic.  The following thre
 % We build a spatially explicit agent model where agents work in one location and incur costs travelling to work. This work integrates a model of production and labour into a standard spatial model of the city. In this section, we introduce an analytic model of production and a labour market in a stylized circular city. 
 
 % \subsection{Labour supply for production}
-We begin with a model of a circular city. \footnote{In our computational model we use a grid structure with  a block metric, which is computationally more convenient and provides a slightly more natural representation of the property structure of actual cities.} %- INTRO CITY/APPROACH?
+We begin with a model of a circular city.\footnote{In our computational model we use a grid structure with  a block metric, which is computationally more convenient and provides a slightly more natural representation of the property structure of actual cities.} %- INTRO CITY/APPROACH?
 In the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
 
@@ -112,14 +112,12 @@ In the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse
 
 Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of
 goods that they sell into a commodity market. Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant. 
-
 Firms purchase the time of workers. %to capture the product of their effective labour
 %and enjoy the product of \gls{effective labour} . They can produce more goods by hiring additional workers. 
 With the neoclassical model of distribution,\footnote{Clark's neoclassical assumption \cite{clarkDistributionWealthTheory1899}.} 
 % We assume that the neoclassical model of distribution holds in the long run and 
 workers receive the value of their marginal product. 
-
-Because of agglomeration effects, workers in the city are more productive than workers in the countryside. They therefore receive an  \gls{urban wage premium}.
+Because of agglomeration effects, workers in the city are more productive than workers in the countryside. They therefore receive an \gls{urban wage premium}.
 
 % TODO this shows the dynamics of a local economy, trade dynamics dominate local dynamics in many cases, that is explored with the addition of more cities and centres. 
  
@@ -134,10 +132,10 @@ since agents work if the wage premium is greater than the cost of travel. % Livi
 The higher the wage, the farther workers will commute. %This is the core of the Alozo circular city model.
 The farthest that workers will travel is $\frac{w}{{c}}$, where ${c}$ is the cost of transportation per unit distance. This defines the radius of the city and the commuter shed.
 
-The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute. Considering a standard, Alonzo-style \gls{circular city} with a uniform lot size, $s$ and  one worker per unit land, for illustrative purposes, the labour available is simply the area of the circle divided by the lot size: 
+The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from individual agents' choice to commute. Considering a standard, Alonzo-style \gls{circular city} with a uniform lot size, $s$ and  one worker per unit land, for illustrative purposes, the labour available is simply the area of the circle divided by the lot size 
 \begin{equation}
 %=  \frac{\pi}{s}(c^{max})^2	
- N = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2
+ N = \frac{\pi}{s} \left(\frac{w}{{c}}\right)^2,
 %   =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
@@ -188,18 +186,18 @@ According to \gls{neoclassical distribution theory}, the firm maximizes profit b
 y              =&  A(L^T) k^\alpha n^\beta \nonumber\\ 
 \die{y}{L}     =&\beta A(L^T) k(t)^\alpha n^{\beta-1} \nonumber\\
                 =&\frac{\beta A(L^T) k(t)^\alpha n^\beta}{n} \nonumber\\
-                =& \frac{\beta y}{n}
+                =& \frac{\beta y}{n}.
 \end{align}
 This is clearly positive and increasing in $L^T$, the aggregate labour force for the city.  It follows that population growth increases marginal product in this model. 
 
 
-Since optimizing firms are assumed to adjust their wage offer and hiring to achieve a wage that is equal to the marginal product of labour. 
+Since optimizing firms are assumed to adjust their wage offer and hiring to achieve a wage that is equal to the marginal product of labour 
 \begin{align}\label{eqn-model-MPL-w}
-             \omega + \psi   =& \frac{\beta y}{n}
+             \omega + \psi   =& \frac{\beta y}{n}.
 \end{align}
 As a result, the wage increases, perhaps with a lag, when urban population  rises 
 \begin{equation}
- \die{(\omega + \psi)}{L^T} >0
+ \die{(\omega + \psi)}{L^T} >0.
 \label{eqn-wage-population}
 \end{equation}
 In our model the subsistence wage $\psi$ is fixed, so the wage premium must rise if the marginal product of labour rises.  We have shown that a rising wage premium increases the distance that workers will travel to work, so the city grows and population rises, as the upper loop in Figure~\ref{fig-flow-full-model} illustrates. 
@@ -208,10 +206,12 @@ In our model the subsistence wage $\psi$ is fixed, so the wage premium must rise
 
 Equation~\ref{eqn-model-MPL-w} is an equilibrium condition. Firms, however,  are agents setting wages and hiring while labour supply and demand are shifting.    We assume that they do know the marginal product of their current workforce and can observe the wage level from period to period. It is reasonable to assume that when their marginal product of labour rises they adjust both their labour demand and their wage offers. The marginal product of labour can be seen as a target wage. Equation~\ref{eqn-model-MPL-w} implies that the firm's target labour demand is 
 \begin{equation}
-           n  = \frac{\beta y}{\omega + \psi}
+           n  = \frac{\beta y}{\omega + \psi}.
 \label{eqn-labour-demand}
 \end{equation}
-We think in addition it is reasonable to assume $\omega$, and the wage, $n$, the size of the firm's workforce,  both adjust slowly toward target values in each period. We also allow the number of firms to adjust gradually.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible since it removes a term, $\frac{\gamma Y}{N}$, that is quantitatively insignificant from the expression for the marginal product that guides firm behavior. If all firms are identical, the term becomes $F\frac{\gamma Y}{N} =\frac{\gamma Y}{L}$, }
+We assume it is reasonable to assume $\omega$, and the wage, $n$, the size of the firm's workforce,\footnote{The analytic model offers an equilibrium solution with full employment. The assumption of full-employment is uneralstic. Workers are laid off, and take time to find new employment. The time people spend moving between jobs causes frictional unemployment which varies with economic conditions. Introducing a constant or ``natural'' rate of unemployment %however, would have little effect on the overall behaviour of the model. Variable frictional unemployment 
+would introduce additional dynamics, however it would be unlikely to affect the results that interest us.} 
+both adjust slowly toward target values in each period. We also allow the number of firms to adjust gradually.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible since it removes a term, $\frac{\gamma Y}{N}$, that is quantitatively insignificant from the expression for the marginal product that guides firm behavior. If all firms are identical, the term becomes $F\frac{\gamma Y}{N} =\frac{\gamma Y}{L}$.}
 
 
 % The city has single firm facing a fixed price for output. 
@@ -271,7 +271,6 @@ We think in addition it is reasonable to assume $\omega$, and the wage, $n$, the
 % If the marginal product increased, then a firm that got large enough would out-compete smaller firms, hire all labour, always be able to produce more wealth by hiring more people, and would always produce more wealth by hiring people than by firing people. This doesn't happen. 
 % Perhaps, the firm hires employees who best fit its needs first, but to grow, eventually it must hire less selectively. Finding markets may get harder with growth. Perhaps expansion adds additional costs, building a parking lot, administration, acquiring a larger building. Whatever the explanation, the marginal product of labour declines. 
 
-The analytic model offers an equilibrium solution with full employment. In the agent-based model this assumption does not hold, workers are laid off, and take time to find new employment. The time people spend moving between jobs is the cause of frictional unemployment, It varies with economic conditions. Introducing a constant or ``natural'' rate of unemployment would have little effect on the overall behaviour of the model. Variable  frictional unemployment would introduce additional dynamics but would be unlikely to affect the results that interest us.
 
 
 
@@ -285,15 +284,13 @@ The analytic model offers an equilibrium solution with full employment. In the a
 \section{Housing markets} \label{section-rent}
 %Property markets are the largest and most complex part of our model. 
 In this section we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
-We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In Subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
+We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
 
-Because participation in the housing market depends on financing, in Subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in Subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
+Because participation in the housing market depends on financing, in subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
 
-In Subsection~\ref{sec:bargaining-model} we describe our price-determination mechanism, which is based on standard bargaining theory.  The rest of the chapter, Subsection~\ref{sec:bids-and-reservation} derives specific bid and reservation prices for different agents.
+In subsection~\ref{sec:bargaining-model} we describe our price-determination mechanism, which is based on standard bargaining theory.  The rest of the chapter, subsection~\ref{sec:bids-and-reservation} derives specific bid and reservation prices for different agents.
 
- The explicit treatment of rents, prices, and  productivity \gls{premium} and use of the \gls{subsistence wage} as an analytical device  make this a `\gls{classical}' model despite its reliance on supply and demand modelling of the housing market. 
-
- To develop the analysis, we track the quantities, outlined in Table~\ref{table-price-notation}.\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}
+ The explicit treatment of rents, prices, and  productivity \gls{premium} and use of the \gls{subsistence wage} as an analytical device  make this a `\gls{classical}' model despite its reliance on supply and demand modelling of the housing market.  To develop the analysis, we track the quantities, outlined in Table~\ref{table-price-notation}.\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}
 
 % Rents go to the owners of a given property. If workers own their own homes, rents go to them. If others own the land, they can extract the rent. 
 %In each period a house offers two kinds of services: {locational services} or  access to the central city job and amenities, and {home services}.  The {warranted rent} is the value of a complex stream of services. 
@@ -321,19 +318,16 @@ Rent  & $\mathcal{R}_{W_j}$      & $\mathcal{R}_{M_j}$  & $\mathcal{R}_{M_j}^\ep
 
 
 \subsection{Warranted rent}\label{sec:warranted-rent}
-\Gls{warranted rent} is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent extraction would convince tenants they are better off leaving the city.
-\footnote{Abstracting from the adjustment process, the warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve,  % independent of the tendencies of the market.  
+\Gls{warranted rent} is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent extraction would convince tenants they are better off leaving the city.\footnote{Abstracting from the adjustment process, the warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve,  % independent of the tendencies of the market.  
 Combining a model of long-run attractor dynamics with distributed agent interactions, combines the advantages of agent-based modeling and standard \gls{classical} and \gls{neoclassical} economic analysis to give insight into the dynamics of financialization. Chapter~\ref{chapter-methodology} on methodology discusses the approach.} 
 
-Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. We treat the first two as constants.  
-
-The value of accessibility  can be expanded to include amenities. In our base model it is determined by the urban wage premium, which rests on the productivity of the city firms. %We include three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
+Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. We treat the first two as constants. The value of accessibility  can be expanded to include amenities. In our base model it is determined by the urban wage premium, which rests on the productivity of the city firms. %We include three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
 Expected future price increases are driven by increases in the value of accessibility, which is to say, the rising productivity of the city. Productivity rises in our model due to pure agglomeration effects. Our concern is with what happens to the city and its people when financial capital captures the growing value generated by the agglomeration process.  
 
 
 \subsubsection{Locational economic rent} \label{section-economic-rent}
 The \gls{economic rent} is the value of surplus that arise from access to jobs in the centre of the city where agglomeration economies generate a wage premium. These are represented as %, on an annual basis, 
-the wage premium, $\omega$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center:
+the wage premium, $\omega$, minus the transportation costs, $c$, for a property a given distance, $d$, from the center
 
 \[\omega - {dc}.\]
 
@@ -720,7 +714,7 @@ We will  proxy the expected rate of change of prices with
 where $T$ is the mortgage term. The specific value to use for $\die{\omega}{t}$ might depend on assumptions agents make about adjustment,  the variability of $P$, and the observability of $omega$.
 
 
-\subsection{Illustrating  Constraints on the Bid Price}
+\subsection{Illustrating  Constraints on the bid price}
  
 Buyers calculate their maximum bid based on value, but actual bids are constrained by the mortgage limits imposed by the bank illustrated in Figure~\ref{fig:dual-constraint} and the buyer's savings. The mortgage constraint may or may not bind, depending on the price of the final price. Figure~\ref{fig:savings-constraint} illustrates how these considerations affect the actual bid. 
 
