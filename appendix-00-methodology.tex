@@ -101,6 +101,24 @@ In this chapter we discuss the (eclectic) methodological approach of the thesis,
 Because we draw on techniques and results in several fields, on approaches from several historical periods, and  concerns associated with differing ideological perspectives,  the analysis and modelling for this study raises a number of interesting methodological issues. For example, our model combines elements  of classical rent theory and neoclassical distribution theory. We employ equilibrium arguments derived from models of optimizing agents, who make decisions at the margin,  with an Agent-Based Model (ABM) in which agents simply make periodic discrete choices from  a small set of alternatives. We combine coarse generalizations about long-term agglomeration effects with fine-grained housing and financcial market processes. We examine in (moderate) detail how financial decisions affect home ownership, but simply black-box  the transmission of  agglomeration effects through firms  from aggregate productivity gains to population growth.
 None of these represent methodological transgressions although the combinations may be unusual. The methodological questions are interesting, however, and we get additional insight into the financialization of housing markets by examining them further,   
 
+{\color{red}
+
+
+\section{System dynamics}\label{sec_model_dynamics}
+Combined, the three submodels %we have just described 
+make up a complex system with different types of agents interacting over time. It is an \gls{open system} that is growing, with financial and population flows in and out of the system. We have simplified, assuming that there is a competitive market for output driving urban productivity. There are two main \glspl{feedback loop}: the productivity-wage, population-productivity loop that we call the Alonso-Jacobs cycle, and the speculative investment-price, inflation-investment cycle that may produce price bubbles. 
+
+A system of this sort inevitably has distinct dynamics that can, depending on \glspl{critical parameter}, produce surprising and even counter-intuitive results.  Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not, and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
+
+System behaviour depends on the speed with which system stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values. We know that certain variables , like ownership  shares are bounded between zero and one although the housing stock itself is variable.  
+
+We have not introduced  stochastic elements into the core model on the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
+
+One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distributions on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
+
+It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size or composition may affect amenity - which we have not models---and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
+}
+
 %----------------------------------------------------------------------
 \section{Feedback loops and systems design}
 %----------------------------------------------------------------------
