@@ -1,13 +1,9 @@
-
 \pgfdeclareimage[width=3cm]{uwlogo}{fig/uw.png}
-\pgfdeclareimage[width=0.9cm]{oxfordlogo}{images/oxford-logo.png}
-\pgfdeclareimage[width=3cm]{statslogo1}{images/statistics-logo.png}
-\pgfdeclareimage[width=2cm]{statslogo2}{images/statistics-logo2.png}
 
 % Define the colours that are to be used in the presentation
-\definecolor{oxfordblue}{RGB}{0,33,71}          % Oxford Blue
-\definecolor{titlecolor}{RGB}{0,0,0}            % Oxford Blue
-% \definecolor{oxfordgold}{cmyk}{0,0.21,0.60,0.30}    % Oxford Gold
+\definecolor{darkblue}{RGB}{0,33,71}             % Dark blue
+\definecolor{titlecolor}{RGB}{0,0,0}             % Black
+\definecolor{goldcolor}{cmyk}{0,0.21,0.60,0.30}  % Gold
 
 %% Title slide formatting %%
 % \setbeamerfont{title}{size=\Large}
@@ -21,23 +17,15 @@
 \setbeamercolor*{date}{fg=titlecolor}
 \setbeamerfont*{date}{size=\small}
 
-% % Reformat Title Page
-% \setbeamercolor{title}{fg=white}
-% \setbeamercolor{author}{fg=white}
-% \setbeamercolor{institute}{fg=white}
-% \setbeamercolor*{subtitle}{fg=white}
-% \setbeamercolor*{date}{fg=white}
-% \setbeamerfont*{date}{size=\small}
-
 \setbeamertemplate{title page}{
-    % \setbeamercolor{background canvas}{bg=oxfordblue}%  blue background
+    % \setbeamercolor{background canvas}{bg=darkblue}%  blue background
     \vspace{1cm}
-    \begin{centering}
+    \begin{center}
         {
         % \usebeamerfont{title}
         \LARGE
         \usebeamercolor[fg]{title}
-        \inserttitle\\[1.5cm]
+        \inserttitle\\[.7cm]
         }
         {
         % \usebeamerfont{subtitle}
@@ -49,28 +37,28 @@
         % \usebeamerfont{subtitle}
         \small
         \usebeamercolor[fg]{subtitle}
-        \insertinstitute\\[1cm]
+        \insertinstitute\\[0.1cm]
         }
-    \end{centering}
-    
-    \begin{flushright}
+
         {
-        \usebeamerfont{date}
+        \small
+        % \usebeamerfont{date}
         \usebeamercolor[fg]{date}
-        \insertdate
+        \insertdate\\[1.7cm]
         }
-    \end{flushright}
-    
-    \begin{picture}(0,0)
-        \put(0,20){%
+
+        % \hspace*{-1cm}
+        \begin{picture}(0,0)
+        \put(-50,0){
             \pgfuseimage{uwlogo}
         }
-    \end{picture}
-    
+        \end{picture}
+    \end{center}
+
     \newcommand{\maketitleoxstats}{
         \setbeamertemplate{footline}{} %removefootline for this slide
         \setbeamertemplate{headline}{}
-        % \setbeamercolor{background canvas}{bg=oxfordblue}
+        % \setbeamercolor{background canvas}{bg=darkblue}
         \maketitle
         \setbeamercolor{background canvas}{bg=}
     }
@@ -82,11 +70,11 @@
 {%
     \begin{picture}(0,0)
         \put(-8,-10){%
-            % \Large\color{oxfordblue}\insertframetitle
-            \large\bf\color{oxfordblue}\insertframetitle
+            % \Large\color{darkblue}\insertframetitle
+            \large\bf\color{titlecolor}\insertframetitle
         }
         \put(-7,-20){%
-            \normalsize\color{oxfordblue}\insertframesubtitle
+            \normalsize\color{titlecolor}\insertframesubtitle
         }
     \end{picture}
 }
@@ -95,22 +83,22 @@
 % {%
 %     \begin{picture}(0,0)
 %         \put(20,32){%
-%             \color{oxfordblue}
+%             \color{darkblue}
 %             \rule{320pt}{0.2pt}
 %         }
 %         \put(20,10){%
 %            \pgfuseimage{statslogo2}
 %         }
 %         \put(100,20){%
-%             \color{oxfordblue}
+%             \color{darkblue}
 %             \insertshorttitle
 %         }
 %         \put(230,20){%
-%             \color{oxfordblue}
+%             \color{darkblue}
 %             \insertshortdate
 %         }
 %         \put(337,20){%
-%             \color{oxfordblue}
+%             \color{darkblue}
 %             % \insertpagenumber
 %             \insertframenumber % this allows using pause without increasing page number
 %         }
