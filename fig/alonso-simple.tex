@@ -5,7 +5,7 @@
 \def\bndmax{5}        %https://tex.stackexchange.com/questions/68462/filling-a-complex-region-with-tikz
 \def\bndmin{0.2}
 \def \n {8.5}  % height of y axis
-\def \d {13}  % length  of x axis
+\def \d {11}  % length  of x axis
 \def \t {.75}  %  cost of transportation per unit x
 \def \th {1}   %
 \def \w {7}    %  wage premium
@@ -15,8 +15,8 @@
 \tikzset{func/.style={thick,color=blue!80}}	
 
 % FIRST FIGURE just axes PARTITIONING THE LABOUR SHARE
-\draw [thick] (0,-\om) --(\d,-\om);  			% Zero for rural population
-\draw [thick] (0,-\om) --(0,\n); %node[above]{\Huge $w$};	% Y axis
+\draw [thick, -latex] (0,-\om) --(\d,-\om)node[right] {\large $d$};  			% Zero for rural population
+\draw [thick,-latex] (0,-\om) --(0,\n); %node[above]{\Huge $w$};	% Y axis
 %\node at (0,\n+0.5){\large $Rent$};
 
 % \draw [thick] (0,0)node[left=.5]{Subsistence}--(\d,0);
@@ -24,8 +24,8 @@
 \node[left=.25] at (0,3.3){\large $\omega$};
 \node[left=.25] at (0,-0.9){\large $\psi$};
 %\node[left=.25] at (0,3){$w+\omega$};
-\node[left=.25] at (0,\w+.3){Subsistence plus};
-\node[left=.25] at (0,\w-.4){wage premium};	
+\node[left=.25] at (0,\w+.7){Subsistence plus};
+\node[left=.25] at (0,\w){wage premium};	
 
 %\foreach \xi in {0,..., \n} \draw (\xi,0)--(\xi,-.1)node[below=1]{\small$\xi$};
 %\foreach \yi in {1,...,\n} \draw (0,\yi)--(-.1,\yi)node[left]{$\yi$};
@@ -38,7 +38,7 @@
 %\draw [fill=green!80] (-.25, 0) rectangle(.25, \w);
 \node[right] at  (.25, \w/2){Added Productivity};
 % \node[right, text width = 3cm] at  (10,9){Where does the increase in productivity come from?};
-\draw [ thick, ->](11.3,-\om/2)--(13, -\om/2)node [right] {\large $d$};
+%\draw [ thick, ->](11.3,-\om/2)--(13, -\om/2)node [right] {\large $d$};
 
 %  THIRD FIGURE  add wage profile PARTITIONING THE LABOUR SHARE
 % \pause
@@ -61,9 +61,9 @@
 %\pause
 %\node at (9,\n){\Large Partitioning the Labour Share};
 
-\draw[fill=black!40] (0,-\om) rectangle (9.30,\w);% new product repeat
+\draw[fill=black!20] (0,-\om) rectangle (9.30,\w);% new product repeat
 \draw[func, domain=0:\w/\t+1] plot [samples=200] (\x,{\w-\t*\x}); %rent profile
-\fill[blue!40] (0.1,-0.1) rectangle (9.2,-\om+.1);
+\fill[blue!20] (0.01,-0.01) rectangle (9.29,-\om+.01);
 \node at (4.5,-\om/2){Subsistence};
 \draw[fill=yellow!70,] (0.,0.) -- (0,7)--(9.30,0.)--cycle;% Rent \w-.2
 \node at (3.,2){Rent}; 		%Rent 
