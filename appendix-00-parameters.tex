@@ -1,29 +1,206 @@
 \chapter{Parameters and initial values} \label{appendix-parameters}
 
-(insert tables? from the CHSP?) as in from model chapter 'According to the Canada Housing Statistics Program (CHSP), first-time home buyers require a combination of sufficient income and savings in order to enter the housing market'
-
-TODO MOVE TO WHEREVER WE PUT EMPIRICAL VALUES INFORMING PARAMETER SETTING - APPENDIX? According to Statistics Canada's Survey of Household Spending for 2019, \cite{statisticscanadaSurveyHouseholdSpending2021} homeowners with mortgages allocated about 29\% of their total  spending to shelter costs (\$30,734), with mortgage payments (\$16,959) accounting for more than half of this total.
-
-The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada. %'s 
-%\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
-% Data released in 2020 by Statistics Canada indicates that t
- The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
- %A study by Statistics Canada found that t
-  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
-
-
-(TODO MOVE TO APPENDIX WHERE WE INTRODUCE VALUES OT SET PARAMETERS Wealth, $\bar W$, limits borrowing amounts and interest rates in Equation \ref{eqn-wealth-based-mortgage}. The median net worth of Canadian households is \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.)
-
-The nature of the constraint is
-Figure~\ref{fig-borrowing-ratio} illustrates the model rising asymptotically to a maximum mortgage share of 0.9. % The function here rises asymptotically to 0.9. 
-The borrowing ratio for the median wealth holder is perhaps 0.8. The institutional investor in our model has a borrowing ratio close to or at the maximum since it is not asset constrained. While and the general relationship we describe here is clearly established empirically \cite{GET_SOURCE}, the functional form and parameter values are somewhat arbitrary. %we have not found precise estimates or parameters. 
-
-
-(TODO MOVE TO PARAMETER SETTING SECTION Many personal finance experts recommend total housing costs account for less than  28\% of \textbf{gross} household income, so we use value 0.28 as an estimate of $i$'s annual carrying capacity  $\mathbb{C}$ in Equation \ref{eqn-income-based-mortgage}.)
+Here are the parameters.
+Initial values for endogenous variables
+These are \textbf{initial values} that we calculate based on the parameters above. These initial values provide  a starting point consistent with the production theory that we apply. They will be adjusted as the model iterates.  Some, like "Output for a typical rural firm", are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
 
 
 
-\subsection{TODO ORDER BY MODEL COMPONENT NOT BY AGENT TYPE - E.G. PRODUCTION MODEL, HOUSING MARKET MODEL, CITY MODEL}
+\section{Spatial structure}
+
+\subsubsection{Land}
+\begin{description}
+\item[distance from center  $d$] 
+\end{description}
+
+
+\begin{description}
+{\color{red}
+\item[property taxes]
+\begin{align*}
+\mathcal{T} &= \text{mill rate} \times  \\
+&= \tau \times \frac{\omega_t- {dc} + a\psi.}{r}
+\end{align*}
+}
+]
+\end{description}
+
+
+
+{Warranted price} The value of housing services including locational services. (Copied from the initial value calculation.)
+
+{Maintenance costs for T} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($a\psi$) over the mortgage period (T). This may be used in computing bids.
+
+{Value of taxes for T}
+Property taxes are imposed on the  lagged property price. They  are discounted and summed (sum\_delta)  over the mortgage period (T). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
+
+Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}
+
+
+
+\subsubsection{City}
+\begin{description}
+\item [density] workers per lot, maybe 100 initially, Combined with the city extent, $f$, this gives suburban population. % A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. 
+Notice that in the ABM we can set density individually for each cell in the grid, so density is really a vector variable.  % Also explore a density of 1 with a higher seed population.
+\item [seed population] $P_0=0$. % An initial population at the center that anchors the population. % We need to seed it with an initial core urban Cities aren't unseeded. Zero initially, adjustable to get reasonable behaviour or to explore additional factors such as a service population or a retired population. 
+\item [baseline population]  $N_0=\mathrm{density} * f_0 * f_0 + P_0$ 
+\begin{lstlisting}
+ self.baseline_population = density*width*height + self.seed_population
+\end{lstlisting}
+
+\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms.
+
+
+\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistence wage in Canada for after-tax income. Try also lower values.
+
+
+\item [initial wage premium ratio] $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
+
+\item [worker share of urban agglomeration surplus] 0.72 or 0.8 $\lambda=\beta_F$ (Workers are getting the same share of the surplus as they do of output with no agglomeration effects.) 
+\item [urban agglomeration coefficient $\beta$ = 1.12] for the city: elasticity of urban output with respect to population (empirical)
+
+\item [scaling adjustment factor] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. BAD NAME. ****
+
+\item [equilibrium cost of transportation] $c = \omega/f$. Constant.
+\item [property tax rate annually. $\tau=0.04$] This is applied to the assessed value.
+
+\item[a: housing services share] Share of subsistence wage going to housing 
+% services, a.
+
+% a  =  share of subsistence wage  used for land and building e.g. 0.3
+
+% b  = share of share of subsistence wage  used on maintenance e.g. 0.2
+
+% c  = annual tax rate on rent and home  e.g. 12 mills = 0.012
+% \end{quotation}
+
+\item[b: maintenance share  of housing services ] Share of housing services going to maintenance.
+
+\item [Annual maintenance]
+\[\mathcal{O}=   ba\psi \]
+
+{\color{red}
+\item[Assessment ratio] 
+Needed because the property tax is based on assessed value, which is less than market values. It is generally a fraction of a lagged value, say $\kappa$,  of the warranted price
+\[P^{assesssed}=  \kappa P_{t-1}^{market}\]
+$\kappa$ is associated with the tax rate multiplicatively. Annual property tax is $\tau\kappa P_{t-1}^{market}$
+
+\item [Property tax] is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
+
+\[\mathcal{T} = \tau\kappa  \mathcal{P}_{A} =  \tau\kappa \mathcal{P}_{M, t-1} \]
+}
+\end{description}
+
+
+item [Amenity]
+$\mathbb{A}=0$
+The local site-specific and urban amenity \textbf{function}. %Also considered symbols $\bar\forall$ and $\mathbb{H}$ for Hedonic value. 
+ Assume it is zero initially.
+
+
+
+
+\subsection{Time}
+ The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily, value 5 years. 
+
+
+
+\subsection{Transportation costs}
+Transport costs have two parts:
+1) fuel and vehicle costs per km
+2) time costs per km
+
+\subsubsection{Vehicle related costs}
+Use one year as the wage period, converting transportation costs per km to annual cost for consideration in the household budget. Starting with the cost per km, calculate the cost per year:
+
+\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
+
+ \textbf{work trips per year} 2 way * 5 days/week * 50 weeks work days = 500. [range: 450-550]
+
+\textbf{cost per km-year} = work trips per year*cost per km
+
+=\$0.59/km*500 trips/year  =  \$295/km year 
+
+\subsubsection{Time costs}
+\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
+
+(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
+
+\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
+ 
+\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
+
+\textbf{money cost of time per km year} 
+
+= time cost per km-year* wage(including subsistence) 
+
+= 0.012 year* wage per year
+
+\subsubsection{Total cost per km year of commuting for one agent}
+\textbf{money cost of time per km year + \$295/km year * distance} \\
+= (0.012 w+ \$295)/km year 
+    \begin{quotation}
+    \textbf{Example}
+    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is equal to the wage
+
+\[(0.012 w+ \$295)/km year)*30 =  w\] 
+\[.36w+ 8850=w\]
+\[w=13828.12\]
+\begin{quotation}
+\textbf{PLAUSIBILITY CHECK}
+This is plausible land rent, but does not include building rent. 
+Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles from city centre
+\end{quotation}
+\end{quotation}
+
+
+
+\subsubsection{Value of transportation price to use in model}
+\[ {c}=(0.012 w+ \$295)/km year \]
+
+
+
+ 
+\section{Agglomeration and productivity}
+
+
+
+
+
+Variables that are recalculated in each step.
+% \footnote{\begin{itemize}
+%     \item Variables have to have a time subscript. 
+%     \item We also distinguish the urban firm from the basic rural firm.  Only the urban firm changes its behaviour.  I use a subscript $_U$. 
+%     \item I omit the subscript for $n_t$ because only the urban firm changes its workforce size.
+% \end{itemize} }
+
+
+\subsubsection{Wage premium ratio}
+
+$p_t= \frac{\omega_t}{\psi_t}$ 
+
+\subsection{Older firm parameter value discussion}
+
+\subsubsection{Price growth}
+% """ Note agents forecasts are linear, but the population growth 
+% is power law distributed. Thus the model is conservative and agents
+% underestimates the the value of the urban center. Actuall effects  
+% could be stronger. onsider alternative appraoches to forcasting value, risk, etc.#     What time frame do agents consider? Is their model linear?
+
+
+\subsubsection{Wage premium} \label{section-wage-premium}
+
+Hirsch Wage \cite{hirschUrbanWagePremium2019} observe that, ``Following Glaeser and Maré \cite{glaeserCitiesSkills2001},  a  large  empirical  literature  has  investigated differences in wages across labour markets of different sizes. The general finding of this literature is that a significant urban wage premium exists. and that this premium consists both of a level effect and a growth effect that arises as workers gain urban work experience.'' 
+
+Almeida et al \cite{almeidaUrbanWagePremium2022} found for Brazil, that the female urban wage premium is on average 11.3\%, almost double the average male premium of 5.7\% and that higher in formal and informal jobs and across various agglomeration levels. The premium is larger in denser areas.
+
+
+
+
+
+
+
+\section{TODO ORDER BY MODEL COMPONENT NOT BY AGENT TYPE - E.G. PRODUCTION MODEL, HOUSING MARKET MODEL, CITY MODEL}
 
 % Teminology: Y=prefactor*N**scaling\_exponent
 
@@ -38,7 +215,7 @@ The borrowing ratio for the median wealth holder is perhaps 0.8. The institution
 % A\_city =  ????? = prefactor for city
 
 
-OLD removed from code:
+% OLD removed from code:
                 % #  wage_adjust_coeff_new_workers   = 0.5,
                 % #  wage_adjust_coeff_exist_workers = 0.5,
                 % #  prefactor              = 250,  # CUT, this is A_city? maybe 251, larger than .2
@@ -120,73 +297,9 @@ $\dot P $      & Price growth                         & []         & $\frac{P_t-
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
 
-\subsubsection{Time}
- The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily, value 5 years. 
+
 
  
-\subsubsection{City}
-\begin{description}
-\item [density] workers per lot, maybe 100 initially, Combined with the city extent, $f$, this gives suburban population. % A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. 
-Notice that in the ABM we can set density individually for each cell in the grid, so density is really a vector variable.  % Also explore a density of 1 with a higher seed population.
-\item [seed population] $P_0=0$. % An initial population at the center that anchors the population. % We need to seed it with an initial core urban Cities aren't unseeded. Zero initially, adjustable to get reasonable behaviour or to explore additional factors such as a service population or a retired population. 
-\item [baseline population]  $N_0=\mathrm{density} * f_0 * f_0 + P_0$ 
-\begin{lstlisting}
- self.baseline_population = density*width*height + self.seed_population
-\end{lstlisting}
-
-\item [workforce of a standard rural firm] $n=100$. This is also the initial value for urban firms.
-
-
-\item [subsistence wage] $\psi$ = \$40,000. %  that is within range of reasonable subsistence wage in Canada for after-tax income. Try also lower values.
-
-
-\item [initial wage premium ratio] $p_0\in\{0.04,0.2,.30\}$ (empirical range from various sources). The percentage by which urban wages exceed rural wages 
-
-\item [worker share of urban agglomeration surplus] 0.72 or 0.8 $\lambda=\beta_F$ (Workers are getting the same share of the surplus as they do of output with no agglomeration effects.) 
-\item [urban agglomeration coefficient $\beta$ = 1.12] for the city: elasticity of urban output with respect to population (empirical)
-
-\item [scaling adjustment factor] $z\in[0,1]$ Begin with z=0.5. Scaling adjustment for calculating the number of new entrants. BAD NAME. ****
-
-\item [equilibrium cost of transportation] $c = \omega/f$. Constant.
-\item [property tax rate annually. $\tau=0.04$] This is applied to the assessed value.
-
-\item[a: housing services share] Share of subsistence wage going to housing 
-% services, a.
-
-% a  =  share of subsistence wage  used for land and building e.g. 0.3
-
-% b  = share of share of subsistence wage  used on maintenance e.g. 0.2
-
-% c  = annual tax rate on rent and home  e.g. 12 mills = 0.012
-% \end{quotation}
-
-\item[b: maintenance share  of housing services ] Share of housing services going to maintenance.
-
-\item [Annual maintenance]
-\[\mathcal{O}=   ba\psi \]
-
-{\color{red}
-\item[Assessment ratio] 
-Needed because the property tax is based on assessed value, which is less than market values. It is generally a fraction of a lagged value, say $\kappa$,  of the warranted price
-\[P^{assesssed}=  \kappa P_{t-1}^{market}\]
-$\kappa$ is associated with the tax rate multiplicatively. Annual property tax is $\tau\kappa P_{t-1}^{market}$
-
-\item [Property tax] is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
-
-\[\mathcal{T} = \tau\kappa  \mathcal{P}_{A} =  \tau\kappa \mathcal{P}_{M, t-1} \]
-}
-\end{description}
-
-
-item [Amenity]
-$\mathbb{A}=0$
-The local site-specific and urban amenity \textbf{function}. %Also considered symbols $\bar\forall$ and $\mathbb{H}$ for Hedonic value. 
- Assume it is zero initially.
-
-\subsubsection{Land}
-\begin{description}
-\item[distance from center  $d$] 
-\end{description}
 
 \subsubsection{Person}
 \begin{description}
@@ -255,75 +368,16 @@ Used in Equation~\ref{eqn-wealth-based-mortgage}.
 \item [$K$ the wealth sensitivity of the borrowing rate for those purchasing homes]
 \end{description}
 
-\subsubsection{Realtor}
-
-\section{Transportation costs}
-Transport costs have two parts:
-1) fuel and vehicle costs per km
-2) time costs per km
-
-\subsection{Vehicle related costs}
-Use one year as the wage period, converting transportation costs per km to annual cost for consideration in the household budget. Starting with the cost per km, calculate the cost per year:
-
-\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
-
- \textbf{work trips per year} 2 way * 5 days/week * 50 weeks work days = 500. [range: 450-550]
-
-\textbf{cost per km-year} = work trips per year*cost per km
-
-=\$0.59/km*500 trips/year  =  \$295/km year 
-
-\subsection{Time costs}
-\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
-
-(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
-
-\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
- 
-\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
-
-\textbf{money cost of time per km year} 
-
-= time cost per km-year* wage(including subsistence) 
-
-= 0.012 year* wage per year
-
-\subsection{Total cost per km year of commuting for one agent}
-\textbf{money cost of time per km year + \$295/km year * distance} \\
-= (0.012 w+ \$295)/km year 
-    \begin{quotation}
-    \textbf{Example}
-    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is equal to the wage
-
-\[(0.012 w+ \$295)/km year)*30 =  w\] 
-\[.36w+ 8850=w\]
-\[w=13828.12\]
-\begin{quotation}
-\textbf{PLAUSIBILITY CHECK}
-This is plausible land rent, but does not include building rent. 
-Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles from city centre
-\end{quotation}
-\end{quotation}
 
 
 
-\subsection{Value of transportation price to use in model}
-\[ {c}=(0.012 w+ \$295)/km year \]
+\subsection{Initial values for endogenous variables} \label{sec-init-value-list}
 
-
-\section{Initial values for endogenous variables} \label{sec-init-value-list}
-
-These are \textbf{initial values} that we calculate based on the parameters above. These initial values provide  a starting point consistent with the production theory that we apply. They will be adjusted as the model iterates.  Some, like "Output for a typical rural firm", are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
 
 
 
 \subsubsection{City}
 \begin{description}
-\item [initial market rent] 
-Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
-
-\item [Initial market price] 
-$P_0= P_W=\frac{\mathcal{R}_W }{r}$,  
 
 \item[number of urban firms]  $F_0=\frac{N_0}{n_0}$. % **** TODO FIX - this says the baseline population over the number of workers per firm. - the initial value is this. The ongoing calculation is the number of workers $n_0$ is the initialu urban workforce. just count the workforce
 
@@ -355,20 +409,32 @@ AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\
 \end{description}
 
 
-\subsubsection{Land}
+
+
+
+
+\section{Housing Market}
 \begin{description}
-{\color{red}
-\item[property taxes]
-\begin{align*}
-\mathcal{T} &= \text{mill rate} \times  \\
-&= \tau \times \frac{\omega_t- {dc} + a\psi.}{r}
-\end{align*}
-}
-]
+\item [initial market rent] 
+Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
+
+\item [Initial market price] 
+$P_0= P_W=\frac{\mathcal{R}_W }{r}$,  
 \end{description}
 
 
-\subsubsection{Person}
+\subsubsection{Net warranted price} \label{section-warranted-price}
+We use the net warranted price to approximate the initial value of the market price in our computational model. 
+The economically \gls{warranted price}, for an agent, borrowing money to purchase a property, is the present discounted value of the flow of service net of costs. The present discounted value of the infinite stream of net rents is:
+\begin{equation}
+P_W=\frac{\mathcal{R}_N}{r},  
+\label{eqn-price-warranted}
+\end{equation}
+where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  
+%In a market in equilibrium, the warranted price should approximate the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components.  We use the  present discounted value of net warranted rents to 
+
+
+\subsection{Person}
 \begin{description}
 \item [savings] $age_i*savings\_rate*\psi$
 \item[personal wealth] $W_{i0}= savings + warranted\_price $
@@ -426,70 +492,39 @@ delta =
 
 
 
+(insert tables? from the CHSP?) as in from model chapter 'According to the Canada Housing Statistics Program (CHSP), first-time home buyers require a combination of sufficient income and savings in order to enter the housing market'
 
-\subsubsection{Bank}
+TODO MOVE TO WHEREVER WE PUT EMPIRICAL VALUES INFORMING PARAMETER SETTING - APPENDIX? According to Statistics Canada's Survey of Household Spending for 2019, \cite{statisticscanadaSurveyHouseholdSpending2021} homeowners with mortgages allocated about 29\% of their total  spending to shelter costs (\$30,734), with mortgage payments (\$16,959) accounting for more than half of this total.
+
+The median after-tax income of Canadian families and unattached individuals was \$66,800 in 2020 according to Statistics Canada. %'s 
+%\href{https://www150.statcan.gc.ca/n1/daily-quotidien/220323/dq220323a-eng.htm}{Canadian Income Survey, 2020}.  \href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}
+% Data released in 2020 by Statistics Canada indicates that t
+ The top 1\% of reporting Canadians made, on average, around \$512,000 in a single year \cite{WEB_model-stats-can-canadian-incomes}. % \href{https://www150.statcan.gc.ca/n1/daily-quotidien/201222/dq201222b-eng.htm}{Survey of Financial Security, 2019}.
+ %A study by Statistics Canada found that t
+  %\href{https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110005501}{High income tax filers in Canada}
+
+
+(TODO MOVE TO APPENDIX WHERE WE INTRODUCE VALUES OT SET PARAMETERS Wealth, $\bar W$, limits borrowing amounts and interest rates in Equation \ref{eqn-wealth-based-mortgage}. The median net worth of Canadian households is \$329,900, while the average net worth in Canada is \$738,200 \cite{WEB-model-stats-can-median-net-worth}.)
+
+The nature of the constraint is
+Figure~\ref{fig-borrowing-ratio} illustrates the model rising asymptotically to a maximum mortgage share of 0.9. % The function here rises asymptotically to 0.9. 
+The borrowing ratio for the median wealth holder is perhaps 0.8. The institutional investor in our model has a borrowing ratio close to or at the maximum since it is not asset constrained. While and the general relationship we describe here is clearly established empirically \cite{GET_SOURCE}, the functional form and parameter values are somewhat arbitrary. %we have not found precise estimates or parameters. 
+
+
+(TODO MOVE TO PARAMETER SETTING SECTION Many personal finance experts recommend total housing costs account for less than  28\% of \textbf{gross} household income, so we use value 0.28 as an estimate of $i$'s annual carrying capacity  $\mathbb{C}$ in Equation \ref{eqn-income-based-mortgage}.)
+
+
+
+\subsection{Investor}
 \begin{description}
 \item[mean initial wealth $\bar W$] $= \frac {a\psi}{r_prime}+savings_0$
 \end{description}
 
+\subsection{Realtor}
 
+\subsection{Bidding mechanism}
 
-\subsection{Housing Market}
-\subsubsection{Net warranted price} \label{section-warranted-price}
-We use the net warranted price to approximate the initial value of the market price in our computational model. 
-The economically \gls{warranted price}, for an agent, borrowing money to purchase a property, is the present discounted value of the flow of service net of costs. The present discounted value of the infinite stream of net rents is:
-\begin{equation}
-P_W=\frac{\mathcal{R}_N}{r},  
-\label{eqn-price-warranted}
-\end{equation}
-where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest rate.  
-%In a market in equilibrium, the warranted price should approximate the sale price, of a unit of housing with land, in the absence of potential capital gains and expected changes in its components.  We use the  present discounted value of net warranted rents to 
-
-
-\section{Model execution}
-Variables that are recalculated in each step.
-% \footnote{\begin{itemize}
-%     \item Variables have to have a time subscript. 
-%     \item We also distinguish the urban firm from the basic rural firm.  Only the urban firm changes its behaviour.  I use a subscript $_U$. 
-%     \item I omit the subscript for $n_t$ because only the urban firm changes its workforce size.
-% \end{itemize} }
-
-
-\subsection{City}
-\subsubsection{Wage premium ratio}
-
-$p_t= \frac{\omega_t}{\psi_t}$ 
-
-\subsection{Land}
-\subsubsection{Warranted price} The value of housing services including locational services. (Copied from the initial value calculation.)
-
-\subsubsection{Maintenance costs for T} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($a\psi$) over the mortgage period (T). This may be used in computing bids.
-
-\subsubsection{Value of taxes for T}
-Property taxes are imposed on the  lagged property price. They  are discounted and summed (sum\_delta)  over the mortgage period (T). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
-
-Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}
-
-\section{Older parameter value discussion}
-
-\subsection{Price growth}
-% """ Note agents forecasts are linear, but the population growth 
-% is power law distributed. Thus the model is conservative and agents
-% underestimates the the value of the urban center. Actuall effects  
-% could be stronger. onsider alternative appraoches to forcasting value, risk, etc.#     What time frame do agents consider? Is their model linear?
-
-
-\subsection{Wage premium} \label{section-wage-premium}
-
-Hirsch Wage \cite{hirschUrbanWagePremium2019} observe that, ``Following Glaeser and Maré \cite{glaeserCitiesSkills2001},  a  large  empirical  literature  has  investigated differences in wages across labour markets of different sizes. The general finding of this literature is that a significant urban wage premium exists. and that this premium consists both of a level effect and a growth effect that arises as workers gain urban work experience.'' 
-
-Almeida et al \cite{almeidaUrbanWagePremium2022} found for Brazil, that the female urban wage premium is on average 11.3\%, almost double the average male premium of 5.7\% and that higher in formal and informal jobs and across various agglomeration levels. The premium is larger in denser areas.
-
-\subsection{Spillover effects} \label{section-spillover}
-
-Spillover effects can be large. Irwin and Klenow  studied learning in chip production focusing  on the key issue of spillovers. They found learning rates of 10 to 27 per cent, averaging 20 per cent. They indicated that a good part of learning is internal, and that national spillovers were no greater than international spillovers. " \dots a firm learns three times as much from an additional unit of its own cumulative output as from another firm's cumulative output, regardless of the other firm's country of location. However, rest-of-world cumulative production is typically more than three times any given firm's cumulative production. This means that the absolute contribution of world cumulative production to each firm's experience outweighs the absolute contribution of its own cumulative production. In this sense, spillovers are substantial." (pp. 1217-1218).
-
-
+\section{OLD}
 
 % \section{TODO FIX/CUT Table of parameter values}
 % \renewcommand{\arraystretch}{2}

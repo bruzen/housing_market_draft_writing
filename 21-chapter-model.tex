@@ -66,7 +66,7 @@ In this thesis  we describe an agent-based spatial model of an urban housing mar
 
 % \section{The three major blocks of the model}\label{sec_model_blocks}
 
-Our goal has been to make an accesible model % model as accessible as the \Gls{Alonzo model} 
+Our goal has been to make an accessible model % model as accessible as the \Gls{Alonzo model} 
 that can provide insights about the impact of the financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:
 
 {\newpage\thispagestyle{empty}
@@ -98,7 +98,7 @@ Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sec
 
 % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
-\subsection{Spatial structure}
+\section{Spatial structure}
 
 % In this section, we introduce the basic structure of the model, drawing on the circular city model.  
 %  
@@ -147,7 +147,7 @@ where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ i
 % \label{eqn-inverse-labour-supply}
 % \end{equation}
 
-\subsection{Agglomeration and productivity}\label{sec:Production-fn}
+\section{Agglomeration and productivity}\label{sec:Production-fn}
 
 % *** ADD BACK? To study the productivity of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}), using an approach similar to the way the \gls{Solow-Swan model} incorporates labour-augmenting technical change with a \gls{Cobb-Douglas} production function, and building the production function into a standard Alonso-style model of an urban economy.
 %, using a simple Cobb-Douglas production function. 
@@ -280,7 +280,7 @@ both adjust slowly toward target values in each period. We also allow the number
 
 
 
-\section{Housing markets} \label{section-rent}
+\section{Housing market} \label{section-rent}
 %Property markets are the largest and most complex part of our model. 
 In this section we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
 We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
@@ -734,7 +734,7 @@ We choose a price on the horizontal axis and project it up to the black dashed d
 % \end{lstlisting}
 
     
-\section{The bargaining model} \label{sec:bargaining-model}
+\subsection{The bargaining model} \label{sec:bargaining-model}
 Buyers place bids and a sale occurs if there is a surplus created by the transaction, that is if the the buyer's maximum bid exceeds owner's \gls{reservation price}, the maximum the owner would pay to retain their own property. 
 Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved. Possible divisions are described by the red line in Figure~\ref{fig:Nash-bargaining-game}.\footnote{The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951, The Nash equilibrium: A perspective. Charles A. Holt and Alvin E. RothAuthors Info & Affiliations March 15, 2004 101 (12) 3999-4002 https://doi.org/10.1073/pnas.0308738101} 
 identifies  `\gls{disagreement point},' which which is the  lowest value each player will accept. The combination of reservation price and maximum bid together are the disagreement point for a two-person price bargaining game. Since paying for the house is a negative for the buyer, the scale on the vertical axis  in Figure~\ref{fig:Nash-bargaining-game} is reversed to generate a version of the most common Nash bargaining figure.} 
