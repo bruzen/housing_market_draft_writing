@@ -813,7 +813,7 @@ We have now identified a set of bids and a reservation price for each property o
 The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
 If a bargain is possible, the rule is simple: 
 \begin{enumerate}
-    \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is relatively simple but not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+    \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is fairly simple if perhaps not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
     \[P = xP_B^{max}+(1-x)P_R, \ \ \ x\in [0\dots 1] \]
 where $x$ is typically 0.5.
     \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
@@ -838,9 +838,12 @@ where $x$ is typically 0.5.
 
 
 
-
+{\color{red}
 \section{OOD documentation of the agent based model}
-MAYBE A NOTE ON METHOD, INTRODUCE ABM AND HOW IT RELATES WITH EQUATION BASED MODELLING
+
+THIS PART IS NEW AND VERY ROUGH
+
+MAYBE ADD A NOTE ON METHOD, INTRODUCE ABM AND HOW IT RELATES WITH EQUATION BASED MODELLING
 
 The core model is documented bellow using the Overview, Design concepts, and Details (OOD) standard. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels.
 
@@ -881,10 +884,10 @@ Each time step represents one year. The model proceeds with discrete steps. All 
 \subsection{Design concepts}
 
 Basic principles
-Adaptation - adpative traits - rules for  how changing in response to changes in environment or themselves. do they seek to increase some measure
+Adaptation - adaptive traits - rules for  how changing in response to changes in environment or themselves. do they seek to increase some measure
 Objectives - what is the objective and how is it measured
-No - Learning - chang adpative traits based on experience
-Prediction - the antisipate based on past prices
+No - Learning - change adaptive traits based on experience
+Prediction - the anticipate based on past prices
 
 
 
@@ -950,8 +953,4 @@ to represent time varrying data.
 
 \subsection{Submodels}
 Three submodels are the spatial structure of the model, with each land unit having a transportation cost based on its distance from the urban center, second the firm model that produces the urban wage, and finally the land market model that allows homeowners and financialized investors to bid on properties in order to capture the rising rents due to agglomeration.  
-
-
-
-
-
+}
