@@ -149,12 +149,20 @@ where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ i
 
 \section{Agglomeration and productivity}\label{sec:Production-fn}
 
+\begin{figure}[htb]
+    \centering
+\input{fig/production_functions}
+    \caption{While each individual firm exhibits decreasing returns to scale, the city as a whole exhibits increasing returns to scale, and thus produces an agglomeration surplus, $AN^\beta-\frac{N}{n_R}y_R$.}
+    \label{fig-agglomeration-surplus} % WAS {fig:Agglomeration-surplus} i think
+\end{figure}
+
 % *** ADD BACK? To study the productivity of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}), using an approach similar to the way the \gls{Solow-Swan model} incorporates labour-augmenting technical change with a \gls{Cobb-Douglas} production function, and building the production function into a standard Alonso-style model of an urban economy.
 %, using a simple Cobb-Douglas production function. 
 % We incorporate the estimated scaling relationship in 
 %The scaling result at the level of the city allows us to incorporate the agglomeration effect in a \gls{circular city} model, 
-The agglomeration effect that augments the productivity of workers means firms produce more goods with a given stock of labour if the city is larger and urban workers are more productive. % than rural workers due to the positive agglomeration externalities. 
-Urban firms can therefore pay a premium that depends on, among other things,  the size of the city. Because workers face transportation costs, firms have to pay this premium to attract workers. % , above the subsistence wage.
+The agglomeration effect that augments the productivity of workers means firms produce more goods with a given stock of labour if the city is larger and urban workers are more productive. Figure~\ref{fig-agglomeration-surplus} illustrates the increasing returns to urban size. % than rural workers due to the positive agglomeration externalities. 
+These increasing returns mean that urban firms can %Urban firms can therefore 
+pay a premium that depends on, among other things,  the size of the city. Because workers face transportation costs, firms have to pay this premium to attract workers. % , above the subsistence wage.
 %in a city with more people, as introduced in Chapter~\ref{chapter-growth} on growth.(**E SEE NOTE HERE) % #E i THINK YOU NEED TO FLESH THIS OUT, i'M NOT SURE EXACTLY WHAT YOU ARE SAYING. JUST BE A BIT MORE SPECIFIC AND FLESH OUT. 
 % \subsection{Labour force}
 %There are also firms that produce goods to sell. (???) % #E HOW IS THIS DIFFERENT THAN THE FIRMS PRODUCING GOODS IN THE PREVIOUS PARAGRAPH???
@@ -180,7 +188,7 @@ Urban workers give up the subsistence income and receive the \gls{urban wage}, $
 
 \subsection{Wage determination}
 
-According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor. If we calculate the marginal product of labour for the Cobb-Douglas with the Jacobs externality $A(L^T)$ from Equation~\ref{eqn-production-jacobs}, we get 
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor.\footnote{Appendix~\ref{appendix-firm-theory} has more detail on the theory of the firm underlying the treatment here.} If we calculate the marginal product of labour for the Cobb-Douglas with the Jacobs externality $A(L^T)$ from Equation~\ref{eqn-production-jacobs}, we get 
 \begin{align}\label{eqn-model-MPL}
 y              =&  A(L^T) k^\alpha n^\beta \nonumber\\ 
 \die{y}{L}     =&\beta A(L^T) k(t)^\alpha n^{\beta-1} \nonumber\\
@@ -735,6 +743,101 @@ We choose a price on the horizontal axis and project it up to the black dashed d
 %         # sum_delta = delta_mortgage_period * (1 - delta_mortgage_period)
 % \end{lstlisting}
 
+\subsection{The bargaining model} \label{sec:bargaining-model}
+Buyers place bids and a sale occurs if there is a surplus created by the transaction, that is if the the buyer's maximum bid exceeds owner's \gls{reservation price}, the maximum the owner would pay to retain their own property. 
+Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved. Possible divisions are described by the red line in Figure~\ref{fig:Nash-bargaining-game}.\footnote{The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951, The Nash equilibrium: A perspective. Charles A. Holt and Alvin E. RothAuthors Info & Affiliations March 15, 2004 101 (12) 3999-4002 https://doi.org/10.1073/pnas.0308738101} 
+identifies  `\gls{disagreement point},' which which is the  lowest value each player will accept. The combination of reservation price and maximum bid together are the disagreement point for a two-person price bargaining game. Since paying for the house is a negative for the buyer, the scale on the vertical axis  in Figure~\ref{fig:Nash-bargaining-game} is reversed to generate a version of the most common Nash bargaining figure.} 
+
+    \begin{figure}
+        \centering
+        \input{fig/bargaining-game}
+        \caption{The Nash bargaining game}
+        \label{fig:Nash-bargaining-game}
+    \end{figure}
+
+
+In Figure~\ref{fig:Nash-bargaining-game} we imagine the seller values the property at \$30,000 (the reservation price) and the buyer values it at \$50,000 (the maximum bid price).  At any price above \$30,000 the seller is better off. At any price below \$50,000 (above -\$50,000 on the vertical axis) the buyer is better off. 
+The set of acceptable bargains acceptable to both is above and to the right of the point labeled `disagreement point.' 
+
+In principle the buyer could pay more than \$50,000 or the seller could accept a price below \$30,000, but neither would do so if they are rational. 
+The thick red line segment, called the bargaining set, represents all the outcomes that are\begin{enumerate}
+    \item Efficient, because the entire \$20,000 surplus is allocated to the players. 
+    \item Feasible, because the players involved gain no more in total than the potential increase in value generated by the transaction.
+    \item Rational because neither player has to accept an outcome that makes them worse off.
+\end{enumerate}   
+
+The bargaining processes will ideally lead to a point on that thick red line segment. In practice, some of the surplus is dissipated in the sale process, and some is absorbed by intermediaries. We ignore this refinement for the current version of the model. Differences in relative power will tip the outcome in favour of the stronger player.   Players who can afford to wait will get a larger share of the gain. Excess demand favours sellers. Low vacancy rates favour owners over tenants.   If there is a deal, it will still be at a price between the maximum bid and the reservation price, and in most cases probably somewhere near the midpoint. Sellers might reduce the asking price if the home fails to sell in the first period it is on the market.\footnote{Uncertainty adds further complications. Parties may not know each other's disagreement point. PartieS post asking prices greater than their reservation price or initial offers much lower than their true valuation.  
+Negotiations often proceed through a series of offers and counteroffers.}\;\footnote{In an overheated housing market bid prices might exceed asking prices, but the price won't exceed the maximum expected profitable bid price, $P_B^{max*}$. We could elaborate the model by defining a measure of \gls{sellers' bargaining power} based on vacancies and expected prices.}   % Ariel Rubinstein \cite{rubinsteinPerfectEquilibriumBargaining1982} presented a convincing solution to the alternating offers model in a 1982 paper. His process converges to the Nash solution. 
+% }
+%  The higher asking price and lower bids are `cheap talk' (In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. % This is in contrast to signaling in which sending certain messages may be =
+
+
+ 
+
+
+% \subsubsection{Maximum bids}
+% The rate of return calculation in  Equation~\ref{eqn-property-investment-return1} combined with the investment criterion in Equation~\ref{eqn-property-investment-return2} identifies the maximum  that price that an investor can price offer for a property  and still maker sa profit.
+
+% \begin{align}
+% %r^{target}& \le \frac{\delta^\mathbb{T}}{1-m} \left(\dot P_\mathbb{T} - (1+r)^\mathbb{T})m  + \frac{\mathcal{R}_{N, \mathbb{T}}}{P_B^{max}}\right)\nonumber\\
+% % (1-m)r^{target}/\delta^\mathbb{T} &\le \dot P_\mathbb{T} - (1+r)^\mathbb{T}m  +   \frac{\mathcal{R}_{N, \mathbb{T}}}{P_B^{max}} \\
+% % (1-m)r^{target}/\delta^\mathbb{T} - \dot P_\mathbb{T} + (1+r)^\mathbb{T}m &\le  \frac{\mathcal{R}_{N, \mathbb{T}}}{P_B^{max}}\nonumber\\
+% P_B^{max} &\le  \frac{\mathcal{R}_{N, \mathbb{T}}}{(1-m)r^{target}/\delta^\mathbb{T} - \dot P_\mathbb{T} + (1+r)^\mathbb{T}m} \label{eqn:maximum-bid}
+% \end{align}
+
+% We call this  $i's$ maximum bid.
+% .\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.} 
+% It represents the value of the stream of rent plus any capital gains, and is therefore the most reasonable reservation price for sellers as well the most reasonable maximum offer for potential buyers. In principle it exists for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time. 
+
+
+
+
+\subsection{The many-to-one matching problem}
+\textbf{The housing market is usually a many-to-many matching problem}: which property goes to which buyer? For each property that comes on the market, there will be a set of potential buyers with differing maximum bids. Some simplifications are available. In each sale, the bidder with the highest bid price among those currently bidding on that property will make the purchase.\footnote{For many reasons the process is likely to exhibit a good deal of randomness and inefficiency. For our purpose, the general messiness of the market is unlikely to do more than slow and blur results somewhat.} Since the highest bidder is competing with the second-highest bidder, we expect the final price to be equal to the second-highest maximum bid, shown as the star in figure~\ref{fig:auction-game}. 
+
+
+    \begin{figure}
+        \centering
+        \input{fig/bargaining-two-bid}
+        \caption{Auction with a second, higher bid}
+        \label{fig:auction-game}
+    \end{figure}
+
+%.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
+When there is one bidder, we will employ a simple rule for splitting the gain from trade. Both simplifications are grounded in standard bargaining theory.
+
+
+
+\subsection{The bargaining process}
+We have now identified a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. 
+The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
+If a bargain is possible, the rule is simple: 
+\begin{enumerate}
+    \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is relatively simple but not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+    \[P = xP_B^{max}+(1-x)P_R, \ \ \ x\in [0\dots 1] \]
+where $x$ is typically 0.5.
+    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
+
+\end{enumerate}
+  
+    \begin{figure}[!thb]
+    \centering
+    \input{fig/bargaining.tex}
+    \caption{The Bargaining model and price determination}
+    \label{fig:Bargaining}
+    \end{figure}
+
+
+% \[P^{ask}>P_M^e> 0.95 P^r\]
+% Otherwise
+% \[P^{ask}> 1.10P^r>P_M^e\]
+% If no offer exceeds the reservation price, no sale is made.
+
+% Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
+% If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
+
+
+
 
 \section{OOD documentation of the agent based model}
 MAYBE A NOTE ON METHOD, INTRODUCE ABM AND HOW IT RELATES WITH EQUATION BASED MODELLING
@@ -850,99 +953,5 @@ Three submodels are the spatial structure of the model, with each land unit havi
 
 
 
-
-
-\subsection{The bargaining model} \label{sec:bargaining-model}
-Buyers place bids and a sale occurs if there is a surplus created by the transaction, that is if the the buyer's maximum bid exceeds owner's \gls{reservation price}, the maximum the owner would pay to retain their own property. 
-Bargaining models attempt to identify the way the surplus available from a transaction is divided between the parties involved. Possible divisions are described by the red line in Figure~\ref{fig:Nash-bargaining-game}.\footnote{The classic  formulation by John Nash %\cite{Nash_John% (1953-01-01). "Two-Person Cooperative Games". Econometrica. 21 (1): 128–140. doi:10.2307/1906951. JSTOR 1906951, The Nash equilibrium: A perspective. Charles A. Holt and Alvin E. RothAuthors Info & Affiliations March 15, 2004 101 (12) 3999-4002 https://doi.org/10.1073/pnas.0308738101} 
-identifies  `\gls{disagreement point},' which which is the  lowest value each player will accept. The combination of reservation price and maximum bid together are the disagreement point for a two-person price bargaining game. Since paying for the house is a negative for the buyer, the scale on the vertical axis  in Figure~\ref{fig:Nash-bargaining-game} is reversed to generate a version of the most common Nash bargaining figure.} 
-
-    \begin{figure}
-        \centering
-        \input{fig/bargaining-game}
-        \caption{The Nash bargaining game}
-        \label{fig:Nash-bargaining-game}
-    \end{figure}
-
-
-In Figure~\ref{fig:Nash-bargaining-game} we imagine the seller values the property at \$30,000 (the reservation price) and the buyer values it at \$50,000 (the maximum bid price).  At any price above \$30,000 the seller is better off. At any price below \$50,000 (above -\$50,000 on the vertical axis) the buyer is better off. 
-The set of acceptable bargains acceptable to both is above and to the right of the point labeled `disagreement point.' 
-
-In principle the buyer could pay more than \$50,000 or the seller could accept a price below \$30,000, but neither would do so if they are rational. 
-The thick red line segment, called the bargaining set, represents all the outcomes that are\begin{enumerate}
-    \item Efficient, because the entire \$20,000 surplus is allocated to the players. 
-    \item Feasible, because the players involved gain no more in total than the potential increase in value generated by the transaction.
-    \item Rational because neither player has to accept an outcome that makes them worse off.
-\end{enumerate}   
-
-The bargaining processes will ideally lead to a point on that thick red line segment. In practice, some of the surplus is dissipated in the sale process, and some is absorbed by intermediaries. We ignore this refinement for the current version of the model. Differences in relative power will tip the outcome in favour of the stronger player.   Players who can afford to wait will get a larger share of the gain. Excess demand favours sellers. Low vacancy rates favour owners over tenants.   If there is a deal, it will still be at a price between the maximum bid and the reservation price, and in most cases probably somewhere near the midpoint. Sellers might reduce the asking price if the home fails to sell in the first period it is on the market.\footnote{Uncertainty adds further complications. Parties may not know each other's disagreement point. PartieS post asking prices greater than their reservation price or initial offers much lower than their true valuation.  
-Negotiations often proceed through a series of offers and counteroffers.}\;\footnote{In an overheated housing market bid prices might exceed asking prices, but the price won't exceed the maximum expected profitable bid price, $P_B^{max*}$. We could elaborate the model by defining a measure of \gls{sellers' bargaining power} based on vacancies and expected prices.}   % Ariel Rubinstein \cite{rubinsteinPerfectEquilibriumBargaining1982} presented a convincing solution to the alternating offers model in a 1982 paper. His process converges to the Nash solution. 
-% }
-%  The higher asking price and lower bids are `cheap talk' (In game theory, cheap talk is communication between players that does not directly affect the payoffs of the game. % This is in contrast to signaling in which sending certain messages may be =
-
-
- 
-
-
-% \subsubsection{Maximum bids}
-% The rate of return calculation in  Equation~\ref{eqn-property-investment-return1} combined with the investment criterion in Equation~\ref{eqn-property-investment-return2} identifies the maximum  that price that an investor can price offer for a property  and still maker sa profit.
-
-% \begin{align}
-% %r^{target}& \le \frac{\delta^\mathbb{T}}{1-m} \left(\dot P_\mathbb{T} - (1+r)^\mathbb{T})m  + \frac{\mathcal{R}_{N, \mathbb{T}}}{P_B^{max}}\right)\nonumber\\
-% % (1-m)r^{target}/\delta^\mathbb{T} &\le \dot P_\mathbb{T} - (1+r)^\mathbb{T}m  +   \frac{\mathcal{R}_{N, \mathbb{T}}}{P_B^{max}} \\
-% % (1-m)r^{target}/\delta^\mathbb{T} - \dot P_\mathbb{T} + (1+r)^\mathbb{T}m &\le  \frac{\mathcal{R}_{N, \mathbb{T}}}{P_B^{max}}\nonumber\\
-% P_B^{max} &\le  \frac{\mathcal{R}_{N, \mathbb{T}}}{(1-m)r^{target}/\delta^\mathbb{T} - \dot P_\mathbb{T} + (1+r)^\mathbb{T}m} \label{eqn:maximum-bid}
-% \end{align}
-
-% We call this  $i's$ maximum bid.
-% .\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in  the standard capitalization formula.} 
-% It represents the value of the stream of rent plus any capital gains, and is therefore the most reasonable reservation price for sellers as well the most reasonable maximum offer for potential buyers. In principle it exists for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time. 
-
-
-
-
-\subsection{The many-to-one matching problem}
-\textbf{The housing market is usually a many-to-many matching problem}: which property goes to which buyer? For each property that comes on the market, there will be a set of potential buyers with differing maximum bids. Some simplifications are available. In each sale, the bidder with the highest bid price among those currently bidding on that property will make the purchase.\footnote{For many reasons the process is likely to exhibit a good deal of randomness and inefficiency. For our purpose, the general messiness of the market is unlikely to do more than slow and blur results somewhat.} Since the highest bidder is competing with the second-highest bidder, we expect the final price to be equal to the second-highest maximum bid, shown as the star in figure~\ref{fig:auction-game}. 
-
-
-    \begin{figure}
-        \centering
-        \input{fig/bargaining-two-bid}
-        \caption{Auction with a second, higher bid}
-        \label{fig:auction-game}
-    \end{figure}
-
-%.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
-When there is one bidder, we will employ a simple rule for splitting the gain from trade. Both simplifications are grounded in standard bargaining theory.
-
-
-
-\subsection{The bargaining process}
-We have now identified a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. 
-The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
-If a bargain is possible, the rule is simple: 
-\begin{enumerate}
-    \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is relatively simple but not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
-    \[P = xP_B^{max}+(1-x)P_R, \ \ \ x\in [0\dots 1] \]
-where $x$ is typically 0.5.
-    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
-
-\end{enumerate}
-  
-    \begin{figure}[!thb]
-    \centering
-    \input{fig/bargaining.tex}
-    \caption{The Bargaining model and price determination}
-    \label{fig:Bargaining}
-    \end{figure}
-
-
-% \[P^{ask}>P_M^e> 0.95 P^r\]
-% Otherwise
-% \[P^{ask}> 1.10P^r>P_M^e\]
-% If no offer exceeds the reservation price, no sale is made.
-
-% Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
-% If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
 
