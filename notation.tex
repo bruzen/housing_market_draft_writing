@@ -1,14 +1,16 @@
 \chapter{Notation}
 % \section{Notation for Urban and Production Sectors}
-\newpage
+% \newpage
+
 \begin{longtable}{lp{10cm}}
-\caption{Notation}                       \\
-\hline           &  \textbf{Productivity} \\ \hline
+\caption{Firm productivity}                       \\
+\hline
+% \hline           &  \textbf{Firm productivity} \\ \hline
+$Y=A K^{\alpha }N^{\beta }$  &  a Cobb-Douglas Production function \\ %Urban output
 $K$              &  Capital               \\ 
 % $L$            &  Labour                \\
 $N$              &  Population, equals labour \\ %, $L$          
 %$\Lambda$    &  Labour-augmenting agglomeration effect \\
-$Y=A K^{\alpha }N^{\beta }$  &  a Cobb-Douglas Production function \\ %Urban output            \\
 $\alpha$         &  Elasticity of output with respect to capital          \\
 $\beta$          &  Elasticity of output with respect to labour           \\ % vs effective labour
 $\gamma$         &  Elasticity of agglomeration with respect to labour    \\ % , $\Lambda(n)$, for illustration \\
@@ -35,8 +37,13 @@ $n$  &  Number of workers at a firm \\
 % \hline
 	% &\textbf{Amenity}\\ \hline
 % $A(d, n)$   &  Agglomeration amenity          \\
+\hline
+\end{longtable}
 
-\hline  0 &  \textbf{Labour market}                \\ \hline %and urban stucture??
+\begin{longtable}{lp{10cm}}
+\caption{Labour market}                                                            \\
+\hline
+% \hline  0 &  \textbf{Labour market}                \\ \hline %and urban stucture??
 $\psi$            &  Rural subsistence wage                             \\  
 $\omega$          &  Urban wage premium          \\
 ${c}$             &  Transportation cost per unit distance \\ % Was $\tau$, and $trans$. Considered $\gamma, \xi, \zeta$.
@@ -59,12 +66,20 @@ $d^* = w/{c}$     &  City extent \\ %, the maximum distance commuters will trave
 %% $U^{urban}=U^{rural} $  &  Migration equilibrium assumption ** \\
 % \hline & \textbf{Labour market} \\ 
 
-\hline           & \textbf{Financial market}             \\ \hline
+\hline
+\end{longtable}
+
+\begin{longtable}{lp{10cm}}
+\caption{Housing market}                                                            \\
+\hline
+% \hline           & \textbf{Housing market}             \\ \hline
 $P_W$            &  Warranted price for a property       \\
 $P_B$            &  Bid price                            \\ % was P^{bid}
 $P_A$            &  Asking price                         \\
 $P_M$            &  Realized market price                \\
 $P_M^e$          &  Expected market price                \\
+$\dot P$         &  Rate of price growth                 \\
+$\dot P_\mathbb{T}$ & Rate of price growth over some period $\mathbb{T}$ \\
 % $P$            &  Price of a property                  \\ 
 % $\dot P$       &  Rate of price growth              \\ % was $\dot p$  
 % $\mathcal{C}$    &  Capital gains                     \\ % was C
@@ -100,51 +115,45 @@ $b$       &  Maintenance share of share of subsistence wage \\ % A cost. Include
 % $wage_share$     & OLD Share of the agglomeration effect that goes to workers. \\
 
 \hline
-\color{black}
 \end{longtable}  
 
-\newpage
+% \newpage
 
 \begin{longtable}{lp{10cm}}
 \caption{Rent}                                                            \\
 \hline
 $\omega-{dc}$                &  Warranted (economic) rent                \\
 $\mathcal{R}=\omega-{dc}$    &  Equilibrium rent payment of tenant       \\
-PDV                           &  Present discounted value                 \\  
-$\mathcal{R}^T$               &  PDV of rent collected over period $T$    \\ 
-$\mathcal{R}^T_N=(1-\kappa-\sigma)\mathcal{R}^T$  &  PDV of net rent collected over period $T$ \\
+PDV                           &  Present discounted value (PDV)                \\  
+$\mathcal{R}^\mathbb{T}$               &  PDV of rent collected over period $\mathbb{T}$    \\ 
+$\mathcal{R}^\mathbb{T}_N=(1-\kappa-\sigma)\mathcal{R}^T$  &  PDV of net rent collected over period $\mathbb{T}$ \\
 \hline
 \end{longtable}
 
 \begin{longtable}{lp{10cm}}
-\caption{Bidding mechanism notation}                                          \\
+\caption{Bidding}                                          \\
 \hline
 $\mathcal{R}_N$  &  Net rent                                                  \\ % was NR
 % $P_0$            &  Purchase price for a property                             \\
-% $P^T_e$          &  Expected price at the end of period $T$                   \\
+% $P^\mathbb{T}_e$          &  Expected price at the end of period $\mathbb{T}$                   \\
 $r^{prime}$         &  Prime interest rate                                       \\
 $r^{target}$     &  Investor or banks target interest rate, $\bar r + margin$ \\
 
 $r_i$            &  Agent $i$'s personal borrowing rate                       \\
-$r_i^T$          &  Agent $i$ interest rate compounded over a period $T$      \\
+$r_i^\mathbb{T}$          &  Agent $i$ interest rate compounded over a period $\mathbb{T}$      \\
 $r_i^{disc}$     &  Agent $i$'s subjective discount rate (which may equal $r_i$) \\
 $r_\delta$       &  Discount rate                                             \\ % was $discr_i$
-$\delta_i^T$     &  Discount factor for agent $i$ over period $T$             \\
+$\delta_i^\mathbb{T}$     &  Discount factor for agent $i$ over period $\mathbb{T}$             \\
 $m^W$            &  Wealth-based share of home price a worker can mortgage    \\ % $= m_i(W_i)$
 $m^\omega$       &  Income-based share of home price a worker can mortgage    \\ % IS_i   IS_i(\omega+\psi)$$
 $m_i = min(m^W_i, m^\omega_i)$  & Mortgage, the share of home price worker $i$ can mortgage \\
 
 \hline
-\color{black}
 \end{longtable}  
-Notation: 
-Agent counts and indices are subscripts.
-Values related to time are superscripts, time as a continuous 
-variable is small, a period is capitalized e.g. the period $T$ of some number of years. 
-In general values are capitals, rates are small letters.
-$\dot P_\mathbb{T}$  is the expected rate of change in the market price over the term of the mortgage.
-% mathbb is for special characters e.g. $\mathbb{A}$
 
+Note: Agent counts and indices are subscripts. Values related to time are superscripts. Time as a continuous variable is small case, e.g. $t$. Time as a period is capitalized, for instance the period $\mathbb{T}$ of some number of years. In general values are capitals, rates are small letters.
+
+% mathbb is for special characters e.g. $\mathbb{A}$
 % It might be better to use the subscript $m$ for `market'.  for warranted rents
 
 

@@ -2,7 +2,7 @@
 
 Here are the parameters.
 Initial values for endogenous variables
-These are \textbf{initial values} that we calculate based on the parameters above. These initial values provide  a starting point consistent with the production theory that we apply. They will be adjusted as the model iterates.  Some, like "Output for a typical rural firm", are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
+These are \textbf{initial values} that we calculate based on the parameters above. These initial values provide  a starting point consistent with the production theory that we apply. They will be adjusted as the model iterates.  Some, like ``Output for a typical rural firm'', are simply intermediate variables used in further calculations.% that have to be chosen because they are used in calculating other values are:
 
 
 
@@ -15,24 +15,21 @@ These are \textbf{initial values} that we calculate based on the parameters abov
 
 
 \begin{description}
-{\color{red}
 \item[property taxes]
 \begin{align*}
 \mathcal{T} &= \text{mill rate} \times  \\
 &= \tau \times \frac{\omega_t- {dc} + a\psi.}{r}
 \end{align*}
-}
-]
 \end{description}
 
 
 
 {Warranted price} The value of housing services including locational services. (Copied from the initial value calculation.)
 
-{Maintenance costs for T} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($a\psi$) over the mortgage period (T). This may be used in computing bids.
+{Maintenance costs for period $\mathbb{T}$} The discounted value (sum\_delta) of maintenance cost (b) on  physical housing ($a\psi$) over the mortgage period ($\mathbb{T}$). This may be used in computing bids.
 
-{Value of taxes for T}
-Property taxes are imposed on the  lagged property price. They  are discounted and summed (sum\_delta)  over the mortgage period (T). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
+{Value of taxes for period $\mathbb{T}$}
+Property taxes are imposed on the  lagged property price. They  are discounted and summed (sum\_delta)  over the mortgage period ($\mathbb{T}$). This may be used in computing bids. A buyer assumes they are constant and paid at the end of each year of ownership during the mortgage period.
 
 Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}
 
@@ -79,7 +76,6 @@ Notice that in the ABM we can set density individually for each cell in the grid
 \item [Annual maintenance]
 \[\mathcal{O}=   ba\psi \]
 
-{\color{red}
 \item[Assessment ratio] 
 Needed because the property tax is based on assessed value, which is less than market values. It is generally a fraction of a lagged value, say $\kappa$,  of the warranted price
 \[P^{assesssed}=  \kappa P_{t-1}^{market}\]
@@ -88,7 +84,6 @@ $\kappa$ is associated with the tax rate multiplicatively. Annual property tax i
 \item [Property tax] is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
 
 \[\mathcal{T} = \tau\kappa  \mathcal{P}_{A} =  \tau\kappa \mathcal{P}_{M, t-1} \]
-}
 \end{description}
 
 
@@ -290,10 +285,10 @@ $a$       & Share of subsistence wage for land and building & 1.0 \\
 $\psi$    & Subsistence wage & 10000 \\
 $tau$     & Property tax rate &  e.g 1.6\% = 16 mills           & \\
 $c$       & Transportation cost & \\
-$T$       & Period & 5 years      \\
+$\mathbb{T}$       & Period & 5 years      \\
 $r$       & Individual interest rate & 0.05 \\\
 $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$ 
+% $P^\mathbb{T}_e$        & Expected price in \mathbb{T} years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_\mathbb{T}$ 
 \end{tabular}
 \renewcommand{\arraystretch}{1.0}
 
@@ -347,7 +342,7 @@ where $p$ is the wage premium ratio. If it is 0.2, then $\omega_0= 0.2*\psi =\$8
 
 \subsubsection{Bank} % and mortgage parameters
 \begin{description}
-\item [mortgage period]  mortgage\_period (T)
+\item [mortgage period]  mortgage\_period ($\mathbb{T}$)
 \item [cost of capital for the bank] r\_prime. The bank's interest rate, $r$, is just the bank rate (r\_prime) set by the Bank of Canada.  
 % The bank's interest rate, $r$, is just the bank rate (prime rate? set by the Bank of Canada. Exogenous. Just assign  a value like 4\%.
 
@@ -477,7 +472,7 @@ Delta could also depend on wealth. For example,  use the bank rate, which is the
 
 % sum\_delta is sum of the infinite series minus discounted infinite series after mortgage\_period years
 % Here, it is the present value of annual payments from one to mortgage\_period years e.g. of mortgage payments or rent received. 
-% delta\_mortgage\_period was previously called   delta\_period\_T 
+% delta\_mortgage\_period was previously called   delta\_period\_{\mathbb{T}} 
 % # Note delta_mortgage_period is subtracted to subtract the long tail. 1/delta gives the PV of an infineite series of payments
 
 \begin{lstlisting}
@@ -536,7 +531,7 @@ The borrowing ratio for the median wealth holder is perhaps 0.8. The institution
 % $b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
 % $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
 % $c$       & Transportation cost & \\
-% $T$       & Period & 5 years      \\
+% $\mathbb{T}$       & Period & 5 years      \\
 % $r$       & Individual interest rate & 0.05 \\
 % $\omega$  & Locational rent & 0.012  \\
 % $\psi$    & Subsistence wage & 10000 \\

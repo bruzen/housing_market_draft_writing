@@ -2,161 +2,19 @@
 \chapter{A Note on Methodology} \label{appendix-methodology}
 %======================================================================
 
-% This process of financialization also has profound impact at systems level. 
-% And the word financialization, at the macro level, refers to this set of impacts.
-% THOUGHT TO LOWER RISK  %DID THE CRISIS SHOW IT DIDN'T?
-% The instruments and share are not neutral tools. They have the potential to have a profound effect at the level of the system.
-% There are different kinds of systemic effects of this kind of increasing control and coupling could have/appear to have ELABORATE
-%There are many systems effects. ADD MORE 
+This study  combines elements  of classical rent theory and neoclassical distribution theory. We employ equilibrium arguments derived from models of optimizing agents, who make decisions at the margin,  with an agent-based model (ABM) in which agents make periodic discrete choices among a small set of alternatives. We combine coarse generalizations about long-term agglomeration effects with fine-grained housing and financial market processes. We examine in moderate detail how financial decisions affect home ownership, while black-boxing % but simply black-box  
+the transmission of  agglomeration effects through firms from aggregate productivity gains to population growth. 
+% None of these represent methodological transgressions although the combinations may be unusual. 
+The methodological questions that this combination raise are interesting and we get additional insight into the financialization of housing markets by examining them further.
 
-%Jaimison goes further and argues that the material and economic relations can actually structure our relation to society and ourselves, and even the ability to solve problems (e.g. methaprical structures limit ability to deal with societal crises like climate change).
-
-
-% ---
-
-
-% Answer to coarse graining and connection
-% 1. tools for choice, used in labs and
-% 2. Regimes not state
-% - teaching 
-% - organize around a metaphor - cybernetics macy conference and holling resilience.
-
-% - re-center distribution without loosing what was best in the 100 years. need a compelling integrated way to describe it. 
-% - everybody will get poor, inevitably on the basis of our general assumptions.
-% 3 little sub routines - the market model is still too complicated.
-
-
-%  What is a Good Model?  http://www.cs.ru.nl/~fvaan/PV/what_is_a_good_model.html
-
-% To some extent, building good models is an art. Dijkstra's motto "Beauty is our business" applies to models as well as to programs. Nevertheless, we can state seven criteria for good models. These criteria are in some sense obvious, and any person with experience in modelling will often try to adhere to them. But surprisingly, our list of criteria has - to the best of our knowledge - not been described elsewhere in the literature, although most of them occur in a technical report of Mader, Wupper and Boon. (We see this as a clear indication of the lack of interest for the methodology of modeling in our field.) Often, the criteria are hard to meet and typically several of them are conflicting. In practice, a good model is often one which constitutes the best possible compromise, given the current state-of-the-art of tools for modelling and analysis. But a truly beautiful model meets all the criteria! We refer to Mader, Wupper and Boon for further links to related work in the areas of software engineering, requirements analysis, and design.
-
-%     A good model has a clearly specified object of modelling, that is, it is clear what thing the model describes. The object of modelling can be (a part of) an existing artefact or physical system, but it may also be a document that informally specifies a system or class of systems (for instance a protocol standard), and it may even be a collection of ideas of a design team about a system they construct, expressed orally and/or by some drawings on a whiteboard.
-%     A good model has a clearly specified purpose and (ideally) contributes to the realization of that purpose. Possible purposes include: communication between stake holders, verification of specific properties (safety, liveness, timing,..), analysis and design space exploration, code generation, and test generation. A model can be descriptive or prescriptive. If a model has to serve several distinct purposes then often it is better to construct multiple models rather than one.
-%     A good model is traceable: each structural element of a model either (1) corresponds to an aspect of the object of modelling, or (2) encodes some implicit domain knowledge, or (3) encodes some additional assumption. Additional assumptions are for instance required when a protocol s tandard is incomplete (e.g., it does not specify how to handle certain events in certain cases). Links between the structural elements of the model and the aspects of the object of modelling should be clearly documented. A distinction must always be made between properties of (a component of) a model and assumptions about the behavior of its environment.
-%     A good model is truthful: relevant properties of the model should also carry over to (hold for) the object of modelling. Typically, for each (relevant) behavior of the object of modelling there should be a corresponding behavior of the model, and/or for each behavior of the model there should be a corresponding behavior of the artefact. In the construction of models often idealizations or simplifications are necessary in order to allow for the use of a certain modeling formalism or in order to be able to analyze the model. In these cases, the model may not be entirely truthful. The modeller should always be explicit about such idealizations/simplifications, and have an argument why the properties of the idealized model still say something about the artefact. In the case of quantitative models this argument will typically involve some error margin. In the case of nondeterministic models it frequently occurs that a model ``overapproximates'' reality, and that certain behaviors that are possible in the model are not possible for the artefact.
-%     A good model is simple (but not too simple). Occam's razor is a principle particularly relevant to modelling: among models with roughly equal predictive power, the simplest one is the most desirable. Hence, the number of states and state variables should be as small as possible, and the level of atomicity of transitions should be as coarse grained as possible (but not coarser), i.e., the number of transitions should be minimal given the intended use of the model. Preferably, things should be written only once, and one should avoid ugly encodings. Preferably, the model uses stable, well-defined and well-understood concepts and semantics.
-%     A good model is extensible and reusable, that is, it has been designed to evolve and be used beyond its original purpose. Typically, if one defines models in a modular and parametric way this allows for dimensioning, future extensions and modifications, especially if modules have well-defined interfaces. Ideally, a model should not just describe the specific system at hand: by appropriate instantiation and dimensioning it should be possible to model a whole class of similar systems.
-%     A good model has been designed and encoded for interoperability and sharing of semantics. Model-driven development of an embedded system typically leads to a plethora of models, all presenting different views on and abstractions of the system. If a model is not somehow linked to other models, its usefulness will be limited. Ideally therefore, the relationships between all models should be properly defined, for instance via formal refinement relations. 
-
-%Clearly, there are many relationships and dependencies between the criteria. If a model is traceble, that is, links between the structural elements of the model and the aspects of the object of modelling are clearly documented, then chances increase that the model will be thrutful. Also, if a model has been set up in a modular way, then one may apply a divide-and-conquer strategy both for establishing truthfulness of the model and for analysis. Etc, etc.
-
-
-% Our challenge has been to build a model that speaks to a core issue, while remaining simple enough that academics or policymakers might use it in a workshop, and someone with undergraduate training could work with it while maintaining extensiblity, policy relevance, and tight integration with core theoretical concepts. %from 200 years of economic and social thought.
-
-\section{Complex Systems}
-Complex systems theory is concerned with identifying and characterizing common design elements that are observed across diverse natural, technological and social complex systems. It focuses on general principles  identified in complex systems across many fields such as biology, physiology, ecology, stock markets, multi-user online  networks, data systems, human settlements, and urban systems.
-
-
-\section{Modeling}
-The goal of modelling in general is to  have a accessible and useful description of reality.  Mader et al \cite{maderConstructionVerificationModels2007} suggest a set of properties of a good model. They emphasize that it should have a clearly specified object of modelling and  a clearly specified purpose. They go on to list the  following additional epistemological criteria:
-\begin{enumerate}   
-\item  Truthful. (The model has to represent the relevant behaviour of the system we are describing.) 
-\item  Complete (It must include necessary features of the system.)
-\item Simple,  (It must be possible to verify and debug the model.)
-\item Understandable. (Elements should be clearly described or derived and documented.)
-\item  Tracable.  (It should be obvious what elements of the artefact went into which design decision and are reflected at which point in the model.)
-\item  Efficiently constructable and maintainable. 
-\end{enumerate}
-
-
-
-Frits Vaandrager(2010 \url{http://www.cs.ru.nl/~fvaan/PV/what_is_a_good_model.html})   augmented their list to produce the following: a good model \begin{enumerate}
-     \item has a clearly specified object of modelling,
-     \item  has a clearly specified purpose
-     \item is traceable: each structural element of a model either (1) corresponds to an aspect of the object of modelling, or (2) encodes some implicit domain knowledge, or (3) encodes some additional assumption.
-     \item  is truthful: relevant properties of the model should also carry over to (hold for) the object of modelling
-     \item is simple (but not too simple)
-     \item is extensible and reusable
-     \item has been designed and encoded for interoperability and sharing of semantics
- \end{enumerate}
-
-
-Simplicity is  the key to achieving that goal. That leads us to a long list  features of real urban systems that we intentionally leave out of  our model to focus attention on the features that in our view matter most. 
-
-Recall that we have three basic hypotheses
-\begin{enumerate}
-    \item Financialization of the urban housing stock extracts wealth produced by human agglomeration 
-    \item Financialization of the urban housing stock changes the class structure of urban society
-    \item Financialization of the urban housing stock can limit urban productivity growth
-\end{enumerate}
-Each  of these represents a high-level and general proposition. In considering whether to add a feature to the model, varying housing density for example, we ask 
-\begin{enumerate}
-    \item is it necessary to demonstrate the principle? 
-    \item would incorporating it result in falsifying our result?
-    \item would incorporating it result in a qualitative difference in our result?
-    \item would incorporating it result in clarifying our result?
-   % \item can it be added at a later point to get more neuanced results? 
-\end{enumerate}
-It should be clear that, while varying housing density across our model urban system is technically easy to do, it is not necessary to demonstrate any of our three propositions. Including density variation would not undermine our results nor clarify results them. It is simply not useful to incorporoate this feature in our model. 
-
-We can say the same about 
-\begin{enumerate}
-    \item adding a detailed production sector with multiple firms.
-    \item adding a detailed labour market
-    \item adding households of different sizes.
-    \item adding an income distribution
-    \item adding a range of distinct occupations
-    \item incorporating more complex lifestyle choices
-    \item articulating the transmission mechanism from productivity to wages and from wages to population
-    \item incorporating building costs
-    \item adding developers
-    \item including zoning regulations. 
-\end{enumerate}
-Each of these extensions is interesting and would add fine-grained detail to our understanding of how the effects of financialization of the housing market are distributed. None of them is likely to affect the qualitative results or make  our argument easier to grasp.
-% While making it 
-
-% classical economics is not tightly integrated into modern agent based modelling.
-% in general there is need for substantial work showing the relationship between big modern agent models and the rich set of insights from small classical/historical/neoclassical models.
-
-% As tools to think with, it's important to understand where results come from. 
-% Testing small, alternative models and theoreti- dividing it so individual assumption can be compared and black boxed makes that it much easier to understand the source of results and achieve conceptual clarity.
-
-% The model came out of this general approach\footnote{The approach was grounded in building lots of models with policy makers, rooted in Holings tradition, and the systems modelling tradition- how to find and piece together the kinds of models needed. E.g. how to model the youth employment system, fruit. Part of that is connecting the formal modelling with the implicit models people hold in their heads, often either half formed or derived from minimal economics training, and test those assumptions against alternatives.}
-% This general approach gave us three insights or things to explore
-
-In this chapter we discuss the (eclectic) methodological approach of the thesis, as well as a number of modelling decisions. 
-
-Because we draw on techniques and results in several fields, on approaches from several historical periods, and  concerns associated with differing ideological perspectives,  the analysis and modelling for this study raises a number of interesting methodological issues. For example, our model combines elements  of classical rent theory and neoclassical distribution theory. We employ equilibrium arguments derived from models of optimizing agents, who make decisions at the margin,  with an Agent-Based Model (ABM) in which agents simply make periodic discrete choices from  a small set of alternatives. We combine coarse generalizations about long-term agglomeration effects with fine-grained housing and financcial market processes. We examine in (moderate) detail how financial decisions affect home ownership, but simply black-box  the transmission of  agglomeration effects through firms  from aggregate productivity gains to population growth.
-None of these represent methodological transgressions although the combinations may be unusual. The methodological questions are interesting, however, and we get additional insight into the financialization of housing markets by examining them further,   
-
-{\color{red}
-
-
-\section{System dynamics}\label{sec_model_dynamics}
-Combined, the three submodels %we have just described 
-make up a complex system with different types of agents interacting over time. It is an \gls{open system} that is growing, with financial and population flows in and out of the system. We have simplified, assuming that there is a competitive market for output driving urban productivity. There are two main \glspl{feedback loop}: the productivity-wage, population-productivity loop that we call the Alonso-Jacobs cycle, and the speculative investment-price, inflation-investment cycle that may produce price bubbles. 
-
-A system of this sort inevitably has distinct dynamics that can, depending on \glspl{critical parameter}, produce surprising and even counter-intuitive results.  Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not, and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
-
-System behaviour depends on the speed with which system stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values. We know that certain variables , like ownership  shares are bounded between zero and one although the housing stock itself is variable.  
-
-We have not introduced  stochastic elements into the core model on the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
-
-One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distributions on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification.
-
-It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size or composition may affect amenity - which we have not models---and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
-}
-
-%----------------------------------------------------------------------
-\section{Feedback loops and systems design}
-%----------------------------------------------------------------------
-
-% https://en.wikipedia.org/wiki/James_J._Kay
-% https://www.researchgate.net/scientific-contributions/James-J-Kay-2162967174
-% https://uwaterloo.ca/systems-design-engineering/about-systems-design-engineering/department-history
-
-Feedback loops are a fundamental feature of almost all systems. They have probably been recognized by theorists for centuries. Marx, to take one relatively modern example, identified the growth dynamic of the capitalist system  as a feedback loop, with capital investments producing a surplus that was fed back into investment, growing the stock of capital. He  claimed that this loop produced dynamic instability and a great deal of subsequent work has supported his insight \cite{dumenilStabilityInstabilityDynamic1986}.\cite{schumpeterInstabilityCapitalism1928}. More recently, the Keynesian multiplier is a result of feedback in macro models between expenditure and income. That loop produces a stable equilibrium. Neoclassical growth theory built on that mechanism to explore the determinants of economic growth using differential and difference equations. Forrester, the creator of system dynamics computer simulation modeling, argued that change over time is caused by the process of accumulation.
-
-The feedback concept formally entered the social sciences through two channels: cybernetics, pioneered by Nobert Wiener  and the participants of the Macy Foundation Conferences, and the servomechanism/control engineering thread championed by Jay W. Forrester and others. Both threads were picked up and applied by prominent economists. \footnote{Richardson \cite{richardsonFeedbackThoughtSocial1991} mentions Oscar Lange (1970), Kenneth Boulding, and Alfred Eichner, Phillips,  R. G. D. Allen (1956), and Axel Leijonhufvud.} There is now a niche sub-discipline in economics called ``Feedback Economics'' \cite{radzickiIntroductionFeedbackEconomics, cavanaFeedbackEconomicsEconomic2021}  The servomechanism/control engineering thread is the one most closely related to \gls{system dynamics} modeling and to ideas used in this thesis.
-
-Our model incorporates two important feedback loops. One, driven by agglomeration, we call the \Gls{Alonzo-Jacobs cycle}. The other is a price-financialization feedback that directly changes the ownership pattern in the urban housing market. The two loops are linked. One mechanism is that rising productivity raises wages which then works through two paths. It can raise rents, effectively transferring productivity gains to landowners, or it can draw more workers, enhancing the \Gls{Alonzo-Jacobs cycle}. 
-
-A rapid increase in housing prices may choke off urban population growth and cause the \Gls{Alonzo-Jacobs cycle} to stall. Rapid expansion of the housing stock should have the opposite effect. Much depends on the speed of response of the housing stock and the rate of transmission of agglomeration effects to wages. Our base model allows the housing stock to respond instantly and automatically increments the wage with a small lag. In the base model, financial flows are unrestricted but the rate of financialization is limited by the rate of turnover of ownership. We then parameterize the rate of adjustment for each of the stocks in a simple way in order to conduct sensitivity analysis.
+% We begin by reviewing the modeling paradigms, then discuss in some detail the relationship between analytic neoclasical economic analysis and agent based modelling, how we've integrated the two and why we believe this is a powerful technique for the tendencies inherent in agent based models, and in particular in understanding the long term distributional questions. 
 
 
 %----------------------------------------------------------------------
 \section{Agent based modelling}
 %----------------------------------------------------------------------
+
+WE HAVE AN AGENT BASED MODEL FOR ...
 
 ABMs developed in the 1940's when von Neumann and Ulam examined cellular automata, a simple form of agent model where agents are typically squares on a grid following rules based only on the state of their neighbours \cite{banks_statistical_2009}. ABMs %provide a disaggregated way to understand the structure of models. They 
 are part of a wide class of models that incorporate the behaviour of  distinct entities and explore the interactions among them. Related modelling approaches include individual-based models, cellular automata, Ising models of atomic spin, the use of swarm phenomena for modelling fabric or fluid motion, and even finite element analysis and parts of graph theoretic modelling. % While the details of implementation differ, the underlying principles and patterns of behaviour in ABMs apply across domains \cite{shalizi_methods_2006}.  
@@ -164,6 +22,8 @@ are part of a wide class of models that incorporate the behaviour of  distinct e
 Agent-based models replace single equation models of sub-systems with populations of simple submodels (automata, or agents) \cite{shalizi_methods_2006}. Just as a system of equations can produce emergent phenomena, so can subsystems of agents. The emergent phenomena may occur because agents do not make exactly the same decision at exactly the same time. Decisions and timing depend on the speed of information flows, proximities, and other factors. As a result, suites of agents can behave very differently than suites of  ``representative agents" like those typical in economic models \cite{darley_towards_1999, tesfatsion_agent-based_2002}.
 
 
+
+One advantage of beginning with an agent-based model is that we are not imposing linearity, or a-priori distributions on the behaviour of agents. These assumptions might make the model more tractable, but they have little empirical or theoretical justification. 
 By including individuals explicitly, agent based models offer particular nuance in exploring the effects of individuals on a system. The structures that emerge from the actions of those in a system emerge directly from modelling the postulated patterns. Agent based models thus make it possible to explore the non-obvious implications of structural changes \cite{darley_towards_1999, happe_agricultural_2004}. %cite some of the people who show it can be used for structural change)
 % Studying large messy models like these has many of the features of studying real social systems. 
 Where it is helpful, other types of models can be linked with agent based models or used as subsystems. % "For instance in an agent model, physical subsystems can be represented naturally using systems of differential equations (e.g. climate, energy, etc.)  (Chappin, Dijkema and Vries, 2010; Chappin and Dijkema, 2009; Davis et al., 2009; Nikolic, 2009)"  (\cite{chappin_simulating_2011} p 61).
@@ -228,139 +88,21 @@ They thus make it possible to look at the structural impact of policy on particu
 
 
 %----------------------------------------------------------------------
-\subsection{Notation for a general agent based model}
-%----------------------------------------------------------------------
-
-An agent-based model is a simulation of autonomous agents \cite{shalizi_methods_2006}. %The formulation varies widely by application domain. % One of the simplest classes of agent-based models is cellular automata (CAs). 
-In a typical agent-based model, each cell is an agent and the only agent property is a state vector which typically includes a location in a two dimensional grid and a set of network relationships with other agents. % Simple agent models %, particularly the subset called cellular automata  are well suited to modelling propagating phenomena. %CAs are well suited to modelling propagating phenomena. 
-
-
- In a general agent model, each individual has a state vector. %$\underbar{x}_{i,t} \in R^k$ at a given time $t$, where $t = 0,1,...,T$ denotes the time.   The 'agent's' location is fixed and the agent's neighbourhood is defined spatially. 
- The state at time $t$ for agent $i$ is $\underbar{x}_{i,t}$. %where agents are indexed by $i = 1,..,M$, 
-The state vector for the system can be lexicographically reordered into a single state vector \cite{fieguth_statistical_2010}, and written as $\underbar{x}_t = (\underbar{x}_{1,t}',\underbar{x}_{2,t}',...,\underbar{x}'_{M,t})'$.  % The computational problem %(of rules for each/all ?) 
-% increases rapidly  with the number of neighbours. 
-When the state is sampled at each time step and for each agent the observed value of the state vector is $\underbar{m}_{i,t}= h(\underbar{x}_{i,t})$, where $h$ is some measurement operator.
-
-%%%%% TAKE OUT FOR NOW SINCE PAUL SAYS IN INCONSISTENT. ADD BACK IN AFTER!!!More often, the problem is either over or underdetermined and the number of observations is not the same as the number of time steps. Similarly it may not be individual agent states that are observed but rather some aggregate or finer scale phenomena. In the more general case, the observations may not correspond to individual agents and may be observed at different times (in that case we would define $\underbar{m}_{j,k} = h(\underbar{x}_{i,t})$ where j = 0,1,2,...,J is the element that is observed and k = 0,1,...,K is the survey time). %(NOTE PROBABLY EASIER TO REMOVE SUBSCRIPTS BY CONSIDERING THE WHOLE LIST..)
-% STILL NEED TO DISTINGUISH BETWEEN BACKGROUND, TRUTH, AND ANALYSIS FOR AGENT CASE??
-
-%----------------------------------------------------------------------
-\subsubsection{State Transitions}
-%----------------------------------------------------------------------
-
-% \cite{Statistical ABM} %CITE STATISTICAL ABM
-A propagation operator $f$ %They used $h$ 
-determines how the state of each agent changes over time. The propagation operator consists of rules $R$ and a neighbourhood $N$.  A more general  class of models called cell-space models  includes cases where rules vary over time or neighbourhoods vary over space \cite{zeigler_discrete_1982}. % Development sometimes follows a probabilistic pattern. 
- 
-%\subsection{ADD Simple Example of a Market} % should this heading be here? somewhere else? nowhere?
-The rules can take many forms \cite{iltanen_cellular_2012, kennedy_modelling_2012}. %Batty 2005 covers many strict transition rules.}. 
-In strictly defined cellular automata models, the state of each element is only influenced by they agent's current state and the state of its nearest neighbours. In ABMs there are few constraints on allowable rule sets.
-Sometimes instead of a set of rules, $R$, differential equations or some other formalism controls agent behaviour:
-  \begin{equation}
-  \underbar{x}_{i,t+1} = f_i(\underbar{x}_{i,t},\underbar{x}_{-i,t},\alpha)
-\end{equation}
-
-% For a continuous process that evolves over time ($T$) and space ($S$), 
-% REPETITION BUT LIKE PHRASING .. we get observations $m_{i,t}$ at discrete points in time and space, where $t$ denotes time and $i$ donates location.
-
-
-%For a simple social ABM we can define a social network $N$ such that:% NOT SURE IF WE NEED THIS
-%
-%\begin{equation}
-%  N ^{kl} = f(N^l,N^t)f
-%\end{equation}
-%
- %note comment if it is a true state.. 
-
-%- following \cite{richiardi_common_2006}?
-%We can consider a transition rule as..
-
-
-\noindent{where $\underbar{x}_{-1,t}$ refers to the state of all agents excluding agent $i$ at time $t$, and $\alpha$ is a vector with other parameters. The state vector in the next time step is some function of the last state of the agent itself and all other agents, as well as any additional parameters needed to specify the model.}
-
-%----------------------------------------------------------------------
-\subsubsection{A Simple Example of an Agent Based Model}
-%----------------------------------------------------------------------
-
-To give a highly constrained example, in a minimal model of an economic market    
-% INCOMPLETE.. UNDER WHAT CONDITIONS NEIGHBOUR STATES ARE bb bh bs hh hs ss  OR 33 32 31 22 21 11 ... ASSIGN SOME TO EACH NEW STATE (OR INCLUDING THE SEFL hhhh )
-where each agent has the choice of selling, holding, or buying a stock in each time step,  the possible states are:
-
-$$
-S_{i,t} =
-\begin{cases}
-s  \text{ if } i \text{ will sell	 } \\ % n/2, & \text{if }n\text{ is even} \\
-h \text{ if } i \text{ will  hold} \\ % 3n+1, & \text{if }n\text{ is odd}
-b \text{ if } i \text{ will buy}. % 3n+1, & \text{if }n\text{ is odd}.
-\end{cases}
-$$
-
-
-\noindent{Transition rules are defined, determining the next step for each agent given the state of both neighbours. For example, using the two dimensional neighbourhood with radius one %\footnote{The Rook's neighbourhood includes two neighbours, one adjacent on each side. The Moore neighbourhood, which includes all eight adjacent cells, is more common but larger. Other neighbourhood definitions include just a subset. The von Neumann neighbourhood, for instance, includes only the four compass directions N, S, E, W. }
-and assigning each agent a fixed location in a two dimensional grid to neighbourhood\footnote{Since each agent has a fixed spatial location and the transition rules are based on neighbourhood state, the model is a Cellular Automata model (CA) one of the simplest class of agent-based models.}, one possible set of rules is:}
-$$
-R_{i,t} =
-\begin{cases}
-s  \text{ sell if } i \text{'s neighbouring states are ss or sh} \\ % n/2, & \text{if }n\text{ is even} \\
-h \text{ hold if } i \text{'s neighbouring states are  hh or sb} \\ % 3n+1, & \text{if }n\text{ is odd}
-b \text{ buy if } i \text{ 's neighbouring states are  bb or bh}. % 3n+1, & \text{if }n\text{ is odd}
-\end{cases}
-$$
-
-
-%----------------------------------------------------------------------
-\subsubsection{Aggregate Statistics, and Input Output Equations}
-%----------------------------------------------------------------------
-
-If we are interested in statistics over the whole population, we can look at an aggregate measure Y:
-
-\begin{equation}
-  Y_t = s(\underbar{x}_{1,t},...,\underbar{x}_{M,t}).
-\end{equation}
-
-\noindent It is also possible to formulate the input-output equation % /input-output transformation equations.
- (or equation of motion) in terms of some function of the initial conditions:
- 
- \begin{equation}
-  Y_t = g_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_J) ,
-\end{equation}
-
-\noindent{where $J$ is the number of independent parameters. Being able to characterize the initial conditions thus gives you what is necessary to propagate the equation forward in time. % Data assimilation can play an important role in solving initial value problems generally. %They use j = n. Why?}
-% In agent models, the system of equations is often too large and nonlinear for analytical evaluation. 
- %This thesis will computational analysis of simulated data from multiple simulation runs to evaluate the causal patterns generated by models. %, often generated with Monte Carlo methods.
-
-Equilibrium, whether of individual or system level phenomena, is defined as the convergence of the equation above to an equation that is independent of time\footnote{"These statistics can either be a macro system level phenomena or of an individual level phenomena \cite{richiardi_common_2006}} % such as the strategy of an iaggregate, or a micro indicator, as in the case of individual strategies. In both cases, as a general rule all individual actions, which in turn depend on individual states, matter".}.
-
-\begin{equation}
- Y_e = \lim_{t \rightarrow \infty}  Y_t = g_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_j). 
-\end{equation}
-
-\noindent We can then examine the system statistically with experiments varying parameters and initial conditions. We can impose a metamodel on the simulated data:
-\begin{equation}
-  Y_t = \hat{g}_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_j;\beta),
-\end{equation}
-
-\noindent where $\beta$ are estimated coefficients. % Essentially this amounts to performing a kind of sensitivity analysis over parameter combinations. %('this is a sensitivity analysis on parameters together')
-
-% ** EROR? "In general model error is calculated as the total absolute difference between the real and predicted values, normalised in a variety of ways. The bias of a model can be examined by using the total non-absolute difference, as this will highlight con- sistently great or lesser predictions (if our inputs are reliable, a consistent bias is usually indicative of an issue with the model form). Despite these relatively simple outlines, where the error between a model and reality is given, the statistic used in detail needs considerable and careful thought, especially where the error is het- eroscedastic. Gupta et al. (1998) summarise some of the measures commonly used for aspatial value predictions, especially multi-objective predictions that need combining, while Knudsen and Fotheringham (1986) discuss errors in the context of spatial predictions. `` \cite{evans_uncertainty_2012}
-
-
-%----------------------------------------------------------------------
 \section{Classical, neoclassical and modern economic theory} 
 %----------------------------------------------------------------------
 
-Classical economic theory, neoclassical theory and agent based modelling are  fairly areas, in terms their methodology and their central problematics. 
+Classical economic theory, neoclassical theory and agent based modelling are fairly distinct areas, in terms their methodology and their central problematics. 
 
 We identify the classical period loosely as 
 
-Neoclassical and classical theories are often seen as opposed ideologically, since the classicals paid great attention to the extraction of rent or surplus  as the foundation of the class structure of the day, while the neoclassical  economists emphasized the market allocation of income based on one's contribution to production at the margin. The  opposition in our view is exagerated. 
+Neoclassical and classical theories are often seen as opposed ideologically, since the classicals paid great attention to the extraction of rent or surplus  as the foundation of the class structure of the day, while the neoclassical  economists emphasized the market allocation of income based on one's contribution to production at the margin. The  opposition in our view is exaggerated. 
  
 
 Many  who employ ABMs to analyze urban systems are deeply skeptical of neoclassical assumptions while ignoring the rent;-based distributional analyses of the classicals.
 
-These ideological overlays are not helpful in making choices about how to model. We would argue that ABM modelers who assume mainstream economists actually believe that the neoclassical technique of reasoning based on informed rational agents is based on faith or ideology are mistaken. The neoclassical approach is a modeling technique and a methodological convenience, that is valuable when it is used correctly.  
-
-To the extent that it is limited, its limitations are best explored by making it interoperable with a model that makes it systematically possible to relax each constraint, and draw on assumption to look at.
+% These ideological overlays are not helpful in making choices about how to model. We would argue that ABM modelers who assume mainstream economists actually believe that the neoclassical technique of reasoning based on informed rational agents is based on faith or ideology are mistaken. 
+The neoclassical approach is a modeling technique and a methodological convenience, that is valuable when it is used correctly.  
+To the extent that it is limited, its limitations are best explored by making it interoperable with a model that makes it systematically possible to relax each constraint, and draw on assumption to study.
 
 % The limatations then become testable, and it's use
 
@@ -493,18 +235,6 @@ WHERE TO EXPAND% *** We will explain why  the rent charged to the tenant is lock
 
 (MAYBE ADD THIS? Note: we do not assume equilibrium conditions in the agent model, however our approach is to stay close to the analytic tradition, relaxing assumptions to clarify what drives each results, and connect the work with classical and neo-classical theory \dots)
 
-\subsection{Overlapping generations}
-In our model individuals have a working life, then retire. If they own homes they sell and move to the countryside where housing is cheaper. They are replaced by new entrants from the countryside. New entrants may become buyers or tenants. This is a variant of the \gls{overlapping generations}  model in which savings are passed on to the next generation. In our case, access to individual  homes is passed on as agents retire and move away. While the model has multiple generations, it is not a `dynastic' model in which the generations are linked by family ties and inheritance matters in individual decision-making. We rely on this simple version because the core issues for us are the effect of financialization on city productivity, on whether the city continues to provide opportunity for newcomers and those without the benefit of generational wealth, and on the emergence of classes driven by the financial system. Introducing a richer family structure would complicate the model but add little to understanding  our main issue. 
-
-\subsection{Urban and rural wages}
-A modelling device that plays a major role is our use of the \gls{urban wage premium}, the difference between a rural and an urban wage driven by positive \gls{agglomeration effect}s on productivity in the city. It cannot be competed away because transportation costs limit access to the productive centre. The wage premium is a partial measure of the agglomeration effect. It generates the \gls{rent premium} on urban land. In this thesis we want to call attention to the distribution of that rent premium.
-
-To simplify the analysis, we assume that we can partition actual wages between the wage premium,  and all other expenses. The wage premium  is available for consumption, accumulation or to be spent on transportation. Tranportation cost is determined by location, the remainder is available for consumption or appropriation by landowners. We assume both urban and non-urban populations  receive a \gls{subsistence wage} which covers  the cost of buildings, food and other living costs and a base cost of land. This analytical device appears in classical models (Malthus, Ricardo, Marx) as a subsistence wage. In most urban models it is described as the cost of agricultural land, or more precisely,  as the opportunity cost of urban land at the margin. We simply extended the technique to combine the opportunity cost of urban labour and land, allowing us to focus on urban agglomeration rents. 
-
-
-There are advantages and disadvantages to this technique. The motivating advantage is that it lets us isolate the social surplus generate by agglomeration. One disadvantage is that it suppresses many issues that are of interest in other contexts -- such as choice of home size and quality. In the computational model it is easy to allow for different building types and more complex housing choice, but in this section we simply  want to make the logic of our model as clear as possible. We foresee adding layers to the computational model that incorporate redevelopment and construction and allow for decisions about scale, type and location. 
-
-Another disadvantage of technique in the analytical version is that it does not allow us to make visible speculation on  the value of  buildings as opposed to the locational value. It is a problem that is dealt with in the computation model, but we believe the added complexity will not add clarity here. Research (see \cite{mcdonaldWilliamAlonsoRichard2007}) has shown  that the core \gls{Alonzo model}, driven entirely by locational rents,  is robust to many extension of this sort. 
 
 \subsection{An examples of  \gls{equilibrium reasoning} in our analysis}
 
@@ -539,6 +269,16 @@ In relying on these equilibrium conditions, we are implicitly applying standard 
 In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined at any distance by individuals making comparison locally. At point $d^*$ the person at the edge of the city decides whether to work in the centre or in the non-urban space. These are \gls{marginal} decisions. The orange area represents  the total rents generated between $d=0$ and $d=d^*$. It is a summation of \textbf{\gls{inframarginal}} rents. Like Ricardo in his classic study \cite{ricardoEssayInfluenceLow1815}, we are concerned with the distribution of rents, which are an  inframaginal quantity.
 
 
+\section{Coarse graining}
+
+Using agent based models, combined with simple equations is also one appraoch to coarse graining. 
+There's a distinction between coarse grained and fine grained models. Equation~\ref{eqn-population-output}  is a high-level generalization---a ``coarse-grained'' model. Modelling always faces a trade-off between computational tractability and representing details. \cite{GET_TerrysDissertation, GET_PaulsBook}
+
+Coarse-grained models must capture the stylized facts. %, as ours does.
+
+where the model is insenstitive to the details, you really want a representation that's small that captures the big pattern. 
+When you move to getting the details of the model, you know you have a model that tracks the observable. 
+Sometimes the model is sensitive to the details, and a more fine grained model is needed. There is an advantate to having a continuum of models that make it posible to represent systems with different levels of nuance/detail. We are focused on modelling a coarse grained model of the production system.
 % \section{SORT}
 % providing tractable models.  equilibrium analysis of marginal effects, and representative agents which hid distributional effects, as well as spaceless economic models of markets made it difficult to capture the richer spacial dynamics of urban rents, and the details of the ways economic forces play out for individual actors.
 
@@ -563,192 +303,10 @@ In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined 
 % There is a ratchet effect, achieved through hysteresis in the system, in which sucks wealth out of communities on the way up and on the way down. % DETAIL ONCE DRAFTED.
 
 
-% \section{Other notes - to sort}
-
-% % TEMP - here are some other notes we may want to reference or bring in. [[non individualistic modeling of agents]] [[generalizability in agent vs classical econ models]]
-
 % The emphasis is on clarity and connecting with the equilibrium in economics, and systematically relaxing each, to connect with the analytic tradition of economic modelling
 % The clarity of intuition of the neoclassical tradition with the deeper root of distribution theory rooted in classical economics and the breath and rigor possible with new tools from the study of complexity and statistical physics.
 
-% Methodological questions: 
 
-%     - agent models (integrating theory more completely into agent models)
-    
-%     - rent theory
 
-% Core model
 
-%     - static version
-    
-%     - dynamic version
 
-% Simulations
-% Result - hysteresis,
-% Policy
-
-
-
-
-
-% TODO Rename file/label as an appendix, or fill out and make into a chapter again
-% In addition to the core contribution linking housing and productivity, there are three methodological lines of contribution, and there are policy implications SUMMARIZE METHODOLOGICAL CONTRIBUTIONS %(rent is key to financialization, however the main urban models don't observe the distribution of rents)
-
-
-% \subsection{Systems design engineering and the systems level effects of financialization}
-% Appropriate for systems design engineering
-% - engineering is science to responsibility.
-
-% \section{Political economy}
-
-% early stocks, company run an army to take over land and claim surplus in India- more in line with military/state conquests
-% then that translates into the industrial economy
-% the notion that productivity came from industrial productivity or human capacity.
-
-% what's question, what went before - politics and economics. department of political economy into the 1960s- politics and older ideas.
-
-% Coarse graining, the scale problem.
-% Cross scale modelling, models as library components, fall down and rise up wiwth scales
-% Building blocks as toys to play and think with - simple enough assumptions to build with
-
-
-
-
-
-
-
-
-% \textbf{the french engineers} - method math and back \dots
-
-% econ a kind of reactionary precursor to complex systems.  Adam smith- methodological evolution. ABM and link model.
-
-% not an exercise in modelling, it's an exercise in understanding what's happening
-% want to know what's happening in society and what we can do. why we want to talk about hysteresis and the effects on social classes.
-
-% haven't formulated even the theoretical model
-% rent and social class not in the Alonso model
-% couldn't track whose in what class when you do your analysis of scaling
-% large gap but hard to see since not maped, theoretical objects barely formulated.
-
-% DISCOVERY PROCESS
-% An accident that we found this model, looking for someone to have answered this, planned to just use economic theory.
-
-% thought the model \dots 
-
-% - to move with the dynamism of how people think. 
-
-% (personal ethnography, co-creation, activist method from australi.)
-
-% Simple agent based modes
-% TO DO THIS -
-% having done this rockefeller work-- wanted to move between omdels way people thing.
-
-% core decsions fast \dots
-% get good results and hold core details in their head \dots
-
-% lots of great models out there. 
-
-% \textbf{Coarse graining, curse of dimensionality}
-% flow between these classes of models.
-
-% WE DO THIS
-% Link agent based and analytic models.
-
-% conceputally clear modelling traditon not connected to one that lets you look at individual trajectoreis---
-
-% - distribution, a farm, unemployed youth \dots bring in infrastructure from well defined simplified models
-
-% abm is in some ways simpler- this agent does this. 
-% -- get input asking someone questions- this is wha t people knwo - do this as a buyer \dots ive assempled these piece \dots
-
-% (we've made it a well formed question by making it a model structure. accepted the conventional knowlege about he large scale dynamics \dots
-% formulated the conventional knowleges so it can talk to the input \dots )
-
-
-% -wasn't clear why we couldn't get what we needed from econ.
-% did a bunch of work building a biger model, lots of discusion about the \gls{transmission mechanism}.
-% We realized it shoudl be coarse grained. 
-
-% REPRHASE METHODOLOGICAL CONNTRIBUTIONS FROM INTRO
-
-% A MEANS IS USE OF THE 
-% Constructing an urban \gls{agent-based model} that is consistent with {neoclassical growth theory}. We show how the neoclassical framework can be implemented in the agent-based framework, and make a case for the usefulness of the approach in linking urban rents and productivity. %Chapter~\ref{chapter-methodology} discuses methodological implications of this approach.
-
-% THIS HAS IMPLICATIONS
-% Building a model that is easily extended to explore a range of issues, and used to evaluate policy options. 
-% The model combines clear and explicit theoretical assumptions with careful and transparent implementation of the logic. % in code \dots %flexible Python code.
-%     % \item Providing a model that we believe
-% We have taken care to allow for  both theoretical and policy-relevant extensions in the simulation,  building a base model that aims to be as simple as something like Alonso's urban model \cite{alonsoLocationLandUse1964}, but 
-% % To be useful in policy discussions, a model must  
-% simulates the relevant system features and can incorporate a range of intervention types. %way the simulation model is coded. 
-
-
-% IT LETS YOU DO THINGS THAT HAVE BEEN HARD
-% - e.g. have tractible models that let you explore \textbf{hysteresis, reversibility}- hopefully bringing it towards the core of analysis
-% Resilience.
-
-% DOING THIS IN AN ENGINEERING DEPARTMENT
-% Engineering  knowledge for responsibility - just like a bridge, a social choice to have a middle class.
-% have housing for everyone, have food for everyone
-
-% social engineering has been a sensitive point- efforts have tended to control.
-% Particularly after WWII social experiments, that were horors.
-
-% even building predictive modes is a problem. any intervention that makes your model predictive increases your control.
-
-% Reductionism had some holdouts but largely unchallenged
-
-% %Challenges to reductionism deep within the field too
-
-% Answer is of course to relinquish commitment to state. 
-
-% - syxtems and resilience give  a bridge
-% What is the systems compenent - design for the properties- 
-% clearly a system
-
-% social engineering- a note on the approach to engineering in social system
-% cannot know much about state- have to comite to regime, it is then possible to comit to things like freedom \dots
-% to autonomy, relinquish comitent to stat
-
-
-% RESILIENCE IS CENTRAL TO THE ADVANCE - TO ACTUALLY MAKING AN ENGINEERING OF THE SOCIAL POSSIBLE.
-
-
-% at the level of capturing and sharing details.
-
-% applied work
-
-
-% has to do with Social innovation, how societies are transformed,
-% gives an ease in relating the model with the action. 
-
-% action and choice
-% weak links in hosting, 
-
-% did these models for rockefeller, for the labes-- had a group
-% worked iwith the games intstitued ith design \dots
-
-
-
-
-\section{Models in Labs}
-
-Models can act as a boundary object, letting people with different perspectives communicate and build understanding within a system.
-
-1. Where the uncertainty, disputed values, and high stakes, and the decisions that must be made are urgent, the field of study is often referred to as \textbf{post-normal science}. While many different disciplinary and non-academic perspectives are needed here, bringing people together is often difficult and necessitates the development of shared languages that people working in the problem area can use to communicate with each other.
- 
-2. To help develop these shared languages, design can be used to facilitate communication. Design thinking is embedded throughout lab processes in both the work conducted by researchers and the workshops that bring together participants to build small-scale prototype interventions. In our view, the prototypes themselves are \textbf{‘boundary objects’} that enable people from different perspectives to communicate with each other easily. It is in the reduced cost of communication, not in producing preliminary interventions, that prototypes have their primary impact.
-
-3. These reduced communication costs enable participants to coordinate activities with each other. Sometimes these coordinated activities will include most participants in a common strategy, though this is not the primary goal. Instead, overlapping subsets of participants, often simply pairs, can use the opportunities created by the lab process to build joint projects or to engage in exchange with each other. These new agreements between participants add value and help build capacity for innovation and adaptation in the problem space.
-
-
-"For example, the \textbf{developmental impact investing approach} argues that using deep knowledge of a complex social-ecological system like affordable housing to guide impact investment can not only lead to more effective impact investments, it can also build a better understanding of the system that impact investors are working to change. This generates a virtuous cycle that can build multidirectional \textbf{pathways to scaling} social innovation (Geobey, Westley, Weber, 2012).
-
-
-\section{SORT}
-There's a distinction between coarse grained and fine grained models. Equation~\ref{eqn-population-output}  is a high-level generalization---a ``coarse-grained'' model. Modelling always faces a trade-off between computational tractability and representing details. \cite{GET_TerrysDissertation, GET_PaulsBook}
-
-Coarse-grained models must capture the stylized facts. %, as ours does.
-
-where the model is insenstitive to the details, you really want a representation that's small that captures the big pattern. 
-When you move to getting the details of the model, you know you have a model that tracks the observable. 
-Sometimes the model is sensitive to the details, and a more fine grained model is needed. There is an advantate to having a continuum of models that make it posible to represent systems with different levels of nuance/detail. We are focused on modelling a coarse grained model of the production system.

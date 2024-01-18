@@ -544,7 +544,7 @@ The \gls{market price} or the price at which a property is exchanged on the mark
 
 % As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer considering a vector of attributes of the property, including the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. All of these factors shape whether an investment is profitable. To make a comparison with alternative investments, it is necessary to compute a rate of return. 
 
-To calculate the bid price, we first calculate the net present value of the purchase, then divide by the capital employed, which we assume is the size of the down payment made at the beginning of the period.\footnote{For expositional convenience, we can treat the mortgage period $T$ as a single term and all payments are accumulated to the end of the tern and then discounted to the present.} 
+To calculate the bid price, we first calculate the net present value of the purchase, then divide by the capital employed, which we assume is the size of the down payment made at the beginning of the period.\footnote{For expositional convenience, we can treat the mortgage period $\mathbb{T}$ as a single term and all payments are accumulated to the end of the tern and then discounted to the present.} 
 This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate.} 
 The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
 % We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to 
@@ -564,6 +564,8 @@ as the $\mathbb{T}$-period  price-growth rate. The agent also receives either th
 % If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
 The expected rate of price growth, $P_{M_j}^\epsilon$, is an estimate based on rents and past market behaviour. In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
+
+TODO ADD OUR SHORTCUT FOR APPROXIMATING P-DOT
 
 TODO SOME REFERENCES - what are these? MOVE? \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 

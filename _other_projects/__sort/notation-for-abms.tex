@@ -1,0 +1,118 @@
+
+%----------------------------------------------------------------------
+\subsection{Notation for a general agent based model}
+%----------------------------------------------------------------------
+
+An agent-based model is a simulation of autonomous agents \cite{shalizi_methods_2006}. %The formulation varies widely by application domain. % One of the simplest classes of agent-based models is cellular automata (CAs). 
+In a typical agent-based model, each cell is an agent and the only agent property is a state vector which typically includes a location in a two dimensional grid and a set of network relationships with other agents. % Simple agent models %, particularly the subset called cellular automata  are well suited to modelling propagating phenomena. %CAs are well suited to modelling propagating phenomena. 
+
+
+ In a general agent model, each individual has a state vector. %$\underbar{x}_{i,t} \in R^k$ at a given time $t$, where $t = 0,1,...,T$ denotes the time.   The 'agent's' location is fixed and the agent's neighbourhood is defined spatially. 
+ The state at time $t$ for agent $i$ is $\underbar{x}_{i,t}$. %where agents are indexed by $i = 1,..,M$, 
+The state vector for the system can be lexicographically reordered into a single state vector \cite{fieguth_statistical_2010}, and written as $\underbar{x}_t = (\underbar{x}_{1,t}',\underbar{x}_{2,t}',...,\underbar{x}'_{M,t})'$.  % The computational problem %(of rules for each/all ?) 
+% increases rapidly  with the number of neighbours. 
+When the state is sampled at each time step and for each agent the observed value of the state vector is $\underbar{m}_{i,t}= h(\underbar{x}_{i,t})$, where $h$ is some measurement operator.
+
+%%%%% TAKE OUT FOR NOW SINCE PAUL SAYS IN INCONSISTENT. ADD BACK IN AFTER!!!More often, the problem is either over or underdetermined and the number of observations is not the same as the number of time steps. Similarly it may not be individual agent states that are observed but rather some aggregate or finer scale phenomena. In the more general case, the observations may not correspond to individual agents and may be observed at different times (in that case we would define $\underbar{m}_{j,k} = h(\underbar{x}_{i,t})$ where j = 0,1,2,...,J is the element that is observed and k = 0,1,...,K is the survey time). %(NOTE PROBABLY EASIER TO REMOVE SUBSCRIPTS BY CONSIDERING THE WHOLE LIST..)
+% STILL NEED TO DISTINGUISH BETWEEN BACKGROUND, TRUTH, AND ANALYSIS FOR AGENT CASE??
+
+%----------------------------------------------------------------------
+\subsubsection{State Transitions}
+%----------------------------------------------------------------------
+
+% \cite{Statistical ABM} %CITE STATISTICAL ABM
+A propagation operator $f$ %They used $h$ 
+determines how the state of each agent changes over time. The propagation operator consists of rules $R$ and a neighbourhood $N$.  A more general  class of models called cell-space models  includes cases where rules vary over time or neighbourhoods vary over space \cite{zeigler_discrete_1982}. % Development sometimes follows a probabilistic pattern. 
+ 
+%\subsection{ADD Simple Example of a Market} % should this heading be here? somewhere else? nowhere?
+The rules can take many forms \cite{iltanen_cellular_2012, kennedy_modelling_2012}. %Batty 2005 covers many strict transition rules.}. 
+In strictly defined cellular automata models, the state of each element is only influenced by they agent's current state and the state of its nearest neighbours. In ABMs there are few constraints on allowable rule sets.
+Sometimes instead of a set of rules, $R$, differential equations or some other formalism controls agent behaviour:
+  \begin{equation}
+  \underbar{x}_{i,t+1} = f_i(\underbar{x}_{i,t},\underbar{x}_{-i,t},\alpha)
+\end{equation}
+
+% For a continuous process that evolves over time ($T$) and space ($S$), 
+% REPETITION BUT LIKE PHRASING .. we get observations $m_{i,t}$ at discrete points in time and space, where $t$ denotes time and $i$ donates location.
+
+
+%For a simple social ABM we can define a social network $N$ such that:% NOT SURE IF WE NEED THIS
+%
+%\begin{equation}
+%  N ^{kl} = f(N^l,N^t)f
+%\end{equation}
+%
+ %note comment if it is a true state.. 
+
+%- following \cite{richiardi_common_2006}?
+%We can consider a transition rule as..
+
+
+\noindent{where $\underbar{x}_{-1,t}$ refers to the state of all agents excluding agent $i$ at time $t$, and $\alpha$ is a vector with other parameters. The state vector in the next time step is some function of the last state of the agent itself and all other agents, as well as any additional parameters needed to specify the model.}
+
+%----------------------------------------------------------------------
+\subsubsection{A Simple Example of an Agent Based Model}
+%----------------------------------------------------------------------
+
+To give a highly constrained example, in a minimal model of an economic market    
+% INCOMPLETE.. UNDER WHAT CONDITIONS NEIGHBOUR STATES ARE bb bh bs hh hs ss  OR 33 32 31 22 21 11 ... ASSIGN SOME TO EACH NEW STATE (OR INCLUDING THE SEFL hhhh )
+where each agent has the choice of selling, holding, or buying a stock in each time step,  the possible states are:
+
+$$
+S_{i,t} =
+\begin{cases}
+s  \text{ if } i \text{ will sell	 } \\ % n/2, & \text{if }n\text{ is even} \\
+h \text{ if } i \text{ will  hold} \\ % 3n+1, & \text{if }n\text{ is odd}
+b \text{ if } i \text{ will buy}. % 3n+1, & \text{if }n\text{ is odd}.
+\end{cases}
+$$
+
+
+\noindent{Transition rules are defined, determining the next step for each agent given the state of both neighbours. For example, using the two dimensional neighbourhood with radius one %\footnote{The Rook's neighbourhood includes two neighbours, one adjacent on each side. The Moore neighbourhood, which includes all eight adjacent cells, is more common but larger. Other neighbourhood definitions include just a subset. The von Neumann neighbourhood, for instance, includes only the four compass directions N, S, E, W. }
+and assigning each agent a fixed location in a two dimensional grid to neighbourhood\footnote{Since each agent has a fixed spatial location and the transition rules are based on neighbourhood state, the model is a Cellular Automata model (CA) one of the simplest class of agent-based models.}, one possible set of rules is:}
+$$
+R_{i,t} =
+\begin{cases}
+s  \text{ sell if } i \text{'s neighbouring states are ss or sh} \\ % n/2, & \text{if }n\text{ is even} \\
+h \text{ hold if } i \text{'s neighbouring states are  hh or sb} \\ % 3n+1, & \text{if }n\text{ is odd}
+b \text{ buy if } i \text{ 's neighbouring states are  bb or bh}. % 3n+1, & \text{if }n\text{ is odd}
+\end{cases}
+$$
+
+
+%----------------------------------------------------------------------
+\subsubsection{Aggregate Statistics, and Input Output Equations}
+%----------------------------------------------------------------------
+
+If we are interested in statistics over the whole population, we can look at an aggregate measure Y:
+
+\begin{equation}
+  Y_t = s(\underbar{x}_{1,t},...,\underbar{x}_{M,t}).
+\end{equation}
+
+\noindent It is also possible to formulate the input-output equation % /input-output transformation equations.
+ (or equation of motion) in terms of some function of the initial conditions:
+ 
+ \begin{equation}
+  Y_t = g_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_J) ,
+\end{equation}
+
+\noindent{where $J$ is the number of independent parameters. Being able to characterize the initial conditions thus gives you what is necessary to propagate the equation forward in time. % Data assimilation can play an important role in solving initial value problems generally. %They use j = n. Why?}
+% In agent models, the system of equations is often too large and nonlinear for analytical evaluation. 
+ %This thesis will computational analysis of simulated data from multiple simulation runs to evaluate the causal patterns generated by models. %, often generated with Monte Carlo methods.
+
+Equilibrium, whether of individual or system level phenomena, is defined as the convergence of the equation above to an equation that is independent of time\footnote{"These statistics can either be a macro system level phenomena or of an individual level phenomena \cite{richiardi_common_2006}} % such as the strategy of an iaggregate, or a micro indicator, as in the case of individual strategies. In both cases, as a general rule all individual actions, which in turn depend on individual states, matter".}.
+
+\begin{equation}
+ Y_e = \lim_{t \rightarrow \infty}  Y_t = g_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_j). 
+\end{equation}
+
+\noindent We can then examine the system statistically with experiments varying parameters and initial conditions. We can impose a metamodel on the simulated data:
+\begin{equation}
+  Y_t = \hat{g}_t(\underbar{x}_{1,0},...,\underbar{x}_{M,0};\alpha_1,...,\alpha_j;\beta),
+\end{equation}
+
+\noindent where $\beta$ are estimated coefficients. % Essentially this amounts to performing a kind of sensitivity analysis over parameter combinations. %('this is a sensitivity analysis on parameters together')
+
+% ** EROR? "In general model error is calculated as the total absolute difference between the real and predicted values, normalised in a variety of ways. The bias of a model can be examined by using the total non-absolute difference, as this will highlight con- sistently great or lesser predictions (if our inputs are reliable, a consistent bias is usually indicative of an issue with the model form). Despite these relatively simple outlines, where the error between a model and reality is given, the statistic used in detail needs considerable and careful thought, especially where the error is het- eroscedastic. Gupta et al. (1998) summarise some of the measures commonly used for aspatial value predictions, especially multi-objective predictions that need combining, while Knudsen and Fotheringham (1986) discuss errors in the context of spatial predictions. `` \cite{evans_uncertainty_2012}
+

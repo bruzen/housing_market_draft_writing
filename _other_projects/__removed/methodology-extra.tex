@@ -1,0 +1,203 @@
+
+\subsection{Complex systems}
+
+Combined, the model contains three submodels %we have just described 
+make up a complex system with different types of agents interacting over time. It is an \gls{open system} that is growing, with financial and population flows in and out of the system. 
+DEFINE COMPLEX SYSTEMS - MANY INTERACTING AGENTS ETC.
+This work fits broadly within that category of complex systems. 
+Complex systems theory is concerned with identifying and characterizing common design elements that are observed across diverse natural, technological and social complex systems. It focuses on general principles  identified in complex systems across many fields such as biology, physiology, ecology, stock markets, multi-user online  networks, data systems, human settlements, and urban systems. 
+
+% We have simplified, assuming that there is a competitive market for output driving urban productivity.
+
+% \section{System dynamics}\label{sec_model_dynamics}
+% \subsection{Feedback loops}
+
+% A system of this sort inevitably has 
+Complex systems have distinct dynamics that can, depending on \glspl{critical parameter}, produce surprising and even counter-intuitive results.  %Whether this system is dynamically stable is not clear at this point. It may converge to an equilibrium population or not, and it may or may not exhibit cycles or even chaotic behaviour. We have tried to simplify as much as possible precisely because we are interested in the dynamics of the system
+System behaviour depends on the speed with which system stocks adjust. In principle the behaviour of the system may be very sensitive to specific parameter values. We know that certain variables, like ownership  shares are bounded between zero and one although the housing stock itself is variable.  
+
+% We have not introduced  stochastic elements into the core model on the grounds that it is easy to add noise, but hard to understand its effect unless you have a baseline to  compare it to.
+
+
+% It should be obvious that Figure~\ref{fig-flow-full-model} leaves out many links and potential links. For example, worker buyers and investment buyers have correlated costs of capital. The strength of the correlation may matter. Population size or composition may affect amenity - which we have not models---and the amenity levels may then affect the population response. The amenity link may feed into the bidding for homes, which may then affect the population mix. Our modelling strategy has been to think a lot about such cross-links and extensions, and then to leave them out until we can add them to a well-understood and even teachable model.
+
+
+
+\section{What is a good model?}
+
+
+This process of financialization also has profound impact at systems level. 
+And the word financialization, at the macro level, refers to this set of impacts.
+THOUGHT TO LOWER RISK  %DID THE CRISIS SHOW IT DIDN'T?
+The instruments and share are not neutral tools. They have the potential to have a profound effect at the level of the system.
+There are different kinds of systemic effects of this kind of increasing control and coupling could have/appear to have ELABORATE
+There are many systems effects. ADD MORE 
+
+Jaimison goes further and argues that the material and economic relations can actually structure our relation to society and ourselves, and even the ability to solve problems (e.g. methaprical structures limit ability to deal with societal crises like climate change).
+
+
+---
+
+
+Answer to coarse graining and connection
+1. tools for choice, used in labs and
+2. Regimes not state
+- teaching 
+- organize around a metaphor - cybernetics macy conference and holling resilience.
+
+- re-center distribution without loosing what was best in the 100 years. need a compelling integrated way to describe it. 
+- everybody will get poor, inevitably on the basis of our general assumptions.
+3 little sub routines - the market model is still too complicated.
+
+
+ % What is a Good Model?  http://www.cs.ru.nl/~fvaan/PV/what_is_a_good_model.html
+
+To some extent, building good models is an art. Dijkstra's motto "Beauty is our business" applies to models as well as to programs. Nevertheless, we can state seven criteria for good models. These criteria are in some sense obvious, and any person with experience in modelling will often try to adhere to them. But surprisingly, our list of criteria has - to the best of our knowledge - not been described elsewhere in the literature, although most of them occur in a technical report of Mader, Wupper and Boon. (We see this as a clear indication of the lack of interest for the methodology of modeling in our field.) Often, the criteria are hard to meet and typically several of them are conflicting. In practice, a good model is often one which constitutes the best possible compromise, given the current state-of-the-art of tools for modelling and analysis. But a truly beautiful model meets all the criteria! We refer to Mader, Wupper and Boon for further links to related work in the areas of software engineering, requirements analysis, and design.
+
+    A good model has a clearly specified object of modelling, that is, it is clear what thing the model describes. The object of modelling can be (a part of) an existing artefact or physical system, but it may also be a document that informally specifies a system or class of systems (for instance a protocol standard), and it may even be a collection of ideas of a design team about a system they construct, expressed orally and/or by some drawings on a whiteboard.
+    A good model has a clearly specified purpose and (ideally) contributes to the realization of that purpose. Possible purposes include: communication between stake holders, verification of specific properties (safety, liveness, timing,..), analysis and design space exploration, code generation, and test generation. A model can be descriptive or prescriptive. If a model has to serve several distinct purposes then often it is better to construct multiple models rather than one.
+    A good model is traceable: each structural element of a model either (1) corresponds to an aspect of the object of modelling, or (2) encodes some implicit domain knowledge, or (3) encodes some additional assumption. Additional assumptions are for instance required when a protocol s tandard is incomplete (e.g., it does not specify how to handle certain events in certain cases). Links between the structural elements of the model and the aspects of the object of modelling should be clearly documented. A distinction must always be made between properties of (a component of) a model and assumptions about the behavior of its environment.
+    A good model is truthful: relevant properties of the model should also carry over to (hold for) the object of modelling. Typically, for each (relevant) behavior of the object of modelling there should be a corresponding behavior of the model, and/or for each behavior of the model there should be a corresponding behavior of the artefact. In the construction of models often idealizations or simplifications are necessary in order to allow for the use of a certain modeling formalism or in order to be able to analyze the model. In these cases, the model may not be entirely truthful. The modeller should always be explicit about such idealizations/simplifications, and have an argument why the properties of the idealized model still say something about the artefact. In the case of quantitative models this argument will typically involve some error margin. In the case of nondeterministic models it frequently occurs that a model ``overapproximates'' reality, and that certain behaviors that are possible in the model are not possible for the artefact.
+    A good model is simple (but not too simple). Occam's razor is a principle particularly relevant to modelling: among models with roughly equal predictive power, the simplest one is the most desirable. Hence, the number of states and state variables should be as small as possible, and the level of atomicity of transitions should be as coarse grained as possible (but not coarser), i.e., the number of transitions should be minimal given the intended use of the model. Preferably, things should be written only once, and one should avoid ugly encodings. Preferably, the model uses stable, well-defined and well-understood concepts and semantics.
+    A good model is extensible and reusable, that is, it has been designed to evolve and be used beyond its original purpose. Typically, if one defines models in a modular and parametric way this allows for dimensioning, future extensions and modifications, especially if modules have well-defined interfaces. Ideally, a model should not just describe the specific system at hand: by appropriate instantiation and dimensioning it should be possible to model a whole class of similar systems.
+    A good model has been designed and encoded for interoperability and sharing of semantics. Model-driven development of an embedded system typically leads to a plethora of models, all presenting different views on and abstractions of the system. If a model is not somehow linked to other models, its usefulness will be limited. Ideally therefore, the relationships between all models should be properly defined, for instance via formal refinement relations. 
+
+Clearly, there are many relationships and dependencies between the criteria. If a model is traceble, that is, links between the structural elements of the model and the aspects of the object of modelling are clearly documented, then chances increase that the model will be thrutful. Also, if a model has been set up in a modular way, then one may apply a divide-and-conquer strategy both for establishing truthfulness of the model and for analysis. Etc, etc.
+
+
+Our challenge has been to build a model that speaks to a core issue, while remaining simple enough that academics or policymakers might use it in a workshop, and someone with undergraduate training could work with it while maintaining extensiblity, policy relevance, and tight integration with core theoretical concepts. %from 200 years of economic and social thought.
+
+
+classical economics is not tightly integrated into modern agent based modelling.
+in general there is need for substantial work showing the relationship between big modern agent models and the rich set of insights from small classical/historical/neoclassical models.
+
+As tools to think with, it's important to understand where results come from. 
+Testing small, alternative models and theoreti- dividing it so individual assumption can be compared and black boxed makes that it much easier to understand the source of results and achieve conceptual clarity.
+
+The model came out of this general approach\footnote{The approach was grounded in building lots of models with policy makers, rooted in Holings tradition, and the systems modelling tradition- how to find and piece together the kinds of models needed. E.g. how to model the youth employment system, fruit. Part of that is connecting the formal modelling with the implicit models people hold in their heads, often either half formed or derived from minimal economics training, and test those assumptions against alternatives.}
+This general approach gave us three insights or things to explore
+
+In this chapter we discuss the (eclectic) methodological approach of the thesis, as well as a number of modelling decisions. 
+
+Because we draw on techniques and results in several fields, on approaches from several historical periods %, and  concerns associated with differing ideological perspectives, 
+the analysis and modelling for this study raises a number of interesting methodological issues. For example, 
+
+
+
+% Methodological questions: 
+
+%     - agent models (integrating theory more completely into agent models)
+    
+%     - rent theory
+
+% Core model
+
+%     - static version
+    
+%     - dynamic version
+
+% Simulations
+% Result - hysteresis,
+% Policy
+
+
+
+
+
+% TODO Rename file/label as an appendix, or fill out and make into a chapter again
+% In addition to the core contribution linking housing and productivity, there are three methodological lines of contribution, and there are policy implications SUMMARIZE METHODOLOGICAL CONTRIBUTIONS %(rent is key to financialization, however the main urban models don't observe the distribution of rents)
+
+
+% \subsection{Systems design engineering and the systems level effects of financialization}
+% Appropriate for systems design engineering
+% - engineering is science to responsibility.
+
+% \section{Political economy}
+
+% early stocks, company run an army to take over land and claim surplus in India- more in line with military/state conquests
+% then that translates into the industrial economy
+% the notion that productivity came from industrial productivity or human capacity.
+
+% what's question, what went before - politics and economics. department of political economy into the 1960s- politics and older ideas.
+
+% Coarse graining, the scale problem.
+% Cross scale modelling, models as library components, fall down and rise up wiwth scales
+% Building blocks as toys to play and think with - simple enough assumptions to build with
+
+
+
+
+
+
+
+
+% \textbf{the french engineers} - method math and back \dots
+
+% econ a kind of reactionary precursor to complex systems.  Adam smith- methodological evolution. ABM and link model.
+
+% not an exercise in modelling, it's an exercise in understanding what's happening
+% want to know what's happening in society and what we can do. why we want to talk about hysteresis and the effects on social classes.
+
+% haven't formulated even the theoretical model
+% rent and social class not in the Alonso model
+% couldn't track whose in what class when you do your analysis of scaling
+% large gap but hard to see since not maped, theoretical objects barely formulated.
+
+% DISCOVERY PROCESS
+% An accident that we found this model, looking for someone to have answered this, planned to just use economic theory.
+
+% thought the model \dots 
+
+% - to move with the dynamism of how people think. 
+
+% (personal ethnography, co-creation, activist method from australi.)
+
+% Simple agent based modes
+% TO DO THIS -
+% having done this rockefeller work-- wanted to move between omdels way people thing.
+
+% core decsions fast \dots
+% get good results and hold core details in their head \dots
+
+% lots of great models out there. 
+
+% \textbf{Coarse graining, curse of dimensionality}
+% flow between these classes of models.
+
+% WE DO THIS
+% Link agent based and analytic models.
+
+% conceputally clear modelling traditon not connected to one that lets you look at individual trajectoreis---
+
+% - distribution, a farm, unemployed youth \dots bring in infrastructure from well defined simplified models
+
+% abm is in some ways simpler- this agent does this. 
+% -- get input asking someone questions- this is wha t people knwo - do this as a buyer \dots ive assempled these piece \dots
+
+% (we've made it a well formed question by making it a model structure. accepted the conventional knowlege about he large scale dynamics \dots
+% formulated the conventional knowleges so it can talk to the input \dots )
+
+
+% -wasn't clear why we couldn't get what we needed from econ.
+% did a bunch of work building a biger model, lots of discusion about the \gls{transmission mechanism}.
+% We realized it shoudl be coarse grained. 
+
+% REPRHASE METHODOLOGICAL CONNTRIBUTIONS FROM INTRO
+
+% A MEANS IS USE OF THE 
+% Constructing an urban \gls{agent-based model} that is consistent with {neoclassical growth theory}. We show how the neoclassical framework can be implemented in the agent-based framework, and make a case for the usefulness of the approach in linking urban rents and productivity. %Chapter~\ref{chapter-methodology} discuses methodological implications of this approach.
+
+% THIS HAS IMPLICATIONS
+% Building a model that is easily extended to explore a range of issues, and used to evaluate policy options. 
+% The model combines clear and explicit theoretical assumptions with careful and transparent implementation of the logic. % in code \dots %flexible Python code.
+%     % \item Providing a model that we believe
+% We have taken care to allow for  both theoretical and policy-relevant extensions in the simulation,  building a base model that aims to be as simple as something like Alonso's urban model \cite{alonsoLocationLandUse1964}, but 
+% % To be useful in policy discussions, a model must  
+% simulates the relevant system features and can incorporate a range of intervention types. %way the simulation model is coded. 
+
+
+% IT LETS YOU DO THINGS THAT HAVE BEEN HARD
+% - e.g. have tractible models that let you explore \textbf{hysteresis, reversibility}- hopefully bringing it towards the core of analysis
+% Resilience.
+
+
