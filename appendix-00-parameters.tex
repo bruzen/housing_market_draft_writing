@@ -34,7 +34,6 @@ Property taxes are imposed on the  lagged property price. They  are discounted a
 Each mill is expressed as  1/1,000 of the value as determine by assessment \footnote{By capitalizing the mill rate at 5\%  we see that each `mill' is worth about 2\% of the warranted rents. Assessments usually understate the market value considerably. Mill rates are commonly about 1.5 and differ between municipalities. ***MAYBE MOVE PARAM VALUES TO PARAM DISCUSSION}
 
 
-
 \subsubsection{City}
 \begin{description}
 \item [density] workers per lot, maybe 100 initially, Combined with the city extent, $f$, this gives suburban population. % A high value reduces the computation time by reducing the number of cells, but it means we have a representative agent in  each cell. 
@@ -84,10 +83,11 @@ $\kappa$ is associated with the tax rate multiplicatively. Annual property tax i
 \item [Property tax] is based on the assessed price, $\mathcal{P}_{A}$, which is a lagged market price.
 
 \[\mathcal{T} = \tau\kappa  \mathcal{P}_{A} =  \tau\kappa \mathcal{P}_{M, t-1} \]
-\end{description}
+
 
 
 item [Amenity]
+
 $\mathbb{A}=0$
 The local site-specific and urban amenity \textbf{function}. %Also considered symbols $\bar\forall$ and $\mathbb{H}$ for Hedonic value. 
  Assume it is zero initially.
@@ -95,72 +95,44 @@ The local site-specific and urban amenity \textbf{function}. %Also considered sy
 
 
 
+\item[number of urban firms]  $F_0=\frac{N_0}{n_0}$. % **** TODO FIX - this says the baseline population over the number of workers per firm. - the initial value is this. The ongoing calculation is the number of workers $n_0$ is the initialu urban workforce. just count the workforce
+
+\item[elasticity of urban output with respect to population.] $\gamma$. Combining the two marginal productivity conditions, 
+\begin{align}
+\frac{n\psi}{\beta_F}  &= \frac{n(\psi+\omega)}{N^\gamma \beta_F}  \\
+N^\gamma &= (1+\omega)/\psi)\\
+\gamma &= \frac{log(1+p)}{log(N)}
+\end{align}
+
+\item [agglomeration surplus $\mathcal{S}$] We define the agglomeration surplus as the difference between the output produced by  the city with population N and a set of $N/n$ standardized rural firms each with a labour force $n$. 
+\[\mathcal{S_0}=A^U N^\beta-F_0Y_R \] 
+This is illustrated in Figure~\ref{fig:Agglomeration-surplus}
+
+The surplus can also be expressed in terms of the wage premium and the workers' share of the surplus:
+\[\mathcal{S_0}=N\omega_0/\lambda=\frac{N\omega_0}{\beta_F}\] 
+The logic is that the wage premium is the worker's share of the urban surplus. We have assumed that $\lambda=\beta$ as a convenience but we could 
+The logic is that the wage premium is the worker's share of the urban surplus. 
+
+\item[urban scale coefficient $A_C$] Combining the two expressions for $\mathcal{S}$
+\begin{align*}
+ AN^\beta-\frac{N}{n}Y_F    &=\frac{N\omega}{\beta_F}\\ 
+ AN^\beta   &=\frac{N\omega}{\beta_F} + \frac{N}{n}Y_F \\
+ AN^\beta   &=\frac{N\omega}{\beta_F} + \frac{N}{n}\frac{n*\psi}{\beta_F}\\
+AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\ 
+  A_C&=\frac{\omega+\psi}{\beta_FN^{\beta-1}}
+\end{align*}
+\textbf{NOTE: A is scale independent and all of the population agglomeration effects, which are confined to $N^\gamma$.}\footnote{We have assumed that $\lambda=\beta_F$ as a convenience but we could say $\lambda=zork*\beta_F$, making $A=\frac{\omega/zork +\psi}{\beta_FN^{\beta-1}}$ }
+\end{description}
+
+
 \subsection{Time}
  The computational cycle is a year, so all time-dependent variables, such as wage, transportation cost, and interest rates, are specified for the yearly interval. The mortgage period is set arbitrarily, value 5 years. 
 
 
 
-\subsection{Transportation costs}
-Transport costs have two parts:
-1) fuel and vehicle costs per km
-2) time costs per km
-
-\subsubsection{Vehicle related costs}
-Use one year as the wage period, converting transportation costs per km to annual cost for consideration in the household budget. Starting with the cost per km, calculate the cost per year:
-
-\textbf{cost per km =$\textit{t}$}:. \$0.59   (from  Ontario data, 2021). sensitive to congestion, use of subways (\$5 /day?), 
-
- \textbf{work trips per year} 2 way * 5 days/week * 50 weeks work days = 500. [range: 450-550]
-
-\textbf{cost per km-year} = work trips per year*cost per km
-
-=\$0.59/km*500 trips/year  =  \$295/km year 
-
-\subsubsection{Time costs}
-\textbf{time per km}. range: 20km/hr -> 3min/km, 40km/hr -> (1.5min/km - 3min/ km)per trip 
-
-(New York rush hour is much slower:  4-9km/hr ->6-15 min/km)
-
-\textbf{time  per km-year} = work trips per year*time t per trip = 500* 3min  = 1500 min/km year = 25 hours= 3-3.5 days/km
- 
-\textbf{time cost per km-year} =  (days per km-year /work days/year)*wage premium per year  = 3/250 = 0.012 years/km year. ?
-
-\textbf{money cost of time per km year} 
-
-= time cost per km-year* wage(including subsistence) 
-
-= 0.012 year* wage per year
-
-\subsubsection{Total cost per km year of commuting for one agent}
-\textbf{money cost of time per km year + \$295/km year * distance} \\
-= (0.012 w+ \$295)/km year 
-    \begin{quotation}
-    \textbf{Example}
-    To get a sense of the required wage if we have this annual cost structure, assume city\_extent $d^*$ is 30 km. At this point the transport cost is equal to the wage
-
-\[(0.012 w+ \$295)/km year)*30 =  w\] 
-\[.36w+ 8850=w\]
-\[w=13828.12\]
-\begin{quotation}
-\textbf{PLAUSIBILITY CHECK}
-This is plausible land rent, but does not include building rent. 
-Capitalized at 5\% this house is worth \$ 276,562, a fairly cheap house 30 miles from city centre
-\end{quotation}
-\end{quotation}
-
-
-
-\subsubsection{Value of transportation price to use in model}
-\[ {c}=(0.012 w+ \$295)/km year \]
-
-
 
  
-\section{Agglomeration and productivity}
-
-
-
-
+\section{Firm and agglomeration}
 
 Variables that are recalculated in each step.
 % \footnote{\begin{itemize}
@@ -176,7 +148,7 @@ $p_t= \frac{\omega_t}{\psi_t}$
 
 \subsection{Older firm parameter value discussion}
 
-\subsubsection{Price growth}
+% \subsubsection{Price growth}
 % """ Note agents forecasts are linear, but the population growth 
 % is power law distributed. Thus the model is conservative and agents
 % underestimates the the value of the urban center. Actuall effects  
@@ -195,7 +167,7 @@ Almeida et al \cite{almeidaUrbanWagePremium2022} found for Brazil, that the fema
 
 
 
-\section{TODO ORDER BY MODEL COMPONENT NOT BY AGENT TYPE - E.G. PRODUCTION MODEL, HOUSING MARKET MODEL, CITY MODEL}
+% \subsection{TODO ORDER BY MODEL COMPONENT NOT BY AGENT TYPE - E.G. PRODUCTION MODEL, HOUSING MARKET MODEL, CITY MODEL}
 
 % Teminology: Y=prefactor*N**scaling\_exponent
 
@@ -227,7 +199,7 @@ The following sections give parameter values and variable initial values, beginn
 % There are several parameter values set. There are also endogenous values computed to initialize the model. These values are listed in sections \ref{sec-param-values}, and \ref{sec-init-value-list} respectively. 
 
 
-\section{Relationships that constrain parameters }
+\subsection{Relationships that constrain parameters }
 
 Several relationships constrain parameters if the model is near an equilibrium path: 
 
@@ -274,24 +246,7 @@ We start with firm labour forces  being equal at $n$.
 \end{enumerate}
 
 
-\section{Parameter values}\label{sec-param-values}
-
-% OLD TO CUT - JUST CHECK IF WE NEED ANY DETAILS FROM THIS
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{rlrr}\
-Symbol         & Name                                 & Value      & Formula  \\ \hline
-$\omega$  & Maximum locational rent (wage premium) & 0.012        \\
-$a$       & Share of subsistence wage for land and building & 1.0 \\
-$\psi$    & Subsistence wage & 10000 \\
-$tau$     & Property tax rate &  e.g 1.6\% = 16 mills           & \\
-$c$       & Transportation cost & \\
-$\mathbb{T}$       & Period & 5 years      \\
-$r$       & Individual interest rate & 0.05 \\\
-$\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% $P^\mathbb{T}_e$        & Expected price in \mathbb{T} years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_\mathbb{T}$ 
-\end{tabular}
-\renewcommand{\arraystretch}{1.0}
-
+\section{Housing market}
 
 
  
@@ -366,49 +321,11 @@ Used in Equation~\ref{eqn-wealth-based-mortgage}.
 
 
 
-\subsection{Initial values for endogenous variables} \label{sec-init-value-list}
+% \subsection{Initial values for endogenous variables} \label{sec-init-value-list}
 
 
 
-
-\subsubsection{City}
-\begin{description}
-
-\item[number of urban firms]  $F_0=\frac{N_0}{n_0}$. % **** TODO FIX - this says the baseline population over the number of workers per firm. - the initial value is this. The ongoing calculation is the number of workers $n_0$ is the initialu urban workforce. just count the workforce
-
-\item[elasticity of urban output with respect to population.] $\gamma$. Combining the two marginal productivity conditions, 
-\begin{align}
-\frac{n\psi}{\beta_F}  &= \frac{n(\psi+\omega)}{N^\gamma \beta_F}  \\
-N^\gamma &= (1+\omega)/\psi)\\
-\gamma &= \frac{log(1+p)}{log(N)}
-\end{align}
-
-\item [agglomeration surplus $\mathcal{S}$] We define the agglomeration surplus as the difference between the output produced by  the city with population N and a set of $N/n$ standardized rural firms each with a labour force $n$. 
-\[\mathcal{S_0}=A^U N^\beta-F_0Y_R \] 
-This is illustrated in Figure~\ref{fig:Agglomeration-surplus}
-
-The surplus can also be expressed in terms of the wage premium and the workers' share of the surplus:
-\[\mathcal{S_0}=N\omega_0/\lambda=\frac{N\omega_0}{\beta_F}\] 
-The logic is that the wage premium is the worker's share of the urban surplus. We have assumed that $\lambda=\beta$ as a convenience but we could 
-The logic is that the wage premium is the worker's share of the urban surplus. 
-
-\item[urban scale coefficient $A_C$] Combining the two expressions for $\mathcal{S}$
-\begin{align*}
- AN^\beta-\frac{N}{n}Y_F    &=\frac{N\omega}{\beta_F}\\ 
- AN^\beta   &=\frac{N\omega}{\beta_F} + \frac{N}{n}Y_F \\
- AN^\beta   &=\frac{N\omega}{\beta_F} + \frac{N}{n}\frac{n*\psi}{\beta_F}\\
-AN^{\beta-1}   &=\frac{\omega+\psi}{\beta_F}\\ 
-  A_C&=\frac{\omega+\psi}{\beta_FN^{\beta-1}}
-\end{align*}
-\textbf{NOTE: A is scale independent and all of the population agglomeration effects, which are confined to $N^\gamma$.}\footnote{We have assumed that $\lambda=\beta_F$ as a convenience but we could say $\lambda=zork*\beta_F$, making $A=\frac{\omega/zork +\psi}{\beta_FN^{\beta-1}}$ }
-\end{description}
-
-
-
-
-
-
-\section{Housing Market}
+\subsection{Housing Market}
 \begin{description}
 \item [initial market rent] 
 Initial rent cost for tenants  $\mathcal{R}_{M, 0}= \mathcal{R}_W$.
@@ -418,7 +335,7 @@ $P_0= P_W=\frac{\mathcal{R}_W }{r}$,
 \end{description}
 
 
-\subsubsection{Net warranted price} \label{section-warranted-price}
+\subsection{Net warranted price} \label{section-warranted-price}
 We use the net warranted price to approximate the initial value of the market price in our computational model. 
 The economically \gls{warranted price}, for an agent, borrowing money to purchase a property, is the present discounted value of the flow of service net of costs. The present discounted value of the infinite stream of net rents is:
 \begin{equation}
@@ -431,7 +348,7 @@ where $\mathcal{R}_N$ is the net value of annual rents, and $r$ is the interest 
 
 \subsection{Person}
 \begin{description}
-\item [savings] $age_i*savings\_rate*\psi$
+\item[savings] $age_i*savings\_rate*\psi$
 \item[personal wealth] $W_{i0}= savings + warranted\_price $
 \item[average wealth] $\bar W_{0}= \sum_i W_i$
 \item[Subjective discounting] The discount factor gives the present value of one dollar received at a particular point in the future, given the date of receipt and the discount rate.
@@ -444,46 +361,9 @@ The discount \textbf{factor} $\delta(t)$ is a function of $\delta_i$ and the tim
 % delta(0)=1  delta (1)= 1/(1+r) 
 \[\delta(t)=\left(\frac{1}{1+\delta}\right)^t\]
 \[delta(T)=  (1/(1+\delta))^T\]   
-    
-
-eg r=.05  t=5  $\delta(5)$ =  $(1/(1+.05))^5 = 0.7835262$
-
-
-% growth rate= rt
-% growth factor =($1+r)^t$
-% discount rate= r
-% discount factor = $1/(1+r)^t$   
-\begin{lstlisting}
-def get_discount_factor(self):
-    """
-    The discount factor gives the present value of one dollar received at particular point in the future, given the date of receipt and the discount rate.
-    Delta is the subjective individual discount rate for agent
-    after one year. This will be close to the prime interest rate, r_i.
-    """    
-    delta = self.r_prime
-    delta_period_1 = 1 / (1 + delta) 
-    delta_mortgage_period = delta_period_1**self.mortgage_period
-    sum_delta = (1 - delta_mortgage_period)/delta
-    return sum_delta
-\end{lstlisting}
-% #   sum_delta = delta_mortgage_period * (1 - delta_mortgage_period) # Old
-Delta could also depend on wealth. For example,  use the bank rate, which is the rational rate but people who are poor typically have higher rates.  It would not change as the central bank changes r-pirme
-% delta could be wealth based typically higher for poor.
-
-% sum\_delta is sum of the infinite series minus discounted infinite series after mortgage\_period years
-% Here, it is the present value of annual payments from one to mortgage\_period years e.g. of mortgage payments or rent received. 
-% delta\_mortgage\_period was previously called   delta\_period\_{\mathbb{T}} 
-% # Note delta_mortgage_period is subtracted to subtract the long tail. 1/delta gives the PV of an infineite series of payments
-
-\begin{lstlisting}
-# A version with delta depending on wealth
-wealth = self.wealth
-delta =
-\end{lstlisting}
-% savings =(sum(0-age)((1+r)**age)*savings_rate*subsistence)
-
 
 \end{description}
+
 
 
 
@@ -507,54 +387,3 @@ The borrowing ratio for the median wealth holder is perhaps 0.8. The institution
 
 
 (TODO MOVE TO PARAMETER SETTING SECTION Many personal finance experts recommend total housing costs account for less than  28\% of \textbf{gross} household income, so we use value 0.28 as an estimate of $i$'s annual carrying capacity  $\mathbb{C}$ in Equation \ref{eqn-income-based-mortgage}.)
-
-
-
-\subsection{Investor}
-\begin{description}
-\item[mean initial wealth $\bar W$] $= \frac {a\psi}{r_prime}+savings_0$
-\end{description}
-
-\subsection{Realtor}
-
-\subsection{Bidding mechanism}
-
-\section{OLD}
-
-% \section{TODO FIX/CUT Table of parameter values}
-% \renewcommand{\arraystretch}{2}
-% \begin{longtable}{lp{5cm}cp{2.5cm}}
-% \caption{Table of parameter values}\label{tab:parameters}\\
-% \hline 
-% Symbol         & Name                                 & Value      & Formula  \\ \hline
-% $a$ replace    & Share of $\psi$ for land and building &   0.3         & \\
-% $b$ replace    & Share of $\psi$ for maintenance       &   0.2         & \\
-% $tau$ replace  & Property tax rate &  e.g 1.6\% = 16 mills             & \\
-% $c$       & Transportation cost & \\
-% $\mathbb{T}$       & Period & 5 years      \\
-% $r$       & Individual interest rate & 0.05 \\
-% $\omega$  & Locational rent & 0.012  \\
-% $\psi$    & Subsistence wage & 10000 \\
-% $a$       & Share of subsistence wage for land and building & 1.0 \\
-% $\tau$       & Tax share & \\
-
-% ---       &  & \\
-% $m_i$          & Individual borrowing-ratio           & 0.75-0.85  & $M/P^{ask?}$ \\
-% $M^{max}_Yi$.  & Maximum mortgage based on income     &            & $\frac{0.28(\omega+w)}{r_i}$ \\
-%  $M^{max}_P$   & Maximum mortgage based on the price  &            & $0.8*P_0$ \\
-% $IS$           & Income share for housing debt        & 0.25-0.35  & higher for the poor \\
-% $\rho$         & Rent ratio                           &            & $\frac{\omega-tau*d_i}{P_0}$ \\
-% $\kappa $      & Operations ratio                     & 0.1-0.3    & e.g. $ 0.2\frac{\omega-tau*d_i}{P_0}$ \\
-
-% $\sigma$       & Tax ratio                            & 0.25-0.35  & e.g. $ 0.3\frac{\omega-tau*d_i}{P_0}$ \\
-% $\dot P $      & Price growth                         & []         & $\frac{P_t-P_{t-1}}{P_{t-1}}$\\
-% % $P^T_e$        & Expected price in T years            &            & $P_0(1+\dot P)^T$ \\ % *** WAS $P^e_T$
-% $\bar r$       & Prime interest rate                  &            & \\
-% $r^{target}$   & Target interest rate                 &            & $\bar r + margin$ \\
-% $r_i$          & Individual borrowing-rate            & \multicolumn{2}{c}{ $r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})$}\\
-% $\delta_i$   & Individual discount rate        &  USE $\rho$?          & To assign \\
-% $\delta_i$     & Discount factor for T                &            & $\left(\frac{1}{1+r_i^\delta}\right)^T$ \\
-% \hline
-% \end{longtable}
-% \renewcommand{\arraystretch}{1.0}
-
