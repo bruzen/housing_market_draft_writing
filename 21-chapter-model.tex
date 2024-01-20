@@ -37,7 +37,8 @@
 % - need to  model production, specifically the rising production with density. 
 %There is an extensive formal apparatus in economics for considering the relation of production and output. 
 % \section{The general structure of the model}
-In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters ***E EDIT: DISCUSSED IN GENERAL THE PRINCIPLES OR DISCUSSED THE ENERAL PRONICPLES discussed general the principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
+In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters %***E EDIT: DISCUSSED IN GENERAL THE PRINCIPLES OR DISCUSSED THE ENERAL PRONICPLES 
+discussed the general principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we  provide the formula we use in our simulations.
 
 % The model is introduced in the following sections:
 % \begin{enumerate}
@@ -149,18 +150,12 @@ where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ i
 
 \section{Agglomeration and productivity}\label{sec:Production-fn}
 
-\begin{figure}[htb]
-    \centering
-\input{fig/production_functions}
-    \caption{While each individual firm exhibits decreasing returns to scale, the city as a whole exhibits increasing returns to scale, and thus produces an agglomeration surplus, $AN^\beta-\frac{N}{n_R}y_R$.}
-    \label{fig-agglomeration-surplus} % WAS {fig:Agglomeration-surplus} i think
-\end{figure}
 
 % *** ADD BACK? To study the productivity of cities, we incorporate Jacobs-style agglomeration economies (\cite{beaudryWhoRightMarshall2009, vanderpanneAgglomerationExternalitiesMarshall2004, jacobsEconomyCities1969}), using an approach similar to the way the \gls{Solow-Swan model} incorporates labour-augmenting technical change with a \gls{Cobb-Douglas} production function, and building the production function into a standard Alonso-style model of an urban economy.
 %, using a simple Cobb-Douglas production function. 
 % We incorporate the estimated scaling relationship in 
 %The scaling result at the level of the city allows us to incorporate the agglomeration effect in a \gls{circular city} model, 
-The agglomeration effect that augments the productivity of workers means firms produce more goods with a given stock of labour if the city is larger and urban workers are more productive. Figure~\ref{fig-agglomeration-surplus} illustrates the increasing returns to urban size. % than rural workers due to the positive agglomeration externalities. 
+The agglomeration effect that augments the productivity of workers means firms produce more goods with a given stock of labour if the city is larger and urban workers are more productive. Figure~\ref{fig-agglomeration-surplus} in Chapter~\ref{chapter-growth} illustrates the increasing returns to urban size. % than rural workers due to the positive agglomeration externalities. 
 These increasing returns mean that urban firms can %Urban firms can therefore 
 pay a premium that depends on, among other things,  the size of the city. Because workers face transportation costs, firms have to pay this premium to attract workers. % , above the subsistence wage.
 %in a city with more people, as introduced in Chapter~\ref{chapter-growth} on growth.(**E SEE NOTE HERE) % #E i THINK YOU NEED TO FLESH THIS OUT, i'M NOT SURE EXACTLY WHAT YOU ARE SAYING. JUST BE A BIT MORE SPECIFIC AND FLESH OUT. 
@@ -170,6 +165,10 @@ pay a premium that depends on, among other things,  the size of the city. Becaus
 % Firms sell the goods they produce into a commodity market. 
  %, which are both exported and locally consumed 
 % to sell into a large market, at a fixed price. 
+
+
+
+
 
 To focus the model on urban productivity and the growing urban wage premium, we model workers as receiving a \gls{subsistence wage} $\psi$ in the countryside.\footnote{Classical economists employed the \gls{subsistence wage} assumption to simplify their analysis in a similar way.} % 
 %\cite{GET_classical-subsistence-wage}.

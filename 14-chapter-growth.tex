@@ -1,8 +1,8 @@
-\chapter{Theories of Growth and Scaling} 
+\chapter{Theories of Growth and Urban Scaling} 
 \label{chapter-growth}
 
 %TODO - THIS IS NOT PART OF THE BASE MODEL. CONSIDER MOVING TO THE PRODUCTIVITY SPILLOVVERS CHAPTER?
-\epigraph{Cities are the engines of economic growth (Jacobs, 1969; Bairoch, 1988). It is in cities that a large share of the innova- tions and entrepreneurship takes place that fosters economic growth in the long run. Spontaneous Orders and the Emergence of Economically Powerful Cities.}{JOHANNA PALMBERG}
+\epigraph{Cities are the engines of economic growth (Jacobs, 1969; Bairoch, 1988). It is in cities that a large share of the innovations and entrepreneurship takes place that fosters economic growth in the long run. Spontaneous Orders and the Emergence of Economically Powerful Cities.}{Johanna Palberg \cite{palmbergSpontaneousOrdersEmergence}}
 
 
 
@@ -33,60 +33,41 @@
 % Robert E. LUCAS, Jr., University of Chicago, Chicago, 1L 60637, USA}
 % however, that `` a national economy is a completely arbitrary unit to consider.'' and that ``we know from ordinary experience that there are group interactions that are central to individual productivity and that involve groups larger than the immediate family and smaller than the human race as a whole.''  
 
-In this chapter, we have described a very stylized model to  establish how the urban system generates rents.
-So far, however, applications of the bid rent model have not brought forward the distributional and class features derived by the classical economists. 
-
-{\color{red}
-The model so far is a static structure. It doesn't have any growth. The fundamental feature of cities is that they grow and they are creative as demonstrated by their permanence and their growth over millennia. In order to understand what's at stake in cities, we have to be able to describe that growth.
-Our hypothesis is that the  city grows, a big chunk appears as land value, and finance is capturing grabbing it. We have model of rent and space. %To formally model this we need to incorporate 
-We need one final  piece: growth. In this chapter we introduce the structure of growth. %, giving the complete base model. 
+In Chapter~\ref{chapter-space} we described a very stylized, very standard model of the urban system to show how cities generate locational rents.
+%So far, however, applications of the bid rent model have not brought forward the distributional and class features derived by the classical economists. 
+The model as it stands represents a static city, however, and the fundamental feature of cities is that they grow and when they grow they produce a growing stream of value. %ed by their permanence and their growth over millennia. 
+%
+To understand what's at stake in cities, therefore, we have to incorporate growth into our model. In this chapter we introduce two approaches to the problem of growth. As it turns out, they lead to  a common formulation that we  will incorporate into the Alonzo model described in  Chapter~\ref{chapter-space} That will complete urban economy model we use to test our central hypotheses about the impact of financialization in the housing market.%distribution of the urban product: that as the city grows, generating greater and greater values, much of the value appears as increased locational rents which are captured by financial capital. 
 % Agglomeration is what drives the growth in the Jacobs model.
 
-% What are the basic forces that leads to wealth: to the growth in land values and therefore to the opportunities for extracting wealth.  %What are those basic forces? 
-}
+% What are the basic forces that lead to wealth: to the growth in land values and therefore to the opportunities for extracting wealth?  %What are those basic forces? 
 
 
-
+The two theories we will examine come from very distinct literatures: from neoclassical growth theory and from the newer research on scaling laws. Both are supported by  substantial bodies of empirical research, they both rely  on  a and overlapping set of ideas to explain their results. These include notions of `knowledge spillovers,' `network effects,' and variants of `specialization' 'human capital. As we will show, they  lead to essentially the same formal model at the level of generality we require for our model.
 % The order of this chapter and the order of this chapter is arbitrary. 
-% I DON'T UNDERSTAND WHERE THIS QUESTION ABOUT ECONOMIC GROWTH COMES FROM, IN THE CONTEXT OF THE THESIS SO FAR,  SO i WOULD SUGGEST ADDING MORE UP FRONT SUCH AS: As we seek to understand the effects of financialization on WHAT? distribution within an urban model?? it's crucial to understand the significance of cities themselves to economic productivity. In this chapter we describe how agglomeration effects.... DO WHAT??
-
+% I DON'T UNDERSTAND WHERE THIS QUESTION ABOUT ECONOMIC GROWTH COMES FROM, IN THE CONTEXT OF THE THESIS SO FAR,  SO i WOULD SUGGEST ADDING MORE UP FRONT SUCH AS: As we seek to understand the effects of financialization on WHAT? distribution within an urban model?? it's crucial to understand the significance of cities themselves to economic productivity. In this chapter we describe how agglomeration effects.... DO WHAT??\
 % DEFINE AGGLOMERATION HERE. 
 % EXTEND/CUT AND PUT HERE JACOB'S VISION OF THE DYNAMISM OF THE CITY AND HOW IT ACTUALLY CREATES VALUE
 % ADD SOMETHING TO INTRODUCE  GROWTH IN ECONOMICS AND WHY IS MATTERS TO YOUR THESIS. IT"S NOT CLEAR TO ME HOW THIS COMES INTO THE PICTURE YOU"VE BEEN CAREFULLY BUILDING YET. WHAT ARE YOU ACTUALLY ADDING TO THE THEORETICAL BASIS FOR YOUR THESIS IN THIS CHAPTER AND WHY IS IT NECESSARY FOR WHAT YOU ARE DOING WITH THIS MODEL? iE WHY DOES GROWTH MATTER? 
-
-
-But what is the source of economic growth and innovation that has characterized human civilizations? In The Economy of Cities (1969), Jane Jacobs \cite{jacobsEconomyCities1969} put forward a compelling suggestion. Agglomeration is here mechanism: %in response to an important question in economics:  
-cities are the primary drivers of economic development, and the mechanism that explains growth is  the growing opportunities for sharing and creating ideas as population and population density increase. The \gls{Jacobs model}\footnote{Glaeser et al. \cite{glaeserGrowthCities1991} refer to the Jacobs model as the Jacobs-Rosenberg-Bairoch \cite{bairochCitiesEconomicDevelopment1988, rosenbergTechnologicalChangeMachine1963} model.}  both describes the effect of urban agglomeration and explains it.
-
-Jacob's argument is  essentially that the density of cities produces an agglomeration effect that drive economic growth.  
-One of the leading pioneers of the neoclassical growth theory, Robert E. Lucas \cite{lucasMechanicsEconomicDevelopment1988} found Jacob's insight highly suggestive:
+%But what is the source of economic growth and innovation that has characterized human civilizations? 
+Although the models are equivalent for our purpose, the emphases and causal logics differ. One emphasizes processes in the industrial sector, the other, associated with Jane Jacobs, emphasises the nature of the urban system. The later is explanation  most relevant to our work. In The Economy of Cities, Jacobs \cite{jacobsEconomyCities1969} argued that %put forward a compelling suggestion: %Agglomeration is here mechanism: %in response to an important question in economics:  
+cities are the primary drivers of economic development, and the mechanism that explains growth is the growing opportunities for sharing and creating ideas as population and population density increase. Jacob's argument is essentially that the density of cities produces an agglomeration effect that drive economic growth.\footnote{Glaeser et al. \cite{glaeserGrowthCities1991} refer to the Jacobs model as the Jacobs-Rosenberg-Bairoch \cite{bairochCitiesEconomicDevelopment1988, rosenbergTechnologicalChangeMachine1963} model.} Robert E. Lucas, one of the leading pioneers of the neoclassical growth theory, agrees the Jacobs approach has explanitory power when applied to cities: 
 
 \begin{quotation}
-    \noindent Her emphasis on the role of cities in economic growth stems from the observation that a city, economically, is like the nucleus of an atom: If we postulate only the usual list of economic forces, cities should fly apart. \textbf{The theory of production contains nothing to hold a city together (emphasis ours)} A city is simply a collection of factors of production---capital, people, and land---and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits? Of course, people like to live near shopping, and shops need to be located near their customers, but circular considerations of this kind explain only shopping centers, not cities. Cities are centered on wholesale trade and primary producers, and a theory that accounts for their existence has to explain why these producers are apparently choosing high rather than low-cost modes of operation.
+    \noindent Her emphasis on the role of cities in economic growth stems from the observation that a city, economically, is like the nucleus of an atom: If we postulate only the usual list of economic forces, cities should fly apart. \textbf{The theory of production contains nothing to hold a city together (emphasis ours)} A city is simply a collection of factors of production---capital, people, and land---and land is always far cheaper outside cities than inside. Why don't capital and people move outside, combining themselves with cheaper land and thereby increasing profits? Of course, people like to live near shopping, and shops need to be located near their customers, but circular considerations of this kind explain only shopping centers, not cities. Cities are centered on wholesale trade and primary producers, and a theory that accounts for their existence has to explain why these producers are apparently choosing high rather than low-cost modes of operation. \cite{lucasMechanicsEconomicDevelopment1988}
 \end{quotation}
 
 % As a result, ``following very closely the lead of Jane Jacobs, whose remarkable book The Economy of Cities (1969),'' 
-Lucas goes on to suggest that: \begin{quotation} \noindent ``[t]he `force' we need to postulate account for the central role of cities in economic life is of exactly the same character as the 'external human capital' I have postulated as a force to account for certain features of aggregative development.''\end{quotation}  He concludes that if this is so, ``\textbf{\dots land rents should provide an indirect measure of this force (emphasis  ours)}, in much the same way that schooling-induced earnings differentials provide a measure of the productive effects of internal human capital.''
-
+Lucas goes on to suggest that: \begin{quotation} \noindent ``[t]he `force' we need to postulate account for the central role of cities in economic life is of exactly the same character as the 'external human capital' I have postulated as a force to account for certain features of aggregative development.''\end{quotation}  He concludes that if this is so, ``\textbf{\dots land rents should provide an indirect measure of this force (emphasis  ours)}, in much the same way that schooling-induced earnings differentials provide a measure of the productive effects of internal human capital. \cite{lucasMechanicsEconomicDevelopment1988}''
 % This insight, which parallels ours, has not been adequately explored, in our view.  Allowing Lucas to expand on his observation about Jacobs, 
-
-{\color{red}
-% SUMMARIZE WHAT THIS MEANS. 
-
-Lucas is saying there is some mysterious force that overcomes all the reason's people have too spread out. Fundamentally it is the productiveness when people come together.
-
-Lucas is pointing  to agglomeration economies as the force that holds cities together. 
-What takes them apart is the transportation effect. 
-
+%Lucas is pointing  to agglomeration economies as the force that overcomes all the reason's people have to spread out. What pulls them apart is the transportation effect. 
  %So we have to have the agglomeration effect which producesd the agglomeration effect which 
 % Following his reasoning the agglomeration effect produces the circumstances that generates wealth within the  model. 
-We can't model what we care about with these cities  without modeling what %drives them/what 
-holds them together. According to Lucas it is the agglomeration effects which offset all the forces of dispersion.
-In this model we develop the theory to model growth and aglomeration in our urban model. % with rents.
-}
+%We can't model what we care about with these cities  without modeling what %drives them/what holds them together. According to Lucas it is the agglomeration effects which offset all the forces of dispersion. In this model we develop the theory to model growth and aglomeration in our urban model. % with rents.
+Lucas' observation implies that there should be a link between the Jacobs urban mode, which is based on urban agglomeration,  the results of the neoclassical growth model operating at the level of nations, the scaling literature on cities and rent theory. We go on to make explore the formal identity if the neoclassical growth model and the urban scaling model.%In this chapter, we link our basic spatial model to the scaling of urban productivity,  as Lucas seems to be suggesting, and in the process,  we will provide the foundation for our model of urban agglomeration effects.
+% }
 
-Lucas' observation provides a natural link between the Jacobs mode, which is based on urban agglomeration, the neoclassical growth model operating at the level of nations, and the scaling literature on cities. In this chapter, we link our basic spatial model to the scaling of urban productivity,  as Lucas seems to be suggesting, and in the process,  we will provide the foundation for our model of urban agglomeration effects.
-
+ 
 
 
 \section{Cities and the scaling literature}
@@ -100,7 +81,7 @@ Jane Jacobs put forward agglomeration effects as a the heart of creating value i
 } 
 
 
-Scaling analysis is a tool developed in complex systems science to investigate how \glsdisp{extensive property}{extensive properties} of the system vary with a system's size,  or `scale'.  In urban science, there are now many studies of  the relationships between urban population size and features like urban economic output,  area, growth, traffic congestion costs, and even social  indicators like crime and homicide rates. Our particular interest is in studies linking city population  and  economic output. SUMMARIZE WHAT THESE ARE OR AT LEAST WHY THIS MATTERS?? I'M A BIT LOST HERE. SAY WHY YOU ARE TALKING ABOUT THIS. 
+Scaling analysis is a tool developed in \glspl{complex system} science to investigate how \glsdisp{extensive property}{extensive properties} of the system vary with a system's size,  or `scale.' In urban science, there are now many studies of  the relationships between urban population size and features like urban economic output,  area, growth, traffic congestion costs, and even social  indicators like crime and homicide rates. Our particular interest is in studies linking city population  and  economic output. SUMMARIZE WHAT THESE ARE OR AT LEAST WHY THIS MATTERS?? I'M A BIT LOST HERE. SAY WHY YOU ARE TALKING ABOUT THIS. 
 
 The scaling literature has confirmed several basic results of the form: 
 
@@ -156,8 +137,25 @@ The empirical \glspl{scaling law} are a feature of urban systems on average. %We
 
 \section{Neoclassical growth theories}  \label{section-growth}
 {\color{red}
+
+
+
 Growth theory offers one of the most influential efforts to understand wealth agglomeration effects, established in the scaling and agglomeration litterateurs.} 
 Much of growth theory was concerned with identifying the dynamics of macroeconomic systems, and in particular with the implications for the growth of national income. Early models \cite{keynesGeneralTheoryEmployment1937, harrodEssayDynamicTheory1939, domarCapitalExpansionRate1946}  employ a macroeconomic savings function which usually has a fixed savings rate, with savings being reinvested in productive capital. Later models endogenize the savings-investment process. The growth models, however, were not spatial models and necessarily abstracted from land rents and distribution. They have nothing to say about the distribution of city products and the effect that distribution might have on growth. When we focus on cities, however, it will become necessary to develop an analysis of city-level saving and investment. 
+
+
+\begin{figure}[htb]
+    \centering
+\input{fig/production_functions}
+    \caption{While each individual firm exhibits decreasing returns to scale, the city as a whole exhibits increasing returns to scale, and thus produces an agglomeration surplus, $AN^\beta-\frac{N}{n_R}y_R$.}
+    \label{fig-agglomeration-surplus} % WAS {fig:Agglomeration-surplus} i think
+\end{figure}
+
+THIS IS ALL DEALING WITH A GAP IN NEOCLASSICAL PRODUCTION THEORY AND THE FIGURE ILLUSSTRATES THE GAP. THE STRAIGHT LINE IS WHAT NEOCLASSICAL PRODUCTION THEORY PREDICTIED Sollow and others realized it  wasn't working. 
+
+Our treatment of the urban surplus, which is central to this thesis, is illustrated in Figure~\ref{fig-agglomeration-surplus}. 
+% Figure~\ref{fig-agglomeration-surplus} illustrates the increasing returns to urban size. 
+In the lower left, we illustrate a single firm with decreasing returns to scale operating at its optimal scale, $n$. The thick diagonal line represents the effect of increasing the number of firms operating at the optimal scale. It is the constant returns (CRS) line. If congestion effects from bringing a large number of firms together were dominant, a city would exhibit decreasing returns to  scale,  $N$, and agglomeration would not occur. Research indicates that cities exhibit increasing returns to scale, illustrated by the upper line, which shows the city generating an increasing surplus as it grows, which is the increasing returns to scale case. The curvature of the line is determined by a function of the form $N^\gamma$, which we include in the production function for urban firms. 
 
 
 \subsection{The Solow-Swan growth model}
