@@ -1,0 +1,107 @@
+
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[autostyle]{csquotes}
+
+
+\usepackage[margin=0.25in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+% We will externalize the figures
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+
+% \usepackage[backend=biber,style=authoryear]{biblatex}
+% \addbibresource{jmp.bib}
+\usepackage[normalem]{ulem}
+\title{Title}
+\author{ }
+\date{\today}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+\newtheorem{condition}{Condition}
+\newtheorem{proposition}{Proposition}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+\end{abstract}
+
+\section{Introduction}
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot[color=red]{exp(x)};
+\end{axis}
+\end{tikzpicture}
+%Here ends the 2D plot
+\hskip 5pt
+%Here begins the 3D plot
+\begin{tikzpicture}
+\begin{axis}
+\addplot3[
+    surf,
+]
+{exp(-x^2-y^2)*x};
+\end{axis}
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = \(x\),
+    ylabel = {\(f(x)\)},
+]
+%Below the red parabola is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=red,
+]
+{x^2 - 2*x - 1};
+\addlegendentry{\(x^2 - 2x - 1\)}
+%Here the blue parabola is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=blue,
+    ]
+    {x^2 + 2*x + 1};
+\addlegendentry{\(x^2 + 2x + 1\)}
+
+\end{axis}
+\end{tikzpicture}
+
+
+
+
+
+% \bibliographystyle{plainnat} % or try abbrvnat or unsrtnat
+% \bibliography{jmp.bib} % refers to example.bib
+% % \printbibliography
+% % javascript:void(0);
+\end{document}

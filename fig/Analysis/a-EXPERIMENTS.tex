@@ -34,50 +34,50 @@ Complex combinations of policies are computationally  intensive and are not expl
 \vspace{.5cm}
 
 {\tiny
-BASELINE PARAMETERS
+BASELINE PARAMETERS: Initial values most commonly used 
 \begin{verbatim}
 
         # LABOUR MARKET AND FIRM PARAMETERS
-            'subsistence_wage': 40000., # psi
-            'init_city_extent': 10.,    # CUT OR CHANGE?
-            'seed_population': 400,
-            'init_wage_premium_ratio': 0.2, # 1.2, ###
+            'subsistence_wage': 40000., # RURAL WAGE,  psi, 
+            'init_city_extent': 10.,    # 
+            'seed_population': 400,     # POPULATION AT CENTRE
+            'init_wage_premium_ratio': 0.2, # WAGE PREMIUM AS FRACTION OF SUBSISTENCE WAGE
 
             # PARAMETERS MOST LIKELY TO AFFECT SCALE
-            'c': 300                             ### .0,                            ###
-            'price_of_output': 10,                 ######
-            'density':600,                         #####
-            'A': 3000,
-            'alpha': 0.18,
-            'beta':  0.75,
-            'gamma': 0.12, ### reduced from .14
-            'overhead': 1.5,
-            'mult': 1.2,
-            'adjN': 0.15,
-            'adjk': 0.10,
-            'adjn': 0.15,
-            'adjF': 0.02,
-            'adjw': 0.05, 
-            'dist': 1, 
-            'init_F': 100.0,
-            'init_k': 500.0,
-            'init_n': 100.0,
+            'c': 300                    # TRANSPORT COST PER UNIT DISTANCE
+            'price_of_output': 10,      # WORLD PRICE FOR FIRM
+            'density':600,              # WORKERS PER BLOCK  
+            'A': 3000,                  # SCALE FACTOR 
+            'alpha': 0.18,              # EXPONENT ON FIRM CAPITAL
+            'beta':  0.75,              # EXPONENT ON FIRM LABOUR
+            'gamma': 0.12,              # EXPONENT ON AGGLOMERATION POPULATION
+            'overhead': 0.5,            # FIRM OVERHEAD COST AS WAGE FRACTION
+            'mult': 1.2,                # AGGLOM POP IS MULT for x N
+            'adjN': 0.15,               # ADJUSTMENT RATE WORKER COUNT
+            'adjk': 0.10,               # ADJUSTMENT RATE FIRM CAPITAL
+            'adjn': 0.15,               # ADJUSTMENT RATE FIRM WORKFORCE
+            'adjF': 0.02,               # ADJUSTMENT RATE NO OF FIRMS
+            'adjw': 0.05,               # ADJUSTMENT RATE WAGE
+            'dist': 1,        #
+            'init_F': 100.0,            # INITIAL NUMBER OF FIRMS
+            'init_k': 500.0,            # INITIAL CAPITAL STOCK OF FIRMS
+            'init_n': 100.0,            # INITIAL LABOURFORCE OF FIRMS
 
             # HOUSING AND MORTGAGE MARKET PARAMETERS
-            'mortgage_period': 5.0,       # T, in years
-            'working_periods': 40,        # in years
-            'savings_rate': 0.3,
+            'mortgage_period': 5.0,       # T, YEARS TO RENEGOTIATION OF MORGAGE
+            'working_periods': 40,        # YEARS IN THE WORKFORCE
+            'savings_rate': 0.3,          # FRACTION SAVED OUT OF WAGE PLUS RENT
             'discount_rate': 0.07,        # 1/delta    Check THIS
-            'r_prime': 0.05,
-            'r_margin': 0.01,
-            'property_tax_rate': 0.04,     # tau, annual rate, was c
-            'housing_services_share': 0.3, # a
-            'maintenance_share': 0.2,      # b
-            'max_mortgage_share': 0.9,
-            'ability_to_carry_mortgage': 0.28,
-            'wealth_sensitivity': 0.1,
-            'capital_gains_tax_person':   0.0, # share 0-1
-            'capital_gains_tax_investor': 1, # share 0-1
+            'r_prime': 0.05,              # BANK RATE          
+            'r_margin': 0.01,             # BANK PROFIT          
+            'property_tax_rate': 0.04,    # tau,  ANNUAL PROPERTY TAX RATE
+            'housing_services_share': 0.3,# a, OF SUBSISTENCE WAGE
+            'maintenance_share': 0.2,     # b. OF HOUSING SERVICES
+            'max_mortgage_share': 0.9,    # OF SALE PRICE
+            'ability_to_carry_mortgage': 0.28,# MAX SHARE OF INCOME  FOR MORTGAGE PAYMENTS
+            'wealth_sensitivity': 0.1,    # OF INTEREST CHARGE 
+            'capital_gains_tax_person': 0.0,  # 0-1 SHARE F CAPITAL GAIN
+            'capital_gains_tax_investor': 1,  # 0-1 SHARE F CAPITAL GAIN
     
 \end{verbatim}
 }
