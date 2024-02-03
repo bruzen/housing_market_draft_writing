@@ -1,3 +1,46 @@
+
+
+G!rr4teL
+
+"ctrl+tab" changes VS Code tab
+"cmd+tab"  changes system tab
+"shift+cmd+r" restart and run Jupyter notebook
+"shift+cmd+p" open the command pallete
+
+
+###
+
+(housing) davidroomputer3:housing_app drdavidrobinson$ git push origin main
+To https://github.com/bruzen/housing_app
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/bruzen/housing_app'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. Check out this branch and integrate the remote changes
+hint: (e.g. 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+(housing) davidroomputer3:housing_app drdavidrobinson$
+
+python run.py --batch
+python run.py --fast_batch
+fast_batch gives the same as: python run.py
+
+Still need to add default plotting for single runs, but we can generate data and then plot
+python run.py --run
+python run.py --fast_run
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+_analysis_fast.ipynb shows how to run in the notebook 
+(first grid square):
+
+import run as run
+import utils.plotting as plotting
+df, variable_parameters = run.fast_batch()
+plotting.variables_vs_time(df, variable_parameters)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 axes[1].plot(time, model_out['wage'], label='wage', color='red')
 axes[1].set_ylim(0, 110000)  # Replace min_value and max_value with your 
 

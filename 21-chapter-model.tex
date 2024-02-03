@@ -139,7 +139,7 @@ The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from in
 %   =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ is lot size (land per person). This is the equilibrium \gls{urban labour supply} function for the circular city. For a city with an idealized rectangular grid of streets, the city shape is rectangular rather than circular and the labour supply function is \[N= \frac{2}{s}\left(\frac{w}{{c}}\right)^2.\] %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
+where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ is lot size (land per person).\footnote{The formula is for the case with a uniform density of one worker per lot. In the computation model density is a variable.} This is the equilibrium \gls{urban labour supply} function for the circular city. For a city with an idealized rectangular grid of streets, the city shape is rectangular rather than circular and the labour supply function is \[N= \frac{2}{s}\left(\frac{w}{{c}}\right)^2.\] %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
 %\footnote{See the discussion of model extensions in Appendix~\ref{appendix-future-work}.}.
 % To get the \gls{urban wage premium}, we can write the inverse of the labour supply function:
@@ -187,7 +187,7 @@ Urban workers give up the subsistence income and receive the \gls{urban wage}, $
 
 \subsection{Wage determination}
 
-According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor.\footnote{Appendix~\ref{appendix-firm-theory} has more detail on the theory of the firm underlying the treatment here.} If we calculate the marginal product of labour for the Cobb-Douglas with the Jacobs externality $A(L^T)$ from Equation~\ref{eqn-production-jacobs}, we get 
+According to \gls{neoclassical distribution theory}, the firm maximizes profit by setting the marginal value of the product of each \gls{factor of production} equal to the unit cost per factor.\footnote{Appendix~\ref{appendix-firm-theory} has more detail on the theory of the firm underlying the treatment here.} If we calculate the physical marginal product of labour for the Cobb-Douglas with the Jacobs externality $A(L^T)$ from Equation~\ref{eqn-production-jacobs}, we get 
 \begin{align}\label{eqn-model-MPL}
 y              =&  A(L^T) k^\alpha n^\beta \nonumber\\ 
 \die{y}{L}     =&\beta A(L^T) k(t)^\alpha n^{\beta-1} \nonumber\\
@@ -197,11 +197,11 @@ y              =&  A(L^T) k^\alpha n^\beta \nonumber\\
 This is clearly positive and increasing in $L^T$, the aggregate labour force for the city.  It follows that population growth increases marginal product in this model. 
 
 
-Since optimizing firms are assumed to adjust their wage offer and hiring to achieve a wage that is equal to the marginal product of labour 
+Since optimizing firms are assumed to adjust their wage offer and hiring to achieve a wage that is equal to the  marginal \textbf{value} product of labour 
 \begin{align}\label{eqn-model-MPL-w}
-             \omega + \psi   =& \frac{\beta y}{n}.
+             \omega + \psi   =& P_y\frac{\beta y}{n}.
 \end{align}
-As a result, the wage increases, perhaps with a lag, when urban population  rises 
+where $P_y$ is the price of output. We assume the price of output is constant and will treat it as \$1 per unit output for the rest of the chapter. As a result, the wage increases, perhaps with a lag, when urban population  rises 
 \begin{equation}
  \die{(\omega + \psi)}{L^T} >0.
 \label{eqn-wage-population}
@@ -536,26 +536,19 @@ Mortgages are renewed after $\mathbb{T}$ years. During that period some of the p
 
 
 \subsection{Bid price}\label{sec:bid-price}
-A bidding process determines the realized market price, with bidders taking into account potential capital gains. In this section, we describe the formation of the maximum bid price that we use  in the bidding model. The maximum \gls{bid price}, $P_{B,ij}^{max}$ %, where i and j refer to the individual and the property involved,\footnote{We suppress the $ij$ identifiers for the rest of this chapter. }  
+A bidding process determines the realized market price, with bidders taking into account potential capital gains. In this section, we describe the formation of the maximum bid price that we use in the bidding model. The maximum \gls{bid price}, $P_{B,ij}^{max}$ %, where i and j refer to the individual and the property involved,\footnote{We suppress the $ij$ identifiers for the rest of this chapter. }  
 is the value of a property to the owner or to a potential buyer. It will differ across individuals depending on their cost of capital, discount rates,  savings, and access to mortgage funding. The same equation used to calculate the bid price used to compute the \gls{reservation price}, the minimum price that an owner will sell a property for. 
 
 The model distinguishes between two types of investment buyers, institutional buyers and homeowners buying an investment home. They use the same investment formula, but may have different values of the parameters determining their bid prices.
 
-We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{An alternative approach would be to calculate an \gls{internal rate of return} (IRR), but the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the \gls{net present value} (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}.}
+We first calculate the net present value of the purchase, then divide by the amount of capital employed, which we assume is simply the size of the down payment made at the beginning of the period. This gives us a rate of return.\footnote{An alternative approach would be to calculate an \gls{internal rate of return} (IRR), but the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the \gls{net present value} (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}.} The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum bid that will satisfy that criterion.}
+% We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to 
+We then solve this for the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
 
-
-\subsubsection{Price expectations}
-The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.\footnote{Case and Shiller point out ``we see a market largely driven by expectations. People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. This means that housing price booms will persist as home buyers become destabilizing speculators''  \cite{caseThereBubbleHousing2003}. Case and Schiller\cite{caseThereBubbleHousing2003} argue that  the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes.}  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of an as yet unrealized future market price. Agent $i$'s expected market price may be affected by individual information, biases, preferences, assumptions the agent has about the behaviour of others, and system state.  
 
 % The underlying value of a home is the capitalized value of the services it provides, which are perpetual.  Rents, however, depend on urban productivity and may change over time. Any expected increase in future rents capitalized into the market price of a home as a capital gain for the owner. Home prices should respond to expectations.
 
-% As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer considering a vector of attributes of the property, including the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. All of these factors shape whether an investment is profitable. To make a comparison with alternative investments, it is necessary to compute a rate of return. 
-
-To calculate the bid price, we first calculate the net present value of the purchase, then divide by the capital employed, which we assume is the size of the down payment made at the beginning of the period.\footnote{For expositional convenience, we can treat the mortgage period $\mathbb{T}$ as a single term and all payments are accumulated to the end of the tern and then discounted to the present.} 
-This gives us a rate of return.\footnote{A common approach would be to calculate an internal rate of return (IRR), but  the IRR is in general the solution to a polynomial and does not guarantee a single-valued result \cite{robinsonOptimalTerminationIRR1996}. Multiple real-valued  IRRs may arise;  complex-valued IRRs may arise;  the IRR is, in general, incompatible with the net present value (NPV) in accept/reject decisions; the IRR ranking is, in general, different from the NPV ranking; the IRR criterion is not applicable with variable costs of capital. Ways to salvage the IRR as a usable criterion have been proposed that are consistent with our approach \cite{magniAverageInternalRate2010}, which is to calculate an NPV then convert it to a rate.} 
-The rate of return on the investment must exceed some required rate of return. This condition allows us to calculate the maximum price that will satisfy that criterion.
-% We assume that agent may be  speculating on potential \glspl{capital gain} as well as on the \gls{use value} or net market rent they get from the property. We therefore treat the purchase as an investment decision and compute a rate of return, $v$, conditional on the price paid. This allows us to 
-We then solve this for  the maximum bid, $P_{max}^{bid}$ that achieves the desired rate of return. 
+% As Horowitz \cite{horowitzBiddingModelsHousing1986} notes, a prospective buyer considering a vector of attributes of the property, including the seller's asking price and the property taxes, transaction costs, and financing costs at a specified price. The  potential buyer also is likely to have estimates of the maintenance costs and resale value of the house, although these may be highly subjective. All of these factors shape whether an investment is profitable. To make a comparison with alternative investments, it is necessary to compute a rate of return.
 
 The agent who purchases makes a down payment, $D$ on a house for a price, $P_0$, and agrees to pay off a mortgage, $M$ with interest at the end of the mortgage period.  The purchaser  receives the increased price 
 $P_T = (1 + \dot P)^\mathbb{T}P_0 =(1+\dot P_\mathbb{T})P_0 $, 
@@ -570,7 +563,10 @@ as the $\mathbb{T}$-period  price-growth rate. The agent also receives either th
 
 % If, for example price growth is 10\%, $\dot P= 0.1$, the {capital gain}, or growth, over a 5-year mortgage term is 0.61051 $\approx$ 60\% of the original price, $P_0$.
 
-The expected rate of price growth, $P_{M_j}^\epsilon$, is an estimate based on rents and past market behaviour. In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
+%The expected rate of price growth, $P_{M_j}^\epsilon$, is an estimate based on rents and past market behaviour. In our computational model we employ a regression model to generate an \gls{expected market price} based on past prices. The rate of price growth $\dot P$ we use in our model of investor behaviour is derived from the same regression model.
+
+
+
 
 % TODO SOME REFERENCES - what are these? MOVE? \cite{anselinModernSpatialEconometrics2014, gelmanDataAnalysisUsing2006}.
 
@@ -605,10 +601,11 @@ V &= \delta^\mathbb{T}\left( P_\mathbb{T}-P_0-\mathcal{M}_{\mathbb{T}}- M+ \math
 &= \delta^\mathbb{T} \left(
 \dot P_\mathbb{T} P_0 -\left((1+r)^\mathbb{T}-1\right)mP_0-mP_0
  +  \mathcal{R}_{N, \mathbb{T}} \right) 
-\label{first_sub}\nonumber\\
-  &= \delta^\mathbb{T} \left((\dot P_\mathbb{T} - (1+r)^\mathbb{T}m) P_0 + \mathcal{R}_{N, \mathbb{T}}\right),
+%\label{first_sub}\nonumber
+\\
+  &= \delta^\mathbb{T} \left((\dot P_\mathbb{T} - (1+r)^\mathbb{T}m) P_0 + \mathcal{R}_{N, \mathbb{T}}\right),\label{eqn_investment_value}
 \end{align}
-where $\dot P_\mathbb{T}$  is the expected rate of change in the market price over the term of the mortgage.
+where $\dot P_\mathbb{T}=\frac{P_\mathbb{T}-P_0 }{P_0}$  is the expected  change in the market price over the term of the mortgage as a fraction of the original price.
 $V$ is the net present value of buying and selling after one mortgage renewal period of $\mathbb{T}$ years. %All rates are scaled to the length of the period to avoid the need for compounding calculations. 
 % The function has four individualized parameters, $\delta$, $\dot p$, $r$, $m$. %, as well as any factors that affect the rent or other terms.
 
@@ -657,25 +654,31 @@ P_B^{max} &\le  \frac{\mathcal{R}_{N, \mathbb{T}}}{(1-m)r^{target}/\delta^\mathb
 \end{align}
 We call this  $i's$ maximum bid.\footnote{The denominator in Equation~\ref{eqn:maximum-bid} can be seen as an adjusted rate of return for capitalizing net rents, analogous to the value of $r$ in the standard capitalization formula.} 
 It represents the maximum a buyer is willing to pay, the value of the stream of rent plus any capital gains. % It is also the most reasonable reservation price.%\footnote{In principle Equation~\ref{eqn:maximum-bid} could be calculated for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time.} 
-If the buyer intends to become a resident, the net rent term Equation~\ref{eqn:maximum-bid} is replaced by an housing-services-and-amenity term, which represents non-monetary income. % and is another form of locational rent. 
+If the buyer intends to become a resident, the net rent term Equation~\ref{eqn:maximum-bid} is replaced by a housing-services-and-amenity term, which represents non-monetary income. % and is another form of locational rent. 
 
 \subsection{A Simple Proxy for $\dot P_\mathbb{T}$}
 
-Our $\dot P_\mathbb{T}$ is a forecast by agents in the model of the change in price over a period $\mathbb{T}$. In principle, agents might form an expectation by observing past prices for each class of home. To mimic this process we could compute average price changes per period at each distance from the centre and use them to form a forecast for the mortgage period $\mathbb{T}$. 
+The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of the as yet unrealized future market price. Case and Shiller observe that, ``People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. \cite{caseThereBubbleHousing2003}. They further argue that the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes. Our $\dot P_\mathbb{T}$ is a forecast or expectation by agents in the model of the change in price over a period $\mathbb{T}$.
 
-We will instead use a computationally simpler proxy. Since our version of the \gls{Alonzo model} implies that house prices will rise by the capitalized value of an increase in the wage premium, a rational investor might use a forecast of the wage premium to develop a long-term forecast of house prices, and from that of $\dot P_\mathbb{T}$. Wages are generated in the model and can be retrieved without additional computation. 
-Warranted price is then the capitalized value of the the wage premium, transportation costs, and housing services 
-\begin{align}
-P_W &=\frac{1}{r}\left[\omega - {dc} + \mathbb{A} + a\psi\nonumber  + a*b*\psi\right] \nonumber\\
-\die{P_W}{t} &= \frac{1}{r}\die{\omega}{t}. \nonumber
-\end{align}
+Since our version of the \gls{Alonzo model} implies that house prices will rise by the capitalized value of an increase in the wage premium, a rational investor might use a forecast of the wage premium to develop a long-term forecast of house prices, and from that of $\dot P_\mathbb{T}$. %The specific value to use for $\die{\omega}{t}$ might depend on assumptions agents make about adjustment,  the variability of $P$, and the observability of $\omega$, but 
+We will assume that agents simply observe the the most recent change in $\omega$  correctly and expect it to persist.\footnote{In principle, agents might form an expectation by observing past prices for each class of home. To mimic this process we could compute average price changes per period at each distance from the centre and use them to form a forecast for the mortgage period $\mathbb{T}$. }
+
+In Equation~\ref{eqn_investment_value} we defined $\dot P$ as $\frac{P_\mathbb{T}-P_0}{P_0} $, where $\mathbb{T}$ indicates the. end of the mortgage period. $P_0$ is the warranted price, 
+\[P_W =\frac{1}{r}\left[\omega - {dc} + \mathbb{A} + a\psi\nonumber  + a*b*\psi\right]\]
+Only the wage premium changes in this analysis. A change in the wage premium that is expected to be permanent results in a change in the warranted price:  \[\die{P_W}{t} = \frac{1}{r}\die{\omega_t}{t}.\]
+If we assume that the price will continue to change at the same rate over the mortgage term, the change is compounded, and we write
+
+%P_W &=\frac{1}{r}\left[\omega - {dc} + \mathbb{A} + a\psi\nonumber  + a*b*\psi\right] \nonumber\\
+
+%Only $\omega$ is expected to change over time, so  
 %Since \[\dot P= \frac{\die{P_W}{t}}{P_T} \]
-We will  proxy the expected rate of change of prices with
+
 
 \begin{align}
-\dot P^e_\mathbb{T} &= \left(\frac{1}{r}\die{\omega}{t} \right)^T, \nonumber
+\dot P  &= \frac{1}{r}\left[\left(\frac{\omega_t-\omega_0}{\omega_0}+1 \right)^\mathbb{T}-1\right], \nonumber\\
+        &=\frac{1}{r}\left[\left(\frac{\omega_t}{\omega_0} \right)^\mathbb{T}-1\right], \nonumber
 \end{align}
-where $T$ is the mortgage term. The specific value to use for $\die{\omega}{t}$ might depend on assumptions agents make about adjustment,  the variability of $P$, and the observability of $\omega$.
+
 
 
 \subsection{Illustrating  Constraints on the bid price}

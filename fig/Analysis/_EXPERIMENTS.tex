@@ -23,13 +23,13 @@
 \maketitle
 \tableofcontents \newpage
 \section{Notes on Experiments}
-This is a record of experiments testing the effect of  varying parameters. The tests are grouped in two parts: tests of the base model of city and the production sector, and tests of the housing market parameters. 
+This is a record of experiments testing the effect of varying parameters. The tests are grouped in two parts: tests of the base model of city and the production sector, and tests of the housing market parameters. 
 
 In the first part the goal is to ensure that the platform underlying the housing market behaves as expected. One important policy result was found: Transportation costs, which are under the control of local governments, have a very large effect.
 
-In the second part we find that the proportion of owner occupiers is sensitive to  several policy instruments. 
+In the second part we find that the proportion of owneroccupiers is sensitive to  several policy instruments. 
 
-Complex combinations of policies are computationally  intensive and are not explored in this section.
+Complex combinations of policies are computationally intensive and are not explored in this section.
 
 \vspace{.5cm}
 
@@ -58,7 +58,7 @@ BASELINE PARAMETERS: Initial values most commonly used
             'adjn': 0.15,               # ADJUSTMENT RATE FIRM WORKFORCE
             'adjF': 0.02,               # ADJUSTMENT RATE NO OF FIRMS
             'adjw': 0.05,               # ADJUSTMENT RATE WAGE
-            'dist': 1,        #
+            'dist': 1,                  # DISTANCE FROM CENTER
             'init_F': 100.0,            # INITIAL NUMBER OF FIRMS
             'init_k': 500.0,            # INITIAL CAPITAL STOCK OF FIRMS
             'init_n': 100.0,            # INITIAL LABOURFORCE OF FIRMS
@@ -87,21 +87,81 @@ BASELINE PARAMETERS: Initial values most commonly used
 % \begin{verbatim}
 
 % \end{verbatim}
-\section{Base model of city and the production sector}
- \subsection{Change Density}
- This experiment verifies that the labour-market/urban model that is the platform for the housing market analysis behaves exactly as expected when density changes. mpl, n, N, F, E, and k all rise. %Population rises with 
 
- The fraction owner-occupiers falls earlier with increasing density due to more rapid financialization and the potential rent capture increases, and  not to changing housing form. It seems later entrants do not purchase. The transition is achieved in about two full generations  in our model. The timing will be sensitive to the specific parameterization.
+\section{Base model of city and the production sector}
+\newpage
+ \subsection{The price. of output}
+Underlying the housing analysis is an economic model of the city including firms and transportation.  The first question for an economist is likely to be is, ``Does the system respond to an increase in demand for its export product in the expected ways?'' The following figure shows that it does. 
+
+
+\includegraphics[scale=1]{fig/Analysis/price3.pdf}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Capital gains taxes for investors}
+In our model capital gains provide a motive for the purchase of existing housing. If investors enter the market for existing owner-occupiers, we would expect that they would bid up the price of housing and squeeze out owner-occupiers. We see this effect in the lower left of the following figure. This is occurring in a model with a perfectly elastic housing supply at the city edge. Notice there is no effect on the paths of labour or other vars.
+\begin{figure}
+    \centering
+    \includegraphics{fig/Analysis/cg_tax_invest-[1- 0.5-0.0]_193720.pdf}
+    \caption{Varying the capital gains tax on investors}
+    \label{fig:enter-label}
+\end{figure}
+
+There is a range of rates between 0.5 and 0 capital gains tax over which the ownership share responds just as it does to 0.5 -  staying at 80\%. If we set the rate for investors to say 35\% and vary the rate for homeowners we find that the decisive factor in shifting ownership is that the capital gains tax rate for investors is lower than the rate for homeowners.  Real tax systems are more complicated than they are in our model - various conditions affect the ``effective tax rate''. Since capital gains on one's principal residence are not taxed, the tax treatment of capital gains on investment properties is potentially significant. Only 50\% of total capital gains are ] taxable, essentially reducing the marginal income-tax rate for these gains by half for investors. Capital gains can be sheltered in numerous other ways as well under the tax rules, but we are not expert in tax law and do not know the extent to which capital gains on investment properties might be sheltered enough to affect ownership patterns. The effect is dramatic in our model and further study.% %REITs buy and hold property that's too expensive for most investors to purchase individually, putting residential investment property within reach of many more people. 
+
+\begin{figure}
+    \centering
+  \includegraphics{fig/Analysis/cg_tax_per-2024-01-28_231544}
+    \caption{Varying the capital gains tax on owner occupiers}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+ \subsection{Change Density}
+ This experiment verifies that the labour-market/urban model that is the platform for the housing market analysis behaves exactly as expected when density increases. mpl, n, N, F, E, and k all rise. 
+
+ We also see overshoot in the firm workforce that is a result of a low partial adjustment rate.
+
  
 
- \hspace*{-2cm}\includegraphics[trim= 1.5cm 3.65cm 2cm 4.0cm, clip, scale=.3]{Density-3-150.pdf}
+ \includegraphics[]{fig/Analysis/density-2024-01-29_170654.pdf}
+
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Wage  adjustment  speed} 
+In our ABM, firms use information about the  marginal productivity of labour and capital to set targets for the current period, then adjust the number or workers and capital stock toward the target. The dynamic behaviour of the labour and capital are sensitive to the adjustment rates. 
+
+Overshoot in the firm workforce, $n$, at low adjustment rates persists. It is interesting to not that with more rapid adjustment,  firm workforce is higher, firm capital stock. is higher and the number of firms is lower. If firms adjust labour more quickly they grow more rapidly sucking  up the labour supply before the number of firms can expand. 
+
+Surprisingly, overshoot in capital declines as the rate of adjustment in the wage increases. The explanation is probably simply that when labour approaches  the profit maximizing level more quickly, the agent makes better decisions about the capital stock
+
+
+
+ \includegraphics[]{fig/Analysis/adjw-2024-01-30_002252.pdf}
+
+ \begin{figure}
+     \centering
+     \includegraphics[width=0.5\linewidth]{adjw-2024-01-30_002252.pdf}
+     \caption{Enter Caption}
+     \label{fig:enter-label}
+ \end{figure}
+
+
+ 
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rate at which firms enter}
+If  the number of firms is constant,  any increase in city size results in inreases in the number of workers in a firm. We allow firm entry. we assume that potential entrants (start-up entrepreneurs) observe growth in some variables and interpret it as an opportunity. We use wage growth, but several others would do as well. The rate of entry then affects the size of firms - more firm entry leads to lower efirm sizes.
+
+ 
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Capital gains taxes for investors}
 
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{High Gamma}
 Very high levels of the agglomeration parameter Gamma are implausible. They drive up marginal productivity, causing very rapid growth, drive down firm size because the first worker is extremely productive but the MPL falls rapidly. Very small firms with high levels of capital multiply. Rapidly rising prices encourage investors while savings-limited owner-occupiers are squeezed out.
 
-Higher agglomeration effects  make land rents higher and increase the gains to investors, resulting in more rapid financialization of the housing stock.
+Higher agglomeration effects make land rents higher and increase the gains to investors, resulting in more rapid financialization of the housing stock.
 
 %   we can check
  
@@ -153,7 +213,7 @@ Notice too how MPL  is higher with a more rapid firm size adjustment. It keeps  
   Ownership bounces around due to randomization of savings.
 
 
-TO DO RE RUN WITH CURRENT PARAMETSRS AND GRAPHING
+TO DO RE RUN WITH CURRENT PARAMETERS AND GRAPHING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 % \subsection{parameters}

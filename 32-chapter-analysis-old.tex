@@ -8,11 +8,17 @@ Many parameters in the model will have some effect, but we have to focus on poli
 
 
 \section{Effect of the financial sector on ownership} 
-We need to have 
-\begin{enumerate}
+    \begin{enumerate}
+    \item parameters of the financial sector  that might affect the structure
+      \begin{enumerate}
+        \item capital gains tax
+        \item interest and mortgage differentials
+        \item tightening mortgage limits for owners
+        \item {\color{red}transaction cost}
+        \item density
+      \end{enumerate}
     \item a set of measurements if ownership
-
-        \begin{enumerate}
+     \begin{enumerate}
         \item number of homes, share of homes by category(owner occ, owner rented), 
         investor rented
         
@@ -22,18 +28,11 @@ number      & && \\ \hline
 share       & && \\\hline
 \end{tabular}
 
-        \item Aggregate Mortgaged share of owner-occupied homes over time 
+    \item Aggregate Mortgaged share of owner-occupied homes over time 
 \[M_t=((1+r)**2-(1+r)**t) / ((1+r)**20-1)\]
-\[Share\_mortgaged =\frac{\sum_i M_{,i}}{\sum_iP_{,i}}\]
-        \item
-        \item
-        \end{enumerate} 
-
-
+\[Share\_mortgaged =\frac{\sum_i M_{,i}}{\sum_iP_{,i}}\]     
 I imagine an output like this:
 
-\begin{figure}
-\centering
 \begin{tikzpicture}
   \draw [thick, latex-latex](0,5)node[above]{P} --(0,0)--(9,0)node[right]{d}; 
   \draw[fill=red, opacity=.25](0,0)--(0,4)--(8,0);  
@@ -43,62 +42,67 @@ I imagine an output like this:
    \node at (2,1.2)[]{resident mortgaged};
    \node at (1.7,2.25)[]{investor owned};
 \end{tikzpicture}
-\caption{GENERATE THIS FROM DATA}
-\label{fig:enter-label}
-\end{figure}
 
+And  similar picture with time on the horizontal axis
 
-A similar picture with time on the horizontal axis
-
-    \item parameters of the financial sector  that might affect that structure
-    \begin{enumerate}
-        \item capital gains tax
-        \item interest and mortgage differentials
-        \item tightening mortgage limits for owners
-        \item transaction cost
-        \item density
-        
     \end{enumerate}
-
-We can stabilize a city and then make a change to see the effect.
-
-    
+  
 \end{enumerate}
-\subsection{Results}
-These are impressionistic notes from early batch runs.
-\begin{itemize}
- \item increasing density range [100, 300, 400, 600]
-    \begin{enumerate}
-        \item ownership share peaks between 400 and 600. ***
+ 
+\subsection{Impressionistic notes from early batch runs.}
+We have run many  parameter variants to assure ourselves that the basic Alonzo-Jacobs model behaves reasonably. The parameter space is large and we have selected values that give us a city that 
+   \begin{enumerate}
+   \item grows in population over an extended period 
+   \item produces an increasing number of firms as it grows
+   \item produces firms of a reasonable size
+   \item generates a reasonable wage path over times, growing when the city is getting larger
+   \item generates a reasonable growth path for the extent of the city
+   \item generates variable values that are numerically consistent. 
+   
+   If, for example the workforce in N and the number of firms is F then firm employment must be approximately n = N/F. Approximately because in our agent model Firms are agents seeking to maximize profits by choosing choose their own target n in each period and then adjusting hiring to approach that value. 
+   
+   The number of firms, on the other hand, is a result of an entry decision by independent entrepreneurs who identify potential profits. They estimate the number of firms that the market might profitably  bear by observing the employment growth of existing firms. 
+
+   The two separate decisions are combined to produce a demand for labour.
+   
+   The supply of labour is determined by households that move to the city in response to a rising wage.
+
+   The wage rises if demand exceeds supply
+
+   \end{enumerate}
+We find that if single parameters  diverge much from our selected values the city may grow excessivley large or collapse.
+
+\subsection{density}
+The city exists an infinite grid. the number of agents in each cell is given by the density parameter. Agents in a cell work in the city ac collect the urban wage if the wage premium minus travel cost is greater than zero (if it pays to take a job.)
+
+Increasing density in the range [100, 300, 400, 600]    \begin{enumerate}
         \item increases mpl
         \item increases firm size
-        \item increases fir numbers
+        \item increases firm numbers
         \item decreases peak k
         \item increases city extent
+        \item ownership share peaks between 400 and 600. ***
     \end{enumerate}
-    
-    \item increasing subsistence wage range [30000, 50000, 70000, 90000]
+
+
+\subsection{The subsistence wage} is the inclusive income of a person of working age  living outside of the city. 
+Increasing subsistence wage range [30000, 40000, 50000]
     \begin{enumerate}
-        \item decreases ownership share !??. 10 T->100\%  40-> 30\%
         \item seems to reduce mpl
-        \item increases firmsize 
+        \item increases firm size 
         \item Workforce diverges between 50 + and 70 dwn. ***
         \item decreases city extent
-        \item increases then decreases firm capital ***
         \item slows growth of workforce
-
-     \item increasing gamma range [0.1, 0.09, 0.08 ]
-    \begin{enumerate}
-        \item ownership share       
-        \item mpl   up              
-        \item firm size at up .09 dips and rises   
-        \item total workforce up at .09 dips and rises
-        \item number of firm number up at .09 dips and rises
-        \item k    up peaks at .08                 
-        \item city extent    up at .09 dips and rises          
+        \item decreases ownership share !??. 10 T->100\%  40-> 30\%
     \end{enumerate}
+    
+\subsection{The agglomeration population} is the workforce plus any other population that might be add to the productivity of workers in the firms. Total population is used in most studies. Our values is a linear function of workforce, with an intercepts we call the seed and a multiplier that roughly corresponds to the labour-force multiplier used in standard economic impact analysis. 
 
-     \item increasing discount rate.  range [0.1, 0.09, 0.08 ]
+$\gamma$ is the exponent applied to the agglomeration population in the firm production function. If  $\gamma =0$  there is not agglomeration effect and diminishing returns  leads to a peak firm size and transportation costs limit city size. If  $\gamma$ is too high city size explodes. We look for a setting that leads to growth over several hundred years, which gives us a stable platform for investigating the housing market.
+
+  
+
+\subsection{increasing discount rate}  range [0.1, 0.09, 0.08 ]
     \begin{enumerate}
         \item ownership share  strange sawtooth, generally rising
         \item mpl     no effect              
@@ -109,7 +113,7 @@ These are impressionistic notes from early batch runs.
     \end{enumerate}
 
     
-    \item max\_mortgage\_share': [1.0, 0.9, 0.8, 0.7, 0.6]
+\subsection{ max\_mortgage\_share'}: [1.0, 0.9, 0.8, 0.7, 0.6]
     \begin{enumerate}
          \item ownership share  strange sawtooth, generally rising
         \item mpl     no effect              
@@ -120,7 +124,8 @@ These are impressionistic notes from early batch runs.
     \end{enumerate}
 
 
- \item increasing'ability\_to\_carry\_mortgage': [0.35, 0.28, 0.2]
+\subsection{Increasing 'ability\_to\_carry\_mortgage'} [0.35, 0.28, 0.2]
+ 
    \begin{enumerate}
          \item ownership share  strange sawtooth, generally rising
         \item mpl     no effect              
@@ -131,7 +136,7 @@ These are impressionistic notes from early batch runs.
      \end{enumerate}
 
 
-      \item increasing 'savings\_rate': [0.5, 0.3, 0.2]
+\subsection{increasing 'savings\_rate'} [0.5, 0.3, 0.2]
    \begin{enumerate}
          \item ownership share  raises saw tooth
         \item mpl                   no effect
@@ -142,15 +147,15 @@ These are impressionistic notes from early batch runs.
      \end{enumerate}
 
   
-   \begin{enumerate}
-         \item ownership share  
-        \item mpl            
-        \item firm size            
-        \item number 
-        \item k         
-        \item city extent   
-     \end{enumerate}
-    \end{enumerate}
+   % \begin{enumerate}
+   %       \item ownership share  
+   %      \item mpl            
+   %      \item firm size            
+   %      \item number 
+   %      \item k         
+   %      \item city extent   
+   %   \end{enumerate}
+   %  \end{enumerate}
     
 
 
@@ -159,28 +164,23 @@ We need to have
 \begin{enumerate}
     \item a set of measurements if ownership
     \item parameters of the financial sector  that might affect that structure
-
 \end{enumerate}
 
   
 \section{Experiments}
   \begin{enumerate}
     \item effect of reducing transport cost $c$
-    \item effect of adding a service sector $N_{total} = N(1+z)$ then $N^\gamma \rightarrow  N_{total}^\gamma$
-    \item \textbf{effect of adding a service sector whose size depends on the retained income of residents.}
+    \item {\color{red}effect of adding a service sector  this is the role of `mult'}$N_{total} = N(1+z)$ then $N^\gamma \rightarrow  N_{total}^\gamma$
+    \item \textbf{effect of adding a service sector whose size depends on the retained income of. residents. {\color{red} make z in line above depend on savings. This should be small. maybe $mult^{savings/total_rent}$}}
     \item changing density
-    \item low-wage immigrants
+    \item low-wage immigrants. {\color{red}Each potential ion migrant person has a wage number $.5
+    \leq Wage_mult\leq1.5$. Their income is then is the value of the wage set by the firm times $Wage_mult$.}
     \item effect of interest rate spread on housing ownership
     \item 
-    \item 
-    \item 
-    \item 
-    \item 
    
-    
 \end{enumerate} 
     
-\end{itemize}
+%\end{itemize}
 \subsection{What else will affect price and should be included in the regression?}
 
 \newcounter{foo}
