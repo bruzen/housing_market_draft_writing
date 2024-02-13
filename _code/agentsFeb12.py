@@ -125,7 +125,8 @@ class Land(Agent):
         # return max(wage_premium - self.transport_cost, 0)
         # Note, this is the locational_rent. It is the warranted level of extraction. It is the economic_rent when its extracted.
         # We set the rural land value to zero to study the urban land market, with the agricultural price, warranted rent would be:
-        return max(wage_premium - self.transport_cost + a * subsistence_wage, 0)
+        warranted_rent = wage_premium - self.transport_cost + a * subsistence_wage
+        return max(warranted_rent, 0)
         # TODO add amenity + A
         # TODO should it be positive outside the city? How to handle markets outside the city if it is?
         # TODO but outside the city, any concern with transportation cost is only speculative - how to handle
@@ -464,25 +465,6 @@ class Firm(Agent):
     #     total_no_workers = self.model.workforce.get_agent_count(self.model.workforce.workers)
     #     return total_no_workers * self.density + self.seed_population
 
-    @property
-    def p_dot(self):
-        try:
-            p_dot = (self.model.firm.wage_premium / self.model.firm.old_wage_premium)**self.model.mortgage_period - 1
-
-            # # Handle the case where the result is negative
-            # if p_dot < 0:
-            #     p_dot = 0.
-
-        except ZeroDivisionError:
-            # Handle division by zero
-            p_dot = None
-            logging.error(f"ZeroDivisionError at time_step {self.model.schedule.time} for Land ID {self.unique_id}, old_wage_premium {self.model.firm.old_wage_premium}")
-        except Exception as e:
-            # Handle other exceptions
-            self.model.logger.error(f"An error occurred: {str(e)}")
-            p_dot = None
-        return p_dot
-
     def __init__(self, unique_id, model, pos, 
                  subsistence_wage,
                  init_wage_premium_ratio,
@@ -500,6 +482,9 @@ class Firm(Agent):
                  adjn,
                  adjF,
                  adjw,
+                 adjs,
+                 adjd,
+                 adjp,
                  dist,
                  init_F,
                  init_k,
@@ -524,6 +509,9 @@ class Firm(Agent):
         self.adjn     = adjn
         self.adjF     = adjF
         self.adjw     = adjw
+        self.adjs     = adjs
+        self.adjd     = adjd
+        self.adjp     = adjp
         self.dist     = dist
         self.r        = r_prime # Firm cost of capital
         self.animal_spirits = animal_spirits # Or enthusiasm
@@ -535,63 +523,190 @@ class Firm(Agent):
         self.k        = init_k #1.360878e+09 #100
         self.n        = init_n
         self.F_target = init_F
-        self.N = self.F * self.n
         self.wage_premium = init_wage_premium_ratio * self.subsistence_wage 
         self.wage         = self.wage_premium + self.subsistence_wage
         self.MPL          = self.beta  * self.y / self.n  # marginal value product of labour known to firms
-        self.wage_delta   = 0.0
         self.old_wage_premium = -1 # init_wage_premium_ratio * self.subsistence_wage   ### REVISED should remove inital problems
+        self.worker_demand    = self.F * self.n
+        self.worker_supply    = self.F * self.n
+        self.agglom_pop       = self.F * self.n
+        self.p_dot            = 0 # TODO fix init p_dot
+        
+        # TODO if we are using p_dot here, we may need a get_p_dot calculation
+        # TODO get rid of these variables
+        self.N = 1
+        self.wage_target = 1
+        self.A_time = self.model.schedule.time
 
     def step(self):
-        # GET POPULATION AND OUTPUT
-        self.y = self.A * self.N**self.gamma *  self.k**self.alpha * self.n**self.beta
 
-        # SET TARGET WAGE EQUAL VALUE OF MARGINAL PRODUCT OF LABOUR
-        self.MPL = self.beta  * self.y / self.n  # marginal value product of labour known to firms
-        # self.n =  self.N / self.F # Use n from last step, distribute workforce across firms
-        self.wage_target = self.price_of_output * self.MPL / (1 + self.overhead)
-        # self.wage_target = self.subsistence_wage + (self.MPL - self.subsistence_wage) / (1 + self.overhead) # economic rationality implies intention
-        # ADJUST WAGE: 
-        self.wage = (1 - self.adjw) * self.wage + self.adjw * self.wage_target # partial adjustment process
+        # STORE VALUES FOR CALCULATIONS
+        self.A_time = self.model.schedule.time
+        self.y          = self.A * self.agglom_pop**self.gamma *  self.k**self.alpha * self.n**self.beta
+        # self.MPL        =  (self.beta + self.adjn*self.gamma)  * self.y / self.n  #  divide by zero with this line
+        n_old        = self.n
+        wage_old     = self.wage 
+        ov = 1 + self.overhead  # overhead ratio
+        VMPL       = self.price_of_output * self.MPL
+        revenue    = self.price_of_output * self.y 
+        cost       = self.r * self.k + self.wage * self.n
+        profit     = revenue - cost
+        profit_ratio     = revenue / cost
+     
+        #      ALTERNATIVE TARGET VALUES FOR k, n, F, N USING VALUES FROM LAST TIME STEP
+        #kOPT, nOPT, F1, w2     interesting crash
+        #"kprofit, nOPT, F1, w2 " very low n no F
+        #"kprofit, nOPT, F3, w2 " interesting
+        #"kold, n2, F4, w2 "  divide by zero y/n  in MPL  !!!! wage to top
+        #"kold, n2, F4, w2 "   corrected kold still flat. no F
+        #"kprofit, nOPT, F3, w2 " no
         
+        #"kopt, nOPT, F1, w1 or w2"  flat    conclusion: kopt, nOPT is no good
+        #"kopt, nOPT, F2, w1 or w2"  flat
+        #"kopt, nOPT, F3, w1 or w2"   flat
+        #"kopt, nOPT, F4, w1 or w2"   flat
+
+        #"kopt, npi, F1, w1 or w2"  flat  conclusion:  Kopt is probably ruled out 
+        #"kopt, npi, F2, w1 or w2"  flat
+        #"kopt, npi, F3, w1 or w2"   flat
+        #"kopt, npi, F4, w1 or w2" 
+        #  NEXT
+        #"kprofit, npi, F1, w1 or w2"  flat  
+        #"kprofit, n2, F2, w1   flat
+        #"kprofit, npi, F3, w1 or w2"   flat
+        #"kprofit, npi, F4,  or w2"  conclusion: Kprofit seems sueless too
+
+        #"kold, n2, F2, w1"
+
+        self.model.model_name = "kold, n2, F2, w1"
+
+    
+        # self.wage_target = self.subsistence_wage + (self.MPL - self.subsistence_wage) / (1 + self.overhead) # economic rationality implies intention
+        
+
+         #########      k target _____________________________________________________________
+        #      kopt) --- Optimal k calculation (two versions)
+        # self.k_target = self.price_of_output * self.alpha * self.y/self.r     #(old optimal version)
+        # self.k_target = self.price_of_output * (self.alpha * self.A * self.agglom_pop**self.gamma *  self.n**self.beta )**(1-self.alpha)        
+        
+        #     kprofit) --- Profit-based adjustment
+        # self.k_target =  profit_ratio * self.k 
+        
+        #     kold) --- Profit-based adjustment
+        self.k_target = self.price_of_output * (self.alpha * self.y) /self.r #correceted to value Feb 12
+
+
+        #########       n_target _________ 3 versions_________________________________________
+        #     nopt) --- setting  the optimal number of workers using wage=VMPL 
+        # self.n_target   =  (self.price_of_output / (wage_old /ov) ) * self.beta * self.y  
+        
+        #     n1) --- Profit-ratio-based adjustment
+        # self.n_target =  profit_ratio * self.n        
+        
+        #     n2) --- Profit-based adjustment provisionaly using all profit for new labour. Both updated to end of previous period   
+        change_n = profit/ (self.wage) # used in F1
+        self.n_target   =  self.n + change_n
+
+        # _________  # same adjustment for all 3 versions of n_target ______
+        self.n      = min(100,(1 - self.adjn) * self.n + self.adjn * self.n_target) # Firm plans a partial adjustment and posts employment target
+        
+
+        ## #########     F target ___________ 3 versions________________________________________
+        #     F1) --- Entreprenur uses profit signal measured as new labour  in n1 for entry/exit decisions. 
+        # self.F_target = self.F * (1 + change_n / self.n)
+        # self.F_target = (1 - self.adjF) * self.F + self.adjF * self.F_target # Entrepreneur  plans a partial adjustment and posts employment target 
+        
+        ##     F2) --- Entreprenur grows firm to set P*MPL = wage. This means that all firms are of size n_target
+        self.F_target=self.N/self.n_target   # "NOT COMPATABLE" WITH  ALLOCATE LABOUR TO FIRMS (below)  CHECK 
+    
+        ##     F3) --- Entreprenur uses wage increase as signal 
+        # self.F_target = self.F * 1.0 * self.wage_target/wage_old
+
+        ##     F4) ---  Entreprenur uses price  increase as signal OLDS version
+        # self.F_target = self.F * 1.0 * self.p_dot
+
+        ##     N adjustment
+        # IDENTIFY AGGREGATE INDUSTRY DEMAND FOR LABOUR 
+        # self.worker_demand = self.n_target * self.F_target
+
+
+        ##     N1) ---
+
+        ##     N2) ---  EXCESS DEMAND APPROACH
+        edr = (self.worker_demand - self.worker_supply) / max(abs(self.worker_demand), abs(self.worker_supply)) #positive or negative
+        
+        # APPLY SHORT-SIDE RULE  (to find out how many CAN be employed) ___
+        #self.N = min(self.worker_demand, self.worker_supply)
+
+        # ALLOCATE LABOUR TO FIRMS (All firms get equal labour, have equal MPL)
+        #self.n = self.N/self.F     # "NOT COMPATABLE" WITH  F2  CHECK  
+
+        
+        # #     WAGE OFFER ________ 2 versions______________
+        # ##     w1) --- BASED ON EXCESS DEMAND
+        # self.wage = (1 + self.adjw *edr)*self.wage
+        
+        # ##     w2) --- BASED ON MPL  (respond directly to flaw in behavour??)
+        # self.wage_target = VMPL / (1 + self.overhead)   
+
+        # self.wage        = (1 - self.adjw) * self.wage_target + self.adjw * self.wage_target
+
+        # self.wage  =  64000
+      
+
+
+        #TODO INCREMENT STATE VARIABLES TOWARDS TARGETS     NOT USED  REMOVE?
+        #self.n        = (1 - self.adjn) * self.n + self.adjn * self.n_target
+        # self.k        = (1 - self.adjk) * self.k + self.adjk * self.k_target 
+        # self.F        = (1 - self.adjF) * self.F + self.adjF * self.F_target
+        # self.wage     = (1 - self.adjw) * self.wage + self.adjw * self.wage_target
+        #self.y        = (1 - self.adjy) * self.y + self.adjy * self.y*F_target  
+
         # FIND NEW WAGE PREMIUM
         self.old_wage_premium = self.wage_premium
-        # self.wage_premium = self.wage /(1 + self.overhead) - self.subsistence_wage # find wage available for transportation
-        self.wage_premium = self.wage - self.subsistence_wage # find wage available for transportation
+        self.wage_premium     = self.wage - self.subsistence_wage # find wage available for transportation
 
-        # ADJUST NUMBER OF FIRMS
-        # self.F_target = self.F * 1.0 * self.wage_target/self.wage
-        self.F_target = self.F * 1.0 * self.p_dot # TODO add back in some kind of wage adjustment mechanism
-        self.F = (1 - self.adjF) * self.F + self.adjF * self.F_target
- 
-        # ADJUST CAPITAL STOCK 
-        self.y_target = self.price_of_output * self.A * self.N**self.gamma *  self.k**self.alpha * self.n**self.beta
-        self.k_target = self.alpha * self.y_target/self.r
-        self.k = (1 - self.adjk) * self.k + self.adjk * self.k_target
-    
-        # CALCULATE P_DOT
-        self.wage_delta = (self.wage_premium - self.old_wage_premium ) #  -1 ???
- 
-    def get_N(self):
-        # If the city is in the bottom corner center_city is false, and effective population must be multiplied by 4
-        # TODO think about whether this multiplier needs to come in elsewhere
-        worker_agent_count = self.model.workforce.get_agent_count(self.model.workforce.workers)
-        if self.model.center_city:
-            N = self.density * worker_agent_count
+        self.p_dot            = self.get_p_dot()
+
+    def get_worker_supply(self, city_extent = None):
+        if city_extent:
+            # agent_count = math.pi * (city_extent ** 2)  #  Euclidian radius of the circular city
+            agent_count   = 2 * (city_extent ** 2)        #  Block metric radius of the circular city
+            worker_supply = self.density * agent_count + self.seed_population
         else:
-            N = 4 * self.density * worker_agent_count
-        # TODO handle divide by zero errors
-        if N == 0:
-            N = 1
-        # TODO make sure all relevant populations are tracked - n, N, N adjusted x 4/not, agent count, N
-        agglomeration_population = self.mult * (N + self.seed_population)
-        return agglomeration_population
+            agent_count = self.model.workforce.get_agent_count(self.model.workforce.workers)
+            # If the city is in the bottom corner center_city is false, and effective population must be multiplied by 4
+            if self.model.center_city:
+                worker_supply = self.density * agent_count + self.seed_population
+            else:
+                worker_supply = 4 * self.density * agent_count + self.seed_population
+        # Avoid divide by zero errors
+        if worker_supply == 0:
+            worker_supply = 1
+        return worker_supply
 
-    def get_N_from_city_extent(self, city_extent):
-        # agent_count = math.pi * (city_extent ** 2) #  Euclidian radius of the circular city
-        agent_count = 2 * (city_extent ** 2)         #  Block metric radius of the circular city
-        agglomeration_population = self.mult * (self.density * agent_count + self.seed_population)
-        return agglomeration_population
+    def get_agglomeration_population(self, worker_supply):
+        return self.mult * (worker_supply)
+
+    def get_p_dot(self):  #REVISED Feb 12
+        try:
+            p_dot = ((self.model.firm.wage_premium / self.model.firm.old_wage_premium)**self.model.mortgage_period - 1)# divisor removed Feb 12/self.r
+            #old version:   self.wage_delta = (self.wage_premium - self.old_wage_premium ) #  -1 ?
+            #p_dot = ((self.model.firm.wage_premium / self.model.firm.old_wage_premium)**self.model.mortgage_period - 1)/self.r?
+
+            # # Handle the case where the result is negative
+            # if p_dot < 0:
+            #     p_dot = 0.
+
+        except ZeroDivisionError:
+            # Handle division by zero
+            p_dot = None
+            logging.error(f"ZeroDivisionError at time_step {self.model.schedule.time} for Land ID {self.unique_id}, old_wage_premium {self.model.firm.old_wage_premium}")
+        except Exception as e:
+            # Handle other exceptions
+            self.model.logger.error(f"An error occurred: {str(e)}")
+            p_dot = None
+        return p_dot
 
 class Bank(Agent):
     def __init__(self, unique_id, model, pos):
