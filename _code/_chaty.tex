@@ -7,7 +7,20 @@ G!rr4teL
 "shift+cmd+r" restart and run Jupyter notebook
 "shift+cmd+p" open the command pallete
 
-
+Traceback (most recent call last): Feb 19 1pm. disappears if I eliminate W2
+  File "run.py", line 155, in <module>
+    df, variable_parameters = fast_batch()
+  File "run.py", line 93, in fast_batch
+    results = batch_run(Fast, model_parameters, **batch_parameters)
+  File "/Users/drdavidrobinson/anaconda/envs/housing/lib/python3.8/site-packages/mesa/batchrunner.py", line 75, in batch_run
+    data = process_func(run)
+  File "/Users/drdavidrobinson/anaconda/envs/housing/lib/python3.8/site-packages/mesa/batchrunner.py", line 145, in _model_run_func
+    model.step()
+  File "/Users/drdavidrobinson/Devel/housing_app/model/model_fast.py", line 296, in step
+    self.firm.worker_supply = self.firm.get_worker_supply(extent)
+  File "/Users/drdavidrobinson/Devel/housing_app/model/agents.py", line 695, in get_worker_supply
+    agent_count   = 2 * (city_extent ** 2)        #  Block metric radius of the circular city
+OverflowError: (34, 'Result too large')
 ###
 
 (housing) davidroomputer3:housing_app drdavidrobinson$ git push origin main
@@ -41,21 +54,6 @@ plotting.variables_vs_time(df, variable_parameters)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-axes[1].plot(time, model_out['wage'], label='wage', color='red')
-axes[1].set_ylim(0, 110000)  # Replace min_value and max_value with your 
-
-# Plot MPL and wage
-axes[1].plot(time, model_out['MPL'], label='MPL', color='blue')
-axes[1].plot(time, model_out['wage'], label='wage', color='red')
-axes[1].set_xlabel('Time Step')
-axes[1].set_ylabel('$')
-axes[1].set_title('Marginal product of labour over time')
-axes[1].grid(True)
-axes[1].legend()
-# Set y-axis limits
-axes[1].set_ylim(0, 110000)  # Replace min_value and max_value with your desired values
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Equation we have to change}

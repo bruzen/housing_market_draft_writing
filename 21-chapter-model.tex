@@ -289,8 +289,10 @@ both adjust slowly toward target values in each period. We also allow the number
 
 \section{Housing market} \label{section-rent}
 %Property markets are the largest and most complex part of our model. 
-In this section we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
+In this section, we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
 We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
+
+{\color{red} I THINK IT WOULD BE HELPFUL TO REFER BACK TO THE COMMON USAGE OF RENT AND HOW THAT IS DINSTINCT YET SOMETIMES THE SAME AS ECON RENT. }
 
 Because participation in the housing market depends on financing, in subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
 
@@ -324,7 +326,7 @@ Rent  & $\mathcal{R}_{W_j}$      & $\mathcal{R}_{M_j}$  & $\mathcal{R}_{M_j}^\ep
 
 
 \subsection{Warranted rent}\label{sec:warranted-rent}
-\Gls{warranted rent} is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. A higher level of rent extraction would convince tenants they are better off leaving the city.\footnote{Abstracting from the adjustment process, the warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve,  % independent of the tendencies of the market.  
+\Gls{warranted rent} is the maximum rent that could be extracted from tenants for the stream of services provided by location and the housing supplied. In this case, the price to rent in the common usage is the same as the economic rent. A higher level of rent extraction would convince tenants they are better off leaving the city.\footnote{Abstracting from the adjustment process, the warranted rent can be thought of as a kind of \gls{attractor} or \gls{equilibrium} towards which prices evolve,  % independent of the tendencies of the market.  
 Combining a model of long-run attractor dynamics with distributed agent interactions, combines the advantages of agent-based modeling and standard \gls{classical} and \gls{neoclassical} economic analysis to give insight into the dynamics of financialization. Appendix~\ref{appendix-methodology} on methodology discusses the approach.} 
 
 Capozza et al \cite{capozzaFundamentalsLandPrices1989} show that land price has four additive components: the value of agricultural land rent, the cost of conversion, the value of accessibility, and the value of expected future rent increases. We treat the first two as constants. The value of accessibility  can be expanded to include amenities. In our base model the value is determined by the urban wage premium, which rests on the productivity of the city firms. %We include three distinct streams of services, the value of access to employment, which we call economic rent, locational amenities, and housing services.
@@ -816,7 +818,7 @@ If a bargain is possible, the rule is simple:
     \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is fairly simple if perhaps not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
     \[P = xP_B^{max}+(1-x)P_R, \ \ \ x\in [0\dots 1] \]
 where $x$ is typically 0.5.
-    \item If there are two or more maximum bids above the reservation price, the property goes to the highest  and the price is the second highest bid.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
+    \item If there are two or more maximum bids above the reservation price, the property goes to the highest and since the bids are the maximum the buyers would pay under any circumstances, the price is set a the second highest bid in order to reflect the tightness of the market.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
 
 \end{enumerate}
   
@@ -855,9 +857,8 @@ Following xyz, xyz gives x purposes for modelling. The purpose of this model is 
 
 \subsection{State variables and scales}
 
-The agents are people who may choose to work at an urban firm, properties, each occupying a an urban grid space, the urban firm, an investor, a bank, and a realtor.
-
-People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Properties have owners, residents, and locations. Firm have sizes, marginal returns to capital, and labour ..., 
+The agents are workers,  %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
+the urban firm, an investor, a bank, and a realtor. People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Properties have owners, residents, and locations. Firm have sizes, marginal returns to capital, and labour ..., 
 Investors own properties and take out debt, the bank has lending rates that are a function of their calculation of credit-worthyness and the prime interest rate, and realtors have lists of propertys for sale and for rent. 
 
 Each agent occupies one property, however the firm has a density parameter which multiplies the firm population by a density number, effectively coarse grainning the model for the purposes of the firms calculation.

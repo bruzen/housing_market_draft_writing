@@ -1,0 +1,12 @@
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    grid=major,
+    xlabel=$x$,
+    ylabel=$y$,
+    axis lines=middle
+]
+\addplot[blue,thick,domain=0:2*pi,samples=100] {sin(deg(x))};
+\end{axis}
+\end{tikzpicture}
+\end{document}
