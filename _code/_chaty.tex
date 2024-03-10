@@ -1,84 +1,177 @@
+March 8: This is now in Chapter 11
+The Transmission Puzzle, along with other revisions.
+"we rewrite $A$ as
+\[ A= A_0 + share * rent\]
+$A_0$ represents outside capital, while $share*rent$ stands for the share of the urban locational rents captured by  residents and  reinvested in productive capital. The share is composed of a propensity to invest locally and the actual land-ownership share of residents determined by the housing market. The investment might directly in production capital or indirectly through urban infrastructure such as transportation that cuts production costs.
+
+More explicitly, for the code let sh stand for the owner-occupier share let Base_A = 3000
+Let im Impoct share  be   = 1000
+A = Base_A - (1-sh)* B_0 
+i.e.
+A = Base_A -B_0 + sh* B_0  
+
+if effect_off:
+    sh = 1.  A=
+A = Base_A + sh * 1500
+if its off then share is always - before investors buy in.. 
+3500 100. ownership.. 
 
 
-G!rr4teL
+3500 will be same 
 
-"ctrl+tab" changes VS Code tab
-"cmd+tab"  changes system tab
-"shift+cmd+r" restart and run Jupyter notebook
-"shift+cmd+p" open the command pallete
+A is at o want it up. otherwise want it down.. 
 
-Traceback (most recent call last): Feb 19 1pm. disappears if I eliminate W2
-  File "run.py", line 155, in <module>
+
+This is the simplest possible model and centers the effect on the current model.
+
+
+
+REVISE EQUITY BID I HAVE MADE THE NECESSARY CHANGES IN CHAPTER-MODEL LINE 444 FF and suggested correction in Agents line 368
+
+We have line 336
+ income_bid = 0.28 * (wage + r * S) / r_prime
+You pointed out that  we can't get interest on savings we buy a house with , which is (1-m)*income_bid = M. 
+
+Therefore we should have
+
+income_bid = 0.28 * (wage + r * (S-(1-m)*income_bid)) / r_prime
+           = 0.28 * (wage + r * (S)) / r_prime
+            - 0.28 * (1-m)*income_bid) / r_prime
+income_bid*(1+0.28 * (1-m)*income_bid) / r_prime) 
+                    =0.28 * (wage + r * (S)) / r_prime
+ income_bid         =  (0.28 * (wage + r * (S)) / r_prime)   /(1+0.28 * (1-m)*income_bid)/ r_prime 
+
+ income_bid = (0.28 * (wage + r * (S))  /(r_prime + 0.28 * (1-m)*income_bid)
+
+
+
+base) davidroomputer3:housing_app drdavidrobinson$ python run.py
+Fast batch
+Traceback (most recent call last):
+  File "run.py", line 156, in <module>
     df, variable_parameters = fast_batch()
-  File "run.py", line 93, in fast_batch
-    results = batch_run(Fast, model_parameters, **batch_parameters)
-  File "/Users/drdavidrobinson/anaconda/envs/housing/lib/python3.8/site-packages/mesa/batchrunner.py", line 75, in batch_run
-    data = process_func(run)
-  File "/Users/drdavidrobinson/anaconda/envs/housing/lib/python3.8/site-packages/mesa/batchrunner.py", line 145, in _model_run_func
-    model.step()
-  File "/Users/drdavidrobinson/Devel/housing_app/model/model_fast.py", line 296, in step
-    self.firm.worker_supply = self.firm.get_worker_supply(extent)
-  File "/Users/drdavidrobinson/Devel/housing_app/model/agents.py", line 695, in get_worker_supply
-    agent_count   = 2 * (city_extent ** 2)        #  Block metric radius of the circular city
-OverflowError: (34, 'Result too large')
-###
-
-(housing) davidroomputer3:housing_app drdavidrobinson$ git push origin main
-To https://github.com/bruzen/housing_app
- ! [rejected]        main -> main (non-fast-forward)
-error: failed to push some refs to 'https://github.com/bruzen/housing_app'
-hint: Updates were rejected because a pushed branch tip is behind its remote
-hint: counterpart. Check out this branch and integrate the remote changes
-hint: (e.g. 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-(housing) davidroomputer3:housing_app drdavidrobinson$
-
-python run.py --batch
-python run.py --fast_batch
-fast_batch gives the same as: python run.py
-
-Still need to add default plotting for single runs, but we can generate data and then plot
-python run.py --run
-python run.py --fast_run
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-_analysis_fast.ipynb shows how to run in the notebook 
-(first grid square):
-
-import run as run
-import utils.plotting as plotting
-df, variable_parameters = run.fast_batch()
-plotting.variables_vs_time(df, variable_parameters)
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Equation we have to change}
-THIS IS WHAT WE HAVE:
- self.wage_target = self.subsistence_wage + (self.MPL - self.subsistence_wage) / (1 + self.overhead)       
-
-
-we want COST OF LABOUR = WAGE + OVERHEAD = MPL 
-SO 
-WAGE = MPL-OVERHEAD
-BUT
-OVERHEAD =  OVERHEAD_RATIO*WAGE
-SO
-WAGE = MPL- (OVERHEAD_RATIO * WAGE)
-MPL= WAGE+ (OVERHEAD_RATIO * WAGE)
-TARGET WAGE = MPL/ (1+ OVERHEAD_RATIO)
-
-THE RATIO SHOULD BE BETWEEN 0.5 AND 1
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-THIS IS COMMENTED OUT - IT IS CORRECT
- #self.wage_target = self.MPL / (1 + self.overhead) 
- ]# (1+self.overhead) # economic rationality implies intention
-        self.wage = (1 - self.adjw) * self.wage + self.adjw * self.wage_target # assume a partial adjustment process
+  File "run.py", line 94, in fast_batch
+    from model.model_fast import Fast
+  File "/Users/drdavidrobinson/Devel/housing_app/model/model_fast.py", line 11, in <module>
+    from model.time import RandomActivationByType
+  File "/Users/drdavidrobinson/Devel/housing_app/model/time.py", line 26
+    from __future__ import annotations
+    ^
+SyntaxError: future feature annotations is not defined
+(base) davidroomputer3:housing_app drdavidrobinson$
+ ############   MODEL 1  --- MARCH 1   ############ 
+        # self.model.model_description = "March 2 ensure we still have the model working"
+    
+        # self.k_target = self.price_of_output * self.alpha * self.y/self.r     #(old optimal version)
+        # self.n_target   = 5 * (self.beta* self.A * self.agglom_pop**self.gamma *  self.k**self.alpha )**(1-self.beta) 
+        # self.worker_demand = self.n_target * self.F # self.n_target * self.F_target
+        # edr = (self.worker_demand - self.worker_supply) / max(abs(self.worker_demand), abs(self.worker_supply)) #positive or negative 
+        # self.F = self.worker_supply / self.n  #moved this up two lines
+        # self.wage_target =  VMPL / ov
+        # self.wage        = self.wage_target  #(1 - self.adjw) * self.wage_target + self.adjw * self.wage_target
         
+        # #INCREMENT STATE VARIABLES TOWARDS TARGETS
+        # self.n        = (1 - self.adjn) * self.n + self.adjn * self.n_target
+        # self.k        = (1 - self.adjk) * self.k + self.adjk * self.k_target 
+        # # self.F      = (1 - self.adjF) * self.F + self.adjF * self.F_target
+        # self.wage     = (1 - self.adjw) * self.wage + self.adjw * self.wage_target  #reintroduced  - didn't help
+        # #self.y       = (1 - self.adjy) * self.y + self.adjy * self.y*F_target 
 
+        # self.wage_premium     = self.wage - self.subsistence_wage # find wage available for transportation
+        # self.p_dot            = self.get_p_dot()
+        # # COMMENT: wage goes to 100,000 with 5 in n_target  Mult=1, but n=12
+      
+     ############   MODEL 2  --- MARCH 3   ############ 
+        self.model.model_description = "March 3 den increases firms nothing else "
+        self.k_target = self.price_of_output * self.alpha * self.y/self.r     #(old optimal version)
+        self.n_target   = 5 * (self.beta* self.A * self.agglom_pop**self.gamma *  self.k**self.alpha )**(1-self.beta) 
+        self.worker_demand = self.n_target * self.F # self.n_target * self.F_target
+        edr = (self.worker_demand - self.worker_supply) / max(abs(self.worker_demand), abs(self.worker_supply)) #positive or negative 
+        self.F = self.worker_supply / self.n  #moved this up two lines
+        self.wage_target = (1 + edr) * VMPL / ov  # this is the innovationn in this veersion March 3
+        self.wage        = self.wage_target  #(1 - self.adjw) * self.wage_target + self.adjw * self.wage_target
+        
+        # INCREMENT STATE VARIABLES TOWARDS TARGETS 
+        self.n        = (1 - self.adjn) * self.n + self.adjn * self.n_target
+        self.k        = (1 - self.adjk) * self.k + self.adjk * self.k_target 
+        # self.F        = (1 - self.adjF) * self.F + self.adjF * self.F_target
+        self.wage     = (1 - self.adjw) * self.wage + self.adjw * self.wage_target  #reintroduced  - didn't help
+        #self.y        = (1 - self.adjy) * self.y + self.adjy * self.y*F_target 
+
+        self.wage_premium     = self.wage - self.subsistence_wage # find wage available for transportation
+        self.p_dot            = self.get_p_dot()
+        # COMMENT: mult=1 1-> 1.2 no dif? density increases F, beta[0.73, .78]increases wneFN low alpha very inhibiting
+        # COMMENT:adjN no effect if adj k high, overshoot adjn no effect
+
+
+     ############   MODEL 3  --- MARCH UNCHANGED    ############ 
+        #  self.model.model_description = "March 2 ensure we still have the modle working"        self.k_target = self.price_of_output * self.alpha * self.y/self.r     #(old optimal version)
+        # self.n_target   = 1 * (self.beta* self.A * self.agglom_pop**self.gamma *  self.k**self.alpha )**(1-self.beta) 
+        # self.worker_demand = self.n_target * self.F # self.n_target * self.F_target
+        # edr = (self.worker_demand - self.worker_supply) / max(abs(self.worker_demand), abs(self.worker_supply)) #positive or negative 
+        # self.F = self.worker_supply / self.n  #moved this up two lines
+        # self.wage_target =  VMPL / ov
+        # self.wage        = self.wage_target  #(1 - self.adjw) * self.wage_target + self.adjw * self.wage_target
+        
+        # #TODO INCREMENT STATE VARIABLES TOWARDS TARGETS     NOT USED  REMOVE?
+        # self.n        = (1 - self.adjn) * self.n + self.adjn * self.n_target
+        # self.k        = (1 - self.adjk) * self.k + self.adjk * self.k_target 
+        # # self.F        = (1 - self.adjF) * self.F + self.adjF * self.F_target
+        # self.wage     = (1 - self.adjw) * self.wage + self.adjw * self.wage_target  #reintroduced  - didn't help
+        # #self.y        = (1 - self.adjy) * self.y + self.adjy * self.y*F_target 
+
+        # self.wage_premium     = self.wage - self.subsistence_wage # find wage available for transportation
+        # self.p_dot            = self.get_p_dot()
+
+    
+- Do tenants get ripped off more than owners?
+
+
+K's questions
+
+1. Go over when investors list homes for sale, because currently they never sell in the main code
+2. Talk through  how we will track mortgage share - e.g. how much do people - borrow most they can to purchase the house. but how much do they pay down?
+Do we initialize the city with any kind of moortgages, so we want it as a share of sold houses.b
+
+
+    
+Other questions
+- What measures do we use for location of rentors/location of investors? 
+  - (share by distance from center plotted as line?) -- total share of boundary as a function of time (rent to be captured is larger near the center)
+  - Also want to see - share of houses that have been sold as a function of distance... 
+
+
+
+   
+%%%%%%%%%
+
+For amenity. Add a value of A_j for each property. We assume A is in dollars and put it into person_bid price by adding it to property valuation.
+
+\includegraphics[]{/fig/models_and_measures}
+
+To get individual preferences, add a value to each person A taste parameter 0<T_i < 4. Then, in calculating the value of the property use    T_i*A_j
+
+Add a density to each location. (does density then go into bid price for speculators?) 
+
+Add a wage differential factor 0< wdf_i < 4 to each person. Their income is then wage*wdf_i
+
+
+Does this work?  Define self.bank.expectations_shock  as a time varying scalar centred on 1.0
+
+    def get_max_desired_bid(self, R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations_shock):
+        T      = self.model.mortgage_period
+        delta  = self.model.delta
+        # capital_gains_tax = self.model.capital_gains_tax # person and investor send.
+
+        if R_N is not None and r is not None and r_target is not None and m is not None and p_dot is not None:
+            R_NT   = ((1 + r)**T - 1) / r * R_N
+            # return R_NT / ((1 - m) * r_target/(delta**T) - p_dot) 
+            return (1 - capital_gains_tax) * R_NT / ((1 - m) * r_target/(delta**T) - self.bank.expectations_shock * p_dot +(1+r)**T*m) # Revised denominator from eqn 6:20
+
+        else:
+            self.model.logger.error(f'Get_max_desired_bid None error Rn {R_N}, r {r}, r_target {r_target}, m {m}, p_dot {p_dot}', expectations_shock
+)
+            return 0. # TODO Temp
 
 
 Traditional sampling techniques (grid vs random vs sobol vs latin hypercube)
@@ -91,14 +184,6 @@ https://doepy.readthedocs.io/en/latest/#:~:text=At%20its%20heart%2C%20doepy%20is
 
 
 
-
-
-- Fast version of the code where we track alternative bids/bid rent curves - actual bids/prices
-    - Run on sharcnet
-    - Show end grid
-- Perturb mid way
-- Fix error with crashing values
-- Investors can sell
 
 ## Hypotheses
 The financial sector affects the ownership of housing and the class structure of society, 
@@ -132,106 +217,6 @@ just keep housing - turn off storage..  cyclic pieces turn off the market. - tur
 
 
 
-# List variable_parameters for experiments
-experiment_parameters_list = [Jan 5
- {
-    #   'density': [1, 10],
-        # 'c': [3000, 300.0], 
-    #   `'wealth_sensitivity': 0.1,
-      'capital_gains_tax_person':   [0.5, 0.6],# 3, 4, 5], # share 0-1
-    #   'capital_gains_tax_investor': [0.2, 0.3], # share 0-1
-    #   'subsistence_wage': [40000], # [10000, 30000],
-    #   'gamma': [0.001, 0.02, 0.7]
-        'property_tax_rate': [.04, .08]
-    },
-    # {
-    #     'density': [1, 100],
-    #     'gamma': [0.001, 0.02, 0.7]
-    # }
-
-    {
-    #   'density': [1, 10],
-        'c': [3000, 300.0], 
-    #   `'wealth_sensitivity': 0.1,
-    #   'capital_gains_tax_person':   0.01, # share 0-1
-    #   'capital_gains_tax_investor': 0.15, # share 0-1
-    #   'subsistence_wage': [40000], # [10000, 30000],
-    #   'gamma': [0.001, 0.02, 0.7]
-    
-    }
-]
-
-python(62894) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
-
-Zeihan on Geopolitics YouTube Channel. Geopolitical Strategist Peter Zeihan is a global energy, demographic and security expert.
-
-
-class City(Model):
-    @property
-    def city_extent_calc(self):
-        # Compute urban boundary where it is not worthwhile to work
-        return self.firm.wage_premium /  self.transport_cost_per_dist
-#    @property
-#     def populated_extent(self):
-#         # Compute urban boundary where it is not worthwhile to work
-#         return sqrt(self.N /  (self.density * 4))
-
-
-pip install mesa
-
-
-print(mesa.__version__)
-https://www.youtube.com/watch?v=WJE7g08NldQ shipping thiefs
-
-(base) david-robinsons-computer-3:housing_app drdavidrobinson$ conda update -n base -c defaults conda
-https://salib.readthedocs.io/en/latest/
-
-
-
-Sobol Sensitivity Analysis (Sobol 2001, Saltelli 2002, Saltelli et al. 2010)
-    Method of Morris, including groups and optimal trajectories (Morris 1991, Campolongo et al. 2007, Ruano et al. 2012)
-    extended Fourier Amplitude Sensitivity Test (eFAST) (Cukier et al. 1973, Saltelli et al. 1999, Pujol (2006) in Iooss et al., (2021))
-    Random Balance Designs - Fourier Amplitude Sensitivity Test (RBD-FAST) (Tarantola et al. 2006, Plischke 2010, Tissot et al. 2012)
-    Delta Moment-Independent Measure (Borgonovo 2007, Plischke et al. 2013)
-    Derivative-based Global Sensitivity Measure (DGSM) (Sobol and Kucherenko 2009)
-    Fractional Factorial Sensitivity Analysis (Saltelli et al. 2008)
-    High-Dimensional Model Representation (HDMR) (Rabitz et al. 1999, Li et al. 2010)
-    PAWN (Pianosi and Wagener 2018, Pianosi and Wagener 2015)
-    Regional Sensitivity Analysis (based on Hornberger and Spear, 1981, Saltelli et al. 2008, Pianosi et al., 2016)
-
-
-
-
-Collecting package metadata (repodata.json): done
-Solving environment: -
-The environment is inconsistent, please check the package plan carefully
-The following packages are causing the inconsistency:
-
-  - https://repo.continuum.io/pkgs/main/osx-64/osx-64::blaze==0.11.3=py36_0
-  - https://repo.continuum.io/pkgs/main/osx-64/osx-64::flask-cors==3.0.7=py36_0
-  - defaults/osx-64::_anaconda_depends==2019.10=py36_0
-  - defaults/osx-64::anaconda==custom=py36_1
-  - defaults/noarch::flask==1.1.2=pyhd3eb1b0_0
-
-  
-
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
-
-python -m pip install --upgrade pip
-
-conda update -n base -c defaults conda
-
- conda env create -f environment.yml -n housing
-
-
-    
-conda deactivate
-conda env remove --name housing
-conda env create -f environment.yml
-conda activate <environment_name>   
-
-https://studiolab.sagemaker.aws/users/kirsten
 
 source activate housing
 conda install -c conda-forge mesa
@@ -239,365 +224,8 @@ avid-robinsons-computer-3:housing_app drdavidrobinson$ conda env create -f envir
 Collecting package metadata (repodata.json): done
 Solving environment: failed
 
-ResolvePackageNotFound:
-  - text-unidecode==1.3=pyhd8ed1ab_1
-  - markdown-it-py==3.0.0=pyhd8ed1ab_0
-  - starlette==0.33.0=pyhd8ed1ab_0
-  - mesa-viz-tornado==0.1.3=pyhd8ed1ab_0
-  - websockets==12.0=py39ha09f3b3_0
-  - ipyvue==1.10.1=pyhd8ed1ab_0
-  - pymdown-extensions==10.5=pyhd8ed1ab_0
-  - ca-certificates==2023.11.17=h8857fd0_0
-  - types-python-dateutil==2.8.19.14=pyhd8ed1ab_0
-  - uvicorn==0.24.0.post1=py39h6e9494a_0
-  - watchdog==3.0.0=py39h4cd3b3e_1
-  - certifi==2023.11.17=pyhd8ed1ab_0
-  - filelock==3.13.1=pyhd8ed1ab_0
-  - humanize==4.9.0=pyhd8ed1ab_0
-  - rich-click==1.7.2=pyhd8ed1ab_0
-  - reacton==1.8.1=pyhd8ed1ab_0
-  - ipyvuetify==1.8.10=pyhd8ed1ab_0
-  - solara==1.25.0=pyhd8ed1ab_0
-  - openssl==3.2.0=hd75f5a5_1
-  - watchfiles==0.21.0=py39h3f9c672_0
-  
-
-https://www.generationatomic.org/
-https://www.facebook.com/generationatomic/
-
-k4robins@uwaterloo.ca
-
-
-Here is the complete list. ones want to see are pulled to the left margin
-Example - Bar cross bottom?  This would be easy to crop out. Latex needs us to label figures in the document not in the figure.
-
-Experiment title. 'adjF': 0.02, 'adjw': 0.05,'discount_rate': 0.07,'r_margin': 0.01, CGT_person':   0.0, # share 0-1,  CGT_investor': 1, # share 0-1
-
-'adjF'
-'adjw'
-'discount_rate'
-'r_margin'
-'max_mortgage_share'
-'capital_gains_tax_person'
-'capital_gains_tax_investor'
-
-
-        # LABOUR MARKET AND FIRM PARAMETERS
-            'subsistence_wage': 40000., # psi
-            'init_city_extent': 10.,    # CUT OR CHANGE?
-            'seed_population': 400,
-            'init_wage_premium_ratio': 0.2, # 1.2, ###
-
-            # PARAMETERS MOST LIKELY TO AFFECT SCALE
-            'c': 300                             ### .0,                            ###
-            'price_of_output': 10,                 ######
-            'density':600,                         #####
-            'A': 3000,
-            'alpha': 0.18,
-            'beta':  0.75,
-            'gamma': 0.12, ### reduced from .14
-            'overhead': 1.5,
-            'mult': 1.2,
-            'adjN': 0.15,
-            'adjk': 0.10,
-            'adjn': 0.15,
-'adjF': 0.02,
-'adjw': 0.05, 
-            'dist': 1, 
-            'init_F': 100.0,
-            'init_k': 500.0,
-            'init_n': 100.0,
-
-            # HOUSING AND MORTGAGE MARKET PARAMETERS
-            'mortgage_period': 5.0,       # T, in years
-            'working_periods': 40,        # in years
-            'savings_rate': 0.3,
-'discount_rate': 0.07,        # 1/delta    Check THIS
-            'r_prime': 0.05,
-'r_margin': 0.01,
-            'property_tax_rate': 0.04,     # tau, annual rate, was c
-            'housing_services_share': 0.3, # a
-            'maintenance_share': 0.2,      # b
-'max_mortgage_share': 0.9,
-            'ability_to_carry_mortgage': 0.28,
-            'wealth_sensitivity': 0.1,
-'capital_gains_tax_person':   0.0, # share 0-1
-'capital_gains_tax_investor': 1, # share 0-1
- 
-
-\section{needed experiments Dec 14 DR}
-\begin{enumerate}
-    \item capital gains tax matters - find if there is a phase boundary - i.i. where in 
-
-            'capital_gains_tax_person': [0.5, 0.01], # share 0-1
-
-            'capital_gains_tax_investor': [0.5, 0.1], # share 0-1
-
             does investor share begin to rise (defined as ``for a given number of steps - say 70 - where is $Z=share_t - share_{t-1} \ge 0$? ) and where does it fall.
 
 Maybe just store Z and and draw contour lines - there has to be as program for that.
-\end{enumerate}
-\section{parameter values form DR}
-batch_parameters = {
-            'data_collection_period': 1,
-            'iterations': 1,
-            'max_steps': 200
-}
-
-# List variable_parameters for experiments
-    experiment_parameters_list = [
-         {
-            #'density': [800, 600],# 400, 200],
-            'subsistence_wage':[40000],#[90000],[ 50000, 40000, 30000]
-            #'gamma': [0.1, 0.09, 0.08 ]
-            #'discount_rate': [.1, .8, .7, .6, .5]
-            #'max_mortgage_share': [1.0, 0.9, 0.8, 0.7, 0.6]
-            #'wealth_sensitivity': [0.1, .03, .05]
-            #'ability_to_carry_mortgage': [0.35, 0.28, 0.2]
-            #'savings_rate': [0.5, 0.3, 0.1]
-        },
-        # {
-        #     'density': [1, 100],
-        #     'subsistence_wage': [10000, 30000]
-        # },
-        # {
-        #     'density': [1, 100],
-        #     'gamma': [0.001, 0.02, 0.7]
-        # }
-    ]
-    
-    # Define fixed parameters, replaced by variable_parameters if there is a conflict
-    fixed_parameters = {
-                'run_notes': 'Debugging model.',
-                'subfolder': None,
-                'width':     50, #30,
-                'height':    50, #30,
-    
-                # FLAGS
-                'demographics_on': True,  # Set flag to False for debugging to check firm behaviour without demographics or housing market
-                'center_city':     False, # Flag for city center in center if True, or bottom corner if False
-                # 'random_init_age': False,  # Flag for randomizing initial age. If False, all workers begin at age 0
-                'random_init_age': True,  # Flag for randomizing initial age. If False, all workers begin at age 0
-    
-                # LABOUR MARKET AND FIRM PARAMETERS
-                'subsistence_wage': 40000., # psi
-                'init_city_extent': 10.,    # CUT OR CHANGE?
-                'seed_population': 400,
-                'init_wage_premium_ratio': 0.2, # 1.2, ###
-    
-                # PARAMETERS MOST LIKELY TO AFFECT SCALE
-                'c': 300.0,                            ###
-                'price_of_output': 10,                 ######
-                'density':600,                         #####
-                'A': 3000,                             ### 
-                'alpha': 0.18,
-                'beta':  0.75,
-                'gamma': 0.12, ### reduced from .14
-                'overhead': 1.5,
-                'mult': 1.2,
-                'adjN': 0.15,
-                'adjk': 0.10,
-                'adjn': 0.15,
-                'adjF': 0.02,
-                'adjw': 0.02, 
-                'dist': 1, 
-                'init_F': 100.0,
-                'init_k': 500.0,
-                'init_n': 100.0,
-    
-                # HOUSING AND MORTGAGE MARKET PARAMETERS
-                'mortgage_period': 5.0,       # T, in years
-                'working_periods': 40,        # in years
-                'savings_rate': 0.3,
-                'discount_rate': 0.07,        # 1/delta
-                'r_prime': 0.05,
-                'r_margin': 0.01,
-                'property_tax_rate': 0.04,     # tau, annual rate, was c
-                'housing_services_share': 0.3, # a
-                'maintenance_share': 0.2,      # b
-                'max_mortgage_share': 0.9,
-                'ability_to_carry_mortgage': 0.28,
-                'wealth_sensitivity': 0.1,
-            }
 
 
-ownership
-
-MPL     n
-N       F
-extent  k   % I just removed N/f because by def'n N=Fn, I think 
-ownership       
-
-Experiments. thinking about this. I am interested in tests to fine-tune the model but let's instead go on to work with the determinants of ownership. 
-
-
-
-navigate to the housing_app folder in Terminal. cd Devel/housing_app
-source activate housing
-python batch_run.py
-
-
-July 8 DRR
-
-The price a property might sell at would be $\omega - {dc} + \mathbb{A} + rural-op-cost + conversion cost$. For simplicity, we drop the last two terms. Conversion cost would be amortized over a very long period and would be small in any case. We have hidden the rural-op-cost in $a\psi$.
-
-
-Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control---with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits.  Removed from Ch modle 
-
-
----
-
-THIS IS THE CODE THAT I HAVE WORKING
-The figure simply shows that both variables behave as expected.
-because there is no lag and no partial adjustments it all happens in the first 5 cycles.
-
-
-Changes are indicated with a training ######
-
-import matplotlib.pyplot as plt
-
-# Initialize variables
-A     = 10
-gamma =1.2
-transport_cost_per_dist = 1
-population = 1000
-transport_cost_per_dist = 4
-density = 10
-seed_population = 0
-#P=10000
-t = []
-wage_premium_list = []
-population_list   = []
-P_list            = []   ######
-
-for time_step in range (10):
-    # Calculate wage premium and population #REVERSE ORDER
-    wage_premium = gamma*A * population**(gamma-1) #actually this was wage
-    population =  2*(wage_premium / transport_cost_per_dist)**2 * density + seed_population
-    P = population/100  ######
-    
-    # wage_premium = gamma*A * population**(gamma-1)#actually this is wage
-    # population = 2*(wage_premium / transport_cost_per_dist)**2 * density + seed_population
-
-    # Record output
-    t.append(time_step)
-    wage_premium_list.append(wage_premium)
-    population_list.append(population)
-    P_list.append(P)    ############
-
-# Plot wage premium and population against time
-import matplotlib.pyplot as plt
-
-# IS THIS THE SINGLE FIGURE   Sept 9 YES
-plt.figure(figsize=(10, 6))
-plt.plot(t, wage_premium_list, label='Wage Premium')
-#plt.plot(t, population_list, label='Population')######
-plt.plot(t, P_list, label='Population/100')      ######
-plt.ylabel('Value')
-plt.xlabel('Time')
-plt.title('Population and Wage Premium Over Time')
-plt.legend()
-plt.show()
-
-
-
- 
-
- ax.set_ylabel(model_out_key, fontsize=20)
-
- figure 6.1 model logic says we are up in the uppeer block. This is what we need to unpack more. There is a cycle that has to work:
-
-(productivity + wage) -> adjust(wage, n) -> population -> productivity 
- 
-How can people go up when workers goes down?
-
-why does it start removing agents at step 35
-
-
-Pushed another change
-
-#add horizontal and vertical reference lines
-plt.axhline(y = 0, xmin = 0., color ='black')# zero 
-plt.axvline(x = 10, ymin = 0., color ='red')
-plt.text(10.5, 400000, r'intitial city boundary', fontsize=15)
-plt.text(1, 7000, r'zero rent', fontsize=15)
-
-type
-git stash
-then 
-git pull origin master
-
-
-
-
-
-"distance_from_center": lambda a: getattr(a, "distance_from_center", None) if isinstance(a, Land) else None,
-
-
----
-
-        }
-        agent_reporters      = {
-            "time_step":         lambda a: a.model.time_step,
-            "agent_class":       lambda a: type(a),
-            "agent_type":        lambda a: type(a).__name__,
-            "id":                lambda a: a.unique_id,
-            "x":                 lambda a: a.pos[0],
-            "y":                 lambda a: a.pos[1],
-            "distance_from_center": lambda a: getattr(a, "distance_from_center", None) if isinstance(a, Land) else None,
-            "wage":                 lambda a: getattr(a, "wage", None) if isinstance(a, Land) else None,
-            "is_working":           lambda a: None if not isinstance(a, Person) else 1 if a.unique_id in a.workforce.workers else 0,
-            # "is_working":        lambda a: getattr(a, "is_working", None),
-            "working_period":    lambda a: getattr(a, "working_period", None),
-            "property_tax_rate": lambda a: getattr(a, "property_tax_rate", None),
-            "net_rent":          lambda a: getattr(a, "net_rent", None) if isinstance(a, Land) else None,
-            "warranted_price":   lambda a: getattr(a, "warranted_price", None) if isinstance(a, Land) else None,
-        }
-
-
-
-
-KeyError                                  Traceback (most recent call last)
-File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/core/indexes/base.py:3629, in Index.get_loc(self, key, method, tolerance)
-   3628 try:
--> 3629     return self._engine.get_loc(casted_key)
-   3630 except KeyError as err:
-
-File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/_libs/index.pyx:136, in pandas._libs.index.IndexEngine.get_loc()
-
-File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/_libs/index.pyx:163, in pandas._libs.index.IndexEngine.get_loc()
-
-File pandas/_libs/hashtable_class_helper.pxi:5198, in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-File pandas/_libs/hashtable_class_helper.pxi:5206, in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'distance_from_center'
-
-The above exception was the direct cause of the following exception:
-
-KeyError                                  Traceback (most recent call last)
-Cell In[120], line 49
-     46 axs[0, i].grid(False)
-     48 # Create scatter plot for distance from center vs warranted price
----> 49 scatter = axs[1, i].scatter(land_agents['distance_from_center'], land_agents['warranted_price'], c='blue', alpha=0.5)
-     50 axs[1, i].set_title(f'Distance vs Warranted Price at Time Step {time_step}')
-     51 axs[1, i].set_xlabel('Distance from Center')
-
-File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/core/frame.py:3505, in DataFrame.__getitem__(self, key)
-   3503 if self.columns.nlevels > 1:
-   3504     return self._getitem_multilevel(key)
--> 3505 indexer = self.columns.get_loc(key)
-   3506 if is_integer(indexer):
-   3507     indexer = [indexer]
-
-File ~/anaconda/envs/housing/lib/python3.9/site-packages/pandas/core/indexes/base.py:3631, in Index.get_loc(self, key, method, tolerance)
-   3629     return self._engine.get_loc(casted_key)
-   3630 except KeyError as err:
--> 3631     raise KeyError(key) from err
-   3632 except TypeError:
-   3633     # If we have a listlike key, _check_indexing_error will raise
-   3634     #  InvalidIndexError. Otherwise we fall through and re-raise
-   3635     #  the TypeError.
-   3636     self._check_indexing_error(key)
-
-KeyError: 'distance_from_center'

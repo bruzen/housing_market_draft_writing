@@ -293,7 +293,7 @@ both adjust slowly toward target values in each period. We also allow the number
 In this section, we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
 We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
 
-{\color{red} I THINK IT WOULD BE HELPFUL TO REFER BACK TO THE COMMON USAGE OF RENT AND HOW THAT IS DINSTINCT YET SOMETIMES THE SAME AS ECON RENT. }
+%{\color{red} I THINK IT WOULD BE HELPFUL TO REFER BACK TO THE COMMON USAGE OF RENT AND HOW THAT IS DINSTINCT YET SOMETIMES THE SAME AS ECON RENT.   reply: I think we have beaten this rto deaat hin earlier chapters}
 
 Because participation in the housing market depends on financing, in subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
 
@@ -433,17 +433,24 @@ where $\bar{W}$ is mean wealth and $W_i$ is individual wealth.\footnote{To shift
 
 \subsubsection{Income-based mortgage maximum}
 A common rule is that mortgage payments cannot exceed some fraction of income, $Y_i=\omega+ \psi + {r}S_i$, where $S_i$ is individual savings.
-If $\mathbb{C}$ a person's carrying capacity, this gives us an \textbf{income-based  mortgage maximum} of 
+If $\mathbb{C}$ a person's carrying capacity, The annual payment that their income allows,  the capitalized value gives us an \textbf{income-based  mortgage maximum} of 
 
 
 \begin{equation}
-M^{max}_{Y,i} = \frac{\mathbb{C} (\omega+ \psi + {r}S_i)}{r^{prime}},\label{eqn-income-based-mortgage}    
+M^{max}_{Y,i} = \frac{\mathbb{C} (\omega+ \psi + {r}S_{Ni})}{r^{prime}},\label{eqn-income-based-mortgage}    
 \end{equation}
 % In addition, The Bank may have a maximum share of the price that it will lend, say $0.8P$. Because the actual price is unknown when buyers prequalify, this test limits the maximum bid computed below: \
 % \[M^{max}i = min\left\{\frac{0.28*(\omega+w)}{r},  0.8P_0 \right\} \]
-where ${r}$ is $i$'s rate of return on savings $S$ as the maximum a  buyer should pay. %\footnote{We  assume that the bank does not take transportation costs into account  when calculating income.}
+where ${r}$ is $i$'s rate of return on  $S_{Ni}=(S-M)$, the savings remaining after making the down payment,\footnote{If the constraint is binding we can  substitute $M^{max}$ for $M$and explicit function to get :
+\begin{align}
+M^{max}      &= 0.28 * (wage + r (S-M^{max})) / r'\nonumber\\
+         &= 0.28 (wage + r (S)) / r' - 0.28 rM^{max}) / r'\nonumber\\
+M^{max}(1+\frac{0.28 r}{r'}&=0.28 (wage + r S) / r'\nonumber\\
+M^{max}   &=  \frac{0.28 (wage + r S )} {1+0.28 r}\nonumber   
+\end{align}
+} as the maximum a  buyer should pay. %\footnote{We  assume that the bank does not take transportation costs into account  when calculating income.}
 %\footnote{If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.}
-In our model the bank uses a rule of this form to decide how much it is willing to lend to $i$.
+In our model the bank uses a rule of this form to decide how much it is willing to lend to 
 
   \begin{figure}
     \centering
@@ -860,7 +867,7 @@ Following xyz, xyz gives x purposes for modelling. The purpose of this model is 
 
 The agents are workers,  %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
 the urban firm, an investor, a bank, and a realtor. People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Properties have owners, residents, and locations. Firm have sizes, marginal returns to capital, and labour ..., 
-Investors own properties and take out debt, the bank has lending rates that are a function of their calculation of credit-worthyness and the prime interest rate, and realtors have lists of propertys for sale and for rent. 
+Investors own properties and take out debt, the bank has lending rates that are a function of their calculation of credit-worthiness and the prime interest rate, and realtors have lists of properties for sale and for rent. 
 
 Each agent occupies one property, however the firm has a density parameter which multiplies the firm population by a density number, effectively coarse grainning the model for the purposes of the firms calculation.
 

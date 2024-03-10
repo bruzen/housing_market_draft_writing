@@ -1,4 +1,10 @@
 \textbf{Update local housing_app}
+
+navigate to the housing_app folder in Terminal. 
+cd Devel/housing_app
+source activate housing
+python batch_run.py
+
 1. Copy anything you want to keep to another folder
 2. git stash (terminal)
 3. git pull origin main (terminal)
@@ -6,4 +12,32 @@
 
 \textbf{Run it on SageMaker}
 https://studiolab.sagemaker.aws/login
+
+pip install --upgrade mesa
+pip show mesa
+
+G!rr4teL
+
+"ctrl+tab" changes VS Code tab
+"cmd+tab"  changes system tab
+"shift+cmd+r" restart and run Jupyter notebook
+"shift+cmd+p" open the command pallete
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+python run.py --batch
+python run.py --fast_batch
+fast_batch gives the same as: python run.py
+
+Still need to add default plotting for single runs, but we can generate data and then plot
+python run.py --run
+python run.py --fast_run
+pip install mesa
+
+print(mesa.__version__)
+https://www.youtube.com/watch?v=WJE7g08NldQ shipping thiefs
+
+(base) david-robinsons-computer-3:housing_app drdavidrobinson$ conda update -n base -c defaults conda
+https://salib.readthedocs.io/en/latest/
+
+
 
