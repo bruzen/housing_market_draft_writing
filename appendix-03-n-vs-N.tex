@@ -3,24 +3,24 @@
 This appendix details the allocation of the labour force. In our model, the size of the workforce is determined by the size of the urban wage premium. With a uniformly distributed population on a grid of streets, the workforce is
     
 \begin{align}\label{eqn:N}
-N=2(\frac{\omega}{c})^2    
+N=2\left(\frac{\omega}{c}\right)^2.    
 \end{align}
 This is the urban labour supply. Labour demand is determined by a dual process - one determining how many workers each firm has, and one determining how many firms there will be. 
 In the standard mode of the firm, the size of the firm's workforce is chosen optimally by setting the value of the marginal product labour equal to the wage.
 \begin{align}\label{eqn:opt}
-w = P*\beta*AN^\gamma k^\alpha n^{beta-1}    
+w = P*\beta*AN^\gamma k^\alpha n.^{beta-1}    
 \end{align}
 where the wage is 
 \begin{align}\label{eqn:w}
-w=(1 + overhead)(\omega + \psi)
+w=(1 + \text{overhead})(\omega + \psi).
 \end{align}
-and by the population through the agglomeration effect.  \ref{eqn:opt} determines the demand for labour
+and by the population through the agglomeration effect.  \ref{eqn:opt} determines the demand for labour.
 
 \begin{figure}
     \centering
     %\includegraphics{}
     \caption{Firm size, population and wage}
-    \label{fig:n_N_w}
+    
 \begin{tikzpicture}[scale=.7, 
             my plot/.style={thick, smooth, samples=100, domain=0.4:10},
             plot2/.style={thick, smooth, samples=100, domain=0.1:9},
@@ -42,20 +42,24 @@ and by the population through the agglomeration effect.  \ref{eqn:opt} determine
 \draw[thick,dashed] (3,1.75)--(3,0)node[below]{\small$n(N_0)$};
 \draw[thick, dotted] (4,2.75)--(4,-.5)node[below]{\small$n_B(N_1)$};
 \end{tikzpicture}
+\label{fig:n_N_w}
 \end{figure}
 
 Depending on transport costs and other parameters, firm size may rise or fall as $N$ rises, as Figure~\ref{fig:n_N_w} shows. In the figure, $w_A$ results in rising firm size while $w_a$ results in a falling firm size. The wage selects a point on the VMPL curve but it also determines the  height of the curve, and the two processes are independent.
 
 At the limit, the entire population might work for one firm, but in general, the number of firms will rise. The number of firms will depend on entry conditions and entrepreneurial expectations about profitability. For the housing market in our model, only $N$ matters and not the allocation of workers to firms.\footnote{In a more complex model firms might be distributed about the city and firm size could be significant.}
 
-We can solve Equations~\ref{eqn:N} and \ref{eqn:opt} to find an explicit equilibrium relationship between $n$ and $N$. First solve Equation~\ref{eqn:w} for $n$, simplifying slighlty by assuming constant factor proportions, i.e. that  $k=\kappa n$, in which case Equation~ \ref{eqn:opt} becomes 
+We can solve Equations~\ref{eqn:N} and \ref{eqn:opt} to find an explicit equilibrium relationship between $n$ and $N$. First solve Equation~\ref{eqn:w} for $n$, simplifying slightly by assuming constant factor proportions, i.e. that  $k=\kappa n$, in which case Equation~ \ref{eqn:opt} becomes: 
 \begin{align}\label{eqn:opt1}
 w   &= P*(\alpha+\beta)*AN^\gamma \kappa^\alpha n^{\alpha+\beta-1} \\   
 n  &=\left(\frac{w}{P*(\alpha+\beta)*AN^\gamma \kappa^\alpha}\right)^{1-\alpha-\beta} \\
-Let (1-\alpha-\beta) = \zeta <1.\ \ Then \\
+\end{align}
+
+Let $(1-\alpha-\beta) = \zeta <1.$ Then:
+\begin{align}
     &=\left(\frac{w}{P*(\alpha+\beta)*A \kappa^\alpha}\right)^\zeta N^{-\gamma\zeta }\\
     &=w^\zeta\left(\frac{1}{P*(\alpha+\beta)*A \kappa^\alpha}\right)^\zeta N^{-\gamma\zeta }\\
-    &=w^\zeta*X*{N^{-\gamma}}^\zeta
+    &=w^\zeta*X*{N^{-\gamma}}^\zeta.
 \end{align}
 Where $X$ is a constant.
 
@@ -64,7 +68,7 @@ Now we use Equations~\ref{eqn:N} and \ref{eqn:w}to write $w$ as a function of $N
 so
 \begin{align}
     n &= \left((1+overhead)(\psi+\frac{c}{\sqrt(2)}N^{.5}\right)^\zeta*X*N^{-\gamma\zeta }\\
-  &= \left(a+b\sqrt(N)\right)^\zeta*X*N^{-\gamma\zeta }   
+  &= \left(a+b\sqrt(N)\right)^\zeta*X*N.^{-\gamma\zeta }   
 \end{align}
 In this simplified form it is easy to show that the slope of $n$ as $N$ changes is ambiguous, as the graphical treatment found.
 
@@ -73,7 +77,7 @@ Since none of our analysis depends on firm size, we can assume for convenience t
 
 \begin{align}\label{fig:N_demand}
 N   &= (\frac{n^\zeta P(\alpha+\beta)A\kappa^\alpha}{w})^\gamma  \nonumber\\
-    &= C \left(\frac{P}{w}\right)^\gamma
+    &= C \left(\frac{P}{w}\right)^\gamma.
 \end{align}
 Equation~\ref{fig:N_demand} describes the population that would result in the firm choice of $n$ and $k$ being optimal. Since $\zeta$ is negative, larger  $n$ would call for a lower $N$ to achieve a value marginal product of labour equal to the wage.
 

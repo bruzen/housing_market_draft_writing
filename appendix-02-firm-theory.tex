@@ -1,9 +1,9 @@
 \chapter{Background Theory of the Firm} \label{appendix-firm-theory}
 
 {\color{red}
-THIS COULD GO IN THE METHODOLOGY CHAPTER - we're using neoclassical firm production, more specifically.
+% THIS COULD GO IN THE METHODOLOGY CHAPTER - we're using neoclassical firm production, more specifically.
 
-THIS ALSO HELPS CONNECTS THE MODEL SECTION TO THE MODEL
+% THIS ALSO HELPS CONNECTS THE MODEL SECTION TO THE MODEL
 
 % MAYBE PUT WITH PART IN METHODOLOGY ABOUT NEO_CLASSICAL AND CLASSICAL ECON - THIS SEEMS LIKE SPECIFICS OF THAT BROADER PIECE
 }
@@ -202,7 +202,7 @@ If a fraction of workers switched to get the full bid new workers get, it would 
 
 A slow immigration response would have additional effect.
 % This suggests that all workers could get the same wage. 
-Slow wage adjustment for existing workers would increase firm profitability and might make hiring more attractive, speeding the firm's growth.}
+Slow wage adjustment for existing workers would increase firm profitability and might make hiring more attractive, speeding the firm's growth.}\footnote{What happens if housing is not available? Maybe workers can't come to the city until the housing stock adjusts. Firms have labour shortages.  The wage stays high or may rise more. House prices will rise.} \footnote{What if only new workers get the new wage? This is interesting: firms will make excess profits. New firms will be attracted by excess profits but may not be able to get workers at the old wage.}
 
 
 
@@ -255,16 +255,12 @@ Slow wage adjustment for existing workers would increase firm profitability and 
 
 
 
-\footnote{What happens if housing is not available? Maybe workers can't come to the city until the housing stock adjusts. Firms have labour shortages.  The wage stays high or may rise more. House prices will rise.} 
-
-\footnote{What if only new workers get the new wage? This is interesting: firms will make excess profits. New firms will be attracted by excess profits but may not be able to get workers at the old wage.}
-
 
 % Common to think of the variations in local wages as variations around a mean, in this context - perfect labour market.
 % We're using this number at the aggregate level, raise the market wage to a level that attracts that many. Divide available workers among the firms, then they want to raise the wage again. It's more transparent to do it at the aggregate level than at the firm level, but we still have the rising supply curve. A more detailed agent model could implement the hiring and wage adjustment mechanisms for firms directly, but the side effect of increased complication is it also can obscure the clarity of the rent results, our focus with this work. 
 
 
-{\color{red}
+% {\color{red}
 \section{Relationships among parameters} \label{section-firm-initial-values}
 
 
@@ -275,7 +271,8 @@ Slow wage adjustment for existing workers would increase firm profitability and 
 
 
 % \subsubsection{Initial wage premium for urban firms}
-The theory of the firm implies certain relationships among the parameters. What we're doing here actually is simply demonstrating the typical relationships used in the theory of a comp}
+The theory of the firm implies certain relationships among the parameters. What we're doing here actually is simply demonstrating the typical relationships used in the theory of a firm.
+% }
 
 
 We know from an extensive  literature that there is an urban wage premium: urban wages are a fraction larger than  rural wages A wage premium ratio defines the initial relationship between the urban wage premium and the subsistence wage, $\omega_0 = \mathrm{wage\_premium\_ratio} * \psi$. % = p*\psi $, where $p$ is selected
@@ -283,7 +280,6 @@ We know from an extensive  literature that there is an urban wage premium: urban
 % \item[Initial wage premium] $\omega_0=p_0*\psi$
 
 In this section we use subscripts rural, $R$, and urban, $U$. Outside of this section, we simplify the presentation by dropping subscripts for the urban firm, since that is the focus of the analysis, and rural properties are fixed after initial calculation. 
-
 Parameters $\beta_F$ and $\alpha_F$ are the same for both rural firms and urban firms in this model. 
 %Initial values for the urban firm's production model are set so the are reasonable, relative to the properties of the urban firm. To explore urban agglomeration effects, the rural firm parameters remain fixed, while the rural firm evolves as more people work in the city. 
 
@@ -330,30 +326,28 @@ Taking the marginal product with respect to $n$, we get a useful fact that will 
 % \end{axis}
 % \end{tikzpicture}
 
-\item[capital for typical rural firm] (Derived from the marginal productivity condition.)
+\item[Capital for typical rural firm] (Derived from the marginal productivity condition.)
 \[k_R=  \frac{\alpha_F Y_R }{r}\]
 This is also a constant.
  
-\item[initial capital for an urban firm] (Derived from the marginal productivity condition.)
+\item[Initial capital for an urban firm] (Derived from the marginal productivity condition.)
 \[k_{U,0}=  \frac{\alpha_F Y_{U,0} }{r}\]
 
 
 This differs from capital  for the rural firm because of the term $n^\gamma$. 
 
-WHAT? WHERE IS GAMMA
+% TODO WHAT? WHERE IS GAMMA
 
 
-\item[scale factor A for typical  firm] 
+\item[Scale factor A for typical firm] 
 \[A_F= \frac{Y_R}{k_R^{\alpha_F} {n_R\psi}^{\beta_F}}\]
 We will assume that this is a constant used for both rural and urban production functions. 
 
-CUT? (The explicit function is a bit  messy but the numeric value is easily computed because we have a rural firm labour force cost, $L_R=n_R\psi$, and have calculated $Y_F$, and  $k_F$). The prefactor.
+% CUT? (The explicit function is a bit  messy but the numeric value is easily computed because we have a rural firm labour force cost, $L_R=n_R\psi$, and have calculated $Y_F$, and  $k_F$). The prefactor.
 
-CHANGED: SHOULD THIS BE $\alpha_F$? n RURAL OR URBAN?
+% CHANGED: SHOULD THIS BE $\alpha_F$? n RURAL OR URBAN?
 
 \end{description}
-
-
 
 
 \section{Firm level production}  
@@ -366,28 +360,28 @@ We want the marginal product of labour in the rural economy at the firm level to
 
 Firm employment $L$ is small relative to  urban employment {N}. Assume it is 100 workers. 
 
-Assume that the rural production function is 
+Assume that the rural production function is: 
 
-\[ Y_{iF}^R=A_{F} K^{\alpha_F} L_F^{\beta_F} \]
+\[ Y_{iF}^R=A_{F} K^{\alpha_F} L_F^{\beta_F}, \]
 
 where $Y$ is the value of output, $L_F=n*\psi$, $K=r*k$.\footnote{These values give us diminishing marginal product at the firm level. If we require product exhaustion we have factor shares of  0.8 and 0.2 .The tricky point is that factor share are 
  $\frac{\alpha}{\alpha + \beta}$ and $\frac{\beta}{\alpha + \beta}$
 (*If not there is surplus profit  which we will ignore.)}
 Further assume that $\alpha_F=0.18 $,  and $\beta_F=0.76$. Notice that the value-MPL is the partial derivative with respect to $n$ and not L. 
-The marginal products of labour and capital are 
-\[MPL=n*\beta_F Y_F/L_F=\$40,000\] and\[\ MPK=\alpha_F Y_F/K_F =0.05\]
+The marginal products of labour and capital are: 
+\[MPL=n*\beta_F Y_F/L_F=\$40,000\] and\[\ MPK=\alpha_F Y_F/K_F =0.05.\]
 From the equation for the marginal product of labour, using the hypothetical initial values, we get a value of output for our rural firm:
 
-\[Y_F=\frac{n*\psi}{\beta_F}=\frac{100*\$40,000}{0.72}=\$5,555,556\]
+\[Y_F=\frac{n*\psi}{\beta_F}=\frac{100*\$40,000}{0.72}=\$5,555,556.\]
 This is firm revenue. From the MPK, we get the value of capital used by the firm.\footnote{The firm pays 5\% per year in capital costs,.} 
 
-\[K_F=  \frac{\alpha_F Y_F }{r}=\frac{0.18 *\$5.5555\ million}{0.05} =\$20\ million \]
+\[K_F=  \frac{\alpha_F Y_F }{r}=\frac{0.18 *\$5.5555\ million}{0.05} =\$20\ million. \]
 
 We now have the capital, labour and output for a model firm with a marginal product of labour  equal to the subsistence wage we have chosen. We can calculate the \textbf{scale factor} $A$.
 
 \begin{equation}  
 A_F= \frac{Y_F}{K^{\alpha_F} L^{\beta_F}}=\frac{5,555,000}
-{(0.05*20,000,000)^{\alpha_F} (40,000*100)^{\beta_F}} =53.34721 \label{eqn-AR}\end{equation} 
+{(0.05*20,000,000)^{\alpha_F} (40,000*100)^{\beta_F}} =53.34721. \label{eqn-AR}\end{equation} 
 
 %
 $A_F$ can be computed using equation~\ref{eqn-AR} for any set of coefficients and firm size.\footnote{Furthermore, we can compute the output for a city of size N if it consists of $N/n$ firms of this type. With a population of, for example 10,000. Based on the model of the rural firm above,   there would have to be  100 firms and an output of \$555,555,600$N^\gamma$. This is offered simply to see if the initial values we work with are plausible.}
@@ -412,41 +406,41 @@ so $N^\gamma= 1.12$ and $\gamma = \frac{log(1.12)}{log(10,000)} =.012$.
 
 To get a  $\gamma$  consistent with an empirical  value for  the wage premium  $\omega / \psi$, 
 \begin{equation}
-\gamma= \frac{log(1+\omega/\psi)}{log(N_0)}\label{eqn:gamma-define}
+\gamma= \frac{log(1+\omega/\psi)}{log(N_0)}.\label{eqn:gamma-define}
 \end{equation}
 
 
-This value is consistent with an empirical  value for beta city (the urban scale exponent) of $\beta =  1.012$. The value is much lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one, the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.
+This value is consistent with an empirical  value for beta city (the urban scale exponent) of $\beta =  1.012$. The value is much lower than empirical estimates. Furthermore, if we consider the same firm structure and a population of one, the value falls, which suggests that agglomeration effects are not scale-independent, but instead increase with urban size. $\beta$ may itself be a function of $N$.\footnote{Tørsløv et al \cite{torslovMissingProfitsNations2023} show that affiliates of foreign multinational firms are an order of magnitude more profitable than local firms in a number of low-tax countries. Leveraging this differential profitability, they estimate that 36\% of multinational profits are shifted to tax havens globally. US multinationals shift twice as much profit as other multinationals relative to the size of their foreign earnings.}
 
 % A second interesting possible implication of our calculation is that only part of the agglomeration effect appears in wages. Urban rents  are large, but agglomeration effects are much larger.
 % \end{quotation}
 
 
 
-\footnote{Tørsløv et al \cite{torslovMissingProfitsNations2023} show that affiliates of foreign multinational firms are an order of magnitude more profitable than local firms in a number of low-tax countries. Leveraging this differential profitability, they estimate that 36\% of multinational profits are shifted to tax havens globally. US multinationals shift twice as much profit as other multinationals relative to the size of their foreign earnings.}
+
 
 
 % \textbf{appendix-05-agglomeration-model - REDUNDANT} %\input{appendix-05-agglomeration-model} % bbbb{appendix-05-agglomeration model}
 
 
 
-\begin{enumerate}
-\item To start with a population of around 10,000, we begin with width = 10, height = 10 and \textbf{density} per unit of 100. 
+% \begin{enumerate}
+% \item To start with a population of around 10,000, we begin with width = 10, height = 10 and density per unit of 100. 
 
-\item If we arbitrarily assume an initial wage premium around 20\%, and wish to start near equilibrium, % bettencourt assumed aggomeration exponent is indepent)
-we can select transportation costs. A transportation cost of 0.1  would give a distance of $\omega/.01$, which is huge. Could this be 1/10 of the starting wage premium $\omega_0$? It would then be \$800 per year, per unit distance and would give us height and width of 10. 
-% (divide into omega) - we want to start close to equilibirum. omega/cost = width
-\item We should have a 20\% wage premium of about \$8000 to be consistent with the subsistance wage. % since we are assuming a wage premium of around 20%. Total wage has to be subsistence wage + wage premium, think of an average rural subsistence wage seems like 45K. 
+% \item If we arbitrarily assume an initial wage premium around 20\%, and wish to start near equilibrium, % bettencourt assumed aggomeration exponent is indepent)
+% we can select transportation costs. A transportation cost of 0.1  would give a distance of $\omega/.01$, which is huge. Could this be 1/10 of the starting wage premium $\omega_0$? It would then be \$800 per year, per unit distance and would give us height and width of 10. 
+% % (divide into omega) - we want to start close to equilibirum. omega/cost = width
+% % \item We should have a 20\% wage premium of about \$8000 to be consistent with the subsistance wage. % since we are assuming a wage premium of around 20%. Total wage has to be subsistence wage + wage premium, think of an average rural subsistence wage seems like 45K. 
 
-\item Your proposed prefactor was 0.2,  251. It should be very large, based on the above numbers and the consistency constraints. I get 1507 in appendix-05-agglomeration model
+% % \item Your proposed prefactor was 0.2,  251. It should be very large, based on the above numbers and the consistency constraints. I get 1507 in appendix-05-agglomeration model
 
 
 
-\end{enumerate}
+% \end{enumerate}
 
-\subsection{Workers share}
-The worker's of the surplus, $lambda$ It might be 0.8. It is used in...
+% \subsection{Workers share}
+% % The worker's of the surplus, $lambda$ It might be 0.8. It is used in...
 
-NOTE: 0.8 is the value of beta in a Cobb-Douglas, corresponding to the wage-share in production. It is the value used in Lobo et al
+% NOTE: 0.8 is the value of beta in a Cobb-Douglas, corresponding to the wage-share in production. It is the value used in Lobo et al
 
 

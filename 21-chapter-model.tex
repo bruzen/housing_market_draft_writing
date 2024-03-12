@@ -396,7 +396,7 @@ Combining, the \gls{net rent}\footnote{We are short-cutting the rent price forma
 
 \subsection{Mortgage availability} \label{sec:mortgage-availability}
 % According to the Canada Housing Statistics Program (CHSP), first-time home buyers require a combination of sufficient income and savings in order to enter the housing market \cite{GET_REF}. In practice, 
-Mortgage lenders often put two limits on the size of the mortgage, one based on wealth, a \textbf{wealth constraint}, and one based on income, a \textbf{carrying constraint} \cite{GET_REF_CHSP}. We have implemented these constraints by making both mortgage size and the interest rate on borrowing depend on income and wealth. As a result high-income and  wealthy agents can borrow larger amounts, at lower interest rates than the less wealthy.\footnote{The income constraint is sometimes called a housing expenditure share cap, and may be imposed to stabilize the hosing market. Gong and Leung \cite{yifangongDoesSpaceMatter2003} have investigated the distributional effects of income constraints.} %this lending policy.}
+Mortgage lenders often put two limits on the size of the mortgage, one based on wealth, a {wealth constraint}, and one based on income, a {carrying constraint} \cite{GET_REF_CHSP}. We have implemented these constraints by making both mortgage size and the interest rate on borrowing depend on income and wealth. As a result high-income and  wealthy agents can borrow larger amounts, at lower interest rates than the less wealthy.\footnote{The income constraint is sometimes called a housing expenditure share cap, and may be imposed to stabilize the hosing market. Gong and Leung \cite{yifangongDoesSpaceMatter2003} have investigated the distributional effects of income constraints.} %this lending policy.}
 
 
 \subsubsection{Wealth-based mortgage maximum} 
@@ -516,7 +516,7 @@ for $W>W_{min}$, where  $r^{target}$ is the bank's target rate of return,  $\bar
 % Where $\Bar{W}$ is mean wealth and $W_i$ is individual wealth. In Equation~\ref{eqn-incomeandr2},  A determines y-shift, B, the scale, and C the  x-shift for the curve.
 
 
-\subsubsection{New: Declining principle}\label{sec:declining-principle}
+\subsubsection{Declining principle}\label{sec:declining-principle}
 
 Mortgages are renewed after $\mathbb{T}$ years. During that period some of the principle has been paid off. This is most important when a property is sold. The seller gets $P-M_{i,\mathbb{T}}$, where  $M_{i,\mathbb{T}}$ is its remaining mortgage.
 
@@ -583,7 +583,9 @@ as the $\mathbb{T}$-period  price-growth rate. The agent also receives either th
 
  
 \subsubsection{Rent and mortgage costs}
-Both mortgage payments and net rent revenue can be calculated as sum  of regular payments, each of which accumulates interest to the end of the mortgage period. This is called a ``uniform series compound amount.'' For net rent at the end of the mortgage renewal term we write\footnote{FIX Regular periodic payments collecting interest for a n periods yields CLARIFY/CHECK EQUATION t  $\frac{(1+r)^n-1}{r}$ times the payment amount is called a ``uniform series compound amount'' \cite{GET_SOURCE}.%source https://www.e-education.psu.edu/eme460/node/659
+Both mortgage payments and net rent revenue can be calculated as sum  of regular payments, each of which accumulates interest to the end of the mortgage period. This is called a ``uniform series compound amount.'' For net rent at the end of the mortgage renewal term we write\footnote{%FIX 
+Regular periodic paymnts collecting interest for a n periods yields %CLARIFY/CHECK EQUATION t  
+$\frac{(1+r)^n-1}{r}$ times the payment amount is called a ``uniform series compound amount'' \cite{GET_SOURCE}.%source https://www.e-education.psu.edu/eme460/node/659
 } 
 \begin{equation}
 \mathcal{R}_{N, \mathbb{T}}= \frac{(1+r)\mathbb{^\mathbb{T}}-1}{r}\mathcal{R}_N.     
@@ -666,7 +668,7 @@ We call this  $i's$ maximum bid.\footnote{The denominator in Equation~\ref{eqn:m
 It represents the maximum a buyer is willing to pay, the value of the stream of rent plus any capital gains. % It is also the most reasonable reservation price.%\footnote{In principle Equation~\ref{eqn:maximum-bid} could be calculated for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time.} 
 If the buyer intends to become a resident, the net rent term Equation~\ref{eqn:maximum-bid} is replaced by a housing-services-and-amenity term, which represents non-monetary income. % and is another form of locational rent. 
 
-\subsection{A Simple Proxy for $\dot P_\mathbb{T}$}
+\subsection{A simple proxy for $\dot P_\mathbb{T}$}
 
 The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of the as yet unrealized future market price. Case and Shiller observe that, ``People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. \cite{caseThereBubbleHousing2003}. They further argue that the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes. Our $\dot P_\mathbb{T}$ is a forecast or expectation by agents in the model of the change in price over a period $\mathbb{T}$.
 
@@ -691,7 +693,7 @@ If we assume that the price will continue to change at the same rate over the mo
 
 
 
-\subsection{Illustrating  Constraints on the bid price}
+\subsection{Illustrating constraints on the bid price}
  
 Buyers calculate their maximum bid based on value, but actual bids are constrained by the mortgage limits imposed by the bank illustrated in Figure~\ref{fig:dual-constraint} and the buyer's savings. The mortgage constraint may or may not bind, depending on the price of the final price. Figure~\ref{fig:savings-constraint} illustrates how these considerations affect the actual bid. 
 
