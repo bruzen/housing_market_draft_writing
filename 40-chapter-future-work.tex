@@ -6,11 +6,8 @@
 
 % In  this chapter, we discuss potential extensions of our basic model. 
 Our goal in this thesis has been to make a simple model that illustrates essential principles. % like the  the Alonzo model \cite{alonsoLocationLandUse1964}. 
-We have sharply restricted our model  in order to focus on one process of significance, financialization, but we have designed the model to accommodate a range of exceptions.  
+We have sharply restricted our model  in order to focus on one process of significance, financialization, but we have designed the model to accommodate a range of exceptions.  In this chapter, we review what we have and then describe potential extensions in each area, along with several examples as well as hypotheses about what those extensions might show/give/produce. 
 
-In this chapter, we review what we have and then describe potential extensions in each area. We focus on extensions to this base model, and selected experiments that this model is well positioned to explore.  This breaks down into four categories, agents, firms and institutions, space, and the boundary. At the end of the chapter there is a brief discussion of directions for future work more broadly.
-
-FIX Explain Figure~\ref{fig-extensions-logic}. % illustrates five general types of extension to the base model.  In each case, we introduce the class and give several examples. 
 
 
 % We have nevertheless designed the model to accommodate a range of extensions to explore questions that are theoretically or interesting or important for policy-makers.
@@ -21,27 +18,22 @@ FIX Explain Figure~\ref{fig-extensions-logic}. % illustrates five general types 
 % \section{Boundary} % 4
 
 
+% \section{What we have in this model}
+In our current model, the central place pays a uniform wage, $w$ to all employees, who have identical preferences and transportation costs where $w$ is an attribute of individual residents. Residents purchase or rent equal quantities of land at differing locations $l$ for identical housing.  There are transportation costs $T$ that depend on distance from the central place, so land close to the central place is more attractive than land farther from the central place.  The equilibrium concept is that a market with identical individuals with identical incomes and transportation costs will result in identical utilities. The result is that land rent must decline with distance from the central place to offset rising transportation cost. The size of the city is determined by population and lot size. Income and transportation costs will interact with lot size. The basic model can be initialized by matching the number of properties to the size of the population. % TODO check this, it is an old description.
+
+We focus on extensions to this base model, and selected experiments that this model is well positioned to explore.  At the end of the chapter there is a brief discussion of directions for future work more broadly. Extensions may be to particular agents, whether residents, firms, investors, or land, or changes in the boundary, flow or connections with the larger system. Broader questions include the potential for understanding urban savings, or the effect of financialization as systems change that this work raises. % TODO Explain Figure~\ref{fig-extensions-logic}. % illustrates five general types of extension to the base model.  In each case, we introduce the class and give several examples. 
+
+% Extensions to this base model can be organized by what part of the model they contribute to residents, firms, investors, land, or other institututions
 
 
-\section{What we have in this model}
-In the simplest model, the central place pays a uniform wage, $w$ to all employees, who have identical preferences and transportation costs. $w$ is an attribute of individual residents. Residents purchase or rent equal quantities of land at differing locations $l$ for identical housing.  
+\section{Residents}
 
-There are transportation costs $T$ that depend on distance from the central place, so land close to the central place is more attractive than land farther from the central place.  
+Residents, currently choose whether to work in the urban center or not, and receive identical wages. They differ in their available resources, the savings they begin/enter with. We can introduce more nuanced agent heterogeneity. They may have different incomes, skills, preferences, or transportation patterns. Much of the complexity of the model is in the financial decision making process, which can be further nuanced. Residents may also act as consumers as well as workers, creating  local consumer demand.
 
-The equilibrium concept is that a market with identical individuals with identical incomes and transportation costs will result in identical utilities. The result is that land rent must decline with distance from the central place to offset rising transportation cost. 
+\subsection{Income differences}
+% The basic model with Income differences: 
 
-The size of the city is determined by population and lot size. Income and transportation costs will interact with lot size. The basic model can be initialized by matching the number of properties to the size of the population. 
-
-
-\section{2 Extensions to agents} % 2
-
-
-At the bottom of the figure we introduce a fourth class of intervention, consumer demand linked to the population structure and feeding back to growth. Savings behaviour becomes more  complex when consumer demand is made endogenous and with as more complex population structure.
-
- The basic model with Income Differences: This may result in segregation by neighbourhood depending on income. 
-
-Income can be purely earning, which requires a distribution of $w$ across agents. Income  might include investment income, which  a private rate of return and a distribution of assets across agents. \footnote{A more subtle model could allow individual wages to be linked to the agglomeration of other workers - say engineers. we can imagine a city that has centres of agglomeration by profession or by complementarity. Depending on the production function, this should emerge endogenously.}
-\footnote{Sufficient investment income could lead individuals to locate in cheap properties at the edge of the city.  Income might also be invested in property affecting the quality of a unit. This would require incorporating unit quality in the attribute list for each property, and introducing a quality preference  in the attribute s of residents.}
+Introducing income differences may result in segregation by neighbourhood depending on income. Income can be purely earning, which requires a distribution of $w$ across agents. Income  might include investment income, which  a private rate of return and a distribution of assets across agents. 
 
 
 
@@ -51,28 +43,27 @@ Income can be purely earning, which requires a distribution of $w$ across agents
 
 %Next buyers request a selection of homes to consider from a real estate agent. Those with higher need for housing look at more homes. The real estate agent offers a selection of homes based on the agent's requirements. A randomness parameter determines how many divergent houses are also considered. When the parameter is 1, the selection of homes is fully randomized, When it is 0, the agent sorts all available homes and offers those which fit the agents budget, space, and other requirements best.
 
-\subsection{Retirement, investors, and private investment properties}
-The simple population turnover in our model can be replaced with a more complex set of possibilities at the agent level.  At retirement,  agents can be allowed to may choose between selling their home, renting it as an income property, or if there is sufficient amenity value for them, staying in the city. Implementing these choices complicates the agent decision and the resulting housing distribution but require few changes to the rest of the model.
+\subsection{Savings, investment, and retirement behaviour}
+The simple agent decision mechanism % population turnover 
+in our model can be replaced with a more complex set of possibilities at the agent level. Sufficient investment income could lead individuals to locate in cheap properties at the edge of the city.  Income might also be invested in property affecting the quality of a unit. This would require incorporating unit quality in the attribute list for each property, and introducing a quality preference  in the attribute s of residents.
 
-\subsection{Savings and retirement behaviour}
-In our model, agents fund their retirement from savings, as well as returns on their home if they have one to sell. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. In the real world, financial institution manages most pensions, investing in the market or in property.  All this institutional structure is probably most easily handled by implementing a savings account for each agent. We are not interested in the detailed investment behaviour for the financial sector.% either in the stock market, or in pensions.
-
-%Institutional and individual investors can access debt. %
-
-We could also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter would control the inflow of additional money beyond local investment in the pension fund. 
-
+At retirement,  agents can be allowed to may choose between selling their home, renting it as an income property, or if there is sufficient amenity value for them, staying in the city. Implementing these choices complicates the agent decision and the resulting housing distribution, and requires few changes to the rest of the model. 
 
 
 \subsection{The consumer city}
-In the real world, much of the demand for what is produced in the city is local consumer demand.  Our model has assumed there is production only for a perfectly elastic export demand. Consumer needs are buried in the subsistence wage. 
 
-A minimal extension would be to introduce a second sector representing local consumption demand. A share of locally generated income would support production for the city's population. The labour force would be split between the two sectors and both productivity and wages might differ across sectors. 
-A more complex treatment would introduce a range of service, entertainment and retail producers. This might be done monopolistically competitive firms \'a la Dixit and Stiglitz \cite{AvinashK.Dixit1977MCaO}.
+% At the bottom of the figure we introduce a fourth 
+Another class of intervention, consumer demand, is linked to the population structure and feeding back to growth. In the real world, much of the demand for what is produced in the city is local consumer demand.  Our model has assumed there is production only for a perfectly elastic export demand. Consumer needs are buried in the subsistence wage. 
+
+A minimal extension would be to introduce a second sector representing local consumption demand. A share of locally generated income would support production for the city's population. The labour force would be split between the two sectors and both productivity and wages might differ across sectors. A more complex treatment would introduce a range of service, entertainment and retail producers. This might be done monopolistically competitive firms as in Dixit and Stiglitz \cite{AvinashK.Dixit1977MCaO}. Savings behaviour would become more complex with endogenous consumer demand. % and with as more complex population structure.
 
 
+\section{Firms}
 
-\section{3 Extensions to firms and institutions} % 3
-The fifth block of extensions illustrated in Figure~\ref{fig-extensions-logic} would replace the simple, scaling-based transmission mechanism in the Alonso-Jacobs cycle with explicit firm and labour market behaviour. This class of extensions is obviously linked to population structure. It leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour.
+Firm behaviour might also be enriched. 
+% The fifth block of extensions illustrated in Figure~\ref{fig-extensions-logic} would 
+We might replace the simple, scaling-based transmission mechanism in the Alonso-Jacobs cycle with explicit firm and labour market behaviour. % This class of extensions is obviously linked to population structure.
+This leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour. \
 
 \subsection{Making labour market and firm behaviour explicit}
 
@@ -87,6 +78,7 @@ This made sense because our focus  was on the housing market and the financial s
 
 The scaling literature also provides relationships between density and population and infrastructure cost and population that we can explore in the same way. In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is perfectly consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
 
+** A more subtle model could allow individual wages to be linked to the agglomeration of other workers - say engineers. we can imagine a city that has centres of agglomeration by profession or by complementarity. Depending on the production function, this should emerge endogenously.
 
 \subsection{Labour adjustment costs}
 
@@ -99,12 +91,16 @@ when people would stop working with
  too much rent, I guess they leave, they can always move somewhere
 
 
-\section{Investors?}
+\section{Investors}
 
 what does a speculative over investment do? 
 
+Agents may fund their retirement from savings, as well as returns on their home if they have one to sell. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. In the real world, financial institution manages most pensions, investing in the market or in property.  This institutional structure might be handled by implementing a savings account for each agent. %We are not interested in the detailed investment behaviour for the financial sector.% either in the stock market, or in pensions.
+%Institutional and individual investors can access debt. %
+We could also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter would control the inflow of additional money beyond local investment in the pension fund. 
 
-\section{Land market}
+
+\section{Land}
 
 \subsection{Rental bidding process}
  "Just as with prices, there is an economically \gls{warranted rent} which may differ from the \gls{market rent}. Individuals make their investment decisions on their own expectations rents. the bidding process on rental properties is abstracted in the base model. Instead of modelling the process explicitly, we make the assumption that the warranted rent is the market rent, $\mathcal{R}_W = \mathcal{R}_M$." .. could implement
@@ -113,23 +109,6 @@ what does a speculative over investment do?
 \subsection{Transaction costs}
 From model chapter ``Transaction costs on the sale are omitted. They are actually large. We can easily add a term to  Equation~\ref{eqn:maximum-bid} to examine the effect of transaction costs on the distribution of wealth.''
 
-\section{Cities and institutions}
-\subsection{Urban savings}
-% TODO THIS IS A CONTRIBUTION, BUT ALSO A DISCUSSION OF ONE WAY THIS WORK COULD BE EXTENDED, MIXED WITH A BIT OF MODEL DESCRIPTION
-
-Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require  savings at two levels. First, since we want to incorporate  households home ownership and a relationship to the financial sector through mortgages, We specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
-
-Homeowners in addition have equity $E=P-M$ in their homes. % ({\color{red}Should newcomers also have equity? or is it built into the savings. Clarify this.} 
-
-A second level of saving is the  investment in capital out of the city surplus. Even raising this question puts us into terra incognita. There are many  channels through which surplus flows into productive investment in the urban contest. One is through public investment in infrastructure. We have discussed how falling transportation costs increase surplus generation. Investments like this are made slowly and take effect over time periods much longer than our model is concerned with.  We can set a property tax rate   that we will assume is sufficient to maintain the stock of infrastructure.
-
-Public and private investment in human capital is largely urban as well, but as with infrastructure, investment and response take effect over time periods much longer than our model is concerned with. 
-
-Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
-
-We deal with this issue by linking local capital ownership with the scale factor. It is known that local ownership is associated with local investment. We will assume that local capital ownership, which consists in part of local ownership of the housing stock, can be proxied by homeowner equity as a share of local. 
-
-\section{1 Extensions to space} % 1
 
 introduce a housing production sector. This appears on the right side of of the figure linked to the banking sector. It requires adding a dynamic housing stock. 
 
@@ -231,23 +210,8 @@ This is achieved by making lot size a choice variable for households, in which c
 This is achieved by allowing stacking of housing units. Results for this model are not known. This introduces a step change in housing form, and emphasizes unit size.
 \end{enumerate}
 
-There are also combinations of these.
 
-\begin{enumerate}
-
-\item \textbf{YL: The basic model with earnings (Y) differences and variable lot size}
-The wealthy would likely larger homes and lots farther form the centre
-
-This model would likely produce some interesting spatial patterns, especially if couples with the possibility of secondary central places.
-
-\item \textbf{YS: The basic model with earnings (Y) differences, constant lot size and variable density}
-
-This model should produce some interesting spatial patterns, especially if coupled with the possibility of secondary central places.
-
-\end{enumerate}
-
-
-\section{4 Extensions to boundary} % 4
+\section{Boundary} % 4
 The simple circular city can be extended to to produce other forms, including polycentric cities and hierarchies of cities at the cost of additional computational complexity. The simple case we examine will allows us to focus on the general, and neglected, distributional features of this class of models.
 
 Linked to the labour market and production system is the possibility of introducing competing cities. 
@@ -315,21 +279,53 @@ Modern cities are not lonely and autarkic  beasts wandering their own exclusive 
 
 
 
+
 \section{Directions for future work more broadly}
 
 
 The effects of policy are large. For example in Canada, backing mortgages is the largest fiscal investment at the national level \cite{nemtinFinancializationHousingSocial2021}.
 
+\subsection{Urban savings}
+% TODO THIS IS A CONTRIBUTION, BUT ALSO A DISCUSSION OF ONE WAY THIS WORK COULD BE EXTENDED, MIXED WITH A BIT OF MODEL DESCRIPTION
 
-\subsection{Combinatorial effects of modelling}
+Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require  savings at two levels. First, since we want to incorporate  households home ownership and a relationship to the financial sector through mortgages, We specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
 
-There are many more possible models than this, and these extensions combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions.  A model incorporating in binary choices is one of an implicit family of $2^n$ alternative models. 
-They also describe a particular logic, which may be explored or studied in any particular region or context, drawing on local data and estimated parameter values. The context will also suggest, in many cases theoretical extensions, or particular questions.
+Homeowners in addition have equity $E=P-M$ in their homes. % ({\color{red}Should newcomers also have equity? or is it built into the savings. Clarify this.} 
 
-% In practice these are combinatoric, each experiment may be combined with many others. We don't go into details on rich set of ways this model may be connected or be a part in the models of others (DEREK'S), for instance replacing the stylized model of transportation costs with rich empirical model of a transportation system as a dynamic system like that in the work of XX, or replace the representative urban firm model with an evolving system of agent based firms \cite{axtellDynamicsFirmsData2024}. 
+A second level of saving is the  investment in capital out of the city surplus. Even raising this question puts us into terra incognita. There are many  channels through which surplus flows into productive investment in the urban contest. One is through public investment in infrastructure. We have discussed how falling transportation costs increase surplus generation. Investments like this are made slowly and take effect over time periods much longer than our model is concerned with.  We can set a property tax rate   that we will assume is sufficient to maintain the stock of infrastructure.
+
+Public and private investment in human capital is largely urban as well, but as with infrastructure, investment and response take effect over time periods much longer than our model is concerned with. 
+
+Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
+
+We deal with this issue by linking local capital ownership with the scale factor. It is known that local ownership is associated with local investment. We will assume that local capital ownership, which consists in part of local ownership of the housing stock, can be proxied by homeowner equity as a share of local. 
+
+\subsection{Financialization as system change} \label{section-system}
+We established that, at least in theory, financial institutions and the wealthy are likely to own increasing shares of the housing stock. The theoretical conclusions is consistent with what has already happened in the Canadian Housing market. Recent data from Statistics Canada \cite{fontaineResidentialRealEstate2023} suggests people who own more than one property in Ontario make up more than 25\% of buyers in the province. (The proportion of investors among owners varied from 20.2\% in Ontario to 31.5\% in Nova Scotia.)
+Just under one in five properties overall was used as an investment.
+In Ontario 41.9\% of condominium apartments are investment properties \cite{statisticscanadaBuyRentHousing2022}.
+
+The immediate social implications are fairly obvious. As Statistics Canada points out, these trends might limit the number of properties available to buyers who intend to use it as a primary place of residence  \cite{fontaineResidentialRealEstate2023}. Statistics Canada reports that latest census release, two-thirds of Canadians owned a home in 2021, down from a peak of 69 per cent a decade earlier. The decline is was higher for younger members of the population. 
+
+When the homeownership rate goes down, the rental rate goes up. The 2021 Canadian Housing Survey reported that the number of renter households increased  at over twice the pace of owner households, pushing down the homeownership rate in Canada. If the trends continue, Urban Canada will gradually change from a society dominated by homeowners to a predominantly tenant society. Since wealthier buyers are advantaged in the market, the younger and poorer parts of the community will be increasingly excluded from ownership. Financialization will increase income and asset inequality in cities.
+
+Combined with rising housing prices the effect will be to squeeze lower-wage households closer to what we have termed to subsistence level and make it harder for low-wage workers to live in the city. The city requires low-wage workers for many of the services, so labour shortages are a possibility. Labour shortages will squeeze some activities out of the city and are likely to reduce productivity. Labour shortages may push up wages, but in rental markets, landlords can capture much of any increase in wages. 
+
+The incentive structure in our model was derived purely from the point of view of an individual investor. Examination shows that investment incentives favour the wealthy and institutional buyers, but that does not necessarily imply that the process of financialization will drive social transformations. Individual choices are at most  a link in the chain. Modelling  allows us to identify which parameters are most influential. 
+
+A question that is especially important is whether the process of financialization and tenentization our micro model suggests is reversible:  high levels of home ownership we have seen throughout the 20$^{th}$ century, as Purdy 
+
+\section{Analysis and experiments}
+
+In the above sections, we've detailed several promising directions for future work using this base model, as well as ways to expand the model, and connect with other work. In each case it's possible to more experiments, to more fully characterize the model, to integrate it with data, as well as to combine experiments to explore phenomena. 
 
 
-Extensions from this basic model can go in several directions. We treat three categories of extension to this model:
+
+
+
+including with more comprehensive sensitivity and xx analysis, and analysis of the nonlinear dynamics, hysteresis and resilience properties, 
+
+
 
 \begin{enumerate}
     \item extension to the model, 
@@ -340,7 +336,7 @@ Extensions from this basic model can go in several directions. We treat three ca
 MODEL
 
 DATA
-n each case, to make claims about the world, whether preditive or explanatory, that go beyond illustration and 
+n each case, to make claims about the world, whether predictive or explanatory, that go beyond illustration and 
 theoretical exposition, requires engagement with data.  %Also possibl eot change the purpose of modelling
 
 IT SIMPLIFIES THE MODEL IN VARIOUS WAYS - SUMMARISE - DON'T REPRESENT THE ACTUAL FEATURES OF CITIES COULD ADD EXTENSIONS THAT REPRESENT THE ACTUAL FEATURES OF CITIES IN ALL THESE AREAS
@@ -387,20 +383,32 @@ The size of the city is determined by population and lot size. Income and transp
 mapping of regimes
 
 
-\subsection{Financialization as system change} \label{section-system}
-We established that, at least in theory, financial institutions and the wealthy are likely to own increasing shares of the housing stock. The theoretical conclusions is consistent with what has already happened in the Canadian Housing market. Recent data from Statistics Canada \cite{fontaineResidentialRealEstate2023} suggests people who own more than one property in Ontario make up more than 25\% of buyers in the province. (The proportion of investors among owners varied from 20.2\% in Ontario to 31.5\% in Nova Scotia.)
-Just under one in five properties overall was used as an investment.
-In Ontario 41.9\% of condominium apartments are investment properties \cite{statisticscanadaBuyRentHousing2022}.
 
-The immediate social implications are fairly obvious. As Statistics Canada points out, these trends might limit the number of properties available to buyers who intend to use it as a primary place of residence  \cite{fontaineResidentialRealEstate2023}. Statistics Canada reports that latest census release, two-thirds of Canadians owned a home in 2021, down from a peak of 69 per cent a decade earlier. The decline is was higher for younger members of the population. 
 
-When the homeownership rate goes down, the rental rate goes up. The 2021 Canadian Housing Survey reported that the number of renter households increased  at over twice the pace of owner households, pushing down the homeownership rate in Canada. If the trends continue, Urban Canada will gradually change from a society dominated by homeowners to a predominantly tenant society. Since wealthier buyers are advantaged in the market, the younger and poorer parts of the community will be increasingly excluded from ownership. Financialization will increase income and asset inequality in cities.
 
-Combined with rising housing prices the effect will be to squeeze lower-wage households closer to what we have termed to subsistence level and make it harder for low-wage workers to live in the city. The city requires low-wage workers for many of the services, so labour shortages are a possibility. Labour shortages will squeeze some activities out of the city and are likely to reduce productivity. Labour shortages may push up wages, but in rental markets, landlords can capture much of any increase in wages. 
 
-The incentive structure in our model was derived purely from the point of view of an individual investor. Examination shows that investment incentives favour the wealthy and institutional buyers, but that does not necessarily imply that the process of financialization will drive social transformations. Individual choices are at most  a link in the chain. Modelling  allows us to identify which parameters are most influential. 
+\subsection{Combinatorial effects of modelling}
 
-A question that is especially important is whether the process of financialization and tenentization our micro model suggests is reversible:  high levels of home ownership we have seen throughout the 20$^{th}$ century, as Purdy 
+% Extensions from this basic model can go in several directions. We treat three categories of extension to this model:
+There are many more possible models than this, and these extensions combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions.  A model incorporating in binary choices is one of an implicit family of $2^n$ alternative models. 
+They also describe a particular logic, which may be explored or studied in any particular region or context, drawing on local data and estimated parameter values. The context will also suggest, in many cases theoretical extensions, or particular questions.
+
+
+There are also combinations all of these above, for instance:
+
+\begin{enumerate}
+
+\item  The basic model with earnings differences and variable lot size: 
+The wealthy would likely larger homes and lots farther form the centre
+
+This model would likely produce some interesting spatial patterns, especially if couples with the possibility of secondary central places.
+
+\item The basic model with earnings (Y) differences, constant lot size and variable density: This model should produce some interesting spatial patterns, especially if coupled with the possibility of secondary central places.
+
+\end{enumerate}
+
+% In practice these are combinatoric, each experiment may be combined with many others. We don't go into details on rich set of ways this model may be connected or be a part in the models of others (DEREK'S), for instance replacing the stylized model of transportation costs with rich empirical model of a transportation system as a dynamic system like that in the work of XX, or replace the representative urban firm model with an evolving system of agent based firms \cite{axtellDynamicsFirmsData2024}. 
+
 
 
 \section{Summary}
