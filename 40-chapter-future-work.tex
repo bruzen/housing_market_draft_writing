@@ -49,6 +49,9 @@ in our model can be replaced with a more complex set of possibilities at the age
 
 At retirement,  agents can be allowed to may choose between selling their home, renting it as an income property, or if there is sufficient amenity value for them, staying in the city. Implementing these choices complicates the agent decision and the resulting housing distribution, and requires few changes to the rest of the model. 
 
+\subsection{Rental bidding process}
+Just as with prices, there is an economically \gls{warranted rent} which may differ from the \gls{market rent}. Individuals make their investment decisions on their own expectations rents. the bidding process on rental properties is abstracted in the base model. Instead of modelling the process explicitly, we make the assumption that the warranted rent is the market rent, $\mathcal{R}_W = \mathcal{R}_M$." .. could implement an explicit rental market to model rental prices explicitly.
+
 
 \subsection{The consumer city}
 
@@ -60,57 +63,52 @@ A minimal extension would be to introduce a second sector representing local con
 
 \section{Firms}
 
-Firm behaviour might also be enriched. 
+Firm behaviour might also be enriched. We have  developed the link between neoclassical growth theory and the literature on urban scaling \cite{bettencourtIntroductionUrbanScience2021} and  We then imposed the scaling result on our model.  We force the model to conform to the empirical data on the relationship between population and productivity. This amounts to black-boxing the entire production and labour demand sector as well as the construction and housing production sector. 
 % The fifth block of extensions illustrated in Figure~\ref{fig-extensions-logic} would 
 We might replace the simple, scaling-based transmission mechanism in the Alonso-Jacobs cycle with explicit firm and labour market behaviour. % This class of extensions is obviously linked to population structure.
-This leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour. \
+This leads to consideration of firms that produce different products, some for export some for the local market, and to multiple types of labour.
 
 \subsection{Making labour market and firm behaviour explicit}
 
-We incorporate agglomeration effects using a Cobb Douglas formulation. This allows us to focus on the results of agglomeration in the urban system, rather than specifying the system of firms that transmit the effect. 
-There are a number of other ways to study the aglomeration process in more or less explicit ways.
+Firm behavour could be modelleled explicitly. We incorporate agglomeration effects using a Cobb Douglas formulation. This allows us to focus on the results of agglomeration in the urban system, rather than specifying the system of firms that transmit the effect. 
+There are a number of other ways to study the aglomeration process in more or less explicit ways. We could representative several representative classes of firms. There are also very large models. 
+% This made sense because our focus  was on the housing market and the financial sector, but the model we have constructed will allow us to ``fill the black box'' with more complete models of the production and labour market to see how they compare to the empirical data. 
+A  model could allow individual wages to be linked to the agglomeration of other workers - say engineers. we can imagine a city that has centres of agglomeration by profession or by complementarity. Depending on the production function, this should emerge endogenously. The model could get large. Axtell models explicitly a whole system of all firms in the US market interacting according to simple rules \cite{axtellDynamicsFirmsData2024}. It would be interesting to study the effects of space and local firm structure and opportunity, with interacting firms and financialization in the land market. 
 
-..
+\subsection{Infrastructure costs}
+The scaling literature also provides relationships between density and population and infrastructure cost and population that we can explore in the same way. In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
 
-We have carefully developed the link between neoclassical growth theory and the literature on urban scaling \cite{bettencourtIntroductionUrbanScience2021} and  We then imposed the scaling result on our model.  We force the model to conform to the empirical data on the relationship between population and productivity. This amounts to black-boxing the entire production and labour demand sector as well as the construction and housing production sector. 
 
-This made sense because our focus  was on the housing market and the financial sector, but the model we have constructed will allow us to ``fill the black box'' with more complete models of the production and labour market to see how they compare to the empirical data. 
+\subsection{Unemployment and labour adjustment costs}
 
-The scaling literature also provides relationships between density and population and infrastructure cost and population that we can explore in the same way. In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is perfectly consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
-
-** A more subtle model could allow individual wages to be linked to the agglomeration of other workers - say engineers. we can imagine a city that has centres of agglomeration by profession or by complementarity. Depending on the production function, this should emerge endogenously.
-
-\subsection{Labour adjustment costs}
-
-in the agent model, employees are simply laid off and seek work, so there is unemployment, but there are not \glspl{labour adjustment cost} for firms.
-
-There is no unemployment. there are no labour adjustment costs for firms. ***INTERESTING TO THINK ABOUT  
-when people would stop working with
-
- falls to subsistence wage -
- too much rent, I guess they leave, they can always move somewhere
-
+We could introduce unemployment and \glspl{labour adjustment cost} for firms. %***INTERESTING TO THINK ABOUT  when people would stop working with % falls to subsistence wage - too much rent, I guess they leave, they can always move somewhere
+% in the agent model, employees are simply laid off and seek work, so there is unemployment, but there are not \glspl{labour adjustment cost} for firms.
 
 \section{Investors}
 
-what does a speculative over investment do? 
+Much of the richness of this model is in the specification of agent investment behaviour. 
 
-Agents may fund their retirement from savings, as well as returns on their home if they have one to sell. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. In the real world, financial institution manages most pensions, investing in the market or in property.  This institutional structure might be handled by implementing a savings account for each agent. %We are not interested in the detailed investment behaviour for the financial sector.% either in the stock market, or in pensions.
-%Institutional and individual investors can access debt. %
+\section{Speculation, forcing, and business cycles}
+There are many areas to explore in terms of the dynamics of the model. 
+For example what is the effect of speculative over-investment as expectations rise and fall? What are the effects of business cycles.  
+
+\section{Investment fund modelling}
+Agents may fund their retirement from savings, as well as returns on their home if they have one to sell. Savings may be invested in a pension fund, or in local property,  depending on expected risks and returns. In the real world, financial institution manages most pensions, investing in the market or in property.  This institutional structure might be handled by implementing a savings account for each agent. % We are not interested in the detailed investment behaviour for the financial sector.% either in the stock market, or in pensions.
+% Institutional and individual investors can access debt. %
 We could also consider a case where outside money can come under institutional management, not just local retirement savings. A parameter would control the inflow of additional money beyond local investment in the pension fund. 
+
+\subsection{Transaction costs}
+Transaction costs on the sale of property are omitted. They are actually large. We can easily add a term to  Equation~\ref{eqn:maximum-bid} to examine the effect of transaction costs on the distribution of wealth.
+
 
 
 \section{Land}
 
-\subsection{Rental bidding process}
- "Just as with prices, there is an economically \gls{warranted rent} which may differ from the \gls{market rent}. Individuals make their investment decisions on their own expectations rents. the bidding process on rental properties is abstracted in the base model. Instead of modelling the process explicitly, we make the assumption that the warranted rent is the market rent, $\mathcal{R}_W = \mathcal{R}_M$." .. could implement
+We could also add nuance to the modelling of land and space.
 
 
-\subsection{Transaction costs}
-From model chapter ``Transaction costs on the sale are omitted. They are actually large. We can easily add a term to  Equation~\ref{eqn:maximum-bid} to examine the effect of transaction costs on the distribution of wealth.''
 
 
-introduce a housing production sector. This appears on the right side of of the figure linked to the banking sector. It requires adding a dynamic housing stock. 
 
 separable from production is to introduce variation of housing form,  density and amenity. Zoning restrictions and building codes are related. Many questions about who gets what housing arise at this point. 
 
@@ -126,14 +124,16 @@ To see how, consider an expenditure that decreases transport costs.  A crude ver
 
 The theory implies that transportation improvements that reduce the cost of travelling to work should  affect affect rents, but effect may spillover or leakage  onto wages  at the centre or allow for city expansion at the edge.   The degree of spillover will be very sensitive to the relative elasticities of demand and supply  for labour, land, consumption, and local densities. These leakages will reduce the amount of the social gain captured as land rent. We  have not built the elasticities into our model so we cannot make predictions for specific cities or situations. We know, however, that who gets the rents in determined by the degree of financial ownership of  the housing stock. This we can and will explore. 
 
-We can derive qualitative results. Fore example, if reducing transportation costs make more land economically available for city expansion, increased supply should reduce land rents at the centre and increase labour supply, reduce wages and increase output.  But what if land is not cheap at the edge of the city and density cannot adjust? The city cannot  grow. The decrease in transportation cost will increase  the effective wage, and will have a bigger effect the farther  a household resides from the centre. ($\partial{\omega-cd}{c}>0$) and rents in the periphery will rise. With a fixed population they should therefore fall at the centre. But the locational rent at the centre is equal to the wage premium, so there should also be downward pressure on the wage, but not labour costs, making labour more available for the same wage premium. The effect on rents land rents may vary. If transportation cost keeps falling and lots of land is available, then you don't get strong increases in land prices. If there are strong differentials, that gives you the class result in the city, but doesn't tell you how it would affect it. 
+We can derive qualitative results. For example, if reducing transportation costs make more land economically available for city expansion, increased supply should reduce land rents at the centre and increase labour supply, reduce wages and increase output.  But what if land is not cheap at the edge of the city and density cannot adjust? The city cannot  grow. The decrease in transportation cost will increase  the effective wage, and will have a bigger effect the farther  a household resides from the centre. ($\partial{\omega-cd}{c}>0$) and rents in the periphery will rise. With a fixed population they should therefore fall at the centre. But the locational rent at the centre is equal to the wage premium, so there should also be downward pressure on the wage, but not labour costs, making labour more available for the same wage premium. The effect on rents land rents may vary. If transportation cost keeps falling and lots of land is available, then you don't get strong increases in land prices. If there are strong differentials, that gives you the class result in the city, but doesn't tell you how it would affect it. 
 
 \subsection{Housing production}
-subdivision and density
+
+Financialization is not expansion of the housing stock, it is transfer of ownership. It is a process orthogonal to development. 
+We could also introduce a housing production sector. This appears on the right side of of the figure linked to the banking sector. It requires adding a dynamic housing stock. Either dirrectly in the equations or explicitly by modeling the actions of agents aquiring and developing land. % to subdivide and develop. 
 
 % \subsection{Financialization vs expansion of the housing stock}
 
-Financialization is not expansion of the housing stock, it is transfer of ownership. It is a process orthogonal to development.
+
 
 % - it can lead to efforts to extract more rents by displacing people to invest in a shift in built form.
 There are a number of potential links with the development process.
@@ -278,7 +278,9 @@ Modern cities are not lonely and autarkic  beasts wandering their own exclusive 
 
 
 
-
+\subsection{Business cycles}
+How does this connect with a business cycle. e.g. driving it with price singals connects this with a whole body of work with e.g. the work of Fabrice Collard. 
+% http://fabcol.free.fr/publi.html - in particular 
 
 \section{Directions for future work more broadly}
 
