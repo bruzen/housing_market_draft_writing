@@ -8,43 +8,38 @@
 % MAYBE PUT WITH PART IN METHODOLOGY ABOUT NEO_CLASSICAL AND CLASSICAL ECON - THIS SEEMS LIKE SPECIFICS OF THAT BROADER PIECE
 }
 
-In this section we are describing how we embed a model of diminishing returns to scale firms within an increasing returns to scale economy. 
-We assume there are many firms operating at their optimal scale in both the rural and urban sector, but the production function of the urban firm is augmented by the term $N^\gamma$. 
+In this section we describe in more detail how we embed a model of diminishing returns to scale firms within an increasing returns to scale economy. We assume there are many firms operating at their optimal scale in both the rural and urban sector, but the production function of the urban firm is augmented by the term $N^\gamma$. 
 
 % NOTE ON EXPONENTS
 
-We need to distinguish the parameters of production functions for rural and urban firms and for the city as a whole. We assume that rural and  urban firms use the same Cobb-Douglas technology ${y_R}=A_Fk^{\alpha_F}n^{\beta_F}$. The difference is that the urban firm enjoys a multiplicative agglomeration externality $N^\gamma$, so ${y_U}=A_FN^\gamma  k^{\alpha_F}n^{\beta_F}$. We assume $\gamma$ is zero for the rural firm. 
+We distinguish the parameters of production functions for rural and urban firms and for the city as a whole. We assume that rural and urban firms use the same Cobb-Douglas technology ${y_R}=A_Fk^{\alpha_F}n^{\beta_F}$. The difference is that the urban firm enjoys a multiplicative agglomeration externality $N^\gamma$, so ${y_U}=A_FN^\gamma  k^{\alpha_F}n^{\beta_F}$. We assume $\gamma$ is zero for the rural firm. 
 
 We set $\alpha_F$ and $\beta_F$ as a parameters for firms. We assume that $\alpha_F+\beta_F<1$, so that firms exhibit decreasing returns to scale.  We then calculate a value for $\gamma$ consistent with the strength of the observed agglomeration effects. 
 
-
 With these assumptions we have an aggregate production function for the city that exhibits increasing returns to aggregate labour, $N$,  which we write $Y=AN^\beta$. Where $\beta$ for the city as a whole, differs from $\beta_F$ for the individual firm, because of agglomeration effects. 
-
-
 
 In the model, firms adjust labour and capital to the profit-maximizing levels given the wage. % and size of the aggregate workforce. We now describe the behaviour of the firm sector. 
 %In each period we have the size of the existing workforce $N$ and the number of firms $F$ and $k_t$.  %\footnote{We also inherit the size of the existing firms. We can simplify by assuming firms do not change their capital stocks as wages change. This would be incorrect but would do as a first approximation. }
-Firm output is given by
+Firm output is given by:
 
 \begin{equation}
-    {y}_t= A_FN_t^\gamma k_t^{\alpha_F}n_t^{\beta_F} \label{eqn-urban-firm-output}
+    {y}_t= A_FN_t^\gamma k_t^{\alpha_F}n_t^{\beta_F}, \label{eqn-urban-firm-output}
 %    Y_t=& N_ty^\gamma y^\]  
 \end{equation}
-$\gamma$ is drawn from the agglomeration literature.% but $A$ must be calculated to.
+where $\gamma$ is drawn from the agglomeration literature.% but $A$ must be calculated to.
 
 The output equation, differentiated with respect to  $n$, yields the marginal product of labour (MPL). Simplifying by substituting back in $y_t/n_t$. %n^epxonent -1 pull out and put n underneath
-\begin{equation}MPL_{t} = \frac{\beta_{F}P{y}_{t}} {n_t} \label{eqn-urban-firm-mpl}
+\begin{equation}MPL_{t} = \frac{\beta_{F}P{y}_{t}} {n_t}. \label{eqn-urban-firm-mpl}
 \end{equation} 
-Following the rule for profit-maximizing firms, the firm should hire until the marginal product of labour is equal to the wage, $MPL_t= {\omega_t + \psi + oveerhead}$. This describes the individual firm's demand for labour.\footnote{Firms don't take into account the overall effect on productivity due to every other firm increasing their labour force at the same time. } 
+Following the rule for profit-maximizing firms, the firm should hire until the marginal product of labour is equal to the wage, $MPL_t= {\omega_t + \psi +}$ overhead. This describes the individual firm's demand for labour, which doesn't take into account the overall effect on productivity due to every other firm increasing their labour force at the same time. 
 
-Firm demand for labour determines the wage, which ten drives labour supply. 
-Firms are identical, so the number of firms increases to absorb the labour supply
+Firm demand for labour determines the wage, which then drives labour supply. Firms are identical, so the number of firms increases to absorb the labour supply.
 
 %\begin{equation}N_{exist,t+1}^{target} = \frac{n^{target}_{t+1}}{n_{t}} N_t\end{equation}   
 
 
-Firms also adjust their capital stock as the relative price of labour rises. We can compute the marginal product of capital in the same way we calculated the marginal product of labour, by differentiating the output equation with respect to capital]:
-\begin{equation} MPK_t = \frac{\alpha_{F}\ P{y}_{t}}{k_{t}} \label{eqn-urban-firm-mpk}
+Firms also adjust their capital stock as the relative price of labour rises. We can compute the marginal product of capital in the same way we calculated the marginal product of labour, by differentiating the output equation with respect to capital:
+\begin{equation} MPK_t = \frac{\alpha_{F}\ P{y}_{t}}{k_{t}}. \label{eqn-urban-firm-mpk}
 \end{equation} 
 The revised $MPK$ should equal their cost of capital, $r_F$. % and adjust the capital stock so that the MPK$_t$ is equal to $r_F$. 
 
@@ -79,17 +74,16 @@ where  $y_t^{target}$  is calculated using $n^{target}_{t+1}$. % into Equation~\
 % F_t^{target}= \frac{n^{target}_{t+1}}{n_{t}}F_t
 % \end{equation} 
 
-Taking into account firm growth and growth in the number of firms the target towards which the population would be adjusting  is 
+Taking into account firm growth and growth in the number of firms the target towards which the population would be adjusting  is: 
 
  \begin{align}
-N_t^{target}&=F_t^{target}n_t^{target}
+N_t^{target}&=F_t^{target}n_t^{target}. 
 % \\
 %  %           &= \frac{n^{target}_{t+1}}{n_{t}}F_t\  n_{t+1}^{target}\\
 %             &= \frac{(n^{target}_{t+1})^2}{n_{t}}F_t
 \end{align} 
-where $n^{target}_{t+1}$ is given by Equation ~\ref{eqn-urban-firm-target}.  
-
-The precise value of this hypothetical target does not matter because the adjustment will be spread over several periods. We assume a partial adjustment of the form
+% where $n^{target}_{t+1}$ is given by Equation ~\ref{eqn-urban-firm-target}.  
+The precise value of the hypothetical target is less important because the adjustment is spread over several periods. % We assume a partial adjustment of the form:
 
 
 

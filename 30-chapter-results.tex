@@ -13,14 +13,17 @@ In this chapter, we describe the model results relevant to these hypotheses and 
 \item Transportation costs
 \item Urban density
 \item The sensitivity of the cost of borrowing to borrower wealth
-\item And the property tax rate
+\item The property tax rate
 \end{enumerate}
 
 The base model gives results for the ownership and class structure effects. When we then add a link between financialization and productivity we see the effects on urban productivity. 
 
+It is important to remember Transportation cost that we are reporting qualitative, not quantitative results. We illustrate dramatic policy changes and strong productivity linkages to ensure the qualitative impacts are easy to identify. Without strong empirical support for the size of model parameters we little about the magnitudes of any effects although we can have some confidence in the directions and relative sizes.  
+
+
 \section{Ownership results}
 We begin with the first hypothesis that in %an \Gls{Alonzo-Jacobs model},
-the financial sector will tend to take over a growing share of property ownership within a city. 
+the financial sector will acquire a growing share of property ownership within a city. 
 % \chapter{Ownership} \label{chapter-ownership}
 % 'cg_tax_invest': [1.0, 0.5, 0], # done
 % 'cg_tax_per': [1.0, 0.5, 0], # dr done
@@ -33,27 +36,29 @@ the financial sector will tend to take over a growing share of property ownershi
 % FIGURES IN _plots folder with chaty in the  _code folder
 
 % interest rates - check impact in code
-% FIX. THIS DOESN'T REALLY LAY OUT WHAT WE'LL DO WITH THE REST OF THE CHAPTER
+% FIX. THIS DOESN'T LAY OUT WHAT WE'LL DO WITH THE REST OF THE CHAPTER
 
 % \section{Ownership of housing}
-With plausible parameter settings, our baseline model consistently produces an evolutionary trajectory of class ownership of housing similar to that illustrated in Figure ~\ref{fig:Baseline_ownership_trajectory}. 
-This means that without countervailing forces, financial actors will take an increasing share of ownership in a housing market. 
 
-The section of the model that we call the \gls{Alonso-Jacobs model}, produces demand for land. In the housing market section, land agents bid for land. Competition between would-be owner-occupiers and investors results in an evolving allocation of ownership of land. Within the model, properties are put up for sale, financial actors purchase and increasing number because they have advantages over private buyer. Primarily these advantages are related to increased ability to access capital and are based on realistic parameter values. 
+
+Figure~\ref{fig:outcomes} illustrates the process. At the bottom of of the figure, the \gls{Alonso-Jacobs model} produces demand for land and drives population. In the housing market section, land agents bid for land. Competition between would-be owner-occupiers and investors results in an evolving allocation of ownership of land. Within the model, properties are put up for sale, financial actors purchase an increasing number because they have advantages over private buyers. Primarily these advantages are related to increased ability to access capital and are based on realistic parameter values. The behaviour of the model agents combine to produce the results at the top of Figure~\ref{fig: outcomes}. 
+
+With plausible parameter settings, our baseline model consistently produces an evolutionary trajectory of class ownership of housing similar to that illustrated in Figure ~\ref{fig: Baseline_ownership_trajectory}. 
+This means that without countervailing forces, financial actors will take an increasing share of ownership in the housing market. 
 \begin{figure}
 \centering
 \begin{tikzpicture}
-  \node at (0,0) (1) {URBAN/PRODUCTION PLATFORM};
-   \node[above=1mm of 1] (A1) {$\uparrow$};
+  \node at (0,0) (1) {\textbf{URBAN STRUCTURE-PRODUCTION PLATFORM}};
+   \node[above=-1mm of 1] (A1) {$\uparrow$};
    \node[above=1mm of A1] (Pop) {POPULATION};
-   \node[above=1mm of Pop] (APop) {$\uparrow$};
-   \node[above=1mm of APop]  (3) {BIDS};
-   \node[above=1mm of 3] (4) {$\uparrow$};
-   \node[above=1mm of 4] (5) {OWNERSHIP};
-   \node[above=1mm of 5] (6) {$\uparrow$};
-   \node[above=1mm of 6] (7) {RENT DISTRIBUTION};
-   \node[above=1mm of 7] (ARent) {$\uparrow$};
-    \node [above=1mm of ARent, text width= 6cm, text centered] {Tenant sojourner cities\\ Eviction of families from cities\\Growing inequality\\ End of urban home-owning class};
+   \node[above=-1mm of Pop] (APop) {$\uparrow$};
+   \node[above=-1mm of APop]  (3) {BIDS};
+   \node[above=-1mm of 3] (4) {$\uparrow$};
+   \node[above=-1mm of 4] (5) {OWNERSHIP};
+   \node[above=-1mm of 5] (6) {$\uparrow$};
+   \node[above=-1mm of 6] (7) {RENT DISTRIBUTION};
+   \node[above=-1mm of 7] (ARent) {$\uparrow$};
+    \node [above=1mm of ARent, text width= 6cm, text centered] {Growing inequality\\Tenant sojourner cities\\ Eviction of families from cities\\ End of urban home-owning class};
    % \node[above=1mm of 1] (2) {$\uparrow$};
    % \node[above=1mm of 2] (3) {Growing inequality};
    % \node[above=1mm of 3] (4) {$\uparrow$};
@@ -61,11 +66,11 @@ The section of the model that we call the \gls{Alonso-Jacobs model}, produces de
    % \node[above=1mm of 5] (6) {$\uparrow$};
    % \node[above=1mm of 6] (7) {Tenant sojourner cities};
 \end{tikzpicture}
-\caption{TODO}
-\label{fig:enter-label}
+\caption{The platform, the process, and the outcomes}
+\label{fig:outcomes}
 \end{figure}
 
- Figure ~\ref{fig:Baseline_ownership_trajectory} shows an initial situation with close to 100 owner-occupiers and a small number of investor-owners. Although the number of owner-occupiers grows in the initial period in Figure ~\ref{fig:Baseline_ownership_trajectory}, over time financial capital acquires an increasing share of the housing stock. By the time the city reaches its maximum size, the city has been transformed from a city of homeowners to a city of tenants.
+ Figure ~\ref{fig: Baseline_ownership_trajectory} shows an initial situation with close to 100 owner-occupiers and a small number of investor-owners. Although the number of owner-occupiers grows in the initial period in Figure ~\ref{fig: Baseline_ownership_trajectory}, over time financial capital acquires an increasing share of the housing stock. By the time the city reaches its maximum size, the city has been transformed from a city of homeowners to a city of tenants.
 
 %DISCUSS THE PARAMETERS THAT AFFECT OWNERSHIP? We have conducted parameter sweeps to identify policy parameters that can affect the distribution of ownership.
 
@@ -104,15 +109,15 @@ Initially, 100\% of locational land rent accrues to residents. In the end, 100\%
 The tendency for investors to own an increasing share of the housing stock is robust in our model. Can it be affected by public policy? In this section, we look at seven potential policy interventions and their effects on ownership. 
 
 \subsubsection{Capital gains taxation}
-Consider a capital gains tax on investors. If capital gains are part of the objective of investors, a capital gains tax will, in theory at least, reduce investor participation. Figure ~\ref{fig:CGinvest_ownership_trajectory} shows this is in fact the case. A capital gains tax on housing investment will have a powerful effect.
+Consider a capital gains tax on investors. If capital gains are part of the objective of investors, a capital gains tax will, in theory at least, reduce investor participation. Figure ~\ref{fig: CGinvest_ownership_trajectory} shows this is the case. A capital gains tax on housing investment will have a powerful effect.
 \begin{figure}[htb]
     \centering
-    \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/cg_tax_invest-Main-_011821.pdf}
+    \includegraphics[scale=.8, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-_011821.pdf}
     \caption{The effect of a capital gains tax on investors}
     \label{fig:CGinvest_ownership_trajectory}
 \end{figure}
 
-The previous result was achieved in a situation where homeowners do not pay a capital gains tax when they sell. This is a policy that has been questioned on ethical grounds because it favours owners over renters.  Figure ~\ref{fig:CGpers_ownership_trajectory} shows that raising the capital gains tax on owner-occupiers will also have a powerful effect. 
+The previous result was achieved in a situation where homeowners do not pay a capital gains tax when they sell. This is a policy that has been questioned on ethical grounds because it favours owners over renters.  Figure ~\ref{fig: CGpers_ownership_trajectory} shows that raising the capital gains tax on owner-occupiers will also have a powerful effect. 
 
 \begin{figure}
     \centering
@@ -127,7 +132,7 @@ In this case, the capital gains tax on investors is set at 15\%. The dotted line
 
 \subsubsection{The cost of capital for investors}
 % 'r_investor': [0.2, 0.1, .05] has set up for morning
-Figure ~\ref{fig:capital_ownership_trajectory} shows the effect of increasing capital costs for investors. Higher capital cost might be expected to slow the rate of housing acquisition. Surprisingly, it appears to increase the speed at which investors purchase but it does not affect not the final level of investor ownership.  In addition, it appears to decrease population, suggesting that the cost of acquiring housing rises. The cost of capital for investors is not an obvious policy tool, so we don't think this result is of great interest politically, but it warrants further study.
+Figure ~\ref{fig:capital_ownership_trajectory} shows the effect of increasing capital costs for investors. Higher capital costs might be expected to slow the rate of housing acquisition. Surprisingly, it appears to increase the speed at which investors purchase but it does not affect the final level of investor ownership.  In addition, it appears to decrease population, suggesting that the cost of acquiring housing rises. The cost of capital for investors is not an obvious policy tool, so we don't think this result is of great interest politically, but it warrants further study.
 \begin{figure}[h!t]
     \centering
     \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/r_investor-Main-024857.pdf}
@@ -137,13 +142,13 @@ Figure ~\ref{fig:capital_ownership_trajectory} shows the effect of increasing ca
 
 \newpage
 \subsubsection{Transportation costs}
-Roads and road congestion as well as the transit system are public responsibilities. They affect the cost of transportation. Can reducing the cost of transportation affect the ownership ratio. In Figure~\ref{fig:c_ownership_trajectory}, we reduce transportation costs for everyone by 40\%. 
+Roads and road congestion as well as the transit system are public responsibilities. They affect the cost of transportation. Can reducing the cost of transportation affect the ownership ratio? In Figure~\ref{fig:c_ownership_trajectory}, we reduce transportation costs for everyone by 40\%. 
 
 %This is what we expect in the Alonzo model within this model.
 We expected the city would grow faster and get larger with lower transportation costs. This effect was indeed observed. 
 % 'c': [500, 300],
 
-Less obviously, lower transportation costs also served to  to decrease the home-ownership ratio. The reduction in transportation costs leads to an increase in land rents, and the increase in land rents increases the rate of increase of property prices, leading to higher expected capital gains and ultimately less private ownership. 
+Less obviously, lower transportation costs also served to decrease the home-ownership ratio. The reduction in transportation costs leads to an increase in land rents, and the increase in land rents increases the rate of increase of property prices, leading to higher expected capital gains and ultimately less private ownership. 
 
 
 
@@ -161,7 +166,7 @@ Less obviously, lower transportation costs also served to  to decrease the home-
 % 'density': [100, 150]
 Density is a policy variable that is much discussed. Increasing density is proposed as a way to increase housing availability and the ability of people to buy homes. Our results indicate that the effect of density on city population is significant but it has no effect on city extent and no effect on the ownership ratio. The first two results are expected, the third less so but easily explained. 
 
-Essentially the share of homeowners is not affected, only the number of homes is. Since rent per unit is unchanged, density alone does not affect the relative advantage of new home buyers and investors, leaving the ratio constant. There are more homes, however, and, since the ratios are consistent, more home-owners. 
+Essentially the share of homeowners is not affected, only the number of homes is. Since rent per unit is unchanged, density alone does not affect the relative advantage of new home buyers and investors, leaving the ratio constant. There are more homes, however, and, since the ratios are consistent, more homeowners. 
 
 \begin{figure}[h!bt]
     \centering
@@ -176,7 +181,7 @@ Essentially the share of homeowners is not affected, only the number of homes is
 \subsubsection{Cost of financing's dependence on borrower's wealth}
 Wealth sensitivity in our model is a parameter of the banking system. It determines how easy it is for people with limited assets or income to get a mortgage. A higher value is more restrictive:  makes it harder for an asset-poor person to get a mortgage.
 
-A restrictive mortgage regime slightly reduces labour supply and city population. It has no noticeable effect on the ownership ratio. Since the purpose of a restrictive policy is to reduce defaults and bankruptcies, the small impact on other variables suggests that as a policy it can be adopted without needing to consider the economic impacts on the city. 
+A restrictive mortgage regime slightly reduces the labour supply and city population. It has no noticeable effect on the ownership ratio. Since the purpose of a restrictive policy is to reduce defaults and bankruptcies, the small impact on other variables suggests that as a policy it can be adopted without needing to consider the economic impacts on the city. 
 % 'wealth_sensitivity': [0.15, 0.1, 0.5]
 
 \begin{figure}[h!bt]
@@ -200,34 +205,6 @@ The property tax rate variable is a matter for policy debate because there are g
     \label{fig:property_tax_ownership_trajectory}
 \end{figure}
 
-\section{Results including a linkage tying financialization back to productivity}
-
-In this section, we use our model to explore some implications of a hypothetical link between financialization of an urban housing market and the urban production economy. We are not trying to demonstrate that there is a link whereby financialization affects urban productivity. The literature make a strong case that there is a linkage and provides a transmission theory through several mechanisms so we have built the link in to see the implications and look at what is likely to matter as a result of the transition in ownership pattern.
-
-A simulation of this linkage is illustrated in Figure~\ref{fig-impact-channel-example}. The finance-driven change in ownership share shown in the lower panel transforms a city of homeowners into a city of renters over the course of a lifetime. It also has, as we hypothesized, substantial economic implications. The change in the the class structure of the city induces a decline in worker productivity and capital investment, resulting in reduced firm size and a reduction in the number of firms, as well as an overall reduction in population. 
-
-Declining productivity is the primary channel for this change, which pulls down the wage and the other population variables. The change is amplified by the resulting reduction in aggregation effects.  If the linkages we have hypothesized exist, the result of financialization would be a poorer society. 
-
-\begin{figure}[h!tb]\label{fig-impact-channel-example}
-    \centering
-    \includegraphics[scale=1, trim=.25cm 2cm .25cm .25cm, clip]{fig/productivity_link.pdf}
-    \caption{Illustrating the impact of financialization on an urban economy}
-\end{figure}
-This is, to our knowledge, a new result, although it is consistent with fundamental urban theory and with the trends we see today in the urban system. The new component in our result is the formal linkage of the financialized housing market to urban productivity.
-
-We do not have empirical estimates about the strengths of the channels through which the productivity effect would work, however, so only the direction of the impacts illustrated should be taken seriously without further empirical work.  
-
-
-Assuming there are linkages connecting financialization to productivity, it is important to ask if there are policy implications. Figure~\ref{Productivity_link_and_CG} indicates the effect of a 100\% capital gains tax on land speculation. 
-
-\begin{figure}[h!tb]\label{fig-Productivity_link_and_CG}
-    \centering
-    \includegraphics[scale=1, trim=.25cm 2cm .25cm .25cm, clip]{fig/Productivity_link_and_CG.pdf}
-    \caption{The corrective effect of a capital gains tax}
-    \label{fig:Productivity_link_and_CG}
-\end{figure}
-
-The figure shows that a 100\% capital gains tax on land speculation returns the city to its pre-financialization path, indicated by the solid line. In the housing market it has an `excess' effect, eliminating investor participation in the market, shown by the dashed line, and leading to higher rates of home ownership. 
 
 % {\newpage\thispagestyle{empty}
 % \vspace{-1.5cm}
@@ -241,4 +218,248 @@ The figure shows that a 100\% capital gains tax on land speculation returns the 
 \end{figure}
 %}
 
+
+
+\section{Results including a linkage tying financialization back to productivity}
+
+In this section, we use our model to explore some implications of a hypothetical link between the financialization of an urban housing market and the urban production economy. We are not trying to demonstrate that there is a link whereby financialization affects urban productivity. The literature makes a strong case that there is a linkage and provides a transmission theory through several mechanisms so we have incorporated one likely type of linkage to test the implications and look at what is likely to matter as a result of the transition in ownership pattern.
+
+A simulation of this linkage is illustrated in Figure~\ref{fig-impact-channel-example}. The finance-driven change in ownership share shown in the lower panel transforms a city of homeowners into a city of renters over the course of a lifetime. It also reduces the scale parameter by a third - a very large impact for illustrative purposes. This has, as we hypothesized, substantial economic implications. The change in the the class structure of the city induces a decline in worker productivity and capital investment, resulting in reduced firm size and a reduction in the number of firms, as well as an overall reduction in population. 
+
+Declining productivity is the primary channel for this change, which pulls down the wage and the other population variables. The change is amplified by the resulting reduction in aggregation effects.  If the linkages we have hypothesized exist, the result of financialization would be a poorer society. 
+
+\begin{figure}[h!tb]\label{fig-impact-channel-example}
+    \centering
+    \includegraphics[scale=1, trim=.25cm 2cm .25cm .25cm, clip]{fig/productivity_link.pdf}
+    \caption{Illustrating the impact of financialization on an urban economy}
+\end{figure}
+This is, to our knowledge, a new result, although it is consistent with fundamental urban theory and with the trends we see today in the urban system. The new component in our result is the formal linkage of the financialized housing market to urban productivity.
+
+We do not have empirical estimates about the strengths of the channels through which the productivity effect would work, however, so only the direction of the impacts illustrated should be taken seriously without further empirical work.  
+
+Assuming there are linkages connecting financialization to productivity, it is important to ask if there are policy implications. 
+
+
+
 This experiment indicates that policy parameters are likely to affect the ownership trajectory in different ways when there is a link between financialization and urban productivity and when there is no link.
+
+\subsection{Policy interventions and ownership with productivity linkages}
+
+We have seen that a link between financialization and productivity can have multiple effects in our model.  In this section, we look at seven potential policy interventions and their effects on ownership in the presence of a productivity linkage. 
+
+
+{\color{red}
+
+\subsubsection{Capital gains taxation with the productivity linkage}
+Figure~\ref{fig: Productivity_link_and_CG} indicates the effect of a 100\% capital gains tax on land speculation when a link to productivity is present
+
+\begin{figure}[h!tb]\label{fig-Productivity_link_and_CG}
+    \centering
+     \includegraphics[scale=1, trim=.25cm 2cm .25cm .25cm, clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}
+    \caption{The corrective effect of a capital gains tax with the productivity linkage}
+    \label{fig:Productivity_link_and_CG}
+\end{figure}
+
+The dashed line in Figure shows a 100\% capital gains tax on land speculation eliminating investor participation in the market, leaving 100\%  owner-occupiers.  In the absence of taxation on speculative gains, shown by the dotted line, wages are lower, the city is smaller, there are fewer firms and owner-occupiers are entirely eliminated. 
+
+In Figure~\ref{fig:Productivity_link_and_CGpers_ownership_trajectory}, the capital gains tax on investors is set at 15\% and we vary the capital gains tax on owner-occupiers. The dotted line represents the case with no capital gains tax for homeowners. When the tax is higher than the rate for investors, shown by the solid and the dashed lines,  home ownership falls more than in the base case.  Rents will fall for tenants because, with a much lower population and city size, locational rents are lower.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link_cg_tax_per-000911.pdf}
+    \caption{The effect of a capital gains tax on homeowners in the presence of productivity impacts}
+    \label{fig:Productivity_link_and_CGpers_ownership_trajectory}
+\end{figure}
+
+%%%%%%%%%%%%%
+\newpage
+
+\subsubsection{The cost of capital for investors}
+% 'r_investor': [0.2, 0.1, .05] has set up for morning
+Figure ~\ref{fig:Productivity_link_and_capital_ownership_trajectory} shows the effect of increasing capital costs for investors. Even in the presence of strong productivity spillovers, it has little effect.  the cost of capital for investors does not appear to be a promising policy tool.
+
+\begin{figure}[h!t]
+    \centering
+   \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf}
+    \caption{The effect of raising capital costs in the presence of productivity impacts}
+    \label{fig:Productivity_link_and_capital_ownership_trajectory}
+\end{figure}
+
+\newpage  
+\subsubsection{Transportation costs}
+Reducing the cost of transportation  by 40\% in the presence of productivity impact increases city size and population. In Figure~\ref{fig:Productivity_link_and_c_ownership_trajectory}, we reduce transportation costs for everyone. 
+
+% 'c': [500, 300],
+
+Lower transportation costs also  decreases the home-ownership ratio. The reduction in transportation costs leads to an increase in land rents, and the increase in land rents increases the rate of increase of property prices, leading to higher expected capital gains and ultimately owner-occupiers. 
+
+The decline in the wage that appears to accompany reduced transport costs may be understood by noticing that lower transport costs reduce  wage needed to attract workers to the city. 
+
+Lower transport costs also introduce significant oscillations in population and city size. This is curious, suggesting that are  near an edge of the stability region in the parameter space.
+
+
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link-c-15_022017.pdf}
+    \caption{The effect of decreasing transportation costs in the presence of productivity impacts}
+    \label{fig:Productivity_link_and_c_ownership_trajectory}
+\end{figure}
+
+
+\newpage
+\subsubsection{Density}
+% 'density': [100, 150]
+Relaxing restrictions on density should ability of people to buy homes. Our results indicate that the effect of density on city population is significant but it has no effect on city extent and no effect on the ownership ratio. The first two results are expected. the third less so but easily explained. Density does not affect transportation cost, and in this test version firm size is not affected. The number of firms rises instead. 
+
+The share of homeowners is not affected, only the number of homes. Since rent per unit is unchanged at any distance, density alone does not affect the relative advantage of new home buyers and investors, leaving the ratio constant. There are more homes, however, and, since the relative advantages of owners and investors are unchanged, additional homes are distributed the same way.  
+
+
+
+\begin{figure}[h!bt]
+    \centering
+    \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link-density-023044.pdf}
+    \caption{The effect of increasing density in the presence of productivity impacts}
+    \label{fig:Productivity_link_and_density_ownership_trajectory}
+\end{figure}
+
+
+\newpage
+
+\subsubsection{Cost of financing's dependence on borrower's wealth}
+We vary the wealth sensitivity in the presence of a productivity linkage. The higher value is more restrictive:  making it harder for an asset-poor person to get a mortgage. It has no noticeable effect on the ownership ratio. Recall that the purpose of a restrictive policy is to reduce defaults and bankruptcies. The absence of an effect on other variables suggest mortgage assistance is not an effective housing policy.  This is an important result, in our view.
+% 'wealth_sensitivity': [0.15, 0.1, 0.5]
+
+\begin{figure}[h!bt]
+    \centering
+    \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link-wealth_sensitivity-025428.pdf}
+    \caption{The effect of wealth sensitivity of mortgage access in the presence of productivity impacts}
+    \label{fig:Productivity_link_and_wealth_sensitivity_ownership_trajectory}
+\end{figure}
+
+\newpage
+
+\subsubsection{The property tax rate}
+
+In the presence of a productivity link, increasing the property tax rate reduces urban size considerably, in contrast to the small effect without the productivity link. This observation suggests that the effect of public sector policies may differ in the presence of a productivity link, and that further investigation of this unrecognized variable should be on the research agenda of urban theorists and policy-makers.
+
+% 'property_tax_rate': [0.1, 0.05, .01] k doing}
+% \begin{figure}[h!tb]
+%     \centering
+%     \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link-property_tax-224422.pdf}%  Alternative: 103137.pdf}
+%     \caption{The effect of property tax rates in the presence of productivity impacts}
+%     \label{fig:Productivity_link_and_property_tax_ownership_trajectory}
+% \end{figure}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.8, trim={0 1.4cm 0 0},clip]{fig/With-productivity_link-property_tax-103137.pdf}  %224422.pdf}%  Alternative:
+    \caption{The effect of property tax rates in the presence of productivity impacts}
+    \label{fig:Productivity_link_and_property_tax_ownership_trajectory}
+\end{figure}
+}
+
+\section{No productivity linkage vs strong productivity linkage }
+
+\newpage
+\subsection{Capital gains for investors}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 3.7cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
+    \caption{Capital gains for investors without and with productivity impacts}
+    \label{fig:CG-invest_link_W-WO-Cost-of-capital}
+\end{figure}
+ A capital gains tax will in theory reduce investor participation. Figure ~\ref{fig: CGinvest_ownership_trajectory} shows this is the case. A capital gains tax on housing investment will have a powerful effect.
+
+We have a new result when we introduce the productivity linkage. 
+The impact of the tax is larger. This experiment demobnstrates that policy parameters are likely to affect the ownership trajectory in different ways when there is a link between financialization and urban productivity and when there is no link.
+
+The dashed line ion the left shows a 100\% capital gains tax on land speculation entirely eliminating investor participation in the market, leaving 100\%  owner-occupiers.  Wages are higher the city is larger, and there are more firms. 
+
+\newpage
+\subsection{Capital gains for owner occupiers}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_per-Main-021508.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 3.5cm 0},clip]{fig/With-productivity_link_cg_tax_per-000911.pdf} 
+    \caption{Capital gains for owner occupiers without and with productivity impacts}
+    \label{fig:CG-pers_link_W-WO-Cost-of-capital}
+\end{figure}
+
+When the capital gains tax on homeowners is higher than the rate of investors, shown by the solid and the dashed lines,  home ownership falls. 
+
+With a productivity link,  When the tax is higher than the rate for investors,  home ownership falls more than in the base case.  Rents will fall for tenants because, with a much lower population and city size, locational rents are lower.
+
+\newpage
+\subsection{Cost of capital}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm 4cm 0},clip]{fig/r_investor-Main-024857.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 3.5cm 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf} 
+    \caption{Transportation cost without and with productivity impacts}
+    \label{fig:Productivity_link_W-WO-Cost-of-capital}
+\end{figure}
+The cost of capital for investors is not an obvious policy tool, so we don't think this result is of great interest politically, but it warrants further study. Increasing capital costs for investors appears to increase the speed but not the final level of investor ownership.  In addition, it appears to decrease population, suggesting that the cost of acquiring housing rises. 
+
+Even in the presence of strong productivity spillovers, it has little effect.  the cost of capital for investors does not appear to be a promising policy tool.
+
+\newpage
+\subsection{Transportation cost}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm 1.5cm 0},clip]{fig/c-Main-121459.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 2.3cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf} 
+    \caption{Transportation cost without and with productivity impacts}
+    \label{fig:Productivity_link_W-WO-transportation-cost}
+\end{figure}
+If we reduce transportation costs for everyone by 40\% the city grows faster and gets larger with lower transportation costs. This effect was indeed observed. 
+
+Less obviously, lower transportation costs also decreased the home-ownership ratio. The reduction in transportation costs leads to an increase in land rents, and the increase in land rents increases the rate of increase of property prices, leading to higher expected capital gains and ultimately less private ownership. 
+
+With productivity links, lower transportation costs also decreases the home-ownership ratio. 
+The decline in the wage that appears to accompany reduced transport costs may be understood by noticing that lower transport costs reduce wage needed to attract workers to the city. 
+
+Lower transport costs also introduce significant oscillations in population and city size. 
+
+
+
+\newpage
+\subsection{Density}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm 1.5cm 0},clip]{fig/density-Main-123417.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 3.2cm 0},clip]{fig/With-productivity_link-density-023044.pdf} 
+    \caption{Density without and with productivity impacts}
+    \label{fig:Productivity_link_W-WO-density}
+\end{figure}
+The effect of density on city population is significant but it has no effect on city extent and no effect on the ownership ratio. The share of homeowners is not affected although the number of homes is. 
+
+With productivity links, wages are depressed,k population is lower and population appears to cycle.
+
+\newpage %. 
+\subsection{Wealth sensitivity}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm 1.0cm 0},clip]{fig/wealth_sensitivity-124913.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-wealth_sensitivity-025428.pdf} 
+    \caption{Wealth sensitivity rates without and with productivity impacts}
+    \label{fig:Productivity_link_W-WO-wealth}
+\end{figure}
+A restrictive mortgage regime slightly reduces the labour supply and city population. It has no noticeable effect on the ownership ratio. The small impact on other variables suggests that mortgage availability can be restricted can be imposed without a significant economic impact on the city. 
+
+in the presence of a productivity linkage, population is more variable and is cut roughly in half. Wages are lower, consistent with lower rents.
+
+\newpage
+\subsection{Property taxes}
+\begin{figure}[h!tb] 
+    \centering
+    \includegraphics[scale=.75, trim={0 1.4cm .8cm 0},clip]{fig/property_tax_rate-Main-130755.pdf} 
+    \includegraphics[scale=.75, trim={0 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-property_tax-103137.pdf} 
+    \caption{Property tax rates without and with productivity impacts}
+    \label{fig:Productivity_link_W-WO-property_tax}
+\end{figure}
+%no comment on without
+
+In the presence of a productivity link, increasing the property tax rate reduces urban size considerably, in contrast to the small effect without the productivity link. This observation suggests that the effect of public sector policies may differ in the presence of a productivity link, and that further investigation of this unrecognized variable should be on the research agenda of urban theorists and policy-makers.
+
