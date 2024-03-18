@@ -19,7 +19,11 @@
 
 So far, we have introduced the theoretical frameworks for understanding locational value, the structure of the city and how productivity scales with wealth. In the following chapter, we will introduce a model that brings these together to explore the effects of financialization on the urban system. 
 
-In this chapter, we consider some of the broader methodological issues involved. We are modeling the relationship between financialization and the production of value. To do this, we combine a spatially explicit agent-based land market model with an equilibrium assumption about rent and an equation-based model of urban production. Where agent-based models describe behaviors and observe the outcome of the behaviors computationally, most economic modeling is built around equilibrium conditions that are identified \textit{a priori}. 
+In this chapter, we consider some of the broader methodological issues involved. First what is the underlying paradigm for modelling each component, what are the agents, what simplifications are justified, what uses are made of equilibrium reasoning; second, what is the purpose of modelling and what claims does it allow about the outside world; and finally given the type of model and it's purpose, what is the modelling strategy?
+
+\section{Model type}
+
+We are modeling the relationship between financialization and the production of value. To do this, we combine a spatially explicit agent-based land market model with an equilibrium assumption about rent and an equation-based model of urban production. Where agent-based models describe behaviors and observe the outcome of the behaviors computationally, most economic modeling is built around equilibrium conditions that are identified \textit{a priori}. 
 
 Equilibrium analysis and agent-based modelling are complementary and we employ both. We employ equilibrium arguments derived from models of optimizing agents, who make decisions at the margin within an agent-based model (ABM) in which agents make periodic choices among a small set of alternatives. 
 
@@ -34,7 +38,7 @@ Our core question in this thesis is about the effects of financialization captur
 
 
 %----------------------------------------------------------------------
-\section{Agent based modelling}
+\subsection{Agent based modelling}
 %----------------------------------------------------------------------
 
 The agent-based modeling approach was developed in the 1940's when von Neumann and Ulam examined cellular automata, a simple form of agent model where agents are typically squares on a grid following rules based only on the state of their neighbours \cite{banksStatisticalChallengesAgentBased2021}. ABMs %provide a disaggregated way to understand the structure of models. They 
@@ -120,7 +124,7 @@ They thus make it possible to look at the structural impact of policy on particu
 
 
 
-\section{Equilibrium reasoning in our analysis}
+\subsection{Equilibrium reasoning }
 Economists generally rely heavily on equilibrium analysis in their study of complex systems. 
 %ADD BACK? stylized fact - appear ing data over again and again... toy in real world. distributional effects of urban wealth growing. The ADVANTAGE OF THIS is that iT ENABLE THIS BROAD UNDERSTAND OF HOW PATTERNS PLAY OUTj
 %In Economic modelling the most familiar approach is the  analysis of systems in equilibrium. 
@@ -289,7 +293,7 @@ Combining a spatially explicit agent-based model of the housing market with equi
 
 
 
-\subsubsection{\Gls{marginal} vs \gls{inframarginal} quantities}
+\subsubsection{Marginal vs inframarginal quantities}
 In relying on these equilibrium conditions, we are implicitly applying standard neoclassical economic methods despite the fact that our focus is not on the \gls{marginal} conditions that determine prices, but on the \gls{inframarginal} quantities that make up rents. We can illustrate with a diagram that is more fully explained in Chapters~\ref{chapter-rent} and \ref{chapter-space}. 
 
 \vspace{.3cm}
@@ -341,24 +345,19 @@ In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined 
 % % The emphasis is on clarity and connecting with the equilibrium in economics, and systematically relaxing each, to connect with the analytic tradition of economic modelling
 % % The clarity of intuition of the neoclassical tradition with the deeper root of distribution theory rooted in classical economics and the breath and rigor possible with new tools from the study of complexity and statistical physics.
 
-\section{Summary}
-In integrating models of the firm, the urban spatial system, the housing market and the financial system,  which are traditionally studied separately, this work combines elements of classical rent theory and neoclassical distribution theory with agent-based modeling. We have a spatially explicit agent-based land market model, an equilibrium urban rent model, a neoclassical equation-based model of urban production, and a rule-based mortgage provision system. It is not surprising that a work of this sort should draw on a variety of methodologies and should raise a range of somewhat subtle modeling issues. 
-
-In this chapter, we have tried to make our solutions to certain high-level modeling questions explicit. We have at each point grounded our modeling decisions in familiar and accepted theory, while at the same time eliminating elements that would make our model unnecessarily complex. 
 
 
-\section{Why Model}
-Following Epstein who proposed xx reasons for modelling \cite{epsteinWhyModel2008}, Edmonds et al. lay out xx purposes of modelling \cite{edmondsDifferentModellingPurposes2019}. These range from prediction of new data and explanation of patterns in the world, to simple analogy, that merely illustrates some phenomena informally. 
+\section{Model purpose}
+Following Epstein who proposed xx reasons for modelling \cite{epsteinWhyModel2008}, Edmonds et al. lay out xx purposes of modelling \cite{edmondsDifferentModellingPurposes2019}. These range from prediction of new data and explanation of patterns in the world, to simple analogy, that merely illustrates some phenomena informally. The purpose of this model is theoretical exposition, %. The mechanisms in the model display. 
+which does not make it possible to make claims about the outside world, but can illustrate important relationships. They key with this is systematically exploring the relationship between parameters and mechanisms in the model. 
 
-The purpose of this model is theoretical exposition. The mechanisms in the model display
 
-They key with this is systematically exploring the relationship between parameters and mechanisms in the model. 
+\section{Model strategy}
 
-\section{Modelling Strategy}
+In addition to modelling purpose, there is modelling strategy, the principles or rules of thumb that guide the modelling practice. Given that the purpose is theoretical exposition, we aim to both keep the model simple (KISS) \cite{kiss}, and keep it descriptive stupid (KIDS) \cite{kids}. %  from  \cite{edmondsDifferentModellingPurposes2019} cite
 
-In addition to modelling purpose, there is modelling strategy, the principles or rules of thumb that guide the modelling practice. Given that the purpose is theoretical exposition, we aim to both keep the model simple % (KISS) \cite{kiss}, and keep it descriptive stupid (KIDS) \cite{kids}. %  from  \cite{edmondsDifferentModellingPurposes2019} cite
-
-The goal of modelling in general is to have a accessible and useful description of reality.  Mader et al \cite{maderConstructionVerificationModels2007} suggest a set of properties of a good model. They emphasize that it should have a clearly specified object of modelling and  a clearly specified purpose. They go on to list the  following additional epistemological criteria:
+% The goal of modelling in general is to have a accessible and useful description of reality.  
+More specifically, Mader et al \cite{maderConstructionVerificationModels2007} suggest a set of properties of a good model. They emphasize that it should have a clearly specified object of modelling and  a clearly specified purpose. They go on to list the  following additional epistemological criteria:
 \begin{enumerate}   
 \item  Truthful. (The model has to represent the relevant behaviour of the system we are describing.) 
 \item  Complete (It must include necessary features of the system.)
@@ -383,13 +382,14 @@ Simplicity is the key to achieving these goals. % That leads us to a long list f
 We intentionally leave features out of  our model to focus attention on the features that in our view matter most. 
 
 
-We have three basic hypotheses:
+We have three basic propositions:
 \begin{enumerate}
     \item Financialization of the urban housing stock extracts wealth produced by human agglomeration 
     \item Financialization of the urban housing stock changes the class structure of urban society
     \item Financialization of the urban housing stock can limit urban productivity growth
 \end{enumerate}
-Each  of these represents a high-level and general proposition. In considering whether to add a feature to the model, varying housing density for example, we ask: 
+% Each  of these represents a high-level and general proposition. 
+In considering whether to add a feature to the model, we ask: % varying housing density for example, we ask: 
 \begin{enumerate}
     \item is it necessary to demonstrate the principle? 
     \item would incorporating it result in falsifying our result?
@@ -399,9 +399,9 @@ Each  of these represents a high-level and general proposition. In considering w
 \end{enumerate}
 
 For example, % It should be clear that, 
-while varying housing density across our model urban system is technically easy to do, it is not necessary to demonstrate any of our three propositions. Including density variation would not undermine our results nor clarify results them. %It is simply not useful to incorporate this feature in our model. 
+while varying housing density across our model urban system is technically easy to do, it is not necessary to explore or demonstrate any of our three propositions. Including density variation would not undermine our results nor clarify them. %It is simply not useful to incorporate this feature in our model. 
 
-We can say the same about: 
+We can say the same about other extensions discussed in Chapter~\ref{appendix-future-work}. For instance: 
 \begin{enumerate}
     \item adding a detailed production sector with multiple firms,
     \item adding a detailed labour market,
@@ -415,8 +415,13 @@ We can say the same about:
     \item including zoning regulations. 
 \end{enumerate}
 
-
-Each of these extensions is interesting and would add fine-grained detail to our understanding of how the effects of financialization of the housing market are distributed. None of them is likely to affect the qualitative results or make our argument easier to grasp.
+Each of these extensions is interesting and would add fine-grained detail to our understanding of how the effects of financialization of the housing market are distributed. None of them essential to exploring the basic relationship. % is likely to affect the qualitative results or make our argument easier to grasp. 
 % While making it 
 % In the thesis, we have described a stylized model to  establish how the urban system generates rents. Even with its simplifications, the model can describe key features of urban structure and urban history, and addres the core hypotheses.   %In this section, we illustrate some of the insights supported by the model. 
 % Extensions can incorporate variations in wages, density, transportation costs, preference, and even building technology and codes. The limitations of the simple, continuous, equilibrium-based versions described above can be overcome using agent-based models to model the evolution of complex and much more realistic urban systems. 
+
+
+\section{Summary}
+In integrating models of the firm, the urban spatial system, the housing market and the financial system,  which are traditionally studied separately, this work combines elements of classical rent theory and neoclassical distribution theory with agent-based modeling. We have a spatially explicit agent-based land market model, an equilibrium urban rent model, a neoclassical equation-based model of urban production, and a rule-based mortgage provision system. It is not surprising that a work of this sort should draw on a variety of methodologies and should raise a range of somewhat subtle modeling issues. 
+
+In this chapter, we have tried to make our solutions to certain high-level modeling questions explicit. First what is the type of modelling for each piece: what is the use of agents and what is the use of equilibrium analysis. Second, what is the purpose of modelling. In this case it is theoretical exposition. Finally, give that, what is the strategy for building the model. We have a strategy that focuses on developing a model that is both simple and descriptive. We have at each point grounded our modeling decisions in familiar and accepted theory, while at the same time eliminating elements that would make our model unnecessarily complex. 
