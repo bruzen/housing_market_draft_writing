@@ -96,6 +96,8 @@ that can provide insights about the impact of the financialization of the housin
 We therefore, we describe the microeconomic objective function that individuals and our bank agent employ in deciding to purchase a property. 
 \end{enumerate}
 
+{\color{red} add THE LINK TO MODEL A FEEDBACK BETWEEN FINANCIALIZATION AND PRODUCTIVITY}
+
 Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modeling the market for housing in more detail. 
 
 % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
@@ -297,7 +299,11 @@ We have emphasized that urban properties generate economic surpluses that give r
 
 Because participation in the housing market depends on financing, in subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The maximum bid price provides one of the values for the bargaining model that we use to determine market prices. 
 
-In subsection~\ref{sec:bargaining-model} we describe our price-determination mechanism, which is based on standard bargaining theory.  The rest of the chapter, subsection~\ref{sec:bids-and-reservation} derives specific bid and reservation prices for different agents.
+In subsection~\ref{sec:bargaining-model} we describe our price-determination mechanism, which is based on standard bargaining theory.  The subsection~\ref{sec:bids-and-reservation} derives specific bid and reservation prices for different agents.
+
+{\color{red} FINALLY WE INTRODUCE bargaining mechanism and 
+
+then.}
 
  The explicit treatment of rents, prices, and  productivity \gls{premium} and use of the \gls{subsistence wage} as an analytical device  make this a `\gls{classical}' model despite its reliance on supply and demand modelling of the housing market.  To develop the analysis, we track the price and rent quantities, outlined in Table~\ref{table-price-notation}.\footnote{In the table, we include indices for agent $i$ and property $j$, for clarity. In the following development we'll only use the subscripts where needed to distinguish between agents and properties.}
 
@@ -668,7 +674,7 @@ We call this  $i's$ maximum bid.\footnote{The denominator in Equation~\ref{eqn:m
 It represents the maximum a buyer is willing to pay, the value of the stream of rent plus any capital gains. % It is also the most reasonable reservation price.%\footnote{In principle Equation~\ref{eqn:maximum-bid} could be calculated for all potential buyers and sellers for every property. In practice, only a subset of potential buyers and sellers are in the market at any time.} 
 If the buyer intends to become a resident, the net rent term Equation~\ref{eqn:maximum-bid} is replaced by a housing-services-and-amenity term, which represents non-monetary income. % and is another form of locational rent. 
 
-\subsection{A simple proxy for $\dot P_\mathbb{T}$}
+\subsubsection{A simple proxy for $\dot P_\mathbb{T}$}
 
 The \gls{market price} or the price at which a property is exchanged on the market, $P_M$ will not be known in advance, nor will the future sale price.  In order to make decisions, agent $i$ must form an \glspl{expectation} or prediction $P_{M_i}^{\epsilon}$ of the as yet unrealized future market price. Case and Shiller observe that, ``People seem to form their expectations from past price movements rather than having any knowledge of fundamentals. \cite{caseThereBubbleHousing2003}. They further argue that the 1-year expectations are fairly well described as attenuated versions of lagged actual 1-year price changes. Our $\dot P_\mathbb{T}$ is a forecast or expectation by agents in the model of the change in price over a period $\mathbb{T}$.
 
@@ -688,12 +694,12 @@ If we assume that the price will continue to change at the same rate over the mo
 
 \begin{align}
 \dot P  &= \frac{1}{r}\left[\left(\frac{\omega_t-\omega_0}{\omega_0}+1 \right)^\mathbb{T}-1\right], \nonumber\\
-        &=\frac{1}{r}\left[\left(\frac{\omega_t}{\omega_0} \right)^\mathbb{T}-1\right], \nonumber
+        &=\frac{1}{r}\left[\left(\frac{\omega_t}{\omega_0} \right)^\mathbb{T}-1\right]. \nonumber
 \end{align}
 
 
 
-\subsection{Illustrating constraints on the bid price}
+\subsection{Illustrating constraints on the bid price} \label{sec:bids-and-reservation}
  
 Buyers calculate their maximum bid based on value, but actual bids are constrained by the mortgage limits imposed by the bank illustrated in Figure~\ref{fig:dual-constraint} and the buyer's savings. The mortgage constraint may or may not bind, depending on the price of the final price. Figure~\ref{fig:savings-constraint} illustrates how these considerations affect the actual bid. 
 
@@ -804,7 +810,7 @@ Negotiations often proceed through a series of offers and counteroffers.}\;\foot
 
 
 
-\subsection{The many-to-one matching problem}
+\subsubsection{The many-to-one matching problem}
 \textbf{The housing market is usually a many-to-many matching problem}: which property goes to which buyer? For each property that comes on the market, there will be a set of potential buyers with differing maximum bids. Some simplifications are available. In each sale, the bidder with the highest bid price among those currently bidding on that property will make the purchase.\footnote{For many reasons the process is likely to exhibit a good deal of randomness and inefficiency. For our purpose, the general messiness of the market is unlikely to do more than slow and blur results somewhat.} Since the highest bidder is competing with the second-highest bidder, we expect the final price to be equal to the second-highest maximum bid, shown as the star in figure~\ref{fig:auction-game}. 
 
 
@@ -820,12 +826,14 @@ When there is one bidder, we will employ a simple rule for splitting the gain fr
 
 
 
-\subsection{The bargaining process}
+\subsubsection{The bargaining process}
 We have now identified a set of bids and a reservation price for each property on the market that must be converted to a price for that property using the bargaining rule. 
 The bargaining  mechanism then simply has to compare the maximum bid price $P_B$ with the seller's reservation price. If the $P_B^{max}>P_R$, a deal that is between the two values is possible. Otherwise, the transaction does not proceed.
 If a bargain is possible, the rule is simple: 
 \begin{enumerate}
-    \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is fairly simple if perhaps not very revealing to incorporate relative power as described in Footnote~\ref{fn:relative-power}.} If $P_B^{max}>P_R$,  the bargaining rule selects a value 
+    \item If there is only one maximum bid above the reservation price, split the difference between the bid and the reservation price evenly.\footnote{It is fairly simple if perhaps not very revealing to incorporate relative power. % as described in Footnote~\ref{fn:relative-power}.
+    }
+    If $P_B^{max}>P_R$,  the bargaining rule selects a value 
     \[P = xP_B^{max}+(1-x)P_R, \ \ \ x\in [0\dots 1] \]
 where $x$ is typically 0.5.
     \item If there are two or more maximum bids above the reservation price, the property goes to the highest and since the bids are the maximum the buyers would pay under any circumstances, the price is set a the second highest bid in order to reflect the tightness of the market.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
@@ -848,21 +856,29 @@ where $x$ is typically 0.5.
 % Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
 % If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
+{\color{red} THIS NEEDS TO BE MUCH CLEARER
 
 \section{Modelling the linkage between financialization and urban productivity}
-{\color{red} THIS WILL BE MOVED TO THE BOTTOM OF MODEL}
 
-As we point out in Chapter~\ref{chapter-transmission} there are two types of effect - a reduction in the inputs to production, labour and capital, and a change in the parameters of the production function, $A$, $\alpha$, $\beta$,or $\gamma$.  These are not perfectly distinct. Technology is not an explicit input in our model as it is in the growth literature described in Chapter~\ref{chapter-growth}. It has been subsumed into the parameter $A$. Public inputs, like the transportation system do not appear directly any of the models, so that their effect is likely to affect estimates of $A$ and also to  inflate the residuals. We  use these observation to justify our specific implementation. 
+
+% {\color{red}We model a relationship between productivity and agglomeration. }
+
+
+
+WHAT ARE WE TALKING ABOUT
+SIMPLE WE JUST LINK A TO OWNERSHIP..
+
+As we point out in Chapter~\ref{chapter-tramsmission} there are two types of effect -- a reduction in the inputs to production, labour and capital, and a change in the parameters of the production function, $A$, $\alpha$, $\beta$,or $\gamma$.  These are not perfectly distinct. Technology is not an explicit input in our model as it is in the growth literature described in Chapter~\ref{chapter-growth}. It has been subsumed into the parameter $A$. Public inputs, like the transportation system do not appear directly any of the models, so that their effect is likely to affect estimates of $A$ and also to  inflate the residuals. We  use these observation to justify our specific implementation. 
 
 The scale parameter $A$ controls the overall productivity of the urban system. It captures several productivity-enhancing effects: the contribution of urban infrastructure, ownership participation by residents, local investment in productive capital, regulatory structure, the presence of local universities, the skill level of the workforce, as well as other factors. 
 
 Since we are interested in the effect of financialization and ownership, we rewrite $A$ as:
 \[ A= A_0 + share * rent\]
-$A_0$ represents outside or general factors contributing to productivity, while $share*rent$ stands for the share of the urban locational rents captured by residents and contributing to local productivity\footnote{that there are local factors is indicated by the variability of estimates of $A$ in empirical studies. See Subsection~\ref{fig/sec-fig-resiudals}.}. The share term is itself a composite of the actual land-ownership share of residents determined by the housing market and the propensity to invest locally.  It might contribute to overall productivity through several channels we discuss below:  directly through investments that raise productivity in firms, indirectly through investments in urban infrastructure such as transportation that cuts production, or through other channels such as workforce improvements. 
+$A_0$ represents outside or general factors contributing to productivity, while $share*rent$ stands for the share of the urban locational rents captured by residents and contributing to local productivity.\footnote{that there are local factors is indicated by the variability of estimates of $A$ in empirical studies.} %See Subsection~\ref{fig/sec-fig-resiudals}.}.
+The share term is itself a composite of the actual land-ownership share of residents determined by the housing market and the propensity to invest locally.  It might contribute to overall productivity through several channels we discuss below:  directly through investments that raise productivity in firms, indirectly through investments in urban infrastructure such as transportation that cuts production, or through other channels such as workforce improvements. 
 
 The effect of varying $A$ can be seen in Figure~\ref{fig:generic-productivity-impact}.
-
-
+}
 
 \section{Chapter summary}
 In this chapter we developed  the  rules that agents in the our agent-based model follow as well in doing this we have defined variables and institutional features, and developed a description of the bargaining process behind all of the adjustments. The formulae developed here are implemented in the python simulation model. Details of the adjustment speeds and parameter setting are not discussed here because they have to be `tuned'. The parameter space of your model is large, and cities only exist in a sub-region of the space. For example, if the marginal product3 of labour is too low, cities cannot exist. If it is too high the city explodes. We have identified a region with plausible values in which city behaviour corresponds to what we know about the evolution of cities. 
