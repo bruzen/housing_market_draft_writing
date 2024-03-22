@@ -824,6 +824,14 @@ Negotiations often proceed through a series of offers and counteroffers.}\;\foot
 %.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
 When there is one bidder, we will employ a simple rule for splitting the gain from trade. Both simplifications are grounded in standard bargaining theory.
 
+ 
+    \begin{figure}[!thb]
+    \centering
+    \input{fig/bargaining.tex}
+    \caption{The Bargaining model and price determination}
+    \label{fig:Bargaining}
+    \end{figure}
+
 
 
 \subsubsection{The bargaining process}
@@ -839,15 +847,7 @@ where $x$ is typically 0.5.
     \item If there are two or more maximum bids above the reservation price, the property goes to the highest and since the bids are the maximum the buyers would pay under any circumstances, the price is set a the second highest bid in order to reflect the tightness of the market.\footnote{This is an application of Vickrey \gls{second-price auction} theory\cite{levinAuctionTheory2004}.} 
 
 \end{enumerate}
-  
-    \begin{figure}[!thb]
-    \centering
-    \input{fig/bargaining.tex}
-    \caption{The Bargaining model and price determination}
-    \label{fig:Bargaining}
-    \end{figure}
-
-
+ 
 % \[P^{ask}>P_M^e> 0.95 P^r\]
 % Otherwise
 % \[P^{ask}> 1.10P^r>P_M^e\]
@@ -856,31 +856,28 @@ where $x$ is typically 0.5.
 % Once an owner reached retirement age, if no sale is made the reservation price is reduced for the next cycle.
 % If no sale is made the owner considers becoming a landlord. if the present value of net rent is above the reservation price, the owner rents out the home. 
 
-{\color{red} THIS NEEDS TO BE MUCH CLEARER
 
-\section{Modelling the linkage between financialization and urban productivity}
+
+\section{A linkage between financialization and urban productivity}
 
 
 % {\color{red}We model a relationship between productivity and agglomeration. }
 
 
+As we point out in Chapter~\ref{chapter-tramsmission} there are numerous channels through which financialization might affect the productivity of the city. The available literature does not tell us which channels are active, if any, and which of those have a significant effect. Our goal in modelling is to establish whether or not linkages would have significant effects on the economy. If our model establishes that the effects are potentially significant, it should encourage researchers to explore this neglected area in urban economics.
 
-WHAT ARE WE TALKING ABOUT
-SIMPLE WE JUST LINK A TO OWNERSHIP..
 
-As we point out in Chapter~\ref{chapter-tramsmission} there are two types of effect -- a reduction in the inputs to production, labour and capital, and a change in the parameters of the production function, $A$, $\alpha$, $\beta$,or $\gamma$.  These are not perfectly distinct. Technology is not an explicit input in our model as it is in the growth literature described in Chapter~\ref{chapter-growth}. It has been subsumed into the parameter $A$. Public inputs, like the transportation system do not appear directly any of the models, so that their effect is likely to affect estimates of $A$ and also to  inflate the residuals. We  use these observation to justify our specific implementation. 
+The channels we discussed in  Chapter~\ref{chapter-tramsmission}  all have their influence on the Alonzo-Jacobs cycle in our model, either through a reduction in the inputs to production, labour and capital, or by changing parameters  $A$, $\alpha$, $\beta$, or $\gamma$ of the production function. It is likely to be difficult to disentangle influences on the parameters empirically. Their effects on productivity are all positive. They are each likely to have several components, including common components, and measurement at the level of a city would involve aggregating many firms in many industries.     
 
-The scale parameter $A$ controls the overall productivity of the urban system. It captures several productivity-enhancing effects: the contribution of urban infrastructure, ownership participation by residents, local investment in productive capital, regulatory structure, the presence of local universities, the skill level of the workforce, as well as other factors. 
+In the class of models we draw on, the scale parameter $A$ controls the overall productivity. It might captures several productivity-enhancing effects: the contribution of urban infrastructure (including transportation infrastructure), technology, ownership ratios, participation by residents, local investment in productive capital, regulatory structure, the presence of local universities, the skill level of the supporting workforce, the complexity of supply chains, or other factors. None of these are explicit inputs in our model in the way technology is in some of the growth literature described in Chapter~\ref{chapter-growth}.\footnote{Public inputs like the transportation system do not appear directly any of the models.} 
+Missing explanatory variables are likely to inflate the residuals in estimates of $A$.
 
-Since we are interested in the effect of financialization and ownership, we rewrite $A$ as:
-\[ A= A_0 + share * rent\]
-$A_0$ represents outside or general factors contributing to productivity, while $share*rent$ stands for the share of the urban locational rents captured by residents and contributing to local productivity.\footnote{that there are local factors is indicated by the variability of estimates of $A$ in empirical studies.} %See Subsection~\ref{fig/sec-fig-resiudals}.}.
-The share term is itself a composite of the actual land-ownership share of residents determined by the housing market and the propensity to invest locally.  It might contribute to overall productivity through several channels we discuss below:  directly through investments that raise productivity in firms, indirectly through investments in urban infrastructure such as transportation that cuts production, or through other channels such as workforce improvements. 
+To introduce the potential effect of financialization and ownership as simply as possible, we rewrite $A$ from the basic modelbas:\[ A= A_0 + effectiveness*share * rent*\]
+where $A_0$ represents outside or general factors contributing to productivity, $0<effectiveness<1$ is how much the local share of rents matters, and  $share*rent$ stands for the share of the urban locational rents captured by residents and contributing to local productivity. That there are local factors is indicated by the variability of estimates of $A$ in empirical studies. See Subsection~\ref{fig/sec-fig-resiudals}. 
+The share term is itself a composite of the actual land-ownership share of residents determined by the housing market and the propensity to invest locally.
 
-The effect of varying $A$ can be seen in Figure~\ref{fig:generic-productivity-impact}.
-}
-
+ 
 \section{Chapter summary}
-In this chapter we developed  the  rules that agents in the our agent-based model follow as well in doing this we have defined variables and institutional features, and developed a description of the bargaining process behind all of the adjustments. The formulae developed here are implemented in the python simulation model. Details of the adjustment speeds and parameter setting are not discussed here because they have to be `tuned'. The parameter space of your model is large, and cities only exist in a sub-region of the space. For example, if the marginal product3 of labour is too low, cities cannot exist. If it is too high the city explodes. We have identified a region with plausible values in which city behaviour corresponds to what we know about the evolution of cities. 
+In this chapter we developed  the  rules that agents in the our agent-based model follow. In doing this we have defined variables and institutional features, and developed a description of the bargaining process behind all of the adjustments. The formulae developed here are implemented in the python simulation model. Details of the adjustment speeds and parameter setting are not discussed here because they have to be `tuned'. The parameter space of the model is large, and cities only exist in a sub-region of the space. For example, if the marginal product of labour is too low, cities cannot exist. If it is too high the city explodes. We have identified a region with plausible values in which city behaviour corresponds to what we know about the evolution of cities. 
 
-The relationships set out in this chapter are theoretically grounded and  realistic. They allow us to implement the three sub-models described in the introduction to this thesis in code. The resulting simulation model lets us demonstrate the implications of standard urban economic theory that were plausible a-priori, but that have not been formally demonstrated before.  
+The relationships set out in this chapter are theoretically grounded and  realistic. They allow us to implement the three sub-models described in the introduction to this thesis in code. The resulting simulation model lets us demonstrate some implications of standard urban economic theory that were plausible a-priori, but that have not been formally demonstrated before.  

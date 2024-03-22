@@ -109,6 +109,8 @@
 \usepackage{rotating} %DRR Sidewayas
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \usepackage{pgfplots}
+% Add this line to set the compatibility mode
+\pgfplotsset{compat=1.17}
 \usepackage{tikz}
 \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta}
 %\usepackage[dvipsnames]{xcolor}

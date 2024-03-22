@@ -6,8 +6,17 @@
 %% Template modfied by Kirsten Wright kirsten.wright@uwaterloo.ca 2024-01-14    %%
 %% Based on template by Chris Carmona: carmona@stats.ox.ac.uk ; chriscarmona.me %%
 
-\documentclass{beamer}
+\documentclass[notes=show]{beamer} %[notes=show/only]
 \usepackage{tikz}
+
+\newcommand\Wider[2][3em]{
+% Has 2 parameters, addition to textwidth and content
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
 \include{preamble}
 %% Information (author, title, etc.) %%
 % \setbeamerfont{title}{size*={2pt}}
@@ -19,7 +28,7 @@
 }
 % \institute{PhD Thesis Defensae}
 \institute{PhD Thesis Defense \\[1ex] University of Waterloo}
-\date{February 10, 2024}
+%\date{February 10, 2024}
 % \title[Short Title]{% short title for footer
 %     Long and Descriptive Title
 %     \vspace{0.5cm}
@@ -63,38 +72,239 @@
 \end{frame}
 
 % %----------------------------%
-\begin{frame}%{The housing market component}
+\begin{frame}{Production and the city}
+\huge 
+$Y=AN^\beta$ {\normalsize \hfill \textbf{Scale literature and Jacobs}\\\hfill $N =$ population}
+\vspace{.5cm}
+
+$y=\:A\quad \;k^\alpha n^\beta$ {\normalsize \hfill \textbf{Neoclassical production function}\\ \hfill$n =$ firm workforce}
+\vspace{.5cm}
+
+$y=\:AN^\gamma k^\alpha n^\beta$ {\normalsize \hfill \textbf{Synthesis in our model}\\\hfill $N = f*n, \qquad f=$ number of firms}
+
+
+
+\end{frame}
+
+% %----------------------------%
+\begin{frame}{Increasing returns in the city}
+
+\begin{tikzpicture}[scale=.5, my plot/.style={thick, smooth, samples=100, domain=0.1:2.2},
+plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
+                    my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1}},
+                    my axis/.style={latex-latex}]
+ 
+ \draw[my axis] (0,13)node[left] {$Y(\cdot)$} --(0,0)-- (15.4, 0) node[below] {$N$}; %creates the axis a little 
+
+\coordinate (origin) at (0,0);
+\def\x{0.45}
+\def\y{2.1}
+\def\b {$15/(2*ln(\y)+.05)$};
+%\def\p{0.55} % define the x, y and p )(midpointvalues
+%\draw[my plot] (0,0) plot (\x,{ln(\x)});  %Draws curve
+%\draw[my plot] (0,0) plot ({\x-.08},{2.3+ln(\x)}); 
+\coordinate (Uy) at (\y,{2*ln(\y)+.05});
+
+% THREE SCALE POSSIBILITIES
+\draw [thick, ](0,0)--(14, 10.22583)node[below right]{$\frac{N}{n_R}y_R$};   %diagonal line CRS
+\draw[plot2, dashed] (0,0) plot ({\x-.08},{(\x)^0.9/1.5 }); %DRS
+\draw[plot2, ultra thick, green] (0,0) plot ({\x-.08},{(\x/1.5)^1.15});%
+\node at (15.4, 13.5){$AN^\beta$};
+
+%  TEXT
+\node at (13.8,12.5) [left, text width=4.5cm]{ cities actually exhibit increasing returns\\ to population\\ $\beta>1$};%IRS
+\node at (13.5,5)[text width=4.5cm, align=right] {cities might\\ exhibit decreasing \\returns to population \\ $\beta<1$};% DRS
+
+% ARROW
+\draw[latex-latex, ultra thick] (13, 11.9)--(13, 9.6);
+\node at (15.5, 11.2)[ text width=2.5cm, align=right]{\small\textbf{agglomeration\\ surplus}};
+
+\begin{scope}[ yscale=1,xscale=2]% shift={(1.9,0)} ,
+	\coordinate (Uy) at (\y, {2.3+ln(\y)});
+  \draw[my plot,ultra thick] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right=.5cm, text width=3.9cm]{individual firms\\ exhibit decreasing\\ returns to labour}; % production function for generic ferm
+	\draw[dashed](.75, 0)node[below]{$n_R$} --(.75, 3.4);
+\end{scope}
+\end{tikzpicture}
+
+\end{frame}
+
+
+% %----------------------------%
+\begin{frame}{Population model}
+\huge 
+$w=\frac{\beta y} {n}$ {\normalsize \hfill \textbf{firm behavior}\\\hfill $ w =$ wage}
+\vspace{.5cm}
+
+$\omega=w-\psi$ {\normalsize \hfill \textbf{wage premium}\\\hfill $ \psi=$ subsistence wage}
+\vspace{.5cm}
+
+$N= \frac{(w-\psi)^2}{2c^2 }$ {\normalsize \hfill \textbf{population equilibrium}\\\hfill $ c=$ transportation cost}
+
+\end{frame}
+\note[itemize]{\Large
+\item We need a wage-setting process. The first equation is just the marginal product of labour with the Cobb-Douglas
+\item The second is my modelling decision about how to connect the production sector to the urban system in my model
+\item the third calculates the equilibrium population in the Alonzo model 
+\hspace{1cm}
+We have connected the  circle
+}
+
+% %----------------------------%
+
+% %----------------------------%
+\begin{frame}{The production system feedback}\framesubtitle{The Alonzo-Jacobs Cycle}
+% \begin{figure}[!ht]
+\vspace{-.5cm}
+\Wider[4em]{\centering
+\includegraphics[scale=.75,trim={.5cm 0cm 0 1.cm},clip]{fig/flow-alonso-jacobs-cycle.png}
+}
+% \caption[Production system.]{The production system component, incorporating the urban scaling of wealth in the urban spatial model. We name this coupling of two difference equations the Alonso-Jacobs cycle.}
+% \label{fig-alonso-jacobs-cycle}
+% \end{figure}
+
+\vspace{-1.5cm}
+\hspace{1cm}ALONZO \hspace{5.5cm} JACOBS
+\end{frame}
+
+
+\note[itemize]{\huge
+\item A classic positive feedback cycle
+\item Green refers to a theory and grey boxes to the calculations
+
+}
+
+% %----------------------------%
+\begin{frame}{The housing market with three classes}
 \begin{center}
-    
-\includegraphics[scale=.55]{fig/flow-impacts.png}
+ \vspace{-.5cm}   
+\includegraphics[scale=.55,trim={.5cm 1cm 0 1.5cm},clip]{fig/flow-impacts.png}
 \end{center}
 
 % \caption[The housing market component of the model.]{The housing market component. Financialization affects both the allocation of housing and its allocation of rents.}
 \end{frame}
+\note[itemize]{\huge
+\item Now we are into the complicated part of the modelling
+\item in the housing market investors and workers bid for existing housing. 
+\item We model each sale as a multi-bidder auction.
 
+}
 % %----------------------------%
 \begin{frame}{The financialization component}
 % \begin{figure}[!ht]
 \centering
-\includegraphics[scale=.55]{fig/flow-financialization.png}
+\includegraphics[scale=.75]{fig/flow-financialization.png}
 % \caption[The financialization component of the model.]{The financialization component. There is a feedback loop in which new investors drive up demand and thus drive up prices.}
 % \label{fig-financial-cycle}
 % \end{figure}
 \end{frame}
+\note[itemize]{\Large
+\item But I had to go back one more step to bring in the financial sector
+\item Notice how finance -capital - enters both directly through investor purchases and less directly through mortgages:
+\item "I don't own my house: the bank does!"
+}
+
 
 % %----------------------------%
-\begin{frame}{The production system}
-% \begin{figure}[!ht]
-\centering
-\includegraphics[scale=.55]{fig/flow-alonso-jacobs-cycle.png}
-% \caption[Production system.]{The production system component, incorporating the urban scaling of wealth in the urban spatial model. We name this coupling of two difference equations the Alonso-Jacobs cycle.}
-% \label{fig-alonso-jacobs-cycle}
-% \end{figure}
-\end{frame}
+\begin{frame}{12 experiments, 84 results}
+\begin{enumerate}\Huge
+    \item six policy variables
+    \item two states of the world
+    \item seven outcome variables for each 
+\end{enumerate}
+\end{frame}% %
 
 % %----------------------------%
+\begin{frame}{CASE: Capital gains tax on investors with no linkage}
+\begin{tikzpicture} 
+\node at (.7cm,10cm){
+\includegraphics[scale=.8, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
+\pause
+
+\node at (6cm,13.5){wage, capital stock};
+\node at (6cm,11.56){workforce, population};
+\node at (6.1cm,9.6){city radius, number of firms};
+\node at (6cm,7.7){owner-occupier share};
+\end{tikzpicture}
+\end{frame}% %
+
+\note[itemize]{\Large
+\item 100-year evolution of an city economy 
+\item Population grows to 2.4 million
+\item arbitrary firm technology  most growth falls on increasing the number of firms
+
+\item a capital gains tax does not affect production side but does affect the ownership ratio profoundly.
+\item this is an important result for policy makers to know
+}
+
+% %----------------------------%
+\begin{frame}{Adding productivity impacts}
+     \includegraphics[scale=.55, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} 
+    \includegraphics[scale=.55, trim={0 1.4cm 3.8cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
+\end{frame}% %
+\note[itemize]{\Large
+\item comparing the case with a strong linkage to productivity 
+\item effect of capital gains tax on ownership is larger
+\item \textbf{With linkage}  the CGT improves all production-side variables and increases city size
+\item a capital gains tax does not affect production side but does affect the ownership ratio profoundly.lower than the cgtax for owners-occupiers leads to a population crash
+\item these are important results for policy makers to know
+}
+
+% %----------------------------%
+\begin{frame}{Results}
+\begin{itemize}
+ %\item In the absence of linkages between the housing market and the production sector, of the policy tools we consider, only density and transportation cost and capital gains taxation have much effect. 
+
+ \only<1>{\color{red}}\item In the presence of linkages, policy tools have much more dramatic effects. This is potentially very important result. 
+ \pause
+
+ \only<2>{\color{red}}\item  a capital gains tax on speculative investment without linkage increases owner occupancy. 
+
+ \only<2>{\color{red}}\item With a productivity linkage, a a capital gains tax on speculation increases wages and the size of the city. 
+ \pause
+  \only<3>{\color{red}}\item  A capital gains tax on owner-occupiers above the level of on investors has a powerfully negative effect on population and wages.
+\end{itemize}
+\end{frame}% %----------------------------%
+\begin{frame}{results}
+\begin {itemize}
+
+
+ \item  the cost of capital has surprisingly little effect any variables in  either case.
+
+ \item  Transportation cost has a strong effect on wages and city size as expected 
+ 
+  \item Low transportation costs with financial system spillovers appears to induce something like cyclical behaviour.
+
+ \item  increasing density increases the population, but does not affect wages or city extent.
+\end{itemize}
+\end{frame}% %----------------------------%
+\begin{frame}{Results}
+\begin {itemize}
+ \item restrictive mortgage market does not affect the production sector or city size.
+
+ \item  increasing property taxes reduces owner occupiers, but has only a small effect on city size when there is no linkage. 
+ 
+ \item  With linkage increasing property taxes depresses wages, population and city size.
+\end{itemize}
+\end{frame}% %----------------------------%
+
+% %----------------------------%
+\begin{frame}{Ex styles for presenting equations}
+\includegraphics[scale=.35]{fig/example_figures/eqn-ex-1.png}
+\end{frame}% %----------------------------%
+\begin{frame}{Ex styles for presenting equations}
+\includegraphics[scale=.35]{fig/example_figures/eqn-ex-2.png}
+\end{frame}% %----------------------------%
 \begin{frame}{Frame Title}
+\includegraphics[scale=.35]{fig/example_figures/feedbk-eqn-1.png}
 \end{frame}
+\begin{frame}{Frame Title}
+\includegraphics[scale=.15]{fig/example_figures/pictures-ex-1.png}
+\end{frame}
+\begin{frame}{Frame Title}
+\includegraphics[scale=.25]{fig/sheep.jpg}
+\end{frame}
+
+
 
 % %----------------------------%
 % %----------------------------%
