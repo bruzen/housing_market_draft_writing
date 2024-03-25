@@ -24,16 +24,39 @@ We have sharply restricted our model in order to focus on one process of signifi
 % Extensions to this base model can be organized by what part of the model they contribute to residents, firms, investors, land, or other institututions
 
 
-It is useful to review the main features of the current model. A representative  urban firm %central place 
-pays a uniform wage, $w$ to all employees. Employees  have identical preferences and transportation costs. %$where $w$ is an attribute of individual residents.
-Residents purchase or rent equal quantities of land at differing locations $l$ for identical housing.  There are transportation costs $T$ that depend on distance from the central place, so land close to the central place is more attractive than land farther from the central place.  The equilibrium concept is that a market with identical individuals with identical incomes and transportation costs will result in identical utilities. The result is that land rent must decline with distance from the central place to offset rising transportation cost. The size of the city is determined by the wage, transportation cost and lot size. %Income and transportation costs will interact with lot size. 
+Equation 8.21 to examine the effect of transaction costs
+It is useful to review some of the strong simplifications of the current model. \begin{itemize}
+    \item There is a single city 
+    \item surrounded by a homogeneous rural economy
+    \item with an unlimited supply of and and workers.
+    \item Rural dwellers take jobs with the central firm if the wage justifies the travel. 
+    \item A representative urban firm 
+    \item located centrally
+    \item It produces a single good for export. 
+    \item Firm productivity is an increasing function of population. 
+    \item It pays a uniform wage that depends on worker productivity 
+    \item to identical employees. 
+    \item with identical preferences 
+    \item and identical transportation costs. 
+    \item  Transportation costs increase linearly with distance.
+    \item Workers retire after a fixed period, 
+    \item sell their homes and move to the countryside.
+    \item Homes are identical and take the same amount of land.
+    \item Replacement workers bid on home for sale
+    \item Land speculator compete with workers to buy housing
+    \item  The equilibrium concept is that a market with identical individuals with identical incomes and transportation costs will result in identical utilities. 
+    \item there are no transaction costs
+\end{itemize}
+The result is that land rent must decline with distance from the central place to offset rising transportation cost. The size of the city is determined by the wage, transportation cost and lot size. 
+%Income and transportation costs will interact with lot size. 
 {\newpage\thispagestyle{empty}
 \vspace{-1.5cm}
+
 \begin{figure}
 \vspace{-4.5cm}
 \begin{adjustwidth}{-0.24\textwidth}{-0.2\textwidth}
 \centering
-\includegraphics[scale=.22]{fig/extensions-logic.png}
+\includegraphics[scale=.20]{fig/extensions-logic.png}
 \end{adjustwidth}
 \caption{Extensions}
 \label{fig-extensions-logic}
@@ -42,7 +65,10 @@ Residents purchase or rent equal quantities of land at differing locations $l$ f
 %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
 \end{figure}}
 
-This simple case allows us to focus on the general, and neglected, distributional features of this class of models. We look forward to incorporating a number of extensions that will allow us to explore additional questions.\footnote{We want to emphasize that, although our investigation has focused on financialization and one of the most important results is the potential importance of linkages between finacialization and productivity, we do not intend to undertake empirical research on those linkages. They are important, but empirical research is not our field.} Three of the most immediate and promising extensions involve adding attributes to agents.\footnote{In code, the extensions in this group require simple additions to agent descriptions.} Another group of three extensions add structural elements to the model.  Combined with the extensions in first group, they form a set of related projects. The augmented agents can be incorporated in the structural models and should be completed first.
+This simple case allows us to focus on the general, and neglected, distributional features of this class of models. We look forward to relaxing many of the assumptions to allow us to explore additional questions.\footnote{We want to emphasize that, although our investigation has focused on financialization and one of the most important results is the potential importance of linkages between finacialization and productivity, we do not intend to undertake empirical research on those linkages. The empirical research is important, but it is not our field.}  
+Three of the most immediate and promising extensions involve adding attributes to agents.\footnote{In code, augmenting agents requires simple additions to agent descriptions.} Another group of three extensions add structural elements to the model. With the augmented agents from the first group of extensions, these structural extensions would accommodate a very large set of related projects. 
+
+
 
  
 % \begin{table}[hb!]
@@ -61,18 +87,29 @@ This simple case allows us to focus on the general, and neglected, distributiona
 
 
 \section{Elaborating the agents}
-Introducing multiple wages, amenity, and differing densities are relatively simple. Wages can be treated as an aspect of the individual the way we have treated savings. Amenity and density requires us to add attributes to locations and preference structures to individuals, which is slightly more complicated. Much more time is likely to be need to analyze the results of different distributions of attributes. 
-These changes are relatively minor although they add a great deal of granularity.
+There are three extension that are technically  minor although they add a great deal of granularity. Each involves adding attributes to on or more classes of agents and adjusting the relevant behavioural rules. They are
+\begin{enumerate}
+    \item introducing workers with different wages. It is not necessary to generate the differences out of the production sector to see how different wages affects the spatial distribute of workers.Sorting by income is the expected result, but our model will allow us to  see if financialization affects the sort and whether public policies can have positive effects
+ 
+    \item introducing differences in amenity. This involves  adding attributes to properties and preferences over the attribute to the persons.
 
-Sorting by wealth, income and preference is the expected result, but our model will allow us to  see if financialization affects the sort and whether public policies can have positive effects
+    \item Introducing housing density variation. As with amenities, density variation density requires us to add attributes to locations and preference structures to individuals. As with amenities we expect sorting by income and preference in this case as well but density is an urban attribute that is important for many reasons, not least because affects population and is therefore going to interact with productivity, and be amplified through the Alonso-Jacobs feedback loop. 
+    
+\end{enumerate}
+
+Introducing multiple wages, amenity, and differing densities are relatively simple. The resulting sorting by wealth, income and preference is of considerable interest for social policy. The extensions will allow us to test whether financialization affects the sort and whether public policies can have positive effects
 
  
 \section{Structural additions}
 
-Adding  structure to the model involves more challenges. Three directions seem most promising
+Adding  structure to the model involves more challenges. Three directions seem most promising.
 \begin{enumerate}
-    \item Embedding the city in a system of cities will let us  explore a number of important questions. How does the city connect with the larger system of cities, for example, and does a dominant city emerge. To explore the and other questions  we would simply clone the model and connect the clones with population flows that respond to local variables. 
+    \item Embedding the city in a system of cities will let us  explore a number of important questions. How does the city connect with the larger system of cities, for example, and does a dominant city emerge? Tow what extent will wee see specialization? Wehn are systems of cities stable? To explore these and other questions we would simply clone the model and connect the clones with population flows that respond to local variables. 
+    
     \item Introducing a housing production sector with land developers and home construction is a larger task. Economic dictates and building codes and master plans regulate which land is developed at what density and when. Considerable work is underway among collaborators at Waterloo, raising the possibility of productive synergies.
+
+    New classes of agents are involved in housing production such as land assemblers, construction companies, developers. Financing developments involves new financial institutions and new financial instruments. Decisions are made on the basis of relatively long term forecasts and the housing production system is likely to exhibit strong lags with the potential to produce cyclic behaviour.
+
     \item Developing a richer firm sector would allow us to have variable wages endogenously, as well as local goods production and even a variety of exports. The latter is especially interesting with a system of cities. Ideally it would involve collaboration with and economist with  a strong interest in industrial structure.  
 \end{enumerate}
 
@@ -143,7 +180,7 @@ There may be many other channels through which surplus flows into productive inv
 \subsection{Domestic investment}
  It is known that local ownership is associated with local investment. We have dealt with this by linking local capital ownership with the scale factor, with local capital ownership proxied by homeowner equity as a share of the local housing stock. 
 
-\begin{figure}[h!]
+\begin{figure}[ht]
 \begin{center}
 \input{fig/financialization-expansion.tex}
 \end{center}
@@ -178,20 +215,10 @@ A question that is especially important is whether the process of financializati
 
 
 % \section{technical refinements}
-
 % \section{Integration with existing work}
-
-
-
-
 % \subsection{Financialization vs expansion of the housing stock}
-
-
-
 % - it can lead to efforts to extract more rents by displacing people to invest in a shift in built form.
 %There are a number of potential links with the development process.
-
-
 
 
 \subsection{Density, housing form, and neighbourhood amenity}
