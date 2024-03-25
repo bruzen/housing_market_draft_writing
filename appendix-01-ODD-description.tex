@@ -3,24 +3,29 @@
 
 % THIS PART IS NEW AND VERY ROUGH
 
-%MAYBE ADD A NOTE ON METHOD, INTRODUCE ABM AND HOW IT RELATES WITH EQUATION BASED MODELLING
+%MAYBE ADD A NOTE ON 
+METHOD, INTRODUCE ABM AND HOW IT RELATES TO EQUATION BASED MODELLING
 
-The core model is documented bellow using the Overview, Design concepts, and Details (OOD) standard. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels.
+The core model is documented below using the Overview, Design concepts, and Details (OOD) standard \cite{grimmODDProtocolDescribing2020, grimmODDProtocolReview2010a}. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels.
 
 \section{Purpose}
 
 % TODO add in purposes of modelling work - The purpose of this model is to understand ..Following xyz, xyz gives x purposes for modelling.
-The purpose of this model is to understand the effect of the financialization and the capture of rents from urban productivity. %, through financialization of the urban housing market. 
+The purpose of this model is to understand the effect of financialization and the capture of rents from urban productivity. %, through financialization of the urban housing market. 
 
 
 \section{State variables and scales}
 
 The agents are workers,  %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
-the urban firm, an investor, a bank, and a realtor. People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Properties have owners, residents, and locations. Firm have sizes, marginal returns to capital, and labour.  
-Investors own properties and take out debt, the bank has lending rates that are a function of their calculation of credit-worthiness and the prime interest rate, and realtors have lists of properties for sale and for rent. 
+properties, a representative urban firm, an investor, a bank, and a realtor. 
+State variables are: number of workers (population), individual worker savings, number of firms, workers per firm, capital stock, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
 
-Each agent occupies one property, however the firm has a density parameter which multiplies the firm population by a density number, effectively coarse graining the model for the purposes of the firms calculation. 
-Each time step represents one year. People work until they reach retirement age at which point they retire. 
+People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Properties have owners, residents, and locations. Firm have sizes, marginal returns to stocks of capital, and labour.  
+Investors own properties and take out debt. The bank has lending rates that are a function of their calculation of credit-worthiness and the prime interest rate. Realtors have lists of properties for sale and for rent. 
+
+Each agent occupies one property, however the city has a density parameter which multiplies the firm population by a density number, effectively coarse-graining the model for the purposes of the firm's calculation. 
+
+ 
 % There are x types of agents. They have the state variables outlined in the tables. 
 
 % variables can include behavioral attributes and model parameters.
@@ -31,9 +36,9 @@ Each time step represents one year. People work until they reach retirement age 
 % Overview of process, parameters and default values for the xx model
 
 \section{Process overview and scheduling}
+The model proceeds with discrete steps. Each time step represents one year.  All agents of a particular time execute their step function in randomized order. People work until they reach retirement age at which point they retire. They use state variables from the prior time step, so the order can affect who bids on what properties and thus which properties the highest bidders choose to purchase, but cannot affect other state variables which effectively update all at the same time. % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
 
-Each time step represents one year. The model proceeds with discrete steps. All agents of a particular time execute their step function in randomized order. They use state variables from the prior time step, so the order can effect who bids on what properties and thus which properties the highest bidders choose to purchase, but cannot effect other state variables which effectively update all at the same time. % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
-In each time step first the firm computes the wage, land units calculate their warranted prices based on the firm's urban wage premium. If people are above the retirement age, they retire, and list any properties for sale if they are moving out of the city. Those not retired choose whether to work or not work, based on the wage premium and transportation costs. Next newcomers and investors bid on properties listed for sale. Realtors take the list of all bids and select the top bids and facilitate a bargaining process to reach a final price. Finally, if the owners will not occupy their own houses, properties are listed for sale and rented to newcomers, and the process begins again in the next time step. 
+In each time step, the firm computes the wage, land units calculate their warranted prices based on the firm's urban wage premium. If people are above the retirement age, they retire and list any properties for sale if they are moving out of the city. Those not retired can choose whether to work or not work, based on the wage premium and transportation costs. Next newcomers and investors bid on properties listed for sale. Realtors take the list of all bids and select the top bids and facilitate a bargaining process to reach a final price. Finally, if the owners will not occupy their own houses, properties are listed for sale and rented to newcomers, and the process begins again in the next time step. 
 
 % Overview of process, parameters and default values for the xx model
 % - description of the model’s schedule that is detailed and precise enough to allow the model to be re-implemented.
@@ -49,11 +54,12 @@ In each time step first the firm computes the wage, land units calculate their w
 % Prediction - the anticipate based on past prices
 
 
+We combine two distinct approaches to modelling social systems: Agent-based techniques and equilibrium models. 
 
 Principles explored include the relationship between urban agglomeration effects and financialization of the the urban housing market. The model also expresses several other concepts as described below.
 
 \subsection{Emergence}
-There are two distinct regimes one in which investors own properties. Given the feedbacks, there is a regime in which wealth grows and one in which it collapse, there is a regime in which those who own houses and work can build equity and live comfortably and one in which they are continually squeezed by costs. This emerges as a by product of individual investment based on local expected financial return calculations. 
+There are two distinct regimes, one in which investors own properties. Given the feedbacks, there is a regime in which wealth grows and one in which it collapse, there is a regime in which those who own houses and work can build equity and live comfortably and one in which they are continually squeezed by costs. This emerges as a by product of individual investment based on local expected financial return calculations. 
 The expected price includes information about how the market has behaved so it is possible for price bubbles and expectations to feed back into the dynamics. 
 % Ownership, the regime, emerges, advantage are amplified leading to a different end state.
 
@@ -98,7 +104,7 @@ The model records the urban wage, bid prices, realized price, population, which 
 Initial values for the model are detailed in Appendix~\ref{appendix-parameters} on initial values.
 
 \section{Input}
-To explore the model dynamics interventions change key parameters mid run to represent shocks to the system, to model labour market and price shocks and cyclical patterns. % time varrying data. 
+To explore the model dynamics interventions change key parameters mid-run to represent shocks to the system, to model labour market and price shocks and cyclical patterns. % time varrying data. 
 
 \section{Submodels}
 Three submodels are the spatial structure of the model, with each land unit having a transportation cost based on its distance from the urban center, second the firm model that produces the urban wage, and finally the land market model that allows homeowners and financialized investors to bid on properties in order to capture the rising rents due to agglomeration.  
