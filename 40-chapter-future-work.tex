@@ -7,20 +7,23 @@
 Our goal in this thesis has been to make a simple model that illustrates essential principles. % like the  the Alonzo model \cite{alonsoLocationLandUse1964}. 
 In this model, we have distinct elements: 
 \begin{enumerate}
-    \item a model of the city and property market
-    \item a model of firms and urban production and
-    \item a model of the financial and institutional structure linking them, who gets what share of the surplus through ownership, taxation, etc.
+    \item A model of the city and property market
+    \item A model of firms and urban production and
+    \item A model of the financial and institutional structure linking them, who gets what share of the surplus through ownership, taxation, etc.
 \end{enumerate}
 
 We have sharply restricted our model in order to focus on one process of significance, financialization and its effects, but each component is designed  to accommodate a range of extensions, and the model is modular enough that any given segment may be removed and replaced with another, perhaps more detailed, implementation of the sector.
 
-{ \color{red}With simple extensions, the model is capable of generating testable empirical hypotheses on a series of important policy issues.} In the following sections we detail several promising extensions to each module. In each case it is also possible integrate data more systematically, or to more thoroughly explore the static and dynamic properties of the model. In addition, 
+
+
 % \subsection{Combinatorial experiments}
 % Extensions from this basic model can go in several directions. We treat three categories of extension to this model:
 % There are many more possible models than this, and these extensions combine. 
-these extensions combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions.  A model incorporating in binary choices is one of an implicit family of $2^n$ alternative models. 
+With simple extensions, the model is capable of generating testable empirical hypotheses on a series of policy issues. The extensions detailed here also combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions.  A model incorporating in binary choices is one of an implicit family of $2^n$ alternative models. 
 They also describe a particular logic, which may be explored or studied in any particular region or context, drawing on local data and estimated parameter values. The context will also suggest, in many cases additional theoretical extensions, or particular questions.
 
+
+In the following sections we detail several promising extensions to each module. In each case it is also possible integrate data more systematically, or to more thoroughly explore the static and dynamic properties of the model. 
 
 % we have designed the model to accommodate a range of extensions. This chapter discusses future work.
 % We start with a discussion of the key questions we are most interested in pursuing in the near future. We then introduce other bodies of work this work could connect with. Finally, we describe the steps needed to build out the base structure of this work to increase the rigour and explanatory power of the model by adding extensions to the model, improving the analysis, and integrating the work with data.
@@ -97,28 +100,31 @@ They also describe a particular logic, which may be explored or studied in any p
 
 \section{City and housing market}
 
+We have modelled a housing market, this base model may be extended with in a number of directions to enrich the  model of space and the urban system.
 
 \subsection{Housing production}
-Introducing a housing production sector with land developers and home construction is a larger task. Economic dictates and building codes and master plans regulate which land is developed at what density and when. Considerable work is underway among collaborators at Waterloo, raising the possibility of productive synergies.
+
+We can introduce a housing production sector. This extension appears on the right side of Figure~\ref{fig-extensions-logic} linked to the banking sector. It requires adding a dynamic housing stock, either directly in the equations or explicitly by modelling the actions of agents acquiring and developing land. % to subdivide and develop. 
+
+Financialization is not expansion of the housing stock, it is transfer of ownership. It is a process logically orthogonal to development, as we try to illustrate with Figure~\ref{fig-financialization-expansion}. It may however interact with the production of housing because land acquisition and construction require financing and prospects for sales depend on the housing market which is affected by financialization. 
+% Introducing a housing production sector with land developers and home construction is a larger task. 
+% Considerable work is underway among collaborators at Waterloo, raising the possibility of productive synergies.
 
 New classes of agents are involved in housing production such as land assemblers, construction companies, developers. Financing developments involves new financial institutions and new financial instruments. Decisions are made on the basis of relatively long term forecasts and the housing production system is likely to exhibit strong lags with the potential to produce cyclic behaviour.
 
 
 % Financialization of the housing market %is a flow of money into the housing market but not into housing production, 
 
-Financialization is not expansion of the housing stock, it is transfer of ownership. It is a process logically orthogonal to development, as we try to illustrate with Figure~\ref{fig-financialization-expansion}. It may however interact with the production of housing because land acquisition and construction require financing and prospects for sales depend on the housing market which is affected by financialization. 
 
-We can introduce a housing production sector. This extension appears on the right side of Figure~\ref{fig-extensions-logic} linked to the banking sector. It requires adding a dynamic housing stock, either directly in the equations or explicitly by modelling the actions of agents acquiring and developing land. % to subdivide and develop. 
 
 \subsection{Housing density}
-Introducing housing density variation. As with amenities, density variation density requires us to add attributes to locations and preference structures to individuals. As with amenities we expect sorting by income and preference in this case as well but density is an urban attribute that is important for many reasons, not least because affects population and is therefore going to interact with productivity, and be amplified through the Alonso-Jacobs feedback loop.     
-
-Separable from production, it is possible, is to introduce variation of housing form,  density and amenity.  Many questions about who gets what housing arise at this point. 
+Separable from production, it is possible, is to introduce variation of housing form, density and amenity.  % Many questions about who gets what housing arise at this point. 
 % Consider adding density, to look at how it interacts with agglomeration effects.
-
+%Introducing housing density variation. As with amenities, density variation density requires us to add attributes to locations and preference structures to individuals. 
+% As with amenities we expect sorting by income and preference in this case as well but density is an urban attribute that is important for many reasons, not least because affects population and is therefore going to interact with productivity, and be amplified through the Alonso-Jacobs feedback loop.     
 Much of what is interesting in a city is the rich variety of housing forms and neighbourhoods and the varied populations that occupy them. Our model has a single form of housing and an undifferentiated populations, allowing us to differentiate the housing system in specific ways and study the interactions between the built world and the population.
 
-Variable density is achieved by allowing stacking of housing units. Results for this model are not known. This introduces a step change in housing form, and emphasizes unit size. Variable lot size is achieved by making lot size a choice variable for households, in which case we will get a trade off between transportation cost and lot size and distance. Results for this model are known. Density falls with distance from the centre. 
+% Variable density is achieved by allowing stacking of housing units. % Results for this model are not known. This introduces a step change in housing form, and emphasizes unit size. Variable lot size is achieved by making lot size a choice variable for households, in which case we will get a trade off between transportation cost and lot size and distance. Results for this model are known. Density falls with distance from the centre. 
 
 \subsection{Locational preferences}
 Locational preferences may result in segregation by neighbourhood depending on preferences. One version would be include distance to the edge of the city as an amenity in resident's utility function. Another would be to locate amenities within the city. These would lead to higher prices near amenities. A third variant would be to have earning depend on location. If there were several locations a polycentric city would emerge.
@@ -129,40 +135,39 @@ Introducing differences in amenity involves  adding attributes to properties and
 In reality buying a home is always the purchase of a bundle of characteristics such as location, building space, yard, local density and local \glsdisp{amenity}{amenities}. Stegman  found that ``a large majority of families who have recently moved to the suburbs are more concerned with neighborhood quality than with accessibility to other parts of the metropolitan region.'' Importantly, 
 ``There is evidence that the amenities offered by a city enhance its growth'' \cite{clarkAmenitiesDriveUrban2002, falckPhantomOperaCultural2011} and that amenity effects themselves scale superlinearly \cite{kraemerCulturalSustainabilityUS2022}.
 
-We would like to differentiate neighbourhoods by amenity level and differentiate the population by wealth and income. Sorting by wealth and income is the expected result, but our model will allow us to  see if financialization affects the sort and whether public policies can have positive effects. 
-An appendix discusses amenities in more detail.
+We would like to differentiate neighbourhoods by amenity level and differentiate the population by wealth and income. Sorting by wealth and income is the expected result, but our model will allow us to  see if financialization affects the sort and whether public policies can have positive effects. Appendix~\ref{chapter-amenity} discusses amenities in more detail.
 
 
 
 
 \subsection{Transportation costs} % and the evolution of the city} \label{section-transportation}
 
-Another spatial feature that can be greatly filled in in the model, is the transportation cost. Wage and transportation cost determine the radius of the circular city, which determines the size of the labour force which affects urban productivity. The cost of travel is therefore an important variable in the development of urban productivity. 
+Another spatial feature that could be explicitly modeled is %that can be greatly filled in in the model, is 
+the transportation cost. Wage and transportation cost determine the radius of the circular city, which determines the size of the labour force which affects urban productivity. The cost of travel is therefore an important variable in the development of urban productivity. 
 
-The transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. \cite{bertaudSpatialDistributionPopulation2003}).
+% The transportation cost/distance relationship appears to be non-linear in many cases. While the linear model connects with the established literature, we likely want to explore the implications of more empirically grounded curve (e.g. \cite{bertaudSpatialDistributionPopulation2003}).
 
 Varied transportation costs will result in segregation by neighbourhood depending on income and transportation costs. Experiments include cars for those who can afford them overlapping with transit. % Diagnostics include change in total transportation cost and differential welfare effects.
-Urban transportation is primarily a municipal responsibility and major component of the municipal budget. Private transportation costs can be affected by municipal planning, construction, and regulation. Transportation costs are therefore a policy variable.  A decline in private transport costs results in an increase in the social surplus generated by the city. One feature of interest when we examine financialization is whether the surplus generate by investment in the transportation system goes to residents, firm owners, the public sector or to financial capital. 
+% Urban transportation is primarily a municipal responsibility and major component of the municipal budget. Private transportation costs can be affected by municipal planning, construction, and regulation. Transportation costs are therefore a policy variable.  A decline in private transport costs results in an increase in the social surplus generated by the city. One feature of interest when we examine financialization is whether the surplus generate by investment in the transportation system goes to residents, firm owners, the public sector or to financial capital. 
 % The problem is to determine to whom it goes. 
 
 % Transportation costs are not likely to be affected appreciably nor quickly by the financialization of housing, so we have implemented a simple, uniform transport cost in our basic model. 
-
-
 The theory implies that transportation improvements that reduce the cost of travelling to work should  affect affect rents, but effect may spillover or leakage  onto wages  at the centre or allow for city expansion at the edge.   
-To see how, consider an expenditure that decreases transport costs.  A simple version of the urban economic theory  that underlies our  model can be summarized by the equation that for each household, rent plus transportation costs add up to a constant \cite{sootTransportationCostsUrban1974c}.\footnote{The formula assumes that access to work is the only goal of transportation for households, that there is a single mode of transport available and that households are able to minimize the sum of rent and transport costs. None of these are strictly true, and cannot relied on for a fine-grained analysis of the city, but are very convenient for our purposes.} % We have however, given some thought to how to introduce transportation costs into a model if it is applied to planning issues. 
-The degree of spillover will be very sensitive to the relative elasticities of demand and supply  for labour, land, consumption, and local densities. These leakages will reduce the amount of the social gain captured as land rent. Without building in elasticities we % We  have not built the elasticities into our model so we 
-cannot make predictions for specific cities or situations. %We know, however, that who gets the rents in determined by the degree of financial ownership of  the housing stock. This we can and will explore. 
+% To see how, consider an expenditure that decreases transport costs.  A simple version of the urban economic theory  that underlies our  model can be summarized by the equation that for each household, rent plus transportation costs add up to a constant \cite{sootTransportationCostsUrban1974c}.\footnote{The formula assumes that access to work is the only goal of transportation for households, that there is a single mode of transport available and that households are able to minimize the sum of rent and transport costs. None of these are strictly true, and cannot relied on for a fine-grained analysis of the city, but are very convenient for our purposes.} % We have however, given some thought to how to introduce transportation costs into a model if it is applied to planning issues. 
+The degree of spillover will be sensitive to the relative elasticities of demand and supply  for labour, land, consumption, and local densities. These leakages will reduce the amount of the social gain captured as land rent. % Without building in elasticities we cannot make predictions for specific cities or situations. % We  have not built the elasticities into our model so we 
+ %We know, however, that who gets the rents in determined by the degree of financial ownership of  the housing stock. This we can and will explore. 
 
-We can derive qualitative results. For example, if reducing transportation costs make more land economically available for city expansion, increased supply should reduce land rents at the centre and increase labour supply, reduce wages and increase output.  But what if land is not cheap at the edge of the city and density cannot adjust? The city cannot grow. The decrease in transportation cost will increase the effective wage, and will have a bigger effect the farther a household resides from the centre. ($\partial{\omega-cd}{c}>0$) and rents in the periphery will rise. With a fixed population they should therefore fall at the centre. But the locational rent at the centre is equal to the wage premium, so there should also be downward pressure on the wage, but not labour costs, making labour more available for the same wage premium. The effect on rents land rents may vary. If transportation cost keeps falling and lots of land is available, then you don't get strong increases in land prices. If there are strong differentials, that gives the class result in the city, but doesn't tell you how it would affect it. 
+% We can derive qualitative results. For example, if reducing transportation costs make more land economically available for city expansion, increased supply should reduce land rents at the centre and increase labour supply, reduce wages and increase output.  But what if land is not cheap at the edge of the city and density cannot adjust? The city cannot grow. The decrease in transportation cost will increase the effective wage, and will have a bigger effect the farther a household resides from the centre. ($\partial{\omega-cd}{c}>0$) and rents in the periphery will rise. With a fixed population they should therefore fall at the centre. But the locational rent at the centre is equal to the wage premium, so there should also be downward pressure on the wage, but not labour costs, making labour more available for the same wage premium. The effect on rents land rents may vary. If transportation cost keeps falling and lots of land is available, then you don't get strong increases in land prices. If there are strong differentials, that gives the class result in the city, but doesn't tell you how it would affect it. 
 
 \subsection{Regulation and zoning}
-We can ask what would be the effect of a hard zoning boundary and what would be the effect of suddenly relaxing it. We could explore the effect of speeding the rate of conversions from one size  home to another, or of locating high density pocket on a transportation route. Many significant urban policy questions could be examined with a limited amount of additional programming. 
+Economic dictates and building codes and master plans regulate which land is developed at what density and when. We can ask what would be the effect of a hard zoning boundary and what would be the effect of suddenly relaxing it. We could explore the effect of speeding the rate of conversions from one size  home to another, or of locating high density pocket on a transportation route. Many significant urban policy questions could be examined with a limited amount of additional programming. 
 % Zoning restrictions and building codes are related.
 
 \subsection{System of cities}
-Embedding the city in a system of cities will let us  explore a number of important questions. How does the city connect with the larger system of cities, for example, and does a dominant city emerge? Tow what extent will wee see specialization? When are systems of cities stable? To explore these and other questions we would simply clone the model and connect the clones with population flows that respond to local variables. At the cost of additional computational complexity, the simple circular city can be extended to to produce other forms, including polycentric cities and hierarchies of cities
+Embedding the city in a system of cities will let us  explore a number of important questions. How does the city connect with the larger system of cities, for example, and does a dominant city emerge? To what extent will wee see specialization? When are systems of cities stable? To explore these and other questions we would simply clone the model and connect the clones with population flows that respond to local variables. At the cost of additional computational complexity, the simple circular city can be extended to to produce other forms, including polycentric cities and hierarchies of cities.
+% Modern cities are not lonely and autarkic beasts wandering their own exclusive territory. Each city is one in a global system of cities that compete with and complement each other. 
 
-Modern cities are not lonely and autarkic beasts wandering their own exclusive territory. Each city is one in a global system of cities that compete with and complement each other. Information, capital and even labour flows between cities are large.  Although, as DiBartholemeo and Turnbull \cite{dibartolomeoClosedVsOpen2023} point out,``The empirical literature examining the determinants of city size almost exclusively uses the closed city version of the Mills–Muth model,'' flows between cities matter in the long run.\footnote{Our model is intermediate in the sense that it allows for labour flows  between city and countrysides, but not between cities.} Henderson Abdel-Rahman \cite{Henderson1972Sizes}, Abdel-Rahman \cite{abdel-rahmanAgglomerationEconomiesTypes1990}, Fujita \cite{fujitaMonopolisticCompetitionModel1988}, Fujita, Krugman, and Venables \cite{fujitaSpatialEconomyCities1999}, and Fujita and Thiess \cite{fujitaEconomicsAgglomeration1996} among others provide models for expanding the model in this direction. There are important questions to explore when the city is one city among others. We would like to examine how the city connects with the larger system of cities.  Labour and capital mobility matters. With free movement , policies in one city will affect outcomes in other cities. The issues that arise resemble the issues that are made explicitly by  macroeconomic distinction between open and closed economies at the national level\cite{hendersonSystemsCitiesClosed1982, dibartolomeoUrbanSprawlClosed2021}.% and unconnected to others of the species. 
+Information, capital and even labour flows between cities are large.  Although, as DiBartholemeo and Turnbull \cite{dibartolomeoClosedVsOpen2023} point out,``The empirical literature examining the determinants of city size almost exclusively uses the closed city version of the Mills–Muth model,'' flows between cities matter in the long run.\footnote{Our model is intermediate in the sense that it allows for labour flows  between city and countrysides, but not between cities.} Henderson Abdel-Rahman \cite{Henderson1972Sizes}, Abdel-Rahman \cite{abdel-rahmanAgglomerationEconomiesTypes1990}, Fujita \cite{fujitaMonopolisticCompetitionModel1988}, Fujita, Krugman, and Venables \cite{fujitaSpatialEconomyCities1999}, and Fujita and Thiess \cite{fujitaEconomicsAgglomeration1996} among others provide models for expanding the model in this direction. There are important questions to explore when the city is one city among others. We would like to examine how the city connects with the larger system of cities.  Labour and capital mobility matters. With free movement, policies in one city will affect outcomes in other cities. The issues that arise resemble the issues that are made explicitly by  macroeconomic distinction between open and closed economies at the national level\cite{hendersonSystemsCitiesClosed1982, dibartolomeoUrbanSprawlClosed2021}.% and unconnected to others of the species. 
 
 
 % Linked to the labour market and production system is the possibility of introducing competing cities. 
@@ -195,7 +200,10 @@ Modern cities are not lonely and autarkic beasts wandering their own exclusive t
 
 \section{Firm and production center}
 
+The production sector may also be enriched.
+
 \subsection{Different wages} 
+
 introducing workers with different wages. It is not necessary to generate the differences out of the production sector to see how different wages affects the spatial distribute of workers. Sorting by income is the expected result, but our model will allow us to  see if financialization affects the sort and whether public policies can have positive effects
 
 Introducing income differences will %not be technically different but will 
