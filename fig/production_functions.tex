@@ -22,17 +22,17 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \node at (15.4, 13.5){$AN^\beta$};
 
 %  TEXT
-\node at (13.8,12.5) [left, text width=4.5cm]{ cities actually exhibit increasing returns\\ to population\\ $\beta>1$};%IRS
-\node at (13.5,5)[text width=4.5cm, align=right] {cities might\\ exhibit decreasing \\returns to population \\ $\beta<1$};% DRS
+\node at (13.8,12.5) [left, text width=4.5cm]{Cities actually exhibit increasing returns\\ to population\\ $\beta>1$};%IRS
+\node at (13.5,5)[text width=4.5cm, align=right] {Cities might\\ exhibit decreasing \\returns to population \\ $\beta<1$};% DRS
 
 % ARROW
 \draw[latex-latex, ultra thick] (13, 11.9)--(13, 9.6);
-\node at (15.1, 11.2)[ text width=2.5cm, align=right]{\textbf{agglomeration\\ surplus}};
+\node at (15.1, 11.2)[ text width=2.5cm, align=right]{\textbf{Agglomeration\\ surplus}};
 %\draw[latex-latex] (13, 8.4)--(13, 9.5)node [below right, text width=1.5cm]{\textbf{$\pi$}};
 
 \begin{scope}[ yscale=.75,xscale=1.5]% shift={(1.9,0)} ,
 	\coordinate (Uy) at (\y, {2.3+ln(\y)});
-  \draw[my plot,ultra thick] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right=.25cm, text width=3.9cm]{individual firms\\ exhibit decreasing\\ returns to labour}; % production function for generic ferm
+  \draw[my plot,ultra thick] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right=.25cm, text width=3.9cm]{Individual firms\\ exhibit decreasing\\ returns to labour}; % production function for generic ferm
 	\draw[dashed](.75, 0)node[below]{$n_R$} --(.75, 3.4);
 \end{scope}
 %
