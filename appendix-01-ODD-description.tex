@@ -1,31 +1,30 @@
-
 \chapter{OOD Documentation of the Agent Based Model} \label{appendix-odd}
+The core model is documented below using the Overview, Design concepts, and Details (OOD) standard \cite{grimmODDProtocolDescribing2020, grimmODDProtocolReview2010a}. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels. 
 
-% THIS PART IS NEW AND VERY ROUGH
+Chapter~\ref{chapter-methodology}, on methodology, gives more detail on the modelling purpose, strategy, and type, and the model detailed in Chapter~\ref{chapter-model}, the model chapter, and Appendix~\ref{tab:parameters} gives parameter values.
 
-%MAYBE ADD A NOTE ON 
-METHOD, INTRODUCE ABM AND HOW IT RELATES TO EQUATION BASED MODELLING
-
-The core model is documented below using the Overview, Design concepts, and Details (OOD) standard \cite{grimmODDProtocolDescribing2020, grimmODDProtocolReview2010a}. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels.
 
 \section{Purpose}
-
 % TODO add in purposes of modelling work - The purpose of this model is to understand ..Following xyz, xyz gives x purposes for modelling.
-The purpose of this model is to understand the effect of financialization and the capture of rents from urban productivity. %, through financialization of the urban housing market. 
+The purpose of this model \gls{theoretical exposition}. More specifically, we seek is to understand the effect of financialization and the capture of rents from urban productivity. %, through financialization of the urban housing market. 
+
 
 
 \section{State variables and scales}
-
 The agents are workers,  %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
 properties, a representative urban firm, an investor, a bank, and a realtor. 
 State variables are: number of workers (population), individual worker savings, number of firms, workers per firm, capital stock, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
 
-People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Properties have owners, residents, and locations. Firm have sizes, marginal returns to stocks of capital, and labour.  
+People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Mortages are calculated for a 5-period term. Individual have a 40 period working life.
+
+Properties have owners, residents, and locations. 
+
+The representative firm has an optimal scale of approximately 60 workers. New firms enter when population grows. Firm set a wage and choose a capital stock so that according to   
 Investors own properties and take out debt. The bank has lending rates that are a function of their calculation of credit-worthiness and the prime interest rate. Realtors have lists of properties for sale and for rent. 
 
 Each agent occupies one property, however the city has a density parameter which multiplies the firm population by a density number, effectively coarse-graining the model for the purposes of the firm's calculation. 
 
- 
+100 model cycles are intended to represent 100 chronological years of city development.
 % There are x types of agents. They have the state variables outlined in the tables. 
 
 % variables can include behavioral attributes and model parameters.
