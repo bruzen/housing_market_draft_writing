@@ -37,8 +37,18 @@
 \setlength\epigraphwidth{.8\textwidth}
 \usepackage[absolute]{textpos}
 % \usepackage{setspace}
+% \usepackage{xcolor, tikz}
+% \usetikzlibrary{chains,fit}
+% \usepackage{tikz}
+% \usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta}
 \usepackage{xcolor, tikz}
-\usetikzlibrary{chains,fit}
+\usetikzlibrary{chains,fit, shadings, shadows, shapes, shapes.geometric, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
 \usepackage{listings}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -111,8 +121,6 @@
 \usepackage{pgfplots}
 % Add this line to set the compatibility mode
 \pgfplotsset{compat=1.17}
-\usepackage{tikz}
-\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta}
 %\usepackage[dvipsnames]{xcolor}
 %\setpalette("R4")
 %----------------------------------------------------------------------

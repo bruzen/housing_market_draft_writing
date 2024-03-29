@@ -1,7 +1,7 @@
 \chapter{OOD Documentation of the Agent Based Model} \label{appendix-odd}
 The core model is documented below using the Overview, Design concepts, and Details (OOD) standard \cite{grimmODDProtocolDescribing2020, grimmODDProtocolReview2010a}. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels. 
 
-Chapter~\ref{chapter-methodology}, on methodology, gives more detail on the modelling purpose, strategy, and type, and the model detailed in Chapter~\ref{chapter-model}, the model chapter, and Appendix~\ref{tab:parameters} gives parameter values.
+Chapter~\ref{chapter-methodology}, on methodology, gives more detail on the modelling purpose, strategy, and type, and the model detailed in Chapter~\ref{chapter-model}, the model chapter, and Appendix~\ref{appendix-parameters} gives parameter values.
 
 
 \section{Purpose}
@@ -15,14 +15,13 @@ The agents are workers,  %  who may choose to work at an urban firm, properties,
 properties, a representative urban firm, an investor, a bank, and a realtor. 
 State variables are: number of workers (population), individual worker savings, number of firms, workers per firm, capital stock, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
 
-People live in residences, have ages, savings and mortgages, can own property and can choose to work or not work in the city, depending on wages and transportation costs. Mortages are calculated for a 5-period term. Individual have a 40 period working life.
+People live in residences, have ages, savings and mortgages, can own property. They can choose to work or not work in the city, depending on wages and transportation costs. Mortgages are calculated for a 5-period term. Individual have a 40 period working life. Properties have owners, residents, and locations. 
 
-Properties have owners, residents, and locations. 
+The representative firm has an optimal scale of approximately 60 workers. New firms enter when population grows. Firm set a wage and choose a capital stock so that according to a standard profit maximizing rule.
 
-The representative firm has an optimal scale of approximately 60 workers. New firms enter when population grows. Firm set a wage and choose a capital stock so that according to   
-Investors own properties and take out debt. The bank has lending rates that are a function of their calculation of credit-worthiness and the prime interest rate. Realtors have lists of properties for sale and for rent. 
+Investors and owner-occupiers borrow to purchase properties at a rate set by the bank. The bank lending rates that are a function of their calculation of credit-worthiness and the prime interest rate. Realtors have lists of properties for sale and for rent in each period. 
 
-Each agent occupies one property, however the city has a density parameter which multiplies the firm population by a density number, effectively coarse-graining the model for the purposes of the firm's calculation. 
+Each worker-agent occupies one property, however the city has a density parameter which multiplies the firm population by a density number, effectively coarse-graining the model for the purposes of the firm's calculation. 
 
 100 model cycles are intended to represent 100 chronological years of city development.
 % There are x types of agents. They have the state variables outlined in the tables. 
@@ -35,9 +34,19 @@ Each agent occupies one property, however the city has a density parameter which
 % Overview of process, parameters and default values for the xx model
 
 \section{Process overview and scheduling}
-The model proceeds with discrete steps. Each time step represents one year.  All agents of a particular time execute their step function in randomized order. People work until they reach retirement age at which point they retire. They use state variables from the prior time step, so the order can affect who bids on what properties and thus which properties the highest bidders choose to purchase, but cannot affect other state variables which effectively update all at the same time. % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
 
-In each time step, the firm computes the wage, land units calculate their warranted prices based on the firm's urban wage premium. If people are above the retirement age, they retire and list any properties for sale if they are moving out of the city. Those not retired can choose whether to work or not work, based on the wage premium and transportation costs. Next newcomers and investors bid on properties listed for sale. Realtors take the list of all bids and select the top bids and facilitate a bargaining process to reach a final price. Finally, if the owners will not occupy their own houses, properties are listed for sale and rented to newcomers, and the process begins again in the next time step. 
+The model proceeds in discrete steps. Each time step represents one year.  All agents of a particular kind execute their step function in randomized order. 
+
+Persons initially have locations. They choose whether to work or not work, based on the wage premium and transportation costs, thus determining the extent of the city and its population. They remain in the workforce until they reach retirement age. If people are above the retirement age, they retire and list any properties for sale (if they are moving out of the city). 
+
+
+Persons use state variables from the prior time step. The randomized order in which agents act combined with randomized individual savings can affect who bids on what properties and thus which properties the highest bidders choose to purchase, but cannot affect other state variables which update all at the same time. % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
+
+In each time step, the representative firm computes the value of the marginal worker's value product at current prices, chooses a new target workforce and a new target wage, and and makes a partial adjustment toward the targets. The the wage premium is calculated from the wage.
+
+Each unit of land (lot) is an `agent.' Each uses the wage premium and its own location (plus any other attributes) to compute its locational value (warranted price) and potential rental earnings.  
+
+Newcomers and investors bid on properties listed for the period. A Realtor function takes the list of all bids, selects the top bids and mimics a bargaining process to reach a final price. {\color{red}Finally, if the owners will not occupy their own houses, properties are listed for sale and rented to newcomers, and the process begins again in the next time step.}
 
 % Overview of process, parameters and default values for the xx model
 % - description of the model’s schedule that is detailed and precise enough to allow the model to be re-implemented.
@@ -53,14 +62,14 @@ In each time step, the firm computes the wage, land units calculate their warran
 % Prediction - the anticipate based on past prices
 
 
-We combine two distinct approaches to modelling social systems: Our model is a blend of agent-based and equilibrium modelling. At the core is  agent-based migration and an agent-based housing market. We use equilibrium conditions for competitive labour markets to bypass the complex and partially understood wage-setting process. We also use equilib rium arguments to compute land rents from the transportation cost and urban wage premium that drive urban locational decisions. 
+We combine two distinct approaches to modelling social systems: agent-based and equilibrium modelling. At the core is  agent-based migration and an agent-based housing market. We use equilibrium conditions for competitive labour markets to bypass the complex and partially understood wage-setting process. We also use equilibrium arguments to compute land rents from the transportation cost and urban wage premium that drive urban locational decisions. Chapter~\ref{chapter-methodology}, on methodology details the decisions about model type.
 
-For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs.
-
-The principles explored include the relationship between urban agglomeration effects and the financialization of the urban housing market. The model also expresses several other concepts as described below.
+For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs. The principles explored include the relationship between urban agglomeration effects and the financialization of the urban housing market. The model also expresses several other concepts as described below.
 
 \subsection{Emergence}
-There are two distinct regimes, one in which investors own properties. Given the feedback, there is a regime in which wealth grows and one in which it collapses, there is a regime in which those who own houses and work can build equity and live comfortably and one in which they are continually squeezed by costs. This emerges as a by product of individual investment based on local expected financial return calculations. 
+There are two possible pure regimes, An owner-occupier regime and a tenant regime which investors own all properties. We start our experiments with a pure owner occupier regime in which those who own houses and work can build equity.  
+
+Under the city may then transitions toward  the investor-owned regime  as investor-agents purchase properties based on local expected financial return calculations.  
 The expected price includes information about how the market has behaved so it is possible for price bubbles and expectations to feed back into the dynamics. 
 % Ownership, the regime, emerges, advantage are amplified leading to a different end state.
 
@@ -71,17 +80,19 @@ The expected price includes information about how the market has behaved so it i
 % Objectives - what is the objective and how is it measured
 % the objective is profit
 
-There is no learning in the sense that agents do not change their  traits based on experience. 
+There is no learning in the sense that agents do not change their traits based on experience. 
 Agents do make predictions, anticipating prices based on the rate at which those prices have increased in the past $\dot P$.
 
 \subsection{Sensing}
 All agents have information about the wage, warranted price, expected and their own borrowing costs. They make their decisions based on what is best for them. 
 
 \subsection{Interaction}
-Agents get information from the firm about wages. The independently make decisions to work or retire, but because of agglomeration effects, their decision to work and it's effect on the size of the labour market feed back to effect wages in the next step. 
+Agents get information from the firm about wages. They independently make decisions to work or retire, but because of agglomeration effects, their decision to work and it's effect on the size of the labour market feed back to affect wages in the next step. 
 
 \subsection{Stochasticity}
-Stochasticity comes into the main model through the range of initial agents and savings. For model sensitivity analysis, we use a simple submodel that calculates relative bids, and shortcuts the land market and bidding process so we can see the effects of parameter changes without stochasticity. 
+Stochasticity comes into the main model two ways: through the range of initial agents and savings, and through randomising the order in which which agents act.
+
+% For testing the model's sensitivity to parameters, we use a version that shortcuts the land market and bidding process by directly calculating equilibrium population.  This version lacks the stochastic elements built into the land market sub-model. It is much faster computationally.
 
 \subsection{Feedback loops}
 Feedback loops are not part of the ODD standard, but an important concept in this work. 
@@ -90,16 +101,15 @@ Feedback loops are not part of the ODD standard, but an important concept in thi
 % https://uwaterloo.ca/systems-design-engineering/about-systems-design-engineering/department-history
 There are two main \glspl{feedback loop} in the model: the productivity-wage, population-productivity loop that we call the Alonso-Jacobs cycle, and the speculative investment-price, inflation-investment cycle that may produce price bubbles. 
 % Our model incorporates two important feedback loops. One, driven by agglomeration, we call the \Gls{Alonzo-Jacobs cycle}. The other is a price-financialization feedback that directly changes the ownership pattern in the urban housing market. 
-The two loops are linked. One mechanism is that rising productivity raises wages which then works through two paths. It can raise rents, effectively transferring productivity gains to landowners, or it can draw more workers, enhancing the \Gls{Alonzo-Jacobs cycle}. 
+The two loops are linked. Rising productivity raises wages which then works through two paths. It can raise rents, effectively transferring productivity gains to landowners, and it draws more workers into the city workforce, enhancing the \Gls{Alonzo-Jacobs cycle}.
 
-A rapid increase in housing prices may choke off urban population growth and cause the \Gls{Alonzo-Jacobs cycle} to stall. Rapid expansion of the housing stock should have the opposite effect. Much depends on the speed of response of the housing stock and the rate of transmission of agglomeration effects to wages. Our base model allows the housing stock to respond instantly and automatically increments the wage with a small lag. In the base model, financial flows are unrestricted but the rate of financialization is limited by the rate of turnover of ownership. We then parameterize the rate of adjustment for each of the stocks in a simple way in order to conduct sensitivity analysis.\footnote{Feedback loops are a fundamental feature of almost all systems. They have probably been recognized by theorists for centuries. Marx, to take one relatively modern example, identified the growth dynamic of the capitalist system  as a feedback loop, with capital investments producing a surplus that was fed back into investment, growing the stock of capital. He  claimed that this loop produced dynamic instability and a great deal of subsequent work has supported his insight \cite{dumenilStabilityInstabilityDynamic1986} \cite{schumpeterInstabilityCapitalism1928}. More recently, the Keynesian multiplier is a result of feedback in macro models between expenditure and income. That loop produces a stable equilibrium. Neoclassical growth theory built on that mechanism to explore the determinants of economic growth using differential and difference equations. Forrester, the creator of system dynamics computer simulation modeling, argued that change over time is caused by the process of accumulation.
-
-The feedback concept formally entered the social sciences through two channels: cybernetics, pioneered by Nobert Wiener  and the participants of the Macy Foundation Conferences, and the servomechanism/control engineering thread championed by Jay W. Forrester and others. Both threads were picked up and applied by prominent economists.\footnote{Richardson \cite{richardsonFeedbackThoughtSocial1991} mentions Oscar Lange (1970), Kenneth Boulding, and Alfred Eichner, Phillips,  R. G. D. Allen (1956), and Axel Leijonhufvud.} There is now a niche sub-discipline in economics called ``Feedback Economics'' \cite{radzickiIntroductionFeedbackEconomics, cavanaFeedbackEconomicsEconomic2021}. %  and a great deal of work in The servomechanism/control engineering thread is the one most closely related to \gls{system dynamics} modeling and to ideas used in this thesis.
+A rapid increase in housing prices may choke off urban population growth and cause the \Gls{Alonzo-Jacobs cycle} to stall. Rapid expansion of the housing stock should have the opposite effect. Much depends on the speed of response of the housing stock and the rate of transmission of agglomeration effects to wages. Our base model allows the housing stock to respond instantly and automatically increments the wage with a small lag. In the base model, financial flows are unrestricted but the rate of financialization is limited by the rate of turnover of ownership. We then parameterize the rate of adjustment for each of the stocks in a simple way in order to conduct sensitivity analysis.\footnote{Feedback loops are a fundamental feature of almost all systems. They have probably been recognized by theorists for centuries. Marx, to take one relatively modern example, identified the growth dynamic of the capitalist system  as a feedback loop, with capital investments producing a surplus that was fed back into investment, growing the stock of capital. Marx claimed that this loop produced dynamic instability and a great deal of subsequent work has supported his insight \cite{dumenilStabilityInstabilityDynamic1986} \cite{schumpeterInstabilityCapitalism1928}. More recently, the Keynesian multiplier is a result of feedback in macro models between expenditure and income. That loop produces a stable equilibrium. Neoclassical growth theory built on that mechanism to explore the determinants of economic growth using differential and difference equations. % Forrester, the creator of system dynamics computer simulation modeling, argued that change over time is caused by the process of accumulation CITE.
+% The feedback concept formally entered the social sciences through two channels: cybernetics, pioneered by Nobert Wiener  and the participants of the Macy Foundation Conferences, and the servomechanism/control engineering thread championed by Jay W. Forrester and others. Both threads were picked up and applied by prominent economists.\footnote{Richardson \cite{richardsonFeedbackThoughtSocial1991} mentions Oscar Lange (1970), Kenneth Boulding, and Alfred Eichner, Phillips,  R. G. D. Allen (1956), and Axel Leijonhufvud.} There is now a niche sub-discipline in economics called ``Feedback Economics'' \cite{radzickiIntroductionFeedbackEconomics, cavanaFeedbackEconomicsEconomic2021}. %  and a great deal of work in The servomechanism/control engineering thread is the one most closely related to \gls{system dynamics} modeling and to ideas used in this thesis.
 }
 
 
 \subsection{Observation}
-The model records the urban wage, bid prices, realized price, population, which people worked and who owned what properties.
+The model records the urban wage, bid prices, realized price, population, which people worked and who owns which property.
 
 \section{Initialization}
 Initial values for the model are detailed in Appendix~\ref{appendix-parameters} on initial values.
@@ -109,3 +119,64 @@ To explore the model dynamics interventions change key parameters mid-run to rep
 
 \section{Submodels}
 Three submodels are the spatial structure of the model, with each land unit having a transportation cost based on its distance from the urban center, second the firm model that produces the urban wage, and finally the land market model that allows homeowners and financialized investors to bid on properties in order to capture the rising rents due to agglomeration.  
+
+
+\section{DIAGRAMS AND FLOW}
+
+Initialization
+Apply interventions
+Record ownership share and reset counters
+
+Main loop
+Firms update wages based on how many people choose to work in the city
+Land records locational rents and calculates price forecast
+People decide whether to work, retire, and list properties to sell
+Investors list properties to sell
+Create newcomers to purchase properties for sale
+Investors bid on properties
+Realtors sell homes
+Realtors rent properties
+Store data
+Advance model
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[node distance=1.5cm]
+\node (init) [startstop] {Initialization};
+\node (interventions) [process, below of=init] {Model applies interventions};
+% \node (record) [process, below of=interventions] {Record ownership share and reset counters};
+\node (mainloop) [startstop, below of=interventions] {Main loop};
+\node (firmupdate) [process, below of=mainloop] {Firms update wages based on number of workers};
+\node (land) [process, below of=firmupdate] {Land records data and computes price forecast};
+\node (actions) [process, below of=land] {People choose to work based on wages, retire, and list properties};
+\node (investors) [process, below of=actions] {Investors list properties};
+\node (newcomers) [process, below of=investors] {Newcomers bid on properties};
+\node (bid) [process, below of=newcomers] {Investors bid on properties};
+\node (realtors_sell) [process, below of=bid] {Realtors sell homes};
+\node (realtors_rent) [process, below of=realtors_sell] {Realtors rent properties};
+\node (store) [process, below of=realtors_rent] {Model stores data};
+\node (advance) [process, below of=store] {Model advance time step};
+
+\draw [arrow] (init) -- (interventions);
+% \draw [arrow] (interventions) -- (record);
+% \draw [arrow] (record) -- (mainloop);
+\draw [arrow] (interventions) -- (mainloop);
+\draw [arrow] (mainloop) -- (firmupdate);
+\draw [arrow] (firmupdate) -- (land);
+\draw [arrow] (land) -- (actions);
+\draw [arrow] (actions) -- (investors);
+\draw [arrow] (investors) -- (newcomers);
+\draw [arrow] (newcomers) -- (bid);
+\draw [arrow] (bid) -- (realtors_sell);
+\draw [arrow] (realtors_sell) -- (realtors_rent);
+\draw [arrow] (realtors_rent) -- (store);
+\draw [arrow] (store) -- (advance);
+
+\draw [arrow] (advance.south) -- ++(0,-.5) -- ++(7,0) |- (mainloop);
+% % Custom arrow path
+% \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
+
+\end{tikzpicture}
+\caption{Caption}
+\label{fig:enter-label}
+\end{figure}
