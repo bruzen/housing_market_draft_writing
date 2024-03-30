@@ -1,29 +1,53 @@
-\chapter{OOD Documentation of the Agent Based Model} \label{appendix-odd}
-The core model is documented below using the Overview, Design concepts, and Details (OOD) standard \cite{grimmODDProtocolDescribing2020, grimmODDProtocolReview2010a}. It includes the seven elements: purpose, state variables and scales, process overview and scheduling, design concepts, initialization, input, and submodels. 
+\chapter{OOD Documentation of the Agent-Based Model} \label{appendix-odd}
+The core model is documented below using the Overview, Design concepts, and Details (OOD) standard \cite{grimmODDProtocolReview2010a}. Following Grimm et al. \cite{grimmODDProtocolDescribing2020} this ODD consists of seven elements (Figure 1).  1) purpose, 2) state variables and scales, 3) process overview and scheduling, 4) design concepts, 5) initialization, 6) input, and 7) submodels. Conceptually the elements fall into the three categories ``Overview,'' (1-3) ``Design concepts'' (4, with subcategories)  and ``Details''; hence the acronym ODD.
 
-Chapter~\ref{chapter-methodology}, on methodology, gives more detail on the modelling purpose, strategy, and type, and the model detailed in Chapter~\ref{chapter-model}, the model chapter, and Appendix~\ref{appendix-parameters} gives parameter values.
+Chapter~\ref{chapter-methodology}, on methodology, gives more detail on the modelling purpose, strategy, and type, The formulae used in the model are described and explained in Chapter~\ref{chapter-model}, the model chapter. Appendix~\ref{appendix-parameters} provides parameter values.  The exposition in this chapter is strictly descriptive and what the model includes and does.
 
 
 \section{Purpose}
 % TODO add in purposes of modelling work - The purpose of this model is to understand ..Following xyz, xyz gives x purposes for modelling.
-The purpose of this model \gls{theoretical exposition}. More specifically, we seek is to understand the effect of financialization and the capture of rents from urban productivity. %, through financialization of the urban housing market. 
+The purpose of this model \gls{theoretical exposition}. More specifically, we seek is to understand the links between financialization and  the distribution of housing ownership, the capture of rents, and  urban productivity. %, through financialization of the urban housing market. 
+Our  qualitative positive results on these issues provide valuable directions for further quantitative research.
 
 
 
 \section{State variables and scales}
-The agents are workers,  %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
-properties, a representative urban firm, an investor, a bank, and a realtor. 
-State variables are: number of workers (population), individual worker savings, number of firms, workers per firm, capital stock, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
+\subsection{State variabes}
+In the ODD framework, state variables refer to the attributes of each kind of entity. The entities in our model are of two sorts, agents and functions .
 
-People live in residences, have ages, savings and mortgages, can own property. They can choose to work or not work in the city, depending on wages and transportation costs. Mortgages are calculated for a 5-period term. Individual have a 40 period working life. Properties have owners, residents, and locations. 
+The agents are persons, properties, a representative urban firm, and an investor. The major functions are a bank, and a realtor. %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
 
-The representative firm has an optimal scale of approximately 60 workers. New firms enter when population grows. Firm set a wage and choose a capital stock so that according to a standard profit maximizing rule.
+State variables for the system are: number of workers (population), individual worker savings, number of firms, workers per firm, capital stock per firm, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
 
-Investors and owner-occupiers borrow to purchase properties at a rate set by the bank. The bank lending rates that are a function of their calculation of credit-worthiness and the prime interest rate. Realtors have lists of properties for sale and for rent in each period. 
+The state variable (attributes) for persons are property location, ages, ownership status, savings and mortgages payments or rental payments. Each person occupies one property. 
+Persons can choose to work or not work in the city, depending on wages and transportation costs. If the wage justifies travel to the city center, persons with properties at the edge of the city join the urban workforce. 
+Retirees are replaced by newcomers from the rural region who bid on properties. If they succeed they become owner occupiers. If they fail, they become tenants.  Individual have a 40 period working life.  
 
-Each worker-agent occupies one property, however the city has a density parameter which multiplies the firm population by a density number, effectively coarse-graining the model for the purposes of the firm's calculation. 
+Properties have owners, residents, prices, tax liabilities, maintenance costs,  and locations which yield  locational rents. 
 
-100 model cycles are intended to represent 100 chronological years of city development.
+The bank function sets maximum mortgage share and credit-worthiness using person attributes and bank parameters. It sets lending rates for persons and investors based on the prime rate. Mortgages payments are calculated for a 5-period term.
+ 
+Investors and owner-occupiers take out mortgages at rates set by the bank to purchase properties. 
+
+The realtor function keeps lists of properties for sale and for rent in each period, conducts bidding and allocates properties to the highest bidder.
+
+A representative firm has a production function, a workforce, capital stock and a wage 
+
+
+\subsection{Scales}
+
+The computational field is a grid of properties, typically set to 130 properties by 130 properties, which is sufficient to contain the city and still leaving properties in the `rural' state in every direction after a typical .
+100 period run. 100 model cycles are intended to represent 100 chronological years of city development. Longer or shorter runs are often convenient. 
+
+
+Each property has one resident. (This is a computational convenience that exploits our decision to have a single person type and a uniform density. At the cost of additional computation properties can have different densities and diverse person-types.) 
+
+The city has a density parameter which multiplies the the number of properties by a density number to get the basic city population. 
+
+The population determines the magnitude of the agglomeration effect that enters the firm's production function.
+
+
+
 % There are x types of agents. They have the state variables outlined in the tables. 
 
 % variables can include behavioral attributes and model parameters.
@@ -35,18 +59,70 @@ Each worker-agent occupies one property, however the city has a density paramete
 
 \section{Process overview and scheduling}
 
-The model proceeds in discrete steps. Each time step represents one year.  All agents of a particular kind execute their step function in randomized order. 
+The model proceeds in discrete steps. Each time step represents one year.  Agents use state variables from the prior time step. Agents of a particular kind execute their step function in randomized order.  Figure~\ref{fig:computational-sequence} illustrates the sequence in which function are called. Figure~\ref{fig:information-flows}illustrates the major information flows between agents and functions.
 
-Persons initially have locations. They choose whether to work or not work, based on the wage premium and transportation costs, thus determining the extent of the city and its population. They remain in the workforce until they reach retirement age. If people are above the retirement age, they retire and list any properties for sale (if they are moving out of the city). 
+\begin{figure}
+\centering \vspace{-1.5cm}
+\begin{tikzpicture}[node distance=1.5cm]
+\node (init) [startstop] {Initialization};
+\node (interventions) [process, below of=init] {Model applies interventions};
+% \node (record) [process, below of=interventions] {Record ownership share and reset counters};
+\node (mainloop) [startstop, below of=interventions] {Main loop};
+\node (firmupdate) [process, below of=mainloop] {Firms update wages based on number of workers};
+\node (land) [process, below of=firmupdate] {Land records data and computes price forecast};
+\node (actions) [process, below of=land] {People choose to work based on wages, retire, and list properties};
+\node (investors) [process, below of=actions] {Investors list properties};
+\node (newcomers) [process, below of=investors] {Newcomers bid on properties};
+\node (bid) [process, below of=newcomers] {Investors bid on properties};
+\node (realtors_sell) [process, below of=bid] {Realtors sell homes};
+\node (realtors_rent) [process, below of=realtors_sell] {Realtors rent properties};
+\node (store) [process, below of=realtors_rent] {Model stores data};
+\node (advance) [process, below of=store] {Model advance time step};
+
+\draw [arrow] (init) -- (interventions);
+% \draw [arrow] (interventions) -- (record);
+% \draw [arrow] (record) -- (mainloop);
+\draw [arrow] (interventions) -- (mainloop);
+\draw [arrow] (mainloop) -- (firmupdate);
+\draw [arrow] (firmupdate) -- (land);
+\draw [arrow] (land) -- (actions);
+\draw [arrow] (actions) -- (investors);
+\draw [arrow] (investors) -- (newcomers);
+\draw [arrow] (newcomers) -- (bid);
+\draw [arrow] (bid) -- (realtors_sell);
+\draw [arrow] (realtors_sell) -- (realtors_rent);
+\draw [arrow] (realtors_rent) -- (store);
+\draw [arrow] (store) -- (advance);
+
+\draw [arrow] (advance.south) -- ++(0,-.5) -- ++(7,0) |- (mainloop);
+% % Custom arrow path
+% \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
+
+\end{tikzpicture}
+\caption{Computational sequence}
+% \label{fig:computational-sequence}
+\end{figure}
 
 
-Persons use state variables from the prior time step. The randomized order in which agents act combined with randomized individual savings can affect who bids on what properties and thus which properties the highest bidders choose to purchase, but cannot affect other state variables which update all at the same time. % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
+Persons initially have locations. They choose whether to work or not work, based on the wage premium and transportation costs, thus determining if their location is in the commuter-shed. This step determines the extent of the city and its population. Persons remain in the workforce until they reach retirement age. If people are above the retirement age, they retire and list any properties for sale if they are moving out of the city. 
 
-In each time step, the representative firm computes the value of the marginal worker's value product at current prices, chooses a new target workforce and a new target wage, and and makes a partial adjustment toward the targets. The the wage premium is calculated from the wage.
 
-Each unit of land (lot) is an `agent.' Each uses the wage premium and its own location (plus any other attributes) to compute its locational value (warranted price) and potential rental earnings.  
+ % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
 
-Newcomers and investors bid on properties listed for the period. A Realtor function takes the list of all bids, selects the top bids and mimics a bargaining process to reach a final price. {\color{red}Finally, if the owners will not occupy their own houses, properties are listed for sale and rented to newcomers, and the process begins again in the next time step.}
+In each time step, the representative firm computes the value of the marginal worker's value product at current prices, chooses a new target workforce and a new target wage. It follows a partial adjustment rule in choosing wage, labour force, capital stock for the following period. Firm size is constrained by diminishing returns to scale. New firms enter when population grow beyond what existing firms target. 
+
+
+The the wage premium is calculated from the wage.
+
+Each unit of land (lot) is an `agent.' Each uses the wage premium and its own location (plus any other attributes) to compute its locational value (warranted price) and potential rental earnings. 
+
+The Bank function determines mortgage availability for newcomers 
+
+Newcomers and investors bid on properties listed for the period. They use an expected price includes information about how the market has behaved, so it is possible for price bubbles and expectations to feed back into the dynamics. 
+
+A Realtor function takes the list of bids and mimics a bargaining process to reach a final price. if possible. If the owners will not occupy their own houses, properties are rented to newcomers who are included in the tenant count.
+
+
 
 % Overview of process, parameters and default values for the xx model
 % - description of the model’s schedule that is detailed and precise enough to allow the model to be re-implemented.
@@ -69,17 +145,11 @@ For simplicity, we present the model for the case where individuals have the sam
 \subsection{Emergence}
 There are two possible pure regimes, An owner-occupier regime and a tenant regime which investors own all properties. We start our experiments with a pure owner occupier regime in which those who own houses and work can build equity.  
 
-Under the city may then transitions toward  the investor-owned regime  as investor-agents purchase properties based on local expected financial return calculations.  
-The expected price includes information about how the market has behaved so it is possible for price bubbles and expectations to feed back into the dynamics. 
+The city may then transitions toward the investor-owned regime as investor-agents purchase properties based on local expected financial return calculations.  
+
 % Ownership, the regime, emerges, advantage are amplified leading to a different end state.
 
 \subsection{Adaptation, learning and prediction}
-
-% TODO add adaptive traits - rules for how changing in response to changes in environment or themselves. do they seek to increase some measure
-
-% Objectives - what is the objective and how is it measured
-% the objective is profit
-
 There is no learning in the sense that agents do not change their traits based on experience. 
 Agents do make predictions, anticipating prices based on the rate at which those prices have increased in the past $\dot P$.
 
@@ -141,18 +211,24 @@ Advance model
 
 \begin{figure}
 \centering
-\begin{tikzpicture}[node distance=1.5cm]
+\begin{tikzpicture}[scale=.3,node distance=1.5cm]
 \node (init) [startstop] {Initialization};
 \node (interventions) [process, below of=init] {Model applies interventions};
 % \node (record) [process, below of=interventions] {Record ownership share and reset counters};
 \node (mainloop) [startstop, below of=interventions] {Main loop};
-\node (firmupdate) [process, below of=mainloop] {Firms update wages based on number of workers};
-\node (land) [process, below of=firmupdate] {Land records data and computes price forecast};
-\node (actions) [process, below of=land] {People choose to work based on wages, retire, and list properties};
-\node (investors) [process, below of=actions] {Investors list properties};
-\node (newcomers) [process, below of=investors] {Newcomers bid on properties};
-\node (bid) [process, below of=newcomers] {Investors bid on properties};
-\node (realtors_sell) [process, below of=bid] {Realtors sell homes};
+\node (firmupdate) [process, below=1cm of mainloop, text width=6cm] {Firms update wages, number of workers, capital  based on prior wage};
+
+% 
+\node (land) [process, below=.5cm of firmupdate, text width=6cm] {Land records data and computes price forecast};
+    \node (actions) [process,  left=1cm of land, text width=5cm] {People choose to work based on wages, retire, and list properties};
+    \node (investors) [process, right=1cm of land] {Investors list properties};
+
+\node (bank) [process, below = .5cm of land] {Bank calculates mortgage availability};
+
+\node (realtors_sell) [process, below = .5cm of bank] {Realtors sell homes};
+\node (newcomers) [process, below=2cm of actions, left=2cm of realtors_sell] {Newcomers bid on properties};
+\node (bid) [process, right=2cm of realtors_sell] {Investors bid on properties};
+
 \node (realtors_rent) [process, below of=realtors_sell] {Realtors rent properties};
 \node (store) [process, below of=realtors_rent] {Model stores data};
 \node (advance) [process, below of=store] {Model advance time step};
@@ -162,21 +238,28 @@ Advance model
 % \draw [arrow] (record) -- (mainloop);
 \draw [arrow] (interventions) -- (mainloop);
 \draw [arrow] (mainloop) -- (firmupdate);
+\draw [arrow] (firmupdate) -- (actions);
 \draw [arrow] (firmupdate) -- (land);
-\draw [arrow] (land) -- (actions);
-\draw [arrow] (actions) -- (investors);
-\draw [arrow] (investors) -- (newcomers);
-\draw [arrow] (newcomers) -- (bid);
+\draw [arrow] (land) -- (investors);
+
+\draw [arrow] (land) -- (bank);
 \draw [arrow] (bid) -- (realtors_sell);
-\draw [arrow] (realtors_sell) -- (realtors_rent);
-\draw [arrow] (realtors_rent) -- (store);
+\draw [arrow] (newcomers) -- (realtors_sell);
+ \draw [arrow] (bank) -- (newcomers);
+% \draw [arrow] (investors) -- (newcomers);
+% \draw [arrow] (newcomers) -- (bid);
+% \draw [arrow] (bid) -- (realtors_sell);
+ \draw [arrow] (realtors_sell) -- (realtors_rent);
+ \draw [arrow] (realtors_rent) -- (store);
 \draw [arrow] (store) -- (advance);
 
-\draw [arrow] (advance.south) -- ++(0,-.5) -- ++(7,0) |- (mainloop);
+\draw [arrow] (advance.south) -- ++(0,-.5) -- ++(30,0) |- (mainloop);
 % % Custom arrow path
 % \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
 
 \end{tikzpicture}
-\caption{Caption}
-\label{fig:enter-label}
+\caption{Information flows}
+% \label{fig:information-flows}
 \end{figure}
+
+

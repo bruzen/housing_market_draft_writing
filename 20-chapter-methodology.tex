@@ -7,7 +7,7 @@
 % CITE DEREKS PIECE ON MODELS AS BUILDING BLOCKS - MODELS AS AGOOD PARTS - CITE TERRY'S THESIS - SHOULD DO WHAT IT DOES HOW IT DOES, BUT ABILITY TO COARSE GRAIN- ACTUALLY SWITCH BETWEEN THESE TWO PIECES-  WITH AN EQUILIBRIUM ASSUMPTION AS THE BRIDGE.
 
 % \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh \cite{shiehWilhelmLaunhardtBidRent2004}}
- % \epigraph{It may be tempting to specify an aggregate production function that directly relates primary factors to final output, as is customary in much economic analysis. This standard simplification is often inadequate, however, because cities are characterized by increasing returns to scale, and how such increasing returns are generated has potentially important policy implications. In particular, detailed assumptions are needed about labor, the nature of products, the production function of individual firms, the input-output structure that links firms, and how firms compete.}{Spence et al \cite{spenceUrbanizationGrowth2009}}
+ % \epigraph{It may be tempting to specify an aggregate production function that directly relates primary factors to final output, as is customary in much economic analysis. This standard simplification is often inadequate, however, because cities are characterized by increasing returns to scale, and how such increasing returns are generated has potentially important policy implications. In particular, detailed assumptions are needed about labor, the nature of products, the production function of individual firms, the input-output structure that links firms, and how firms compete.}{Spence et al. \cite{spenceUrbanizationGrowth2009}}
  % TODO ADD THE PURPOSES OF MODELLING NOTE TO DISCUSSION OF HOW  WE ARE USING ABMS
 
 % SUMMARIZE: WE ARE MODELLING THE RELATIONSHIP BETWEEN FINANCIALIZATION AS GRAWTH VALUE CAPTURES AND PRODUCTION IN CITIES TO DO THIS WE  BUILD ABM
@@ -17,28 +17,16 @@
 % ABM ADDS WHAT?? GO INTO HISTORY OF ABM AND THEN HOW YOU USE IT TO MODEL THAT ASPECTS YOU HAVE INTRODUCED IN EARLIAR SECTIONS
 
 
-So far, we have introduced the theoretical frameworks for understanding locational value, the structure of the city and how productivity scales with wealth. In the following chapter, we will introduce a model that brings these together to explore the effects of financialization on the urban system. 
+So far, we have introduced the theoretical frameworks for understanding locational value, the structure of the city and how productivity scales with wealth. In the following chapters, we introduce a model that brings these together to explore the effects of financialization on the urban system. 
 
-In this chapter, we consider some of the broader methodological issues involved. Section~\ref{sec-purpose} considers the general purpose and strategy of modelling: what is the purpose of modelling? what claims does it allow about the outside world? and what is the modelling strategy? Section~\ref{sec-types} explains what type of model we use and why and describes how we integrate agent based modelling and equilibrium approaches into our model.   % in particular what is the underlying paradigm for modelling each component, what are the agents, what simplifications are justified, what uses are made of equilibrium reasoning? 
-Section~\ref{sec-other} describes our approach to several methodological matters specific to our project  and the final section {\color{red} does what?}
+In this chapter, we consider some of the broader methodological issues involved. Section~\ref{sec-purpose} considers the general purpose and strategy of modelling: what is the purpose of modelling? what claims does it allow about the outside world? and what is the modelling strategy? Section~\ref{sec-types} explains what type of model we use and why, and describes how we integrate agent-based modelling and equilibrium approaches into our model.   % in particular what is the underlying paradigm for modelling each component, what are the agents, what simplifications are justified, what uses are made of equilibrium reasoning? 
+Section~\ref{sec-other} describes our approach to several methodological matters specific to our project and the final section {\color{red} does what?}
 
 \section{Purpose and strategy}\label{sec-purpose}
-\subsection{Model purpose}
-
-Edmonds et al. lay out seven purposes of modelling \cite{edmondsDifferentModellingPurposes2019}. These range from prediction of new data and explanation of patterns in the world, to simple analogy, that merely illustrates some phenomena informally. % Following Epstein who proposed sixteen reasons in addition to prediction for modelling  \cite{epsteinWhyModel2008},  
-The purpose of our model is \gls{theoretical exposition}, that means the purpose is to explore the relationships between variables in the world. %. The mechanisms in the model display. 
-It would require further empirical work to make specific claims about 
-% Thia does not make it possible to make claims about 
-the outside world, whether explanatory or predictive. The  model can however illustrate important relationships and give insight into the implications of the theory. With a model built for theoretical exploration, the key is to systematically explore the relationship between parameters, show the results, and % qualify any results, making
-make clear that the model is built to illustrate the implications of some theory, not to validate that theory applies in any particular situation outside the model. 
-
-
-\subsection{Model strategy}
-
-In addition to modelling purpose, there is modelling strategy, the principles or rules of thumb that guide the modelling practice. Given that the purpose of our model is theoretical exposition, we aim to both keep the model simple and descriptive (Edmonds et al. use the acronym KISS, `keep it simple stupid' \cite{edmondsDifferentModellingPurposes2019}, and KIDS, `keep it descriptive stupid' \cite{edmondsDifferentModellingPurposes2019}). %  from  \cite{edmondsDifferentModellingPurposes2019} cite
-
 % The goal of modelling in general is to have an accessible and useful description of reality.  
-More specifically, Mader et al \cite{maderConstructionVerificationModels2007} suggest a set of properties of a good model. They emphasize that it should have a clearly specified object of modelling and a clearly specified purpose. They go on to list the  following additional epistemological criteria:
+
+The purpose of the model is its goal, and the strategy is the means by which it seeks to achieve its goal. To define our purpose and strategy, we are guided by the guidelines laid out by  Mader et al. \cite{maderConstructionVerificationModels2007} for the  properties of a good model. % They emphasize that it should have a clearly specified object of modelling and a clearly specified purpose. They go on to 
+They  list the  following additional epistemological criteria:
 \begin{enumerate}   
 \item  Truthful. The model has to represent the relevant behaviour of the system we are describing.
 \item  Complete. It must include necessary features of the system.
@@ -49,17 +37,38 @@ More specifically, Mader et al \cite{maderConstructionVerificationModels2007} su
 \end{enumerate}
 
 Frits Vaandrager %\cite{} %(2010 \url{http://www.cs.ru.nl/~fvaan/PV/what_is_a_good_model.html})   
-augmented their list to produce the following.\footnote{Vaandrager's useful list appears on his faculty webpage at the Institute for Computing and Information Sciences, Raboud University \url{http://www.cs.ru.nl/~fvaan/PV/what_is_a_good_model.html}. I have not found it published elsewhere, but  } A good model: \begin{enumerate}
+augment their list to produce the following.\footnote{Vaandrager's useful list appears on his faculty webpage at the Institute for Computing and Information Sciences, Raboud University \url{http://www.cs.ru.nl/~fvaan/PV/what_is_a_good_model.html}. % I have not found it published elsewhere, but  
+} A good model: \begin{enumerate}
      \item Has a clearly specified object of modelling.
      \item Has a clearly specified purpose.
      \item Is traceable: each structural element of a model either (1) corresponds to an aspect of the object of modelling, or (2) encodes some implicit domain knowledge, or (3) encodes some additional assumption.
-     \item Is truthful: relevant properties of the model should also carry over to (hold for) the object of modelling.
+     \item Is truthful: relevant properties of the model should also hold for the object of modelling.
      \item Is simple (but not too simple).
      \item Is extensible and reusable.
      \item Has been designed and encoded for interoperability and sharing of semantics.
  \end{enumerate}
 
-\subsubsection{Applying the principles}
+These principles inform the purpose and strategy of the model.
+
+\subsection{Model purpose}
+
+Edmonds et al. lay out seven purposes of modelling \cite{edmondsDifferentModellingPurposes2019}. These range from prediction of new data and explanation of patterns in the world, to analogy that merely illustrates some phenomena informally. % Following Epstein who proposed sixteen reasons in addition to prediction for modelling  \cite{epsteinWhyModel2008},  
+One of the purposes they identify is \gls{theoretical exposition}, which means the purpose is to explore the relationships between variables in the model. This is the purpose of our model. % The mechanisms in the model display. 
+
+It would require further empirical work to make specific claims about 
+% Thia does not make it possible to make claims about 
+the outside world, whether explanatory or predictive. The  model can, however, illustrate relationships and give insight into the implications of theory. With a model built for theoretical exploration, it is important to systematically explore the relationship between parameters, show the results, and % qualify any results, making
+make clear the limitations of the model. It is built to illustrate the implications of theory, not to establish that theory applies in any given situation outside the model. 
+
+
+\subsection{Model strategy}
+Given the purpose, it is necessary to define the strategy for achieving the purpose. 
+%  Model strategy is the means by which the model purpose is achieved. %In addition to modelling purpose, there is modelling strategy, 
+A common approach to strategy is to follow principles or rules of thumb that guide the modelling. % work. % practice. 
+The purpose of our model is theoretical exposition, so our strategy is designed to achieve aims specific to that purpose. First, to understand the implications of theory, we remove elements that are not central to understanding the core theoretical objects. Second, since we are not attempting prediction, we focus on the patterns and qualitative relationships in the model. With these points in mind, our strategy is to keep the model simple and descriptive. Edmonds et al. use the acronym KISS, `keep it simple stupid' \cite{edmondsDifferentModellingPurposes2019}, and KIDS, `keep it descriptive stupid' \cite{edmondsDifferentModellingPurposes2019}. %  from  \cite{edmondsDifferentModellingPurposes2019} cite
+
+
+\subsection{Applying the principles}
 Since simplicity is key to achieving these goals, % That leads us to a long list features of real urban systems that 
 we intentionally leave features out of our model to focus attention on the features that in our view matter most. 
 
@@ -80,24 +89,24 @@ In considering whether to add a feature to the model, we ask: % varying housing 
    % \item can it be added at a later point to get more neuanced results? 
 \end{enumerate}
 
-For example, % It should be clear that, 
+For example, we do need a model of the firm that will set the urban wage and a model of the way the surplus value is distributed through the land market because are essential to understanding the relationship between financialization and production in the urban system. However,
+ % It should be clear that, 
 while varying housing density across our model urban system is technically easy to do, it is not necessary to explore or demonstrate any of our three propositions. Including density variation would not undermine our results nor clarify them. %It is simply not useful to incorporate this feature in our model. 
 
-We can say the same about other extensions discussed in Chapter~\ref{appendix-future-work} on future work. For instance: 
-\begin{enumerate}
-    \item Adding a detailed production sector with multiple firms. 
-    \item Adding a detailed labour market.
-    \item Adding households of different sizes.
-    \item Adding an income distribution. 
-    \item Adding a range of distinct occupations.
-    \item Incorporating more complex lifestyle choices.
-    \item Articulating the transmission mechanism from productivity to wages and from wages to population. 
-    \item Incorporating building costs. 
-    \item Adding developers.
-    \item And including zoning regulations.
-\end{enumerate}
-
-Each of these extensions is interesting and would add fine-grained detail to our understanding of how the effects of financialization of the housing market are distributed. None of them essential to exploring the basic relationship. % is likely to affect the qualitative results or make our argument easier to grasp. 
+We can say the same about other extensions discussed in Chapter~\ref{appendix-future-work} on future work. %For instance: 
+%\begin{enumerate}
+  %  \item Adding a detailed production sector with multiple firms. 
+   % \item Adding a detailed labour market.
+    %\item Adding households of different sizes.
+    %\item Adding an income distribution. 
+    %\item Adding a range of distinct occupations.
+    %\item Incorporating more complex lifestyle choices.
+    %\item Articulating the transmission mechanism from productivity to wages and from wages to population. 
+    %\item Incorporating building costs. 
+    %\item Adding developers.
+    %\item And including zoning regulations.
+%\end{enumerate}
+Those extensions are interesting and would add fine-grained detail to our understanding of how the effects of the financialization of the housing market are distributed, but none of them are essential to exploring the basic relationship. % is likely to affect the qualitative results or make our argument easier to grasp. 
 % While making it 
 % In the thesis, we have described a stylized model to  establish how the urban system generates rents. Even with its simplifications, the model can describe key features of urban structure and urban history, and addres the core hypotheses.   %In this section, we illustrate some of the insights supported by the model. 
 % Extensions can incorporate variations in wages, density, transportation costs, preference, and even building technology and codes. The limitations of the simple, continuous, equilibrium-based versions described above can be overcome using agent-based models to model the evolution of complex and much more realistic urban systems. 
@@ -107,35 +116,40 @@ Each of these extensions is interesting and would add fine-grained detail to our
 % None of these represent methodological transgressions although the combinations may be unusual. 
 % The methodological questions that this combination raise are interesting and we get additional insight into the financialization of housing markets by examining them further.
 
-% We begin by reviewing the modeling paradigms, then discuss in some detail the relationship between analytic neoclasical economic analysis and agent based modelling, how we've integrated the two and why we believe this is a powerful technique for the tendencies inherent in agent based models, and in particular in understanding the long term distributional questions. 
+% We begin by reviewing the modeling paradigms, then discuss in some detail the relationship between analytic neoclasical economic analysis and agent-based modelling, how we've integrated the two and why we believe this is a powerful technique for the tendencies inherent in agent-based models, and in particular in understanding the long term distributional questions. 
 
 
 \section{Types of models}\label{sec-types}
-We combine two distinct approaches to modelling social systems: agent-based techniques and equilibrium reasoning. We use an agent based model for the core model of the process of financialization, where we need to understand individual behaviour and distributional effects. We use equilibrium approaches to model urban production because 1. that is less central to our model and 2. it is better understood, so we get the advantage of connecting the work with standard well understood work on theory of the firm, but using simple, well understood models. The model is fully extensible and future implementations could replace the equilibrium model of representative firms with a larger agent based model of interacting firms.
+We combine two distinct approaches to modelling social systems: agent-based techniques and equilibrium reasoning. We use an agent-based model for the core model of the process of financialization, where we need to understand individual behaviour and distributional effects.  We use equilibrium approaches to model urban production. This approach does not explicitly model multiple interacting firms but it has the advantage of simplicity and being among the most common approaches to modelling production. We sacrifice some complexity in this part but it is less central to our model and 
+we get the advantage of connecting the work with standard work on theory of the firm using simple, well-understood models. The model is fully extensible and future implementations could replace the equilibrium model of representative firms with a larger agent-based model of interacting firms.
 
 \subsection{On agent-based modelling}
-Agent-based employ populations of simple submodels (automata, or agents) \cite{shalizi_methods_2006}. They are part of a wide class of models that incorporate the behaviour of distinct entities and explore the interactions among them. The approach was developed in the 1940's when von Neumann and Ulam introduced cellular automata, a simple form of agent model where agents are typically squares on a grid following rules based only on the state of their neighbours \cite{banksStatisticalChallengesAgentBased2021}.
+Agent-based models employ populations of simple submodels (automata, or agents) \cite{shalizi_methods_2006}. They are part of a wide class of models that incorporate the behaviour of distinct entities and explore the interactions among them. The approach was developed in the 1940's when von Neumann and Ulam introduced cellular automata, a simple form of agent model where agents are typically squares on a grid following rules based only on the state of their neighbours \cite{banksStatisticalChallengesAgentBased2021}.
 
-ABMs have proven effective across a range of domains. Recent results from disciplines including physics, biology, anthropology, and economics have built a record of empirical results \cite{parkerMultiAgentSystemsSimulation2003, parker_multi-agent_2003, helbing_social_2011-1}. 
-These have shown ABMs reliably produce phenomena through simulation that were difficult if not impossible to derive from simpler analytical/closed-form expressions. 
-Examples of ABMs range from models of Bali's traditional economic and social structure, delays in traffic flow, economic bubbles, 
+ABMs have proven effective across a range of domains. Examples of ABMs range from models of Bali's traditional economic and social structure, delays in traffic flow, economic bubbles, 
 traditional foraging patterns, % (in the Sugarscape models), 
 social segregation, and ecological succession networks, to patterns of poverty and crime \cite{open_agent_based_modeling_consortium_comses_????}. %, _netlogo_????}. 
+Recent results from disciplines including physics, biology, anthropology, and economics have built a record of empirical results \cite{parkerMultiAgentSystemsSimulation2003, parker_multi-agent_2003, helbing_social_2011-1}. 
+These have shown ABMs reliably produce phenomena through simulation that were difficult if not impossible to derive from simpler analytical/closed-form expressions. 
+ %Related modelling approaches include individual-based models, cellular automata, Ising models of atomic spin, the use of swarm phenomena for modelling fabric or fluid motion, and even finite element analysis and parts of graph theoretic modelling.  
+ % While the details of implementation differ, common principles and patterns of behaviour appear that in ABMs apply across domains \cite{shalizi_methods_2006}.  
 
-Related modelling approaches include individual-based models, cellular automata, Ising models of atomic spin, the use of swarm phenomena for modelling fabric or fluid motion, and even finite element analysis and parts of graph theoretic modelling.  While the details of implementation differ, common principles and patterns of behaviour appear in ABMs apply across domains \cite{shalizi_methods_2006}.  
 
-%Agent-based models replace single equation models of sub-systems with populations of simple submodels (automata, or agents) \cite{shalizi_methods_2006}. 
-Just as a system of equations can produce emergent phenomena, so can subsystems of agents. Emergent phenomena may occur because agents do not make exactly the same decision at exactly the same time. Decisions and timing depend on the speed of information flows, proximities, and other factors. As a result, suites of agents behave differently than the ``representative agents" typical in economic models \cite{darley_towards_1999, tesfatsion_agent-based_2002}.
+In an \gls{ABM}, agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{Modelling agents with agents are defined as having adjustment rules and behaviours has a long history in economic, going back to the 1838 Cournot duopoly model \cite{cournotRecherchesPrincipesMathematiques1838}, for example, which is analyzed using `reaction functions' which simply describe a firm's optimal response to a second firm's output choice. In Cournot's simple case an equilibrium can be directly computed.} 
+Unlike equilibrium approaches common in economic analysis, agent-based modelling commits to using computational methods to mimic the distributed decision-making of complex systems like cities. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with other modelling approaches, ABMs can be used explore the behaviour of the system by varying individual parameters, and to explore the parameter space using Monte Carlo methods.
 
+%agent-based models replace single equation models of sub-systems with populations of simple submodels (automata, or agents) \cite{shalizi_methods_2006}. 
+% Just as a system of equations can produce emergent phenomena, so can subsystems of agents. 
+% Emergent phenomena may occur because 
+One advantage of beginning with an agent-based model is that we are not imposing linearity, or \textit{a-priori} distributions on the behaviour of agents. In an ABM, agents do not make exactly the same decision at exactly the same time. Decisions and timing depend on the speed of information flows, proximities, and other factors. As a result, suites of agents behave differently than the ``representative agents" typical in economic models \cite{darley_towards_1999, tesfatsion_agent-based_2002}. 
 %We employ agent-based methods in modelling the labour and housing market. We allow agents to decide to work if the wage justifies commuting to work at the center.\footnote{In a computationally faster version we compute the distance to the boundary once, rather than having each resident or potential resident decide individually if it is worth entering the urban labour market.} We allow individual worker agents to decide whether to purchase a home and to set their own reservation prices when it comes to selling when they retire. Although we limit the variety of agents in this study, the agent-based modelling approach allows us to introduce continual of agents or whole new classes of agents easily.
-
-One advantage of beginning with an agent-based model is that we are not imposing linearity, or\textit{a-priori} distributions on the behaviour of agents. Imposed assumptions might make the model more tractable, but they have little empirical or theoretical justification. 
-By including individuals explicitly, agent-based models offer nuance in exploring the effects of individuals on a system. The structures that emerge result from assumptions about the decisions of those in the system rather than from assumptions about the behaviour of the system. Agent-based models may reveal non-obvious implications of structural changes \cite{darley_towards_1999, happe_agricultural_2004}. 
+ % Imposed assumptions might make the model more tractable, but they have little empirical or theoretical justification. 
+By including individuals explicitly, agent-based models offer nuance in exploring the effects of individuals on a system, and the make it possible to study distributional effects, space, and individual differences in a much richer way. The structures that emerge result from assumptions about the decisions of those in the system rather than from assumptions about the behaviour of the system. Agent-based models thus may reveal non-obvious implications of structural changes in particular locations, for particular individuals \cite{darley_towards_1999, happe_agricultural_2004}. 
 %cite some of the people who show it can be used for structural change)
 % Studying large messy models like these has many of the features of studying real social systems. 
-%Where it is helpful, other types of models can be linked with agent based models or used as subsystems. % 
+%Where it is helpful, other types of models can be linked with agent-based models or used as subsystems. % 
 
- %There is a large literature on agent based models. 
+ %There is a large literature on agent-based models. 
 
 %There are good text books as well. Agent models make it possible to represent phenomenal that are hard to represent otherwise including traffic jam, bubbles and crashes, power law and other fat tail phenomenal, critical transitions.
 
@@ -143,8 +157,6 @@ By including individuals explicitly, agent-based models offer nuance in explorin
 %%%%%%%%LOSLY SPEAKING (Economics has looked at those areas where the behaviour of many individuals can be reduced. Sociology has looked at those areas where individuals matter. Because of constraints from the (1800s) economics has used math and sociology has not.) ABMs are starting to bring math to social theory. Network theorists and big data people are getting hired both in sociology and and economics for this reason. It is because the math is a different kind of thing.
 
 
-In an \gls{ABM}, agents are defined as having adjustment rules or behaviours that respond to environmental variables.\footnote{Modelling agents with agents are defined as having adjustment rules and behaviours has a long history in economic, going back to the 1838 Cournot duopoly model \cite{cournotRecherchesPrincipesMathematiques1838}, for example, which is analyzed using `reaction functions' which simply describe a firm's optimal response to a second firm's output choice. In Cournot's simple case an equilibrium can be directly computed.} 
-Unlike equilibrium approaches common in economic analysis, agent-based modelling commits to using computational methods to mimic the distributed decision-making of complex systems like cities. A program is written that considers each agent sequentially and updates agent and system statuses as it goes. The program is allowed to iterate, and the values of any state variables of interest are recorded at each step. The model may or may not settle into a steady state. As with other modelling approaches, ABMs can be used explore the behaviour of the system by varying individual parameters, and to explore the parameter space using Monte Carlo methods.
 
 A challenge with ABMs is that they can be hard to extract meaningful information from. ABMs can be computationally intensive, raising significant problems for analysis since there is so much happening in them. This can make them difficult to use in a practical context \cite{banksStatisticalChallengesAgentBased2021}. % Furthermore, since much of the interest in ABM's lies in system behaviour in response to changes in policy \cite{helbing_social_2011-1}, %integrative design paper 
 % questions of observability become central. 
@@ -160,7 +172,7 @@ They thus make it possible to look at the structural impact of policy on particu
 
 
 
-%\textbf{Agent based models have a number of advantages:} 
+%\textbf{Agent-based models have a number of advantages:} 
 %Maybe include some of these.
 %
 %* We want to model dynamics
@@ -182,7 +194,7 @@ They thus make it possible to look at the structural impact of policy on particu
 %And phenomena represented well by continuos processes are represented in that way (NEwton is many interacting bodies.)
 %And where events are modelled using discrete events. 
 
-% This section reviews approaches to models and makes the case that computer models and specifically agent based computer models are particularly well suited to the problem of understanding how interventions shape social systems.
+% This section reviews approaches to models and makes the case that computer models and specifically agent-based computer models are particularly well suited to the problem of understanding how interventions shape social systems.
 
 % "Fundamentally, I'm not sure that agent-based modeling amounts to anything other than object-oriented programming for disaggregated simulations `` \cite{http://vserver1.cscs.lsa.umich.edu/~crshalizi/notebooks/agent-based-modeling.html}
 
@@ -201,12 +213,18 @@ They thus make it possible to look at the structural impact of policy on particu
 Economists rely heavily on equilibrium analysis in their study of systems. 
 %ADD BACK? stylized fact - appearing data over again and again... toy in real world. distributional effects of urban wealth growing. The ADVANTAGE OF THIS is that iT ENABLE THIS BROAD UNDERSTAND OF HOW PATTERNS PLAY OUTj
 %In Economic modelling the most familiar approach is the analysis of systems in equilibrium. 
-This approach produces tractable models that can often be solved explicitly. The most familiar example of an equilibrium model is the ubiquitous supply and demand model. A supply and demand model consists of two curves. The demand curve is the quantity of a product demanded at a given price and the supply curve is the quantity that is supplied at that price. Essentially each curve represents the preferences of a class of agents and the model explores the combinations that satisfy the behavioural intentions of both classes i.e. are on both curves. Equilibrium refers in this example to a state in which the preferences of both classes intersect. A situation is unlikely to persist if either class of agents is unsatisfied with the combination of price and quantity.  If the two curves can be described mathematically, equilibrium prices and quantities can be derived by solving the two-equation system.
-
-Under the equilibrium approach, a set of necessary conditions describing the steady state of interest are imposed, for example the quantity supplied must equal the quantity demanded, and then solved to find features of the equilibrium they generate. It is a productive methodology partly because it bypasses the often intractable and complex process of adjustment, focusing on the conditions that must be true if a particular situation is to persist. 
+Under the equilibrium approach, a set of necessary conditions describing the steady state of interest are imposed. This approach produces tractable models that can often be solved explicitly. It is a productive methodology partly because it bypasses the often intractable and complex process of adjustment, focusing on the conditions that must be true if a particular situation is to persist. 
 % ANALAGOUS TO RESILIENCE.
 
-It is helpful to remember that the technique evolved before computers made simulations relatively easy. To achieve tractability, it has often been necessary to limit the number of independent decision-makers by employing a `representative agent.' To extend the analysis to dynamic systems, `laws of motion' (adjustment rules) can be added as either difference or differential equations.  Models quickly become challenging with more agents or dynamic processes, and economists, like other modellers, now very often resort to simulation and numerical methods. 
+
+The most familiar example of an equilibrium model is the ubiquitous supply and demand model. A supply and demand model consists of two curves. The demand curve is the quantity of a product demanded at a given price and the supply curve is the quantity that is supplied at that price. Essentially each curve represents the preferences of a class of agents and the model explores the combinations that satisfy the behavioural intentions of both classes i.e. are on both curves. 
+ 
+Equilibrium refers in this example to a state in which the preferences of both classes intersect. A situation is unlikely to persist if either class of agents is unsatisfied with the combination of price and quantity.  If the two curves can be described mathematically, equilibrium prices and quantities can be derived by solving the two-equation system. The quantity supplied must equal the quantity demanded, and then solved to find features of the equilibrium they generate. 
+
+% It is helpful to remember that 
+The technique evolved before computers made simulations relatively easy. To achieve tractability, it was necessary to limit the number of independent decision-makers by employing a `representative agent.' 
+
+% To extend the analysis to dynamic systems, `laws of motion' (adjustment rules) can be added as either difference or differential equations.  Models quickly become challenging with more agents or dynamic processes, and economists, like other modellers, now very often resort to simulation and numerical methods. 
 
 As an example of \gls{equilibrium reasoning} is the \Gls{Alonzo model} approach to imposing a locational equilibrium condition,
 \[U_i(d_k,\dots)=U_j(d_l, \dots),\] where $U_i(d_k,\dots)$ represents agent $i$'s utility at distance $d_k$. 
@@ -243,7 +261,7 @@ Our model of firm behaviour uses a single representative firm to determine the w
  %, linking traditions that have been separate. 
 
 
-% In general, there is relatively little work rigorously linking analytic and agent based models, so the results can be understood formally, in relation. % incorporated into prior traditions and
+% In general, there is relatively little work rigorously linking analytic and agent-based models, so the results can be understood formally, in relation. % incorporated into prior traditions and
 
 % Classical economics theory actually maters centers theory- both theory as embedded in largely theory and the 100 years of sophisticated thinking. a new technology does not make obsoletes inline.. ltos has been worked out. eg. refactor..
 
@@ -406,7 +424,7 @@ In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined 
 
 % \subsection{Coarse graining}
 
-% Using agent based models, combined with simple equations is also one appraoch to coarse graining. 
+% Using agent-based models, combined with simple equations is also one appraoch to coarse graining. 
 % There's a distinction between coarse grained and fine grained models. Equation~\ref{eqn-population-output}  is a high-level generalization---a ``coarse-grained'' model. Modelling always faces a trade-off between computational tractability and representing details. \cite{GET_TerrysDissertation, GET_PaulsBook}
 
 % Coarse-grained models must capture the stylized facts. %, as ours does.
