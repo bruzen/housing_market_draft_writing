@@ -841,7 +841,7 @@ When there is one bidder, we will employ a simple rule for splitting the gain fr
     \begin{figure}[!thb]
     \centering
     \input{fig/bargaining.tex}
-    \caption{The Bargaining model and price determination}
+    \caption{The bargaining model and price determination}
     \label{fig:Bargaining}
     \end{figure}
 
@@ -885,5 +885,12 @@ It is likely to be difficult to disentangle influences on the parameters empiric
 
  
 \section{Chapter summary}
-In this chapter we developed  the  rules that agents in the our agent-based model follow. In doing this we have defined variables and institutional features, and developed a description of the bargaining process behind all of the adjustments. The formulae developed here are implemented in the python simulation model. Appendix~\ref{appendix-parameters} contains the parameter values used for the model.  % Details of the adjustment speeds and parameter setting are not discussed here because they have to be `tuned'. The parameter space of the model is large, and cities only exist in a sub-region of the space. For example, if the marginal product of labour is too low, cities cannot exist. If it is too high the city explodes. We have identified a region with plausible values in which city behaviour corresponds to what we know about the evolution of cities. 
-The relationships set out in this chapter are theoretically grounded and  realistic. They allow us to implement the three sub-models described in the introduction to this thesis in code. The resulting simulation model lets us demonstrate some implications of standard urban economic theory that were plausible a-priori, but that have not been formally demonstrated before.  
+In this chapter we developed the rules that agents in our agent-based model follow. In doing this we have defined variables and institutional features, and developed a description of the bargaining process behind all of the adjustments. The formulae developed here are implemented in the python simulation model. % In the second part of this chapter, we documented the agent based modeling code using the ODD standard.  
+Appendix~\ref{appendix-parameters} contains the parameter values used for the model.  % Details of the adjustment speeds and parameter setting are not discussed here because they have to be `tuned'. The parameter space of the model is large, and cities only exist in a sub-region of the space. For example, if the marginal product of labour is too low, cities cannot exist. If it is too high the city explodes. We have identified a region with plausible values in which city behaviour corresponds to what we know about the evolution of cities. 
+
+ We use equilibrium conditions for competitive labour markets to bypass the complex and partially understood wage-setting process. We apply a standard theoretical result from the theory of the firm, that workers are paid their \gls{marginal value-product}. We ground our approach in recent research that has derived and estimated an aggregate urban production function consistent with modern \gls{neoclassical growth theory}.\footnote{We are not aware of other research that has taken this step yet.} Our augmented representative firm determines the urban wage premium that drives city growth. We assume that, since housing and labour markets can adjust more quickly than urban productivity, the production sector responds continuously to the slower movement of population and productivity. % need to reference? 
+%We employ \gls{equilibrium reasoning} in the housing and investment process. '
+We also assume investors behave rationally in that they estimate the potential returns on their investments and seek the highest returns they can get. They calculate an offer price in each transaction based on several factors: land rents, expected price changes, their price of capital and discounting rate, and other information available to them. We do not, however, impose an equilibrium on the housing market.
+
+The relationships set out in this chapter are theoretically grounded and realistic. They allow us to implement the three sub-models described in the introduction to this thesis in code. The resulting simulation model lets us demonstrate some implications of standard urban economic theory that were plausible a-priori, but that have not been formally demonstrated before.  
+
