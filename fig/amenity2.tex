@@ -9,7 +9,8 @@
 \tikzset{func/.style={thick,dashed, color=blue!40}}	
 \draw [thick, latex-] (0,\n)node[above] {Rent}--(0,0);
 \draw [thick, -latex] (0,0)--(\m,0)node[right=.25]{\large $d$};
-% Basic Bid rent
+% Basic Bid rent,
+\node at(-.5,\w) {$\omega$};
 \draw[func,domain=0:\m] plot [samples=200] (\x,{\w-\t*\x});
 %NEIGBOURHOOD AMENITY
 \draw [thick, green] (0,-1)--(2,2)--(4,-1)--(6,2)--(9,0)--(11,1)--(14,0);

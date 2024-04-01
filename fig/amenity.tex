@@ -15,12 +15,12 @@
 	\draw[func,domain=0:\m] plot [samples=200] (\x,{\w-\t*\x});
 %	\draw[func,domain=0:\m, dashed] plot [samples=200] (\x,{\w+\azero-\th*\x+\aprime*\x});
 
-\node at (14,1.2){$w-T(d)$};
+\node at (14,1.2){$\omega-cd$};
 \def \azero{2}
 \def \aprime {-.25}	
 \tikzset{func/.style={thick,color=orange!90}}	
 	\draw[func,domain=0:\m] plot [samples=200] (\x,{\w+\azero-\t*\x+\aprime*\x});
-\node at (4,8.5){$w +A(d)-T(d)$};
+\node at (4,8.5){$\omega +\mathcal{A}(d)-cd$};
 %\node at(-.8,2) [left]{base $2^1=$};
 %\node at(-.8,1) [left]{$2^0=$};
 %\draw[dotted] (0,2)--(1,2)--(1,0); 

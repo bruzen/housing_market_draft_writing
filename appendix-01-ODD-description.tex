@@ -20,6 +20,9 @@ This chapter describes what the model includes and does. Chapter~\ref{chapter-me
 The purpose of this model is \gls{theoretical exposition}. More specifically, we seek to understand the links between financialization and  the distribution of housing ownership, the capture of rents, and  urban productivity. %, through financialization of the urban housing market. 
 Our qualitative results provide valuable direction for further qualitative and quantitative research.
 
+
+
+
 \section{State variables and scales}
 \subsection{State variables}
 State variables refer to the attributes of each kind of entity that vary over time. %\footnote{In the ODD framework, state variables commonly refers to both stock variables and parameters. Although it is inconsistent with usage in the analysis of dynamical systems, we follow the ODD convention in this section.}. 
@@ -28,7 +31,8 @@ The entities in our model are persons, land units (properties or lots), an inves
 The city is the portion of space in which workers work at the urban center, including the persons, land, and other agents in that region. % entity that includes the agents. % The city administration is not an agent. %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
 
 
-\begin{figure}
+
+\begin{figure}{h!b}
 \centering\vspace{-3cm}
 % \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
 \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
@@ -104,21 +108,19 @@ The city is the portion of space in which workers work at the urban center, incl
 \end{figure}
 
 
-
-
 % All agents belong to the model. 
 The state variables for the model as a whole are the number of workers (population),  worker savings, number of firms, workers per firm, capital stock per firm, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
 
 \subsubsection{Persons}
-Rural and urban owner-occupiers and tenants belong to the agent class, Person. Newcomers are persons seeking to purchase or rent land, to join the urban workforce in a period. They become owners or tenants. Urban owner-occupiers and tenants make up the primary workforce. %(The city has a small and fixed core population.) 
+Rural and urban owner-occupiers and tenants belong to the agent class, Person. Newcomers are persons seeking to purchase or rent land and to join the urban workforce in a period. They become owners or tenants. Urban owner-occupiers and tenants make up the primary workforce. %(The city has a small and fixed core population.) 
 
 The state variable (attributes) for persons are property location, initial working period (providing age), savings, ownership status, capital gains tax level, ownership status, and property owned. Mortgages payments or rental payments are calculated to update savings. Each person occupies one property. 
 
 Persons can choose to work in the city, or not, depending on wages and transportation costs. If the wage justifies travel to the city center, persons with properties at the edge of the city join the urban workforce as owner-occupiers. They have a 40 period working life, after which they retire and list their home for sale.   
 
-Newcomers enter the model to replace retirees. They bid on properties. % Tenants do not bid but may be replaced by newcomers who do bid. 
-If newcomers make a successful bid they become owner-occupiers. If no newcomer purchases a property, the non-resident owner will rent it to newcomer tenants.  % they become tenants. 
-If investors outbid tenants and newcomers, they become non-resident owners.  For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs.
+Newcomers enter the model to replace retirees and to fill new jobs. They bid on properties. % Tenants do not bid but may be replaced by newcomers who do bid. 
+If newcomers make a successful bid they become owner-occupiers. If not. the newcomer becomes a tenant. If investors outbid tenants and newcomers, the investor becomes a non-resident owner.  If no newcomer or investor  purchases a listed property, the non-resident owner will rent it to newcomer tenants.  % they become tenants. 
+ For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs.
 
 \subsubsection{Properties}
 Properties belong to the class of Land agents. The state variables for properties are location, transport cost, property tax rate, maintenance costs, warranted price, warranted rent, appraised price, realized price, price change, ownership type, and owner. 
@@ -355,15 +357,15 @@ to current rental returns.\footnote{Forecasts based on recent price movements ca
 % \subsection{Marginal vs inframarginal quantities}
 % In relying on these equilibrium conditions, we are implicitly applying standard neoclassical economic methods although our focus is not on the \gls{marginal} conditions that determine prices, but on the \gls{inframarginal} quantities that make up rents. We can illustrate with a diagram that illustrates the disnction between marginal and inframarginal (explained in more detail in Chapters~\ref{chapter-rent} and \ref{chapter-space} on rent and space respectively). 
 
-\vspace{.3cm}
-\begin{figure}[h!t!]
-\centering
-\input{fig/land-rent-as-inframarginal}
-\caption{Illustrating marginal and infra-marginal quantities with the bid-rent curve and aggregate rent.}
-\label{fig-land-rent-as-inframarginal}
-\end{figure}
+% \vspace{.3cm}
+% \begin{figure}[h!t!]
+% \centering
+% \input{fig/land-rent-as-inframarginal}
+% \caption{Illustrating marginal and infra-marginal quantities with the bid-rent curve and aggregate rent.}
+% \label{fig-land-rent-as-inframarginal}
+% \end{figure}
 
-In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined at any distance by individuals making comparisons locally. At point $d,^*$ the person at the edge of the city decides whether to work in the centre or in the non-urban space. These are \gls{marginal} decisions. The orange area represents the total rents generated between $d=0$ and $d=d^*$. It is a summation of \gls{inframarginal} rents. Like Ricardo \cite{ricardoEssayInfluenceLow1815}, we are concerned with the distribution of rents, an inframarginal quantity.
+% In Figure~\ref{fig-land-rent-as-inframarginal}, The level of rent is determined at any distance by individuals making comparisons locally. At point $d,^*$ the person at the edge of the city decides whether to work in the centre or in the non-urban space. These are \gls{marginal} decisions. The orange area represents the total rents generated between $d=0$ and $d=d^*$. It is a summation of \gls{inframarginal} rents. Like Ricardo \cite{ricardoEssayInfluenceLow1815}, we are concerned with the distribution of rents, an inframarginal quantity.
 
 
 % \subsection{Coarse graining}
