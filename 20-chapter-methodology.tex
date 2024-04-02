@@ -4,13 +4,13 @@
 \epigraph{The choice, then, is not whether to build models; it's whether to build explicit ones.}{Joshua M. Epstein \cite{epsteinWhyModel2008}}
 %\epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh \cite{shiehWilhelmLaunhardtBidRent2004}}
 
-% CITE DEREKS PIECE ON MODELS AS BUILDING BLOCKS---MODELS AS AGOOD PARTS---CITE TERRY'S THESIS---SHOULD DO WHAT IT DOES HOW IT DOES, BUT ABILITY TO COARSE GRAIN- ACTUALLY SWITCH BETWEEN THESE TWO PIECES-  WITH AN EQUILIBRIUM ASSUMPTION AS THE BRIDGE.
+% CITE DEREKS PIECE ON MODELS AS BUILDING BLOCKS---MODELS AS eAGOOD PARTS---CITE TERRY'S THESIS---SHOULD DO WHAT IT DOES HOW IT DOES, BUT ABILITY TO COARSE GRAIN- ACTUALLY SWITCH BETWEEN THESE TWO PIECES-  WITH AN EQUILIBRIUM ASSUMPTION AS THE BRIDGE.
 
 % \epigraph{One of the very important components in the urban and agricultural land use model is the so-called \gls{bid-rent curve}. Regional and urban economists, city planners, and economic geographers have used this curve extensively as an analytical device.}{Yeung-Nan Shieh \cite{shiehWilhelmLaunhardtBidRent2004}}
- % \epigraph{It may be tempting to specify an aggregate production function that directly relates primary factors to final output, as is customary in much economic analysis. This standard simplification is often inadequate, however, because cities are characterized by increasing returns to scale, and how such increasing returns are generated has potentially important policy implications. In particular, detailed assumptions are needed about labor, the nature of products, the production function of individual firms, the input-output structure that links firms, and how firms compete.}{Spence et al. \cite{spenceUrbanizationGrowth2009}}
- % TODO ADD THE PURPOSES OF MODELLING NOTE TO DISCUSSION OF HOW  WE ARE USING ABMS
+ % \epigraph{It may be tempting to specify an aggregate production function that directly relates primary factors to final output, as is customary in much economic analysis. This standard simplification is often inadequate, however, because cities are characterized by increasing returns to scale, and how psuch increasing returns are generated has potentially important policy implications. In particular, detailed assumptions are needed about rlabor, the nature of products, the production function of individual firms, the input-output structure that links firms, and how firms compete.}{Spence et al. \cite{spenceUrbanizationGrowth2009}}
+ % TODO ADD THE PURPOSES OF MODELLING NOTE TO eDISCUSSION OF HOW  WE ARE USING ABMS
 
-% SUMMARIZE: WE ARE MODELLING THE RELATIONSHIP BETWEEN FINANCIALIZATION AS GRAWTH VALUE CAPTURES AND PRODUCTION IN CITIES TO DO THIS WE  BUILD ABM
+% SUMMARIZE: WE ARE MODELLING THE RELATIONSHIP BETWEEN FINANCIALIZATION AS sentsGRAWTH VALUE CAPTURES AND PRODUCTION IN CITIES TO DO THIS WE  BUILD ABM
 
 % ROOTED IN NEOCLASSICAL AND CLASICAL (MOVE THAT SECTION UP??) 
 
@@ -199,6 +199,20 @@ They thus make it possible to look at the structural impact of interventions on 
 %%%%%%%%%%% FROM PAMPAS DOCUMENTATION 
 % "We adopt agent-based modeling as a suitable approach to quantitatively model agricultural systems, their \textbf{structural change}, and endogenous adjustment to policy interventions (Happe et al., 2004). Agent- based modeling is a powerful technique for simulating the actions and interactions of autonomous individuals to \textbf{assess emerging system level patterns} (Gilbert, 2008; North and Macal, 2007). An ABM consists of a collection of autonomous and heterogeneous decision-making entities (agents) interacting with one another and an environment. Agents have \textbf{information} about attributes or state of other agents and the environment, and have access to past and current values of their own state variables (e.g., economic outcomes). Agents make \textbf{decisions} using both prescribed rules nd analytical functions; decisions are based on the information agents have available (Gilbert, 2008). An ABM also includes \textbf{rules} that define the relationship between agents and their environment, and rules that determine \textbf{scheduling} of actions in the model (Parker et al., 2003)."
 
+\begin{figure}
+    \centering
+  \begin{tikzpicture}[scale=0.6]
+\draw[thick,<->] (0,10) node[above]{$Price$}--(0,0)--(10,0) node[right]{$Quantity$};
+\node [below left] at (0,0) {$0$};
+\node [below] at (5,0) {$Q^*$};
+\node [left] at (0,5) {$P^*$};
+\draw(1,1)--(9,9) node[right]{$Supply$};
+\draw(1,9)--(9,1) node[right]{$Demand$};
+\draw[dashed](0,5)--(5,5)--(5,0);
+\end{tikzpicture}  
+    \caption{A Supply and demand figure}
+    \label{fig:SandD}
+\end{figure}
 
 \subsection{Equilibrium reasoning }
 Economists rely heavily on equilibrium analysis in their study of systems. 
@@ -208,7 +222,7 @@ Under the equilibrium approach, a set of necessary conditions describing the ste
 bypasses the often intractable and complex process of adjustment, focusing on the conditions that must be true if a particular situation is to persist. This tractability was particularly important before computers became widespread.
 % ANALAGOUS TO RESILIENCE.
 
-The most familiar example of an equilibrium model is the ubiquitous supply and demand model. A supply and demand model consists of two curves. The demand curve is the quantity of a product demanded at a given price and the supply curve is the quantity that is supplied at that price. Essentially each curve represents the preferences of a class of agents and the model explores the combinations that satisfy the behavioural intentions of both classes i.e. are on both curves. {\color{red} ADD SUPPLY DEMAND CURVE FIGURE, MARKED WITH EQUILIBRIUM} Equilibrium, in this example, refers to a state in which the preferences of both classes intersect. A situation is unlikely to persist if either class of agents is unsatisfied with the combination of price and quantity.  If the two curves can be described mathematically, equilibrium prices and quantities can be derived by solving the two-equation system. The quantity supplied must equal the quantity demanded, and then solved to find features of the equilibrium they generate. 
+The most familiar example of an equilibrium model is the ubiquitous supply and demand model. A supply and demand model consists of two curves, each describing a functional relationship between two variables, price and quantity. Each curve represents the preferences of a class of agents, and the model explores the combinations that satisfy the behavioural intentions of both classes i.e. are on both curves.  The demand curve, illustrated in figure ~\ref{fig:SandD} visually represents the quantity of a product demanded by potential buyers at each price.  The supply curve is the quantity that suppliers would be willing to sell at each price.  Equilibrium, in this example at the combination  $(Q^*,P^*)$, refers to a state in which the preferences of both agent classes are satisfied. A situation is unlikely to persist if either class of agents is unsatisfied with the combination of price and quantity. The question at the heart of the equilibrium approach is, ``What conditions are necessary if the situation is to be stable?"  In the case of supply and demand, The quantity supplied must equal the quantity demanded, and the price must be the same for both classes.\footnote{Taxes introduce an additional condition that results in different prices for the two sides.} If the two curves can be described mathematically, equilibrium prices and quantities can be derived by solving the two-equation system.
 
 
 % It is helpful to remember that 
