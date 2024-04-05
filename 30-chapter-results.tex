@@ -1,13 +1,15 @@
 \chapter{Results} \label{chapter-results}
 
-The two main hypotheses of this thesis are, first, that the financial sector affects the ownership of housing and therefore the class structure of society, and, second, that this may have implications for urban productivity.  In this chapter, we present model results relevant to these hypotheses.
+The two main propositions of this thesis are, first, that the financial sector affects the ownership of housing and therefore the class structure of society, and, second, that this may have implications for urban productivity.  In this chapter, we present model results relevant to these propositions.
 
 In the first part of this chapter, we describe the results from the model with no policy interventions. In the second part, we explore the effects of six policy interventions without the link from housing to productivity. In the third part, we repeat the six policy interventions with the link from housing to productivity.  %33\% % With the link, increased rates of financialized ownership reduce the value of the production parameter $A$. 
-In the fourth section, we present the results with and without productivity impacts side-by-side. {\color{red} ADD SHOCK SECTION} This makes it easier to compare the effect of policies with and without the productivity linkage. 
+In the fourth section, we present the results with and without productivity impacts side-by-side. This makes it easier to compare the effect of policies with and without the productivity linkage. 
+
+{\color{red} 5th section is a shock -- we have afew more runds ADD SHOCK SECTION}
 
 The policy variables we consider are: 
 \begin{enumerate}
-\item Capital gains taxes, which capture part or all of the speculative gains on property ownership. Raising them does not affect the use value of a property, but should make the property less attractive to speculators and reduce the amount owner-occupiers will bid. 
+\item Capital gains taxes, which capture part or all of the speculative gains on property ownership.  A \gls{capital gains tax}  is a tax on the property price at the point of sale, on the gains.is a tax on profit from the sale of property or an investment. It captures the increase in the price of an asset due to changes in the market rather than any increase in value contributed by the owner. The Canadian capital gains tax rate is lower than the tax on interest or dividend income so capital gains are an especially attractive form of income for investors%.
 \item The cost of capital, or the rate at which investors can borrow, which affects the net return to property speculation.
 \item Transportation costs, which are affected by public infrastructure investment, reduce the amount of locational value that is spent on transportation, increasing the wealth of the community 
 \item Urban density, which is controlled by zoning regulation, and which multiplies locational rents. 
@@ -15,6 +17,9 @@ The policy variables we consider are:
 \item The property tax rate, which is a cost of living in the city. The tax is deducted from locational rents for individuals or speculators.
 \end{enumerate}
 Because there are multiple effects of each intervention, we use separate figures to represent the impact of each policy intervention on the trajectory of each of the seven indicator variables. %In the absence of linkages between the housing market and the production sector we see population effects but no effect on firm variables wage, capital stock or workforce. This is because we force the number of firms to accommodate increases in population. Different assumptions will allow growth in both firm size and number, but we are not interested in short-term firm dynamics, and the case we consider is easier to interpret. 
+
+
+
 The variables we consider are:
 \begin{enumerate}
     \item Wage levels
@@ -43,8 +48,7 @@ For the experiments, we test relatively large perturbations of the parameters to
 %The results are simply the output, given the relationships in the model. 
 %
 
-%We have built the model to allow us to investigate the effects of financialization on cities. 
-work. % We've made the case that these questions matter given the process of financialization underway in cities. 
+%We have built the model to allow us to investigate the effects of financialization on cities. work. % We've made the case that these questions matter given the process of financialization underway in cities. 
 
 
 % We illustrate dramatic policy changes and strong productivity linkages to ensure the qualitative impacts are easy to identify. 
@@ -145,8 +149,8 @@ This section examines seven potential policy interventions and their effects on 
 \newpage
 
 \subsection{Capital gains taxation on investors}
-A \gls{capital gains tax} is a tax on profit from the sale of property or an investment. It captures the increase in the price of an asset due to changes in the market rather than any increase in value contributed by the owner. The Canadian capital gains tax rate is lower than the tax on interest or dividend income so capital gains are an especially attractive form of income for investors.
-
+A \gls{capital gains} tax is a tax on profit from the sale of property or an investment. It captures the increase in the price of an asset due to changes in the market rather than any increase in value contributed by the owner. The Canadian capital gains tax rate is lower than the tax on interest or dividend income so capital gains are an especially attractive form of income for investors
+ 
 \begin{figure}[hb]
     \centering
     \includegraphics[scale=1.1, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}
@@ -155,7 +159,7 @@ A \gls{capital gains tax} is a tax on profit from the sale of property or an inv
 \end{figure}
 
 
-In this experiment, we introduce capital gains tax specifically for investors, which we define as any home owner who does not occupy the housing unit. If capital gains are part of the objective of investors, a capital gains tax will, in theory at least, reduce investor participation. Figure~\ref{fig:CGinvest_ownership_trajectory} shows this is the case. A capital gains tax on housing investment will have a powerful effect on the ownership ratio but not affect other variables. The result was achieved in a situation where homeowners do not pay a capital gains tax when they sell. 
+In this experiment, we introduce capital gains tax specifically for investors, which we define as any homeowner who does not occupy the housing unit. If capital gains are part of the objective of investors, a capital gains tax will, in theory at least, reduce investor participation. Figure~\ref{fig:CGinvest_ownership_trajectory} shows this is the case. A capital gains tax on housing investment will have a powerful effect on the ownership ratio but not affect other variables. The result was achieved in a situation where homeowners do not pay a capital gains tax when they sell. 
 
 
 
@@ -163,15 +167,17 @@ In this experiment, we introduce capital gains tax specifically for investors, w
 
 \begin{figure}[h!b]
     \centering
-    \includegraphics[scale=1.2, trim={0 1.4cm 0 0},clip]{fig/cg_tax_per-Main-021508.pdf}
-    \caption{The effect of a capital gains tax on homeowners. The dotted line represents the case with no capital gains tax for homeowners.}
+    \includegraphics[scale=1.2, trim={0 1.4cm 0 0},clip]{fig/cg_tax_per-000419.pdf}
+    \caption{The effect of a capital gains tax on homeowners. A capital gains rate above the rate for investors reduces home ownership.}
     \label{fig:CGpers_ownership_trajectory}
 \end{figure}
 
-In Canada, homeowners currently do not pay capital gains taxes on their primary residence. This is a policy that has been questioned because it favours owners over renters whose investments would be subject to taxes. Figure ~\ref{fig:CGpers_ownership_trajectory} shows of the effect three different  capital gains tax rates, 0\%, 50\% and 100\% on owner-occupiers. The capital gains tax rate for investors in this set of experiments is 15\%. In both of the cases with  the owner-occupiers' tax rate  higher than the rate for investors, %, shown by the solid and the dashed lines,  
-home ownership falls dramatically. Reducing the capital gains for owners makes purchasing a home less attractive as an investment owner occupiers but not for non-resident owners. Rents do not fall for tenants in our mode, however. Landlords continue to charge tenants the full locational value and the locational value does not depend on whether there are capital gains for property owners. 
+In Canada, homeowners currently do not pay capital gains taxes on their primary residence. This is a policy that has been questioned because it favours owners over renters whose investments would be subject to taxes. Figure ~\ref{fig:CGpers_ownership_trajectory} shows of the effect three different capital gains tax rates, 0\%, 10\%, 20\% and 30\% on owner-occupiers. The capital gains tax rate for investors in this set of experiments is 15\%. In  the cases with an owner-occupiers' tax rate higher than the rate for investors, %, shown by the solid and the dashed lines,  
+the home ownership is eventually 30\% lower at the end of the run. 
 
-In this case, the capital gains tax on investors is set at 15\%. {\color{red} Re-run with  0, .2 .4 .6 instead of 1. .5 AND 0? MAYBE JUSTIFY A BIT MORE}
+Increasing the capital gains for owners makes purchasing a home less attractive as an investment for owner occupiers but not for non-resident owners. %Rents do not fall for tenants in our mode, however. Landlords continue to charge tenants the full locational value and the locational value does not depend on whether there are capital gains for property owners. 
+
+
  
 
 
@@ -242,7 +248,8 @@ Figure~\ref{fig:wealth_sensitivity_ownership_trajectory} illustrates that a rest
 
 \newpage
 \subsection{The property tax rate}
-{\color{red} ADD SOMETHING ABOUT THE RESULTS .. Figure~\ref{fig:property_tax_ownership_trajectory} shows ...}\footnote{The property tax rate variable is a matter for policy debate because there are good reasons to think, first, that property taxes are a barrier to ownership, and second, that the property taxes are not paying all the costs of public infrastructure and services to homeowners, leading to significant inequities.}
+{\color{red} ADD SOMETHING ABOUT THE RESULTS .. Figure~\ref{fig:property_tax_ownership_trajectory} shows ... 
+The property tax rate variable is a matter for policy debate because there are good reasons to think, first, that property taxes are a barrier to ownership, and second, that the property taxes are not paying all the costs of public infrastructure and services to homeowners, leading to significant inequities.}
 
 % 'property_tax_rate': [0.1, 0.05, .01] k doing}
 \begin{figure}[h!tb]
@@ -265,7 +272,6 @@ To explore the implications of this link, we've added a link and looked at the i
 
 In this section we explore the effect on the variables we are looking at if this productivity exists. 
 
-{\color{red} WHY A 33\% LINK?}
 % In this section, we use our model to explore some implications of a  link between the financialization of an urban housing market and the urban production economy.
 
 In order to capture the link between productivity in output described in Chapter~\ref{chapter-tramsmission}, we model a hypothetical link and consider the effect of the policy interventions with these links in place. We model that link with a relationship where ownership rate affects the parameter $A$ in the firm production function. the 
