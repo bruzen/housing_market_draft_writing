@@ -1,4 +1,13 @@
-
+\documentclass[]{article}
+\usepackage{tikz}
+\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{mathtools,amssymb}
+%\input{Preamble}
+%\input{(SpecialDistanceCourse}
+%\input{FRAMES}
+\begin{document} 
 \section{Introduction}
 QUOTE THAT THERE'S A housing prices--
 
@@ -74,12 +83,13 @@ So to begin with the theoretical foundations, we need these three concepts:
 
 %know here's an interesting phenomena that's happening to the city and that is financialization.
 
-Financialization is at the heart of this. To introduce how we're thining about financialization, we’re gonna talk about what financial is specifically, %CUT and how it is created in. It is done accomplished in the housing market like 
+Financialization is at the heart of this. To introduce how we're thinking about financialization, we’re gonna talk about what financialization is %specifically, %CUT and how it is created in. It is done accomplished in the housing market like 
 how it is accomplished
 and the specifics of what financialization looks like in the housing market.
 
 
-We have a process underway in which accumulated wealth capital goes looking for streams of revenue and one way to get to invest is to buy land and capture the future stream of agglomeration economies the wealth created by the city being bringing people together.
+Essentially, in Financialization, %we have a process underway in which 
+accumulated wealth capital goes looking for streams of revenue and one way to get to invest is to buy land and capture the future stream of agglomeration economies the wealth created by the city being bringing people together.
 
 That is essentially what financialization is doing. %CUT It is buying future streams of revenue and in this case, the streams of revenue arise from 
 in the case of the city the productivity of bringing people together in the city. 
@@ -98,45 +108,92 @@ To understand this process, we then  go into classical economics to borrow this 
 rents are the key link between spatial between how far things are away from the centre and the economic questions about productivity %  that we’re gonna talk about then we’re gonna talk about space which brings in urban theory because there’s urban rents and develops them through urban theory, and ways that are useful because it is relevant already so we’re talking about how urban rents were taken developed in further in urban theory and then we’re gonna go back into 
 %CUT So that is how value is created in the city?  how is it distributed? We formalute an approach to modeliing the linkage,  drawing on Ricardian rent theory.
 
-fundamental to the nature of cities is something called locational rent %CUT from economic history, this is essentially 
-which is a version of Ricardian land rent.
-
-Ricardo developed rent in the context of an agricultural economy in the 1800s. 
-The model that we use this, the Alonzo model, it's actually has several other names attached to it and Muth Mills came out of the early 60s. - urban model of locational rent- that brought this into the city -to understand spatial urban land rents and become a workhorse model for urban economics.
-
-Although it's stayed central in planning, rent and space has dropped out of standard economics and finance, in part as production has shifted from actulture towards first forms of production that require space less explicitly - factories, and offices.
-
-A contribution here is we're introducing space in a new way.
-
-To make the relationships clear, we  % It's really simple, really neat, and 
-we use a really simple version, a circular city with uniform transportation costs.
-
-Here's the standard picture jobs. are at the center people have to pay to get the work so distance matters to them. There's a maximum distance that it's worth traveling to get to work so that determines how big the city is.
-
-COULD PLUG IN ANY MAP HERE. 
-
-And the  interesting thing here is if you live close to the city, you don't have to travel. So you really like to, you don't have to pay that cost. So you'd like to be close to the city and that means you'll pay more for properties close to the center of the city in this model.
-
-The addition in our model is that that means rents can be higher- those rents can be claimed by whoever owns the land.
-
-Okay, but if you're paying more that means that whoever owns the land is extracting some of the wage that you're earning in the city.
-
-The wealth of the city created by bringing people together at the center is being captured by that's what land owners okay if the landowners happen to be the the people who are working, then the wealth of the city is being distributed among the people of the city but if the wealth if the land is owned by a separate class of landowners than they are expropriating the wealth they're expropriating, the locational rent rents that arise from agglomeration.
-
-So specifically, what is it that makes people want to move to the city? Well, the city are more productive so the firms pay more than  firm's outside the city do.  We call this an urban wage premium. It's, it's well established in the literature. PLOTS
-And the wage premium is basically a measure of the extra productivity of the city workers in the city.
-It's the wage premium that the landlords are capturing. 
 
 
-This is the observation that I found really fascinating. 
-BRIDGES SCALING LITTERATURE AND JANE DJACOBS URBAN PRODUCTION WITH the classical notion of rent, and the formulation of class Roemer developed an excelent treatmen of class rooted in the source of income. 
+
+classical economics developed during during the colonial period. With the emerging massive concentrations of welath, it was %Moving into industrialization was 
+concerned with distribution. Economies were still largely based on the feudal model with landowners, owning the land and farmers working.
+%CUT OK so all that matters here is that the structure of the economy in Europe, which they were looking at was based on landowners, owning land and farmers working the land and then they would sell the product that’s what’s key to this red concept this was also developed in the context of increasing a quality as colonialism brought in flows of wealth so there was a Ricardo was writing in the context of a still largely feudal structure with colonialism shifting equality, so there was this increasing focus on inequality, but the system he was looking at was not quite yet it was soon to be transformed, but not quite yet transformed by industrialization
+
+Classical rent theory was developed by Ricardo to talk about the value of the land, which was extracted by these landowners,% so at the time farmers were paid to work the land or something so at the time landowners would own the value of the land, and 
+the value of the land was set according to how far it was from the market, %CUT  so rent theory was about how then you can just take like a description I think you’re fairly succinct we just fill in the description so basically fill in the description very precisely here of land value being like, and it’s based on the 
+%CUT so you have the story of the carter and the car has to transport at the marginal you have 
+
+I'LL PROBABLY FILL IN A BIT MORE ABOUT the carter story, and the extensive margin and  the intensive margin. 
+%CUT Then you go after filling in the details of the carter or whatever whatever you say what this 
+This gives the basic relationship between location, surplus and the value of land %CUT tells us is that the value of the land is related to its closeness so this gives us a spatial relationship to city centre that we can use when we’re thinking about economics in an urban context and that’s really really important to what we’re doing here, right
+
+Later economics developed as as the economies change, and land wasn't the main thing as we shifted from feudalism structuring to industrialization and ultimately capitalism
+
+%CUT So we want to say that the a feature of capitalism is that land is no longer the main the basis of a wealth in such an extreme way, and it’s no longer the basis of what because if you’re not working the land you’re putting what you’re doing instead as you’re putting into production, so the economic model changes with industrialization to capitalism, because where you get these great returns are when you put the capital into production and then you’re making these things
+What that means is that the economic theory from this point shifts from having that spatial element to focusing on production with space excluded
+%CUT And so at this time, what you get our models of production, which are also very important to how we’re understanding production in the cities in the model that we’re doing so you get marginal ism now you explain marginal ism, and it’s about whatever the marginal production and it has certain advantages as well because it the calculus allows you to create these very Elegant understandings of whatever whatever, and you get and equilibrium, which is important because it allows you to understand certain things about the relationships and how they find equilibrium whatever you wanna say about equilibrium sure you can figure this in so but basically the Keypointe here are it’s giving us the calculus allowed for certain things which also you might want to say didn’t have computers so they could do fairly sophisticated modelling without the capacity to do agent base modelling at this time They could also understand certain things about how production was functioning, and how value like the marginal value allowed certain certain insights, which is important and important to understanding production as opposed to land.
+In the new economics, there is a fundamentally different understanding of distribution, that displaces the old spatial understanding centerd on rents. 
+This is the marginalist approach, in which workers are understood as getting the marginal value of their contribution to production.  % - not exactly what they actually get, but it does give a rule that makes it possible to 
+
+
+Rent came back in urban economics. 
+% fundamental to the nature of cities is something called locational rent %CUT from economic history, this is essentially 
+% which is a version of Ricardian land rent.
+% Ricardo developed rent in the context of an agricultural economy in the 1800s. 
+% The model that we use this, t
+through the Alonzo model, % it's actually has several other names attached to it and Muth Mills came out of the early 60s. urban model of locational rent- that brought this into the city -
+that brought  a version of Ricardian land rent back in to understand spatial urban land rents %and become a workhorse model for urban economics.
+
+% Although it's stayed central in planning, rent and space has dropped out of standard economics and finance, in part as production has shifted from agriculture towards first forms of production that require space less explicitly: to factories, and offices.
+
+% A contribution here is we're introducing 
+What we do here is introduce space in a new way.
+
+To make the relationships clear,   % It's really simple, really neat, and 
+we use a  simple version, a circular city with uniform transportation costs.
+
+Here's the standard picture. There are jobs at the center and at the center people have to pay to get the work so %CUT distance matters to them. 
+there's a maximum distance that it's worth traveling to work
+that determines how big the city is.
+
+%CUT COULD PLUG IN ANY MAP HERE. And the  interesting thing here is 
+
+%if you live close to the city, you don't have to travel. So you don't have transportation costs and %CUT you really like to, you don't have to pay that cost. So you'd like to be close to the city and that means 
+It also shapes land prices. Workers will pay more for properties close to the center of the city to be close to work. %CUT in this model.
+
+In our model %The addition in our model is that 
+that means rents can be higher
+
+The willingness to pay of investors depends on the rents they expect to get from the land.
+ %CUT That means we can compute it, and we can compute it with different expectations etc.
+% - those rents can be claimed by whoever owns the land.
+
+%CUT That also means Okay, but if you're paying more 
+that means that whoever owns the land is extracting some of the wage workers are earning in the city.
+And there's this structural link between place, productivity and distribution. % that you're earning in the city.
+
+The wealth of the city comes from bringing people together and . % at the center is being captured by that's what land owners okay if the landowners happen to be the the people who are working, then the wealth of the city is being distributed among the people of the city but if the wealth if the land is owned by a separate class of landowners than they are expropriating the wealth they're expropriating, 
+
+What investors are doing is expropriating the locational rent rents that arise from agglomeration.
+They can do it through specific instruments like REITS that make financialization possible.
+
+This is orthogonal to the process of investment and development. %CUT - creation of housing- confounded in the literature, which misses this whole structure of rent - 
+we carefully desegregate the two in this work so we can consider creating value for the city, and taking value out of the city separately. 
+
+%MOVE to growth - premium comes from growth - So specifically, what is it that makes people want to move to the city? Well, the city are more productive so the firms pay more than  firm's outside the city do.  We call this an urban wage premium. It's, it's well established in the literature. PLOTS And the wage premium is basically a measure of the extra productivity of the city workers in the city.  It's the wage premium that the landlords are capturing. 
+
+%CUT This is the observation that I found really fascinating. 
+%CUT BRIDGES SCALING LITERATURE AND JANE JACOBS URBAN PRODUCTION WITH the classical notion of rent, and the formulation of class Roemer developed an excellent treatment of class rooted in the source of income. 
 
 
 \subsection{Growth}
-So part of what we need to do is model how value is created in the city. 
-We know a lot about that. 
 
-one simple fact that comes out of this that very reliable and that is 
+So rents give the spatial structure of the distribution of surplus.
+The instruments of financialzation enable particular actors to claim those rents.
+
+The last piece we need is to model the source of the rents, 
+%CUT So part of what we need to do is model 
+how value is created in the city. 
+%CUT  We know a lot about that. 
+
+one of the most robust empirical regularities is that 
+% one simple fact that comes out of this that very reliable and that is 
 productivity of cities increases with population. It's been measured empirically. The relationship is a power law relationship.
 In  standard economic terms, economists would say cities show increasing returns to scale. (PLOT)
 
@@ -147,36 +204,36 @@ and Growth theorists looked at longitudinal performance of countries and found i
 
 Jane Jacobs, observed that increasing returns applied at the city level and that's the scale that we work with here CUT what we want to deal with.
 
-The reason for this scale effect may be technology, networks, growth of human capital is a great deal of literature here, and the causes almost certainly interact. . - WHATEVER CAUSE, there are these agglomeration effects. 
+The reason for this scale effect may be technology, networks, growth of human capital is a great deal of literature here, and the causes almost certainly interact. . - WHATEVER the CAUSE, there are these agglomeration effects. 
 
 Here's the equation that's been estimated and as long as that beta is greater than one, that city gets bigger as the population increases.
 
 So how to model this?
 
-So part of what we need to do is model how value is created in the city. 
-WE DO THIS WITH STRONG CONNECTION WITH THE ECONOMICS LITTERATURE SO EACH PIECE CAN BE BUILT BACK. -- 
-TALK A BIT ABOUT HOW IT CONNECTS WITH OTHER LOGICS OF FIRM- AXTEL WAS HERE, HE'S MODELLING FIRMS EXPLICITLY. 
-his history of firm modelling reasonin review..
-we take theo most classic and mainline formulation of the thoery of the firm- to make watertight connections iwth the litterature. note modular enough could just subsitute out pieces. 
+% So part of what we need to do is model how value is created in the city. WE DO THIS WITH STRONG CONNECTION WITH THE ECONOMICS LITTERATURE SO EACH PIECE CAN BE BUILT BACK. --  TALK A BIT ABOUT HOW IT CONNECTS WITH OTHER LOGICS OF FIRM- AXTEL WAS HERE, HE'S MODELLING FIRMS EXPLICITLY. his history of firm modelling reasonin review..we take theo most classic and mainline formulation of the thoery of the firm- to make watertight connections iwth the litterature. note modular enough could just subsitute out pieces. 
 
-So economists struggled to do deal with increasing returns to scale, because the feature of the economy, that most of the models are built around and require for stability, is decreasing returns at the firm level. CHECK That's why firms don't grow forever.  At some point it makes more sense for a new firm to enter.
-he neoclassical model is our fundamental tool and it has a problem in this context. Context, because it exhibits diminishing returns to scale as the basic logic.
+So economists struggled to do deal with increasing returns to scale, because the feature of the economy, that most of the models are built around and require for stability, is decreasing returns at the firm level. %CHECK That's why firms don't grow forever.  At some point it makes more sense for a new firm to enter.
+% he neoclassical model is our fundamental tool and it has a problem in this context. Context, because it exhibits diminishing returns to scale as the basic logic.
 
-This specific formulation we use is pretty standard, the Cobb Douglas production function.  It looks like this.
+growth thoerists addressed this using a formulation that' s become pretty standard
+% This specific formulation we use is pretty standard, 
+the Cobb Douglas production function.  % It looks like this.
 
-You might notice that this is kind of similar to the equation I just showed you. There's the small n is the population of the firm in this case, and capital is included. But other than that, it looks like the same model. 
+You might notice that this is kind of similar to the equation I just showed  for scaling. There's the small n is the population of the firm in this case, and capital is included. But other than that, it looks like the same model. 
 
 In the thesis, I actually make a mathematical connection between the two formulations.
 
-So what we have to solve, in a sense is how you put firms with diminishing returns to scale, into an economy with increasing returns. (the bigger it gets, the more it grows..)
+So what we have to solve for with this equation, in a sense is how you put firms with diminishing returns to scale, into an economy with increasing returns. % (the bigger it gets, the more it grows..)
 
-That is the normal features of a firm into a city that has increasing returns.
+% That is the normal features of a firm into a city that has increasing returns.
 
-One of the intermediate steps is something called the marginal product of labor. Economists tell us that if you are a profit maximizing firm you hire until the marginal value product of your labor the next unit of labor, is equal to the wage the cost of the labor to you. Now that's a rule we build it in. It takes into account profit maximizing rational firms. It's a simple, neat model from economics.
+% One of the intermediate steps is something called the marginal product of labor. Economists tell us that if you are a profit maximizing firm you hire until the marginal value product of your labor the next unit of labor, is equal to the wage the cost of the labor to you. Now that's a rule we build it in. It takes into account profit maximizing rational firms. It's a simple, neat model from economics.
 
-THIS IS THE FUNDAMENTAL NEOCLASSICAL ASSUMPTION- distributional implications- neat about with this model is we see it with this assumption, and then could relax that assumtion. 
+% THIS IS THE FUNDAMENTAL NEOCLASSICAL ASSUMPTION- distributional implications- neat about with this model is we see it with this assumption, and then could relax that assumtion. 
 
-Now, among the economists, this problem that that the macro economy seemed to have increasing returns and they thought that all the pieces of it had Decreasing Returns was a problem. And in the 60s, you started to get what's called growth theory, neoclassical growth theory emerging. And they basically wanted to find some way that that neoclassical production function could be turned into one with increasing returns over time, without actually changing the logic at the firm level.
+% Now, among the economists, this problem that that the macro economy seemed to have increasing returns and they thought that all the pieces of it had Decreasing Returns was a problem. And in the 60s, you started to get what's called growth theory, neoclassical growth theory emerging.
+Growth theorists in the 60s dealt with..
+And they basically wanted to find some way that that neoclassical production function could be turned into one with increasing returns over time, without actually changing the logic at the firm level.
 
 
 The first trick was to make that a in the formula depend on time. It got bigger over time.
@@ -189,23 +246,36 @@ so growth theory doesn't explain how firms switch decreasing returns at the micr
 And for us, it is the structure of the city and Jacob's general idea. - about the rising agglomeration as people come together. 
 
 
-The math is agnostic to us, but that is in the background and in the theory. 
+% The math is agnostic to us, but that is in the background and in the theory. 
+Comes from different traditons, but that gives the basic background to the model.
 
 
 \subsection{Productivity linkages}
 
-That gives us the ownership story. We can connect these things and as what happens to the structure of ownership in the city. 
+Togheter these 3 pieces financialization, rent and growth give us what we need to build the model for the owhership story - How does ownership change with financialistion?
+% That gives us the ownership story. 
+% We can connect these things and as what happens to the structure of ownership in the city. 
 
-BUT THERE'S IS A FOURTH PIECE
+% We need one more piece, which is to understand how this financialization affects productivity.
+% we’re going to be adding an extension which allows us to look at how it affects productivity and
+% in order to do that we need this piece about what are the channels by which financial ation of the housing project house the housing market which is the transfer of value into the hands of financial actors is affecting productivity and we’re gonna talk about channels through that so we’re gonna lay out some possible channels through which that connection or that affect might be happening
+
+% BUT THERE'S IS A FOURTH PIECE
 But is it possible there's another link that goes the other way?
 
 it's  possible that this effect not only takes money away from people in the city, it's possible that financialization also feeds back and  affects the productivity of the city. One mechanism clearly as people don't have as much money, people living in the city don't have as much money, they don't invest as much in the city so it's not as productive. 
 There are multiple mechanisms that might drive this. SLIDE
 One of the things we do with the model is say okay if there was an effect, given the very plausible linkages in the literature, what would the implications of that be in our model?
 
+We lay out some possible channels through which that connection or that affect might be happening.
+
 \section{Model}
 
-So what we got is spatial rents being captured by capital, and that transforming the city so how do we put all these things together now we're getting into last three years work.
+So that is the theoretical background 3 pieces for the main model, and this extra link for productivity. 
+
+% So what we got is spatial rents being captured by capital, and that transforming the city so how do we put all these things together now we're getting into last three years work.
+
+Now we have to put these things together in a model.
 First, we take the Allonzo model, which just gives us a relationship between the wage and the size of the city and their for the population.
 
 Second, we take the Jane Jacobs observation.
@@ -226,14 +296,16 @@ We have to have agents entering the city and trying to buy property or becoming 
 I will just work through those three diagrams as the basic structure of the model
 
 
-So I've just described the Alonzo That's not called the financial the Alonzo
+% So I've just described the Alonzo That's not called the financial the Alonzo
 
-Jacobs model, and that was the first thing I described. The second thing I'd like to describe is the relationship between
+% Jacobs model, and that was the first thing I described. 
+The second thing I'd like to describe is the relationship between
 the housing market, the bank and buyers and essentially, both in our model, workers have to get mortgages, investors get loans. They decide if a particular property when it comes up is worth purchasing and we have a mechanism where it's inspired a little bit by some discussion in game theory about who wins in these bidding games. A little bit of bidding theory affected this. But that's our housing market, bank supply capital we have parameters what the various costs of capital are, how willing they are to lend the workers, how willing they are to lend to investors, and so on.
 
-So that's our financialization component. And the whole story is really almost as simple as this: do the investors have an advantage at some point over the worker buyers? If the investors have an advantage, then they'll buy an increasing fraction of the housing stock over time as people retire and as new housing comes into the market?
+So that's our financialization component. And the  story %is really almost as simple as this: 
+do the investors have an advantage at some point over the worker buyers? If the investors have an advantage, then they'll buy an increasing fraction of the housing stock over time as people retire and as new housing comes into the market?
 
-That's a dynamic question. Just as the previous one was a dynamic question, 
+That's a dynamic question.% Just as the previous one was a dynamic question, 
 and this is where we have the most thoroughly articulated agents in the model.
 
 THIS GIVES THE OWNERSHIP RESULT
@@ -443,3 +515,4 @@ To summarize the contributions
 In this talk, we first took you through the the theoretical foundations for the work, then we we introduces the model financialization of housing in urban centers with production. Then shared some results, and  discussed possibilities for future work. 
 
 So let me thank you there and I'll take questions.'
+\end{document}
