@@ -237,6 +237,8 @@ A \gls{capital gains} tax is a tax on profit from the sale of property or an inv
 \label{fig:CGinvest_ownership_trajectory}
 \end{figure}
 
+
+
 The baseline value for the capital gains tax is 15\% for investors and 1\% for owner-occupiers, who are  exempt from capital gains tax on their first residence, but have some costs to realize their capital gain. In this experiment, we explore the effect of substantial changes to the capital gains tax rate for investors. 
 We substitute three  levels  of capital gains tax for investors (0\%, 50\%, and 100\%), keeping the tax level constant at 1\% for homeowners.
 
@@ -328,13 +330,13 @@ There are more homes, however, and since the ratios are consistent, there are mo
 % Cost of financing's dependence on borrower's wealth
 
 Wealth sensitivity % is a parameter of the banking system. It that 
-determines how costly it is for people with limited assets or income to get a mortgage. A higher value is more restrictive. % ,  making it more harder for those with fewer assets to get a mortgage.
+determines how costly it is for people with limited assets or income to get a mortgage. A higher value is more restrictive. Figure~\ref{fig:Wealth-based} in Chapter~\ref{chapter-model} on the model illustrates the effect of the parameter on the maximum mortgage available to borrowers with different asset levels.% ,  making it more harder for those with fewer assets to get a mortgage.
 % {\color{red} CLARIFY - THIS DOES NOT MAKE CLEAR IF IT RAISES THE THRESHOLD OR RAISES THE COST}
 
 \begin{figure}[h!bt]
     \centering
     \includegraphics[scale=1, trim={0 1.4cm 0 0},clip]{fig/wealth_sensitivity-124913.pdf}
-    \caption[The effect of the wealth sensitivity parameter]{The effect of the wealth sensitivity parameter. The figure illustrates the effect of the parameter on seven policy variables over time, with parameter values of 0.15, 0.1, and 0.5, and no productivity linkage. The wealth sensitivity parameter controls the wealth required for accessing a mortgage.  Figure~\ref{fig-borrowing-ratio} in Chapter~\ref{chapter-model} on the model illustrates the effect of the parameter on the maximum mortgage available to borrowers with different asset levels.}
+    \caption[The effect of the wealth sensitivity parameter]{The effect of the wealth sensitivity parameter. The figure illustrates the effect of the parameter on seven policy variables over time, with parameter values of 0.15, 0.1, and 0.5, and no productivity linkage. The wealth sensitivity parameter controls the wealth required for accessing a mortgage.}  
     \label{fig:wealth_sensitivity_ownership_trajectory}
 \end{figure}
 
@@ -387,7 +389,6 @@ Could we try 0\% and/or some exploration around the lower level?
 
 \section{Policy interventions with a productivity link}
 
-
 We have suggested that the financialization of the urban housing market may affect urban productivity, laying out plausible links in Chapter~\ref{chapter-tramsmission}. % We explore the potential policy implications of such a link. 
 By adding this link to our model, we can explore how it would affect the results of policy interventions. If the model shows that linkage would have a significant effect on the effectiveness of policy tools, determining whether a link exists, how strong it is, %, if there is a linkage, 
 and which channels it operates through become promising targets for urban policy research. 
@@ -428,20 +429,46 @@ We examine the effect of each policy
 % we will repeat the seven policy interventions examined above with  $A^*$.  
 % As before, we use separate figures to represent the impact of each policy 
 on the trajectory of each of the seven economic variables over time. 
-
 \newpage
+
 \subsection{Capital gains tax on investors with linkage}\label{subsec:CGinvest}
 
-When we introduce a capital gains tax on investors in the presence of the productivity linkage there are much more dramatic results. 
-With no productivity link, the capital gains tax rate on land speculation did not affect main economic variables but did affect the ownership ratio. % The dashed line show the effect of a 100\%  tax rate when a link to productivity is present. 
+{\color{red} Why does the ownership decline LESS in the .5 case with the linkage, and what looks like MORE/FASTER in the .0 case?
+
+}
+
+Figure ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital} shows that, with or without the productivity link, a capital gains tax on housing speculation will have a powerful effect on the distribution of ownership. 
+
+\begin{figure}[h!tb]   %.       MODEL TIKZPICTURE
+    \centering
+    \begin{tikzpicture}
+\node[inner sep=0pt] (plain) at (0,0){\includegraphics[width=.52\textwidth, trim={.3cm 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
+\node[inner sep=0pt] (link) at (8.1,0)
+    {\includegraphics[width=.52\textwidth, trim={.1cm 1.4cm 4.3cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
+\draw[color=white, fill=white] (8.5,-2.5) rectangle (12.6,-4.5);
+\end{tikzpicture}
+\caption[The effect of changing the capital gains tax for investors with and without the productivity linkage]{The effect of changing the capital gains tax for investors with and without the productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 50\%, and 100\% for investors, and the default 1\% rate for homeowners, comparing a productivity linkage and no productivity linkage.}
+    \label{fig:CG-invest_link_W-WO-Cost-of-capital}
+\end{figure}
+
+
+In both cases, a 100\% capital gains tax on land speculation entirely eliminates investor participation in the market, leaving 100\%  owner-occupiers. 
+
+Without a linkage, other variables are unaffected. With a productivity linkage, the feedback from the distribution ownership to the production economy has a powerful effect on the city's production. With a 100\% capital gains tax on speculation, wages are  higher, the city is larger, and there are more firms. 
+
+ This experiment demonstrates that policy parameters are likely to have different effects when there is a link between financialization and urban productivity and when there is no link.
+
+
+When we introduce a capital gains tax on investors in the presence of the productivity linkage the intervention affects not just the ownership ratio but the other economic variables. % With no productivity link, the capital gains tax rate on land speculation did not affect main economic variables but did affect the ownership ratio. % The dashed line show the effect of a 100\%  tax rate when a link to productivity is present. 
 %{\color{red} MAYBE SAY WHAT YOU DO HERE BEFORE ADDING COMPARISON TO THE VERSION WITH NO LINKAGE? ALSO SAY WHAT THE LINE REPRESENT TO START?? 
 %A 100\% capital gains tax on speculation with the linkage produces the same outcome for the production economy as any value of the capital gains tax with no linkage. The dotted line illustrates the effect of no capital gains tax on land speculation. In essence, 
 % The elimination of the capital gains tax on speculation crashes the economy. % The effect kicks in when 
-With the productivity linkage, the ownership ratio drop dramatically, as shown by the dotted line in Figure~\ref{fig:Productivity_link_and_CG}. The falling owner-occupier rate reduces productivity to a level where increasing returns to the population are offset by decreasing productivity, effectively crashing the local economy. % Keep in mind that we have simply demonstrated the logical possibility of a crash, not that any city is near this point. 
+With the productivity linkage, the ownership ratio drop dramatically, as shown by the dotted line in ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}. The linkage means the falling owner-occupier rate reduces productivity to a level where increasing returns to the population are offset by decreasing productivity, effectively crashing the local economy. % Keep in mind that we have simply demonstrated the logical possibility of a crash, not that any city is near this point. 
 
-On the other hand a 100\% capital gains tax on land speculation eliminates investor participation in the housing market, leaving  100\%  owner-occupiers. The dashed line in the lower left of the same figure,  Figure~\ref{fig:Productivity_link_and_CG},  shows this case. Without any tax, owner-occupiers are entirely eliminated, and there is no negative impact on production or city size.  
+On the other hand a 100\% capital gains tax on land speculation is one of the few interventions that can completely eliminate investor participation in the housing market, and thus leave  100\%  owner-occupancy. The dashed line in the lower left of the same figure,  ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}, %Figure~\ref{fig:Productivity_link_and_CG}
+shows this case. %Without any tax, owner-occupiers are entirely eliminated, and there is no negative impact on production or city size.  
 
-\subsubsection{Capital gains tax on investors}
+% \subsubsection{Capital gains tax on investors}
 
 % \begin{figure}[h!tb]
 %     \centering
@@ -451,18 +478,38 @@ On the other hand a 100\% capital gains tax on land speculation eliminates inves
 % \end{figure}
 
 
-Figure ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital} shows that, with or without the productivity link, a capital gains tax on housing speculation will have a powerful effect on the distribution of ownership. A 100\% capital gains tax on land speculation entirely eliminates investor participation in the market, leaving 100\%  owner-occupiers. 
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm 3.7cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
+   
+% \end{figure}
 
-Without a linkage, other variables are unaffected. With a productivity linkage, the feedback from the distribution ownership to the production economy has a powerful effect on the city's production. With a 100\% capital gains tax on speculation, wages are  higher, the city is larger, and there are more firms. 
-
- This experiment demonstrates that policy parameters are likely to have different effects when there is a link between financialization and urban productivity and when there is no link.
 
 
 \subsection{Capital gains tax on owner-occupiers  with linkage}
 % {\color{red} MAKE SURE EXPLANATION IS CONSISTENT WITH ABOVE..}
 
-A capital gains tax on owner-occupiers, on the other hand, allows investors a further advantage in the market. In Figure~\ref{fig:Productivity_link_and_CGpers_ownership_trajectory}, the capital gains tax on investors is set at 15\% and we vary the capital gains tax on owner-occupiers. The dotted line represents the case with no capital gains tax for homeowners, the solid line represent a 50\% tax, and the dashed line represents a 100\% tax.
+A capital gains tax on owner-occupiers, on the other hand, allows investors a further advantage in the market. In Figure~\ref{fig:CG-pers_link_W-WO-Cost-of-capital}, %{fig:Productivity_link_and_CGpers_ownership_trajectory}, 
+the capital gains tax on investors is set at 15\% and we vary the capital gains tax on owner-occupiers. The dotted line represents the case with no capital gains tax for homeowners, the solid line represent a 50\% tax, and the dashed line represents a 100\% tax.
 
+
+\begin{figure}[h!tb]   
+    \centering
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (0,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_per-000419.pdf}}; 
+
+\node[inner sep=0pt] (link) at (8.1,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={.1cm 1.4cm 4.cm 0},clip]{fig/link-cg_tax_per-4_162706.pdf}};
+    
+\draw[color=white, fill=white] (8.3,-2.3) rectangle (12.6,-4.5);
+\end{tikzpicture}
+     \caption[The effect of introducing a capital gains tax for owner-occupiers with and without a productivity linkage]{The effect of introducing a capital gains tax for owner-occupiers with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 10\%, 20\% and 30\% for owner-occupiers, and the default 15\% rate for investors, comparing a productivity linkage and no productivity linkage.}
+    \label{fig:CG-pers_link_W-WO-Cost-of-capital}
+\end{figure}
 
 
 % When the tax is higher than the rate for investors, 
@@ -470,13 +517,7 @@ A higher capital gains tax on homeowners than investors, shown by the solid and 
 The economic variables decline rapidly and overshoot slightly. The city extent, wage and firm count all recover slightly from their initial decline. {\color{red} EXPLAIN.} 
 The extreme sensitivity of the model economy to capital gains taxes on owners is surprising and suggests a need for further research. 
 
-\begin{figure}[h!tb] 
-    \centering
-    \includegraphics[scale=.75, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 3.7cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
-    \caption[The effect of changing the capital gains tax for investors with and without the productivity linkage]{The effect of changing the capital gains tax for investors with and without the productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 50\%, and 100\% for investors, and the default 1\% rate for homeowners, comparing a productivity linkage and no productivity linkage.}
-    \label{fig:CG-invest_link_W-WO-Cost-of-capital}
-\end{figure}
+
 
 % {\color{red}
 % LOOK AT DIFFERENT VARIABLES WITH THE PRODUCTIVITY LINK..
@@ -487,7 +528,7 @@ The extreme sensitivity of the model economy to capital gains taxes on owners is
 % SAY 'THE OWNERSHIP RESULT IS THE SAME, BUT THERE ARE EFFECTS ON THESE OTHER THINGS..'
 % }
 
-\subsubsection{Capital gains tax on owner-occupiers}
+% \subsubsection{Capital gains tax on owner-occupiers}
 
 {\color{red} THIS FIGURE IS LABELLED COST OF CAPITAL NOT CAP GAINS Figure ~\ref{fig:CG-pers_link_W-WO-Cost-of-capital} } shows that, regardless of the presence or absence of a productivity link, when the capital gains tax on homeowners is near or above the rate of investors, %shown by the overlapping solid, dashed, and dotted lines,  
 home ownership falls farther and faster than when it is much lower than the investor rate. 
@@ -498,13 +539,16 @@ home ownership falls farther and faster than when it is much lower than the inve
 %     \caption[The effect of introducing a capital gains tax for owner-occupiers with a productivity linkage]{The effect of introducing a capital gains tax for owner-occupiers with a productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 10\%, 20\% and 30\% for owner-occupiers, and the default 15\% rate for investors.}
 %     \label{fig:Productivity_link_and_CGpers_ownership_trajectory}
 % \end{figure}
-\begin{figure}[h!tb] 
-    \centering
-    \includegraphics[scale=.75, trim={0 1.4cm .5cm 0},clip]{fig/cg_tax_per-000419.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 3.5cm 0},clip]{fig/link-cg_tax_per-4_162706.pdf}% With-productivity_link_cg_tax_per-000911.pdf
-    \caption[The effect of introducing a capital gains tax for owner-occupiers with and without a productivity linkage]{The effect of introducing a capital gains tax for owner-occupiers with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 10\%, 20\% and 30\% for owner-occupiers, and the default 15\% rate for investors, comparing a productivity linkage and no productivity linkage.}
-    \label{fig:CG-pers_link_W-WO-Cost-of-capital}
-\end{figure}
+
+
+
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.4cm .5cm 0},clip]{fig/cg_tax_per-000419.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm 3.5cm 0},clip]{fig/link-cg_tax_per-4_162706.pdf}% With-productivity_link_cg_tax_per-000911.pdf
+%     \caption[The effect of introducing a capital gains tax for owner-occupiers with and without a productivity linkage]{The effect of introducing a capital gains tax for owner-occupiers with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 10\%, 20\% and 30\% for owner-occupiers, and the default 15\% rate for investors, comparing a productivity linkage and no productivity linkage.}
+%     \label{fig:CG-pers_link_W-WO-Cost-of-capital}
+% \end{figure}
 
 With a productivity link, a high relative tax rate produces a city that rises rapidly and then declines. Slow growth begins after the decline.
 
@@ -515,9 +559,27 @@ With a productivity link, a high relative tax rate produces a city that rises ra
 \newpage
 \subsection{The cost of capital for investors  with linkage}
 % 'r_investor': [0.2, 0.1, .05] has set up for morning
-Figure ~\ref{fig:Productivity_link_and_capital_ownership_trajectory} shows the effect of increasing capital costs for investors. Even in the presence of strong productivity spillovers, it has little effect in this experiment which suggests that the cost of capital for investors is dominated by other factors in this model. The low effect on ownership means even with the linkage in place, it has less effect on other economic variables. 
+Figure ~\ref{fig:Productivity_link_W-WO-Cost-of-capital} %{fig:Productivity_link_and_capital_ownership_trajectory} 
+shows the effect of increasing capital costs for investors. Even in the presence of strong productivity spillovers, it has little effect in this experiment which suggests that the cost of capital for investors is dominated by other factors in this model. The low effect on ownership means even with the linkage in place, it has less effect on other economic variables. 
 
-\subsubsection{The cost of capital for investors}
+% \subsubsection{The cost of capital for investors}
+\begin{figure}[h!tb]   
+    \centering
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (0,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.3cm 1.4cm 1cm 0},clip]{fig/r_investor-Main-024857.pdf}}; 
+
+\node[inner sep=0pt] (link) at (6.5,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf}};
+    
+\draw[color=white, fill=white] (7,-2.3) rectangle (10.6,-4.5);
+\end{tikzpicture}
+     \caption[The effect of raising capital costs for investors with and without a productivity linkage]{The effect of raising capital costs for investors with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with an investor rate of 5\%, 10\% and 20\%, and a rate for owner-occupiers near 5.1\%, just above the bank's prime rate, adjusted based on individual assets and income.}
+    \label{fig:Productivity_link_W-WO-Cost-of-capital}
+\end{figure}
+
 
 {\color{red}Without the productivity linkage??, YOU SAY BELOW THAT IT IS 20 percent Different?} increasing capital costs for investors appears to increase the speed at which the effects take place, but not affect the final level of investor ownership. Productivity spillovers cut population and wages, keep the owner-occupier share just 20\% higher, and introduce weak speculative cycles. The cost of capital for investors does not appear to be a promising policy tool.
 % \begin{figure}[h!t]
@@ -527,19 +589,19 @@ Figure ~\ref{fig:Productivity_link_and_capital_ownership_trajectory} shows the e
 %     \label{fig:Productivity_link_and_capital_ownership_trajectory}
 % \end{figure}
 
-\begin{figure}[h!tb] 
-    \centering
-    \includegraphics[scale=.75, trim={0 1.4cm 4cm 0},clip]{fig/r_investor-Main-024857.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 3.5cm 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf} 
-    \caption[The effect of raising capital costs for investors with and without a productivity linkage]{The effect of raising capital costs for investors with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with an investor rate of 5\%, 10\% and 20\%, and a rate for owner-occupiers near 5.1\%, just above the bank's prime rate, adjusted based on individual assets and income.}
-    \label{fig:Productivity_link_W-WO-Cost-of-capital}
-\end{figure}
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.4cm 4cm 0},clip]{fig/r_investor-Main-024857.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm 3.5cm 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf} 
+%     \caption[The effect of raising capital costs for investors with and without a productivity linkage]{The effect of raising capital costs for investors with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with an investor rate of 5\%, 10\% and 20\%, and a rate for owner-occupiers near 5.1\%, just above the bank's prime rate, adjusted based on individual assets and income.}
+%     \label{fig:Productivity_link_W-WO-Cost-of-capital}
+% \end{figure}
 
  \newpage
 
 \subsection{Transportation costs  with linkage}\label{subsec-transport-link}
 
-In Figure~\ref{fig:Productivity_link_and_c_ownership_trajectory}, we again reduce transportation costs for everyone by 40\%, this time in the presence of productivity impact. The linkage reduces wages and city size to the base case without the linkage, but city size and population increase with lower transportation costs as expected. The linkage also introduces large oscillations in population and city size. The oscillations are discussed in section~\ref{subsec-transport-pair}, where we put the two sets of results side by side. 
+In Figure~\ref{fig:Productivity_link_and_c_ownership_trajectory}, we again reduce transportation costs for everyone by 40\%, this time in the presence of productivity impact. The linkage reduces wages and city size to the base case without the linkage, but city size and population increase with lower transportation costs as expected. The linkage also introduces large oscillations in population and city size.  %The oscillations are discussed in section~\ref{subsec-transport-pair}, where we put the two sets of results side by side. 
 
 
 
@@ -550,9 +612,10 @@ Lower transportation costs produces a lower home-ownership ratio. Lower transpor
 
 A decline in the wage also appears to accompany reduced transport costs. This may be understood by noticing that lower transport costs reduce the wage needed to attract workers to the city, so the size of the city is larger at any given wage level. {\color{red} BUT WHY IS IT LOWER OVERALL?} 
 
-\subsubsection{Transportation cost}\label{subsec-transport-pair}
+% \subsubsection{Transportation cost}\label{subsec-transport-pair}
 
-A productivity link reduces wage and population growth in all {\color{red}CHECK  transportation cost} experiments,  but Figure~\ref{fig:Productivity_link_W-WO-transportation-cost} shows that low transportation costs with a link may produce especially large speculative cycles, as pointed out in Subsection~\ref{subsec-transport-link} 
+A productivity link reduces wage and population growth in all {\color{red}CHECK  transportation cost} experiments,  but Figure~\ref{fig:Productivity_link_W-WO-transportation-cost} %{fig:Productivity_link_W-WO-transportation-cost}
+shows that low transportation costs with a link may produce especially large speculative cycles. %, as pointed out in Subsection~\ref{subsec-transport-link} 
 
 If we look more carefully at the patterns, it appears that the trajectories initially follow those without linkage and then diverge when the ownership ratio drops. A period with stable ownership results in another period of growth, which attracts another round of speculation that further reduces productivity and wages. Smaller irregularities in other experiments are probably due to the same effect.
 
@@ -562,15 +625,33 @@ If we look more carefully at the patterns, it appears that the trajectories init
 %     \caption[The effect of decreasing transportation costs with a productivity linkage]{The effect of decreasing transportation costs with a productivity linkage. Illustrates the effect on seven policy variables over time, with a cost of \$300 and \$500 per unit distance per year.}
 %     \label{fig:Productivity_link_and_c_ownership_trajectory}
 % \end{figure}
-
-\begin{figure}[h!tb] 
+\begin{figure}[h!tb]   
     \centering
-    \includegraphics[scale=.75, trim={0 1.4cm 1.5cm 0},clip]{fig/c-Main-121459.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 2.3cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf} 
-    \caption[The effect of decreasing transportation costs with and without a productivity linkage]{The effect of decreasing transportation costs with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a cost of \$300 and \$500  per unit distance per year, comparing a productivity linkage and no productivity linkage.}
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (-2,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.2cm 1.4cm 1cm 0},clip]{fig/c-Main-121459.pdf}}; 
+
+\node[inner sep=0pt] (link) at (6,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
+    
+\draw[color=white, fill=white] (6,-2.3) rectangle (10.2,-4.5);
+\end{tikzpicture}
+     \caption[The effect of decreasing transportation costs with and without a productivity linkage]{The effect of decreasing transportation costs with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a cost of \$300 and \$500  per unit distance per year, comparing a productivity linkage and no productivity linkage.}
     \label{fig:Productivity_link_W-WO-transportation-cost}
 \end{figure}
-With or without productivity links, lower transportation costs also decrease the home-ownership ratio as explained in in Subsection~\ref{subsec-transport-link}. 
+
+
+
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.4cm 1.5cm 0},clip]{fig/c-Main-121459.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm 2.3cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf} 
+%     \caption[The effect of decreasing transportation costs with and without a productivity linkage]{The effect of decreasing transportation costs with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a cost of \$300 and \$500  per unit distance per year, comparing a productivity linkage and no productivity linkage.}
+%     \label{fig:Productivity_link_W-WO-transportation-cost}
+% \end{figure}
+With or without productivity links, lower transportation costs also decrease the home-ownership ratio. % as explained in in Subsection~\ref{subsec-transport-link}. 
 %$The decline in the wage that appears to accompany reduced transport costs may be understood by noticing that lower transport costs reduce the wage needed to attract workers to the city. 
 
 
@@ -585,38 +666,65 @@ Relaxing restrictions on density should, in theory, affect the ability of people
 The share of homeowners is not affected, since rent per unit is unchanged at any distance, density alone does not affect the relative advantage of new home buyers and investors, leaving the ratio constant. % There are more homes, however, and, since the relative advantages of owners and investors are unchanged, additional homes are distributed the same way as with lower density.  
 % {\color{red} NEED THIS? Density does not affect transportation cost, and in this test version firm size is not affected. The number of firms rises instead. }
 
-
-\subsubsection{Density}
-
-The effect of density on city population is significant but it has no effect on city extent and no effect on the ownership ratio. The share of homeowners is not affected although the number of homes is. 
-
-\begin{figure}[h!tb] 
+\begin{figure}[h!tb]   
     \centering
-    \includegraphics[scale=.75, trim={0 1.4cm 1.5cm 0},clip]{fig/density-Main-123417.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 3.2cm 0},clip]{fig/With-productivity_link-density-023044.pdf} 
-    \caption[The effect of increasing density with and without a productivity linkage]{The effect of increasing density with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a population density of 100 and 150 per grid space, comparing a productivity linkage and no productivity linkage.}
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (-2,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.2cm 1.4cm 1cm 0},clip]{fig/density-Main-123417.pdf}}; 
+
+\node[inner sep=0pt] (link) at (6,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={0cm 1.4cm 3.5cm 0},clip]{fig/With-productivity_link-density-023044.pdf}};
+    
+\draw[color=white, fill=white] (6,-2.3) rectangle (10.2,-4.5);
+\end{tikzpicture}
+      \caption[The effect of increasing density with and without a productivity linkage]{The effect of increasing density with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a population density of 100 and 150 per grid space, comparing a productivity linkage and no productivity linkage.}
     \label{fig:Productivity_link_W-WO-density}
 \end{figure}
 
+
+
+% \subsubsection{Density}
+
+The effect of density on city population is significant but it has no effect on city extent and no effect on the ownership ratio. The share of homeowners is not affected although the number of homes is. 
+
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.cm 1.5cm 0},clip]{fig/density-Main-123417.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm .2cm 0},clip]{fig/With-productivity_link-density-023044.pdf} 
+%     \caption[The effect of increasing density with and without a productivity linkage]{The effect of increasing density with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with a population density of 100 and 150 per grid space, comparing a productivity linkage and no productivity linkage.}
+%     \label{fig:Productivity_link_W-WO-density}
+% \end{figure}
+
 With productivity links, wages are depressed, and population is lower and appears to cycle.
-
-
-
 \newpage
+
 \subsection{Cost of financing's dependence on borrower's wealth with linkage}
 
-In Figure~\ref{fig:Productivity_link_and_wealth_sensitivity_ownership_trajectory} we vary the wealth sensitivity in the presence of a productivity linkage. The higher value is more restrictive, making it harder for someone without assets to get a mortgage. It has no noticeable effect on the ownership ratio. % {\color{red} this is very abrupt? ADD OTHER MARKERS SUMMARY}
+In Figure~\ref{fig:Productivity_link_W-WO-wealth} %{fig:Productivity_link_and_wealth_sensitivity_ownership_trajectory} 
+we vary the wealth sensitivity in the presence of a productivity linkage. The higher value is more restrictive, making it harder for someone without assets to get a mortgage. It has no noticeable effect on the ownership ratio. % {\color{red} this is very abrupt? ADD OTHER MARKERS SUMMARY}
 % {\color{red} MAYBE ADD A SUMMARY OF THIS SECTION SAYING THAT THE POLICIES/HOW WE UNDERSTAND THEM SHOULD CHANGE DEPENDING ON WHETHER THERE IS THIS PRODUCTIVITY LINK...}
-% 'wealth_sensitivity': [0.15, 0.1, 0.5]
+% 'wealth_sensitivity': [0.15, 0.1, 0.5]r
+% \subsubsection{Cost of financing's dependence on borrower's wealth}
 
 
+\begin{figure}[h!tb]   %.      first version of  TIKZPICTURE
+    \centering
+    \begin{tikzpicture}
+\node[inner sep=0pt] (plain) at (0,0){\includegraphics[width=.52\textwidth, trim={.3cm 1.4cm .8cm 0},clip]{fig/wealth_sensitivity-124913.pdf}}; 
+
+\node[inner sep=0pt] (link) at (8.3,0)
+    {\includegraphics[width=.5\textwidth, trim={.1cm 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-wealth_sensitivity-025428.pdf}};
+\draw[color=white, fill=white] (8.5,-2.5) rectangle (12.6,-4);
+
+    \end{tikzpicture}
+    \caption[The effect of the wealth sensitivity parameter with and without a productivity linkage]{The effect of the wealth sensitivity parameter with and without a productivity linkage. The wealth sensitivity parameter controls the wealth required for accessing a mortgage. The figure illustrates the effect of the parameter on seven policy variables over time, with parameter values of 0.1, 0.15, and 0.5, comparing a productivity linkage and no productivity linkage.}
+    \label{fig:Productivity_link_W-WO-wealth}
+\end{figure}
 
 
-\subsubsection{Cost of financing's dependence on borrower's wealth}
-
-With and without productivity links, a restrictive mortgage regime slightly reduces the labour supply and city population. It has no noticeable effect on the ownership ratio. The small impact on other variables suggests that mortgage availability can be restricted %can be imposed 
-without a significant economic impact on the city. 
-
+With or without productivity links, a restrictive mortgage regime slightly reduces the labour supply and city population. It has no noticeable effect on the ownership ratio. In the presence of a productivity linkage, the population is more variable and is cut roughly in half. Wages are lower, consistent with lower rents in a smaller city. With low growth, property speculation is not profitable and investors do not enter the market. The ownership ratio is, therefore, higher not because there are more owners, but because there are fewer investment properties. 
 %In the presence of a productivity linkage, the population is more variable and is cut roughly in half. Wages are lower, consistent with lower rents.
 % \begin{figure}[h!bt]
 %     \centering
@@ -624,14 +732,13 @@ without a significant economic impact on the city.
 %     \caption[The effect of the wealth sensitivity parameter with a productivity linkage]{The effect of the wealth sensitivity parameter with a productivity linkage. The figure illustrates the effect of the parameter on seven policy variables over time, with parameter values of 0.15, 0.1, and 0.5. The wealth sensitivity parameter controls the wealth required for accessing a mortgage. {\color{red} Figure~\ref{} in Chapter~\ref{chapter-model} on the model illustrates the effect of the parameter on the maximum mortgage available to borrowers with different asset levels.}}
 %     \label{fig:Productivity_link_and_wealth_sensitivity_ownership_trajectory}
 % \end{figure}
-\begin{figure}[h!tb] 
-    \centering
-    \includegraphics[scale=.75, trim={0 1.4cm 1.0cm 0},clip]{fig/wealth_sensitivity-124913.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-wealth_sensitivity-025428.pdf} 
-    \caption[The effect of the wealth sensitivity parameter with and without a productivity linkage]{The effect of the wealth sensitivity parameter with and without a productivity linkage. The figure illustrates the effect of the parameter on seven policy variables over time, with parameter values of 0.15, 0.1, and 0.5, comparing a productivity linkage and no productivity linkage. The wealth sensitivity parameter controls the wealth required for accessing a mortgage. {\color{red} Figure~\ref{} in Chapter~\ref{chapter-model} on the model illustrates the effect of the parameter on the maximum mortgage available to borrowers with different asset levels.}}
-    \label{fig:Productivity_link_W-WO-wealth}
-\end{figure}
-
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.4cm .8cm 0},clip]{fig/wealth_sensitivity-124913.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-wealth_sensitivity-025428.pdf} 
+%     \caption[The effect of the wealth sensitivity parameter with and without a productivity linkage]{The effect of the wealth sensitivity parameter with and without a productivity linkage. The figure illustrates the effect of the parameter on seven policy variables over time, with parameter values of 0.1, 0.15, and 0.5, comparing a productivity linkage and no productivity linkage. The wealth sensitivity parameter controls the wealth required for accessing a mortgage. {\color{red} Figure~\ref{} in Chapter~\ref{chapter-model} on the model illustrates the effect of the parameter on the maximum mortgage available to borrowers with different asset levels.}}
+%     \label{fig:Productivity_link_W-WO-wealth}
+% \end{figure}
 
 \newpage
 \subsection{The property tax rate  with linkage}
@@ -644,7 +751,25 @@ Both high and very low property tax rates also reduce wage and city size. % This
 {\color{red} ADD HOW THIS DIFFERS FROM CASE WITHOUT LINKAGE).}
 
 
-\subsubsection{The property tax rate}
+\begin{figure}[h!tb]   
+    \centering
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (-2,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.2cm 1.4cm 1cm 0},clip]{fig/property_tax_rate-Main-130755.pdf}}; 
+
+\node[inner sep=0pt] (link) at (6,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={0cm 1.4cm 5.cm 0},clip]{fig/With-productivity_link-property_tax-103137.pdf}};
+    
+\draw[color=white, fill=white] (6,-2.3) rectangle (10.2,-4.5);
+\end{tikzpicture}
+       \caption[The effect of varying the property tax rate with and without a productivity linkage]{The effect of varying the property tax rate with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with rates between 1\% and 17\%, comparing a productivity linkage and no productivity linkage.}
+    \label{fig:Productivity_link_W-WO-property_tax}
+\end{figure}
+
+
+% \subsubsection{The property tax rate}
 
 With a productivity link, differences in the property tax rate have a much more dramatic effect on wages and urban size. The variable effect is clear from the spread of the lines on the right panel of Figure~\ref{fig:Productivity_link_W-WO-property_tax}.  This observation indicates that the effect of public sector policies may differ in the presence of a productivity link, and that further investigation % of this unrecognized variable
 should be on the research agenda of urban theorists and policy-makers.
@@ -664,30 +789,32 @@ should be on the research agenda of urban theorists and policy-makers.
 %     \caption[The effect of varying the property tax rate with a productivity linkage]{The effect of varying the property tax rate with a productivity linkage. Illustrates the effect on seven policy variables over time, with rates between 1\% and 17\%.}
 %     \label{fig:Productivity_link_and_property_tax_ownership_trajectory}
 % \end{figure}
-\begin{figure}[h!tb] 
-    \centering
-    \includegraphics[scale=.75, trim={0 1.4cm .8cm 0},clip]{fig/property_tax_rate-Main-130755.pdf} 
-    \includegraphics[scale=.75, trim={0 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-property_tax-103137.pdf} 
-    \caption[The effect of varying the property tax rate with and without a productivity linkage]{The effect of varying the property tax rate with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with rates between 1\% and 17\%, comparing a productivity linkage and no productivity linkage.}
-    \label{fig:Productivity_link_W-WO-property_tax}
-\end{figure}
+% \begin{figure}[h!tb] 
+%     \centering
+%     \includegraphics[scale=.75, trim={0 1.4cm .8cm 0},clip]{fig/property_tax_rate-Main-130755.pdf} 
+%     \includegraphics[scale=.75, trim={0 1.4cm 4.75cm 0},clip]{fig/With-productivity_link-property_tax-103137.pdf} 
+%     \caption[The effect of varying the property tax rate with and without a productivity linkage]{The effect of varying the property tax rate with and without a productivity linkage. Illustrates the effect on seven policy variables over time, with rates between 1\% and 17\%, comparing a productivity linkage and no productivity linkage.}
+%     \label{fig:Productivity_link_W-WO-property_tax}
+% \end{figure}
 
-\section{Transitory policy shocks to the capital gains tax for investors}
+\section{Transitory policy shocks}
+
 Policies are not set at the beginning of a city's life and retained forever. %, as we did in all the illustrations above.
 They are introduced and adjusted at various points in the history of a city. This section explores the effect of a change in policy using our model.
 
-\subsection{A temporary surge of speculation}
-To illustrate how the model might be used to explore policy changes, consider a city with a capital gains tax on investors of 100\%. A 100\% capital gains tax on speculation, as we saw in the left side of Figure~\ref{fig: CG-invest_link_W-WO-Cost-of-capital}, eliminates all speculative behaviour and results in a 100\% owner-occupied city even with the productivity linkage. The blue dashed line in Figure~\ref{fig:cgtax_setback} reproduces this case. In this test, after 50 years of growth the capital gains tax is reduced to zero for 25 years, followed by a return to the original policy. Following the initial change,  the owner-occupier share of housing falls to 30\%. Seventy percent of the city housing stock is financialized.
-
 \begin{figure}[h!tb] 
     \centering
-    \includegraphics[scale=1., trim={0 1.4cm 7cm 0},clip]{fig/interventions_on-cg_tax_invest-163203.pdf}  %224422.pdf}%  Alternative:
+    \includegraphics[scale=1.5, trim={0 1.4cm 7cm 0},clip]{fig/interventions_on-cg_tax_invest-163203.pdf}  %224422.pdf}%  Alternative:
     \caption[Temporarily reducing the capital gains tax for investors from 100\%]{The effect of temporarily reducing the capital gains tax for investors from 100\% to zero.}
     \label{fig:cgtax_setback}
 \end{figure}
 
 
+\subsection{A temporary surge of speculation}
+To illustrate how the model might be used to explore policy changes, consider a city with a capital gains tax on investors of 100\%. A 100\% capital gains tax on speculation, as we saw in the left side of Figure~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}, eliminates all speculative behaviour and results in a 100\% owner-occupied city even with the productivity linkage. The blue dashed line in Figure~\ref{fig:cgtax_setback} reproduces this case. In this test, after 50 years of growth the capital gains tax is reduced to zero for 25 years, followed by a return to the original policy. Following the initial change,  the owner-occupier share of housing falls to 30\%. Seventy percent of the city housing stock is financialized.
+
 We also see in Figure~\ref{fig:cgtax_setback} a steady decline in wages, some reduction in firm size and capital stock, a two-thirds reduction in population and number of firms, and a one-third reduction in city diameter. This occurs over 25 periods.  At the end of that period the city has declined to a level approximately where it was at approximately thirty-years periods before the policy change.
+
 
 Reversing the policy, the city returns to a growth rate that is lower than when the policy was implemented. Even after 300 periods (not shown) it does not return to its original path. The slow growth is associated with the decline in home-ownership arising from the change in the capital gains tax on speculation. 
 The homeownership ratio is a state variable of the system that lacks a returning force.
@@ -702,7 +829,7 @@ With a capital gains tax on speculation of only 15\%,  about half of the housing
 
 \begin{figure}[h!tb] 
     \centering
-    \includegraphics[scale=1., trim={0 1.4cm 5cm 0},clip]{fig/link-interv_CGI-B-pt15_0-50_1-75230845.pdf}%  Alternative:
+    \includegraphics[scale=1.25, trim={0 1.4cm 5cm 0},clip]{fig/link-interv_CGI-B-pt15_0-50_1-75230845.pdf}%  Alternative:
     \caption[Temporarily reducing the capital gains tax for investors from a low level]{Temporarily reducing the capital gains tax for investors from 15\% to zero and then raising it to 100\%.}
     \label{fig:cgtax_setback2}
 \end{figure}
