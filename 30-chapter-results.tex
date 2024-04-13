@@ -59,7 +59,16 @@ The variables we consider are:
     \item Number of firms
     \item The share of properties owned by their occupants.
 \end{enumerate} 
+
+\begin{figure}[h!t]
+\centering
+\includegraphics[scale=1.0, trim={0 1.4cm 0 0},clip]{fig/plain-for-intro_183059.pdf}
+\caption[Graphic presentation of seven output variables]{Graphic presentation of seven output variables}
+\label{fig:plain-for-intro}
+\end{figure}
+
 We exhibit our results graphically.  Output for the baseline parameters of the model is illustrated in Figure~\ref{fig:plain-for-intro}. The baseline case is a small city that grows over one hundred years to have a population of approximately 2.4 million. 
+
 
 It is useful to describe the trajectory for each variable for the baseline case before we introduce the policy experiments.  In the upper left is the equilibrium wage path.  Firms set a wage target based on the value of the marginal product of labour, which rises as the population rises due to the agglomeration effect on firm productivity.
 
@@ -78,14 +87,7 @@ The final figure shows the share of properties owned by their occupants. The res
 The key on the lower right labels experiment. In this case ``mult 1.2'' shows that the parameter that scales the labour force to population is 1.2, the standard setting. When a figure shows results for several parameter values different colours and line-styles are used for each.
 
 
-\begin{figure}[h!t]
-\centering
-\includegraphics[scale=1.0, trim={0 1.4cm 0 0},clip]{fig/plain-for-intro_183059.pdf}
-\caption[Graphic presentation of seven output variables]{Graphic presentation of seven output variables}
-\label{fig:plain-for-intro}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[h!tb]
 \centering
 \begin{tikzpicture}
 \draw [fill=yellow!15] (-1.7,-1)--(1.7,-1)--(3,-5.6)--(-3,-5.6)--cycle;
@@ -111,7 +113,7 @@ The key on the lower right labels experiment. In this case ``mult 1.2'' shows th
    % \node[above=1mm of 5] (6) {$\uparrow$};
    % \node[above=1mm of 6] (7) {Tenant sojourner cities};
 \end{tikzpicture}
-\caption[The platform, the process, and the outcomes]{The major processes: production sector, housing market, and social outcomes {\color{red} CAN WE ELABORATE? The platform, the process, and the outcomes}.}
+\caption[The platform, the process, and the outcomes]{The major processes: production sector, housing market, and social outcomes. Feedback loops are omitted. {\color{red} CAN WE ELABORATE? The platform, the process, and the outcomes}.}
 \label{fig:outcomes}
 \end{figure}
 
@@ -131,7 +133,9 @@ The key on the lower right labels experiment. In this case ``mult 1.2'' shows th
 %    \node[above=-1mm of 6] (7) {Rent distribution};
 %    \node[above=-1mm of 7] (ARent) {$\uparrow$};
 %     \node [above=1.2mm of ARent, text width= 7cm, text centered] {\textbf{}{Growing inequality\\Tenant sojourner cities\\ Eviction of families from cities\\ End of urban home-owning class}};
-
+% \node[left=.78cm of 8, text width= 6.2cm, align=center] (outcome) {\Large housing market outcomes};
+% \node[left=1.7cm of 1,  align=center] (platform) {\Large production sector platform};
+% \node[left=4.54cm of 4, text width= 5.8cm, align=center] (process) {\Large housing market process};
 %    % \node[above=1mm of 1] (2) {$\uparrow$};
 %    % \node[above=1mm of 2] (3) {Growing inequality};
 %    % \node[above=1mm of 3] (4) {$\uparrow$};
@@ -267,7 +271,7 @@ There's a bifurcation in the ownership results depending on whether the rate is 
 
 \subsection{The cost of capital for investors}
 
-{\color{red} DO WE WANT TO TRY LARGER RANGE -- }
+{\color{red} DO WE WANT TO TRY LARGER RANGE -- No. there is more interest in finer divisions around 0.15 }
 
 % 'r_investor': [0.2, 0.1, .05] has set up for morning
 The cost of capital is the interest rate on borrowed money. Higher capital costs for investors might be expected to slow the rate of housing acquisition because it makes acquiring housing more expensive for investors. Figure ~\ref{fig:capital_ownership_trajectory} shows that increasing capital costs for investors does not affect the final level of investor ownership.  It does, however, decrease the wage slightly and, therefore, decrease the population. This suggests that the model appears to be less sensitive to the cost of money, than to other interventions. % The cost of capital for investors is therefore not an obvious policy tool in the urban context.
@@ -443,30 +447,36 @@ Figure ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital} shows that, with or withou
     \centering
     \begin{tikzpicture}
 \node[inner sep=0pt] (plain) at (0,0){\includegraphics[width=.52\textwidth, trim={.3cm 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
+
 \node[inner sep=0pt] (link) at (8.1,0)
-    {\includegraphics[width=.52\textwidth, trim={.1cm 1.4cm 4.3cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
+    {\includegraphics[width=.52\textwidth, trim={0cm 1.4cm 4.3cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
+    
 \draw[color=white, fill=white] (8.5,-2.5) rectangle (12.6,-4.5);
 \end{tikzpicture}
-\caption[The effect of changing the capital gains tax for investors with and without the productivity linkage]{The effect of changing the capital gains tax for investors with and without the productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 50\%, and 100\% for investors, and the default 1\% rate for homeowners, comparing a productivity linkage and no productivity linkage.}
+    \caption[The effect of changing the capital gains tax for investors with and without the productivity linkage]{The effect of changing the capital gains tax for investors with and without the productivity linkage. Illustrates the effect on seven policy variables over time, with a capital gains tax rate of 0\%, 50\%, and 100\% for investors, and the default 1\% rate for homeowners, comparing a productivity linkage and no productivity linkage.}
     \label{fig:CG-invest_link_W-WO-Cost-of-capital}
 \end{figure}
 
 
-In both cases, a 100\% capital gains tax on land speculation entirely eliminates investor participation in the market, leaving 100\%  owner-occupiers. 
-
-Without a linkage, other variables are unaffected. With a productivity linkage, the feedback from the distribution ownership to the production economy has a powerful effect on the city's production. With a 100\% capital gains tax on speculation, wages are  higher, the city is larger, and there are more firms. 
-
- This experiment demonstrates that policy parameters are likely to have different effects when there is a link between financialization and urban productivity and when there is no link.
 
 
 When we introduce a capital gains tax on investors in the presence of the productivity linkage the intervention affects not just the ownership ratio but the other economic variables. % With no productivity link, the capital gains tax rate on land speculation did not affect main economic variables but did affect the ownership ratio. % The dashed line show the effect of a 100\%  tax rate when a link to productivity is present. 
 %{\color{red} MAYBE SAY WHAT YOU DO HERE BEFORE ADDING COMPARISON TO THE VERSION WITH NO LINKAGE? ALSO SAY WHAT THE LINE REPRESENT TO START?? 
 %A 100\% capital gains tax on speculation with the linkage produces the same outcome for the production economy as any value of the capital gains tax with no linkage. The dotted line illustrates the effect of no capital gains tax on land speculation. In essence, 
 % The elimination of the capital gains tax on speculation crashes the economy. % The effect kicks in when 
-With the productivity linkage, the ownership ratio drop dramatically, as shown by the dotted line in ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}. The linkage means the falling owner-occupier rate reduces productivity to a level where increasing returns to the population are offset by decreasing productivity, effectively crashing the local economy. % Keep in mind that we have simply demonstrated the logical possibility of a crash, not that any city is near this point. 
+With the productivity linkage, the ownership ratio drop dramatically, as shown by the dotted line in ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}. 
+% Without a linkage, other variables are unaffected. With a productivity linkage, the feedback from the distribution ownership to the production economy has a powerful effect on the city's production.
+The linkage means the falling owner-occupier rate reduces productivity to a level where increasing returns to the population are offset by decreasing productivity, effectively crashing the local economy. % Keep in mind that we have simply demonstrated the logical possibility of a crash, not that any city is near this point. 
 
-On the other hand a 100\% capital gains tax on land speculation is one of the few interventions that can completely eliminate investor participation in the housing market, and thus leave  100\%  owner-occupancy. The dashed line in the lower left of the same figure,  ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}, %Figure~\ref{fig:Productivity_link_and_CG}
+
+
+In both cases, a 100\% capital gains tax on land speculation entirely eliminates investor participation in the market, leaving 100\%  owner-occupiers. 
+% On the other hand a 100\% capital gains tax on land speculation
+It is one of the few interventions that can completely eliminate investor participation in the housing market, and thus leave  100\%  owner-occupancy. The dashed line in the lower left of the same figure,  ~\ref{fig:CG-invest_link_W-WO-Cost-of-capital}, %Figure~\ref{fig:Productivity_link_and_CG}
 shows this case. %Without any tax, owner-occupiers are entirely eliminated, and there is no negative impact on production or city size.  
+With a 100\% capital gains tax on speculation, wages are  higher, the city is larger, and there are more firms. 
+This experiment demonstrates that policy parameters are likely to have different effects when there is a link between financialization and urban productivity and when there is no link.
+
 
 % \subsubsection{Capital gains tax on investors}
 
@@ -490,8 +500,9 @@ shows this case. %Without any tax, owner-occupiers are entirely eliminated, and 
 \subsection{Capital gains tax on owner-occupiers  with linkage}
 % {\color{red} MAKE SURE EXPLANATION IS CONSISTENT WITH ABOVE..}
 
-A capital gains tax on owner-occupiers, on the other hand, allows investors a further advantage in the market. In Figure~\ref{fig:CG-pers_link_W-WO-Cost-of-capital}, %{fig:Productivity_link_and_CGpers_ownership_trajectory}, 
-the capital gains tax on investors is set at 15\% and we vary the capital gains tax on owner-occupiers. The dotted line represents the case with no capital gains tax for homeowners, the solid line represent a 50\% tax, and the dashed line represents a 100\% tax.
+A capital gains tax on owner-occupiers, on the other hand, allows investors a further advantage in the market. % In Figure~\ref{fig:CG-pers_link_W-WO-Cost-of-capital}, %{fig:Productivity_link_and_CGpers_ownership_trajectory}, 
+% the capital gains tax on investors is set at 15\% and we vary the capital gains tax on owner-occupiers. 
+In Figure~\ref{fig:CG-pers_link_W-WO-Cost-of-capital}, the dotted line represents the case with no capital gains tax for homeowners, the solid line represent a 50\% tax, and the dashed line represents a 100\% tax.
 
 
 \begin{figure}[h!tb]   
@@ -513,25 +524,27 @@ the capital gains tax on investors is set at 15\% and we vary the capital gains 
 
 
 % When the tax is higher than the rate for investors, 
-A higher capital gains tax on homeowners than investors, shown by the solid and the dashed lines, results in home ownership falling substantially more than when it is lower. It also results in much lower population and city size, which leads to lower rents for tenants because locational rents are lower.
-The economic variables decline rapidly and overshoot slightly. The city extent, wage and firm count all recover slightly from their initial decline. {\color{red} EXPLAIN.} 
-The extreme sensitivity of the model economy to capital gains taxes on owners is surprising and suggests a need for further research. 
+A higher capital gains tax on homeowners than investors, %shown by the solid and the dashed lines, 
+results in home ownership falling substantially more than when it is lower. It also results in much lower population and city size, which leads to lower rents for tenants because locational rents are lower. The sensitivity of the model economy to capital gains taxes on owners suggests a need for further research. 
+
+There is some rebound from the lowest level. 
+With a productivity link, a high relative tax rate produces a city that rises rapidly and then declines. Slow growth begins after the decline. The economic variables decline rapidly, % and overshoot slightly. The 
+then city extent, wage and firm count all recover slightly from their initial decline. {\color{red} EXPLAIN THIS REBOUND.} 
+
+
 
 
 
 % {\color{red}
 % LOOK AT DIFFERENT VARIABLES WITH THE PRODUCTIVITY LINK..
-
-
 % MAYBE WE ARE MISSING A SECTION RUNNING THE MODEL WITH THE PRODUTIVITUY LINK - MAYBE ON/OFF - BUT WITHOUT ANY INTERVENTION... WE JUST SHOW WHAT HAPPENS IN THE MODEL WITH JUST TURNING PRODUCTIVITY ON
-
 % SAY 'THE OWNERSHIP RESULT IS THE SAME, BUT THERE ARE EFFECTS ON THESE OTHER THINGS..'
 % }
-
 % \subsubsection{Capital gains tax on owner-occupiers}
-
-{\color{red} THIS FIGURE IS LABELLED COST OF CAPITAL NOT CAP GAINS Figure ~\ref{fig:CG-pers_link_W-WO-Cost-of-capital} } shows that, regardless of the presence or absence of a productivity link, when the capital gains tax on homeowners is near or above the rate of investors, %shown by the overlapping solid, dashed, and dotted lines,  
+%{\color{red} THIS FIGURE IS LABELLED COST OF CAPITAL NOT CAP GAINS Figure ~\ref{fig:CG-pers_link_W-WO-Cost-of-capital} } shows that, 
+Regardless of the presence or absence of a productivity link, when the capital gains tax on homeowners is near or above the rate of investors, %shown by the overlapping solid, dashed, and dotted lines,  
 home ownership falls farther and faster than when it is much lower than the investor rate. 
+
 
 % \begin{figure}[h!b]
 %     \centering
@@ -550,7 +563,7 @@ home ownership falls farther and faster than when it is much lower than the inve
 %     \label{fig:CG-pers_link_W-WO-Cost-of-capital}
 % \end{figure}
 
-With a productivity link, a high relative tax rate produces a city that rises rapidly and then declines. Slow growth begins after the decline.
+
 
 
 
@@ -570,7 +583,7 @@ shows the effect of increasing capital costs for investors. Even in the presence
     {\includegraphics[height=10cm,%width=.5\textwidth,
     trim={.3cm 1.4cm 1cm 0},clip]{fig/r_investor-Main-024857.pdf}}; 
 
-\node[inner sep=0pt] (link) at (6.5,0)
+\node[inner sep=0pt] (link) at (6.4,0)
     {\includegraphics[height=10cm,%width=.5\textwidth, 
     trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf}};
     
@@ -684,7 +697,7 @@ The share of homeowners is not affected, since rent per unit is unchanged at any
 \end{figure}
 
 
-
+    
 % \subsubsection{Density}
 
 The effect of density on city population is significant but it has no effect on city extent and no effect on the ownership ratio. The share of homeowners is not affected although the number of homes is. 
@@ -804,7 +817,7 @@ They are introduced and adjusted at various points in the history of a city. Thi
 
 \begin{figure}[h!tb] 
     \centering
-    \includegraphics[scale=1.5, trim={0 1.4cm 7cm 0},clip]{fig/interventions_on-cg_tax_invest-163203.pdf}  %224422.pdf}%  Alternative:
+    \includegraphics[scale=1.1, trim={0 1.4cm 7cm 0},clip]{fig/interventions_on-cg_tax_invest-163203.pdf}  %224422.pdf}%  Alternative:
     \caption[Temporarily reducing the capital gains tax for investors from 100\%]{The effect of temporarily reducing the capital gains tax for investors from 100\% to zero.}
     \label{fig:cgtax_setback}
 \end{figure}
@@ -829,7 +842,7 @@ With a capital gains tax on speculation of only 15\%,  about half of the housing
 
 \begin{figure}[h!tb] 
     \centering
-    \includegraphics[scale=1.25, trim={0 1.4cm 5cm 0},clip]{fig/link-interv_CGI-B-pt15_0-50_1-75230845.pdf}%  Alternative:
+    \includegraphics[scale=1., trim={0 1.4cm 5cm 0},clip]{fig/link-interv_CGI-B-pt15_0-50_1-75230845.pdf}%  Alternative:
     \caption[Temporarily reducing the capital gains tax for investors from a low level]{Temporarily reducing the capital gains tax for investors from 15\% to zero and then raising it to 100\%.}
     \label{fig:cgtax_setback2}
 \end{figure}
