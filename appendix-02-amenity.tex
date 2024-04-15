@@ -1,8 +1,6 @@
 \chapter{Amenity}\label{chapter-amenity}
 
-The agent-based model presented in this thesis extends fairly naturally to model a variety of non-monetary locational attributes and a range of preferences for people living there. People choose to live in cities, not only because of higher wages, but for a range of priced and un-priced location-specific attributes referred to as locational \glsdisp{amenity}{amenities}.  We show in this appendix how amenities can be incorporated into our model and indicate some of the important and interesting questions that incorporating amenities would allow us to explore.
-
-
+The agent-based model presented in this thesis extends fairly naturally to model a variety of non-monetary locational attributes and a range of preferences for people living there. People choose to live in cities, not only because of higher wages, but for a range of priced and un-priced location-specific attributes referred to as locational \glsdisp{amenity}{amenities}.  We sketch, in this appendix, several ways in which amenities can be incorporated into our model and indicate some of the questions that incorporating amenities would make it possible to explore.
 
 %{\color{red} EXPLAIN WHY AMENITY MATTERS}
 % In Chapter~\ref{appendix-future-work} on future work, we discussed a number of extensions. % Amenity in particular makes it possible to include monetary and non-monetary values. 
@@ -30,19 +28,18 @@ When positive urban amenities prevail, rents and housing prices will be higher i
 %.  This helps disentangle the consumption amenities from the productive advantages of big cities.
 
 \section{Adding amenities to the existing model}
-To introduce amenities we can simply add a vector of amenity values $A_j$ to the list of attributes of each unit $j$ of land.\footnote{An elaborated implementation of amenity might include transportation costs to adjacent desired amenities, and amenities that themselves scale superlinearly with population.} 
-The vector can depend on location, allowing for `better' and `worse' neighbourhoods.  Household $i$ can have a function $\mathcal{A}_i(A_j)$ that adds an amenity income to wage income. $\mathcal{A}_i$  would depend on household attributes: a family with children might value a neighbourhood with a school or a park more highly. 
+To introduce amenities we can simply add a vector of amenity values $\mathcal{A}_j$ to the list of attributes of each unit $j$ of land.\footnote{An elaborated implementation of amenity might include transportation costs to adjacent desired amenities, and amenities that themselves scale superlinearly with population.} 
+The vector can depend on location, allowing for `better' and `worse' neighbourhoods.  Household $i$ can have a function $\mathcal{A}_i (\mathcal{A}_j)$ that adds an amenity income to wage income. $\mathcal{A}_i$  would depend on household attributes: a family with children might value a neighbourhood with a school or a park more highly. 
 
 
  \subsection{A simple example}
 Consider, for example, a single amenity that depends on distance, $d$ from the centre and urban population $N$.
-We can define an \gls{amenity premium}: \[\mathcal{A}(d; N) \qquad \die{\mathcal{A}}{N}> 0), \quad\die{\mathcal{A}}{d}< 0).\] 
+We can define a function for the \gls{amenity premium}: \[\mathcal{A}(d| N), \qquad \text{where} \qquad \die{\mathcal{A}}{N}> 0 \quad \text{and} \quad\die{\mathcal{A}}{d}< 0.\] 
 We can now write the household's net wage plus locational amenity at $d$:
-{\color{red} SEMOCOLON VS BAR, end bracket}
-\begin{equation} \psi+ \omega-cd + \mathcal{A}(d; N), 
+\begin{equation} \psi+ \omega-cd + \mathcal{A}(d| N), 
 \label{eqn-u}
 \end{equation}
-where $\psi+ \omega$  is the urban wage, $cd$ is transportation cost from the centre to $d$.\footnote{Broad income can be seen as an indirect utility function, a function that depends on income and prices rather than goods and services.   Income does not generate utility, but it does generate utility indirectly' because it enables people to purchase goods and services.}  Since the rural wage is $psi$, the advantage of living in the city is then $\omega-cd + \mathcal{A}(d; N) $.
+where $\psi+ \omega$  is the urban wage, $cd$ is transportation cost from the centre to $d$.\footnote{Income can be treated as an indirect utility function, a function that depends on income and prices rather than goods and services.  Income does not generate utility, but it can generate utility indirectly' by enabling people to purchase goods and services.}  Since the rural wage is $\psi$, the advantage of living in the city may is simply $\omega-cd + \mathcal{A}(d|N)$.
 
 
 
@@ -50,30 +47,25 @@ where $\psi+ \omega$  is the urban wage, $cd$ is transportation cost from the ce
 \begin{center}
 \input{fig/amenity}
 \end{center}
-\caption{Rent profile with amenities}
+\caption[Rent profile with amenities]{Rent profile with amenities.}
 \label{fig-amenity}
 \end{figure}
 
 %\footnote{wage income, if all income goes to housing, or the share of wage income going to housing services.   (If we use a Cobb-Douglas utility function we would just replace $w$ with    $\alpha Y$, where $Y$ is household income and $\alpha$ is the share of total income. } Let  $T(d)=td$ be transportation cost with  $t>0$. 
  
+This model can produce variations on the standard result in the Alonso model. Figure~\ref{fig-amenity} illustrates a linear amenity function, $\mathcal{A}(d|N)= a-b*d$.  It shows how a particular amenity function might affect the rent profile, and hence city size, and it allows simple experiments with the effect of increasing population on city size, wages and rents.
 
-This model can produce variations on the standard result in the Alonso model. Figure~\ref{fig-amenity} illustrates a linear amenity function, $\mathcal{A}(d|N)= a-b*d$.  It shows how a particular amenity function might affect the rent profile, and hence city size, and it allows simple experiments with the effect of increasing population on city size, wages and rents.\footnote{Anas et al. \cite{anasUrbanSpatialStructure1998} show that a linear transportation cost will not hold if congestion declines with $d$.}. 
+In the figure, amenity falls below zero in the outer regions of the city and thus the geographical size of the city would be smaller, incorporating amenity. With a linear transportation function,\footnote{Note Anas et al. \cite{anasUrbanSpatialStructure1998} show that a linear transportation cost will not hold if congestion declines with $d$.} this happens if $\frac{a}{b} < \frac{w}{t}$. A smaller city would have a secondary effect on wages, since with fewer workers' marginal productivity would be higher and therefore wages would rise. This would partially offset the initial decline in population.
 
-In this case, amenity falls below zero in the outer regions of the city and, the geographical size of the city will be smaller. With a linear function, this happens if $\frac{a}{b} < \frac{w}{t}$. (a smaller city would have a secondary effect on wages, since with fewer workers' marginal productivity would be higher and therefore wages would rise. This would partially offset the initial decline in population.)
-There would be a band of land around the city with negative amenity for commuters.\footnote{The very simple graphical result rests on several assumptions---no other housing expense, housing all the same size, wages all equal, preferences identical, transportation costs.}
-
-
-The far more likely case is that $A(d) > 0$ when $w-T(d)$ falls to zero. In this case, there is a band of residents around the city, outside of the population commuting to work. They do not travel to work, do not collect a wage, but still enjoy the amenity of being close to a city. This might be a population of retired persons enjoying occasional visits and healthcare facilities.
-
-
+There would also be a band of land around the city with negative amenity for commuters.\footnote{The very simple graphical result rests on several assumptions---no other housing expense, housing all the same size, wages all equal, preferences identical, transportation costs.} A perhaps more likely case is that $A(d) > 0$ when $w-T(d)$ falls to zero. In this case, there is a band of residents around the city, outside of the population commuting to work. They do not travel to work, do not collect a wage, but still enjoy the amenity of being close to a city. This might be a population of retired persons enjoying occasional visits and healthcare facilities.
 
 \subsection{Neighbourhood amenity}
-In Figure~{fig-amenity} the source of the amenity is at the centre of the city. We can easily imagine an amenity profile that is high for some neigbourhoods and lower for others, as in  In Figure~\ref{fig-amenity2}. The jagged area below the orange line is rent accruing to landowners. The variable rent comes not from a desire to be close to the source of the wage income but from household demand for local amenity.  
+In Figure~\ref{fig-amenity} the source of the amenity is at the centre of the city. We can easily imagine an amenity profile that is high for some neigbourhoods and lower for others, as in  In Figure~\ref{fig-amenity2}. The jagged area below the orange line is rent accruing to landowners. The variable rent comes not from a desire to be close to the source of the wage income but from household demand for local amenity.  
 \begin{figure}[tb]
 \begin{center}
 \input{fig/amenity2}
 \end{center}
-\caption{Rent profile with neighbourhood amenities}
+\caption[Rent profile with neighbourhood amenities]{Rent profile with neighbourhood amenities.}
 \label{fig-amenity2}
 \end{figure}
 Financialization might or might not affect neighbourhood amenity. If it does it might have its effect by changing the ownership mix.
@@ -95,23 +87,19 @@ There are also agglomeration effects in consumption goods. Larger consumer marke
 % This section sketches an extension of the model to study include \gls{amenity} and suggests how it might affect results. Amenity effects can be introduced in a variety of ways. %hey might work though An economics might prefer to introduce amenity as a good in the utility function of agents.
 % It might then depend on the size of the city, the size of an amenity-producing sector, the specific amenity-generating infrastructure provided by the city through taxes,  or neighbourhood effects. Each of these would take a different functional form. In our model agents are represented by their demand for housing, so the same terms would be introduced into the bid function. % In the utility framework, bids are simply derived from the utility function, so the two approaches are equivalent. %  The virtue of using the utility framework is that it begins with the question, ``What do people want?'' rather than ``What do people do?'' The first question is more productive if we want to identify different amenities that might matter.
 
-An amenity-induced rise in housing prices may absorb what would otherwise be consumption expenditure on other goods. Residents might accept smaller housing units for access to urban amenities.\footnote{Some costs may fall with agglomeration. There is evidence of a strong negative correlation between the total energy consumption of a city and its overall urban density \cite{newmanSustainabilityCitiesOvercoming1999}. Larson et al. \cite{larsonEnergyImplicationsCity2015} show that per-capita energy use is relatively invariant to city size when growth is driven by wages but falls modestly with growth induced by rising amenity.} In any case, there will be distributional effects as amenities play a larger role in urban agglomeration. Property owners will capture increased land rents. If amenities are funded out of taxes, the burden falls on all residents, since property taxes are very roughly related to housing consumption, but the land rents are captured by institutional owners as well as owner-occupiers and not by tenants.
+An amenity-induced rise in housing prices may absorb what would otherwise be consumption expenditure on other goods. Residents might accept smaller housing units for access to urban amenities.\footnote{Some costs may fall with agglomeration. There is evidence of a strong negative correlation between the total energy consumption of a city and its overall urban density \cite{newmanSustainabilityCitiesOvercoming1999}. Larson et al. \cite{larsonEnergyImplicationsCity2015} show that per-capita energy use is relatively invariant to city size when growth is driven by wages but falls modestly with growth induced by rising amenity.} In any case, there will be distributional effects as amenities play a larger role in urban agglomeration. Property owners will capture increased land rents. If amenities are funded out of taxes, the burden falls on all residents, since property taxes are roughly related to housing consumption, but the land rents are captured by institutional owners as well as owner-occupiers and not by tenants.
 
 
 \section{Public provision of amenities}
-
 Previous sections suggest amenities may work as a wage subsidy, potentially increasing output. Since employers will not pay % willingly pay 
 for urban amenities, some amenities may be financed publicly. It is common to introduce the cost of generating amenities as a tax on residents.  Since public amenities may be \glspl{public good} in the economic sense, the municipal government may be able to achieve significant wage economies with a small public expenditure.
 
-A simple way to incorporate publicly provided amenities to make an amenity function that is proportional to a fraction of public revenue, which is a fraction $\tau$ of the land value when municipalities depend on property taxes. Assuming a uniform property tax rate, total property tax revenue in a circular city is approximately $\tau(\phi+2/3 \omega)\pi \frac{\omega}{c}^2$. We can therefore include in the buyer's maximum bid function a fraction of this value. Property investors would not include this amenity component, but it would affect their decisions because amenity raises their net rent.
-
-Even though amenity raises property values, it does not raise tax revenue unless the population rises immediately, because the property tax rate is adjusted to balance the budget. This creates perverse incentives for municipalities \cite{blaisPerverseCitiesHidden2011}. {\color{red} EXPLAIN WHAT WE MEAN BY PERVERSE INCENTIVES HERE
-}
+A simple way to incorporate publicly provided amenities to make an amenity function that is proportional to a fraction of public revenue, which is a fraction $\tau$ of the land value, in the case in which municipalities depend on property taxes. Assuming a uniform property tax rate, total property tax revenue in a circular city is approximately $\tau(\phi+2/3 \omega)\pi \frac{\omega}{c}^2$. We can therefore include in the buyer's maximum bid function a fraction of this value. Property investors would not include this amenity component, but it would affect their decisions because amenity raises their net rent. Even though amenity raises property values, it does not raise tax revenue unless the population rises immediately, because the property tax rate is adjusted to balance the budget. % This creates perverse incentives for municipalities \cite{blaisPerverseCitiesHidden2011}, in that the incentives are misaligned with the public interest. %{\color{red} EXPLAIN WHAT WE MEAN BY PERVERSE INCENTIVES HERE}
 
 \section{An amenity sector}
 Producing amenities takes resources. Some fraction of the workforce must be engaged in producing the amenity services. A simple approach to incorporating this into a model would be to assume that the base employment that we consider demands a layer of amenities that represent the additional fraction of the population needed to provide the amenities---say 10\%  
 
-A more interesting approach would introduce a separate production function and workforce. In the  resulting two sector model agents would choose a sector to work in. Additional equilibrium conditions would link wages levels in the two sectors. This extension would be similar to the extension needed to introduce a housing production sector. (Both problems raises important questions of human capital supply and point to the need to introduce a human capital (education) sector and to deal with additional questions about the mobility of different kinds of human capital.)
+A perhaps more interesting approach might be introduce a separate production function and workforce. In the  resulting two sector model agents would choose a sector to work in. Additional equilibrium conditions would link wages levels in the two sectors. This extension would be similar to the extension needed to introduce a housing production sector. %(Both problems raises important questions of human capital supply and point to the need to introduce a human capital (education) sector and to deal with additional questions about the mobility of different kinds of human capital.)
 
 
 
@@ -126,9 +114,8 @@ Beckstead et al.  \cite{becksteadCitiesGrowthLeft2008} identify amenities with t
 
 At the same time, there are economies of scale in the production of at least some amenities. 
 Kraemer \cite{kraemerCulturalSustainabilityUS2022} found amenity effects scale superlinearly. Though Kaufmann et al. \cite{kaufmannScalingUrbanAmenities2022}  show that %the aggregate quantity of amenity infrastructure (not amenity supply)  in an urban area scales sub-linearly with population size across US metropolitan areas.b When they disaggregate, however, they find that 
-for approximately 74\% of amenity types, they cannot reject linear scaling, four percent clearly exhibit super-linear scaling. They list takeaway restaurants and travel agents in this range. Sub-linear scaling is associated with libraries, universities, and movie theatres. Since larger cities can support larger and more varied amenities, the effect of amenities on property values might therefore be larger in larger cities.
-
- We have no strong prior about how in amenity sector would be affected by financialization of housing.  An effect might work through changing ownership.
+for approximately 74\% of amenity types, they cannot reject linear scaling, four percent clearly exhibit super-linear scaling. They list takeaway restaurants and travel agents in this range. Sub-linear scaling is associated with libraries, universities, and movie theatres. Since larger cities can support larger and more varied amenities, the effect of amenities on property values might therefore be larger in larger cities. 
+We have no strong prior about how in amenity sector would be affected by financialization of housing.  An effect might work through changing ownership.
 
 % Molotch's (1976) metaphor suggests that the city is a machine geared to creating growth, with growth loosely defined as the intensification of land use and thus higher rent collections associated professional fees and locally based profits. Many urban economists, planners, and political scientists have made similar arguments (e.g., Bradbury, Downs, & Small, 1982; Mollenkopf, 1983; Stone, 1989). However, a quarter century later in the contemporary competition among US cities, the growth machine model has lost much of its power.
   

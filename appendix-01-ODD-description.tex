@@ -82,12 +82,7 @@ Our qualitative results provide valuable direction for further qualitative and q
 
 
 
-\section{State variables and scales}
-\subsection{State variables}
-State variables refer to the attributes of each kind of entity that vary over time. %\footnote{In the ODD framework, state variables commonly refers to both stock variables and parameters. Although it is inconsistent with usage in the analysis of dynamical systems, we follow the ODD convention in this section.}. 
-The entities in our model are persons, land units (properties or lots), an investor, a bank,  realtor, and an urban firm. 
-% \footnote{The agents are described in the agent section of the code.}
-The city is the portion of space in which workers work at the urban center, including the persons, land, and other agents in that region. % entity that includes the agents. % The city administration is not an agent. %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
+
 
 
 
@@ -162,10 +157,17 @@ The city is the portion of space in which workers work at the urban center, incl
 % % \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
 
 \end{tikzpicture}
-\caption{Agent decisions and information flows}
+\caption[Agent decisions and information flows]{Agent decisions and information flows.}
 \label{fig:information-flows}
 \end{figure}
 
+
+\section{State variables and scales}
+\subsection{State variables}
+State variables refer to the attributes of each kind of entity that vary over time. %\footnote{In the ODD framework, state variables commonly refers to both stock variables and parameters. Although it is inconsistent with usage in the analysis of dynamical systems, we follow the ODD convention in this section.}. 
+The entities in our model are persons, land units (properties or lots), an investor, a bank,  realtor, and an urban firm. 
+% \footnote{The agents are described in the agent section of the code.}
+The city is the portion of space in which workers work at the urban center, including the persons, land, and other agents in that region. % entity that includes the agents. % The city administration is not an agent. %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
 
 % All agents belong to the model. 
 The state variables for the model as a whole are the number of workers (population),  worker savings, number of firms, workers per firm, capital stock per firm, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
@@ -264,7 +266,7 @@ The model proceeds in discrete steps. Each time step represents one year. Agents
 % \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
 
 \end{tikzpicture}
-\caption{Computational sequence} \label{fig:computational-sequence}
+\caption[Flow diagram for the agent based model]{Flow diagram for the agent based model.} \label{fig:computational-sequence}
 \end{figure}
 
 Persons initially have locations. They choose whether to work or not work, based on the wage premium and transportation costs, thus determining if their location is in the commuter-shed. This step determines the extent of the city and its population. Persons remain in the workforce until they reach retirement age. If people are above the retirement age, they retire and list any properties for sale if they are moving out of the city. 
