@@ -86,9 +86,9 @@
 \begin{frame}{Financialization:
 The capture of flows of surplus by financial actors.}
 \begin{itemize} \Large
-    \item Surplus is produced by bringing people together in the city. 
-    \item Claiming surplus works by capturing land rents. % is at the heart of what’s happening in urban centers.  
-    \item Financialization is achieved through the creation of financial instruments, like REITs, and mortgages. 
+    \item Surplus is produced by bringing people together in the city 
+    \item Claiming surplus works by capturing land rents % is at the heart of what’s happening in urban centers.  
+    \item Financialization is achieved through the creation of financial instruments, like REITs, and mortgages 
 \end{itemize}
 \end{frame}
 
@@ -102,11 +102,11 @@ The capture of flows of surplus by financial actors.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Ricardian Rent Theory}
+\begin{frame}{Ricardian rent theory}
 \begin{itemize}\Large
-    \item Ricardo examined production and distribution in an agricultural society.
+    \item Ricardo examined production and distribution in an agricultural society
     \item \textbf{Farmers} pay to transport \textbf{product} to the \textbf{market}
-    \item All surplus went to the class of landowners as rent.
+    \item All surplus went to the class of landowners as rent
 \end{itemize}
 \begin{centering}  \vspace{0cm}\hspace{1cm} 
 \begin{tikzpicture}[domain=0:2]
@@ -116,7 +116,7 @@ The capture of flows of surplus by financial actors.}
 \draw[thick ] (9.25,0)  -- (.25,0);
 
 \draw[thick ] (.25,0)  -- (.25, 3.5)node[ right ]{Price of corn at market};
-\fill[yellow!80]  (.25,0) --(.25,3)--(9,0)node[below left, black]{ extensive margin} --cycle;
+\fill[yellow!80]  (.25,0) --(.25,3)--(9,0)node[below left, black]{ Extensive margin} --cycle;
 \fill[gray!20] (9,3) --(.25,3)--(9,0) --cycle;
 
 \node  at (2.,1.5)[font=\Huge ]{Rent};
@@ -128,30 +128,50 @@ The capture of flows of surplus by financial actors.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Urban Rent Theory}
+\begin{frame}{Urban rent theory}
 \begin{itemize}\Large
-    \item Urban theorists in the 196'0 developed a model that is isomorphic with respect to travel costs and distance
+    \item Urban theorists in the 1960's developed a model that is isomorphic with respect to travel costs and distance
     \item \textbf{Workers}  pay to transport \textbf{themselves} to \textbf{jobs} at the center
  \end{itemize}
- 
- \begin{tikzpicture}
-%\node at (.25,0) [below right, black, align=right, red ]{ City center};
-%\node at (-.25,-1) [below left, text width=4cm, black , align=right]{\Huge  };
 
-\fill[yellow!80]  (.25,0) --(.25,3)--(9,0) --cycle;
+\begin{centering}  \vspace{0cm}\hspace{1cm} 
+\begin{tikzpicture}[domain=0:2]
+\node at (.25,0) [below right, text width=4cm, black ]{Jobs at city center};
+% \node at (.25,-1.) [below right, text width=4cm, black ]{center };
+% \node at (.25,-2) [below right, text width=4cm, black ]{\Huge Market};
+\draw[thick ] (9.25,0)  -- (.25,0);
+
+\draw[thick ] (.25,0)  -- (.25, 3.5)node[ right ]{Urban wage premium};
+\fill[yellow!80]  (.25,0) --(.25,3)--(9,0)node[below left, black]{ Edge of city} --cycle;
 \fill[gray!20] (9,3) --(.25,3)--(9,0) --cycle;
 
-\node at (9.5,0)[below left, text width=2cm, black, align=right, red]{ edge of city};
-\node at (-.25,0) [below right, red, align=left]{Jobs at city center};
-\node at (.25, 3.5)[right, red]{Urban wage premium};
+\node  at (2.,1.5)[font=\Huge ]{Rent};
+\node  at (3,.5)[font=\Large]{ Remainder to landowner};
+\node  at (6.5,2.2){\Large Transport cost};
+% \draw[latex-, line width=1.5mm] (9,-.25) --(9, -2);
+% \draw[-latex, line width=.75mm] (.25,-4)node[above]{distance from centre} --(6,-4);
+\end{tikzpicture}
 
-\node  at (2.2,1.5)[font=\Huge ]{Rent};
-\node  at (3,.5)[font=\Large]{Remainder to landowner};
-\node  at (6.5,2.2)[font=\Large]{ Transport cost};
+%  \begin{tikzpicture}
+% %\node at (.25,0) [below right, black, align=right, red ]{ City center};
+% %\node at (-.25,-1) [below left, text width=4cm, black , align=right]{\Huge  };
 
-\draw[thick ] (9.25,0)--(.25,0);
-\draw[thick ] (.25,0)--(.25, 3.5);
-\end{tikzpicture} 
+% \fill[yellow!80]  (.25,0) --(.25,3)--(9,0) --cycle;
+% \fill[gray!20] (9,3) --(.25,3)--(9,0) --cycle;
+
+% \node at (9.5,0)[below left, text width=2cm, black, align=right]{ Edge of city};
+% % \node at (.25,0) [below right, text width=4cm, black ]{Jobs at city center};
+% \node at (-.25,0) [below right, align=left]{Jobs at city center};
+% \node at (.25, 3.5)[right]{Urban wage premium};
+
+% \node  at (2.2,1.5)[font=\Huge ]{Rent};
+% \node  at (3,.5)[font=\Large]{Remainder to landowner};
+% \node  at (6.5,2.2)[font=\Large]{ Transport cost};
+
+% \draw[thick ] (9.25,0)--(.25,0);
+% \draw[thick ] (.25,0)--(.25, 3.5);
+% \end{tikzpicture} 
+\end{centering}
 \end{frame}
 
 \note[itemize]{
@@ -160,14 +180,7 @@ The capture of flows of surplus by financial actors.}
 \item The agricultural market at the center becomes the wage premium job market at the center.
 \item Ricardo's extensive margin, the geographical edge of cultivation becomes the edge of the city.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Extending the Alonso model}
-\begin{itemize}\Large
-    \item They did not explain production or distribution
-    \item     The surplus must still go to landowners as locational rent
-    \item I add the distribution of rents to the urban model landowners to my version of the model
-\end{itemize}
-\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{Urban Rent Theory}
@@ -198,6 +211,15 @@ The capture of flows of surplus by financial actors.}
     \item but I also add a production sector that explains where the rents come from
     \item This forces us to pull some ideas from growth and agglomeration theories
  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Extending the Alonso model}
+\begin{itemize}\Large
+    \item They did not explain production or distribution
+    \item     The surplus must still go to landowners as locational rent
+    \item I add the distribution of rents to the urban model landowners to my version of the model
+\end{itemize}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{Physiocrats}
@@ -325,9 +347,11 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \centering \Large
-  \emph{The Mode Main Loop}
+  %\emph
+  {The Mode Main Loop}
   
-    \emph{Three main blocks}
+    %\emph
+    {Three main blocks}
   
 \end{frame}
 
@@ -356,7 +380,7 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \only<2>{
 \draw[red, line width=1mm] (-2.2, 4)  rectangle (2,1.5);
 \node at (5.25, 3.6)[red]{\Large Alonso-Jacobs cycle};
-\node at (5.25, 2.1)[text width=3.5cm]{  wage → \\\:extent → \\\:\:population → \\\:\:\:productivity → \\\:\:\:\:wage };
+\node at (5.25, 2.1)[text width=3.5cm]{  Wage → \\\:Extent → \\\:\:Population → \\\:\:\:Productivity → \\\:\:\:\:Wage → };
 }  %{Alonso Model:   wage → extent → population
 % Jacobs Agglomeration: population → productivity 
 % Neoclassical Production Function:               productivity → wage }
@@ -364,11 +388,11 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \only<3>{
 \draw[green, line width=1mm, fill=yellow!50, opacity=.4](-.5, 1.5) rectangle (3.2,-.7);
 \node at (5.25, 1.5)[red]{\Large Finance/lending};
-\node at (5.25, -.1)[text width=3.5cm]{\textbf{Two seller types}\\retirees, investors\\\textbf{Two Buyer types:}\\new workers, investors };
+\node at (5.25, -.1)[text width=3.5cm]{\textbf{Two seller types}\\retirees, investors\\\textbf{Two buyer types:}\\new workers, investors };
 }
 
 \only<4>{
-\draw[red, line width=1mm]  (-1.7, 0)  rectangle (3.5, -4);\node at (5.35, -.3)[red]{\Large Housing Market};
+\draw[red, line width=1mm]  (-1.7, 0)  rectangle (3.5, -4);\node at (5.35, -.3)[red]{\Large Housing market};
 \node at (5.5, -1.2)[text width=3.5cm]{Allocates\\ housing and rents };
 }
 \end{tikzpicture}
@@ -477,8 +501,15 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \centering \Large
+  \emph{Model}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centering \Large
   \emph{Results}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{2 $\times$ 7 compound experiments, for 7 output paths}
@@ -502,8 +533,8 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \begin{column}{0.5\textwidth}
 \textbf{Seven outcome paths}  
 \begin{enumerate}
-   \item wage \item capital stock\item workforce   \item population \item city radius \item  number of firms
-\item owner-occupier share
+   \item Wage \item Capital stock\item Workforce   \item Population \item City radius \item  Number of firms
+\item Owner-occupier share
 \end{enumerate}
 \end{column}
 \end{columns}
@@ -520,10 +551,10 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \includegraphics[scale=.8, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
 
 
-\node at (6cm,13.5){wage,\hspace{.4cm} capital stock};
-\node at (6cm,11.56){workforce,\  population};
-\node at (6.1cm,9.6){city radius,\ \  number of firms};
-\node at (6cm,7.7){owner-occupier share};
+\node at (6cm,13.5){Wage,\hspace{.4cm} Capital stock};
+\node at (6cm,11.56){Workforce,\  Population};
+\node at (6.1cm,9.6){City radius,\ \  Number of firms};
+\node at (6cm,7.7){Owner-occupier share};
 \end{tikzpicture}
 \end{frame}
 
@@ -533,8 +564,8 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \item This is the no linkage case. Notice that changing the capital gains tax on investors has no 
 \item and the bottom own showing the owner-occupier share of the housing stock. The financial variable affects the rate of financialization
 \item The most significant thing is that a 100\% capital gains tax cuts investor participation to zero, 
-\item with no CGT investors eventually take over the entire housing stock. 
-\item do we want to draw policy conclusions from this?
+\item With no capital gains tax investors eventually take over the entire housing stock. 
+\item Do we want to draw policy conclusions from this?
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -595,7 +626,7 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \begin {itemize}[<+-|alert@+>]
  %\item In the absence of linkages between the housing market and the production sector, of the policy tools we consider, only density and transportation cost and capital gains taxation have much effect. 
  % \only<1>{\color{red}}
-\item  A capital gains tax on owner-occupiers above the level  on investors has a powerfully negative effect on population and wages.
+\item  A capital gains tax on owner-occupiers above the level  on investors has a powerfully negative effect on population and wages
 \end{itemize}
 \end{frame}
 
@@ -604,65 +635,65 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \begin {itemize}[<+-|alert@+>]
 % \begin {itemize}[<alert@+>]\Large 
 
-\item  The cost of capital has surprisingly little effect on any variables in either case.
+\item  The cost of capital has surprisingly little effect on any variables in either case
 
 \item  Transportation cost has a strong effect on wages and city size as expected 
  
-\item Low transportation costs with financial system spillovers appear to induce something like cyclical behaviour.
+\item Low transportation costs with financial system spillovers appear to induce something like cyclical behaviour
 
-\item  Increasing density increases the population but does not affect wages or city extent.
+\item  Increasing density increases the population but does not affect wages or city extent
 \end{itemize}
 \end{frame}% %----------------------------%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Results} \Large
 \begin {itemize}[<+-|alert@+>]
-\item A restrictive mortgage market does not affect the production sector or city size.
+\item A restrictive mortgage market does not affect the production sector or city size
 
-\item  Increasing property taxes reduces owner occupiers, but has only a small effect on city size when there is no linkage. 
+\item  Increasing property taxes reduces owner occupiers, but has only a small effect on city size when there is no linkage 
  
-\item  With linkage increasing property taxes depresses wages, population and city size.
+\item  With linkage increasing property taxes depresses wages, population, and city size
 \end{itemize}
 \end{frame}% %----------------------------%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \centering \Large
-  \emph{Future Work}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Extensions}
- \begin{center}
-    \begin{minipage}{0.6\textwidth}
- \hspace{3cm}\begin{itemize}\Large 
-      \item a competing city
-      \item housing production sector
-      \item household types
-      \item housing types
-      \item multiple industries
-      \item zoning effects
-      \item \dots
-  \end{itemize}
- \end{minipage}
-  \end{center}
-\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \centering \Large
+%   \emph{Future Work}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Extensions}
+%  \begin{center}
+%     \begin{minipage}{0.6\textwidth}
+%  \hspace{3cm}\begin{itemize}\Large 
+%       \item a competing city
+%       \item housing production sector
+%       \item household types
+%       \item housing types
+%       \item multiple industries
+%       \item zoning effects
+%       \item \dots
+%   \end{itemize}
+%  \end{minipage}
+%   \end{center}
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Final comments}
  \begin{itemize} \Large
 \item There is a gap in economic theory around who gets urban rents and why that matters.
 \item I partly bridge this gap by combining from several  fields:
 
-    \begin{enumerate}\item Jacobs agglomeration, 
+    \begin{enumerate}\item Jacobs agglomeration
     
-    \item the scale literature, 
+    \item The scale literature 
     
-    \item neoclassical growth theory
+    \item Neoclassical growth theory
     
-    \item neoclassical production theories, 
+    \item Neoclassical production theories
     
-    \item Alonso-style urban analysis, 
+    \item Alonso-style urban analysis
     
-    \item Ricardian rent theory. 
+    \item Ricardian rent theory
     \end{enumerate}
 \end{itemize}
 \end{frame}
@@ -670,13 +701,13 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \begin{frame}{} 
 
 \begin{itemize} \Large
-\item The model is highly modular and extensible. 
-\item It allows us to explore a variety of policy interventions. 
-\item It tells us that 
+\item The model is modular and extensible
+\item It allows us to explore a variety of policy interventions 
+\item It tells us that: 
 \begin{enumerate}
-    \item Financial interests are likely to take over most of the land and capture much of the surplus generated by the city.
-    \item The capture of urban value by financial actors affects the social class and may affect urban productivity.
-    \item public policies will have different effects if financialization affects productivity.
+    \item Financial interests are likely to take over much of the land and capture much of the surplus generated by the city
+    \item The capture of urban value by financial actors affects the social class and may affect urban productivity
+    \item Public policies will have different effects if financialization affects productivity
     \end{enumerate}
 \end{itemize}
 \end{frame}
