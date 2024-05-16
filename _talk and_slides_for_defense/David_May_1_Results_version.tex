@@ -1,0 +1,205 @@
+\documentclass[]{article}
+\usepackage{tikz}
+\usetikzlibrary{shadings, shadows, shapes, arrows, calc, positioning, shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{mathtools,amssymb}
+%\input{Preamble}
+%\input{(SpecialDistanceCourse}
+%\input{FRAMES}
+
+\title{Talk Main: Results}
+\begin{document} 
+\maketitle
+\section{Results}%.   comment out lines 1-14 and end{document} to merge
+I will only give you the most interesting results. The output tracks seven variables over time for each policy variant. So 6x7x2.5 (2.5 is the average number of policy variants) = 105 plots. Since we look at two versions of the world - one with a productivity linkage and one without - I have over 200 results to summarize. 
+
+}A general observation to start with is that with no linkage, most financial policy changes do not affect the city size, wages . Real-sector policies, like transportation costs and density regulations do affect city size, wages and number of firms
+
+The first new information is that the owner-occupier share drops over time if financialization of the housing market is permitted. 
+In the model that we use as a baseline investors eventually capture about 40\% of the housing stock at the end of our run. ??? The speed of the effect is sensitive to the initial point in the parameter space chosen.
+This is what are observing happening in the real world, we expected it, but
+it emerges endogenously in our model as a result of the way individual behaviours are specified. 
+
+%I think it is important to remember the literature hasn’t actually explored financialization empirically to in great depth, so we don’t have empirical values for the response of many of these variables.
+
+% \section{New Pass 2024-03-16, 3:06 PM Sat}
+\subsection{The policy intervention}
+
+\subsubsection{Capital Gains tax on investors}
+
+The very first policy result is that, in the base model a capital gains tax on investors does not affect any of the parameters of city size, number of firms or population or the wage in the community, but it can have a very large effect on the owner-occupier ratio.
+
+If 100\% of capital gains are taxed, there will be no investor participation in the market. And if zero percent are taxed, the rate of investor ownership goes to 100\%. Those are startling results.
+
+This is  interesting at the moment because the federal government has announced it is extending  the capital gain inclusion by 33\%. That  does remove some of the financial incentive for non-productive investment. Our model is too simple to tell us whether it will work or how fast
+
+\subsubsection{Capital Gains tax on owner occupiers}
+
+What would happen if we increase the capital gains for owner-occupiers on on first homes? As the capital tax capital gains rate rises for owner occupiers the share of owner-occupiers falls.
+
+When the capital gains tax gets above the level of the rate paid by investors, the investors take everything. They then have a tax advantage in relative to owners.
+
+%(??? A surprising result is that there is some variation in our model in population.)
+
+\subsubsection{Costly capital for investors}
+
+We need to be clear what the definition here is. It’s just the interest rate that is charged to people, not as homeowners, who borrow to invest in properties (* The rate at which the bank will give them money. They have to beat that rate.). ]
+
+We expect it to affect the home-ownwership rate a little bit.
+
+These results are very minimal. The rate does not appear to make much difference even over a very wide range of rates. We are surprised about that.
+
+It suggests that the capital market access to the capital market is not what determines the attractiveness of investment in housing. We saw that changes in the capital gains tax made a big difference. That leads that tends to support the view that people are investing for capital gains.
+
+(I think these results are a little bit funny,)
+
+\subsubsection{Transportation costs  determine the population} 
+
+If you decrease the transportation cost, the population should go up, and that’s exactly the result.
+
+The only question you might ask is how does it affect the ownership ratio? What we see is that with a reduced cost of transportation, the city grows more, and more of the housing is taken up by investors.
+
+This makes perfect sense. If the city is growing then there are quicker capital gains from investing. To pull in people in the wage has to increase increasing, which means rents can increase.
+
+\subsubsection{Density}
+
+A policy now being pushed quite energetically by the federal and provincial governments.
+
+In our model it is like changing the lot size but assuming each property has the same amenity.
+
+The effect on the housing proportion is not as easy to predict. We can account for it by noting rising capital gains in this model.
+
+If you just increase density, you would expect the city extent to stay the same. That’s what we get.
+Changing density does not change the ownership ratio. This is kind of interesting.
+
+The transportation costs rents are not changed at the same location, so the land rent PER UNIT are the same for each person because the transportation cost at that point has the same value. So density does not change the ownership.
+The may be twice as many people per unit of land, however, so there Is twice as much locational rent to collect.
+
+That is an interesting result. Once you’ve seen it, it’s not hard to explain.
+
+??? It will be modified by a number of effects, like the cost of converting housing if you’re changing from low density to high density that’s worth exploring further. But the baseline is it does not affect rents.
+
+The effect of asset requirements on home buyers. make this shorter? cut it to save time??
+
+??? (Related to the stress testing of buyers to avoid defaults.)
+
+Banks look at the wealth and incomes of households. In this experiment, we just tighten the savings requirement.
+
+This has almost no effect on the ownership rates.
+
+The most likely explanation for this is that a large supply of people with high enough savings to purchase. We may have a slight shift towards wealthier individuals.
+
+\subsubsection{Property tax rates}
+
+The annual tax paid is a share of the property’s total value. So it can be understood as a deduction from the value of the property and a deduction from the potential capital gains. A. very high property tax rate capturing all the value of the property which is essentially all the capital gains.
+
+10\% is relatively high, (unrealistically high, actually)
+
+The property tax rate has a small effect on population that looks very, very much like what we have in a previous figure for capital tax capital gains tax on owners.
+
+You would expect, in fact that this would work very much the same way as capital gains tax on owners. It looks similar but it has a much bigger effect on the ownership ratio.
+
+What we’re seeing in this case is IF the property tax ratio falls, the ownership ratio falls earlier, but stabilizes on the other hand, if the property tax rate is low, and it drops capital the property tax rate is low.
+
+The ownership ratio begins to drop later but drops farther.  That suggests that the main play here is profitability for investors, which again, reinforces the notion that what’s happening is the capital gains to investors.
+
+So we’ve gone through the list of simple reactions with no feedback. Remember: none of these policies affected the basic economy, but some ded affect the ownership ratio.
+
+\subsection{LINKAGE EXPERIMENTS}
+
+The maintained hypothesis for the following experiments is that, for some reason, an owner-occupier population either invests more or is more productive than a tenant population where the surplus is extracted. 
+
+to get clear effects, we consider a large very simple feedback: if all of the housing is owned by investors, The scale factor $A$  falls by about a third.  Smaller numbers will have a smaller effect, but they will be qualitatively the same. 
+
+Unlike the case with no feedback, as investor ownership rises,  we see
+
+\begin{itemize}
+    \item Lower wages.
+    \item Lower population,
+    \item smaller city
+    \item a higher proportion of owner-occupiers
+\end{itemize}
+The effects don’t kick in until the investors enter the market. When we get to the point where investors start to enter the market and convert housing from owner-occupied to tenant-occupied, productivity declines, the wage basically goes flat, the city stops growing and the population goes flat.
+
+Why is the ownership ratio higher in this case? Shouldn't every indicator be worse?  A smaller city with lower growth generates smaller capital gains. There is less investment so the investors don’t take over as much as the housing as when it keeps growing.
+??? Investment is in some sense, self-limiting: once it’s killed off the growth and slowed the city down there’s no longer any reason to keep buying housing.
+
+\subsubsection{Linkage with Capital Gains Tax on Investors}
+
+Keeps all the investors out of the market, so the how the housing stock stays 100\% owner-occupied. We basically get the no linkage effect. A 100\% gain capital gains tax cancels out the effect of the investment link by keeping investors out of the market.
+
+If you lower it to 50\% with the settings we have once investors start to enter the market, you’re your wage goes flat. Your population goes flat, your city extent goes flat. But since they have entered the market, they take up about 40\% of the housing stock.
+
+If the capital gains tax is lower than the capital gains on a principal residence you see a complete takeover the housing stock and the city shrinks sharply once the linkage kicks in.
+
+??? The population grows on the original path at first. It shrinks once the investors come in. Land speculation has an absolutely parasitic and destructive effect on the city
+
+\subsubsection{Linkage with Capital Gains Tax on owner-occupiers}
+
+There is really one result here: When you put a capital gains tax on owner-occupiers  that is higher than the capital gains tax paid by investors, Wage growth flattens out and then drops.
+
+Population drops
+
+Ownership shifts to the investors it becomes a tenant city.
+
+We present results for just two values above the investor rate and two values below it.
+
+So this is interesting because appears that what matters is whether or not investors have a financial advantage over homeowners in the in the market.
+
+CUT. The ownership crash then cuts the productivity that’s the mechanism that this model is exhibiting.
+
+The difference from the no-linkage case that is most notable is that even with a very low capital gains tax on owners, once some of the housing is captured by investors, productivity falls and therefore the wage goes flat.
+
+\subsubsection{Linkage with The cost of capital for investors}
+
+It doesn’t appear that this policy instrument (the cost of capital for investors eg REITs and others wishing to speculate in housing) is very effective. That’s that’s the news.
+
+??? When there is no linkage we could push the cost of capital way up or down, and it had some effect, but it was pretty minimal.
+
+? With the linkage with or without this policy, we get the same levelling off of the wage of population and of city growth. We get less effect on the ownership ratio with a linkage but basically the same pattern as before,
+
+\subsubsection{Linkage with Transportation cost}
+
+With linkage this throws up a new and interesting result.
+
+Reducing transportation cost causes the city to grow in extent as before. Small influences on transportation costs still have a large effect on population.
+
+The new point is that with low transportation costs we get oscillations in the population. (see *** V)
+
+It appears from these runs that the ownership ratio is a little bit higher with a high transportation cost and that’s because of the high transportation costs we have a smaller city and less reason for this thing and it doesn’t grow as fast.
+
+\subsubsection{Linkage with Density Variations}
+
+Pretty much the same result as with no linkage. What is of interest is that the linkage tends to put in more oscillation in these values.
+
+*** It looks like we get a series of speculative booms that cause the city to grow and shrink. Speculation is not causing the growth. Speculation in this model decreases productivity and so you get a decline and then a period with renewed growth that induces more speculation and then a new decline.
+
+\subsubsection{Linkage and the Asset requirement}
+
+No new interesting results except a higher level of home ownership, which I have explained in the other cases: smaller growth, less reason to speculate.
+
+\subsubsection{Linkage and the property tax?}
+
+XXXX. It proved to have some interesting and not easily predicted effects in the no-linkage example. In this example we get similar results:  wage growth flattens with the property tax, and a higher property tax rate reduces the wage to even higher property tax rate.
+
+Why does it reduce the wage? Because it reduces city growth. ???? Smaller city -> lower wages. It reduces the population.
+
+It is interesting that the lowest property tax rate introduces an oscillation as you’ve seen in other examples. This suggests there is a fairly sizable regoin of the policy space - even of the parameter space - that will produce speculation-driven cycles of growth.
+
+A low enough property tax rate does leave you with a higher wage and a higher population
+I think I have to go over it again.
+
+\subsubsection{A Transitory Shock}
+
+All the interventions so far have been introduced when the city was born and maintained forever. We can explore short-term policy shocks with this model.
+
+Consider a city that starts with a 100\% capital gains tax at the beginning, removes it for 25 years, and returns to the original 100%
+
+Predictably, when we move the capital gains tax there’s a big influx of investors buying a property. Productivity falls, the wage falls, the population falls. So reducing the capital gains tax dramatically on property has the effect of reducing wages, city size and generally inhibiting growth.
+
+In a similar experiment, with a much longer time horizon to get some sense of what would happen if we reduce the lag rates in the economy if it responded faster, or if we let it run farther.
+
+
+
+\end{document}

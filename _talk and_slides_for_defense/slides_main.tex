@@ -1,13 +1,33 @@
 %% Main presentation %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. Generate just the presentation (hide notes) and save to slides.pdf
+% 2. Generate only the notes (show only nodes) and save to notes.pdf OR? (notes=show/only)
+% 3. With Skim, open both slides.pdf and notes.pdf
+% 4. Click on slides.pdf to bring it to front.
+% 5. In Skim, under "View -> Presentation Option -> Synhcronized Noted Document"
+%    select notes.pdf.
+% 6. Now as you move around in slides.pdf the notes.pdf file will follow you.
+% 7. Arrange windows so that notes.pdf is in full screen mode on your laptop
+%    and slides.pdf is in presentation mode on the projector.
+
 
 %% Title slide content %%
 %% Template modfied by Kirsten Wright kirsten.wright@uwaterloo.ca 2024-01-14    %%
 %% Based on template by Chris Carmona: carmona@stats.ox.ac.uk ; chriscarmona.me %%
 
-\documentclass[notes=show]{beamer} %[notes=show/only]
-\usepackage{tikz}
+\documentclass[hide notes=show/only]{beamer} %[notes=show/only]
+\usepackage{xcolor, tikz}
+\usepackage{geometry}
+%\usepackage{adjustwidth}
+%\setbeamercovered{transparent=20}
+
+\usetikzlibrary{chains,fit, shadings, shadows, shapes, shapes.geometric, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta}
+% for flow diagarm
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\usepackage{adjustbox}
 
 \newcommand\Wider[2][3em]{
 % Has 2 parameters, addition to textwidth and content
@@ -24,11 +44,14 @@
 % \author{Kirsten Wright} %\underline{Alyssa P. Hacker} \inst{1} \and Ben Bitdiddle \inst{2} \and Lem E. Tweakit \inst{2}}
 \author{
   Author: Kirsten Wright \\
-  Supervisors: Jangho Yang, Sean Geobey
+  Supervisors: Jang
+  ho Yang, Sean Geobey
 }
 % \institute{PhD Thesis Defensae}
-\institute{PhD Thesis Defense \\[1ex] University of Waterloo}
+% \institute{PhD Thesis Defense \\[1ex] University of Waterloo}
+\institute{SYDE Graduate Seminar \\[1ex] University of Waterloo}
 %\date{February 10, 2024}
+\date{April 9, 2024}
 % \title[Short Title]{% short title for footer
 %     Long and Descriptive Title
 %     \vspace{0.5cm}
@@ -42,69 +65,195 @@
 % \date[Venue and Date]{% short date for footer
 %     Venue, Date
 % }
-\begin{document}
-
-
-%% Slide content %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Title slide %
-% %----------------------------%
-{
-    \setbeamertemplate{footline}{}
+\begin{document}{
+    \setbeamertemplate{footline}{framenumber}
     \setbeamertemplate{headline}{}
     \setbeamercolor{background canvas}{bg=white}
     \maketitle   
 }
 
-% Field spheres image %
-% %----------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Financialization}
+%     \centering
+%     \includegraphics[scale=0.167]{fig/example_figures/pictures-ex-1.png}
+%     \vspace{-2.5em} % Adjust the vertical space as needed
+%     \begin{flushright}
+%         \tiny{Source: Dawn Parker}
+%     \end{flushright}
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Financialization:
+The capture of flows of surplus by financial actors.}
+\begin{itemize} \Large
+    \item Surplus is produced by bringing people together in the city. 
+    \item Claiming surplus works by capturing land rents. % is at the heart of what’s happening in urban centers.  
+    \item Financialization is achieved through the creation of financial instruments, like REITs, and mortgages. 
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \begin{figure}[!ht]
 \centering
-\resizebox{0.85\textwidth}{!}{\input{fig/fields}}
-% \input{fig/fields}
-% \includegraphics[width=0.6\textwidth]{fig/fields}
-% \caption[Linking space and urban rents to the effects of financialization.]{Space and urban rents play a foundational role in urban economics, geography, and planning. We extend the analysis of urban rents to model the effects of financialization.}
-\label{fig-fields}
+\resizebox{0.85\textwidth}{!}{\input{fieldsplus}}
+\label{fig:fieldsplus}
 \end{figure}
 \end{frame}
-\note[enumerate]{\item Three fields that are concerned with space and cities 
 
-Three contributions from this thesis
-\item I bring together models and theories from all three
-\item I apply the theory of land to the urban distribution problem
-\item I link productivity to locational rents (middle of figure)
-\item I show financialization to capturing the locational rents and the productivity of the city
-\item I begin exploring the feedback form financialization to productivity}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Ricardian Rent Theory}
+\begin{itemize}\Large
+    \item Ricardo examined production and distribution in an agricultural society.
+    \item \textbf{Farmers} pay to transport \textbf{product} to the \textbf{market}
+    \item All surplus went to the class of landowners as rent.
+\end{itemize}
+\begin{centering}  \vspace{0cm}\hspace{1cm} 
+\begin{tikzpicture}[domain=0:2]
+\node at (.25,0) [below right, text width=4cm, black ]{Market};
+% \node at (.25,-1.) [below right, text width=4cm, black ]{center };
+% \node at (.25,-2) [below right, text width=4cm, black ]{\Huge Market};
+\draw[thick ] (9.25,0)  -- (.25,0);
 
+\draw[thick ] (.25,0)  -- (.25, 3.5)node[ right ]{Price of corn at market};
+\fill[yellow!80]  (.25,0) --(.25,3)--(9,0)node[below left, black]{ extensive margin} --cycle;
+\fill[gray!20] (9,3) --(.25,3)--(9,0) --cycle;
 
-
-% %----------------------------%
-\begin{frame}{Production and the city}
-\huge 
-$Y=AN^\beta$ {\normalsize \hfill \textbf{Scale literature and Jacobs}\\\hfill $N =$ population}
-\vspace{.5cm}
-
-$y=\:A\quad \;k^\alpha n^\beta$ {\normalsize \hfill \textbf{Neoclassical production function}\\ \hfill$n =$ firm workforce}
-\vspace{.5cm}
-
-$y=\:AN^\gamma k^\alpha n^\beta$ {\normalsize \hfill \textbf{Synthesis in our model}\\\hfill $N = f*n, \qquad f=$ number of firms}
-
-
-
+\node  at (2.,1.5)[font=\Huge ]{Rent};
+\node  at (3,.5)[font=\Large]{ Remainder to landowner};
+\node  at (6.5,2.2){\Large Transport cost};
+% \draw[latex-, line width=1.5mm] (9,-.25) --(9, -2);
+% \draw[-latex, line width=.75mm] (.25,-4)node[above]{distance from centre} --(6,-4);
+\end{tikzpicture}\end{centering}
 \end{frame}
-\note[enumerate]{\item the first is a fact.
-\item the second in a an attempt to provide a theory.  $\alpha +\beta\le 1$ It is clearly incomplete empirically
-\item the third is my model, which is a synthesis drawing on modern growth theory. 
-\item We can show that heuristically city grows if  $\gamma>0$. Say the firm size is a constant.  Then $N=zF$ and $Y=Fy$ 
-$Y\propto FAz^\gamma F^\gamma *c\propto c'F^{1+\gamma}  $ 
 
-(Then  $\beta$ in the first equation is $1+\gamma$)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Urban Rent Theory}
+\begin{itemize}\Large
+    \item Urban theorists in the 196'0 developed a model that is isomorphic with respect to travel costs and distance
+    \item \textbf{Workers}  pay to transport \textbf{themselves} to \textbf{jobs} at the center
+ \end{itemize}
+ 
+ \begin{tikzpicture}
+%\node at (.25,0) [below right, black, align=right, red ]{ City center};
+%\node at (-.25,-1) [below left, text width=4cm, black , align=right]{\Huge  };
 
+\fill[yellow!80]  (.25,0) --(.25,3)--(9,0) --cycle;
+\fill[gray!20] (9,3) --(.25,3)--(9,0) --cycle;
+
+\node at (9.5,0)[below left, text width=2cm, black, align=right, red]{ edge of city};
+\node at (-.25,0) [below right, red, align=left]{Jobs at city center};
+\node at (.25, 3.5)[right, red]{Urban wage premium};
+
+\node  at (2.2,1.5)[font=\Huge ]{Rent};
+\node  at (3,.5)[font=\Large]{Remainder to landowner};
+\node  at (6.5,2.2)[font=\Large]{ Transport cost};
+
+\draw[thick ] (9.25,0)--(.25,0);
+\draw[thick ] (.25,0)--(.25, 3.5);
+\end{tikzpicture} 
+\end{frame}
+
+\note[itemize]{
+\item Only the axis labels need to be changed for this figure 
+\item The agricultural rice at the center becomes the wage premium at the center.
+\item The agricultural market at the center becomes the wage premium job market at the center.
+\item Ricardo's extensive margin, the geographical edge of cultivation becomes the edge of the city.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Extending the Alonso model}
+\begin{itemize}\Large
+    \item They did not explain production or distribution
+    \item     The surplus must still go to landowners as locational rent
+    \item I add the distribution of rents to the urban model landowners to my version of the model
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Urban Rent Theory}
+% \begin{itemize}\Large
+%     \item The urban theorists developed a model that is isomorphic with respect to travel costs and distance
+%     \item \textbf{Workers}  pay to transport \textbf{themselves} to \textbf{jobs} at the center
+%     \item They did not explain production or distribution
+%     \item     The surplus must still go to landowners as locational rent
+%     \item I add the distribution of rents to the urban model landowners to my version of the model
+% \end{itemize}
+% \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Ricardo's Agricultural rents vs \\Alonso's urban locational rents}
+\begin{figure}[!ht]
+\centering
+\resizebox{1.05\textwidth}{!}{\input{Rent_Ricardo_Alonso}}
+\label{fig:Rent_Ricardo_Alonso}
+\end{figure}
+\end{frame}
+
+
+\note[enumerate]{
+    \item I am illustrating the two theories to show they are really the same theory 
+    \item the isomorphism should lead us to think about who gets the rents
+    \item that is basically what  do 
+    \item but I also add a production sector that explains where the rents come from
+    \item This forces us to pull some ideas from growth and agglomeration theories
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Physiocrats}
+
+%     % \centering
+%     % \includegraphics[scale=0.6]{fig/carter_illustration.jpg}
+%     % \vspace{-1.5em} % Adjust the vertical space as needed
+%     % \begin{flushright}
+%     %     \tiny{Source: https://www.bbc.co.uk/programmes/b02x97k6} % braggPhysiocrats2013
+%     % \end{flushright}
+% \end{frame}
+
+
+
+% \begin{frame}{Financialization}
+%     \centering
+%     \includegraphics[scale=0.167]{fig/example_figures/pictures-ex-1.png}
+%     \vspace{-2.5em} % Adjust the vertical space as needed
+%     \begin{flushright}
+%         \tiny{Source: Dawn Parker}
+%     \end{flushright}
+% \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Formally modelling production and growth with DRS firms and IRS cities}%{Production and the city}
+\huge 
+1) $Y=AN^\beta$ {\normalsize \hfill \textbf{Scale literature and Jacobs}\\\hfill $N =$ population}
+\vspace{.5cm}
+
+2) $y=A\:\ k^\alpha n^\beta$ {\normalsize \hfill \textbf{Neoclassical production function}\\ \hfill$n =$ firm workforce}
+% 2) $y=\:A\" \;k^\alpha n^\beta$ {\normalsize \hfill \textbf{Neoclassical production\\ 
+% \hfill function}\\ 
+% \hfill$n =$ {{\normalsize firm workforce}
+\vspace{.5cm}
+
+3) $y=AN^\gamma k^\alpha n^\beta$ {\normalsize \hfill \textbf{Synthesis in our model}\\\hfill $N = f*n, \qquad f=$ number of firms}
+\end{frame}
+
+\note[]{
+    Here’s the equation that’s been estimated in the scaling literature. As long as that beta is greater than one, the productivity gets bigger as the population increases.
+    
+    This says that bringing people together raises everyone’s productivity. It says there are increasing returns to urban labour. There are no firms in this formulation
+    
+    Growth theorists addressed this using a formulation for the firm that’s become pretty standard: the Cobb-Douglas production function.
+    
+    This has diminishing returns at the firm level. According to the theory the wage is the VMPL, so we a theoretically consistent way to derive the wage
+    
+    We can show the two equations are nested in the following of the same model.
+    
+    We make the productivity term depend on urban population. If population rises, wages rise.
+    
+    This is now a linked firm-city model of production with DRS for the firm and IRS for the City
 }
-% %----------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Increasing returns in the city}
 
 \begin{tikzpicture}[scale=.5, my plot/.style={thick, smooth, samples=100, domain=0.1:2.2},
@@ -145,328 +294,400 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \end{tikzpicture}
 
 \end{frame}
-\note[enumerate]{\item the straight solid line is what you get if firms choose the optimal size and just replicate.
-\item The green is the observed expansion path
-\item It happens if every business has DRS but $\gamma>0$
+\note[enumerate]{
+    \item just to be clear about what is happening
+    \item I have a little decreasing returns to scale firm down here in the corner. (Equation 2)
+    \item I can add a lot of them all at optimal scale to get a CRS city. That is the black straight line 
+    \item but the city might get crowded or be expensive to operate, so the city as a whole should exhibit DRS - (John Romer made this point) dashed line
+    \item The fact is *(Jacobs, Scale lit) they exhibit IRS. Green line. (Equation 1)this is what we have to build in with agglomeration economies in equation 3
 }
 
-% %----------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Population model}
 \huge 
-$w=\frac{\beta y} {n}$ {\normalsize \hfill \textbf{firm behavior}\\\hfill $ w =$ wage}
+4) $w=\frac{\beta y} {n}$ {\normalsize \hfill \textbf{firm behavior}\\\hfill $ w =$ wage}
 \vspace{.5cm}
 
-$\omega=w-\psi$ {\normalsize \hfill \textbf{wage premium}\\\hfill $ \psi=$ subsistence wage}
+5) $\omega=w-\psi$ {\normalsize \hfill \textbf{wage premium}\\\hfill $ \psi=$ subsistence wage}
 \vspace{.5cm}
 
-$N= \frac{(w-\psi)^2}{2c^2 }$ {\normalsize \hfill \textbf{population equilibrium}\\\hfill $ c=$ transportation cost}
+6) $N= 2\left[\frac{\omega}{c}\right]^2$ {\normalsize \hfill \textbf{population equilibrium}\\\hfill $ c=$ transportation cost}
 
 \end{frame}
-\note[itemize]{\Large
-\item We need a wage-setting process. The first equation is just the marginal product of labour with the Cobb-Douglas
-\item The second is my modelling decision about how to connect the production sector to the urban system in my model NEATLY.
-\item the third calculates the equilibrium population in the Alonzo model 
-\hspace{1cm}
-We have connected the  circle
+
+\note[enumerate]{\item This first equation is just the marginal productivity of workers. It is the derivative of equation 2 with respect to $n$.To maximize profits firms should follow this rule. I assume they do.
+\item The second equation just identifies the part of the wage the firm pays that is above the rural wage. In the Alonso model it attracts people to the city
+\item The third is a simple calculation of area for a \textbf{city grid}. Agents at the edge of the city decide to work or not, so this is an approximation at any point in time.
+
+(I have left out density to keep it simple)  
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centering \Large
+  \emph{The Mode Main Loop}
+  
+    \emph{Three main blocks}
+  
+\end{frame}
+
+% \begin{frame}<1>
+%   \frametitle<1>{A Complicated Picture}
+%   \framezoom<1><2>[border](0cm,0cm)(2cm,1.5cm)
+%   \framezoom<1><3>[border](1cm,3cm)(2cm,1.5cm)
+%   \framezoom<1><4>[border](3cm,2cm)(3cm,2cm)
+%   \begin{centering}
+%         \includegraphics[height=0.95\paperheight]{fig/flow_full_model.png}
+%     \end{centering}
+% \end{frame}
+% \againframe<2->[plain]{zooms}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The structure of the model}
+    \begin{tikzpicture}
+\node at (0,0){\includegraphics[scale=.07, trim={1cm 1cm 1cm 1cm}, clip]{fig/flow_full_model.png}};
+
+%\only<1>{\draw (3.5,0)rectangle (7,4);}
+%\node at (4,0)[text with=2cm,  align= left] {The green boxes around the edges identify where specific theoretical components are inserted. \\The main loop has three min pieces, representing the production side, the finance sector and the housing market,. };
+% \draw [step=1,black, thin] (-3,-4) grid  (3,4);
+% \draw [step=.25,gray!50, thin] (-3,-4) grid  (3,4);
+
+
+\only<2>{
+\draw[red, line width=1mm] (-2.2, 4)  rectangle (2,1.5);
+\node at (5.25, 3.6)[red]{\Large Alonso-Jacobs cycle};
+\node at (5.25, 2.1)[text width=3.5cm]{  wage → \\\:extent → \\\:\:population → \\\:\:\:productivity → \\\:\:\:\:wage };
+}  %{Alonso Model:   wage → extent → population
+% Jacobs Agglomeration: population → productivity 
+% Neoclassical Production Function:               productivity → wage }
+
+\only<3>{
+\draw[green, line width=1mm, fill=yellow!50, opacity=.4](-.5, 1.5) rectangle (3.2,-.7);
+\node at (5.25, 1.5)[red]{\Large Finance/lending};
+\node at (5.25, -.1)[text width=3.5cm]{\textbf{Two seller types}\\retirees, investors\\\textbf{Two Buyer types:}\\new workers, investors };
 }
 
-% %----------------------------%
+\only<4>{
+\draw[red, line width=1mm]  (-1.7, 0)  rectangle (3.5, -4);\node at (5.35, -.3)[red]{\Large Housing Market};
+\node at (5.5, -1.2)[text width=3.5cm]{Allocates\\ housing and rents };
+}
+\end{tikzpicture}
 
-% %----------------------------%
-\begin{frame}{The production system feedback}\framesubtitle{The Alonzo-Jacobs Cycle}
+\end{frame}
+
+\note[enumerate]{\item }{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}<1-2>[label=zooms]{}
+%     \frametitle<1>{The structure of the model}
+%     \frametitle<2>{ The Alonzo-Jacobs Cycle }
+%     \frametitle<3>{The Financial System}
+%     \frametitle<4>{The housing market with three classes}
+%     %.         border, title
+%     \framezoom<1><2>[border](1.7cm,.4cm)(4.4cm,2.1cm)
+%     \framezoom<1><3>[border](3.8cm,3.cm)(3.6cm,2cm)
+%     \framezoom<1><4>[border](2.cm,4.5cm)(5.cm,4.3cm)
+%     \begin{centering}
+%     \includegraphics[height=0.95\paperheight]{fig/flow_full_model.png}
+%     \end{centering}
+% \end{frame}
+ 
+% \againframe<1->[noframenumbering]{zooms}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The production system}\framesubtitle{The Alonzo-Jacobs Cycle}
 % \begin{figure}[!ht]
 \vspace{-.5cm}
 \Wider[4em]{\centering
-\includegraphics[scale=.75,trim={.5cm 0cm 0 1.cm},clip]{fig/flow-alonso-jacobs-cycle.png}
+\includegraphics[scale=.55,trim={.5cm 0cm 0 1.cm},clip]{fig/flow-alonso-jacobs-cycle.png}
 }
 % \caption[Production system.]{The production system component, incorporating the urban scaling of wealth in the urban spatial model. We name this coupling of two difference equations the Alonso-Jacobs cycle.}
 % \label{fig-alonso-jacobs-cycle}
 % \end{figure}
 
-\vspace{-1.5cm}
+\vspace{-.5cm}
 \hspace{1cm}ALONZO \hspace{5.5cm} JACOBS
 \end{frame}
 
 
-\note[itemize]{\large
-\item A classic positive feedback cycle
-\item Green refers to a theory and grey boxes to the calculations
-\item We could represent the model with two difference equations, but this is an agent-based model.
-\item most of the coding happens in the bidding (and housing allocation)
-\item most of the theory is involved in what happens in the other boxes and trying to makes sure that those processes are economically plausible and that different theories - say about wage determination  - can be plugged in if I want to. 
-
-}
-
-% %----------------------------%
-\begin{frame}{The housing market with three classes}
-\begin{center}
- \vspace{-.5cm}   
-\includegraphics[scale=.14,trim={.5cm 1cm 0 1.5cm},clip]{fig/flow-impacts.png}
-\end{center}
-
-% \caption[The housing market component of the model.]{The housing market component. Financialization affects both the allocation of housing and its allocation of rents.}
-\end{frame}
-\note[itemize]{\Large
-\item Now we are into the complicated part of the modelling
-\item In the housing market investors and workers bid for existing housing. 
-\item I have an equation that takes most of a chapter to explain to calculate how much each agent would bid for a property. 
-\item Then I model each sale as a multi-bidder auction.
-
-}
-% %----------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{The financialization component}
 % \begin{figure}[!ht]
 \centering
-\includegraphics[scale=.75]{fig/flow-financialization.png}
+\includegraphics[scale=.175]{fig/flow-financialization.png}
 % \caption[The financialization component of the model.]{The financialization component. There is a feedback loop in which new investors drive up demand and thus drive up prices.}
 % \label{fig-financial-cycle}
 % \end{figure}
 \end{frame}
-\note[itemize]{\Large
-\item But I had to go back one more step to bring in the financial sector
-\item Notice how finance -capital - enters both directly through investor purchases and less directly through mortgages:
-\item "I don't own my house: the bank does!"
-}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The housing market with three classes}
+
+\begin{center}
+ \vspace{-.5cm}   
+\includegraphics[scale=.14,trim={.5cm 1cm 0 2.5cm},clip]{fig/flow-impacts.png}
+\end{center}
+
+% \caption[The housing market component of the model.]{The housing market component. Financialization affects both the allocation of housing and its allocation of rents.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{The housing model}
+% \includegraphics[scale=.09]{fig/flow-
+% \end{frame}
+% % %----------------------------%
+
+
+
+% % %----------------------------%
+% \begin{frame}[plain]{The combined model}
+% \centering \vspace{-.15cm}
+% \resizebox{8.0cm}{!}{%
+%   \includegraphics[trim={0cm 0 0 1cm, scale=.5}, clip=]{fig/flow_full_model.png}
+%   % \begin{tikzpicture}
+%   %   \node at (0,8){The combined model}
+%   % \end{tikzpicture}
+% }
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Impact channels relating financialization and urban productivity}
+\includegraphics[scale=.09]{fig/impact-channels.png}
+\end{frame}
 
 % %----------------------------%
-\begin{frame}{12 experiments, 84 results}
-\begin{enumerate}\Huge
-    \item six policy variables
-    \item two states of the world
-    \item seven outcome variables for each 
+\begin{frame}{}
+%\begin{adjustbox}{max totalsize={1.2\textheight}{.7\textheight},center}
+ \centering 
+\resizebox{10.0cm}{!}{%
+ \input{fig/ODD}
+ }
+ %\end{adjustbox}
+\end{frame}
+\note[enumerate]{\item This is a slightly simplified description of the program flows. (some of the accounting is hidden
+\item 4th from the top in the  main loop: Firms set wages hire, buy equipment
+\item next three population adjustments happen. On the left,  agents at the edge of the city decide whether to work in the city or not - this adjusts the city size. 
+\item in the middle, some workers decide to retire. If they have homes they list them. 
+\item  on the right, non-adjacent workers may enter the market and bid for housing 
+\item below on the right investor may bid or list their units
+\item the bank provides financing  to eligible borrowers
+\item on the left, population is updated
+\item Adjusted values are fed back}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centering \Large
+  \emph{Results}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{2 $\times$ 7 compound experiments, for 7 output paths}
+
+\hspace{-.3cm}\textbf{With and without productivity linkage}
+\vspace{.5cm}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Seven policy variables}
+\begin{enumerate}
+\item Investor Capital Gains Tax
+\item Owner-occupiers CGT
+
+\item The cost of capital%, 
+\item Transportation costs%,
+\item Urban density%, 
+\item Borrower wealth sensitivity%, 
+\item The property tax rate%,
 \end{enumerate}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Seven outcome paths}  
+\begin{enumerate}
+   \item wage \item capital stock\item workforce   \item population \item city radius \item  number of firms
+\item owner-occupier share
+\end{enumerate}
+\end{column}
+\end{columns}
+\vspace{.3cm}
+
 \end{frame}% %
-\note[]{\Large
-I'm only reporting 12 experiments on a single parametrization of the basic model. 
 
-}
-
-
-% %----------------------------%
+\note[enumerate]{\item I want to emphasize that we are doing comparative dynamics: the outcomes are over 200 time-trajectories.
+\item Let's jump into an example.  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Experiment: Capital gains tax on investors with no linkage}
 \begin{tikzpicture} 
 \node at (.7cm,10cm){
 \includegraphics[scale=.8, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
-\pause
 
-\node at (6cm,13.5){wage, capital stock};
-\node at (6cm,11.56){workforce, population};
-\node at (6.1cm,9.6){city radius, number of firms};
+
+\node at (6cm,13.5){wage,\hspace{.4cm} capital stock};
+\node at (6cm,11.56){workforce,\  population};
+\node at (6.1cm,9.6){city radius,\ \  number of firms};
 \node at (6cm,7.7){owner-occupier share};
 \end{tikzpicture}
-\end{frame}% %
+\end{frame}
 
-\note[itemize]{\Large
-\item 100-year evolution of an city economy 
-\item Population grows to 2.4 million
-\item Arbitrary firm technology  most growth falls on increasing the number of firms
-
-\item A capital gains tax does not affect production 
-\item It does affect the ownership ratio profoundly.
-\item This is an important result for policy makers to know
+\note[enumerate]{\item This is a set of 3  runs with the base model.
+\item The capital gains tax is set at zero 50\% and 100\%
+\item There are six panels showing city-economy variables
+\item This is the no linkage case. Notice that changing the capital gains tax on investors has no 
+\item and the bottom own showing the owner-occupier share of the housing stock. The financial variable affects the rate of financialization
+\item The most significant thing is that a 100\% capital gains tax cuts investor participation to zero, 
+\item with no CGT investors eventually take over the entire housing stock. 
+\item do we want to draw policy conclusions from this?
 }
 
-% %----------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Experiment: Adding productivity impacts}
-     \includegraphics[scale=.55, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} 
+     \includegraphics[scale=.55, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} %\pause
     \includegraphics[scale=.55, trim={0 1.4cm 3.8cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
 \end{frame}% %
-\note[itemize]{\large
-\item comparing the same case with a strong linkage to productivity 
-\item effect of capital gains tax on ownership is larger with linkage. \textbf{Linkage make this policy matter more.} 
-\item \textbf{With linkage} a higher  CGT for investors is better for all production-side variables and increases city size
-\item a 100\% capital gains tax does not affect production side or ownership
-\item 50\%  does affect population considerably 
-\item IF LOWER than the cgtax for owners-occupiers it leads to a population crash. 
-\item These are important results for policy makers to know
+
+\note[enumerate]{\item Let's compare the result if there is feedback to productivity
+\item Now the real variables are affected
+\item With a 100\% tax the real economy follows the no spillover path a 100\% tax \textbf{insulates the economy} against the feedback.
+\item We see rising tenantization reducing productivity, which pulls down the wage, which reduces city size.
+\item With no capital gains tax on housing speculation, the economy crashes
+\item complete financialization of the housing stock happens faster. 
+\item With a 50\% rate financialization of the housing stock is slower. This is interesting. The slower growth reduces capital gains and makes speculation  less  profitable 
 }
 
-\note[]{It is tempting to talk about why these specific results happen and what model parameter of behaviour assumptions might affect them. 
-
-I expect to get into those discussions with policy makers
-
-This is a modelling project - For mew the real question is, "Can we build a model consistent with theory that actually address the emerging challenges of our cities, and can we build on that helps us grapple with the relatively recent growth of finacialization. 
-
-I hope that I have done that. 
-
-Let's look at some more results.
-}
-
-
-% %----------------------------%
-\begin{frame}{The model tells us that }
-\begin{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The model tells us that}  \Large
+\begin {itemize}[<+-|alert@+>]
  %\item In the absence of linkages between the housing market and the production sector, of the policy tools we consider, only density and transportation cost and capital gains taxation have much effect. 
+ % \only<1>{\color{red}}
+\item In the presence of linkages, policy tools can have dramatically different effects. This is a potentially very important result. 
+ % \pause
 
- \only<1>{\color{red}}\item In the presence of linkages, policy tools have much more dramatic effects. This is potentially very important result. 
- \pause
+ % \only<2>{\color{red}}
+\item  A capital gains tax on speculative investment without linkage increases owner occupancy. 
 
- \only<2>{\color{red}}\item  a capital gains tax on speculative investment without linkage increases owner occupancy. 
-
- \only<2>{\color{red}}\item With a productivity linkage, a a capital gains tax on speculation increases wages and the size of the city. 
- \pause
-  \only<3>{\color{red}}\item  A capital gains tax on owner-occupiers above the level of on investors has a powerfully negative effect on population and wages.
+ % \only<2>{\color{red}}
+\item With a productivity linkage, a capital gains tax on speculation also increases wages and the size of the city. 
+ % \pause
+  % \only<3>{\color{red}}
 \end{itemize}
-\end{frame}% %----------------------------%
+\end{frame}
 
-\note{\huge \color{red} You can put in more experiments here if you think it would help.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Experiments: A capital gains tax on owner-occupiers}
+ \centering 
+\resizebox{10.0cm}{!}{%
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (0,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_per-000419.pdf}}; 
 
-\setbeamercovered{transparent=20}
+\node[inner sep=0pt] (link) at (8.1,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={.1cm 1.4cm 4.cm 0},clip]{fig/link-cg_tax_per-4_162706.pdf}};
+    
+\draw[color=white, fill=white] (8.3,-2.3) rectangle (12.6,-4.5);
+\end{tikzpicture}
+}
+    %  \includegraphics[scale=.55, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} %\pause
+    % \includegraphics[scale=.55, trim={0 1.4cm 3.8cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
+\end{frame}% %
 
-\begin{frame}{Summarizing other experiments}
-\begin {itemize}[<alert@+>]\Large 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The model tells us that}  \Large
+\begin {itemize}[<+-|alert@+>]
+ %\item In the absence of linkages between the housing market and the production sector, of the policy tools we consider, only density and transportation cost and capital gains taxation have much effect. 
+ % \only<1>{\color{red}}
+\item  A capital gains tax on owner-occupiers above the level  on investors has a powerfully negative effect on population and wages.
+\end{itemize}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Summarizing other experiments} \Large
+\begin {itemize}[<+-|alert@+>]
+% \begin {itemize}[<alert@+>]\Large 
 
- \item  The cost of capital has surprisingly little effect on any variables in either case.
+\item  The cost of capital has surprisingly little effect on any variables in either case.
 
- \item  Transportation cost has a strong effect on wages and city size as expected 
+\item  Transportation cost has a strong effect on wages and city size as expected 
  
-  \item Low transportation costs with financial system spillovers appear to induce something like cyclical behaviour.
+\item Low transportation costs with financial system spillovers appear to induce something like cyclical behaviour.
 
- \item  Increasing density increases the population but does not affect wages or city extent.
+\item  Increasing density increases the population but does not affect wages or city extent.
 \end{itemize}
 \end{frame}% %----------------------------%
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Results} \Large
 \begin {itemize}[<+-|alert@+>]
- \item A restrictive mortgage market does not affect the production sector or city size.
+\item A restrictive mortgage market does not affect the production sector or city size.
 
- \item  Increasing property taxes reduces owner occupiers, but has only a small effect on city size when there is no linkage. 
+\item  Increasing property taxes reduces owner occupiers, but has only a small effect on city size when there is no linkage. 
  
- \item  With linkage increasing property taxes depresses wages, population and city size.
+\item  With linkage increasing property taxes depresses wages, population and city size.
 \end{itemize}
 \end{frame}% %----------------------------%
 
-
-
-% %----------------------------%
-\begin{frame}{Ex styles for presenting equations}
-\includegraphics[scale=.35]{fig/example_figures/eqn-ex-1.png}
-\end{frame}% %----------------------------%
-\begin{frame}{Ex styles for presenting equations}
-\includegraphics[scale=.35]{fig/example_figures/eqn-ex-2.png}
-\end{frame}% %----------------------------%
-\begin{frame}{Frame Title}
-\includegraphics[scale=.35]{fig/example_figures/feedbk-eqn-1.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centering \Large
+  \emph{Future Work}
 \end{frame}
-\begin{frame}{Frame Title}
-\includegraphics[scale=.15]{fig/example_figures/pictures-ex-1.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Extensions}
+ \begin{center}
+    \begin{minipage}{0.6\textwidth}
+ \hspace{3cm}\begin{itemize}\Large 
+      \item a competing city
+      \item housing production sector
+      \item household types
+      \item housing types
+      \item multiple industries
+      \item zoning effects
+      \item \dots
+  \end{itemize}
+ \end{minipage}
+  \end{center}
 \end{frame}
-\begin{frame}{Frame Title}
-\includegraphics[scale=.25]{fig/sheep.jpg}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Final comments}
+ \begin{itemize} \Large
+\item There is a gap in economic theory around who gets urban rents and why that matters.
+\item I partly bridge this gap by combining from several  fields:
 
-
-
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-% %----------------------------%
-
-
-%% Example content %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% %----------------------------%
-% % Contents slide
-% \begin{frame}
-% \frametitle{Outline}
-% \tableofcontents
-% \end{frame}
-% %----------------------------%
-
-% %now include the slides
-% \setbeamercovered{transparent}
-% %----------------------------%
-% \section{Section 1}
-% \subsection{Subsection a}
-
-% \begin{frame}
-%     \frametitle{First slide Title}
-%     \small
-%     Add your contents and citations %\citep{Tantau2016beamerguide}
-% \end{frame}
-% \section{Section 2}
-% \begin{frame}
-%     \frametitle{Another Slide}
-%     \small
-%     Maybe some figures like Fig.~\ref{fig:my_label}
-%     \begin{figure}
-%         \centering
-%         \includegraphics[width=3cm]{example-image-a}
-%         \caption{Example image}
-%         \label{fig:my_label}
-%     \end{figure}
-% \end{frame}
-% %----------------------------%
-
-% %----------------------------%
-% % Conclusions
-% \begin{frame}
-%     \frametitle{}
-%     \centering
+    \begin{enumerate}\item Jacobs agglomeration, 
     
-%     \Large\color{titlecolor}
-%     Thank you!
+    \item the scale literature, 
+    
+    \item neoclassical growth theory
+    
+    \item neoclassical production theories, 
+    
+    \item Alonso-style urban analysis, 
+    
+    \item Ricardian rent theory. 
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{} 
 
-%     \vspace{0.5cm}
-%     kirsten.wright@uwaterloo.ca
-
-% \end{frame}
-% %----------------------------%
-
-% % References slide
-% \begin{frame}
-% \frametitle{References}
-% \small
-% % \bibliographystyle{apalike} %use the apalike bibliography style
-% \bibliography{thesis-bib} % bibliography file
-% \end{frame}
+\begin{itemize} \Large
+\item The model is highly modular and extensible. 
+\item It allows us to explore a variety of policy interventions. 
+\item It tells us that 
+\begin{enumerate}
+    \item Financial interests are likely to take over most of the land and capture much of the surplus generated by the city.
+    \item The capture of urban value by financial actors affects the social class and may affect urban productivity.
+    \item public policies will have different effects if financialization affects productivity.
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \centering \Large
+  \emph{Thank You!}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
