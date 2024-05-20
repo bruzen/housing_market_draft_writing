@@ -8,6 +8,7 @@
 \begin{tikzpicture}[scale=.2,node distance=1.5cm]
 \node (init) [startstop] {Initialization};
 \node (interventions) [process, below of=init] {Model applies interventions};
+\node [right=2.2cm of interventions, text width=4cm]{\Huge Schematic of\\ computational\\ model};
 % \node (record) [process, below of=interventions] {Record ownership share and reset counters};
 \node (mainloop) [startstop, below of=interventions] {Main loop};
 \node (firmupdate) [process, below=.5cm of mainloop, text width=5cm] {Firms update wages, number of workers, capital  based on prior wage};
@@ -70,6 +71,8 @@
 %-- ++(0,-.5) -- ++(7,0) |-
 % % % Custom arrow path
 % % \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
+
+
 
 \end{tikzpicture}
 

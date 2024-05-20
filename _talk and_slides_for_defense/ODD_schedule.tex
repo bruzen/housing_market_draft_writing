@@ -1,0 +1,40 @@
+\centering\vspace{-3cm}
+% \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+
+\begin{tikzpicture}[node distance=1.5cm]
+\node (init) [startstop] {Initialization};
+\node (interventions) [process, below of=init] {Model applies interventions};
+% \node (record) [process, below of=interventions] {Record ownership share and reset counters};
+\node (mainloop) [startstop, below of=interventions] {Main loop};
+\node (firmupdate) [process, below of=mainloop] {Firms update wages based on number of workers};
+\node (land) [process, below of=firmupdate] {Land records data and computes price forecast};
+\node (actions) [process, below of=land] {People choose to work based on wages, retire, and list properties};
+\node (investors) [process, below of=actions] {Investors list properties};
+\node (newcomers) [process, below of=investors] {Newcomers bid on properties};
+\node (bid) [process, below of=newcomers] {Investors bid on properties};
+\node (realtors_sell) [process, below of=bid] {Realtors sell homes};
+\node (realtors_rent) [process, below of=realtors_sell] {Realtors rent properties};
+% \node (store) [process, below of=realtors_rent] {Model stores data};
+\node (advance) [process, below of=realtors_rent] {Model stores data and advances time step};
+
+\draw [arrow] (init) -- (interventions);
+% \draw [arrow] (interventions) -- (record);
+% \draw [arrow] (record) -- (mainloop);
+\draw [arrow] (interventions) -- (mainloop);
+\draw [arrow] (mainloop) -- (firmupdate);
+\draw [arrow] (firmupdate) -- (land);
+\draw [arrow] (land) -- (actions);
+\draw [arrow] (actions) -- (investors);
+\draw [arrow] (investors) -- (newcomers);
+\draw [arrow] (newcomers) -- (bid);
+\draw [arrow] (bid) -- (realtors_sell);
+\draw [arrow] (realtors_sell) -- (realtors_rent);
+\draw [arrow] (realtors_rent) -- (advance);
+% \draw [arrow] (store) -- (advance);
+
+\draw [arrow] (advance.south) -- ++(0,-.5) -- ++(7,0) |- (mainloop);
+% % Custom arrow path
+% \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
+
+\end{tikzpicture}
