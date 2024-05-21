@@ -15,7 +15,8 @@
 %% Based on template by Chris Carmona: carmona@stats.ox.ac.uk ; chriscarmona.me %%
 
 \documentclass[]{beamer} %[notes=show/only]
-\usepackage{xcolor, tikz}
+\usepackage{xcolor}
+\usepackage{tikz}
 \usepackage{geometry}
 %\usepackage[outline]{contour}
 %\usepackage{adjustwidth}
@@ -23,7 +24,7 @@
 \setbeamertemplate{footline}[frame number]
 \setbeamercolor{footline}{fg = blue} 
 \setbeamertemplate{navigation symbols}{}
-\usetikzlibrary{chains, fit, shadings, shadows, shapes, shapes.geometric, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta, decorations.text, decorations.pathmorphing}
+\usetikzlibrary{chains, fit, shadings, shadows, shapes, shapes.geometric, arrows, calc, positioning, shapes.geometric, arrows.meta, patterns, patterns.meta, decorations.text, decorations.pathmorphing,graphs, graphs.standard}
 % for flow diagram:
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
 \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
@@ -138,6 +139,25 @@ the capture of flows of surplus by financial actors.}
 \resizebox{0.85\textwidth}{!}{\input{fieldsplus}}
 \label{fig:fieldsplus}
 \end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}
+
+
+% \begin{exampleblock}{\hspace{4cm}\Huge Rent}
+% \Large The total \textbf{net} revenue or benefits received from a parcel of land. The economic surplus accruing to the landowner
+% \end{exampleblock}
+% \end{frame}
+
+\begin{frame}{}
+  \centering \Huge
+  \emph{Model}
+  
+    %\emph
+    % {three blocks}
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
@@ -397,7 +417,7 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
                     my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1}},
                     my axis/.style={latex-latex}]
  
- \draw[my axis] (0,13)node[left] {$Y=Fy$} --(0,0)-- (15.4, 0) node[below left] {Urban population $N=Fn$}; %creates the axis a little 
+ \draw[my axis] (0,13)node[left] {$Y=yF$} --(0,0)-- (15.4, 0) node[below left] {Urban population $N=nF$}; %creates the axis a little 
 
 \coordinate (origin) at (0,0);
 \def\x{0.45}
@@ -477,12 +497,12 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 \hrule 
 \vspace{.2cm}
 \small  
-$N =$ population, $n=$ firm workforce, $F=$ number of firms, $ N = F n$, 
+$N =$ population, $n=$ firm workforce, $F=$ number of firms, $ N = nF$, 
 
- $Y=$ city GDP, $y=$ firm output, $Y=Fy$, $\gamma =$ agglomeration effect,
+ $Y=$ city GDP, $y=$ firm output, $Y=yF$, $\gamma =$ agglomeration effect,\vspace{.2cm}
 
-$Y=Fy$  exhibits increasing returns to scale if $\gamma+\alpha+\beta^{firm}>1$.
-% $Y= FAF^\gamma n^\gamma z^\alpha n^\alpha n^{\beta_{firm}} = A(Fn)^{\gamma+\alpha +\beta_{firm}}$ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$
+$Y=yF$  exhibits increasing returns to scale if $\gamma+\alpha+\beta^{firm}>1$.
+% $Y= FAF^\gamma n^\gamma z^\alpha n^\alpha n^{\beta_{firm}} = A(nf)^{\gamma+\alpha +\beta_{firm}}$ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$
 
 \end{frame}
 
@@ -506,31 +526,53 @@ $ = A(Fn)^{\gamma+\alpha +\beta_{firm}}$
 where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 }
 
+\begin{frame}{}
+  \centering 
+  {\Huge Productivity  $\longleftrightarrow$ Population}
+  
+    %\emph
+    % {three blocks}
+  
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{}
+%   \centering \Large
+%   %\emph
+% \begin{tikzpicture}[scale=4]
+% \graph[clockwise, n=4, V={productivity, w,city extent, N}, edge={bend right=0, -stealth}] { subgraph C_n };
+
+% \end{tikzpicture}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{An Alonso-Jacobs Population model}%The Alonso-Jacobs Cycle: \\\hspace{.5cm}production $\rightarrow$ wage$\rightarrow$population$\rightarrow$production}
 \huge 
-4) $w=\frac{\beta y} {n}$ {\normalsize \hfill \textbf{Firm behavior}\\\hfill $ w =$ wage}
+4) $w=\frac{\beta y} {n}$ { \hfill\Large \textbf{Firm behavior}\\\hfill \normalsize$ w =$ wage}
 \vspace{.5cm}
 
-5) $\omega=w-\psi$ {\normalsize \hfill \textbf{Wage premium}\\\hfill $ \psi=$ subsistence wage}
+5) $\omega=w-\psi$ { \hfill\large  \textbf{Wage premium}\\\hfill\Large $ \psi=$ subsistence wage}
 \vspace{.5cm}
 
-6) $N= 2\left[\frac{\omega}{c}\right]^2$ {\normalsize \hfill \textbf{Population equilibrium}\\\hfill $ c=$ transportation cost}
+{\color{green!50!black}6) $N= 2\left[\frac{\omega}{c}\right]^2$ { \hfill \textbf{\Large  Population equilibrium}}\\
+\normalsize \hfill $ c=$ transportation cost}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{}
+%   \centering \Large
+%   %\emph
+% \begin{tikzpicture}[scale=4]
+% \graph[clockwise, n=4, V={productivity, w,city extent, N}, edge={bend right=35, -stealth}] { subgraph C_n };
+% \end{tikzpicture}
+% \end{frame}
+  %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{}
-  \centering \Large
-  %\emph
-  {The model main loop:}
-  
-    %\emph
-    {three blocks}
-  
+  \centering \Huge
+  \emph{Model}  
 \end{frame}
+  %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 
 % \begin{frame}<1>
 %   \frametitle<1>{A Complicated Picture}
@@ -543,37 +585,29 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 % \end{frame}
 % \againframe<2->[plain]{zooms}
 
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{The structure of the model}
+
+
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+\begin{frame}{Economic blocks}
     \begin{tikzpicture}
-\node at (0,0){\includegraphics[scale=.14, trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
+        \node at (0,0)
+            {\includegraphics[scale=.14, 
+                trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
+        \draw[red, line width=.5mm, opacity=.2] (-2.2, 4) rectangle (2,1.5);
+        \draw[green, line width=.5mm, opacity=.4](-.3, 1.7) rectangle (3.4,-.7);        
+        \draw[blue, line width=.5mm, opacity=.2]  (-1.7, 0) rectangle (3.5, -4);
+        %\node at (5.35, -.3);
+    \end{tikzpicture}    
+\end{frame}
 
-%\only<1>{\draw (3.5,0)rectangle (7,4);}
-%\node at (4,0)[text with=2cm,  align= left] {The green boxes around the edges identify where specific theoretical components are inserted. \\The main loop has three min pieces, representing the production side, the finance sector and the housing market,. };
-% \draw [step=1,black, thin] (-3,-4) grid  (3,4);
-% \draw [step=.25,gray!50, thin] (-3,-4) grid  (3,4);
-
-
-\only<2>{
-\draw[red, line width=.5mm] (-2.2, 4)  rectangle (2,1.5);
-\node at (5.25, 3.6)[red]{\Large Alonso-Jacobs cycle};
-\node at (5.25, 2.1)[text width=3.5cm]{  Wage → \\\:Extent → \\\:\:Population → \\\:\:\:Productivity → \\\:\:\:\:Wage → };
-}  %{Alonso Model:   wage → extent → population
-% Jacobs Agglomeration: population → productivity 
-% Neoclassical Production Function:               productivity → wage }
-
-% \only<3>{
-% \draw[green, line width=1mm, fill=yellow!50, opacity=.4](-.5, 1.5) rectangle (3.2,-.7);
-% \node at (5.25, 1.5)[red]{\Large Finance/lending};
-% \node at (5.25, -.1)[text width=3.5cm]{\textbf{Two seller types}\\retirees, investors\\\textbf{Two buyer types:}\\new workers, investors };
-% }
-
-% \only<4>{
-% \draw[red, line width=1mm]  (-1.7, 0)  rectangle (3.5, -4);\node at (5.35, -.3)[red]{\Large Housing market};
-% \node at (5.5, -1.2)[text width=3.5cm]{Allocates\\ housing and rents };
-% }
-\end{tikzpicture}
-
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+\begin{frame}{}
+    \begin{tikzpicture}
+        \node at (0,0)
+        {\includegraphics[scale=.14, trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
+        \draw[red, line width=.5mm, opacity=.6] (-2.2, 4)  rectangle (2,1.5);
+        \node at (5.25, 3.6)[red]{Alonso-Jacobs cycle};
+    \end{tikzpicture}
 \end{frame}
 
 \note[enumerate]{\item }{}
@@ -596,13 +630,13 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 % \againframe<1->[noframenumbering]{zooms}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{The production system}\framesubtitle{The Alonzo-Jacobs Cycle}
+\begin{frame}{\color{red}The Alonso-Jacobs Cycle}
 % \begin{figure}[!ht]
 \vspace{-.5cm}
 \Wider[4em]{\centering
 \begin{tikzpicture}
 \draw[red, line width=1.5mm](-5,1) rectangle (5,7.5);
-\node at(0,4.5){\includegraphics[scale=.6,trim={1.cm 1.cm 1.cm 1.cm}, clip]{fig/flow-alonso-jacobs-cycle.png} };
+\node at(0,4.5){\includegraphics[scale=.29,trim={1.9cm 1.9cm 1.9cm 1.9cm}, clip]{flow_alonso-jacobs_cycle.png} };
 % \vspace{-.5cm}
  \node at (-3,1.5){ALONZO}; 
  \node at (3,1.5){JACOBS};
@@ -632,13 +666,14 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Financing buyers}
+% \begin{frame}{Financing buyers}
+\begin{frame}%{The  full structure of the model}
     \begin{tikzpicture}
 \node at (0,0){\includegraphics[scale=.14, trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
 
-\draw[green, line width=.5mm, ](-.5, 1.5) rectangle (3.2,-.7);
-\node at (5.25, 1.27)[green]{\Large Finance/lending};
-\node at (5.25, -.3)[text width=3.5cm]{\textbf{Two seller types}\\retirees, investors\\\textbf{Two buyer types:}\\new workers, investors };
+\draw[green, line width=.5mm, ](-.2, 1.5) rectangle (3.4,-.7);
+\node at (5.25, 1.27)[green]{Finance/lending};
+%\node at (5.25, -.3)[text width=3.5cm]{\textbf{Two seller types}\\retirees, investors\\\textbf{Two buyer types:}\\new workers, investors };
 % \only<4>{
 % \draw[red, line width=1mm]  (-1.7, 0)  rectangle (3.5, -4);\node at (5.35, -.3)[red]{\Large Housing market};
 % \node at (5.5, -1.2)[text width=3.5cm]{Allocates\\ housing and rents };
@@ -651,12 +686,13 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{The financialization component}
+% \begin{frame}{The financialization component}
+\begin{frame}{\color{green}Finance/lending}
 % \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}
-\draw[green, line width=1.5mm](-5,1) rectangle (5,8);
-\node at(0,4.5){\includegraphics[scale=.175,trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-financialization.png} };
+\draw[green, line width=1.7mm](-5,1) rectangle (5,8);
+\node at(0,4.5){\includegraphics[scale=.19,trim={4.3cm 3.3cm 4.3cm 3.3cm}, clip]{fig/flow-financialization.png} };
 %\draw (0,0) circle (1cm);
 \end{tikzpicture}
 %, fill=gray
@@ -668,7 +704,7 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{The distribution of housing and rents}
+\begin{frame}%{The distribution of housing and rents}
     \begin{tikzpicture}
 \node at (0,0){\includegraphics[scale=.14, trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
 
@@ -676,7 +712,6 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 % \node at (4,0)[text with=2cm,  align= left] {The green boxes around the edges identify where specific theoretical components are inserted. \\The main loop has three min pieces, representing the production side, the finance sector and the housing market,. };
 % \draw [step=1,black, thin] (-3,-4) grid  (3,4);
 % \draw [step=.25,gray!50, thin] (-3,-4) grid  (3,4);
-
 
 % \only<2>{
 % \draw[red, line width=1mm] (-2.2, 4)  rectangle (2,1.5);
@@ -693,88 +728,22 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 % }
 
 
-\draw[blue, line width=.5mm]  (-1.7, 0)  rectangle (3.5, -4);\node at (5.35, -.3)[blue]{\Large Housing market};
-\node at (5.5, -1.2)[text width=3.5cm]{Allocates\\ housing and rents };
+\draw[blue, line width=.5mm]  (-1.7, 0)  rectangle (3.5, -4);
+\node at (5.35, -.3)[blue]{ Housing market};
+%\node at (5.5, -1.2)[text width=3.5cm]{Allocates\\ housing and rents };
 
 \end{tikzpicture}
-
 \end{frame}
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Distributional model of housing market with three classes}
-
-\begin{center}
-\begin{tikzpicture}
-\node at(0,4.5){\includegraphics[scale=.12, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-impacts.png} };
-\draw[blue, line width=1.5mm, opacity=.6](-5,1) rectangle (5,8);
-%\draw (0,0) circle (1cm);
-\end{tikzpicture}
-
-
-
-
-%  \vspace{-.5cm}   
-% \includegraphics[scale=.14,trim={.5cm 1cm 0 2.5cm},clip]{fig/flow-impacts.png}
+\begin{frame}{Housing market}
+\begin{center}    \begin{tikzpicture}
+        \node at(0,4.5){\includegraphics[scale=.12, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-impacts.png} };
+        \draw[blue, line width=1.5mm, opacity=.6](-5,1) rectangle (5,8);
+        %\draw (0,0) circle (1cm);
+    \end{tikzpicture}
 \end{center}
-
-% \caption[The housing market component of the model.]{The housing market component. Financialization affects both the allocation of housing and its allocation of rents.}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-% \begin{frame}{The housing model}
-% \includegraphics[scale=.09]{fig/flow-
-% \end{frame}
-% % %----------------------------%
-
-
-
-% % %----------------------------%
-% \begin{frame}[plain]{The combined model}
-% \centering \vspace{-.15cm}
-% \resizebox{8.0cm}{!}{%
-%   \includegraphics[trim={0cm 0 0 1cm, scale=.5}, clip=]{fig/flow_full_model.png}
-%   % \begin{tikzpicture}
-%   %   \node at (0,8){The combined model}
-%   % \end{tikzpicture}
-% }
-% \end{frame}
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%. SAY 
-\begin{frame}{Program scheduling}
-%\begin{adjustbox}{max totalsize={1.2\textheight}{.7\textheight},center}
- \centering 
-\resizebox{6.0cm}{!}{%
-
-\input{ODD_schedule} 
- }
- %\end{adjustbox}
-\end{frame}
-
-
-
-
-% %----------------------------%
-\begin{frame}{}
-%\begin{adjustbox}{max totalsize={1.2\textheight}{.7\textheight},center}
- \centering 
-\resizebox{10.0cm}{!}{%
- \input{fig/ODD}
- }
- %\end{adjustbox}
-\end{frame}
-\note[enumerate]{\item This is a slightly simplified description of the program flows. (some of the accounting is hidden
-\item 4th from the top in the  main loop: Firms set wages hire, buy equipment
-\item next three population adjustments happen. On the left,  agents at the edge of the city decide whether to work in the city or not - this adjusts the city size. 
-\item in the middle, some workers decide to retire. If they have homes they list them. 
-\item  on the right, non-adjacent workers may enter the market and bid for housing 
-\item below on the right investor may bid or list their units
-\item the bank provides financing  to eligible borrowers
-\item on the left, population is updated
-\item Adjusted values are fed back}
-
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%. SAY 
 \begin{frame}{Could financialization affect urban productivity?}
@@ -792,41 +761,92 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Impact channels relating financialization and urban productivity}
 \includegraphics[scale=.09]{fig/impact-channels.png}
+
+In $Y=AN^\beta$, more investor ownership $A$ goes down 
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+\begin{frame}{Housing market}
+\begin{center}    \begin{tikzpicture}
+        \node at(0,4.5){\includegraphics[scale=.12, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-impacts.png} };
+        \draw[blue, line width=1.5mm, opacity=.6](-5,1) rectangle (5,8);
+        %\draw (0,0) circle (1cm);
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%. SAY 
+\begin{frame}{Computational sequence}
+%\begin{adjustbox}{max totalsize={1.2\textheight}{.7\textheight},center}
+ \centering 
+\resizebox{6.0cm}{!}{%
+
+\input{ODD_schedule} 
+ }
+ %\end{adjustbox}
+\end{frame}
+
+
+
+
+% %----------------------------%
+\begin{frame}{Conceptual schematic of computational model}
+%\begin{adjustbox}{max totalsize={1.2\textheight}{.7\textheight},center}
+ \centering 
+\resizebox{9.0cm}{!}{%
+ \input{fig/ODD}
+ }
+ %\end{adjustbox}
+\end{frame}
+
+\note[enumerate]{
+    \item This is a slightly simplified description of the program flows. (some of the accounting is hidden
+    \item 4th from the top in the  main loop: Firms set wages hire, buy equipment
+    \item next three population adjustments happen. On the left,  agents at the edge of the city decide whether to work in the city or not - this adjusts the city size. 
+    \item in the middle, some workers decide to retire. If they have homes they list them. 
+    \item  on the right, non-adjacent workers may enter the market and bid for housing 
+    \item below on the right investor may bid or list their units
+    \item the bank provides financing  to eligible borrowers
+    \item on the left, population is updated
+    \item Adjusted values are fed back}
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{}
   \centering \Huge
   \emph{Results}
-\vspace{1cm}
+% \vspace{1cm}
+%  outcome paths 
 
- \Large Seven compound experiments 
+% Two states of the world 
+
+%  \vspace{.5cm}
+%  \Large  policy experiments 
  
- 2-4 policy settings  
- \vspace{.5cm}
+%  2-4 policy settings  each 
 
-Seven outcome paths 
-
-Two states of the world 
+% \small
+% (aprox 290 trajectories)
 \end{frame}
 
 
 %\newcommand{\coloruncover}[3]{\temporal<#1>{\colorbox{bg}{\phantom{#3}}}{\colorbox{#2}{\phantom{#3}}}{\colorbox{bg}{#3}}}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Seven policy variables}\Large
-\begin{enumerate}%\color{red}
-\item Investor capital gains tax (CGT)
-\item Owner-occupiers capital gains tax
-\item The cost of capital%, 
-\item Transportation costs%,
-\item Urban density%, 
-\item Borrower wealth sensitivity%, 
-\item The property tax rate%,
-\end{enumerate}
+% \begin{frame}{ policy variables}\Large
+% \begin{enumerate}%\color{red}
+% \item Investor capital gains tax (CGT)
+% \item Owner-occupiers capital gains tax
+% \item The cost of capital%, 
+% \item Transportation costs%,
+% \item Urban density%, 
+% \item Borrower wealth sensitivity%, 
+% \item The property tax rate%,
+% \end{enumerate}
 
 
-\end{frame}% %
+% \end{frame}% %
 
 % \note[enumerate]{\item I want to emphasize that we are doing comparative dynamics: the outcomes are over 200 time-trajectories.
 % \item Let's jump into an example.  }
@@ -835,17 +855,36 @@ Two states of the world
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 
-\begin{frame}{Seven outcome paths, three policy settings}%: 
+\begin{frame}{ outcome paths, three policy settings}%: 
+
 %\Wider{
-\small Capital gains tax for investors, 3 values, no productivity linkage
+\small Capital gains tax for investors, 3 values, no linkage
 \begin{tikzpicture} 
 \node at (.5cm,10cm){
 \includegraphics[scale=.75, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
 
+% \node at (5.9cm,10.3){ 
+%  \begin{tabular}{|p{1.5cm}|p{1.5cm}|}
+% \multicolumn{2}{c}{\textbf{\color{blue}KEY}}\\
+%     \hline
+%   \ \newline Wage   & %, tikz
+%     \ \newline Capital stock\\ [8pt]
+%     \hline
+%     \ \newline Workforce & 
+%     \ \newline Population\\[26pt]
+%     \hline
+%     \ \newline City extent & 
+%     \ \newline Number of firms\\[16pt]
+%     \hline
+%    \ \newline Owner-occupier share &
+%    \ \newline KEY to\newline policy values\\[5pt]
+%     \hline
+%  \end{tabular}
+% };
 
 \node at (6cm,13.35){Wage,\hspace{.4cm} Capital stock};
 \node at (6cm,11.5){Workforce,\  Population};
-\node at (6.1cm,9.6){City radius,\ \  Number of firms};
+\node at (6.1cm,9.6){City extent,\ \  Number of firms};
 \node at (6cm,7.85){Owner-occupier share};
 
 \end{tikzpicture} 
@@ -853,7 +892,7 @@ Two states of the world
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Adding productivity impacts}
+\begin{frame}{\hspace{6cm}With productivity impacts}
  \centering 
 \resizebox{12.5cm}{!}{%
     \begin{tikzpicture}
@@ -869,43 +908,94 @@ Two states of the world
 \end{frame}% %
 
 %%%%%%%%%%
-\begin{frame}{Seven policy variables, seven outcome paths}
+\begin{frame}{ policy variables,  outcome paths}
 \Large
 \begin{columns}
     \begin{column}{0.5\textwidth}
-        \textbf{Seven policy variables}%\coloruncover{1}{yellow!30}{
+   
+        \textbf{ policy variables}%\coloruncover{1}{yellow!30}{
         \begin{enumerate}
-        \item Investor CGT
+        \item {Investor CGT}
         \item Owner-occupiers CGT
         \item The cost of capital%, 
         \item Transportation costs%,
         \item Urban density%, 
-        \item Wealth sensitivity%, 
+        \item Restrictive mortgage market%, 
         \item The property tax rate%,
     \end{enumerate}
+
     \end{column}
 
     \begin{column}{0.5\textwidth}
-    \textbf{Seven outcome paths}
-    \begin{enumerate}%\color{red}
-       \item Wage \item Capital stock\item
-       Workforce   \item Population \item City radius \item  Number of firms \item Owner-occupier share
-    \end{enumerate}
+    % \textbf{ \textbf{ outcome paths}
+    % \begin{enumerate}%\color{red}
+    %    \item Wage \item Capital stock\item
+    %    Workforce   \item Population \item City extent \item  Number of firms \item Owner-occupier share
+    % \end{enumerate}}
+    \only<2>{ 
+    \textbf{ \textbf{ outcome paths}}
+    \begin{tikzpicture} 
+        \node at (.5cm,10cm){
+        \includegraphics[scale=.5, trim={0 1.6cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
+    \end{tikzpicture}
+    
+    %     \textbf{ policy variables}%\coloruncover{1}{yellow!30}{
+    %     \begin{enumerate}
+    %     \item Investor CGT
+    %     \item Owner-occupiers CGT
+    %     \item The cost of capital%, 
+    %     \item Transportation costs%,
+    %     \item Urban density%, 
+    %     \item Restrictive mortgage market%, 
+    %     \item The property tax rate%,
+    % \end{enumerate}
+    }
     \end{column}
 \end{columns}
 \vspace{.3cm}
 \end{frame}% %
 
+\begin{frame}{}
+  \centering \Huge
+  
+  \emph{Experiments}
+  
+\vspace{.5cm}
+ \Large 
+ outcome paths 
 
+Two states of the world 
+
+ \vspace{.5cm}
+ \Large  policy experiments 
+ 
+ 2-4 policy settings  each 
+
+ \vspace{.5cm}
+ 
+\small
+% \Large
+(Approximately 290 trajectories)
+\end{frame}
 
 
 %%%%%$%%%%%$%%%%%%%%%$%$%$%%$
-\begin{frame}{Capital gains tax on investors with no linkage}
+\begin{frame}{A lower capital gains tax on investors: decreases owner-occupancy}
+%{With no productivity linkage a capital gains tax on speculative investors increases owner-occupancy}
+%\vspace{-.5cm}
 \begin{tikzpicture} 
 \node at (.7cm,10cm)
-{\includegraphics[scale=.8, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
- \end{tikzpicture}
+{\includegraphics[scale=.78, trim={0 1.4cm 4cm .5cm},clip]{fig/cg_tax_invest-Main-011821.pdf}};
+
+\begin{scope}[shift={(0,0.3)}]
+    \draw[red!50,line width=.75mm] (-.35,7.3) circle (1.2cm);
+    \draw[latex-,line width=1mm  ] (.4,6.75)--+(1.3,-.43)node[ right]{\Large Tenant society};
+    \draw[latex-,line width=1mm  ] (.4,7.875)--+(1.3,.1)node[ right]{\Large  Owner-occupier society};
+\end{scope}
+\end{tikzpicture}
 \end{frame}
+
+
 % \node at (6cm,13.5){Wage,\hspace{.4cm} Capital stock};
 % \node at (6cm,11.56){Workforce,\  Population};
 % \node at (6.1cm,9.6){City radius,\ \  Number of firms};
@@ -916,33 +1006,12 @@ Two states of the world
 \note[enumerate]{\item This is a set of 3  runs with the base model.
 \item The capital gains tax is set at zero 50\% and 100\%
 
-\item This is the no linkage case. Notice that changing the capital gains tax on investors has no effect on `real' variables
+\item This is the no linkage case. Notice that changing the capital gains tax on investors does not affect `real' variables
 \item and the bottom one showing the owner-occupier share of the housing stock. The financial variable affects the rate of financialization.
 \item The most significant thing is that a 100\% capital gains tax cuts investor participation to zero, 
 \item With no capital gains tax investors eventually take over the entire housing stock. 
 \item Do we want to draw policy conclusions from this?
 }
-
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Adding productivity impacts}
- \centering 
-\resizebox{12.5cm}{!}{%
-    \begin{tikzpicture}
-\node[inner sep=.5pt] (plain) at (0,0)
-    {\includegraphics[height=10cm,%width=.5\textwidth,
-    trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
-
-\node[inner sep=0pt] (link) at (6.8,0)
-    {\includegraphics[height=10cm,%width=.5\textwidth, 
-    trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
-    
-\draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
-\end{tikzpicture}
-}
-    %  \includegraphics[scale=.6, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} %\pause
-    % \includegraphics[scale=.6, trim={0 1.4cm 3.8cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
-    % \draw[color=white, fill=white] (8.3,-2.3) rectangle (12.6,-4.5);
-\end{frame}% %
 
 \note[enumerate]{\item Let's compare the result if there is feedback to productivity
 \item Now the real variables are affected
@@ -953,38 +1022,69 @@ Two states of the world
 \item With a 50\% rate financialization of the housing stock is slower. This is interesting. The slower growth reduces capital gains and makes speculation  less  profitable 
 }
 
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%%
-\begin{frame}{The model tells us that}  \Large
-\begin {itemize}[<+-|alert@+>]
- %\item In the absence of linkages between the housing market and the production sector, of the policy tools we consider, only density and transportation cost and capital gains taxation have much effect. 
- % \only<1>{\color{red}}
-\item In the presence of linkages, policy tools can have dramatically different effects %. This is a potentially very important result. 
- % \pause
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+\begin{frame}{With a productivity linkage, a lower capital gains on investors: also depresses wages, capital, and city extent}
+%{With a productivity linkage, a capital gains tax also increases wages and city size }
+ \centering 
+\resizebox{12.5cm}{!}{%
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (0,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
+\node[inner sep=0pt] (link) at (6.8,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
 
- % \only<2>{\color{red}}
-\item  A capital gains tax on speculative investment without linkage increases owner occupancy 
+ \draw[red!50,line width=.75mm] (5.6,3.7) circle (1.55cm);
+\draw[latex-latex,line width=.5mm  ] (6.3,3.28)--+(.5, 1.7)--(6.2,4);
+\node at(8.5, 4.98)[above left] {\huge Higher wages};
+%{\huge Wages lower};%};\Huge\$74,000};  
 
- % \only<2>{\color{red}}
-\item With a productivity linkage, a capital gains tax on speculation also increases wages and the size of the city
- % \pause
-  % \only<3>{\color{red}}
-\end{itemize}
-\end{frame}
+\draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
+\end{tikzpicture}
+}
+    %  \includegraphics[scale=.6, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} %\pause
+    % \includegraphics[scale=.6, trim={0 1.4cm 3.8cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf} 
+    % \draw[color=white, fill=white] (8.3,-2.3) rectangle (12.6,-4.5);
+\end{frame}% %
+
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%%
+% \begin{frame}{The model tells us that}  \Large
+% \begin {itemize}%[<+-|alert@+>]
+%  %\item In the absence of linkages between the housing market and the production sector, of the policy tools we consider, only density and transportation cost and capital gains taxation have much effect. 
+%  % \only<1>{\color{red}}
+% \item In the presence of linkages, policy tools can have dramatically different effects %. This is a potentially very important result. 
+%  % \pause
+
+%  % \only<2>{\color{red}}
+% \item  A capital gains tax on speculative investment without linkage increases owner occupancy 
+
+%  % \only<2>{\color{red}}
+% \item With a productivity linkage, a capital gains tax on speculation also increases wages and the size of the city
+%  % \pause
+%   % \only<3>{\color{red}}
+% \end{itemize}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{A capital gains tax on owner-occupiers}
+\begin{frame}{A higher capital gains tax rate on owner-occupiers than on investors crashes the economy}
  \centering 
 \resizebox{12.0cm}{!}{%
     \begin{tikzpicture}
 \node[inner sep=.5pt] (plain) at (0,0)
     {\includegraphics[height=10cm,%width=.5\textwidth,
     trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_per-000419.pdf}}; 
-
 \node[inner sep=0pt] (link) at (7.6,0)
     {\includegraphics[height=10cm,%width=.5\textwidth, 
     trim={.1cm 1.4cm 4.cm 0},clip]{fig/link-cg_tax_per-4_162706.pdf}};
     
 \draw[color=white, fill=white] (8.,-2.3) rectangle (12.6,-4.5);
+
+\draw[red!50,line width=1mm] (6.5,3.9) circle (1.55cm);
+\draw[latex-,line width=1mm  ] (7.5,3.5)--+(.5, 2); 
+\node[above]at(7,3.7 ){\huge Higher rate on owner-occupiers};%};\Huge\$74,000};
+
+% \draw[latex-,line width=1mm  ] (7.5,3.5)--+(.5,-.5)node[above right]{\huge Above investor CGT};%};\Huge\$74,000};
 \end{tikzpicture}
 }
     %  \includegraphics[scale=.55, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} %\pause
@@ -1002,7 +1102,7 @@ Two states of the world
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Summarizing other experiments} \Large
-\begin {itemize}[<+-|alert@+>]
+\begin {itemize}%[<+-|alert@+>]
 % \begin {itemize}[<alert@+>]\Large 
 
 \item  The cost of capital has surprisingly little effect on any variables in either case
@@ -1021,12 +1121,12 @@ Two states of the world
 
 % %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Summarizing results Part 2 } \Large
-\begin {itemize}[<+-|alert@+>]
+\begin {itemize}%[<+-|alert@+>]
 \item A restrictive mortgage market does not affect the production sector or city size
 
 \item  Increasing property taxes reduces owner-occupiers, but has only a small effect on city size when there is no linkage 
  
-\item  With linkage increasing property taxes depresses wages, population, and city size
+\item  With linkage, increasing property taxes depresses wages, population, and city size
 \end{itemize}
 \end{frame}% %----------------------------%
 
@@ -1037,25 +1137,23 @@ Two states of the world
   \emph{Results}
 \vspace{1cm}
 
- \Large Seven compound experiments 
+ \Large  compound experiments 
  
  2-4 policy settings  
  \vspace{.5cm}
 
-Seven outcome paths 
+ outcome paths 
 
 Two states of the world 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%%
-\begin{frame}{Changing the cost of capital for investors}
+\begin{frame}{The cost of capital for investors: surprisingly little effect on any variables in either case}
  \centering 
 \resizebox{12.0cm}{!}{%
 \begin{tikzpicture}
 \node[inner sep=.5pt] (plain) at (0,0)
     {\includegraphics[height=10cm,%width=.5\textwidth,
     trim={.3cm 1.4cm 1cm 0},clip]{fig/r_investor-Main-024857.pdf}}; 
-
-
 \node[inner sep=0pt] (link) at (6.,0)
     {\includegraphics[height=10cm,%width=.5\textwidth, 
     trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_link-r_investor-15_015646.pdf}};
@@ -1066,8 +1164,8 @@ Two states of the world
 % \draw[latex-,line width=1mm  ] (-2.1,4.5)--+(.5,.5)node[above right]{};%};\Huge\$88,000};
 
 
-\draw[red!50,line width=1mm] (4.8,3.9) circle (1.55cm);
-\draw[latex-,line width=1mm  ] (5.8,4.5)--+(.5,.5)node[above right]{\huge Wages lower};%};\Huge\$74,000};
+% \draw[red!50,line width=1mm] (4.8,3.9) circle (1.55cm);
+% \draw[latex-,line width=1mm  ] (5.8,4.5)--+(.5, .7)node[above ]{\huge Wages lower as usual};%};\Huge\$74,000};
 
 %\draw[fill=yellow, line width=.25mm] (0,0) rectangle (-1.,2.5);
 %\draw[red!90, line width=1mm] (8.4,1.35) circle (1.75cm);
@@ -1084,7 +1182,9 @@ Two states of the world
 }
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Transportation costs}
+\begin{frame}{Low transportation costs with financial system
+spillovers induce 
+cyclical behaviour}
  \centering 
 \resizebox{11.0cm}{!}{%
 \begin{tikzpicture}
@@ -1112,27 +1212,28 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 \item The surprise here is that with feedback, lower transportation costs induce oscillations.
 % \item What seems to be happening is that low transportation costs make the size of the city very sensitive to wage changes. A small rise adds many people and a sharp increase in investor ownership. This reduces productivity and drives down the wage and leads to a drop in speculation. 
 }
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Relaxing density restrictions}
- \centering 
-\resizebox{11.5cm}{!}{%
-   \begin{tikzpicture}
-\node[inner sep=.5pt] (plain) at (-2,0)
-    {\includegraphics[height=10cm,%width=.5\textwidth,
-    trim={.2cm 1.4cm 1cm 0},clip]{fig/density-Main-123417.pdf}}; 
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{Relaxing density restrictions increases the population but
+% does not affect wages or city extent}
+%  \centering 
+% \resizebox{11.5cm}{!}{%
+%    \begin{tikzpicture}
+% \node[inner sep=.5pt] (plain) at (-2,0)
+%     {\includegraphics[height=10cm,%width=.5\textwidth,
+%     trim={.2cm 1.4cm 1cm 0},clip]{fig/density-Main-123417.pdf}}; 
 
-\node[inner sep=0pt] (link) at (5.5,0)
-    {\includegraphics[height=10cm,%width=.5\textwidth, 
-    trim={0cm 1.4cm 3.5cm 0},clip]{fig/With-productivity_link-density-023044.pdf}};
+% \node[inner sep=0pt] (link) at (5.5,0)
+%     {\includegraphics[height=10cm,%width=.5\textwidth, 
+%     trim={0cm 1.4cm 3.5cm 0},clip]{fig/With-productivity_link-density-023044.pdf}};
     
-\draw[color=white, fill=white] (6,-2.3) rectangle (10.2,-4.5);
+% \draw[color=white, fill=white] (6,-2.3) rectangle (10.2,-4.5);
 
-%\draw[red!50,line width=1mm] (-3.6,-1) circle (1.65cm);
-%\draw[latex-,line width=1mm  ] (-2.1,4.5)--+(.5,.5)node[above right]{\Huge\$88,000};
+% %\draw[red!50,line width=1mm] (-3.6,-1) circle (1.65cm);
+% %\draw[latex-,line width=1mm  ] (-2.1,4.5)--+(.5,.5)node[above right]{\Huge\$88,000};
 
-\end{tikzpicture}
-}
-\end{frame}% 
+% \end{tikzpicture}
+% }
+% \end{frame}% 
 
 \note[enumerate]
 {
@@ -1140,14 +1241,15 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 
 \item The dashed line is low the solid line is higher density 
 
-\item Without a productivity linkage the change increase population but not wages or city extent.  
+\item Without a productivity linkage the change increases population but not wages or city extent.  
 
 \item with a productivity linkage wages are lower the city is smaller and we see signs of a financial boom-bust cycle.
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{The wealth sensitivity parameter}
+\begin{frame}{A restrictive mortgage market does not affect
+the production sector or city size}
  \centering 
 \resizebox{12.0cm}{!}{%
 \begin{tikzpicture}
@@ -1170,7 +1272,8 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 }
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{The property tax rate}
+\begin{frame}{High and low property taxes with no linkage reduces
+owner-occupancy, and reduce city size }
  \centering 
 \resizebox{11.5cm}{!}{%
     \begin{tikzpicture}
@@ -1186,7 +1289,7 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 
 
 \draw[red!50,line width=1mm] (-4.1,-3.4) circle (1.65cm);
-\draw[latex-,line width=1mm  ] (-3,-3.6)--+(1,-.8)node[ right]{\huge Crossover};
+\draw[latex-,line width=1mm  ] (-3,-3.6)--+(1,-.8)node[below right]{\huge Reversing effect};
 \end{tikzpicture}
 }
 \end{frame}% 
@@ -1196,11 +1299,12 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 
 \item Both high and low rates appear to favour investors compared to what I think is a roughly realistic value. 
 
-\item \textbf{CROSSOVER: I think very low rates subsidize investors and very high rates push out some owner-occupiers.} 
+\item \textbf{REVERSING: I think very low rates subsidize investors and very high rates push out some owner-occupiers.} 
 }
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{A 25-year reduction in the investor capital gains  tax}
+\begin{frame}{Even short term shocks can have a long term impact}
+%{A 25-year reduction in the investor capital gains  tax}
  \centering 
 \resizebox{9.0cm}{!}{%
     \begin{tikzpicture}
@@ -1264,43 +1368,49 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 %  \end{minipage}
 %   \end{center}
 % \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centering \Huge
+  \emph{Final comments}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Final comments}
  \begin{itemize} \Large
 \item There is a gap in economic theory around who gets urban rents and why that matters
-\item I partly bridge this gap by combining from several  fields:
+\item I partly bridge this gap by combining from several  fields
 
-    \begin{enumerate}\item Jacobs agglomeration
-    
-    \item The scale literature 
-    
-    \item Neoclassical growth theory
-    
-    \item Neoclassical production theories
-    
-    \item Alonso-style urban analysis
-    
-    \item Ricardian rent theory
-    \end{enumerate}
+% \begin{center}
+%   \hspace{2cm} \begin{enumerate}\large
+%     \item Jacobs agglomeration
+%     \item The scale literature 
+%     \item Neoclassical growth theory    
+%     \item Neoclassical production theories    
+%     \item Alonso-style urban analysis    
+%     \item Ricardian rent theory
+%     \end{enumerate}
+% \end{center}
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{} 
-
-\begin{itemize} \Large
-\item The model is modular and extensible
-\item It allows us to explore a variety of policy interventions 
-\item It tells us that: 
-\begin{enumerate}
-    \item Financial interests are likely to take over much of the land and capture much of the surplus generated by the city
-    \item The capture of urban value by financial actors affects the social class and may affect urban productivity
-    \item Public policies will have different effects if financialization affects productivity
-    \end{enumerate}
+\begin{frame}{The biggest takeaways} 
+\Large
+\begin{itemize}[<+-|alert@+>]
+    \item Financial interests are likely to take over much of the land in the city and capture much of the surplus generated by the city
+    \item This changes the nature and class structure of society
+    % \item As a general principle, public policies will have different effects if financialization affects productivity
+    % \item  It may affect urban productivity
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}
-  \centering \Large
+  \centering \Huge
+% These observations are far too important to leave on the table.
+
+%   \vspace{2cm}
   \emph{Thank You!}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
