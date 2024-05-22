@@ -86,24 +86,25 @@
 } %end background inclusion
 
 {\setbeamertemplate{footline}{}
-\begin{frame}[noframenumbering]
- %{INTRO TO SCALE - E.G.}
-\color{black!35!blue} % textcolor
 
-%\contour{black}{\protect\textcolor{yellow}  {
-\Large 
-``Cities are the crucible of civilization, the hubs of innovation, .. the magnets that attract creative individuals, and the stimulant for ideas, growth, and innovation'' %}}
+% \begin{frame}[noframenumbering]
+%  %{INTRO TO SCALE - E.G.}
+% \color{black!35!blue} % textcolor
 
-\vspace{-0.3cm}\hfill Geoffrey West
+% %\contour{black}{\protect\textcolor{yellow}  {
+% \Large 
+% ``Cities are the crucible of civilization, the hubs of innovation, .. the magnets that attract creative individuals, and the stimulant for ideas, growth, and innovation'' %}}
 
-\hspace{4cm}yet
-\vspace{.2cm}
+% \vspace{-0.3cm}\hfill Geoffrey West
 
-"land is always far cheaper outside cities than inside. .. If we postulate only the usual list of economic forces, cities should fly apart.”
+% \hspace{4cm}yet
+% \vspace{.2cm}
 
-\hfill Robert E. Lucas Jr.
+% "land is always far cheaper outside cities than inside. .. If we postulate only the usual list of economic forces, cities should fly apart.”
 
-\end{frame}
+% \hfill Robert E. Lucas Jr.
+
+% \end{frame}
 }
 }% end region background is operating
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
@@ -153,7 +154,7 @@ the capture of flows of surplus by financial actors.}
 
 \begin{frame}{}
   \centering \Huge
-  \emph{Model}
+  \emph{Rent}
   
     %\emph
     % {three blocks}
@@ -198,6 +199,10 @@ the capture of flows of surplus by financial actors.}
 \end{itemize}
 \end{frame}
 
+% \begin{frame}{}
+%   \centering \Huge
+%   \emph{Industrialization}  
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Urban rent theory}
 \begin{itemize}\Large
@@ -296,33 +301,63 @@ the capture of flows of surplus by financial actors.}
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-{    %. the whole frame is enclosed
-\usebackgroundtemplate{
-\tikz[overlay,remember picture] \node[opacity=0.35, at=(current page.center)]
-   {\includegraphics[width=\paperwidth, height=\paperheight]%%{Toronto.jpg}  %% orange!35!black
-   {crane.png}      % green!35!black
-   %{constuction.png}% yellow!35!black
-   }; %end tikz command
-} %end background inclusion
+% {    %. the whole frame is enclosed
+% \usebackgroundtemplate{
+% \tikz[overlay,remember picture] \node[opacity=0.35, at=(current page.center)]
+%    {\includegraphics[width=\paperwidth, height=\paperheight]%%{Toronto.jpg}  %% orange!35!black
+%    {crane.png}      % green!35!black
+%    %{constuction.png}% yellow!35!black
+%    }; %end tikz command
+% } %end background inclusion
 
-\begin{frame} %{INTRO TO SCALE - E.G.}
-\color{black!35!blue} % textcolor
+% \begin{frame} %{INTRO TO SCALE - E.G.}
+% \color{black!35!blue} % textcolor
 
-%\contour{black}{\protect\textcolor{yellow}  {
-\Large 
-``Cities are the crucible of civilization, the hubs of innovation, .. the magnets that attract creative individuals, and the stimulant for ideas, growth, and innovation'' %}}
+% %\contour{black}{\protect\textcolor{yellow}  {
+% \Large 
+% "land is always far cheaper outside cities than inside. .. If we postulate only the usual list of economic forces, cities should fly apart.”
 
-\vspace{-0.3cm}\hfill Geoffrey West
+% \hfill Robert E. Lucas Jr.
 
-\hspace{4cm}yet
-\vspace{.2cm}
 
-"land is always far cheaper outside cities than inside. .. If we postulate only the usual list of economic forces, cities should fly apart.”
+% \vspace{.3cm}
+% \uncover<2->{%{%
 
-\hfill Robert E. Lucas Jr.
+% \Huge \hspace{4cm}yet
+% \vspace{.6cm}
+
+% \Large 
+% ``Cities are the crucible of civilization, the hubs of innovation, .. the magnets that attract creative individuals, and the stimulant for ideas, growth, and innovation'' %}}
+
+% \vspace{-0.3cm}\hfill Geoffrey West
+% }
+
+% \end{frame}
+% } % end region background is operating
+
+
+
+\begin{frame}{}
+\color{black!35!blue}
+    \Large 
+    "land is always far cheaper outside cities than inside. .. If we postulate only the usual list of economic forces, cities should fly apart.”
+    
+    \vspace{.4cm}
+    
+    \hfill Robert E. Lucas Jr.
 
 \end{frame}
-} % end region background is operating
+
+\begin{frame}{}
+\color{black!35!blue}
+
+    \Large 
+    ``Cities are the crucible of civilization, the hubs of innovation, .. the magnets that attract creative individuals, and the stimulant for ideas, growth, and innovation''
+
+    \vspace{-0.01cm}
+    \hfill Geoffrey West
+
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
@@ -478,6 +513,11 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 
 
+\begin{frame}{}
+  \centering 
+  {\Huge Firm  $\longleftrightarrow$ City}
+\end{frame}
+
 
 \begin{frame}{Formally modelling production and growth with DRS firms and IRS cities}
 % - TODO FIX SUBSCRIPT AND HIGHLIGHT }%{Production and the city}
@@ -529,10 +569,6 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 \begin{frame}{}
   \centering 
   {\Huge Productivity  $\longleftrightarrow$ Population}
-  
-    %\emph
-    % {three blocks}
-  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
@@ -567,11 +603,15 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 % \graph[clockwise, n=4, V={productivity, w,city extent, N}, edge={bend right=35, -stealth}] { subgraph C_n };
 % \end{tikzpicture}
 % \end{frame}
-  %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{}
-  \centering \Huge
-  \emph{Model}  
+  \centering 
+  {\Huge Productivity  $\longleftrightarrow$ Population}
 \end{frame}
+
+
   %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 
 % \begin{frame}<1>
@@ -593,9 +633,9 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
         \node at (0,0)
             {\includegraphics[scale=.14, 
                 trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
-        \draw[red, line width=.5mm, opacity=.2] (-2.2, 4) rectangle (2,1.5);
-        \draw[green, line width=.5mm, opacity=.4](-.3, 1.7) rectangle (3.4,-.7);        
-        \draw[blue, line width=.5mm, opacity=.2]  (-1.7, 0) rectangle (3.5, -4);
+        \draw[red, line width=.5mm, opacity=.3] (-2.2, 4) rectangle (2,1.5);
+        \draw[green, line width=.5mm, opacity=.5](-.3, 1.7) rectangle (3.4,-.7);        
+        \draw[blue, line width=.5mm, opacity=.3]  (-1.7, 0) rectangle (3.5, -4);
         %\node at (5.35, -.3);
     \end{tikzpicture}    
 \end{frame}
@@ -605,7 +645,7 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
     \begin{tikzpicture}
         \node at (0,0)
         {\includegraphics[scale=.14, trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
-        \draw[red, line width=.5mm, opacity=.6] (-2.2, 4)  rectangle (2,1.5);
+        \draw[red, line width=.5mm, opacity=.7] (-2.2, 4)  rectangle (2,1.5);
         \node at (5.25, 3.6)[red]{Alonso-Jacobs cycle};
     \end{tikzpicture}
 \end{frame}
@@ -738,7 +778,7 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Housing market}
 \begin{center}    \begin{tikzpicture}
-        \node at(0,4.5){\includegraphics[scale=.12, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-impacts.png} };
+        \node at(0,4.5){\includegraphics[scale=.24, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{flow_impacts.png}};
         \draw[blue, line width=1.5mm, opacity=.6](-5,1) rectangle (5,8);
         %\draw (0,0) circle (1cm);
     \end{tikzpicture}
@@ -746,7 +786,7 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%. SAY 
-\begin{frame}{Could financialization affect urban productivity?}
+\begin{frame}{How would financialization affect urban productivity?}
 % \vspace{-.75cm}\Large Surplus is captured by financial sector
 \vspace{.75cm}
 \begin{itemize}\Large
@@ -762,19 +802,19 @@ where $A=A^{firm}F^{1-\alpha-\beta}z^\alpha$, and  $k=zn$)
 \begin{frame}{Impact channels relating financialization and urban productivity}
 \includegraphics[scale=.09]{fig/impact-channels.png}
 
-In $Y=AN^\beta$, more investor ownership $A$ goes down 
+To model a linkage I let rising investor ownership reduce $A$ in the urban production function.
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Housing market}
-\begin{center}    \begin{tikzpicture}
-        \node at(0,4.5){\includegraphics[scale=.12, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-impacts.png} };
-        \draw[blue, line width=1.5mm, opacity=.6](-5,1) rectangle (5,8);
-        %\draw (0,0) circle (1cm);
-    \end{tikzpicture}
-\end{center}
-\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{Housing market}
+% \begin{center}    \begin{tikzpicture}
+%         \node at(0,4.5){\includegraphics[scale=.12, trim={2.75cm 2.75cm 2.75cm 2.75cm}, clip]{fig/flow-impacts.png} };
+%         \draw[blue, line width=1.5mm, opacity=.6](-5,1) rectangle (5,8);
+%         %\draw (0,0) circle (1cm);
+%     \end{tikzpicture}
+% \end{center}
+% \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%. SAY 
@@ -813,26 +853,48 @@ In $Y=AN^\beta$, more investor ownership $A$ goes down
     \item Adjusted values are fed back}
 
 
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{}
+%   \centering \Huge
+%   \emph{Results}
+
+% % (aprox 290 trajectories)
+% \end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+\begin{frame}{Economic blocks}
+    \begin{tikzpicture}
+        \node at (0,0)
+            {\includegraphics[scale=.14, 
+                trim={1cm 1cm 1cm 1cm}, clip]{flow_full_model.png}};
+        \draw[red, line width=.5mm, opacity=.2] (-2.2, 4) rectangle (2,1.5);
+        \draw[green, line width=.5mm, opacity=.4](-.3, 1.7) rectangle (3.4,-.7);        
+        \draw[blue, line width=.5mm, opacity=.2]  (-1.7, 0) rectangle (3.5, -4);
+        %\node at (5.35, -.3);
+    \end{tikzpicture}    
+\end{frame}
+
+%%%%%$%%%%%$%%%%%%%%%$%$%$%%$
 \begin{frame}{}
-  \centering \Huge
-  \emph{Results}
-% \vspace{1cm}
-%  outcome paths 
+\centering \Huge  \emph{Experiments} \vspace{5mm}
 
-% Two states of the world 
+\vspace{.05cm}
 
-%  \vspace{.5cm}
-%  \Large  policy experiments 
+\small Testing the model  
+
+
+\vspace{.5cm}  \Large  Seven outcome paths 
+
+Two states of the world  \vspace{.5cm}
+
+ \Large  7 policies 
  
-%  2-4 policy settings  each 
-
-% \small
-% (aprox 290 trajectories)
+ 2-4 policy settings  each 
+ 
+ \vspace{.5cm} \small (Approximately 290 trajectories)
 \end{frame}
 
 
-%\newcommand{\coloruncover}[3]{\temporal<#1>{\colorbox{bg}{\phantom{#3}}}{\colorbox{#2}{\phantom{#3}}}{\colorbox{bg}{#3}}}
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 % \begin{frame}{ policy variables}\Large
 % \begin{enumerate}%\color{red}
@@ -855,175 +917,106 @@ In $Y=AN^\beta$, more investor ownership $A$ goes down
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 
-\begin{frame}{ outcome paths, three policy settings}%: 
+% \begin{frame} {Example: Seven outcome paths, three policy settings}%: 
+% %\begin{frame} {Example: }
+% %{\small outcome paths, three policy settings}%: 
+% %\small Capital gains tax for investors, 3 values, no linkage
+% \begin{tikzpicture} 
+% \node at (.5cm,10cm){
+% \includegraphics[scale=.75, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
 
-%\Wider{
-\small Capital gains tax for investors, 3 values, no linkage
-\begin{tikzpicture} 
-\node at (.5cm,10cm){
-\includegraphics[scale=.75, trim={0 1.4cm 4cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
+% % \node at (5.9cm,10.3){ 
+% %  \begin{tabular}{|p{1.5cm}|p{1.5cm}|}
+% % \multicolumn{2}{c}{\textbf{\color{blue}KEY}}\\
+% %     \hline
+% %   \ \newline Wage   & %, tikz
+% %     \ \newline Capital stock\\ [8pt]
+% %     \hline
+% %     \ \newline Workforce & 
+% %     \ \newline Population\\[26pt]
+% %     \hline
+% %     \ \newline City extent & 
+% %     \ \newline Number of firms\\[16pt]
+% %     \hline
+% %    \ \newline Owner-occupier share &
+% %    \ \newline KEY to\newline policy values\\[5pt]
+% %     \hline
+% %  \end{tabular}
+% % };
+% \only<1>{
+% \begin{scope}[shift={(.49,5.9)}]
+%  \draw[red](-3.6,8)--(3,8)--(3,6)node[above right]{\huge Firm variables}--(0,6)--(0,4)--(-3.6,4)--cycle;   
+% \end{scope}
 
-% \node at (5.9cm,10.3){ 
-%  \begin{tabular}{|p{1.5cm}|p{1.5cm}|}
-% \multicolumn{2}{c}{\textbf{\color{blue}KEY}}\\
-%     \hline
-%   \ \newline Wage   & %, tikz
-%     \ \newline Capital stock\\ [8pt]
-%     \hline
-%     \ \newline Workforce & 
-%     \ \newline Population\\[26pt]
-%     \hline
-%     \ \newline City extent & 
-%     \ \newline Number of firms\\[16pt]
-%     \hline
-%    \ \newline Owner-occupier share &
-%    \ \newline KEY to\newline policy values\\[5pt]
-%     \hline
-%  \end{tabular}
-% };
+% \begin{scope}[shift={(.49, .3)}]
+%  \draw[blue](-3.6,8)--(0,8)--(0,5.8)node[above right]{\huge Housing market}--(-3.6,5.8)--cycle;   
+% \end{scope}
+% }
+% \only<2>{
+% \normalsize
+% \node at (6cm,13.35){Wage,\hspace{.4cm} Capital stock};
+% \node at (6cm,11.5){Workforce,\  Population};
+% \node at (6.1cm,9.6){City extent,\ \  Number of firms};
+% \node at (6cm,7.85){Owner-occupier share};
+% }
+% \pause
 
-\node at (6cm,13.35){Wage,\hspace{.4cm} Capital stock};
-\node at (6cm,11.5){Workforce,\  Population};
-\node at (6.1cm,9.6){City extent,\ \  Number of firms};
-\node at (6cm,7.85){Owner-occupier share};
+% \only<3>{\begin{scope}[shift={(-.3,.1)}]
+%     \draw[red!50,line width=.75mm] (-.35,7.3) circle (1.2cm);
+%     \draw[latex-,line width=1mm  ] (.4,6.75)--+(1.3,-.43)node[ right]{\Large Tenant society};
+%     \draw[latex-,line width=1mm  ] (.4,7.875)--+(1.3,.15)node[ right]{\Large  Owner-occupier society};
+% \end{scope}
+% }
+% \end{tikzpicture} 
+% %}
+% \end{frame}
 
-\end{tikzpicture} 
-%}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{\hspace{6cm}With productivity impacts}
- \centering 
-\resizebox{12.5cm}{!}{%
-    \begin{tikzpicture}
-\node[inner sep=.5pt] (plain) at (0,0)
-    {\includegraphics[height=10cm,%width=.5\textwidth,
-    trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
-\node[inner sep=0pt] (link) at (6.8,0)
-    {\includegraphics[height=10cm,%width=.5\textwidth, 
-    trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};   
-\draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
-\end{tikzpicture}
-}   
-\end{frame}% %
-
-%%%%%%%%%%
-\begin{frame}{ policy variables,  outcome paths}
-\Large
-\begin{columns}
-    \begin{column}{0.5\textwidth}
-   
-        \textbf{ policy variables}%\coloruncover{1}{yellow!30}{
-        \begin{enumerate}
-        \item {Investor CGT}
-        \item Owner-occupiers CGT
-        \item The cost of capital%, 
-        \item Transportation costs%,
-        \item Urban density%, 
-        \item Restrictive mortgage market%, 
-        \item The property tax rate%,
-    \end{enumerate}
-
-    \end{column}
-
-    \begin{column}{0.5\textwidth}
-    % \textbf{ \textbf{ outcome paths}
-    % \begin{enumerate}%\color{red}
-    %    \item Wage \item Capital stock\item
-    %    Workforce   \item Population \item City extent \item  Number of firms \item Owner-occupier share
-    % \end{enumerate}}
-    \only<2>{ 
-    \textbf{ \textbf{ outcome paths}}
-    \begin{tikzpicture} 
-        \node at (.5cm,10cm){
-        \includegraphics[scale=.5, trim={0 1.6cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
-    \end{tikzpicture}
-    
-    %     \textbf{ policy variables}%\coloruncover{1}{yellow!30}{
-    %     \begin{enumerate}
-    %     \item Investor CGT
-    %     \item Owner-occupiers CGT
-    %     \item The cost of capital%, 
-    %     \item Transportation costs%,
-    %     \item Urban density%, 
-    %     \item Restrictive mortgage market%, 
-    %     \item The property tax rate%,
-    % \end{enumerate}
-    }
-    \end{column}
-\end{columns}
-\vspace{.3cm}
-\end{frame}% %
-
-\begin{frame}{}
-  \centering \Huge
-  
-  \emph{Experiments}
-  
-\vspace{.5cm}
- \Large 
- outcome paths 
-
-Two states of the world 
-
- \vspace{.5cm}
- \Large  policy experiments 
- 
- 2-4 policy settings  each 
-
- \vspace{.5cm}
- 
-\small
-% \Large
-(Approximately 290 trajectories)
-\end{frame}
-
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{\hspace{6cm}With productivity impacts}
+%  \centering 
+% \resizebox{12.5cm}{!}{%
+%     \begin{tikzpicture}
+% \node[inner sep=.5pt] (plain) at (0,0)
+%     {\includegraphics[height=10cm,%width=.5\textwidth,
+%     trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
+% \node[inner sep=0pt] (link) at (6.8,0)
+%     {\includegraphics[height=10cm,%width=.5\textwidth, 
+%     trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};   
+% \draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
+% \end{tikzpicture}
+% }   
+% \end{frame}% %
 
 %%%%%$%%%%%$%%%%%%%%%$%$%$%%$
-\begin{frame}{A lower capital gains tax on investors: decreases owner-occupancy}
+\begin{frame}{Seven outcome paths} %{A lower capital gains tax on investors: decreases owner-occupancy}
 %{With no productivity linkage a capital gains tax on speculative investors increases owner-occupancy}
 %\vspace{-.5cm}
 \begin{tikzpicture} 
 \node at (.7cm,10cm)
 {\includegraphics[scale=.78, trim={0 1.4cm 4cm .5cm},clip]{fig/cg_tax_invest-Main-011821.pdf}};
 
-\begin{scope}[shift={(0,0.3)}]
-    \draw[red!50,line width=.75mm] (-.35,7.3) circle (1.2cm);
-    \draw[latex-,line width=1mm  ] (.4,6.75)--+(1.3,-.43)node[ right]{\Large Tenant society};
-    \draw[latex-,line width=1mm  ] (.4,7.875)--+(1.3,.1)node[ right]{\Large  Owner-occupier society};
-\end{scope}
+\only<1>{
+\node at (6cm,13.5){Wage,\hspace{.4cm} Capital stock};
+\node at (6cm,11.56){Workforce,\  Population};
+\node at (6.1cm,9.6){City radius,\ \  Number of firms};
+\node at (6cm,7.7){Owner-occupier share};
+}
+
+
+% \only<2>{
+% \node [red] at (6,0){\huge A result};
+% \begin{scope}[shift={(0,0.3)}]
+%     \draw[red!50,line width=.75mm] (-.35,7.3) circle (1.2cm);
+%     \draw[latex-,line width=1mm  ] (.4,6.75)--+(1.3,-.43)node[ right]{\Large Tenant society};
+%     \draw[latex-,line width=1mm  ] (.4,7.875)--+(1.3,.1)node[ right]{\Large  Owner-occupier society};
+% \end{scope}
+% }
 \end{tikzpicture}
 \end{frame}
 
 
-% \node at (6cm,13.5){Wage,\hspace{.4cm} Capital stock};
-% \node at (6cm,11.56){Workforce,\  Population};
-% \node at (6.1cm,9.6){City radius,\ \  Number of firms};
-% \node at (6cm,7.7){Owner-occupier share};
-
-
-
-\note[enumerate]{\item This is a set of 3  runs with the base model.
-\item The capital gains tax is set at zero 50\% and 100\%
-
-\item This is the no linkage case. Notice that changing the capital gains tax on investors does not affect `real' variables
-\item and the bottom one showing the owner-occupier share of the housing stock. The financial variable affects the rate of financialization.
-\item The most significant thing is that a 100\% capital gains tax cuts investor participation to zero, 
-\item With no capital gains tax investors eventually take over the entire housing stock. 
-\item Do we want to draw policy conclusions from this?
-}
-
-\note[enumerate]{\item Let's compare the result if there is feedback to productivity
-\item Now the real variables are affected
-\item With a 100\% tax the real economy follows the no spillover path a 100\% tax \textbf{insulates the economy} against the feedback.
-\item We see rising tenantization reducing productivity, which pulls down the wage, which reduces city size.
-\item With no capital gains tax on housing speculation, the economy crashes
-\item complete financialization of the housing stock happens faster. 
-\item With a 50\% rate financialization of the housing stock is slower. This is interesting. The slower growth reduces capital gains and makes speculation  less  profitable 
-}
-
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{With a productivity linkage, a lower capital gains on investors: also depresses wages, capital, and city extent}
+\begin{frame}{\hspace{6cm}With a productivity linkage}%, a lower capital gains on investors: also depresses wages, capital, and city extent}
 %{With a productivity linkage, a capital gains tax also increases wages and city size }
  \centering 
 \resizebox{12.5cm}{!}{%
@@ -1035,12 +1028,40 @@ Two states of the world
     {\includegraphics[height=10cm,%width=.5\textwidth, 
     trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
 
- \draw[red!50,line width=.75mm] (5.6,3.7) circle (1.55cm);
-\draw[latex-latex,line width=.5mm  ] (6.3,3.28)--+(.5, 1.7)--(6.2,4);
-\node at(8.5, 4.98)[above left] {\huge Higher wages};
+\draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
+
+
+% \only<1>{
+%  \draw[red!50,line width=.75mm] (5.6,3.7) circle (1.55cm);
+% \draw[latex-latex,line width=.5mm  ] (6.3,3.28)--+(.5, 1.7)--(6.2,4);
+% \node at(9, 5.2)[above left] {\huge Lower wages};
+
+%  \draw[gray, dashed, line width=.75mm] (-3,3.7) circle (1.55cm);
+% }
 %{\huge Wages lower};%};\Huge\$74,000};  
 
-\draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
+% \only<1-2>{
+%  \draw[red!50,line width=.75mm] (5.6,3.7) circle (1.55cm);
+%  }
+% \only<1>{
+% \draw[latex-,line width=.5mm  ] (6.3,3.28)--+(.8, 1.8);
+% \draw[latex-,line width=.5mm  ] (5.8,4)--+(-4, 1.3);
+% \node at(9, 5.2)[above left] {\huge 50\% CGT\hspace{2mm}  Lower wages\hspace{2mm} 0\% CGT};
+% }
+
+% \only<2>{
+% \draw[red,line width=.75mm, ] (9.5,1.6) circle (1.55cm);
+% \node at(6, 5.2)[above left] {\huge Lower wage for fewer workers} ;
+% \draw[-latex,line width=.5mm  ] (6, 5.6)--+(1.5,0)--(6.5, 4);
+% \draw[-latex,line width=.5mm  ] (7.5,5.6)--+(2.2, -4.1);
+% }
+%{\hu
+% \only<3>{
+% \draw[gray,line width=.75mm, ] (5.6,-1) circle (1.2cm);
+% \draw[gray,line width=.75mm, ] (9.5,-1) circle (1.2cm);
+% \draw[gray,line width=.75mm, ] (9.5,1.6) circle (1.25cm);
+% \node at(10.4, 4.8)[above left] {\huge Lower population, smaller city, fewer firms};
+% }
 \end{tikzpicture}
 }
     %  \includegraphics[scale=.6, trim={0 1.4cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf} %\pause
@@ -1066,6 +1087,129 @@ Two states of the world
 % \end{itemize}
 % \end{frame}
 
+%%%%%%%%%%
+\begin{frame}{Seven policy variables, \only<2>{\hspace{2cm}Seven outcome paths}}
+\Large
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+   
+        \textbf{Policy variables}%\coloruncover{1}{yellow!30}{
+        \begin{enumerate}
+        \item {Investor CGT}
+        \item Owner-occupiers CGT
+        \item The cost of capital%, 
+        \item Transportation costs%,
+        \item Urban density%, 
+        \item Restrictive mortgage market%, 
+        \item The property tax rate%,
+    \end{enumerate}
+
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+    % \textbf{ \textbf{ outcome paths}
+    % \begin{enumerate}%\color{red}
+    %    \item Wage \item Capital stock\item
+    %    Workforce   \item Population \item City extent \item  Number of firms \item Owner-occupier share
+    % \end{enumerate}}
+    \only<2>{ 
+    \textbf{ \textbf{Outcome paths}}
+    \begin{tikzpicture} 
+        \node at (.5cm,10cm){
+        \includegraphics[scale=.5, trim={0 1.6cm 4.5cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}};
+    \end{tikzpicture}
+    
+    %     \textbf{ policy variables}%\coloruncover{1}{yellow!30}{
+    %     \begin{enumerate}
+    %     \item Investor CGT
+    %     \item Owner-occupiers CGT
+    %     \item The cost of capital%, 
+    %     \item Transportation costs%,
+    %     \item Urban density%, 
+    %     \item Restrictive mortgage market%, 
+    %     \item The property tax rate%,
+    % \end{enumerate}
+    }
+    \end{column}
+\end{columns}
+\vspace{.3cm}
+\end{frame}% %
+
+
+%%%%%$%%%%%$%%%%%%%%%$%$%$%%$
+\begin{frame}{A lower capital gains tax on investors: decreases owner-occupancy}
+%{With no productivity linkage a capital gains tax on speculative investors increases owner-occupancy}
+%\vspace{-.5cm}
+\begin{tikzpicture} 
+\node at (.7cm,10cm)
+{\includegraphics[scale=.78, trim={0 1.4cm 4cm .5cm},clip]{fig/cg_tax_invest-Main-011821.pdf}};
+
+
+% \only<2>{
+\node [red] at (6,0){\huge A result};
+\begin{scope}[shift={(0,0.3)}]
+    \draw[red!50,line width=.65mm] (-.35,7.3) circle (1.2cm);
+    \draw[latex-,line width=.65mm  ] (.4,6.75)--+(1.3,-.43)node[ right]{\Large Tenant society};
+    \draw[latex-,line width=.65mm  ] (.4,7.875)--+(1.3,.1)node[ right]{\Large  Owner-occupier society};
+\end{scope}
+% }
+\end{tikzpicture}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+\begin{frame}{With a productivity linkage a lower capital gains on investors: also depresses wages, capital, and city extent}
+%{With a productivity linkage, a capital gains tax also increases wages and city size }
+ \centering 
+\resizebox{12.5cm}{!}{%
+    \begin{tikzpicture}
+\node[inner sep=.5pt] (plain) at (0,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth,
+    trim={.3cm 1.4cm 1cm 0},clip]{fig/cg_tax_invest-Main-011821.pdf}}; 
+\node[inner sep=0pt] (link) at (6.8,0)
+    {\includegraphics[height=10cm,%width=.5\textwidth, 
+    trim={.1cm 1.4cm 4.cm 0},clip]{fig/With-productivity_linkcg_tax_invest-232204.pdf}};
+
+\draw[color=white, fill=white] (7,-2.3) rectangle (12.6,-4.5);
+
+
+% \only<1>{
+%  \draw[red!50,line width=.75mm] (5.6,3.7) circle (1.55cm);
+% \draw[latex-latex,line width=.5mm  ] (6.3,3.28)--+(.5, 1.7)--(6.2,4);
+% \node at(9, 5.2)[above left] {\huge Lower wages};
+
+%  \draw[gray, dashed, line width=.75mm] (-3,3.7) circle (1.55cm);
+% }
+%{\huge Wages lower};%};\Huge\$74,000};  
+
+% \only<1-2>{
+%  
+%  }
+\only<1>{
+\draw[red!50,line width=.75mm] (5.6,3.7) circle (1.55cm);
+\draw[latex-latex,line width=.5mm  ] (6.3,3.28)--+(.8, 1.8)--(6,4);
+% \draw[latex-,line width=.5mm  ] (5.8,4)--+(-4, 1.3);
+\node at(9, 5.2)[above left] {\huge Lower wages};%{\huge 50\% CGT\hspace{2mm}  Lower wages\hspace{2mm} 0\% CGT};
+}
+
+ \only<2>{
+\draw[red!50,line width=.75mm, ] (9.5,1.6) circle (1.55cm);
+\node at(6, 5.2)[above left] {\huge Lower wage for fewer workers} ;
+\draw[-latex,line width=.5mm  ] (6, 5.6)--+(1.5,0)--(6.5, 4);
+\draw[-latex,line width=.5mm  ] (7.5,5.6)--+(2.2, -4.1);
+ }
+%{\hu
+% \only<3>{
+% \draw[gray,line width=.75mm, ] (5.6,-1) circle (1.2cm);
+% \draw[gray,line width=.75mm, ] (9.5,-1) circle (1.2cm);
+% \draw[gray,line width=.75mm, ] (9.5,1.6) circle (1.25cm);
+% \node at(10.4, 4.8)[above left] {\huge Lower population, smaller city, fewer firms};
+%  }
+\end{tikzpicture}
+}
+ 
+\end{frame}% %
+
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{A higher capital gains tax rate on owner-occupiers than on investors crashes the economy}
  \centering 
@@ -1080,9 +1224,11 @@ Two states of the world
     
 \draw[color=white, fill=white] (8.,-2.3) rectangle (12.6,-4.5);
 
-\draw[red!50,line width=1mm] (6.5,3.9) circle (1.55cm);
-\draw[latex-,line width=1mm  ] (7.5,3.5)--+(.5, 2); 
-\node[above]at(7,3.7 ){\huge Higher rate on owner-occupiers};%};\Huge\$74,000};
+\draw[red!50,line width=1mm] (6.5,3.6) circle (1.5cm);
+\draw[latex-,line width=.75mm  ] (7.5,3.5)--+(.5, 1.8); 
+\node[above, black]at(8, 5.31 ){\huge Lower wages};%};\Huge\$74,000};
+
+\draw[line width=1mm, red!50  ] (0,-3.3)rectangle+(3.5, 1);
 
 % \draw[latex-,line width=1mm  ] (7.5,3.5)--+(.5,-.5)node[above right]{\huge Above investor CGT};%};\Huge\$74,000};
 \end{tikzpicture}
@@ -1100,53 +1246,23 @@ Two states of the world
 % \end{itemize}
 % \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Summarizing other experiments} \Large
-\begin {itemize}%[<+-|alert@+>]
-% \begin {itemize}[<alert@+>]\Large 
-
-\item  The cost of capital has surprisingly little effect on any variables in either case
-
-\item  Transportation cost has a strong effect on wages and city size as expected 
- 
-\item Low transportation costs with financial system spillovers appear to induce something like cyclical behaviour
-
-\item  Increasing density increases the population but does not affect wages or city extent
-\end{itemize}
-\end{frame}% 
-
-
-
-
-
-% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Summarizing results Part 2 } \Large
-\begin {itemize}%[<+-|alert@+>]
-\item A restrictive mortgage market does not affect the production sector or city size
-
-\item  Increasing property taxes reduces owner-occupiers, but has only a small effect on city size when there is no linkage 
- 
-\item  With linkage, increasing property taxes depresses wages, population, and city size
-\end{itemize}
-\end{frame}% %----------------------------%
-
 
 %%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \centering \Huge
-  \emph{Results}
-\vspace{1cm}
+% \begin{frame}{}
+%   \centering \Huge
+%   \emph{Results}
+% \vspace{1cm}
 
- \Large  compound experiments 
+%  \Large  compound experiments 
  
- 2-4 policy settings  
- \vspace{.5cm}
+%  2-4 policy settings  
+%  \vspace{.5cm}
 
- outcome paths 
+%  outcome paths 
 
-Two states of the world 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%%
+% Two states of the world 
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%%
 \begin{frame}{The cost of capital for investors: surprisingly little effect on any variables in either case}
  \centering 
 \resizebox{12.0cm}{!}{%
@@ -1199,9 +1315,10 @@ trim={0cm 1.4cm 2.5cm 0},clip]{fig/With-productivity_link-c-15_022017.pdf}};
 \draw[color=white, fill=white] (6,-2.3) rectangle (10.2,-4.5);
 
 %\draw[red!50, line width=1mm] (0.2,1.35) circle (1.75cm);
+%\only<2>{
 \draw[red!50, line width=1mm] (8.4,1.35) circle (1.9cm);
-
 \draw[latex-,line width=1mm  ] (8.,1.9)--+(-3,3.2)node[above ]{\Huge Cycles};
+%}
 \end{tikzpicture}
 }
 \end{frame}% 
@@ -1303,7 +1420,7 @@ owner-occupancy, and reduce city size }
 }
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
-\begin{frame}{Even short term shocks can have a long term impact}
+\begin{frame}{Even short-term shocks can have a long-term impact}
 %{A 25-year reduction in the investor capital gains  tax}
  \centering 
 \resizebox{9.0cm}{!}{%
@@ -1334,7 +1451,7 @@ owner-occupancy, and reduce city size }
 \item This is a bit different - A 300 year run and a 25-year shock=at year 50
 \item With a productivity linkage
 \item the blue line is the no-shock case. It shows regular speculative cycling
-\item The black line shows the effect f a policy shock.
+\item The black line shows the effect of a policy shock.
 \item we start with a 15\% capital gains tax for investors. A (conservative?) government drops it to zero, and then (a populist government?) raises it to 100\% 
 \item the result is a major setback for the city followed by a very slow recovery. 
 
@@ -1369,6 +1486,45 @@ owner-occupancy, and reduce city size }
 %   \end{center}
 % \end{frame}
 
+% %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{Summarizing results} \Large
+% \begin {itemize}%[<+-|alert@+>]
+
+% \item Capital gains taxes on residential property have a very large effect on ownership.
+% % \begin {itemize}[<alert@+>]\Large 
+
+% \item  The cost of capital has surprisingly little effect on any variables in either case
+
+% \item  Transportation cost has a strong effect on wages and city size as expected 
+ 
+% \item Low transportation costs with financial system spillovers appear to induce something like cyclical behaviour
+
+
+% \end{itemize}
+% \end{frame}% 
+
+
+
+
+
+% % %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
+% \begin{frame}{Summarizing results part 2 } \Large
+% \begin {itemize}%[<+-|alert@+>]
+% \item  Increasing density increases the population but does not affect wages or city extent
+% \item A restrictive mortgage market does not affect the production sector or city size
+
+% \item  Increasing property taxes reduces owner-occupiers, but has only a small effect on city size when there is no linkage 
+ 
+% \item  With linkage, increasing property taxes depresses wages, population, and city size
+% \end{itemize}
+% \end{frame}% %----------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centering \Huge
+  \emph{Results}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
@@ -1379,9 +1535,9 @@ owner-occupancy, and reduce city size }
 
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{Final comments}
- \begin{itemize} \Large
-\item There is a gap in economic theory around who gets urban rents and why that matters
-\item I partly bridge this gap by combining from several  fields
+ \begin{itemize}[<+->] \Large
+\item There is a gap in economic theory around who gets urban rents and why that matters.\vspace{.5cm}
+\item I partly bridge this gap by combining theoretical machinery from several fields.
 
 % \begin{center}
 %   \hspace{2cm} \begin{enumerate}\large
@@ -1398,9 +1554,9 @@ owner-occupancy, and reduce city size }
 %%%%%%%%%%%%%%%%%%%%%.%%%%%%%%%.%%%%%%%%.%%%%%
 \begin{frame}{The biggest takeaways} 
 \Large
-\begin{itemize}[<+-|alert@+>]
-    \item Financial interests are likely to take over much of the land in the city and capture much of the surplus generated by the city
-    \item This changes the nature and class structure of society
+\begin{itemize}[<+->]
+    \item Financial interests are likely to take over much of the land in the city and capture much of the surplus generated by the city.\vspace{.5cm}
+    \item If this is true, it means we are in the early stage of a massive change in the class structure of society.
     % \item As a general principle, public policies will have different effects if financialization affects productivity
     % \item  It may affect urban productivity
 \end{itemize}
