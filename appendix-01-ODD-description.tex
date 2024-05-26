@@ -15,40 +15,92 @@ The core agent-based model implementation is documented below using the `overvie
 % The exposition in this chapter is strictly descriptive and what the model includes and does.
 This chapter describes what the model includes and does. Chapter~\ref{chapter-methodology}, on methodology, gives more detail on the modelling purpose, strategy, and type. The formulae used in the model are described and explained in Chapter~\ref{chapter-model}, the model chapter. Appendix~\ref{appendix-parameters} provides parameter values.  
 
-\section{Purpose}
-% TODO add in purposes of modelling work - The purpose of this model is to understand ..Following xyz, xyz gives x purposes for modelling.
-The purpose of this model is \gls{theoretical exposition}. More specifically, we seek to understand the links between financialization and  the distribution of housing ownership, the capture of rents, and  urban productivity. %, through financialization of the urban housing market. 
-Our qualitative results provide valuable direction for further qualitative and quantitative research.
-\begin{figure}[h!tb]
-\centering
-\begin{tikzpicture}
-\draw [fill=yellow!15] (-1.7,-1)--(1.7,-1)--(3,-5.6)--(-3,-5.6)--cycle;
-  \node[text width=4.5cm, align=center] at (0,0) (1) {\textbf{Urban structure and production sector}};
-  % \node[left=1.7cm of 1,  align=center] (platform) {\Large production sector platform};
-   \node[below=-2mm of 1] (A1) {$\downarrow$};
-   \node[below=1mm of A1] (Pop) {Population};
-   \node[below=-1mm of Pop] (APop) {$\downarrow$};
-   \node[below=-1mm of APop]  (3) {Bids};
-   \node[below=-1mm of 3] (4) {$\downarrow$};
- %    \node[left=4.54cm of 4, text width= 5.8cm, align=center] (process) {\Large housing market process};
-   \node[below=-1mm of 4] (5) {Ownership};
-   \node[below=-1mm of 5] (6) {$\downarrow$};
-   \node[below=-1mm of 6] (7) {Rent distribution};
-   \node[below=-1mm of 7] (ARent) {$\downarrow$};
-    \node [below=1.2mm of ARent, text width= 7cm, text centered](8) {Growing inequality\\Tenant sojourner cities\\ Eviction of families from cities\\ End of urban home-owning class}; 
-%    \node[left=.78cm of 8, text width= 6.2cm, align=center] (outcome) {\Large housing market outcomes};
 
-   % \node[above=1mm of 1] (2) {$\uparrow$};
-   % \node[above=1mm of 2] (3) {Growing inequality};
-   % \node[above=1mm of 3] (4) {$\uparrow$};
-   % \node[above=1mm of 4] (5) {Eviction of families from cities};
-   % \node[above=1mm of 5] (6) {$\uparrow$};
-   % \node[above=1mm of 6] (7) {Tenant sojourner cities};
-\end{tikzpicture}
-\caption[The platform, the process, and the outcomes]{The major processes: the production sector which forms the platform creating value distributed through rents, the housing market which is the process actors claim social value, and the social outcomes that may emerge. %. Feedback loops are omitted. %{\color{red} CAN WE ELABORATE? The platform, the process, and the outcomes}.
-}
-\label{fig:outcomes}
+\section{Purpose}
+% TODO add in purposes of modelling work - The purpose of this model is to understand ..Following xyz, xyz gives x purposes for modellingr
+The purpose of this model is to provide a representation of city development financialization, where financialization in this context means the purchase of land and housing by owners of capital. More specifically, we seek to understand the links between financialization and the distribution of housing ownership, the capture of rents, and urban productivity. 
+
+The modelling challenge is to combine a theoretically correct model of the spatial and temporal growth of a model city with a model of a housing market in which individual agents buy and sell property, live, work, and retire subject to a realistic financial system. 
+%, through financialization of the urban housing market. 
+
+  To achieve this, not all the parts are modelled at the same level of resolution. We combine coarse generalizations about long-term agglomeration effects with fine-grained housing and financial market processes. 
+%Our goal is to examine how financial decisions affect home ownership while black-boxing the transmission of agglomeration effects through firms from aggregate productivity gains to population growth.
+
+\section{State variables and scales}
+
+
+\begin{figure}
+    \centering
+    \resizebox{16.5cm}{!}{%
+        \input{fig/Kirsten_overview_figure.tex}
+    }
+\caption{Relationships among the agents in the model}
+\label{fig:Kirsten_overview_figure.}
 \end{figure}
+
+\subsection{State variables}
+State variables refer to the attributes of each kind of entity that varies over time. 
+
+%\footnote{In the ODD framework, state variables commonly refers to both stock variables and parameters. Although it is inconsistent with usage in the analysis of dynamical systems, we follow the ODD convention in this section.}.
+
+The entities in our model are the five agents types illustrated in Figure~\ref{fig:Kirsten_overview_figure.}: 
+\begin{enumerate}
+    \item an investor,  
+    \item  a bank, 
+    \item a realtor, 
+    \item an urban firm,  
+    \item land units (properties or lots). Each unit of land has an owner, either resident or non-resident, and a resident worker who may be an owner or a tenant. The population is therefore modeled through individual relationships to specifc properties. Properties are in the city if the resident chooses to commute to work at the center of the city
+\end{enumerate}
+In Figure~\ref{fig:Kirsten_overview_figure.}, agents are identified by black boxes around the agent name. The first four are representative agents.The residents of our city are modeled as attributes of specific units of land: owner-occupier or tenants or bid on propeties in-migraants who . 
+In Figure~\ref{fig:Kirsten_overview_figure.}, agents are identified by black boxes around the agent name. The first four are representative agents. The residents of our city are modeled as attributes of specific units of land: workers or non-workers and owner-occupier, tenants or in-migrants who bid on properties. The city grows when non-worker residents at the edge of the city are induced by a rising wage to begin commuting to the cc\ity center to work.
+
+Combined, these elements provide a simulation of a growing city in a rural region. 
+
+\subsubsection{Parcels of land are individual agents}
+We begin with a grid of properties.  Each cell is a computational agent in the class of Land agents. Each cell has an address in a Cartesian space. Each has a set of attributes (state variables in the terminology of the documentation format we are using.) Properties are updated as the model evolves.
+
+The city is the subset of cells - the region - over which workers choose to work at the urban center, located in cell (0, 0). Agents are assumed to travel to the center to work only if the transportation of travel to the center is less than the extra pay earned for working at the center compared to the pay earned in rural occupation (the urban wage premium). Transportation cost is the grid distance from the center (The distance is the sum of the absolute values of the x and y displacements from (0, 0)  multiplied by the transport cost. The transport cost per unit distance is set to ensure that the city that emerges will remain within the boundaries of the grid in the course of a simulation run
+
+
+To limit computational time, population is modelled coarsely and the size of the grid is restricted.  The density parameter is chosen so that the limited number of cells in the city provides a plausible urban population. Each cell has a single owner but represents a specific number of individuals for the population count and for the labour market. (The density parameter is the simplest version of a density function, which is itself a simplification of a mixed population.
+
+When owner-occupiers retire or when investors choose to sell a property, it is listed for sale. The potential buyers are the investor and a selection of rural migrants with savings drawn from a distribution.  Low savings may limit the bid that the new resident can make 
+
+
+% \begin{figure}[h!tb]
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{fig/Kirsten_overview_figure.pdf}
+\end{figure}
+% \centering
+% \begin{tikzpicture}
+% \draw [fill=yellow!15] (-1.7,-1)--(1.7,-1)--(3,-5.6)--(-3,-5.6)--cycle;
+%   \node[text width=4.5cm, align=center] at (0,0) (1) {\textbf{Urban structure and production sector}};
+%   % \node[left=1.7cm of 1,  align=center] (platform) {\Large production sector platform};
+%    \node[below=-2mm of 1] (A1) {$\downarrow$};
+%    \node[below=1mm of A1] (Pop) {Population};
+%    \node[below=-1mm of Pop] (APop) {$\downarrow$};
+%    \node[below=-1mm of APop]  (3) {Bids};
+%    \node[below=-1mm of 3] (4) {$\downarrow$};
+%  %    \node[left=4.54cm of 4, text width= 5.8cm, align=center] (process) {\Large housing market process};
+%    \node[below=-1mm of 4] (5) {Ownership};
+%    \node[below=-1mm of 5] (6) {$\downarrow$};
+%    \node[below=-1mm of 6] (7) {Rent distribution};
+%    \node[below=-1mm of 7] (ARent) {$\downarrow$};
+%     \node [below=1.2mm of ARent, text width= 7cm, text centered](8) {Growing inequality\\Tenant sojourner cities\\ Eviction of families from cities\\ End of urban home-owning class}; 
+% %    \node[left=.78cm of 8, text width= 6.2cm, align=center] (outcome) {\Large housing market outcomes};
+
+%    % \node[above=1mm of 1] (2) {$\uparrow$};
+%    % \node[above=1mm of 2] (3) {Growing inequality};
+%    % \node[above=1mm of 3] (4) {$\uparrow$};
+%    % \node[above=1mm of 4] (5) {Eviction of families from cities};
+%    % \node[above=1mm of 5] (6) {$\uparrow$};
+%    % \node[above=1mm of 6] (7) {Tenant sojourner cities};
+% \end{tikzpicture}
+% \caption[The platform, the process, and the outcomes]{The major processes: the production sector which forms the platform creating value distributed through rents, the housing market which is the process actors claim social value, and the social outcomes that may emerge. %. Feedback loops are omitted. %{\color{red} CAN WE ELABORATE? The platform, the process, and the outcomes}.
+% }
+% \label{fig:outcomes}
+% \end{figure}
 
 
 % \begin{figure}
@@ -81,112 +133,41 @@ Our qualitative results provide valuable direction for further qualitative and q
 % \end{figure}
 
 
+Attributes associated with each location are,
+\begin{enumerate}
+    \item location,
+    \item ownership type, 
+    \item owner, with age and savings
+    \item mortgage
+    \item warranted price, 
+    \item warranted rent, 
+    \item appraised price, 
+    \item realized price,
+    \item price  change, 
+    \item transport cost, 
+    \item maintenance costs,
+    \item tax rate,  
+    \item density, 
+\end{enumerate}
+The last three,  maintenance costs, tax rate and density are the same for all properties in the current implementation. Transport cost combines location with a uniform cost per unit of distance.  The price variables are re-computed for properties when they are on the market when an owner retires or an investor decides to sell. Price change is used in expectation formation.
 
 
 
-
-
-\begin{figure}[h!tb]
-\input{fig/ODD}
-% \centering\vspace{-3cm}
-% % \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
-% \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
-% % \tikzstyle{decision} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
-% % \tikzstyle{arrow} = [thick,->,>=stealth]
-
-
-% \begin{tikzpicture}[scale=.2,node distance=1.5cm]
-% \node (init) [startstop] {Initialization};
-% \node (interventions) [process, below of=init] {Model applies interventions};
-% % \node (record) [process, below of=interventions] {Record ownership share and reset counters};
-% \node (mainloop) [startstop, below of=interventions] {Main loop};
-% \node (firmupdate) [process, below=.5cm of mainloop, text width=5cm] {Firms update wages, number of workers, capital  based on prior wage};
-
-%     \draw [arrow] (init) -- (interventions);
-%     \draw [arrow] (interventions) -- (mainloop);
-%     \draw [arrow] (mainloop) -- (firmupdate);
-
-
-% \node (owners-retire) [decision, below=1cm of firmupdate, text width=5cm] {Owners retire};
-% \node (rural-boundary) [decision, left= 1cm of  owners-retire,  text width=4cm] {Boundary-adjacent owners  join or leave workforce};
-% \node (rural-remote) [decision,  right =1cm of owners-retire, text width=4cm] {Remote rural agents decide to join or leave workforce};
-
-
-%     \draw [arrow] (firmupdate) -- (rural-boundary);
-%     \draw [arrow] (firmupdate) -- (rural-remote);
-
-% \node (retired-list) [decision, below =.8cm of owners-retire, text width=5cm] {Retirees list properties};
-%   \draw [arrow] (owners-retire) -- (retired-list);
-
-
-
-% \node (Remote-bid) [process, right=1cm of retired-list, text width=4cm] {Remote rural agents bid for housing};
-%  \node (Invest-bid) [process, below=3cm of Remote-bid, text width=4cm] {Investors bid for housing};
-    
-% %\node (invest-list) [process, green, below=6cm of rural-remote, text width=5cm] {investors list properties};land
-
-% \node (realtors_sell) [process, below = 1.5cm of retired-list ] {Realtors sell homes};
-%           \draw [arrow]  (retired-list) -- (realtors_sell);    
-%           \draw [arrow]  (Remote-bid) -- (realtors_sell.north east);     
-% \node (invest-list) [process, below=1.3cm of Remote-bid, text width=4cm] {Investors list properties};land
-%           \draw [arrow]  (invest-list) -- (realtors_sell);      
-%           \draw [arrow]  (Invest-bid) -- (realtors_sell.south east);               
-            
-% \node (bank) [decision, below = 1.5cm  of realtors_sell, text width=5cm] {Bank  finances purchases};
-%         \draw [arrow] (bank) -- (realtors_sell);
-
-% \node (realtors_rent) [process, left = 1cm of bank, text width=4cm] {Realtors rent investor and empty homes};
-%         \draw [arrow]  (realtors_sell.south west) -- (realtors_rent.north east)   ; 
-        
-% \node (tenant-adjust) [process, above=.5cm of realtors_rent, text width=4cm] {New tenants added to tenant list};
-
-%         \draw [arrow]  (realtors_rent) -- (tenant-adjust)   ;
-
-% \node (owner-adjust) [process, below = .7cm of rural-boundary,  text width=4cm] {New owners added to owner list};
-%   \draw [arrow] (rural-boundary) -- (owner-adjust);
-  
-% \node (agglom-adjust) [process, thick, below = .5cm of owner-adjust, text width=4cm] {Agglomeration population adjusted};
-
-
-%   \draw [arrow] (realtors_sell.north west) -- (owner-adjust.south east);
-% \draw [arrow] (rural-remote) -- (Remote-bid);
-%  \draw [arrow] (owner-adjust) -- (agglom-adjust);
-% \draw [arrow] (tenant-adjust) -- (agglom-adjust);
-
-% \draw [arrow] (agglom-adjust.west) -- ++(-1.5,0)  |- (firmupdate); %-- ++(0,-.5) -- ++(7,0) |-
-% % % % Custom arrow path
-% % % \draw [arrow] ($(advance.south) + (0,-0.5)$) -- ++(0,-1) -- ($(mainloop.south) + (-2,-1)$) -- ($(mainloop.south) + (-2,0)$) -- (mainloop);
-
-% \end{tikzpicture}
-\caption[Agent decisions and information flows]{Agent decisions and information flows.}
-\label{fig:information-flows}
-\end{figure}
-
-
-\section{State variables and scales}
-\subsection{State variables}
-State variables refer to the attributes of each kind of entity that vary over time. %\footnote{In the ODD framework, state variables commonly refers to both stock variables and parameters. Although it is inconsistent with usage in the analysis of dynamical systems, we follow the ODD convention in this section.}. 
-The entities in our model are persons, land units (properties or lots), an investor, a bank,  realtor, and an urban firm. 
 % \footnote{The agents are described in the agent section of the code.}
-The city is the portion of space in which workers work at the urban center, including the persons, land, and other agents in that region. % entity that includes the agents. % The city administration is not an agent. %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
+ % entity that includes the agents. % The city administration is not an agent. %  who may choose to work at an urban firm, properties, each occupying a an urban grid space. %, 
 
-% All agents belong to the model. 
-The state variables for the model as a whole are the number of workers (population),  worker savings, number of firms, workers per firm, capital stock per firm, city area, housing stock owned by workers, housing stock owned by investors, and wage level.
+
 
 \subsubsection{Persons}
 Rural and urban owner-occupiers and tenants belong to the agent class, Person. Newcomers are persons seeking to purchase or rent land and to join the urban workforce in a period. They become owners or tenants. Urban owner-occupiers and tenants make up the primary workforce. %(The city has a small and fixed core population.) 
 
-The state variable (attributes) for persons are property location, initial working period (providing age), savings, ownership status, capital gains tax level, ownership status, and property owned. Mortgages payments or rental payments are calculated to update savings. Each person occupies one property. 
+The state variable (attributes) for persons are property location, initial working period (providing age), savings, ownership status, capital gains tax level, ownership status, and property owned. Mortgage payments or rental payments are calculated to update savings. Each person occupies one property. 
 
-Persons can choose to work in the city, or not, depending on wages and transportation costs. If the wage justifies travel to the city center, persons with properties at the edge of the city join the urban workforce as owner-occupiers. They have a 40 period working life, after which they retire and list their home for sale.   
+Persons can choose to work in the city, or not, depending on wages and transportation costs. If the wage justifies travel to the city center, persons with properties at the edge of the city join the urban workforce as owner-occupiers. They have a 40-period working life, after which they retire and list their home for sale.   
 
 Newcomers enter the model to replace retirees and to fill new jobs. They bid on properties. % Tenants do not bid but may be replaced by newcomers who do bid. 
 If newcomers make a successful bid they become owner-occupiers. If not. the newcomer becomes a tenant. If investors outbid tenants and newcomers, the investor becomes a non-resident owner.  If no newcomer or investor  purchases a listed property, the non-resident owner will rent it to newcomer tenants.  % they become tenants. 
  For simplicity, we present the model for the case where individuals have the same preferences, employment opportunities and transportation costs.
-
-\subsubsection{Properties}
-Properties belong to the class of Land agents. The state variables for properties are location, transport cost, property tax rate, maintenance costs, warranted price, warranted rent, appraised price, realized price, price change, ownership type, and owner. 
-%not occupancy status ?
 
 \subsubsection{Bank}
 The bank is the sole member of the class of Bank agents. It sets maximum mortgage share and credit-worthiness using person attributes and bank parameters. It sets lending rates for persons and investors based on the prime rate. Mortgages payments are calculated for a 5-period term.
@@ -195,19 +176,28 @@ The bank is the sole member of the class of Bank agents. It sets maximum mortgag
 A investor is the sole member of the class of Investor agents. A fraction of investor owned properties are listed for sale in each period. The state variables for the investor are the borrowing interest rate, properties owned, a capital gains tax rate, expectations about the rate of price change, and the maximum fraction of owned properties that may be listed for sale in each period.
 
 \subsubsection{Realtor}
-The realtor keeps lists of properties for sale and for rent in each period, conducts bidding, and allocates properties to the winning bidder. The realtor interacts in each period with listed properties and  all bidders, but has no state variables.
+The realtor keeps lists of properties for sale and for rent in each period, conducts bidding, and allocates properties to the winning bidder. The realtor interacts in each period with listed properties and all bidders, but has no state variables.
 
 
 \subsubsection{Firm}
-A representative firm is the sole member of the class Firm. It has a production function, a workforce, capital stock and a wage. 
-%  The firm is a complex entity. 
-The state variables for the firm are output price and wage (consisting of subsistence wage plus an urban wage premium), a production function with parameters  A, alpha, beta, and gamma. A is dependent on interaction with the ownership ratio. The agglomeration population for the production function is calculated in the firm using the urban seed population, density and a multiplier. The cost of labour considered in hiring includes overhead. The overhead parameter can be used to explore the effect of payroll taxation. 
-Firm-determined variables evolve from current values toward target values according to partial adjustment rules. The adjustment rates are specified in the code.  
+A representative firm is the sole member of the class Firm. The state variables for the firm are capital stock and workforce. The number of firms also adjusts. These variables evolve from current values toward target values according to partial adjustment rules. The adjustment rates are specified in the code.  
+
+The firm does not set wages or output prices: it is a price taker. Although we employ a single representative firm to determine labour demand,  we imagine that the wage adjustment process occurs in a decentraliΩed and competitive market with many firms, each forced to adjust their own wage offer in the face of excess demand or supply. This decentralized market response is captured in our model by a partial adjustment mechanism. 
+
+At any price, wage and cost of capital, the firm identifies target employment and capital stock. The target is calculated using a rule derived from standard neoclassical firm theory. The firm then adjusts its current toward the target. 
+
+%The production function is specified over  $N$, $A$, $alpha$, $beta$, and $gamma$. 
+The target employment for the firm times the number of firms gives us the aggregate target labour. We term this value labour demand.  %Since the price of output is fixed, we can ignore output. %With perfectly elastic demand as assumed, the firm can sell any amount at the fixed price. 
+The current population of the city is determined by agents near the edge of the city (marginal agents) deciding to begin or stop work in the city or based on the previous period's wage. When discussing the labour market discussion, we call this the labour supply. 
+
+If labour demand exceeds the current population the wage is adjusted upward. Firms adjust to the revised wage in the following period.
+
+In the production function, $N$ is the agglomeration population, which may or may not be the total urban workforce. It is computed from the number of cells that are urban, the urban seed population, and density, and adjusted to account for the fact that not everyone works for the firm. 
+
+The firm also has a target capital stock calculated as the optimal value at current prices.
 
                 
 \subsection{Scales}
-Our goal is to examine % in moderate detail 
-how financial decisions affect home ownership while black-boxing the transmission of agglomeration effects through firms from aggregate productivity gains to population growth.  To achieve this, not all the parts are modelled at the same level of resolution. We combine coarse generalizations about long-term agglomeration effects with fine-grained housing and financial market processes. 
 
 The computational field is a grid of properties, typically set to 130 properties by 130 properties, which is sufficient to contain the city while still leaving properties in the `rural' state in every direction after a typical 100 period run. The 100 model cycles are intended to represent 100 chronological years of city development. % Longer or shorter runs are often convenient. 
 
@@ -273,6 +263,17 @@ The model proceeds in discrete steps. Each time step represents one year. Agents
 Persons initially have locations. They choose whether to work or not work, based on the wage premium and transportation costs, thus determining if their location is in the commuter-shed. This step determines the extent of the city and its population. Persons remain in the workforce until they reach retirement age. If people are above the retirement age, they retire and list any properties for sale if they are moving out of the city. 
 % The sequence of the code means agents do not use information from, or interact with agents of the same type during their step function, so the order doesn't matter.
 In each time step:
+
+
+
+
+\newpage
+\begin{figure}[htb]
+    \input{fig/ODD}
+\caption[Agent decisions and information flows]{Agent decisions and information flows.}
+\label{fig:information-flows}
+\end{figure}
+
 
 \begin{enumerate}
 \item The representative firm computes the value of the marginal worker's value product at current prices, chooses a new target workforce and a new target wage. It follows a partial adjustment rule in choosing wage, labour force, capital stock for the following period. Firm size is constrained by diminishing returns to scale. New firms enter when population grow beyond what existing firms target. 
