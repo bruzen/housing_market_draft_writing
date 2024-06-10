@@ -4,8 +4,10 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
                     my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1}},
                     my axis/.style={latex-latex}]
  
- \draw[my axis] (0,13)node[left] {$Y(\cdot)$} --(0,0)-- (15.4, 0) node[below] {$N$}; %creates the axis a little 
-
+ \draw[my axis] (0,13)node[left] {$Y(N)$} --(0,0)-- (15.4, 0) node[below] {$N$}; 
+%creates the axis 
+ \node at (0,13)[below left]{y(n)};
+ 
 \coordinate (origin) at (0,0);
 \def\x{0.45}
 \def\y{2.1}
@@ -34,6 +36,7 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 	\coordinate (Uy) at (\y, {2.3+ln(\y)});
   \draw[my plot,ultra thick] (0,0) plot ({\x-.08},{1.15+ln(\x)/2})node[right=.25cm, text width=3.9cm]{Individual firms\\ exhibit decreasing\\ returns to labour}; % production function for generic ferm
 	\draw[dashed](.75, 0)node[below]{$n_R$} --(.75, 3.4);
+    \draw[dashed](0,  1.1)node[left]{$y_R$} --(1.4,  1.1);
 \end{scope}
 %
 %

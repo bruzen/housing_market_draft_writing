@@ -13,8 +13,7 @@ Although we have explained a great deal of the theory behind the model and even 
     \item Input and 
     \item Submodels 
 \end{enumerate}
-
-, % Conceptually the elements fall into the three categories ``Overview,'' (1-3) ``Design concepts'' (4, with subcategoriessoecific modelling d)  and ``Details''; hence the acronym ODD.
+% Conceptually the elements fall into the three categories ``Overview,'' (1-3) ``Design concepts'' (4, with subcategoriessoecific modelling d)  and ``Details''; hence the acronym ODD.
 % The exposition in this chapter is strictly descriptive and what the model includes and does.
 
 
@@ -37,7 +36,7 @@ The model  is intended to combine a theoretically correct simulation of the spat
     \centering
         \resizebox{\textwidth}{!}{\input{fig/Kirsten_overview_figure.tikz}}
 %    \includegraphics[width=1\linewidth]{fig/Kirsten_overview_figure.tex}
-     \caption{Relationships among the agents in the model}
+     \caption{Relationships among the agents in the model. The model operates on a grid of properties. Coloured squares make up the urban region. Owner-occupiers are yellow, tenants grey, and properites available for purchase because owners have retired are pink  Agents at the edge green decide in each period whether to participate in the urban labour market. In each period a pool of potential in-migrants may bid on the properties that are available. The firents without locations are shown outsid e of the }
 \label{fig:Kirsten_overview_figure}
 \end{figure}
 
@@ -60,13 +59,13 @@ The entities in our model are the six agents types illustrated in Figure~\ref{fi
     \item  A bank that provides financing for property buyers
     \item A realtor that manages property sales and finds tenants 
     \item An urban firm that provides employment and wages, and 
-    \item Land units (properties or lots), which are locations to which persons are attached 
+    \item Land units (properties or lots), which are locations to which persons are attached. 
 \end{enumerate}
 
 In Figure~\ref{fig:Kirsten_overview_figure}, agents are identified by black boxes around the agent type. Persons are classified by location, (as urban workers or rural workers), by ownership status (as owner-occupiers or tenants), or as in-migrants who may bid on properties that come up for sale. %The city grows when non-worker residents at the edge of the city are induced by a rising wage to begin commuting to the city center to work.
-Persons  are always associated with specific units of land. Each cell in the figure's grid is a land agent.  The number of person agents is equal to the number of land units plus a small pool of in-migrants temporarily located in the center of the city.
- 
-The investor,  bank, realtor and firm are are \glspl{representative agent}. The are assumed to represent the actions of the entire class of agents of their type. 
+Persons are always associated with specific units of land. Each cell in the figure's grid is a land agent.  The number of person agents is equal to the number of land units plus a small pool of in-migrants temporarily located in the center of the city.
+
+The investor, bank, realtor and firm are are \glspl{representative agent}. The are assumed to represent the actions of the entire class of agents of their type. 
  
 Combined with rules for every agent these elements provide a simulation of an evolving city in a rural region. 
 
@@ -74,16 +73,16 @@ Combined with rules for every agent these elements provide a simulation of an ev
 
 Because we have a spatial model, it is convenient to begin by describing the grid of properties representing a central city and a surrounding rural region. Each cell is a computational agent in the class of Land agents. Each cell has an address in a Cartesian space. Each has a set of attributes. Attributes that are adjusted as the model evolves are the state variables in the terminology of the documentation format we are using. Each cell is associated with one resident person-agent. %Properties are updated as the model evolves. 
 
-The city is the subset of cells or the region over which workers choose to work at the urban center. The urban center is located in cell (0, 0). Properties are in the city if the resident chooses to commute to work at the center of the city.  The city as a whole is not an agent. 
+The city is the subset of cells or the region over which workers choose to work at the urban center. The urban center is located in cell (0, 0). Properties are in the city, if the resident chooses to commute to work at the center of the city.  The city as a whole is not an agent. 
 
-Each unit of land has an owner, either resident or non-resident, and a resident worker who may be an owner or a tenant. Rural residents are always owners.  
+Each unit of land has an owner, either resident or non-resident, and a resident worker who may be an owner or a tenant. For simplicity, rural residents are always owners.  
 
 When owner-occupiers retire or when investors choose to sell a property, it is listed for sale. The potential buyers are the investor and a selection of rural migrants with savings drawn from a distribution.  Low savings may limit the bid that the new resident can make. 
 
-If no newcomer or investor purchases a listed property, the property  remains on the market and a tenant is found. 
+If no newcomer or investor purchases a listed property, the property remains on the market and a tenant is found. 
 
 Attributes associated with each location are:
-\begin{enumerate}
+\begin{enumerate}[topsep=8pt,itemsep=3pt,partopsep=4pt, parsep=4pt]% ADDED NEW PACKAGE \usepackage{enumitem} AND REDUCED itemsep
     \item location,
     \item ownership type, 
     \item owner, with age and savings
@@ -98,71 +97,73 @@ Attributes associated with each location are:
     \item tax rate,  
     \item density, 
 \end{enumerate}
-The last three,  maintenance costs, tax rate and density are the same for all properties in the current implementation. Transport cost combines location with a uniform cost per unit of distance.  The price variables are re-computed for properties when they are on the market when an owner retires or an investor decides to sell. Price change is used in expectation formation. The owner may change
+The last three,  maintenance costs, tax rate and density are the same for all properties in the current implementation. Transport cost combines location with a uniform cost per unit of distance.  The price variables are re-computed for properties when they are on the market when an owner retires or an investor decides to sell. Price change is used in expectation formation. % The owner may change
 
 
 \subsubsection{Persons}
-Rural and urban owner-occupiers and urban tenants belong to the agent class person. Urban owner-occupiers have a 40-period working life, after which they retire and list their home for sale.  In the current implementation, we imagine them retiring to the countryside. Computationally they simply vanish. They could be allowed to age in place, but without relevant amenities there is a financial motive for moving out. They could also be allowed to become landlords, but in the current implementation they would then be indistinguishable from other investors.
+Rural and urban owner-occupiers and urban tenants belong to the agent class Person. Urban owner-occupiers have a 40-period working life, after which they retire and list their home for sale.  In the current implementation,  they are removed from the model. Perhaps they retire to the countryside. They could be allowed to age in place, but without relevant amenities there is a financial motive for moving out. % They could also be allowed to become landlords. %, but in the current implementation they would then be indistinguishable from other investors.
 
-Marginal households are persons with properties at the edge of the city.  If the wage justifies travel to the city center, rural owner-occupiers may join the urban workforce as owner-occupiers. The geometry suggests there will be a discrete jump in population each time the wage passes a threshold, but the population is only allowed to adjust partially, which smooths population growth.
+Marginal households are persons with properties at the edge of the city.  If the wage justifies travel to the city center, rural owner-occupiers may join the urban workforce as owner-occupiers. The geometry suggests there will be a discrete jump in population each time the wage passes a threshold, but the firms, target population is only allowed to adjust partially, which smooths population growth.
 
-Newcomers are persons seeking to purchase or rent land and to join the urban workforce in each period. In the current implementation there are always enough newcomers to replace retirees. Each has savings, with the amount drawn from a distribution that allows at least some of them to bid on properties. If newcomers make a successful bid they become owner-occupiers. If not, a newcomer may become a tenant. If they cannot purchase and do not find a rental property they vanish. A new pool of newcomers drawn in each period.  Because computations are ordered by location, newcomers are arbitrarily associated with the center of the city at cell (0, 0).  
+Newcomers are persons seeking to purchase or rent land and to join the urban workforce in each period. In the current implementation there are always enough newcomers to replace retirees. Each has savings, with the amount drawn from a distribution that allows at least some of them to bid on properties. If newcomers make a successful bid they become owner-occupiers. % If not, a newcomer may become a tenant. 
+If they cannot purchase they are removed from the model. A new pool of newcomers is drawn in each period.  
+Because computations are ordered by location, newcomers are arbitrarily associated with the center of the city at cell (0, 0).  
+
+If an investor purchases a property, the rent it to a newcomer who then pays rent. If renters retire, they are replaced with new renters. If the investor chooses to sell, and an owner-occupier purchases the property, they displace the renter and move in.
 
 For simplicity, individuals have the same preferences, employment opportunities and transportation costs.  Each person occupies one property.
 
-The state variable of persons are property location, ownership status, initial working period (providing age),  ownership status and savings.  Mortgage payments or rental payments are calculated to update savings. Other attributes include capital gains tax rate and borrowing rates. 
+The state variable of persons are location, ownership status, working period, and savings.  % Mortgage payments or rental payments are calculated to update savings. 
+Other attributes include capital gains tax rate and borrowing rates. 
 
 \subsubsection{Bank}
-The bank is the sole member of the class of Bank agents. It sets maximum mortgage share and credit-worthiness using person attributes and bank parameters. It sets lending rates for persons and investors based on the prime rate. Mortgages payments are calculated for a 5-period term. It has no state variables.
+The bank is the sole member of the class of Bank agents. It sets maximum mortgage share and credit-worthiness using person attributes and bank parameters. It sets lending rates for persons and investors based on the prime rate. Mortgages payments are calculated for a 5-period term. The bank has no state variables.
  
 \subsubsection{Investors}
-Investors are treated as a \gls{social class} with simple agency. There is one member of the class of Investor agents. 
-
+% Investors are treated as a \gls{social class} with simple agency. 
+There is one member of the class of Investor agents. 
 The investor bids on all properties for which the calculated rate of return at least matches alternative investments. The investor draws on the global pool of capital. If the investor outbids tenants and newcomers, the property purchased is then owned by non-resident capital.  
 
-The investor's decision-making is treated in detail in Chapter~\ref{chapter model}. Variables for the investor are the borrowing interest rate, properties owned, a capital gains tax rate, expectations about the rate of price change, and the maximum fraction of owned properties that may be listed for sale in each period. A fraction of investor-owned properties are listed for sale in each period. There are no  state variables, but the list of properties owned evolves. Investor wealth, (the wealth of the class of investors) is implicit. It is calculated using this list and attributes of the properties, including price information
-
-
+The investor's decision-making is treated in detail in Chapter~\ref{chapter model}. Variables for the investor are the borrowing interest rate, properties owned, a capital gains tax rate, expectations about the rate of price change, and the maximum fraction of owned properties that may be listed for sale in each period. A fraction of investor-owned properties are listed for sale in each period. There are no  state variables, but the list of properties owned evolves. Investor wealth, the wealth of the class of investors, is calculated using the attributes of the properties, including price information.
 
 
 \subsubsection{Realtor}
-The realtor keeps lists of properties for sale and for rent in each period, conducts bidding, and allocates properties to the winning bidder. The realtor interacts in each period with listed properties and all bidders, but has no state variables.
-
+There is one member of the class of Realtor agents. 
+The realtor keeps lists of properties for sale and for rent in each period, conducts bidding, and allocates properties to the winning bidder. The realtor interacts in each period with listed properties and all bidders. It's state variable is the data structure with the details of the property listings for properties currently for sale.
 
 \subsubsection{Firm}
-A representative firm is the sole member of the class Firm. The state variables for the firm are capital stock and workforce. At any price, wage, and cost of capital, the firm identifies target employment and capital stock. The targets are calculated using the rules derived from standard neoclassical firm theory. The firm then adjusts its current workfors and capital stock toward the target. 
+A representative firm is the sole member of the class Firm. The state variables for the firm are capital stock and workforce. At any price, wage, and cost of capital; the firm identifies target employment and capital stock. The targets are calculated using the rules derived from standard neoclassical firm theory. The firm then adjusts its current workforce and capital stock toward the target. 
 
-The firm  is a price-taker: it does not set wages or output prices. Although we employ a single representative firm to determine labour demand,  we imagine that the wage adjustment process occurs in a decentralized and competitive market with many firms, each forced to adjust their own wage offer in the face of excess demand or supply. This uncoordinated market response is captured in our model by a partial adjustment mechanism. 
+The firm  is a price-taker: it does not set wages or output prices. Although the model employs a single representative firm to determine labour demand, we imagine that the wage adjustment process occurs in a decentralized and competitive market with many firms, each forced to adjust their own wage offer given excess demand or supply. This uncoordinated market response is captured in our model by a partial adjustment mechanism. 
 
 %The production function is specified over  $N$, $A$, $alpha$, $beta$, and $gamma$. 
-The target employment for the firm times the number of firms gives us the aggregate target labour. We term this value labour demand.  Demand is therefore planned employment rather than actual employment.  It is the number of posted job openings rather than the number of hires that firm actually achieve.  %Since the price of output is fixed, we can ignore output. %With perfectly elastic demand as assumed, the firm can sell any amount at the fixed price. 
+The target employment for the firm, multiplied by the number of firms gives the aggregate target labour. We term this value labour demand.  Demand is therefore planned employment rather than actual employment.  It is the number of posted job openings rather than the number of hires that firm actually achieve.  %Since the price of output is fixed, we can ignore output. %With perfectly elastic demand as assumed, the firm can sell any amount at the fixed price. 
 Similarly, labour supply is the number of person agents who decide to work. The number changes as agents  near the edge of the city (marginal agents) decide to begin or stop work in the city or based on the previous period's wage. 
 If labour demand exceeds the current population the wage is adjusted upward. Firms adjust to the revised wage in the following period.
 
-The aggregation population $N$ used in the firm's production function differs from the aggregate firm workforce. In the current implementation, we compute the workforce as the number of cells that are urban times the density. To account for the fact that not everyone who contributes to the agglomeration effect may work for the firm, we add a seed population and scale the combination by a factor greater than one. The adjustments are intended to provide flexibility for later versions of the model.
+The aggregation population $N$ used in the firm's production function differs from the aggregate firm workforce. In the current implementation, we compute the workforce as the number of cells that are urban, multiplied by the density. To account for the fact that not everyone who contributes to the agglomeration effect may work for firms, we add a seed population and scale the combination by a factor greater than one. The adjustment factors provide flexibility for later versions of the model.
      
 \subsection{Scales}
 This section describes the temporal and spatial resolution and extent of the model. 
-We typically examine results for  100 cycles. Cycles are intended to roughly represent 100 chronological years of city.  Over that period our model city grows to approximately 2.5 million. The city does have an asymptotic limit, but since we are interested in financialization during periods of growth, parameters that control the scale have been chosen to let us examine the growth of a mid-sized city.  
+We typically examine results for 100 cycles. Cycles are intended to roughly represent 100 chronological years of city.  Over that period our model city grows to approximately 2.5 million. The city does have an asymptotic limit, but since we are interested in financialization during periods of growth, parameters that control the scale have been chosen to let us examine the growth of a mid-sized city.  
 
 The computational field is a grid of properties. To limit computational time, population is modelled coarsely and the size of the grid is restricted.  Grid size is typically a square 100-200 properties which, which is sufficient to contain the city while still leaving properties in the `rural' state in every direction after a typical 100 period run. 
 
 Each cell has a single owner but represents a specific number of individuals for the population count and for the labour market. A density parameter is set at 100 so that the limited number of cells in the city provides a plausible urban population.\footnote{The density parameter is the simplest possible version of a density function, which is itself a simplification of a mixed population. At the cost of additional computation, properties can have individualized densities or can be subdivided to allow for more complex populations.}
 
-The population determines the magnitude of the agglomeration effect that enters the firm's production function. Population is a function of density, the cost of transportation and the wage premium, which is determined by firm productivity. Transportation cost is the grid distance from the center (The distance is the sum of the absolute values of the x and y displacements from (0, 0)  multiplied by the annual transport cost, which is set at 500 per cell-length. The transport cost per unit distance must be high enough to ensure that the city that emerges will remain within the boundaries of the grid in the course of a simulation run.
+The population determines the magnitude of the agglomeration effect that enters the firm's production function. Population is a function of density, the cost of transportation and the wage premium, which is determined by firm productivity. Transportation cost is the grid distance from the center. The distance is the sum of the absolute values of the x and y displacements from (0, 0), multiplied by the annual transport cost, which is set at 500 per cell-length. The transport cost per unit distance must be high enough to ensure that the city that emerges will remain within the boundaries of the grid in the course of a simulation run.
 
-The firm's production function is subject to two conditions. First, the parameters $\alpha$  and $\beta$ must sum to less than one. Second, $\alpha +\beta + \gamma $ must be slightly larger than one.  $\beta$ is the labour-force-share of  firm revenue cost when we use a Cobb-Douglas production function. It is a scale factor in the or the wage and therefore controls the wage premium. We use a value in the range  0.7-0.8 that is consistent is the value for most developed countries. There is evidence that the share in national income has much lower over the last century.  Different values do not change  our qualitative results, however.  
+The firm's production function is subject to two conditions. First, the parameters $\alpha$  and $\beta$ must sum to less than one. Second, $\alpha +\beta + \gamma$ must be slightly larger than one.  The $\beta$ exponent is the labour-force-share of  firm revenue cost when we use a Cobb-Douglas production function. It is a scale factor in the or the wage and therefore controls the wage premium. We use a value in the range  0.7-0.8 that is consistent with typical values for developed countries. %{\color{red} ADD REFS} There is evidence that the share in national income has much lower over the last century.  
+Different values do not change  our qualitative results, however.  
+
 
 The representative firm is quite small, rising to about 60 workers. The number of firms is correspondingly large. 
-
 Person agents have a working life of 40 cycles (years). Mortgage contracts are  for five years and are renewable.
 
-Parameters of the financial system are discussed at length in Chapter~\ref{chapter-results}. 
-
- The parameter space is large and the parameters interact to determine model variable such as population. We report variation around a single point in the parameter space to have easily compared results. There is, in fact, a fairly large region of the parameter space that produces qualitatively equivalent results to those we report. 
+The effect of modifying parameters of the financial system are discussed at length in Chapter~\ref{chapter-results}. 
+The parameter space is large and the parameters interact to determine model variable such as population. We report variation around a single point in the parameter space to have easily compared results, however the results are consistent across a substantial region of the parameter space. % There is, a fairly large region of the parameter space that produces qualitatively equivalent results to those we report. 
 
 \section{Process overview and scheduling}
-
 
 \begin{figure}[h!tb]
 \centering \vspace{-2cm}
@@ -183,32 +184,33 @@ In each time step:
 \begin{enumerate}
 \item The representative firm computes the value of the marginal worker's value product at current prices, chooses a new target workforce.  It follows a partial adjustment rule in choosing current, labour force, capital stock for the following period. Firm size is constrained by diminishing returns to scale. New firms enter when population grow beyond what existing firms target. 
 
-\item Aggregate current (not target) labour demand is computed, compared to existing supply, and a new wage is selected
+\item Aggregate current labour demand is computed, compared to existing supply, and a new wage is selected. 
 
 \item The wage premium is calculated from the wage and used by agents to decide whether to work in the city.
 
-\item Each lot, or unit of land, is an agent. Each uses the wage premium and its own location (plus any other attributes) to compute its locational value (warranted price) and potential rental earnings. 
+\item Each lot, or unit of land, is an agent. Each uses the wage premium and its own location to compute its locational value, or warranted price, and potential rental earnings. 
 
 \item The bank determines mortgage availability for newcomers and tenants. 
 
 \item Newcomers and investors bid on properties listed for the period. They use an expected price that includes information about how the market has behaved, so it is possible for price bubbles and expectations to feed back into the dynamics. 
 
-\item The realtor takes the list of bids and mimics a bargaining process to reach a final price, if possible. If the owners do not occupy their own houses, they rent the properties to newcomers as tenants. % who are included in the tenant count.
+\item The realtor takes the list of bids and coordinates a bargaining process to reach a final price, if possible. 
+
+\item If the new property owners do not choose to occupy their own houses, they rent the properties to newcomers as tenants. % who are included in the tenant count.
 \end{enumerate}
 
-
-The illustration of the computational sequence in Figure~\ref{fig:computational-sequence} may make it difficult to understand the relationships among the agents in the model. In Figure~\ref{fig:information-flows} the economic relations among agents are more easily recognized.
+% The illustration of the computational sequence in 
+Figure~\ref{fig:computational-sequence} illustrates the computational sequence. % may make it difficult to understand the relationships among the agents in the model. In 
+Figure~\ref{fig:information-flows} traces the economic relations among agents in the flow diagram.
 
 \section{Design concepts} %LENGTH TRIPPLED
-The model is intended to combine a theoretically correct simulation of the spatial and temporal growth of a city with a new model of a housing market in which individual agents buy and sell property, live, work, and retire subject to a realistic financial system. 
+The model is intended to combine a theoretically grounded simulation of the spatial and temporal growth of a city with a new model of a housing market in which individual agents buy and sell property, live, work, and retire subject to a realistic financial system. 
 To achieve this, not all the parts are modelled at the same level of resolution. We combine coarse generalizations about long-term agglomeration effects with fine-grained housing and financial market processes. 
-
-
 
 \begin{figure}[h!tb]
 \centering \vspace{2.5cm}
     \input{fig/ODD}
-\caption[Main Agent decisions and information flows]{Agent decisions and information flows.}
+\caption[Main Agent decisions and information flows]{Agent decisions and information flows. Two feedback loops are emphasized. Firm decisions lead to adjustment of  population $N$,  which influences the agglomeration effects on firm productivity, and ownership changes affect the productivity prefactor $A$.}
 \label{fig:information-flows}
 \end{figure}
 
@@ -222,7 +224,7 @@ The principles explored include the relationship between urban agglomeration eff
 
 
 \subsection{Convergence to equilibrium}
-To bypass the complex and partially understood wage-setting process we convergence to equilibrium conditions for the firm internally and for  labour markets. In this approach, we do not assume that the agents are constantly achieving equilibrium or even that decisions are correct, only that they represent adjustments in the correct direction. We assume that the firm is setting targets for its workforce and capital stock intended to achieve maximum profit, then adjusting partway toward those targets. Similarly, while demand for labour is determined by the collection of firms, supply is determined by the response of potential workers to the level of the wage. We allow the wage to move upward if there is excess demand or downward if there is excess supply.
+To bypass the complex and partially understood wage-setting process we convergence to equilibrium conditions for the firm internally and for labour markets. In this approach, we do not assume that the agents are constantly achieving equilibrium or even that decisions are correct, only that they represent adjustments in the correct direction. We assume that the firm is setting targets for its workforce and capital stock intended to achieve maximum profit, then adjusting partway toward those targets. Similarly, while demand for labour is determined by the collection of firms, supply is determined by the response of potential workers to the level of the wage. We allow the wage to move upward if there is excess demand or downward if there is excess supply.
 
 This partial adjustment process evades the common criticism of equilibrium modelling that it requires perfect information and perfect rationality.  
 
@@ -230,7 +232,7 @@ In the housing market, investors also seek to maximize their profits. They calcu
 
 We also use equilibrium arguments to compute land rents from the transportation cost and urban wage premium that drive urban locational decisions. Realistically, like capital gains, the rents that can be extracted are a slow-moving target that is difficult to forecast. We essentially assume that marginal agents and potential buyers accurately estimate their annual travel costs and local rents, and do not face fixed costs of change.   %This is a convenient fiction that matters far less than the omission of urban amenities (see Appendix~\ref{chapter-amenity}), variation in family type, or density.  
 
-Chapter~\ref{chapter-methodology}, on methodology, provides more detail about the methodological decisions that inform our modelling decisions. 
+Chapter~\ref{chapter-methodology}, on methodology, provides more detail about the methodological decisions that inform the modelling decisions. 
 
 % The model also expresses several the other concepts as described below. 
 
@@ -243,17 +245,17 @@ Chapter~\ref{chapter-methodology}, on methodology, provides more detail about th
 % class relations are determined by individuals' ownership or non-ownership of productive assets, such as labour,  machinery, factories, or, in our case, land. Exploitation occurs when someone gets their income from the productivity of someone else's person or assets. 
 
 % In this sense, 
-The city is an emergent entity that arises out of the rural economy as a result of agglomeration economies. The social structure is also emergent. We begin our exploration after the city and a two-class structure has emerged. We then examine how their class structure evolves. The classes are
+The city is an emergent entity that arises out of the rural economy as a result of agglomeration economies. The social structure is also emergent. We begin our exploration after the city and a two-class structure has emerged. We then examine how their class structure evolves. The classes are:
 \begin{enumerate}
-    \item rural owner-occupiers,
-    \item  urban owner-occupiers 
+    \item Rural owner-occupiers.
+    \item Urban owner-occupiers.
 \end{enumerate}
-Members of both classes own the land they live on. Urban owners differ in that they have access to an urban labour market. We do not specify whether rural owners gain an income as producers for example, as peasant owners, or as labourers. The ;logic of themigration eqiuiliobrium requires all agents be equally well off. The urban owners are a mixed class in the sense that they sell their labour like classic proletarians but also own a valuable capital asset, which is their land. Introducing additional differences among agents would open the possibility  the endogenous emergence of further \gls{class} distinctions based on access to various forms of capital, a process explored by John Roemer in his General Theory of Exploitation and Class \cite{roemerGeneralTheoryExploitation1982}.
+Members of both classes own the land they live on. Urban owners differ in that they have access to an urban labour market. We do not specify whether rural owners gain an income as producers for example, as peasant owners, or as labourers. The logic of the migration equilibrium requires all agents be equally well off. The urban owners are a mixed class in the sense that they sell their labour like classic proletarians but also own a valuable capital asset, which is their land. Introducing additional differences among agents would open the possibility  the endogenous emergence of further \gls{class} distinctions based on access to various forms of capital, a process explored by John Roemer in his General Theory of Exploitation and Class \cite{roemerGeneralTheoryExploitation1982}.
 
-Two more classes emerge in our simulations.
+Two more classes emerge in our simulations:
  \begin{enumerate}    \setcounter{enumi}{2}
-    \item urban tenants,
-    \item investors. 
+    \item Urban tenants.
+    \item Investors. 
 \end{enumerate}
 There are now two possible pure urban regimes, an owner-occupier regime and a tenant regime, in which investors own all properties. We start our experiments with a pure owner-occupier regime in which those who own houses and work can build equity.  The city may then transition toward the investor-owned regime as investor-agents purchase properties based on local expected financial return calculations. Our experiments explore some policy interventions that could affect the transition.
 

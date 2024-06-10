@@ -39,11 +39,7 @@
 
 % THIS IS AMAZING!! MAYBE NOTE THAT IT DIDN'T BRING FORWARD DISTRIBUTIONAL ASPECTS HERE? I THINK IT WOULD HELP TO SAY WHAT REGIONAL SCIENCE IS/HOW IT IS DIFFERENT FROM URBAN ECONOMICS.
 
-% \section{Intro 2}
 
-% {\color{red} OVERALL THIS CHAPTER IS GOOD BUT IT IS MUCH LESS OF A ROBUST INTELLECTUAL HISTORY THAN THE OTHER CHAPTERS. IS THAT A GOOD IDEA, SHOULD THERE BE A LITTLE BIT MORE DETAIL?
-
-% Maybe emphasise
 % while distribution as economic question is a bigger layer, and we're not really taking on the broader questions of urban economics. We are adding specific (spatial) layer to our model that is drawn from this field
 % }
 
@@ -105,6 +101,17 @@ In the simplest version of the model:
     \end{enumerate}
 \end{enumerate}
 
+
+
+% %%%%%%%%%%%% PARTITIONING THE LABOUR SHARE
+\begin{figure}[!ht]
+    \begin{center}
+    \input{fig/alonso-simple.tex}
+    \caption[The allocation of worker income by distance from the centre of the city]{The allocation of worker income by distance from the centre of the city, where $\psi$ represents the \gls{subsistence wage}, which is the same as the rural income, and $\omega$ represents the \gls{urban wage premium}, which is paid out of the increased urban productivity resulting from agglomeration, and $d^\dagger$ is the distance to the edge of the city, where rent per unit of land falls to zero.}
+    \label{fig-alonso-simple}
+    \end{center}
+\end{figure}
+
 Assumptions~\ref{label-productivity} and \ref{label-wagepremium} are the economic basis of the city. Assumptions~\ref{label-workatcentre}  to \ref{label-equalCOL} are all convenient simplifications. None of these simplifying assumptions are essential and the model can easily be generalized. %(Assumption~\ref{label-workatcentre} produces a monocentric city.) 
 Assumptions~\ref{label-externalequilibrium} and \ref{label-internalequilibrium} are behavioural assumptions that produce the characteristic population \gls{equilibrium} of the model. There is a substantial body of work extending and varying each of the simplifications in the model as well as substantial work grounding and testing the model empirically.
 
@@ -114,24 +121,9 @@ Assumptions~\ref{label-workatcentre}  to \ref{label-equalCOL} allow us to constr
 
 \begin{equation}  
 \mathcal{R}= \omega - dc, \label{eqn-bid-rent}\end{equation} 
-where $\omega$ is the \gls{urban wage premium} $d$ is the distance from work and $c$ is the transportation costs.\footnote{Fuel, capital, and time costs are all included in the transportation costs, ${c}$.  If the wage is paid monthly or annually, then $c$ has to be the monthly or annual transportation cost.} Equation~\ref{eqn-bid-rent} describes the downward-sloping line that is known as the bid-rent curve. In Figure ~\ref{fig-alonso-simple} this curve is the diagonal line separating rent from transportation expenditures. 
+where $\omega$ is the \gls{urban wage premium}, $d$ is the distance from work, and $c$ is the transportation costs.\footnote{Fuel, capital, and time costs are all included in the transportation costs, ${c}$.  If the wage is paid monthly or annually, then $c$ has to be the monthly or annual transportation cost.} Equation~\ref{eqn-bid-rent} describes the downward-sloping line in Figure ~\ref{fig-alonso-simple} that is known as the bid-rent curve. The figure  shows bid-rent declining with distance from the centre and transportation expenditure (the area above the curve)  rising.\footnote{Property values  at any point are the capitalized (present discounted) value of the stream of rent. Amenities, taxes and building values all modify the value calculation in more realistic cases.}  The edge of the city is at  $d^\dagger= \frac{\omega}{c}$ where $\mathcal{R}$ in Equation~\ref{eqn-bid-rent} falls to zero. 
+Beyond $d^\dagger$ it costs a worker more to travel to work than the wage premium  he or she would get.  There is no urban locational surplus that could landlord could extract.\footnote{In many discussions of the model it is assumed that beyond $d^\dagger$ the best use of the land is for agriculture since it cannot earn an urban rent premium. } 
 
-
-The figure shows  bid-rent declining with distance from the centre and transportation cost rising.\footnote{Property values  at any point are the capitalized (present discounted) value of the stream of rent. Amenities, taxes and building values all modify the value calculation in more realistic cases.}  The edge of the city is at  $d^\dagger= \frac{\omega}{c}$ where $\mathcal{R}$ in Equation\ref{eqn-bid-rent} falls to
-zero. 
-Beyond $d^\dagger$ it costs a worker more to travel to work than the wage premium  he or she would get.  There is no urban locational surplus that could landlord could extract.\footnote{In many discussions of the model it is assumed that beyond $d^\dagger$ the best use of the land is for agriculture since it cannot earn an urban rent premium. }
-
-The figure shows  bid-rent declining with distance from the centre and transportation cost rising.\footnote{Property values  at any point are the capitalized (present discounted) value of the stream of rent. Amenities, taxes and building values all modify the value calculation in more realistic cases.}  Beyond $d^\dagger$ it costs a worker more to travel to work than the wage premium  he or she would get.  There is no urban locational surplus that the landlord can extract.\footnote{In many discussions of the model it is assumed that beyond $d^\dagger$ the best use of the land is for agriculture since it cannot earn an urban rent premium. }
-
-
-% %%%%%%%%%%%% PARTITIONING THE LABOUR SHARE
-\begin{figure}[!ht]
-    \begin{center}
-    \input{fig/alonso-simple.tex}
-    \caption[The allocation of worker income by distance from the centre of the city]{The allocation of worker income by distance from the centre of the city, where $\psi$ represents the \gls{subsistence wage}, which is the same as the rural income, and $\omega$ represents the \gls{urban wage premium}, which is paid out of the increased urban productivity resulting from agglomeration.}
-    \label{fig-alonso-simple}
-    \end{center}
-\end{figure}
 
  The \gls{bid-rent curve}\footnote{The core concept behind the bid-rent curve was presented as early as 1885  by German engineer-economist Wilhelm Launhardt \cite{blaugEconomicTheoryRetrospect1985, launhardtMathematischeBegruendungVolkswirthschaftslehre1885}. A \gls{bid-rent function} was first applied explicitly to the equilibrium of land use patterns in agricultural production by August Losch \cite{loschEconomicsLocation1954} in Germany and later by Edgar S. Dunn \cite{dunnEquilibriumLandUsePatterns1954} in America. } is the key to the Alonso model. It represents a special kind of economic equilibrium:   a locational equilibrium among mobile households. Since individuals would simply move to any location that offered a higher utility, in an equilibrium all the otherwise identical workers must receive the same utility. This has to be the case even though those farther from the center must pay more for transportation to and from home. The variable that adjusts to maintain equal utility with rising transportation spending is the cost of land. This conception of a \gls{locational equilibrium} is what underlies the bid-rent curve and all its extensions.\footnote{For economists it is also described as a Nash spatial equilibrium.}
 
@@ -182,11 +174,12 @@ At the bottom of the figure, we add a `subsistence wage'  earned by a worker whe
 % where ${c}$ is the unit cost of transportation. In the figure, $-{c}$ is the slope of the diagonal line dividing rent from transportation expenditure.
 
  \subsection{The magnitude of rents and transportation costs}
- From $\omega$, $c$ and population density we can derive population, wage bill, total rent, and transportation costs. The figure above suggests that  half of the urban surplus is spent on transportation, but that is because the figure makes it appear that the city is stretched out in one dimension. If  the city is circular, the total value of rents can be represented as  a cone with radius $d^\dagger$, height $\omega$ and volume  \[ V=\frac{1}{3}\pi  d^{\dagger2} \omega. \]
-Since $d^\dagger=\omega/c$ we can substitute out either  $\omega$ or  $d^\dagger$ to show that total rent is  proportional to the cube of either  $d^\dagger$ or $\omega$. 
+ From $\omega$, $c$ and population density we can derive population, wage bill, total rent, and transportation costs. The figure above suggests that  half of the urban surplus is spent on transportation, but that is because the figure makes it appear that the city is stretched out in one dimension. If  the city is circular, the total value of rents can be represented as  a cone with radius $d^\dagger$, height $\omega$ and volume  \[ V=\frac{1}{3}\pi  d^{\dagger2} \omega, \]
+illustrated in Figure~\ref{fig-city-conical}\footnote{In our computational model the city is  laid out on a grid. The volume representing total locational rent is then $V=\frac{2}{3}  d^{\dagger2} \omega$.}. 
+Since $d^\dagger=\omega/c$ we can substitute out either  $\omega$ or  $d^\dagger$ to show that total rent is  proportional to the cube of either  $d^\dagger$ or $\omega$.\footnote{Note that if the population density varies across the city the formula will involved integration and an function relating rent to density. } 
 
-The total value of wage payments appears as the volume of the cylinder enclosing the cone, $V=\pi r^2 \omega$, since the wage is the same for each unit of labour no matter where it resides. This is generally a fraction of the value of the city's agglomeration economies. 
-Total transport costs are $\frac{2}{3}\pi  d^{\dagger2} \omega$. 
+The total value of wage payments appears as the volume of the cylinder enclosing the cone, $V=\pi d^\dagger 2 \omega$, since the wage is the same for each unit of labour no matter where it resides. This is generally a fraction of the value of the city's agglomeration economies. 
+Total transport costs are $\frac{2}{3}\pi  d^{\dagger 2} \omega$. 
 With uniform density, the population is proportional to the square of  $\omega$ while rents and transportation costs are proportional to the cube. %move this?
 
 % BID-RENT MEANS
@@ -194,7 +187,8 @@ With uniform density, the population is proportional to the square of  $\omega$ 
 \begin{figure}
     \begin{center}
     \input{fig/city-conical.tex}
-    \caption[A three-dimensional version of the Alonso model]{A three-dimensional version of the Alonso rent from Figure~\ref{fig-alonso-simple}, representing the rents and transportation costs in the Alonso model of a circular city. The entire volume is the surplus income generated by agglomeration effects. The darker red cone is the amount that can be captured as locational rents.}
+    \caption[A three-dimensional version of the Alonso model]{A three-dimensional version of the Alonso rent from Figure~\ref{fig-alonso-simple}, representing the rents and transportation costs in the Alonso model of a circular city. The height is the wage premium $\omega$ and the radius, or distance, is  %$d^\dagger
+    $d=\omega/c$. The entire volume of the cylinder is the surplus income generated by agglomeration effects. The darker red cone is the amount that can be captured as locational rents.}
     \label{fig-city-conical}
     \end{center}
 \end{figure}

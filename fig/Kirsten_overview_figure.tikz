@@ -21,9 +21,9 @@
 \foreach \z in {-7.,-6.5,...,0}{ \draw  [fill=green] (\z,  {-\z-7.} ) rectangle +(.5, -.5);}  
 \foreach \z in {.5,1,...,7}{ \draw  [fill=green] (\z,  {7.5-\z} ) rectangle +(.5,.5);}
 
-% travel path
-\draw [line width=1.5mm, latex-latex, dashed, black!20!green](.25, 0.25)--(-5.25,0.25)--(-5.25,-1.75);
-\node at (-3.31,.73) {A travel path};
+% % travel path
+% \draw [line width=1.5mm, latex-latex, dashed, black!20!green](.25, 0.25)--(-5.25,0.25)--(-5.25,-1.75);
+% \node at (-3.31,.73) {A travel path};
 
 
 %.  Marginal households

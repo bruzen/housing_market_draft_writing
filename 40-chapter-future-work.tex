@@ -18,10 +18,25 @@ In this model, we have three distinct elements:
     \item A model of the spatial distribution of that value through rents and 
     \item A model of the institutional mechanisms by which some agents capture the rents through property markets. %financial and institutional structure linking them, which defines who gets what share of the surplus through ownership, taxation, etc.
 \end{enumerate}Each component is extensible, % is designed  to accommodate a range of extensions, 
-and the model is modular enough that any given segment may be removed and replaced with another, perhaps more detailed, implementation of the sector.\footnote{The extensions detailed here also combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions. A model incorporating in binary choices is one of an implicit family of $2^n$ alternative models.} 
+and the model is modular enough that any given segment may be removed and replaced with another, perhaps more detailed, implementation of the sector.\footnote{The extensions detailed here also combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions. A model incorporating $n$ binary choices is one of an implicit family of $2^n$ alternative models.} 
 In the following sections, we describe possible extensions to each of the three components. % that open a set of interesting questions. 
-In each case, we also introduce approaches for integrating data more systematically, or more thoroughly exploring the static and dynamic properties of the model. % detail several promising extensions to each module.
+Many of the extensions are illustrated in red in Figure~\ref{fig-extensions-logic}. Figure~\ref{fig-extensions-logic} is based on Figure~\ref{fig-flow-full-model} of Chapter~\ref{chapter-model} which illustrates the main logic of our simulation model. 
+%In each case, we also introduce approaches for integrating data more systematically, or more thoroughly exploring the static and dynamic properties of the model. % detail several promising extensions to each module.
 
+
+
+\begin{figure}\thisfloatpagestyle{empty} 
+\vspace{-4.5cm}
+\begin{adjustwidth}{-0.24\textwidth}{-0.2\textwidth}
+\centering
+\includegraphics[scale=.20]{fig/extensions3.png}
+\end{adjustwidth}
+\caption{Extensions}
+\label{fig-extensions-logic}
+%\pagestyle{headings}
+% \usetikzlibrary{positioning}
+%\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
+\end{figure}
 
 % \subsection{Combinatorial experiments}
 % Extensions from this basic model can go in several directions. We treat three categories of extension to this model:
@@ -111,7 +126,7 @@ Financing developments involves financial institutions and financial instruments
 
 
 % \subsection{Housing density}
-Cities also contain a rich variety of housing forms and neighbourhoods and the varied populations that occupy them. Separable from production, it is possible, is to introduce variation of housing form and density.  % Many questions about who gets what housing arise at this point. 
+Cities also contain a rich variety of housing forms and neighbourhoods and the varied populations that occupy them. Separable from production, it is possible to introduce variation of housing form and density.  % Many questions about who gets what housing arise at this point. 
 % Consider adding density, to look at how it interacts with agglomeration effects.
 %Introducing housing density variation. As with amenities, density variation density requires us to add attributes to locations and preference structures to individuals. 
 % As with amenities we expect sorting by income and preference in this case as well but density is an urban attribute that is important for many reasons, not least because affects population and is therefore going to interact with productivity, and be amplified through the Alonso-Jacobs feedback loop.     
@@ -123,7 +138,7 @@ Cities also contain a rich variety of housing forms and neighbourhoods and the v
 % \subsection{Locational preferences}
 
 \subsection{Amenity and locational preferences}
-In our base model, an urban wage premium is the only labour attractor. Effectively, we have set the level of amenities to zero to focus on the productivity effects. In reality, buying a home is always the purchase of a bundle of characteristics such as location, building space, yard, local density and local \glsdisp{amenity}{amenities}. Stegman found that ``a large majority of families who have recently moved to the suburbs are more concerned with neighborhood quality than with accessibility to other parts of the metropolitan region.'' Importantly, 
+In our base model, an urban wage premium is the only labour attractor. Effectively, we have set the level of amenities to zero in order to focus on the productivity effects. In reality, buying a home is always the purchase of a bundle of characteristics such as location, building space, yard, local density and local \glsdisp{amenity}{amenities}. Stegman found that ``a large majority of families who have recently moved to the suburbs are more concerned with neighborhood quality than with accessibility to other parts of the metropolitan region.'' Importantly, 
 ``There is evidence that the amenities offered by a city enhance its growth'' \cite{clarkAmenitiesDriveUrban2002, falckPhantomOperaCultural2011} and that amenity effects themselves scale superlinearly \cite{kraemerCulturalSustainabilityUS2022}.
 % We would like to differentiate neighbourhoods by amenity level and differentiate the population by wealth and income. Sorting by wealth and income is the expected result, but our model will allow us to  see if financialization affects the sort and whether public policies can have positive effects. 
 Appendix~\ref{chapter-amenity} discusses amenities in more detail. 
@@ -159,7 +174,7 @@ Economic dictates and building codes and master plans regulate which land is dev
 Modern cities are not lonely and autarkic beasts wandering their own exclusive territory. Each city is one in a global system of cities that compete with and complement each other. 
 There are important questions to explore when the city is one city among others, but, as DiBartholemeo and Turnbull \cite{dibartolomeoClosedVsOpen2023} point out,``[t]he empirical literature examining the determinants of city size almost exclusively uses the closed city version of the Mills–Muth model,''\footnote{Our model is intermediate in the sense that it allows for labour flows  between city and countrysides, but not between cities.} 
 %Labour and capital mobility matters. 
-However, flows of information, capital and even labour between cities are substantial and matter in the long run. With free movement, policies in one city will affect outcomes in other cities. Henderson Abdel-Rahman \cite{Henderson1972Sizes}, Abdel-Rahman \cite{abdel-rahmanAgglomerationEconomiesTypes1990}, Fujita \cite{fujitaMonopolisticCompetitionModel1988}, Fujita, Krugman, and Venables \cite{fujitaSpatialEconomyCities1999}, and Fujita and Thiess \cite{fujitaEconomicsAgglomeration1996} among others provide approaches for expanding the model in this direction.  %We would like to examine how the city connects with the larger system of cities.  The issues that arise resemble the issues that are made explicitly by  macroeconomic distinction between open and closed economies at the national level.\cite{hendersonSystemsCitiesClosed1982, dibartolomeoUrbanSprawlClosed2021}. % and unconnected to others of the species. 
+However, flows of information, capital and even labour between cities are substantial and matter in the long run. With free movement, policies in one city will affect outcomes in other cities. Henderson \cite{Henderson1972Sizes}, Abdel-Rahman \cite{abdel-rahmanAgglomerationEconomiesTypes1990}, Fujita \cite{fujitaMonopolisticCompetitionModel1988}, Fujita, Krugman, and Venables \cite{fujitaSpatialEconomyCities1999}, and Fujita and Thiess \cite{fujitaEconomicsAgglomeration1996} among others provide approaches for expanding the model in this direction.  %We would like to examine how the city connects with the larger system of cities.  The issues that arise resemble the issues that are made explicitly by  macroeconomic distinction between open and closed economies at the national level.\cite{hendersonSystemsCitiesClosed1982, dibartolomeoUrbanSprawlClosed2021}. % and unconnected to others of the species. 
 
 At the cost of additional computational complexity, the simple circular city can be extended to to produce other forms, including polycentric cities and hierarchies of cities. Embedding the city in a system of cities makes it possible to explore questions such as: % will let us  explore a number of important questions. 
 \begin{enumerate}
@@ -227,9 +242,9 @@ This would require introducing ancillary assumptions and selecting among alterna
 % At the bottom of the figure we introduce a fourth 
 % Another class of intervention, consumer demand, is linked to the population structure and feeding back to growth. 
 Our model has assumed there is production only for a perfectly elastic export demand, but in the real world, much of the demand for what is produced in the city is local consumer demand.  For example, manufacturing, which tends to meet non-local demand, typically provides less than a quarter of employment and exports from a city are generally on a similar scale. 
-We might therefore consider firms producing different products, some for export and some for the local market, and hiring multiple types of labour. We can then imagine a city that has centres of agglomeration by profession or by complementary. This kind of model could allow individual wages to be linked to sectoral agglomeration effects of other workers. %Depending on the production function, this should emerge endogenously within a model extended in this way. %  Consumer needs are buried in the subsistence wage. 
+We might therefore consider firms producing different products, some for export and some for the local market, and hiring multiple types of labour. We can then imagine a city that has differentiated agglomeration effects, for instance by profession. This kind of model could allow individual wages to be linked to sectoral agglomeration effects of other workers. %Depending on the production function, this should emerge endogenously within a model extended in this way. %  Consumer needs are buried in the subsistence wage. 
 
-A minimal extension would be to introduce a second sector representing local consumption demand. To do this, a share of locally generated income would support production for the city's population. The labour force would be split between the two sectors. A more complex treatment could introduce a range of service, entertainment and retail producers. This might be done with monopolistically competitive firms as in Dixit and Stiglitz \cite{AvinashK.Dixit1977MCaO}. These extensions are unlikely to affect the allocation of housing
+A minimal extension would be to introduce a second sector representing local consumption demand. To do this, a share of locally generated income would support production for the city's population. The labour force would be split between the two sectors. A more complex treatment could introduce a range of service, entertainment and retail producers. This might be done with monopolistically competitive firms as in Dixit and Stiglitz \cite{AvinashK.Dixit1977MCaO}. These extensions are unlikely to affect the allocation of housing.
 
 Productivity and wages might differ across sectors. Introducing different wages would be a major step toward generating a realistically diverse city. In our model, wages would equalize unless low-wage workers are willing to live in the city at different wages. Simply adding more firms or labour types will not give us multiple wages and will not allow us to explore sorting by income. That suggests that we would have to introduce different housing costs, different household structures, different transportation costs and/or a secondary benefit for some workers.  Extensions such as these would be expected to have effects on housing markets. %For example, savings behaviour would likely become more complex with endogenous consumer demand. % and with as more complex population structure.
 %.   {\color{red} ADD MORE EFFECTS}
@@ -243,13 +258,14 @@ The forecast rents and thus bids agents are willing to pay for property embed a 
 \subsection{Urban savings}
 % TODO THIS IS A CONTRIBUTION, BUT ALSO A DISCUSSION OF ONE WAY THIS WORK COULD BE EXTENDED, MIXED WITH A BIT OF MODEL DESCRIPTION
 Conventional growth models specify a savings/investment mechanism at the national level. To our knowledge, this has not been done for the city level. We require savings at two levels. First, since we want to incorporate households, home ownership, and a relationship to the financial sector through mortgages, we specify a savings rate out of the spending we have isolated in the `subsistence wage' This means that both urban and rural workers accumulate savings, that savings are age-dependent, making the size of mortgage available also age dependent. 
-Homeowners in addition have equity $E=P-M$ in their homes. % ({\color{red} Should newcomers also have equity? or is it built into the savings. Clarify this.} 
+Homeowners in addition have equity %$E=P-M$ 
+in their homes. % ({\color{red} Should newcomers also have equity? or is it built into the savings. Clarify this.} 
 {A second level of saving is the investment in capital out of the city surplus.} %Even raising this question puts us into terra incognita. 
 
 \subsection{Making public infrastructure investment explicit}
 We incorporated a property tax in the investment model but did not explicitly model how the revenue was spent. Public and private investment in human capital is largely urban as well, but as with infrastructure, investment and response take effect over time periods much longer than our model is concerned with. Private sector innovation in technology, marketing, or products draws on local saving less but still significantly on local savings. We have little in the way of theory or empirical research on this channel. Lags between investment and any rise in the urban wage premium are almost certainly long and variable. 
 
-One target is public investment in transportation infrastructure. We have discussed how falling transportation costs increase surplus generation.  We can set easily make transport cost depend on investments out of the property tax. Investments like this are made slowly and adjust and take effect over time periods that are very long compared to the variables our model has been concerned with. We can introduce deterioration and set the property tax sufficient to maintain the stock of infrastructure,  or we can allow debt. 
+One target is public investment in transportation infrastructure. We have discussed how falling transportation costs increase surplus generation.  We can make transport cost depend on investments out of the property tax. Investments like this are made slowly and adjust and take effect over time periods that are very long compared to the variables our model has been concerned with. We can introduce deterioration and set the property tax sufficient to maintain the stock of infrastructure,  or we can allow debt. 
 There may be many other channels through which surplus flows into productive investment in the urban context. 
 
 The scaling literature also provides relationships between density, population and infrastructure cost that we can explore as well. In the scaling literature, these relationships are increasingly theorized in terms of network effects, which is consistent with the Jacobs analysis and the more recent neoclassical growth modeling.
@@ -298,13 +314,16 @@ Just as financialization may extract resources that would otherwise be invested 
 \begin{center}
 \input{fig/financialization-expansion.tex}
 \end{center}
-\caption[Financialization expands investor ownership, but does not in expand the housing stock]{Financialization expands investor ownership, but does not in expand the housing stock. Yellow represents privately owned homes for which ownership is partially held by mortgage lenders.}
+\caption[Financialization expands investor ownership but does not expand the housing stock]{Financialization expands investor ownership, but does not expand the housing stock. The white area represents the part of the housing stock that is owner-occupied and not currently mortgaged. Yellow represents privately owned homes for which ownership is partially held by mortgage lenders. Dark grey represents the portion of the housing stock already owned by investors and light grey represents the part of the housing stock undergoing financialization. The process of financialization is orthogonal to the process of creating new housing.} 
 \label{fig-financialization-expansion}
-\end{figure}
+\end{figure}%{\color{red} TODO Discuss Figures 10.1 and 10.2 in text.}
 
 
 \subsection{Financialization as system change} \label{section-system}
-We established that, at least in theory, financial institutions and the wealthy are likely to own increasing shares of the housing stock. The theoretical conclusions is consistent with what has already happened in the Canadian Housing market. Recent data from Statistics Canada \cite{fontaineResidentialRealEstate2023} suggests people who own more than one property in Ontario make up more than 25\% of buyers in the province. (The proportion of investors among owners varied from 20.2\% in Ontario to 31.5\% in Nova Scotia.)
+Financialization expands investor ownership but does not expand the housing
+stock, as Figure~\ref{fig-financialization-expansion} illustrates. It is not inherently a productive process, but it is a transformational process. Our model shows that financial institutions and the wealthy are likely to own increasing shares of the housing stock. 
+
+The conclusion drawn from both theory and our simulation is consistent with what has already happened in the Canadian Housing market. Recent data from Statistics Canada \cite{fontaineResidentialRealEstate2023} suggests people who own more than one property in Ontario make up more than 25\% of buyers in the province. %(The proportion of investors among owners varied from 20.2\% in Ontario to 31.5\% in Nova Scotia.)
 Just under one in five properties overall was used as an investment.
 In Ontario 41.9\% of condominium apartments are investment properties \cite{statisticscanadaBuyRentHousing2022}.
 
@@ -464,19 +483,3 @@ Introducing many of these changes, such multiple wages, amenity, and differing d
 
 % three broad categories of extensions. %The main questions for immediate future work, connections with existing bodies of work, and the extensions needed to build out the base of this model and make it more rigorous. 
 
-
-{\newpage\thispagestyle{empty}
-\vspace{-1.5cm}
-
-\begin{figure}
-\vspace{-4.5cm}
-\begin{adjustwidth}{-0.24\textwidth}{-0.2\textwidth}
-\centering
-\includegraphics[scale=.20]{fig/extensions3.png}
-\end{adjustwidth}
-\caption{Extensions}
-\label{fig-extensions-logic}
-%\pagestyle{headings}
-% \usetikzlibrary{positioning}
-%\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
-\end{figure}}
