@@ -19,7 +19,9 @@ plot2/.style={thick, smooth, samples=100, domain=0.1:14.99},
 
 % THREE SCALE POSSIBILITIES
 \draw [thick, ](0,0)--(14, 10.22583)node[below right]{$\frac{N}{n_R}y_R$};   %diagonal line CRS
+
 \draw[plot2, dashed] (0,0) plot ({\x-.08},{(\x)^0.9/1.5 }); %DRS
+
 \draw[plot2, ultra thick, green] (0,0) plot ({\x-.08},{(\x/1.5)^1.15});%
 \node at (15.4, 13.5){$AN^\beta$};
 

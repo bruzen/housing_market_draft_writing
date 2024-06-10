@@ -121,7 +121,7 @@ In addition to the main blocks, to explore the potential effect of financializat
 
 
 
-Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modelling the market for housing in more detail. %{\color{red} I also think we had an improved version of this plot? with the 'y' in Productivity showing?}
+Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modelling the market for housing in more detail. 
 
 % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
 
@@ -165,7 +165,6 @@ The \gls{urban labour supply} is an \gls{aggregate} measure that emerges from in
 %   =\frac{\pi}{{c}^2 s} w^2,
 \label{eqn-labour-supply1}
 \end{equation}
-%{\color{red} say what N is} 
 where $\omega$ is the wage premium, $c$ is the cost of transportation, and $s$ is lot size (land per person).\footnote{The formula is for the case with a uniform density of one worker per lot. In the computation model density is a variable.} This is the equilibrium \gls{urban labour supply} function for the circular city. For a city with an idealized rectangular grid of streets, the city shape is rectangular rather than circular and the labour supply function is \[N= \frac{2}{s}\left(\frac{w}{{c}}\right)^2.\] %which is a \cite{GET_migration_equilibOR_pop_equilib_condition}. %It defines the quantity of labour available.
 
 %\footnote{See the discussion of model extensions in Appendix~\ref{appendix-future-work}.}.
@@ -243,9 +242,7 @@ Equation~\ref{eqn-model-MPL-w} is an equilibrium condition for the firm. Firms, 
            n  = \frac{\beta y}{\omega + \psi}.
 \label{eqn-labour-demand}
 \end{equation}
-%{\color{red} AWKWARD PHRASING We assume} 
-It is reasonable to assume that the wage premium $\omega$ and the size of the firm's workforce $n$
-both adjust slowly toward target values in each period.\footnote{The analytic model offers an equilibrium solution with full employment. The assumption of full employment is unrealistic. Workers are laid off, and take time to find new employment. The time people spend moving between jobs causes frictional unemployment which varies with economic conditions. Partial adjustment by agents allows for frictional unemployment in our model, although we do not treat it explicitly.}  We also allow the number of firms to adjust gradually.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible since it removes a term, $\frac{F\gamma y}{N} =\frac{\gamma y}{n}$, that is both small and very hard to observe.}
+It is reasonable to assume that the wage premium $\omega$ and the size of the firm's workforce $n$ both adjust slowly toward target values in each period.\footnote{The analytic model offers an equilibrium solution with full employment. The assumption of full employment is unrealistic. Workers are laid off, and take time to find new employment. The time people spend moving between jobs causes frictional unemployment which varies with economic conditions. Partial adjustment by agents allows for frictional unemployment in our model, although we do not treat it explicitly.}  We also allow the number of firms to adjust gradually.\footnote{We have assumed that the firm does not notice that, by hiring, it increases the agglomeration effect for the city. This assumption is convenient as well as plausible since it removes a term, $\frac{F\gamma y}{N} =\frac{\gamma y}{n}$, that is both small and very hard to observe.}
 
 
 % The city has single firm facing a fixed price for output. 
@@ -319,8 +316,6 @@ both adjust slowly toward target values in each period.\footnote{The analytic mo
 %Property markets are the largest and most complex part of our model. 
 In this section, we describe the housing market sub-model model. %There is a great deal of detail simply because the market has different types of participants who consider a large number of variables and interact.
 We have emphasized that urban properties generate economic surpluses that give rise to land rents. We therefore explicitly discuss land rents and their relationship to prices. In subsection~\ref{sec:warranted-rent} we begin by describing the stream of benefits that a property generates, including locational services, housing services and other amenities.  We describe the variables involved in calculating the value of a property based on these services. We term this the \gls{warranted rent}. Then in Subsection~\ref{sec:market-rent} we describe a simple model of the costs of providing housing to get a net value. 
-
-%{\color{red} I THINK IT WOULD BE HELPFUL TO REFER BACK TO THE COMMON USAGE OF RENT AND HOW THAT IS DINSTINCT YET SOMETIMES THE SAME AS ECON RENT.   reply: I think we have beaten this rto deaat hin earlier chapters}
 
 Because participation in the housing market depends on financing, in subsection~\ref{sec:mortgage-availability} we look in detail at the on mortgage availability. We distinguish economic benefits arising from the services provided by a property from the financial gains that ownership might provide, so in subsection~\ref{sec:bid-price} we model value  from the point view of an investor or non-resident owner and develop what we call a maximum bid price.  The subsection~\ref{sec:bids-and-reservation} derives specific bid and reservation prices for different agents. Agents' maximum bid prices are used the bargaining model in subsection~\ref{sec:bargaining-model}  to determine the market prices for each property. 
 
@@ -444,8 +439,7 @@ P^{expected}_i = \frac{a\psi}{r}.
     \begin{center}
     \input{fig/borrowing-ratio}
     \end{center}
-    \caption[Individual borrowing ratio $m_i$ as a function of wealth]{$m_i$ is the fraction of the value of a property that the bank will mortgage for individual $i$. The fraction is higher for wealthier individuals, as  Equation~\ref{eqn-wealth-based-mortgage}  indicates. $\bar W$ is the mean wealth of the population. }
-    %{\color{red} add W_bar, m_i}}
+    \caption[Individual borrowing ratio $m_i$ as a function of wealth]{$m_i$ is the fraction of the value of a property that the bank will mortgage for individual $i$. The fraction is higher for wealthier individuals, as  Equation~\ref{eqn-wealth-based-mortgage}  indicates. The variable $\bar W$ is the mean wealth of the population. }
     \label{fig-borrowing-ratio}
     \end{figure}
 
@@ -483,7 +477,7 @@ In our model the bank uses a rule of this form to decide how much it is willing 
   \begin{figure}
     \centering
     \input{fig/dual-constraint.tex}
-    \caption[The bank's dual mortgage constraint and the savings constraint]{The bank's dual mortgage constraint and the savings constraint determine the maximum bid price. The upper, dashed diagonal line is the price $P$. Below it, the solid diagonal is the maximum fraction the bank will lend as a fraction of the price, determined in Equation~\ref{eqn-wealth-based-mortgage}. The horizontal line is the maximum the bank will lend given the potential buyer's income, $M_i^{max}$. The result is the kinked borrowing constraint, shown in red. The difference between price and maximum lending must be covered by savings.}% {\color{red} maybe add the variables}}
+    \caption[The bank's dual mortgage constraint and the savings constraint]{The bank's dual mortgage constraint and the savings constraint determine the maximum bid price. The upper, dashed diagonal line is the price $P$. Below it, the solid diagonal is the maximum fraction the bank will lend as a fraction of the price, determined in Equation~\ref{eqn-wealth-based-mortgage}. The horizontal line is the maximum the bank will lend given the potential buyer's income, $M_i^{max}$. The result is the kinked borrowing constraint, shown in red. The difference between price and maximum lending must be covered by savings.}
     \label{fig:dual-constraint}
     \end{figure}
 
@@ -521,7 +515,7 @@ The two constraints on mortgage size that the bank imposes are incorporated in t
     \begin{figure}
     \centering
     \input{fig/price-of-capital}\label{fig-capital-cost}
-    \caption[Individual borrowing rate $r_i$]{Individual borrowing rate $r_i$ is set by thew bank. There is a wealth minimum below which lenders will not lend. Above that level of wealth (to the right) the interest rate offered by lenders declines. Borrowers with wealth above $\bar W$ receive preferential rates which are above the bank's cost of capital $r^{prime}$ but may be below the bank's target rate $r^{target}$. }%{\color{red}maybe explain the variables}}  
+    \caption[Individual borrowing rate $r_i$]{Individual borrowing rate $r_i$ is set by the bank. There is a wealth minimum below which lenders will not lend. Above that level of wealth, to the right, the interest rate offered by lenders declines. Borrowers with wealth above $\bar W$ receive preferential rates which are above the bank's cost of capital $r^{prime}$ but may be below the bank's target rate $r^{target}$.}
     \label{fig:Wealth-based}
     \end{figure}
 
@@ -547,7 +541,7 @@ for $W>W_{min}$, where  $r^{target}$ is the bank's target rate of return,  $\bar
 
 Mortgages are renewed after $\mathbb{T}$ years. During that period some of the principle has been paid off. This is most important when a property is sold. The seller gets $P-M_{i,\mathbb{T}}$, where  $M_{i,\mathbb{T}}$ is its remaining mortgage.
 
-% % {\color{red} 
+
 
 % **** ADD BACK
 % \textbf{Footnote on size of mortgage at renewal.}
@@ -626,7 +620,7 @@ Annual payments are $rmP_0$, where  $r$ is the interest rate and $m$ is the frac
  For an agent, the present value $V$ of a property investment over  $\mathbb{T}$ years is the sum of capital gain plus accumulated net rent ${R}_{N, \mathbb{T}}$ from Equation minus the mortgage, which must be paid back with any financing costs $\mathcal{M}_{\mathbb{T}}$ from Equation~\ref{eqn-fiancing_cost}, all discounted to the present. 
  
  The capital gain is  $P_{^\mathbb{T}}-P_{0}$, where $P_0$ is the purchase price and  $P_T$ is sale price the at the end of $T$ years. 
-We can therefore write $V$ %in terms of the purchase price $P_0$, sale price $P_T$ at the end of $T$ years, and several individual parameters: interest rate, share of the price that can be mortgaged and discount rate: {\color{red} MAYBE WE SHOULD CLARIFY NOTATION/EXPLANATION HERE - 'Is this delta to power T'? -} %\footnote{The down payment could be deducted in advance, but if the discount rate is equal to the interest rate it drops out completely.}
+We can therefore write $V$ %in terms of the purchase price $P_0$, sale price $P_T$ at the end of $T$ years, and several individual parameters: interest rate, share of the price that can be mortgaged and discount rate: { MAYBE WE SHOULD CLARIFY NOTATION/EXPLANATION HERE - 'Is this delta to power T'? -} %\footnote{The down payment could be deducted in advance, but if the discount rate is equal to the interest rate it drops out completely.}
  
  \begin{align}
 V &= \delta^\mathbb{T}\left( P_\mathbb{T}-P_0-\mathcal{M}_{\mathbb{T}}- M+ \mathcal{R}_{N, \mathbb{T}} \right)      \nonumber\\
@@ -719,7 +713,6 @@ If we assume that the price will continue to change at the same rate over the mo
 Buyers calculate their maximum bid based on value, but actual bids are constrained by the mortgage limits imposed by the bank illustrated in Figure~\ref{fig:dual-constraint} and the buyer's savings. The mortgage constraint may or may not bind, depending on the price of the final price. Figure~\ref{fig:savings-constraint} illustrates how these considerations affect the actual bid. 
 
 We choose a price on the horizontal axis and project it up to the black dashed diagonal. Three lines show the levels of the constraints at that price.
-% {\color{red}
 %Purchasers may be financially constrained by the combination of mortgage availability and savings, as illustrated in Figure~\ref{fig:savings-constraint}. 
 \begin{enumerate}
     \item The horizontal dashed line $P_B^{max}$ represents \textbf{the maximum the buyer is willing to pay}, as calculated in Equation~\ref{eqn:maximum-bid}, if the mortgage funding were available. No bid will be above this line. 
@@ -744,7 +737,7 @@ We choose a price on the horizontal axis and project it up to the black dashed d
  \begin{figure}
     \centering
     \input{fig/savings-constraint.tex}
-    \caption[Incorporating a savings constraint]{Extending Figure~\ref{fig:dual-constraint} to include a savings constraint.  The red solid line shows the maximum amount the bank will lend as described in. Figure~\ref{fig:dual-constraint}. The borrower adds his or her available savings to the available mortgage to reach the blue solid line.  The maximum price the borrower can bid is given by the intersection of the blue line with the diagonal dashed line representing prices.}%{\color{red} maybe repeat variable definitions}}
+    \caption[Incorporating a savings constraint]{Extending Figure~\ref{fig:dual-constraint} to include a savings constraint.  The red solid line shows the maximum amount the bank will lend as described in. Figure~\ref{fig:dual-constraint}. The borrower adds his or her available savings to the available mortgage to reach the blue solid line.  The maximum price the borrower can bid is given by the intersection of the blue line with the diagonal dashed line representing prices.}
     \label{fig:savings-constraint}
     % I removed a line saying Savings sub i in lower corner
     \end{figure}
@@ -840,7 +833,7 @@ When there is one bidder, we will employ a simple rule for splitting the gain fr
 \begin{figure}[!thb]
 \centering
 \input{fig/bargaining.tex}
-\caption[The bargaining model and price determination mechanism]{The bargaining model and price determination mechanism. Sellers set a reservation price $P_R$. Sellers determine their maximum valuation $P_i^{max}$ and a maximum bid $P_B^{max}$ given borrowing constraints set by the bank. The realtor function identifies the highest bids and determines the outcome. }%  {\color{red} add $P_R, P_B^max, P_i^max$}}
+\caption[The bargaining model and price determination mechanism]{The bargaining model and price determination mechanism. Sellers set a reservation price $P_R$. Sellers determine their maximum valuation $P_i^{max}$ and a maximum bid $P_B^{max}$, given borrowing constraints set by the bank. The realtor identifies the highest bids and determines the outcome. }
 \label{fig:Bargaining}
 \end{figure}
 
@@ -870,7 +863,7 @@ where $x$ is typically 0.5.
 
 
 \section{Linking financialization and urban productivity}
-% {\color{red}We model a relationship between productivity and agglomeration. }
+% {We model a relationship between productivity and agglomeration. }
 As we point out in Chapter~\ref{chapter-tramsmission} there are numerous channels through which financialization might affect the productivity of the city. The available literature does not tell us which channels are active,  and which, if any, have a significant effect. Our goal in modelling is to establish whether or not linkages are likely to have significant effects on the economy. If our model establishes that the effects are potentially significant, it might encourage researchers to explore this neglected area in urban economics.
 
 To introduce the potential effect of financialization and ownership as simply as possible, we rewrite $A$ from the basic model as:\[ A= A_0 + \text{effectiveness} * \text{share} * \text{rent}\]

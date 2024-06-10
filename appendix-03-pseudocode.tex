@@ -1,0 +1,86 @@
+\chapter{Model Pseudo Code} \label{appendix-pseudocode}
+{\small\begin{verbatim} 
+
+Class City (inherits from Model):
+    Method __init__(parameters):
+        # Initialize parameters
+        Set self.params to default_parameters merged with parameters
+
+        # Initialize interventions if interventions_on is True and interventions is non-empty
+        If `interventions' in self.params and self.params.get(`interventions_on', False):
+            Set interventions to self.params[`interventions']
+            If interventions is empty:
+                Set interventions to None
+        Else:
+            Set interventions to None
+
+        # Add a bank, firm, investor, and realtor
+        Initialize Bank(unique_id, self, center)
+        Initialize Firm(unique_id, self, center, various parameters...)
+        Initialize Investor(unique_id, self, center, various parameters...)
+        Initialize Realtor(unique_id, self, center)
+
+        # Add land and people to each cell
+        For each cell in grid.coord_iter():
+            Set pos to (cell[1][0], cell[1][1])
+            Initialize Land(unique_id, self, pos, self.params[`property_tax_rate'])
+            If self.params[`random_init_age']:
+                Set init_working_period to random integer between 0 and self.params[`working_periods'] - 1
+            Else:
+                Set init_working_period to 0
+            Set savings to init_working_period * savings_per_step
+            Initialize Person(unique_id, self, pos, init_working_period, savings, capital_gains_tax, land)
+
+        # Set up data collection
+        Call setup_mesa_data_collection()
+
+    Method step:
+        # Apply interventions for this time step
+        If interventions:
+            Call apply_interventions to apply interventions for this time step
+
+        # Firms update wages based on worker supply
+        Set firm.worker_supply to firm.get_worker_supply()
+        Set firm.agglom_pop to firm.get_agglomeration_population(firm.worker_supply)
+        Call firm.step() for each Firm agent
+
+        # Land records locational rents and calculates price forecast
+        Call land.step() for each Land agent
+
+        # People work, retire, and list properties to sell
+        Call person.step() for each Person agent
+
+        # Investors list properties to sell
+        Call investor.list_properties() for Investor agent
+
+        # Add newcomers to replace retiring urban owners
+        For each retiring urban owner:
+            Initialize newcomer Person()
+            Call person.bid_on_properties()
+
+        # Investors bid on properties
+        Call investor.bid_on_properties for Investor agent
+
+        # Realtors sell homes
+        Call realtor.sell_homes for Realtor agent
+
+        # Realtors rent properties
+        Call realtor.rent_homes for Realtor agent
+
+        # Advance model time
+        Call schedule.step_time()
+
+        # Record step data
+        Call record_step_data()
+
+    Method run_model:
+        For t in range(num_steps):
+            Call step()
+        Call record_run_data_to_file()
+
+
+
+
+
+
+\end{verbatim} }
