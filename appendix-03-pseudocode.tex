@@ -1,4 +1,5 @@
-\chapter{Model Pseudo Code} \label{appendix-pseudocode}
+\chapter{Pseudo Code} \label{appendix-pseudocode}
+\section{Model Pseudo Code}
 {\small\begin{verbatim} 
 
 Class City (inherits from Model):
@@ -32,12 +33,14 @@ Class City (inherits from Model):
             Initialize Person(unique_id, self, pos, init_working_period, savings, capital_gains_tax, land)
 
         # Set up data collection
-        Call setup_mesa_data_collection()
+        Call self.setup_mesa_data_collection()
 
     Method step:
         # Apply interventions for this time step
         If interventions:
-            Call apply_interventions to apply interventions for this time step
+            Call self.apply_interventions to apply interventions for this time step
+            
+\end{verbatim}{\color{red} I think this firm segment is wrong. See email}\begin{verbatim}
 
         # Firms update wages based on worker supply
         Set firm.worker_supply to firm.get_worker_supply()
@@ -59,28 +62,544 @@ Class City (inherits from Model):
             Call person.bid_on_properties()
 
         # Investors bid on properties
-        Call investor.bid_on_properties for Investor agent
+        Call investor.bid_on_properties() for Investor agent
 
         # Realtors sell homes
-        Call realtor.sell_homes for Realtor agent
+        Call realtor.sell_homes() for Realtor agent
 
         # Realtors rent properties
-        Call realtor.rent_homes for Realtor agent
+        Call realtor.rent_homes() for Realtor agent
 
         # Advance model time
         Call schedule.step_time()
 
         # Record step data
-        Call record_step_data()
+        Call self.record_step_data()
 
     Method run_model:
         For t in range(num_steps):
-            Call step()
-        Call record_run_data_to_file()
+            Call self.step()
+        Call self.record_run_data_to_file()
+
+    Method apply_interventions(current_time_step):
+        For each intervention_name and intervention_details in self.interventions:
+            If current_time_step equals intervention_details['time']:
+                
+                # Split the attribute path into components
+                Split intervention_details['var'] by '.' and store in attr_components
+                Set target_obj to self
+                
+                For each attr_name in attr_components:
+                    Set target_obj to the attribute of target_obj named attr_name
+
+                Set the value of the final attribute using setattr(target_obj, attr_components[-1], intervention_details['val'])
+    
+\end{verbatim} }
+
+\section{Agent Pseudo Code}
+{\small\begin{verbatim} 
 
 
+Class Land (inherits from Agent):
+
+    # Properties
+    Property market_rent:
+        Return self.warranted_rent
+
+    Property net_rent:
+        Return self.warranted_rent - self.maintenance - self.property_tax
+
+    Property appraised_price:
+        Return self.warranted_price
+
+    Property property_tax:
+        Return self.property_tax_rate * self.appraised_price
+
+    # Initialization method
+    Method __init__(unique_id, model, pos, property_tax_rate=0., resident=None, owner=None):
+        Call superclass __init__ with unique_id and model
+        Initialize variables
+
+    # Step method
+    Method step():
+        Set self.warranted_rent to result of self.get_warranted_rent()
+        Set self.warranted_price to result of self.get_warranted_price()
+        
+        If self.model.firm.wage_premium is greater than self.transport_cost:
+            Set self.p_dot to self.model.firm.p_dot
+        Else:
+            Set self.p_dot to None
+
+    # Method to calculate distance from center
+    Method calculate_distance_from_center(method='euclidean'):
+        If method is 'euclidean':
+            Return Euclidean distance between self.pos and self.model.center
+        Else if method is 'cityblock':
+            Return Cityblock distance between self.pos and self.model.center
+        Else:
+            Raise ValueError for invalid distance calculation method
+
+    # Method to calculate transport cost
+    Method calculate_transport_cost(dist=None):
+        If dist is None:
+            Set dist to self.distance_from_center
+        Set cost to dist * self.model.transport_cost_per_dist
+        Return cost
+
+    # Method to change owner of the land
+    Method change_owner(new_owner, old_owner):
+        Set self.owner to new_owner
+        Remove self from old_owner's properties_owned list
+        Add self to new_owner's properties_owned list
+
+    # Method to get maintenance cost
+    Method get_maintenance():
+        Return self.model.housing_services_share * self.model.maintenance_share * self.model.firm.subsistence_wage
+
+    # Method to get warranted rent
+    Method get_warranted_rent():
+        Set wage_premium to self.model.firm.wage_premium
+        Set subsistence_wage to self.model.firm.subsistence_wage
+        Set a to self.model.housing_services_share
+        Set warranted_rent to wage_premium - self.transport_cost + a * subsistence_wage
+        Return max(warranted_rent, 0)
+
+    # Method to get warranted price
+    Method get_warranted_price():
+        Return self.warranted_rent / self.model.r_prime
+
+    # Method to check if owners match
+    Method check_owners_match():
+        For each owned_property in self.owner.properties_owned:
+            If self.unique_id equals owned_property.unique_id:
+                Return True
+        Return False
+
+Class Person (inherits from Agent):
+
+    # Properties
+    Property borrowing_rate:
+        Return self.model.r_target + self.individual_wealth_adjustment
+
+    Property individual_wealth_adjustment:
+        Set K to self.model.wealth_sensitivity
+        Set W to self.get_wealth()
+        Set W_min to 10000
+        Set W_avg to self.model.bank.get_average_wealth()
+        Return K / (W - W_min) - K / (W_avg - W_min)
+
+    # Initialization method
+    Method __init__(unique_id, model, pos, init_working_period=0, savings=0., debt=0., capital_gains_tax=None, residence_owned=None):
+        Call superclass __init__ with unique_id and model
+        Initialize variables
+
+    # Step method
+    Method step():
+        Increment self.count by 1
+        Increment self.working_period by 1
+        Set premium to self.model.firm.wage_premium
+
+        # Urban agents past the working age retire
+        If premium > self.residence.transport_cost:
+            If self.working_period >= self.model.working_periods:
+                If self.residence in self.properties_owned:
+                    Set reservation_price to result of self.model.bank.get_reservation_price with relevant parameters
+                    Call self.model.realtor.list_property_for_sale with self, self.residence, and reservation_price
+                    Log debug message for person retiring
+
+            If self.working_period > self.model.working_periods:
+                If self.residence in self.properties_owned:
+                    Call self.model.workforce.remove with self and self.model.workforce.workers
+                    Log warning for urban homeowner still in model
+                Else:
+                    Reset self.working_period to 1
+                    Reset self.savings to 0
+
+        Else:
+            Call self.model.workforce.remove with self and self.model.workforce.workers
+            If self.working_period > self.model.working_periods:
+                Reset self.working_period to 1
+                Reset self.savings to 0
+
+        Increment self.savings by self.model.savings_per_step
+
+        If self.residence:
+            If isinstance(self.residence.owner, Person):
+                If self.residence.owner.purchased_property:
+                    Set self.residence.ownership_type to 1
+                Else:
+                    Set self.residence.ownership_type to 0
+                If premium > self.residence.transport_cost:
+                    Increment self.model.urban_resident_owners_count by 1
+            Else if isinstance(self.residence.owner, Investor):
+                Set self.residence.ownership_type to 2
+                If premium > self.residence.transport_cost:
+                    Increment self.model.urban_investor_owners_count by 1
+            Else:
+                Set self.residence.ownership_type to 3
+                If premium > self.residence.transport_cost:
+                    Increment self.model.urban_other_owners_count by 1
+
+    # Method to work if worthwhile to work
+    Method work_if_worthwhile_to_work():
+        Set premium to self.model.firm.wage_premium
+        If premium > self.residence.transport_cost:
+            Call self.model.workforce.add with self and self.model.workforce.workers
+        Else:
+            Call self.model.workforce.remove with self and self.model.workforce.workers
+
+    # Method to bid on properties
+    Method bid_on_properties():
+        Set max_mortgage_share to self.model.max_mortgage_share
+        Set max_mortgage to self.get_max_mortgage()
+
+        For each listing in self.model.realtor.bids:
+            Set net_rent to listing.sale_property.net_rent
+            Set p_dot to listing.sale_property.p_dot
+            Set transport_cost to listing.sale_property.transport_cost
+            Set P_bid and bid_type to result of self.get_max_bid with relevant parameters
+            Call self.model.realtor.add_bid with self, listing, P_bid, and bid_type
+
+    # Method to get max mortgage
+    Method get_max_mortgage(savings=None):
+        Set S to savings if provided, else self.savings
+        Set r to self.borrowing_rate
+        Set r_prime to self.model.r_prime
+        Set r_target to self.model.r_target
+        Set wage to self.model.firm.wage
+
+        Set M to 0.28 * (wage + r * S) / r_prime
+        Return M
+
+    # Method to get max bid
+    Method get_max_bid(m, M, R_N, p_dot, transport_cost, savings=None):
+        Set S to savings if provided, else self.savings
+        Set r to self.borrowing_rate
+        Set r_prime to self.model.r_prime
+        Set r_target to self.model.r_target
+        Set wage to self.model.firm.wage
+
+        Set value_bid to result of self.model.bank.get_max_desired_bid with relevant parameters
+        Set equity_bid to S / (1 - m)
+        Set income_bid to 0.28 * (wage + r * S) / (1 + 0.28 * r) * m
+
+        Set P_bid to value_bid
+        If equity_bid <= P_bid:
+            Set bid_type to 'value_limited'
+            Set P_bid to value_bid
+
+        If income_bid <= P_bid:
+            Set bid_type to 'equity_limited'
+            Set P_bid to income_bid
+        Else:
+            Set bid_type to 'value_limited'
+
+        Return P_bid and bid_type
+
+    # Method to get wealth
+    Method get_wealth():
+        Return self.savings
+
+    # Method to remove person
+    Method remove():
+        Increment self.model.removed_agents by 1
+        Call self.model.workforce.remove_from_all with self
+        Call self.model.schedule.remove with self
+        Call self.model.grid.remove_agent with self
 
 
+\end{verbatim} }
 
+{\small\begin{verbatim} 
+Class Firm inherits from Agent
+
+    Define __init__(self, unique_id, model, pos, subsistence_wage, init_wage_premium_ratio, 
+                    alpha, beta, gamma, price_of_output, r_prime, seed_population, density, 
+                    overhead, mult, adjN, adjk, adjn, adjF, adjw, adjs, adjd, adjp, dist, 
+                    init_F, init_k, init_n, A_productivity_link, A_base, A_slope)
+        Call superclass initializer with unique_id and model
+        Set instance variables with provided parameters
+        Initialize additional variables:
+            y = 100000
+            Y = 0
+            F = init_F
+            k = init_k
+            n = init_n
+            F_target = init_F
+            n_target = init_n
+            wage_premium = init_wage_premium_ratio * subsistence_wage
+            old_wage_premium = 8000
+            wage = (1 + init_wage_premium_ratio) * subsistence_wage
+            wage_target = wage
+            MPL = 7200
+            worker_demand = F * n
+            worker_supply = F * n
+            agglom_pop = F * n
+            p_dot = 0
+            N = F * n
+            A = A_base + A_slope
+
+    Define step(self)
+        If A_productivity_link is False
+            Set investor_ownership_impact_share to 0
+        Else
+            Set investor_ownership_impact_share to model's investor_ownership_share
+        
+        Update A based on A_base, A_slope, and investor_ownership_impact_share
+        Log current step information
+        
+        Store initial values for calculations:
+            y = A * agglom_pop^gamma * k^alpha * n^beta
+            MPL = beta + y / n
+            N_target = N
+        
+        Update N using adjN and N_target
+        Store old values of n and wage
+        Calculate overhead ratio as 1 + overhead
+        Calculate VMPL as price_of_output * MPL
+        Calculate revenue as price_of_output * y
+        Calculate cost as r * k + wage * n
+        Calculate profit as revenue - cost
+        Calculate profit_ratio as revenue / cost
+        Update old_wage_premium with current wage_premium
+        
+        Set k_target using price_of_output, alpha, y, and r
+        Set n_target based on beta, A, agglom_pop, and k
+        Calculate worker_demand as n_target * F
+        Calculate edr as (worker_demand - worker_supply) / max(abs(worker_demand), abs(worker_supply))
+        Update F based on worker_supply and n
+        Set wage_target as VMPL / overhead ratio
+        Update wage based on adjw and wage_target
+        
+        Increment state variables towards targets:
+            Update n using adjn and n_target
+            Update k using adjk and k_target
+            Update wage using adjw and wage_target
+            Update wage_premium as wage - subsistence_wage
+            Calculate p_dot using get_p_dot
+
+    Define get_worker_supply(self, city_extent = None)
+        If city_extent is provided
+            Calculate agent_count using block metric radius of the city
+            Calculate worker_supply as density * agent_count + seed_population
+        Else
+            Get agent_count from model's workforce
+            If the city is centered
+                Calculate worker_supply as density * agent_count + seed_population
+            Else
+                Calculate worker_supply as 4 * density * agent_count + seed_population
+        
+        If worker_supply is 0
+            Set worker_supply to 1
+        
+        Return worker_supply
+
+    Define get_agglomeration_population(self, worker_supply)
+        Return mult * worker_supply
+
+    Define get_p_dot(self)
+        Try to calculate p_dot as ((wage_premium / old_wage_premium)^mortgage_period - 1) / r
+        If ZeroDivisionError occurs
+            Log error with time_step and unique_id
+            Set p_dot to None
+        If any other exception occurs
+            Log the error
+            Set p_dot to None
+        Return p_dot
+
+
+Class Bank inherits from Agent
+
+    Define __init__(self, unique_id, model, pos)
+        Call superclass initializer with unique_id and model
+        Set position (pos) of the bank
+
+    Define get_reservation_price(self, R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations)
+        Call get_max_desired_bid with the same parameters and return the result
+
+    Define get_max_desired_bid(self, R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations)
+        Set T to model's mortgage_period
+        Set delta to model's delta
+
+        If all parameters are not None
+            Calculate R_NT using the formula (((1 + r)^T - 1) / r) * R_N
+            Return the reservation price using the revised formula
+        Else
+            Log error with details of the parameters
+            Return 0
+
+    Define get_average_wealth(self)
+        Calculate rural_home_value using get_rural_home_value
+        Calculate avg_locational_value based on wage_premium and r_prime
+        If the city is not centered
+            Divide avg_locational_value by 4
+        Return sum of rural_home_value and avg_locational_value
+
+    Define get_rural_home_value(self)
+        Set a to model's housing_services_share
+        Set subsistence_wage to firm's subsistence_wage
+        Set r to model's r_prime
+        Return value of a * subsistence_wage / r
+
+Class Investor inherits from Agent
+
+    Define __init__(self, unique_id, model, pos, r_investor, capital_gains_tax, investor_expectations, investor_turnover, properties_owned)
+        Call superclass initializer with unique_id and model
+        Set position (pos) of the investor
+        Set borrowing_rate to r_investor
+        Set investor_turnover to investor_turnover
+        Set properties_owned to properties_owned (default empty list)
+        If no capital_gains_tax
+            Log a warning
+        Set capital_gains_tax to capital_gains_tax
+        Set expectations to investor_expectations
+
+    Define list_properties(self)
+        Get number of properties owned
+        For each property in properties_owned
+            If a random chance based on investor_turnover
+                Calculate reservation_price using bank's get_reservation_price with property details
+                List property for sale using realtor's list_property_for_sale
+
+    Define bid_on_properties(self)
+        Set m to model's max_mortgage_share
+        For each listing in realtor's bids
+            Get property details from listing
+            Call get_max_bid with the property details
+            Log the bid details
+            If P_bid is greater than 0
+                Add bid using realtor's add_bid
+            Else
+                Log that the investor doesn't bid
+
+    Define get_max_bid(self, m, R_N, p_dot, transport_cost)
+        Set r to borrowing_rate
+        Set r_target to model's r_target
+        Calculate P_bid using bank's get_max_desired_bid with property details
+        Set bid_type to 'investor'
+        Log the bid details
+        Return P_bid and bid_type
+
+    Define __str__(self)
+        Return a string representation of the investor
+
+Class Realtor(Agent):
+    Constructor __init__(unique_id, model, pos):
+        Call super().__init__(unique_id, model)
+        Initialize pos, rental_listings, bids
+
+    Method step():
+        pass
+
+    Method list_property_for_sale(seller, sale_property, reservation_price):
+        Create a Listing object
+        Initialize bids for the listing
+
+    Method add_bid(bidder, listing, price, bid_type):
+        Create a Bid object
+        Append the bid to the bids list for the listing
+
+    Method sell_homes():
+        Initialize allocations list
+        Log number of listed properties
+        For each listing and its bids in self.bids:
+            Initialize final_price to None
+            Get reservation_price from listing
+            If there are bids:
+                Sort bids by price in descending order
+                Get highest_bid, highest_bid_price, second_highest_bid_price
+                If seller is not highest_bidder:
+                    Apply negotiation rules (if any)
+                    Set final_price based on highest_bid_price or other rules
+                    If final_price:
+                        Create Allocation object
+                        Append allocation to allocations list
+                        If buyer is Person:
+                            Remove buyer's other bids
+                    Else:
+                        If seller is Person:
+                            Add property to rental_listings
+                            Track property with retired_agents
+                            Remove seller from model
+                        If seller is Investor:
+                            representative investor keeps property
+        Complete transactions with allocations
+        Clear bids
+        Return allocations
+
+    Method complete_transactions(allocations):
+        For each allocation in allocations:
+            Log transaction details
+            Record property sale data
+            If buyer is Investor:
+                Handle investor purchase
+            If buyer is Person:
+                Handle person purchase
+            Handle seller departure
+
+    Method handle_investor_purchase(allocation):
+        Change property owner
+        Set property resident to None
+        Set buyer residence to None
+        Add property to rental_listings
+
+    Method handle_person_purchase(allocation):
+        Change property owner
+        Set property resident to buyer
+        Move buyer to property position
+        Set buyer purchased_property to True
+        If wage_premium > transport_cost:
+            Add buyer to workforce
+
+    Method handle_seller_departure(allocation):
+        If seller is Person:
+            If seller is in retiring_urban_owner:
+                Remove seller
+
+    Method rent_homes():
+        Log number of properties to rent
+        For each rental in rental_listings:
+            Create renter
+            Set property resident to renter
+            Set renter residence to property
+            Remove renter from newcomers list
+            Log renter details
+            renter.work_if_worthwhile_to_work()
+        Clear rental_listings
+
+Class Bid_Storage(Agent):
+    Constructor __init__(unique_id, model, pos, bidder_name, distance_from_center, bidder_savings):
+        Call super().__init__(unique_id, model)
+        Initialize attributes
+
+    Method step():
+        Update transport cost
+        If bidder_name is 'Investor':
+            Get max bid for investor
+        If bidder_name starts with 'Savings':
+            Get max mortgage and bid for person
+        Else:
+            Log warning
+
+Class Listing:
+    Constructor __init__(seller, sale_property, reservation_price):
+        Initialize attributes
+
+    Method __str__():
+        Return string representation
+
+Class Bid:
+    Constructor __init__(bidder, bid_price, bid_type):
+        Initialize attributes
+
+    Method __str__():
+        Return string representation
+
+Class Allocation:
+    Constructor __init__(buyer, seller, sale_property, final_price, highest_bid_price, second_highest_bid_price):
+        Initialize attributes
+
+    Method __str__():
+        Return string representation
 
 \end{verbatim} }
