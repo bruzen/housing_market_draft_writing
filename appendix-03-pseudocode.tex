@@ -366,7 +366,7 @@ Class Firm inherits from Agent
         Set k_target using price_of_output, alpha, y, and r
         Set n_target based on beta, A, agglom_pop, and k
         Calculate worker_demand as n_target * F
-        Calculate edr as (worker_demand - worker_supply) / max(abs(worker_demand), abs(worker_supply))
+        
         Update F based on worker_supply and n
         Set wage_target as VMPL / overhead ratio
         Update wage based on adjw and wage_target
@@ -375,8 +375,9 @@ Class Firm inherits from Agent
             Update n using adjn and n_target
             Update k using adjk and k_target
             Update wage using adjw and wage_target
-            Update wage_premium as wage - subsistence_wage
-            Calculate p_dot using get_p_dot
+            
+        Update wage_premium as wage - subsistence_wage
+        Calculate p_dot using get_p_dot
 
     Define get_worker_supply(self, city_extent = None)
         If city_extent is provided
