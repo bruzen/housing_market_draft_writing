@@ -1,10 +1,10 @@
 \chapter{Pseudo Code} \label{appendix-pseudocode}
 \section{Model Pseudo Code}
-{\small\begin{verbatim} 
+{\tiny\begin{verbatim} 
 
-Class City (inherits from Model):
+Class City:
     Method __init__(parameters):
-        # Initialize parameters
+        # Initialize model parameters
         Set self.params to default_parameters merged with parameters
 
         # Initialize interventions if interventions_on is True and interventions is non-empty
@@ -35,12 +35,10 @@ Class City (inherits from Model):
         # Set up data collection
         Call self.setup_mesa_data_collection()
 
-    Method step:
+    Method step():
         # Apply interventions for this time step
         If interventions:
             Call self.apply_interventions to apply interventions for this time step
-            
-\end{verbatim}{\color{red} I think this firm segment is wrong. See email}\begin{verbatim}
 
         # Firms update wages based on worker supply
         Set firm.worker_supply to firm.get_worker_supply()
@@ -76,7 +74,7 @@ Class City (inherits from Model):
         # Record step data
         Call self.record_step_data()
 
-    Method run_model:
+    Method run_model():
         For t in range(num_steps):
             Call self.step()
         Call self.record_run_data_to_file()
@@ -97,10 +95,10 @@ Class City (inherits from Model):
 \end{verbatim} }
 
 \section{Agent Pseudo Code}
-{\small\begin{verbatim} 
+{\tiny\begin{verbatim} 
 
 
-Class Land (inherits from Agent):
+Class Land:
 
     # Properties
     Property market_rent:
@@ -117,8 +115,7 @@ Class Land (inherits from Agent):
 
     # Initialization method
     Method __init__(unique_id, model, pos, property_tax_rate=0., resident=None, owner=None):
-        Call superclass __init__ with unique_id and model
-        Initialize variables
+        Initialize instance variables with provided parameters
 
     # Step method
     Method step():
@@ -175,7 +172,7 @@ Class Land (inherits from Agent):
                 Return True
         Return False
 
-Class Person (inherits from Agent):
+Class Person:
 
     # Properties
     Property borrowing_rate:
@@ -190,8 +187,7 @@ Class Person (inherits from Agent):
 
     # Initialization method
     Method __init__(unique_id, model, pos, init_working_period=0, savings=0., debt=0., capital_gains_tax=None, residence_owned=None):
-        Call superclass __init__ with unique_id and model
-        Initialize variables
+        Initialize instance variables with provided parameters
 
     # Step method
     Method step():
@@ -308,18 +304,13 @@ Class Person (inherits from Agent):
         Call self.model.grid.remove_agent with self
 
 
-\end{verbatim} }
+Class Firm:
 
-{\small\begin{verbatim} 
-Class Firm inherits from Agent
-
-    Define __init__(self, unique_id, model, pos, subsistence_wage, init_wage_premium_ratio, 
+    Method __init__(unique_id, model, pos, subsistence_wage, init_wage_premium_ratio, 
                     alpha, beta, gamma, price_of_output, r_prime, seed_population, density, 
                     overhead, mult, adjN, adjk, adjn, adjF, adjw, adjs, adjd, adjp, dist, 
-                    init_F, init_k, init_n, A_productivity_link, A_base, A_slope)
-        Call superclass initializer with unique_id and model
-        Set instance variables with provided parameters
-        Initialize additional variables:
+                    init_F, init_k, init_n, A_productivity_link, A_base, A_slope):
+        Initialize instance variables with provided parameters, such that:
             y = 100000
             Y = 0
             F = init_F
@@ -339,7 +330,7 @@ Class Firm inherits from Agent
             N = F * n
             A = A_base + A_slope
 
-    Define step(self)
+    Method step():
         If A_productivity_link is False
             Set investor_ownership_impact_share to 0
         Else
@@ -379,7 +370,7 @@ Class Firm inherits from Agent
         Update wage_premium as wage - subsistence_wage
         Calculate p_dot using get_p_dot
 
-    Define get_worker_supply(self, city_extent = None)
+    Method get_worker_supply(city_extent = None):
         If city_extent is provided
             Calculate agent_count using block metric radius of the city
             Calculate worker_supply as density * agent_count + seed_population
@@ -395,10 +386,10 @@ Class Firm inherits from Agent
         
         Return worker_supply
 
-    Define get_agglomeration_population(self, worker_supply)
+    Method get_agglomeration_population(worker_supply):
         Return mult * worker_supply
 
-    Define get_p_dot(self)
+    Method get_p_dot():
         Try to calculate p_dot as ((wage_premium / old_wage_premium)^mortgage_period - 1) / r
         If ZeroDivisionError occurs
             Log error with time_step and unique_id
@@ -409,16 +400,15 @@ Class Firm inherits from Agent
         Return p_dot
 
 
-Class Bank inherits from Agent
+Class Bank:
 
-    Define __init__(self, unique_id, model, pos)
-        Call superclass initializer with unique_id and model
-        Set position (pos) of the bank
+    Method __init__(unique_id, model, pos):
+        Initialize instance variables with provided parameters
 
-    Define get_reservation_price(self, R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations)
+    Method get_reservation_price(R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations):
         Call get_max_desired_bid with the same parameters and return the result
 
-    Define get_max_desired_bid(self, R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations)
+    Method get_max_desired_bid(R_N, r, r_target, m, p_dot, capital_gains_tax, transport_cost, expectations):
         Set T to model's mortgage_period
         Set delta to model's delta
 
@@ -429,40 +419,32 @@ Class Bank inherits from Agent
             Log error with details of the parameters
             Return 0
 
-    Define get_average_wealth(self)
+    Method get_average_wealth():
         Calculate rural_home_value using get_rural_home_value
         Calculate avg_locational_value based on wage_premium and r_prime
         If the city is not centered
             Divide avg_locational_value by 4
         Return sum of rural_home_value and avg_locational_value
 
-    Define get_rural_home_value(self)
+    Method get_rural_home_value():
         Set a to model's housing_services_share
         Set subsistence_wage to firm's subsistence_wage
         Set r to model's r_prime
         Return value of a * subsistence_wage / r
 
-Class Investor inherits from Agent
+Class Investor:
 
-    Define __init__(self, unique_id, model, pos, r_investor, capital_gains_tax, investor_expectations, investor_turnover, properties_owned)
-        Call superclass initializer with unique_id and model
-        Set position (pos) of the investor
-        Set borrowing_rate to r_investor
-        Set investor_turnover to investor_turnover
-        Set properties_owned to properties_owned (default empty list)
-        If no capital_gains_tax
-            Log a warning
-        Set capital_gains_tax to capital_gains_tax
-        Set expectations to investor_expectations
+    Method __init__(unique_id, model, pos, r_investor, capital_gains_tax, investor_expectations, investor_turnover, properties_owned):
+        Initialize instance variables with provided parameters
 
-    Define list_properties(self)
+    Method list_properties():
         Get number of properties owned
         For each property in properties_owned
             If a random chance based on investor_turnover
                 Calculate reservation_price using bank's get_reservation_price with property details
                 List property for sale using realtor's list_property_for_sale
 
-    Define bid_on_properties(self)
+    Method bid_on_properties():
         Set m to model's max_mortgage_share
         For each listing in realtor's bids
             Get property details from listing
@@ -473,7 +455,7 @@ Class Investor inherits from Agent
             Else
                 Log that the investor doesn't bid
 
-    Define get_max_bid(self, m, R_N, p_dot, transport_cost)
+    Method get_max_bid(m, R_N, p_dot, transport_cost):
         Set r to borrowing_rate
         Set r_target to model's r_target
         Calculate P_bid using bank's get_max_desired_bid with property details
@@ -481,13 +463,9 @@ Class Investor inherits from Agent
         Log the bid details
         Return P_bid and bid_type
 
-    Define __str__(self)
-        Return a string representation of the investor
-
-Class Realtor(Agent):
-    Constructor __init__(unique_id, model, pos):
-        Call super().__init__(unique_id, model)
-        Initialize pos, rental_listings, bids
+Class Realtor:
+    Method __init__(unique_id, model, pos):
+        Initialize instance variables with provided parameters
 
     Method step():
         pass
@@ -567,40 +545,4 @@ Class Realtor(Agent):
             Log renter details
             renter.work_if_worthwhile_to_work()
         Clear rental_listings
-
-Class Bid_Storage(Agent):
-    Constructor __init__(unique_id, model, pos, bidder_name, distance_from_center, bidder_savings):
-        Call super().__init__(unique_id, model)
-        Initialize attributes
-
-    Method step():
-        Update transport cost
-        If bidder_name is 'Investor':
-            Get max bid for investor
-        If bidder_name starts with 'Savings':
-            Get max mortgage and bid for person
-        Else:
-            Log warning
-
-Class Listing:
-    Constructor __init__(seller, sale_property, reservation_price):
-        Initialize attributes
-
-    Method __str__():
-        Return string representation
-
-Class Bid:
-    Constructor __init__(bidder, bid_price, bid_type):
-        Initialize attributes
-
-    Method __str__():
-        Return string representation
-
-Class Allocation:
-    Constructor __init__(buyer, seller, sale_property, final_price, highest_bid_price, second_highest_bid_price):
-        Initialize attributes
-
-    Method __str__():
-        Return string representation
-
 \end{verbatim} }
