@@ -32,14 +32,10 @@
 %   A D D  H E R E
 % Packages added for Kirsten's dissertation
 % \usepackage{geometry}
-%\usepackage{afterpage}
-\usepackage{floatpag}
 \usepackage{changepage}
 \usepackage{epigraph}
 \setlength\epigraphwidth{.8\textwidth}
 \usepackage[absolute]{textpos}
-\usepackage{enumitem}
-\usepackage{lmodern}% DRR adde d for sizin text in tikz
 % \usepackage{setspace}
 % \usepackage{xcolor, tikz}
 % \usetikzlibrary{chains,fit}
@@ -204,81 +200,20 @@
 \input{glossaries}
 \makeglossaries
 
-%======================================================================
-%   L O G I C A L    D O C U M E N T
-% The logical document contains the main content of your thesis.
-% Being a large document, it is a good idea to divide your thesis into several files, each one containing one chapter or other significant chunk of content, so you can easily shuffle things around later if desired.
-%======================================================================
-
 \begin{document}
 
-%----------------------------------------------------------------------
-% FRONT MATERIAL
-% title page, declaration, borrowers' page, abstract, acknowledgments,
-% dedication, table of contents, list of tables, list of figures, nomenclature, etc.
-%----------------------------------------------------------------------
-\input{thesis-frontpgs.tex}
-% \input{thesis-frontpgs-short.tex}
+\section{We want a paper that is called something like:}
 
-%----------------------------------------------------------------------
-% MAIN BODY
-% We suggest using a separate file for each chapter of your thesis.
-% Start each chapter file with the \chapter command.
-% Only use \documentclass or \begin{document} and \end{document} commands in this master document.
-% Tip: Putting each sentence on a new line is a way to simplify later editing.
-%----------------------------------------------------------------------
+\begin{enumerate}
+    \item Modern Urban Rent Theory: 
+    \item Spatial rent theory - Ricardo and the city
+    \item {\color{red!30} Ubiquitous rent theory: it is everywhere. How political economy was hidden. mainstream ignores it while using it and this connects to Piketty}
+    \item Urban Rent, ownership and Class 
+    \item Ricardo, Rent and Roemer
+    \item Growth theory and the city
+    \item Growth theory and urban scaling
+\end{enumerate}
 
-\input{_main-matter.tex}
-
-%----------------------------------------------------------------------
-% END MATERIAL
-% Bibliography, Appendices, Index, etc.
-%----------------------------------------------------------------------
-
-% Bibliography
-
-% The following statement selects the style to use for references.  
-% It controls the sort order of the entries in the bibliography and also the formatting for the in-text labels.
-\bibliographystyle{plain}
-% \bibliographystyle{chicago}
-% This specifies the location of the file containing the bibliographic information.  
-% It assumes you're using BibTeX to manage your references (if not, why not?).
-\cleardoublepage % This is needed if the "book" document class is used, to place the anchor in the correct page, because the bibliography will start on its own page.
-% Use \clearpage instead if the document class uses the "oneside" argument
-\phantomsection  % With hyperref package, enables hyperlinking from the table of contents to bibliography             
-% The following statement causes the title "References" to be used for the bibliography section:
-\renewcommand*{\bibname}{References}
-
-% Add the References to the Table of Contents
-\addcontentsline{toc}{chapter}{\textbf{References}}
-
-\bibliography{thesis-bib.bib}
-% \bibliography{bib_resilience,bib_housing}
-
-% Tip: You can create multiple .bib files to organize your references. 
-% Just list them all in the \bibliogaphy command, separated by commas (no spaces).
-
-% The following statement causes the specified references to be added to the bibliography even if they were not cited in the text. 
-% The asterisk is a wildcard that causes all entries in the bibliographic database to be included (optional).
-% \nocite{*}
-%----------------------------------------------------------------------
-
-% Appendices
-
-% The \appendix statement indicates the beginning of the appendices.
-\appendix
-% Add an un-numbered title page before the appendices and a line in the Table of Contents\input{glossaries}
-\chapter*{APPENDICES}
-\addcontentsline{toc}{chapter}{APPENDICES}
-% Appendices are just more chapters, with different labeling (letters instead of numbers).
-\input{_appendix-list.tex}
-
-
-% GLOSSARIES (Lists of definitions, abbreviations, symbols, etc. provided by the glossaries-extra package)
-% -----------------------------
-\printglossary
-\cleardoublepage
-\phantomsection		% allows hyperref to link to the correct page
-
-%----------------------------------------------------------------------
-\end{document} % end of logical document
+\section{Abstract}
+\section{Introduction}
+\end{document}

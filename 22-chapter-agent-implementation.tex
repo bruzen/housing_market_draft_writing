@@ -1,17 +1,17 @@
 \chapter{Implementation as an Agent-Based Model} \label{chapter-agent-implementation}
 
-In this chapter we document the implementation of the core agent-based model using the `Overview, Design concepts, and Details' (ODD) standard \cite{grimmODDProtocolReview2010a} The objective of the standard is to assist researchers in making model descriptions sufficiently complete and explicit that the model can be reproduced. The standard was originally envisioned as a protocol for describing ABMs in ecology, but it has been widely used in other fields.
+In this chapter we document the implementation of the core agent-based model using the `Overview, Design concepts, and Details' (ODD) standard \cite{grimmODDProtocolReview2010a}. The objective of the standard is to assist researchers in making model descriptions sufficiently complete and explicit that the model can be reproduced. The standard was originally envisioned as a protocol for describing ABMs in ecology, but it has been widely used in other fields.
 
-Although we have explained a great deal of the theory behind the model and even specific modelling decisions in the previous eight chapters, applying the ODD protocol allows us to make explicit the computational structure of our model and rthe way the agnets are implemented. Following Grimm et al. \cite{grimmODDProtocolDescribing2020} this ODD consists of seven elements: % {(Figure 1)}:allows us
+Although we have explained a great deal of the theory behind the model and even specific modelling decisions in the previous eight chapters, applying the ODD protocol allows us to make explicit the computational structure of our model and the way the agents are implemented. Following Grimm et al. \cite{grimmODDProtocolDescribing2020} this ODD consists of seven elements:\footnote{Appendix~\ref{appendix-parameters} details the model parameters, and Appendix~\ref{appendix-pseudocode} gives the pseudo code for the agent based model.} % {(Figure 1)}:allows us
 
 \begin{enumerate}
-    \item Purpose
-    \item State variables and scales
-    \item Process overview and scheduling 
-    \item Design concepts
-    \item Initialization
-    \item Input and 
-    \item Submodels 
+    \item purpose
+    \item state variables and scales
+    \item process overview and scheduling 
+    \item design concepts
+    \item initialization
+    \item input
+    \item submodels 
 \end{enumerate}
 % Conceptually the elements fall into the three categories ``Overview,'' (1-3) ``Design concepts'' (4, with subcategoriessoecific modelling d)  and ``Details''; hence the acronym ODD.
 % The exposition in this chapter is strictly descriptive and what the model includes and does.
@@ -37,7 +37,7 @@ The model  is intended to combine a theoretically correct simulation of the spat
         \resizebox{.95\textwidth}{!}{\input{fig/Kirsten_overview_figure.tikz}}
 %    \includegraphics[width=1\linewidth]{fig/Kirsten_overview_figure.tex}
      \caption[Relationships among the agents in the model]{Relationships among the agents in the model. The model operates on a grid of properties. Coloured squares make up the urban region. Owner-occupiers are yellow, tenants grey, and properties which are available for purchase because owners have retired are pink.  Agents at the edge in green decide in each period whether to participate in the urban labour market. In each period a pool of potential in-migrants may bid on available. The firm, realtor, bank, and investor do not have a grid location and are shown outside of the grid.}
-\label{fig:Kirsten_oerview_figure}
+\label{fig:Kirsten_overview_figure}
 \end{figure}
 
 % \centering
@@ -54,12 +54,12 @@ The model  is intended to combine a theoretically correct simulation of the spat
 State variables refer to the attributes of each kind of entity that vary over time. %\footnote{In the ODD framework, state variables commonly refers to both stock variables and parameters. Although it is inconsistent with usage in the analysis of dynamical systems, we follow the ODD convention in this section.}.
 The entities in our model are the six agents types illustrated in Figure~\ref{fig:Kirsten_overview_figure}: 
 \begin{enumerate}
-    \item Persons, residents who are either owners or tenants on properties
-    \item An investor who purchases housing for profit
-    \item  A bank that provides financing for property buyers
-    \item A realtor that manages property sales and finds tenants 
-    \item An urban firm that provides employment and wages, and 
-    \item Land units (properties or lots), which are locations to which persons are attached. 
+    \item persons, residents who are either owners or tenants on properties,
+    \item an investor who purchases housing for profit,
+    \item  a bank that provides financing for property buyers,
+    \item a realtor that manages property sales and finds tenants, 
+    \item an urban firm that provides employment and wages, and 
+    \item land units (properties or lots), which are locations to which persons are attached. 
 \end{enumerate}
 
 In Figure~\ref{fig:Kirsten_overview_figure}, agents are identified by black boxes around the agent type. Persons are classified by location, (as urban workers or rural workers), by ownership status (as owner-occupiers or tenants), or as in-migrants who may bid on properties that come up for sale. %The city grows when non-worker residents at the edge of the city are induced by a rising wage to begin commuting to the city center to work.
@@ -83,19 +83,19 @@ If no newcomer or investor purchases a listed property, the property remains on 
 
 Attributes associated with each location are:
 \begin{enumerate}[topsep=8pt,itemsep=3pt,partopsep=4pt, parsep=4pt]% ADDED NEW PACKAGE \usepackage{enumitem} AND REDUCED itemsep
-    \item location,
-    \item ownership type, 
+    \item location
+    \item ownership type 
     \item owner, with age and savings
     \item mortgage
-    \item warranted price, 
-    \item warranted rent, 
-    \item appraised price, 
-    \item realized price,
-    \item price  change, 
-    \item transport cost, 
-    \item maintenance costs,
-    \item tax rate,  
-    \item density, 
+    \item warranted price 
+    \item warranted rent 
+    \item appraised price 
+    \item realized price
+    \item price  change 
+    \item transport cost 
+    \item maintenance costs
+    \item tax rate  
+    \item density.  
 \end{enumerate}
 The last three,  maintenance costs, tax rate and density are the same for all properties in the current implementation. Transport cost combines location with a uniform cost per unit of distance.  The price variables are re-computed for properties when they are on the market when an owner retires or an investor decides to sell. Price change is used in expectation formation. % The owner may change
 
@@ -124,7 +124,7 @@ The bank is the sole member of the class of Bank agents. It sets maximum mortgag
 There is one member of the class of Investor agents. 
 The investor bids on all properties for which the calculated rate of return at least matches alternative investments. The investor draws on the global pool of capital. If the investor outbids tenants and newcomers, the property purchased is then owned by non-resident capital.  
 
-The investor's decision-making is treated in detail in Chapter~\ref{chapter model}. Variables for the investor are the borrowing interest rate, properties owned, a capital gains tax rate, expectations about the rate of price change, and the maximum fraction of owned properties that may be listed for sale in each period. A fraction of investor-owned properties are listed for sale in each period. There are no  state variables, but the list of properties owned evolves. Investor wealth, the wealth of the class of investors, is calculated using the attributes of the properties, including price information.
+The investor's decision-making is treated in detail in Chapter~\ref{chapter-model}. Variables for the investor are the borrowing interest rate, properties owned, a capital gains tax rate, expectations about the rate of price change, and the maximum fraction of owned properties that may be listed for sale in each period. A fraction of investor-owned properties are listed for sale in each period. There are no  state variables, but the list of properties owned evolves. Investor wealth, the wealth of the class of investors, is calculated using the attributes of the properties, including price information.
 
 
 \subsubsection{Realtor}
@@ -247,15 +247,15 @@ Chapter~\ref{chapter-methodology}, on methodology, provides more detail about th
 % In this sense, 
 The city is an emergent entity that arises out of the rural economy as a result of agglomeration economies. The social structure is also emergent. We begin our exploration after the city and a two-class structure has emerged. We then examine how their class structure evolves. The classes are:
 \begin{enumerate}
-    \item Rural owner-occupiers.
-    \item Urban owner-occupiers.
+    \item rural owner-occupiers
+    \item urban owner-occupiers.
 \end{enumerate}
 Members of both classes own the land they live on. Urban owners differ in that they have access to an urban labour market. We do not specify whether rural owners gain an income as producers for example, as peasant owners, or as labourers. The logic of the migration equilibrium requires all agents be equally well off. The urban owners are a mixed class in the sense that they sell their labour like classic proletarians but also own a valuable capital asset, which is their land. Introducing additional differences among agents would open the possibility  the endogenous emergence of further \gls{class} distinctions based on access to various forms of capital, a process explored by John Roemer in his General Theory of Exploitation and Class \cite{roemerGeneralTheoryExploitation1982}.
 
 Two more classes emerge in our simulations:
  \begin{enumerate}    \setcounter{enumi}{2}
-    \item Urban tenants.
-    \item Investors. 
+    \item urban tenants
+    \item investors. 
 \end{enumerate}
 There are now two possible pure urban regimes, an owner-occupier regime and a tenant regime, in which investors own all properties. We start our experiments with a pure owner-occupier regime in which those who own houses and work can build equity.  The city may then transition toward the investor-owned regime as investor-agents purchase properties based on local expected financial return calculations. Our experiments explore some policy interventions that could affect the transition.
 
@@ -293,8 +293,8 @@ Feedback loops are not part of the ODD standard, but are an important concept in
 % https://uwaterloo.ca/systems-design-engineering/about-systems-design-engineering/department-history
 There are three \glspl{feedback loop} in the model: 
 \begin{enumerate}
-    \item the productivity-wage, population-productivity loop that we call the Alonso-Jacobs cycle,
-    \item a speculative price-expectations cycle that may produce price bubbles, 
+    \item the productivity-wage, population-productivity loop that we call the Alonso-Jacobs cycle;
+    \item a speculative price-expectations cycle that may produce price bubbles; and
     %\item a price-financialization feedback that directly changes the ownership pattern in the urban housing market.
     \item the hypothesized feedback from financialized ownership to the production function, which depresses wages, reduces growth and therfore inhibits financialization.
  
@@ -307,7 +307,7 @@ There are three \glspl{feedback loop} in the model:
 The loops are linked. Rising productivity raises wages, which then works through two paths. It can raise rents, effectively transferring productivity gains to landowners, and it can draw more workers into the city workforce, enhancing the \Gls{Alonzo-Jacobs cycle}. 
 \
 %A rapid increase in housing prices may choke off urban population growth and cause the \Gls{Alonzo-Jacobs cycle} to stall. Rapid expansion of the housing stock should have the opposite effect. 
-Much depends on the speed of response of the city population and the rate of transmission of agglomeration effects to wages through the firm. Our base model allows the boundary to respond to increments in the wage with a small lag. In the base model, financial flows are unrestricted but the rate of financialization is limited by the rate of turnover of ownership. We parameterize the rate of adjustment for each of the stocks in a simple way to faciltate sensitivity analysis.
+Much depends on the speed of response of the city population and the rate of transmission of agglomeration effects to wages through the firm. Our base model allows the boundary to respond to increments in the wage with a small lag. In the base model, financial flows are unrestricted but the rate of financialization is limited by the rate of turnover of ownership. We parameterize the rate of adjustment for each of the stocks in a simple way to facilitate sensitivity analysis.
 
 \subsection{Observation}
 % The model records a large number of computed variables for diagnostic purposes.
@@ -324,21 +324,21 @@ The model does not draw on outside digital datasets.
 We have described our model in terms of a few major components: the Alonzo-Jacobs model, the financial sector, and the housing market.  The large components themselves each rests on a large number of modelling decisions that we have discussed in Chapters~\ref{chapter-introduction}  through \ref{chapter-model}. We prefer to think of these as sub-models rather coding decisions because each is derived from theoretical or empirical considerations based on our readings of the literature (which is often extensive, varied, and inconclusive). They are also influenced by pragmatic decisions about how to keep the overall model simple and model. Individual submodels can be modified or replaced to reflect different assumptions or conditions.
  
 \begin{enumerate}
-    \item The spatial structure of the model, with each land unit having a transportation cost based on linear distance from the urban center;
-    \item The population model, with a uniform density of owners or tenants located spatially; 
-    \item The overlapping generations lifecycle model with retirement after 40 years;
-    \item the population replacement model, 
+    \item the spatial structure of the model, with each land unit having a transportation cost based on linear distance from the urban center;
+    \item the population model, with a uniform density of owners or tenants located spatially; 
+    \item the overlapping generations lifecycle model with retirement after 40 years;
+    \item the population replacement model; 
     \item the population determination model driven by decentralized agent decisions;
-    \item The representative firm model that generates the labour demand. This includes a specific production function and a model of how a profit-maximizing firm hires inputs and how rapidly it adjusts;
-    \item The firm entry model that adjusts the number of firms toward the number of optimally sized firms the populations will support;
-    \item The aggregate firm sector model that determines labour demand for the entire city as the representative firm demand times the varying number of firms;
-    \item The perfectly elastic export demand for output model; 
-    \item A household decision-making model that determines whether individuals work in the city based only on the wage and transportation cost for each property; 
+    \item the representative firm model that generates the labour demand. This includes a specific production function and a model of how a profit-maximizing firm hires inputs and how rapidly it adjusts;
+    \item the firm entry model that adjusts the number of firms toward the number of optimally sized firms the populations will support;
+    \item the aggregate firm sector model that determines labour demand for the entire city as the representative firm demand times the varying number of firms;
+    \item the perfectly elastic export demand for output model; 
+    \item a household decision-making model that determines whether individuals work in the city based only on the wage and transportation cost for each property; 
     \item the agglomeration model that augments firm productivity based on a function of the number employed;
-    \item The land valuation models used by agents; 
-    \item The price expectations model;
-    \item The land market model in which homeowners and financialized investors bid on properties for housing or to capture the rising rents due to agglomeration;
-    \item The auction model that allocates properties and generates property prices for each period.
+    \item the land valuation models used by agents; 
+    \item the price expectations model;
+    \item the land market model in which homeowners and financialized investors bid on properties for housing or to capture the rising rents due to agglomeration;
+    \item the auction model that allocates properties and generates property prices for each period.
 \end{enumerate}
 
 

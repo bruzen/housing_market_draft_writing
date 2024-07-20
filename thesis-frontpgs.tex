@@ -25,7 +25,7 @@
         \normalsize
         A thesis \\
         presented to the University of Waterloo \\ 
-        in fulfillment of the \\
+        in fulfilment of the \\
         thesis requirement for the degree of \\
         Doctor of Philosophy \\
         in \\
@@ -51,7 +51,7 @@
  
 % E X A M I N I N G   C O M M I T T E E (Required for Ph.D. theses only)
 % Remove or comment out the lines below to remove this page
-\addcontentsline{toc}{chapter}{Examining Committee}
+\addcontentsline{toc}{chapter}{Examining Committee Membership}
 \begin{center}\textbf{Examining Committee Membership}\end{center}
   \noindent
 The following served on the Examining Committee for this thesis. The decision of the Examining Committee is by majority vote.
@@ -193,22 +193,26 @@ To Wyatt, Jackie, and Jason.
 % ---------------------------
 \addcontentsline{toc}{chapter}{List of Tables}
 {\renewcommand{\addvspace}[1]{} \listoftables}
+% \thispagestyle{empty}
 \cleardoublepage
 \phantomsection		% allows hyperref to link to the correct page
 
-% L I S T   O F   A B B R E V I A T I O N S
-% ---------------------------
-\renewcommand*{\abbreviationsname}{List of Abbreviations}
-\printglossary[type=abbreviations]
-\cleardoublepage
-\phantomsection		% allows hyperref to link to the correct page
+% % L I S T   O F   A B B R E V I A T I O N S
+% % ---------------------------
+% \renewcommand*{\abbreviationsname}{List of Abbreviations}
+% \printglossary[type=abbreviations]
+% \cleardoublepage
+% \phantomsection		% allows hyperref to link to the correct page
 
-% L I S T   O F   S Y M B O L S
-% ---------------------------
-\printglossary[type=symbols]
-\cleardoublepage
-\phantomsection		% allows hyperref to link to the correct page
+% % L I S T   O F   S Y M B O L S
+% % ---------------------------
+% \printglossary[type=symbols]
+% \cleardoublepage
+% \phantomsection		% allows hyperref to link to the correct page
 
+% Suppress page numbering for the next page
+% \thispagestyle{empty}
+% \clearpage
 
 % Change page numbering back to Arabic numerals
 \pagenumbering{arabic}

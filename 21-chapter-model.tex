@@ -39,7 +39,7 @@
 
 % \section{The general structure of the model}
 In this thesis  we describe an agent-based spatial model of an urban housing market that includes a production function modelling how urban regions generate wealth and an explicitly financialized housing market.  Where previous chapters %***E EDIT: DISCUSSED IN GENERAL THE PRINCIPLES OR DISCUSSED THE ENERAL PRONICPLES 
-discussed the general principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we provide the formula we use in our simulations.
+discussed the general principles that underlie our theoretical model, this chapter presents details about the how the variables in the computational model are defined. The next chapter, Chapter~\ref{chapter-agent-implementation} introduces the details of the agent based model. %Where, for example, we talk about expected price in Chapter~\ref{ch_financialization}, here we provide the formula we use in our simulations.
 
 % The model is introduced in the following sections:
 % \begin{enumerate}
@@ -74,7 +74,7 @@ that can provide insights about the impact of the financialization of the housin
 %\afterpage{\thispagestyle{empty}
 %{\newpage
 %\vspace{-1.5cm}
-\begin{figure} \thisfloatpagestyle{empty} % FOUND NEW PACKAGE FOR THIS PROBLEM. \usepackage{floatpag}
+\begin{figure} %\thisfloatpagestyle{empty} % FOUND NEW PACKAGE FOR THIS PROBLEM. \usepackage{floatpag}
 \vspace{-3.5cm}
 \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
 \centering
@@ -359,7 +359,7 @@ Expected future price increases are driven by increases in the value of accessib
 The \gls{economic rent} is the value of surplus that arises from access to jobs in the centre of the city where agglomeration economies generate a wage premium. These are represented  on an annual basis, 
 The locational rent $\mathcal{R}_d$ for a property a given distance, $d$, from the center is the wage premium $\omega$ minus the transportation costs $dc$, where $c$ is cost per unit distance:
 
-\[\mathcal{R}_d= \omega - {dc}\]
+\[\mathcal{R}_d= \omega - {dc}.\]
 
 \subsubsection{Locational amenity} \label{section-locational-rent}
 The warranted locational rent includes the economic rent as well as the value of a locational amenity. In addition to a general urban amenity, $\mathbb{A}$, locational amenity may include very local site-specific amenities like access to schools or views, $\mathbb{A}_j$ as well as an element that depends on individual preferences, $\mathbb{A}_{ji}$.\footnote{We will report results only for cases with $\mathbb{A}=0$. }   %For most of the discussion in this chapter we ignore locational amenities, although we make provision for them in our computational model.
@@ -401,14 +401,14 @@ Annual maintenance costs apply to buildings and lands but not to locational valu
 \mathcal{O} &= a b \psi.
 \end{align}
 
-\subsubsection{Net rent calculated}
-Combining, the \gls{net rent}\footnote{We are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted. Net warranted rent, $\mathcal{R}_N$, can diverge from market rent, $\mathcal{R}_M$, particularly in the short run, for many reasons. For instance, agents who have purchased a house may be able to pass a share of financing costs through to tenants as part of the market rent depending on their market power. Some workers may accept lower utilities or may have access to higher wages. %The market rent could include an additional term, $F(v, rM)$, where $F$ is a function of 
+\subsubsection{Calculated net rent,}
+Combining, the \gls{net rent}  $\mathcal{R}_N$ is\footnote{We are short-cutting the rent price formation process with a long-run equilibrium approximation based on the rents that can be extracted before people leave the city, so the mechanisms that push rent up to that extraction value are abstracted. Net warranted rent, $\mathcal{R}_N$, can diverge from market rent, $\mathcal{R}_M$, particularly in the short run, for many reasons. For instance, agents who have purchased a house may be able to pass a share of financing costs through to tenants as part of the market rent depending on their market power. Some workers may accept lower utilities or may have access to higher wages. %The market rent could include an additional term, $F(v, rM)$, where $F$ is a function of 
 % Financing costs may be passed to renters, $F(v, rM)$, and depend on vacancy, $v$, interest rates, $r$, and the size of the mortgage, $M$.%how tight the market is, 
  %When all financing costs are passed on the tenant effectively buys the property for the investor. % The market rent is what an investor would use for price setting, 
 % and we work with the net warranted rent in the price formation model. % There would be strong feedback from speculators taking on financing costs  to the level of rents for tenants, and this then feedback into prices. % These are distinct logics for the rent formation mechanism which can be explored through more explicit models of rental markets. Abstracting them gives a set of easily generalizable simplifications.% The way housing financing costs are passed through to tenants. are computed are detailed in the next sections.
 % 
 % Annual financing costs are $rM$. 
-}is:
+}
 
 \begin{align}
 \mathcal{R}_N &= \mathcal{R}_W - \mathcal{O} - \mathcal{T}.
@@ -472,14 +472,9 @@ M^{max}   &=  \frac{0.28 (wage + r S )} {1+0.28 r}\nonumber
 \end{align}
 } as the maximum a buyer should pay. %\footnote{We  assume that the bank does not take transportation costs into account  when calculating income.}
 %\footnote{If the expected return on a property is greater than the individual cost of borrowing, it would pay any agent to borrow as much as possible and purchase properties as they can available.}
-In our model the bank uses a rule of this form to decide how much it is willing to lend to 
+In our model the bank uses a rule of this form to decide how much it is willing to lend to. 
 
-  \begin{figure}
-    \centering
-    \input{fig/dual-constraint.tex}
-    \caption[The bank's dual mortgage constraint and the savings constraint]{The bank's dual mortgage constraint and the savings constraint determine the maximum bid price. The upper, dashed diagonal line is the price $P$. Below it, the solid diagonal is the maximum fraction the bank will lend as a fraction of the price, determined in Equation~\ref{eqn-wealth-based-mortgage}. The horizontal line is the maximum the bank will lend given the potential buyer's income, $M_i^{max}$. The result is the kinked borrowing constraint, shown in red. The difference between price and maximum lending must be covered by savings.}
-    \label{fig:dual-constraint}
-    \end{figure}
+
 
 \subsubsection{Combined mortgage maximum permitted by the bank for new buyers and second home buyers}
 
@@ -488,10 +483,12 @@ The above two equations specify two constraints on the mortgage.  Combining, we 
 M_i^{max} &= min \left\{ m_i^{max}*P, \ M^{max}_{Y,i} \right\}. 
 \label{eqn-max-mortgage-combined}
 \end{align}
-The two constraints on mortgage size that the bank imposes are incorporated in the red line in Figure~\ref{fig:dual-constraint}. The maximum permitted mortgage is thus combined with the savings constraint to determine the maximum price that a potential home buyer can offer. The top dashed diagonal line, in Figure~{fig:dual-constraint}, is the price, $P =$ mortgage $+$ savings. The difference between the two diagonal lines is what the purchaser pays from savings. %\footnote{Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control---with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits.} 
+The two constraints on mortgage size that the bank imposes are incorporated in the red line in Figure~\ref{fig:dual-constraint}. The maximum permitted mortgage is thus combined with the savings constraint to determine the maximum price that a potential home buyer can offer. The top dashed diagonal line, in Figure~{fig:dual-constraint}, is the price, $P =$ mortgage $+$ savings. The difference between the two diagonal lines is what the purchaser pays from savings.
+
+
+%\footnote{Equation~\ref{eqn-property-investment-return2} implies a `bang-bang' control---with all sales going to the richest participant unless there are limits on the size of capital flows. For our simulation, we implement such limits.} 
 % \[M^{max}_{UY,i} = \frac{0.28*(\omega+ \psi)}{r}\] 
 % It is the maximum the bank will let you pay.
-
 % \subsection{The cost of capital}
 % The cost of capital is known to differ for rich and poor. This model ties the individual cost of capital,  ${r}$ for agent $i$, to a prime rate, $\bar r$, and to individual wealth. Figure~\ref{fig-borrowing-cost} illustrates the cost of the borrowing model we implement, 
 %  \[ {r} = (A + B \frac{\bar{W}}{W_i})\omega\]
@@ -510,21 +507,23 @@ The two constraints on mortgage size that the bank imposes are incorporated in t
 % \end{center}
 % \end{figure}
 
+
+
 \subsubsection{Individualized borrowing rates} \label{sec:borowing-rate}
-
-    \begin{figure}
-    \centering
-    \input{fig/price-of-capital}\label{fig-capital-cost}
-    \caption[Individual borrowing rate $r_i$]{Individual borrowing rate $r_i$ is set by the bank. There is a wealth minimum below which lenders will not lend. Above that level of wealth, to the right, the interest rate offered by lenders declines. Borrowers with wealth above $\bar W$ receive preferential rates which are above the bank's cost of capital $r^{prime}$ but may be below the bank's target rate $r^{target}$.}
-    \label{fig:Wealth-based}
-    \end{figure}
-
 The cost of capital differs for rich and poor. We tie the individual cost of capital %,  ${r}$, for agent $i$ 
 to the lender's target rate $r^{target}$, and to individual wealth. Figure~\ref{fig-capital-cost} illustrates the cost of the borrowing model we implement, which is roughly consistent with the stylized facts about lenders. 
 \begin{equation}
 {r} = r^{target}+ K/(W-W_{min}) -K/(\bar W - W_{min})\label{eqn-interest-wealth-relationship}
 \end{equation}
 for $W>W_{min}$, where  $r^{target}$ is the bank's target rate of return,  $\bar{W}$ is mean wealth and $W_i$ is individual wealth, $W_{min}$ is the level of wealth the bank requires to lend at all, and $K$ is a parameter for the wealth-sensitivity of lending. The denominator in the last two terms is simply wealth above the lender's minimum. We assume that the wealthy are lower-risk borrowers and are given preference on rates. The final term ensures that the target rate is charged for borrowers with average wealth.
+
+\begin{figure}
+\centering
+\input{fig/dual-constraint.tex}
+\caption[The bank's dual mortgage constraint and the savings constraint]{The bank's dual mortgage constraint and the savings constraint determine the maximum bid price. The upper, dashed diagonal line is the price $P$. Below it, the solid diagonal is the maximum fraction the bank will lend as a fraction of the price, determined in Equation~\ref{eqn-wealth-based-mortgage}. The horizontal line is the maximum the bank will lend given the potential buyer's income, $M_i^{max}$. The result is the kinked borrowing constraint, shown in red. The difference between price and maximum lending must be covered by savings.}
+\label{fig:dual-constraint}
+\end{figure}
+
 
 
 %The individual cost of capital,  ${r}$ for agent $i$ is tied to a prime rate, $\bar r$ or the bank's target rate, $r^{target}$, and and varies with individual wealth. %Figures~\ref{fig-borrowing-rate1} % and ref{fig-borrowing-rate1} 
@@ -569,6 +568,13 @@ Mortgages are renewed after $\mathbb{T}$ years. During that period some of the p
 \subsection{Bid price}\label{sec:bid-price}
 A bidding process determines the realized market price, with bidders taking into account potential capital gains. In this section, we describe the formation of the maximum bid price that we use in the bidding model. The maximum \gls{bid price}, $P_{B,ij}^{max}$ %, where i and j refer to the individual and the property involved,\footnote{We suppress the $ij$ identifiers for the rest of this chapter. }  
 is the value of a property to the owner or to a potential buyer. It will differ across individuals depending on their cost of capital, discount rates,  savings, and access to mortgage funding. The same equation used to calculate the bid price used to compute the \gls{reservation price}, the minimum price that an owner will sell a property for. 
+
+\begin{figure}
+\centering
+\input{fig/price-of-capital}\label{fig-capital-cost}
+\caption[Individual borrowing rate $r_i$]{Individual borrowing rate $r_i$ is set by the bank. There is a wealth minimum below which lenders will not lend. Above that level of wealth, to the right, the interest rate offered by lenders declines. Borrowers with wealth above $\bar W$ receive preferential rates which are above the bank's cost of capital $r^{prime}$ but may be below the bank's target rate $r^{target}$.}
+\label{fig:Wealth-based}
+\end{figure}
 
 The model distinguishes between two types of buyers, institutional buyers and homeowners buying a home. They use the same investment formula, but may have different values of the parameters determining their bid prices.
 
@@ -737,7 +743,7 @@ We choose a price on the horizontal axis and project it up to the black dashed d
  \begin{figure}
     \centering
     \input{fig/savings-constraint.tex}
-    \caption[Incorporating a savings constraint]{Extending Figure~\ref{fig:dual-constraint} to include a savings constraint.  The red solid line shows the maximum amount the bank will lend as described in. Figure~\ref{fig:dual-constraint}. The borrower adds his or her available savings to the available mortgage to reach the blue solid line.  The maximum price the borrower can bid is given by the intersection of the blue line with the diagonal dashed line representing prices.}
+    \caption[Incorporating a savings constraint]{Extending Figure~\ref{fig:dual-constraint} to include a savings constraint.  The red solid line shows the maximum amount the bank will lend as described in Figure~\ref{fig:dual-constraint}. The borrower adds his or her available savings to the available mortgage to reach the blue solid line.  The maximum price the borrower can bid is given by the intersection of the blue line with the diagonal dashed line representing prices.}
     \label{fig:savings-constraint}
     % I removed a line saying Savings sub i in lower corner
     \end{figure}
@@ -787,9 +793,9 @@ The set of acceptable bargains acceptable to both is above and to the right of t
 
 In principle the buyer could pay more than \$50,000 or the seller could accept a price below \$30,000, but neither would do so if they are rational. 
 The thick red line segment, called the bargaining set, represents all the outcomes that are\begin{enumerate}
-    \item Efficient, because the entire \$20,000 surplus is allocated to the players. 
-    \item Feasible, because the players involved gain no more in total than the potential increase in value generated by the transaction.
-    \item Rational because neither player has to accept an outcome that makes them worse off.
+    \item efficient, because the entire \$20,000 surplus is allocated to the players. 
+    \item feasible, because the players involved gain no more in total than the potential increase in value generated by the transaction.
+    \item rational because neither player has to accept an outcome that makes them worse off.
 \end{enumerate}   
 
 The bargaining processes will ideally lead to a point on that thick red line segment. In practice, some of the surplus is dissipated in the sale process, and some is absorbed by intermediaries. We ignore this refinement for the current version of the model. Differences in relative power will tip the outcome in favour of the stronger player.   Players who can afford to wait will get a larger share of the gain. Excess demand favours sellers. Low vacancy rates favour owners over tenants.   If there is a deal, it will still be at a price between the maximum bid and the reservation price, and in most cases probably somewhere near the midpoint. Sellers might reduce the asking price if the home fails to sell in the first period it is on the market.\footnote{Uncertainty adds further complications. Parties may not know each other's disagreement point. PartieS post asking prices greater than their reservation price or initial offers much lower than their true valuation.  
@@ -820,15 +826,15 @@ Negotiations often proceed through a series of offers and counteroffers.}\;\foot
 {The housing market is usually a many-to-many matching problem}: which property goes to which buyer? For each property that comes on the market, there will be a set of potential buyers with differing maximum bids. Some simplifications are available. In each sale, the bidder with the highest bid price among those currently bidding on that property will make the purchase.\footnote{For many reasons the process is likely to exhibit a good deal of randomness and inefficiency. For our purpose, the general messiness of the market is unlikely to do more than slow and blur results somewhat.} Since the highest bidder is competing with the second-highest bidder, we expect the final price to be equal to the second-highest maximum bid, shown as the star in figure~\ref{fig:auction-game}. 
 
 
-    \begin{figure}
-        \centering
-        \input{fig/bargaining-two-bid}
-        \caption[Auction with a second, higher bid]{Auction with a second, higher bid. The bidder who values the property most (blue) only has to pay a small amount more than the second-highest bidder to win.}
-        \label{fig:auction-game}
-    \end{figure}
-
 %.\footnote{We could allow potential buyers  to approach potential sellers who have not listed with an offer and allow worker-owners to consider retiring early or becoming tenants if an offer is attractive.  This is only likely if speculative pressures are strong. It may require having multiple institutional buyers to make offers more competitive. In that case, initial offers will be closer to the maximum bid price, tending to pull prices up and benefit potential sellers.}  
 When there is one bidder, we will employ a simple rule for splitting the gain from trade. Both simplifications are grounded in standard bargaining theory.
+
+\begin{figure}
+    \centering
+    \input{fig/bargaining-two-bid}
+    \caption[Auction with a second, higher bid]{Auction with a second, higher bid. The bidder who values the property most (blue) only has to pay a small amount more than the second-highest bidder to win.}
+    \label{fig:auction-game}
+\end{figure}
 
 \begin{figure}[!thb]
 \centering
