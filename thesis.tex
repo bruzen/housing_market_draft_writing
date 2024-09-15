@@ -32,14 +32,54 @@
 %   A D D  H E R E
 % Packages added for Kirsten's dissertation
 % \usepackage{geometry}
-%\usepackage{afterpage}
+% \usepackage{afterpage}
 \usepackage{floatpag}
 \usepackage{changepage}
 \usepackage{epigraph}
 \setlength\epigraphwidth{.8\textwidth}
 \usepackage[absolute]{textpos}
 \usepackage{enumitem}
-\usepackage{lmodern}% DRR adde d for sizin text in tikz
+\usepackage{lmodern} % sizing text in tikz
+
+
+%%  PERFECTLY BUT NEED TO ADD BACK IN CAPTION
+\usepackage{graphicx}
+\usepackage{afterpage} % For handling page styling
+\usepackage{caption}
+
+% % CENTERED BOTTOM PAGE NUMBER, NO HEADER, NUMBERS REMOVED BEFORE
+% \usepackage{scrlayer-scrpage}
+% \usepackage{graphicx}
+% \usepackage{lipsum} % For sample text
+% % Default page style
+% \pagestyle{scrheadings}
+% \clearpairofpagestyles
+% \ihead{}
+% \ohead{}
+% \cfoot{\thepage}
+
+% % REMOVES HEADER! TOP PG NUMBER
+% \usepackage{fancyhdr}
+% \usepackage{graphicx}
+% \usepackage{lipsum} % For sample text
+% \usepackage[absolute]{textpos}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyfoot[C]{\thepage}
+
+% \usepackage{fancyhdr}
+% \fancypagestyle{figurepage}{
+%   \fancyfoot[C]{\thepage}
+% }
+
+% \fancypagestyle{fancy}{
+% \fancyhf{} % Clear all headers and footers
+% \fancyfoot[C]{\thepage} % Center page number in footer
+% }
+
+% \fancyhf{} % Clear header and footer
+% \fancyfoot[C]{\thepage} % Default page number at the bottom center
+
 % \usepackage{setspace}
 % \usepackage{xcolor, tikz}
 % \usetikzlibrary{chains,fit}

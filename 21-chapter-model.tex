@@ -71,40 +71,7 @@ discussed the general principles that underlie our theoretical model, this chapt
 Our goal has been to make an accessible model % model as accessible as the \Gls{Alonzo model} 
 that can provide insights about the impact of the financialization of the housing market on urban productivity and wealth distribution.  The  model has three major blocks:%\cleardoublepage
 
-%\afterpage{\thispagestyle{empty}
-%{\newpage
-%\vspace{-1.5cm}
-\begin{figure} %\thisfloatpagestyle{empty} % FOUND NEW PACKAGE FOR THIS PROBLEM. \usepackage{floatpag}
-\vspace{-3.5cm}
-\begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
-\centering
-\includegraphics[scale=.35]{fig/flow_full_model.png}%
-%\includegraphics[scale=.6]{fig/flow-full-model.png}% old
-\label{Stylized model flow.}
-%\pagestyle{headings}
-% \usetikzlibrary{positioning}
-%\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
-\end{adjustwidth}
-\caption[Model logic]{Model logic.}\label{fig-flow-full-model}
 
-\end{figure}
-%}
-
-% {\newpage\thispagestyle{empty}
-% \vspace{-1.5cm}
-% \begin{figure}
-% \vspace{-1cm}
-% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
-% \centering
-% \includegraphics[scale=.6]{fig/flow-full-model.png}
-% \label{Stylized model flow.}
-% %\pagestyle{headings}
-% % \usetikzlibrary{positioning}
-% %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
-% \end{adjustwidth}
-% \caption{Model logic }\label{fig-flow-full-model}
-% \end{figure}
-% }
 
 \begin{enumerate}
 \item We incorporate the spatial structure of the city and its transportation system using a version of the \gls{bid-rent function} that drives all Alonso-style models. This equation is embedded in the decision of every agent because it determines the economic rent for each piece of property.
@@ -119,11 +86,107 @@ In addition to the main blocks, to explore the potential effect of financializat
 \end{quotation}
 
 
-
-
-Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modelling the market for housing in more detail. 
+% Figure~\ref{fig-flow-full-model} 
+The figure above shows the model logic.  The following three sections will discuss each of the three primary components, the spatial structure, the productivity mechanism, and the housing market in order.  To focus the model on the core questions of the relationship between urban productivity and rent, we keep the first two components,  the spatial structure and the growth mechanism,  as simple as possible, modelling the market for housing in more detail. 
 
 % ANALYSIS???Finally, in  Section~\ref{section-system} we explain how financialization might affect the housing market as a system and some consequences for society in general. %At that point we can introduce our specific hypotheses and how we intend to test them.
+
+
+%% WORKS PERFECTLY - NEED TO ADD BACK IN CAPTION
+% Full-page image with invisible text to push it down
+\noindent
+\begin{minipage}[t][\textheight][t]{\textwidth}
+  % \vspace*{\fill}
+  \vspace{-1.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{fig/flow_full_model.png}
+      \captionof{figure}[Model logic]{Model logic.} \label{fig-flow-full-model}
+  \end{center}
+  % \vspace*{\fill}
+\end{minipage}
+% % Invisible text to ensure no page number appears at the top
+% \vspace*{\fill}
+% \begin{minipage}[t][\textheight][t]{\textwidth}
+%   \phantom{This is some invisible text to push the image down}
+% \end{minipage}
+% \noindent
+% \newpage
+
+
+% % REMOVES HEADER! - ONE BELLOW LIKE THIS MIGHT BE SLIGHTLY BETTER AND NOT MESS UP PAGE BELLOW
+% \newpage
+% \begin{figure}[!p]
+% \thispagestyle{empty} % Suppress header/footer for this page
+% \begin{textblock*}{\textwidth}(0cm,24cm) % Position textblock at bottom
+% \centering
+% \footnotesize \thepage
+% \end{textblock*}
+% \vspace*{\fill}
+% \centering
+% \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{fig/flow_full_model.png}
+% \caption[Model logic]{Model logic.}\label{fig-flow-full-model}
+% \end{figure}
+% \newpage
+
+
+% % % CENTERED BOTTOM PAGE NUMBER, NO HEADER, NUMBERS REMOVED BEFORE
+% \newpage
+% % Define custom page style for full-page image
+% \pagestyle{scrheadings}
+% \clearpairofpagestyles
+% \ohead{}
+% \ihead{}
+% \cfoot{\thepage}
+% \begin{figure}[!p]
+% \centering
+% \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{fig/flow_full_model.png}
+% \caption[Model logic]{Model logic.}\label{fig-flow-full-model}
+% \end{figure}
+% \newpage
+
+
+% %% DEFAULT WITH CAPTION ETC
+% % {\newpage\thispagestyle{empty}
+% \vspace{-1.5cm}
+% \begin{figure}
+% \vspace{-1cm}
+% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+% \centering
+% \includegraphics[scale=.6]{fig/flow-full-model.png}
+% \label{Stylized model flow.}
+% %\pagestyle{headings}
+% % \usetikzlibrary{positioning}
+% %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
+% \end{adjustwidth}
+% \caption{Model logic }\label{fig-flow-full-model}
+% \end{figure}
+% % }
+
+%% DEFAULT?
+% \begin{figure}
+% \vspace{-3.5cm} % Adjust this value based on your document's needs
+% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+% \centering
+% \includegraphics[scale=.29]{fig/flow_full_model.png}%
+% \end{adjustwidth}
+% \caption[Model logic]{Model logic.}\label{fig-flow-full-model}
+% \end{figure}
+
+%% ORIGIONAL? HAS OLD VERSION OF FIGURE
+% \begin{figure} %\thisfloatpagestyle{empty} % FOUND NEW PACKAGE FOR THIS PROBLEM. \usepackage{floatpag}
+% \vspace{-3.5cm}
+% \begin{adjustwidth}{-0.24\textwidth}{-0.24\textwidth}
+% \centering
+% \includegraphics[scale=.33]{fig/flow_full_model.png}%
+% %\includegraphics[scale=.6]{fig/flow-full-model.png}% old
+% \label{Stylized model flow.}
+% %\pagestyle{headings}
+% % \usetikzlibrary{positioning}
+% %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
+% \end{adjustwidth}
+% \caption[Model logic]{Model logic.}\label{fig-flow-full-model}
+% \end{figure}
+
 
 \section{Spatial structure}
 
@@ -135,8 +198,6 @@ Figure~\ref{fig-flow-full-model} shows the model logic.  The following three sec
 We begin with a model of a circular city.\footnote{In our computational model we use a grid structure with  a block metric, which is computationally more convenient and provides a slightly more natural representation of the property structure of actual cities.} %- INTRO CITY/APPROACH?
 In the \gls{Alonso model} \cite{alonsoTheoryUrbanLand1960, alonsoLocationLandUse1964}, firms are located at the centre of a circular city, the central business district. Residents live distributed across space, can take jobs, and commute to work at the urban center. 
 % In the simplest version, firms concentrate at the city centre. Workers are spread over space and pay transportation costs to commute.
-
-
 
 Firms produce perfectly \gls{substitutable} % For simplicity, firms produce a variety of
 goods that they sell into a commodity market. Demand for the \gls{product} is \gls{perfectly elastic}, so the price remains constant. 

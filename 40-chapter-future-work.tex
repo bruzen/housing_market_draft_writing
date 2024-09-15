@@ -18,25 +18,12 @@ In this model, we have three distinct elements:
     \item A model of the spatial distribution of that value through rents and 
     \item A model of the institutional mechanisms by which some agents capture the rents through property markets. %financial and institutional structure linking them, which defines who gets what share of the surplus through ownership, taxation, etc.
 \end{enumerate}Each component is extensible, % is designed  to accommodate a range of extensions, 
-and the model is modular enough that any given segment may be removed and replaced with another, perhaps more detailed, implementation of the sector.\footnote{The extensions detailed here also combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions. A model incorporating $n$ binary choices is one of an implicit family of $2^n$ alternative models.} 
+and the model is modular enough that any given segment may be removed and replaced with another, perhaps more detailed, implementation of the sector. 
 In the following sections, we describe possible extensions to each of the three components. % that open a set of interesting questions. 
 Many of the extensions are illustrated in red in Figure~\ref{fig-extensions-logic}. Figure~\ref{fig-extensions-logic} is based on Figure~\ref{fig-flow-full-model} of Chapter~\ref{chapter-model} which illustrates the main logic of our simulation model. 
 %In each case, we also introduce approaches for integrating data more systematically, or more thoroughly exploring the static and dynamic properties of the model. % detail several promising extensions to each module.
 
 
-
-\begin{figure}\thisfloatpagestyle{empty} 
-\vspace{-4.5cm}
-\begin{adjustwidth}{-0.24\textwidth}{-0.2\textwidth}
-\centering
-\includegraphics[scale=.20]{fig/extensions3.png}
-\end{adjustwidth}
-\caption{Extensions}
-\label{fig-extensions-logic}
-%\pagestyle{headings}
-% \usetikzlibrary{positioning}
-%\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
-\end{figure}
 
 % \subsection{Combinatorial experiments}
 % Extensions from this basic model can go in several directions. We treat three categories of extension to this model:
@@ -104,6 +91,36 @@ Many of the extensions are illustrated in red in Figure~\ref{fig-extensions-logi
 %     \caption{Caption}
 %     \label{tab:my_label}
 % \end{table}
+
+
+% %% NO PAGE NUMBERS
+% \begin{figure}\thisfloatpagestyle{empty} 
+% \vspace{-4.5cm}
+% \begin{adjustwidth}{-0.24\textwidth}{-0.2\textwidth}
+% \centering
+% \includegraphics[scale=.15]{fig/extensions3.png}
+% \end{adjustwidth}
+% \caption{Extensions}
+% \label{fig-extensions-logic}
+% %\pagestyle{headings}
+% % \usetikzlibrary{positioning}
+% %\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}] \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=1cm]{example-image-a}};\end{tikzpicture}
+% \end{figure}
+
+% Full-page image with invisible text to push it down
+\noindent
+\begin{minipage}[t][\textheight][t]{\textwidth}
+  % \vspace*{\fill}
+  \vspace{-3cm}
+  \begin{center}
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{fig/extensions3.png}
+  \captionof{figure}[Model extensions]{Model extensions.}\label{fig-extensions-logic}
+  \end{center}
+
+  % \vspace*{\fill}
+\end{minipage}
+
+
 
 
 \section{Extensions to model of housing market}
@@ -297,6 +314,24 @@ Transaction costs on the sale of property are omitted. They are actually large. 
 There are many areas to explore in terms of the dynamics of the model. Risk plays a role in property markets. For example in Canada, backing mortgages is the largest fiscal 
 investment at the national level \cite{nemtinFinancializationHousingSocial2021}. It is also possible to model the effect of speculative over-investment as expectations rise and fall, and the effects of business cycles as forcing of price and other parameters with external input to examine the effects.
 
+% \begin{figure}[ht]
+% \begin{center}
+% \input{fig/financialization-expansion.tex}
+% \end{center}
+% \caption[Financialization changes ownership but does not expand the housing stock]{Financialization expands investor ownership but does not expand the housing stock. The white area represents the part of the housing stock that is owner-occupied and not currently mortgaged. Yellow represents privately owned homes for which ownership is partially held by mortgage lenders. Dark grey represents the portion of the housing stock already owned by investors and light grey represents the part of the housing stock undergoing financialization. The process of financialization is orthogonal to the process of creating new housing.} 
+% \label{fig-financialization-expansion}
+% \end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\resizebox{0.68\textwidth}{!}{\input{fig/financialization-expansion.tex}} % Adjust width as needed
+\end{center}
+\caption[Financialization changes ownership but does not expand the housing stock]{
+  Financialization expands investor ownership but does not expand the housing stock. The white area represents the part of the housing stock that is owner-occupied and not currently mortgaged, yellow privately owned homes that are partially mortgaged, dark grey the portion already owned by investors, and light grey the part of the housing stock undergoing financialization. Financialization is orthogonal to housing creation.
+}
+\label{fig-financialization-expansion}
+\end{figure}
+
 \subsection{Taxes and productivity} % municipal government, public goods, and productivity}
 This is a major issue with considerable development in the economics literature. Property taxes reduce the net locational value that flows to an individual owner but provides services and wages that make the city attractive. 
 % TODO (create a regime where particular groups have an advantage)
@@ -309,16 +344,10 @@ Just as financialization may extract resources that would otherwise be invested 
 
 %The basic model can be initialized by matching the number of properties to the size of the population. % TODO check this, it is an old description.
 
-\begin{figure}[ht]
-\begin{center}
-\input{fig/financialization-expansion.tex}
-\end{center}
-\caption[Financialization changes ownership but does not expand the housing stock]{Financialization expands investor ownership but does not expand the housing stock. The white area represents the part of the housing stock that is owner-occupied and not currently mortgaged. Yellow represents privately owned homes for which ownership is partially held by mortgage lenders. Dark grey represents the portion of the housing stock already owned by investors and light grey represents the part of the housing stock undergoing financialization. The process of financialization is orthogonal to the process of creating new housing.} 
-\label{fig-financialization-expansion}
-\end{figure}
 
 
 \subsection{Financialization as system change} \label{section-system}
+
 Financialization expands investor ownership but does not expand the housing
 stock, as Figure~\ref{fig-financialization-expansion} illustrates. It is not inherently a productive process, but it is a transformational process. Our model shows that financial institutions and the wealthy are likely to own increasing shares of the housing stock. 
 
@@ -466,6 +495,7 @@ A question that is especially important is whether the process of financializati
 % Use in scenario exercises
 
 \section{Summary}
+
 % Changes to this model, keeping the same basic agents and equilibrium assumptions, and changes to that basic structure, for instance to introduce a multi-agent model of firm behaviour. % In our agent-based model, in which every lot is  addressable, it is simple to 
 % For instance, we might introduce zoning boundaries, local amenities, different densities or housing qualities and homes of different sizes. % Hundreds of experiments are possible exploiting  the extensibility we have carefully conserved.  
 % Likely few of the possible extensions would affect our qualitative results, however 
@@ -475,8 +505,7 @@ The simplifications in the model we have built
 % This simple case allows
 allow us to focus on the general, and neglected, distributional features of this class of models. In this chapter, we've sketched several promising directions to extend the model, 
 % discussed ways the model can be extended and suggest further hypotheses that we  would like to test using our model. We divide 
-dividing extensions by the three main elements of the model: the model of the city and it's land market, the model of firms and production, and the model of the institutional and legal structures by which some agents may claim a share of the value created in the city. % These extensions would substantially enrich our understanding of the urban system and the process of the financialization of housing.
+dividing extensions by the three main elements of the model: the model of the city and it's land market, the model of firms and production, and the model of the institutional and legal structures by which some agents may claim a share of the value created in the city.\footnote{The extensions detailed here also combine. Models are by nature combinatoric: every added element involves making a choice among alternative assumptions and implementations. Each extension is potentially as complex as the core model, and each introduces additional assumptions. A model incorporating $n$ binary choices is one of an implicit family of $2^n$ alternative models.}  % These extensions would substantially enrich our understanding of the urban system and the process of the financialization of housing.
 Introducing many of these changes, such multiple wages, amenity, and differing densities are relatively simple. The resulting sorting by wealth, income and preference, is of considerable interest for social policy. The extensions will allow us to test whether financialization affects the sort and whether public policies can have positive effects. It's likely none of them would change our qualitative results greatly, however each would deepen our understanding of mechanisms and of the detailed impacts. 
 
 % three broad categories of extensions. %The main questions for immediate future work, connections with existing bodies of work, and the extensions needed to build out the base of this model and make it more rigorous. 
-
